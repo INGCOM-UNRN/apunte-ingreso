@@ -1427,6 +1427,98 @@ Opción: 4
 ¡Gracias por usar nuestro cajero!
 ```
 
+
+---
+
+(uso-ia-control-flujo)=
+## Uso Ético y Efectivo de la IA en Control de Flujo
+
+:::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
+Aprender control de flujo es aprender a **pensar algorítmicamente**. La IA puede ayudarte a refinar tu lógica, pero no puede desarrollar esta habilidad por vos. **Vos debés ser quien diseñe la solución.**
+:::
+
+### Buenas Prácticas para Control de Flujo
+
+#### Generar Ejercicios Adicionales
+
+- *"Genera cinco ejercicios sobre condicionales `if-elif-else` que involucren validación de rangos de números"*
+- *"Crea ejercicios de loops `while` que requieran el uso de banderas de control"*
+- *"Dame problemas de práctica sobre loops `for` con `range()` de diferente complejidad"*
+
+#### Obtener Pistas sobre Lógica
+
+Si tu condición no funciona correctamente:
+
+- *"Tengo un programa que debe verificar si un número está entre 10 y 20. Mi condición es `if numero > 10 and numero < 20:` pero falla con 10 y 20. ¿Por qué?"*
+- *"Estoy escribiendo un loop para pedir números hasta que el usuario ingrese 0, pero no sé cómo estructurarlo. ¿Cuál sería el esqueleto básico?"*
+- *"¿Cómo puedo salir de un loop `while` cuando se cumpla cierta condición sin usar `break`?"*
+
+#### Refactorizar Condiciones Complejas
+
+- *"Esta condición es muy larga y difícil de leer: `if (edad >= 18 and tiene_dni and (es_estudiante or es_empleado)) or es_admin:`. ¿Cómo puedo mejorarla?"*
+- *"Tengo cuatro `if` anidados. ¿Hay una forma más clara de escribir esto?"*
+
+#### Debugging de Lógica
+
+- *"Mi loop infinito no se detiene. Aquí está mi código: [código]. ¿Qué estoy haciendo mal?"*
+- *"Mi condición siempre evalúa `True` incluso cuando debería ser `False`. ¿Cuál podría ser el problema?"*
+
+#### Explorar Alternativas
+
+- *"Resolví este problema con un `while`. ¿Podrías mostrarme cómo se vería con un `for`?"*
+- *"¿Cuál es la diferencia práctica entre usar un `for` con `range()` y un `while` con contador manual?"*
+
+### Ejemplos Específicos de este Módulo
+
+**Situación 1**: Validación de entrada
+
+❌ **Incorrecto**:
+```
+Prompt: "Dame el código para validar que un número esté entre 1 y 100"
+```
+
+✅ **Correcto**:
+```
+Prompt: "Estoy validando un número entre 1 y 100. Escribí esto:
+if numero > 1 and numero < 100:
+¿Está correcto o debería usar >= y <=?"
+```
+
+**Situación 2**: Loop con acumulador
+
+❌ **Incorrecto**:
+```
+Prompt: "Escribe un programa que sume números hasta que el usuario ingrese 0"
+```
+
+✅ **Correcto**:
+```
+Prompt: "Estoy sumando números en un loop while. Inicialicé suma = 0 
+y tengo el loop, pero no sé dónde hacer la suma. ¿Dentro o fuera del loop?"
+```
+
+### Errores Comunes en este Módulo
+
+:::{warning} No pidas que la IA diseñe tu algoritmo
+El diseño del algoritmo (decidir qué condiciones usar, cómo estructurar el loop, cuándo terminar) es **la habilidad que estás aprendiendo**. Si la IA lo hace por vos, no estás aprendiendo nada.
+
+**Desarrollá tu algoritmo primero**, luego pedí ayuda para refinarlo.
+:::
+
+### Ejercicio de Reflexión
+
+Antes de pedir ayuda a la IA sobre un ejercicio de control de flujo, preguntate:
+
+1. ¿Cuál es la condición que quiero verificar?
+2. ¿Qué debe pasar si es verdadera? ¿Y si es falsa?
+3. ¿Necesito repetir algo? ¿Cuántas veces? ¿Hasta cuándo?
+4. ¿Qué variables necesito para controlar el flujo?
+
+Si podés responder estas preguntas, **ya sabés cómo resolver el ejercicio**. La IA solo debería ayudarte con detalles de sintaxis o refinamiento.
+
+---
+
+
 ---
 
 ## Resumen

@@ -1501,6 +1501,115 @@ Resultado:
 {"a": 1, "b": [1, 2, 3, 4], "c": "y", "d": 2}
 ```
 
+
+---
+
+(uso-ia-estructuras-datos)=
+## Uso Ético y Efectivo de la IA en Estructuras de Datos
+
+:::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
+Dominar estructuras de datos es fundamental para la programación. La IA puede ayudarte a explorar diferentes formas de resolver problemas, pero **vos debés entender cómo funcionan las estructuras** antes de usarlas.
+:::
+
+### Buenas Prácticas para Estructuras de Datos
+
+#### Generar Ejercicios Adicionales
+
+- *"Genera ejercicios sobre manipulación de listas en Python que incluyan append, remove y búsqueda"*
+- *"Crea problemas de práctica sobre diccionarios con diferentes tipos de claves y valores"*
+- *"Dame ejercicios que requieran decidir entre usar lista, tupla, diccionario o conjunto"*
+
+#### Obtener Pistas sobre Manipulación
+
+- *"Tengo una lista de nombres y quiero eliminar los duplicados. ¿Qué estructura de datos de Python me ayudaría?"*
+- *"Necesito almacenar pares clave-valor de alumnos y sus notas. Tengo una lista de tuplas: `[('Ana', 8), ('Luis', 9)]`. ¿Hay una estructura mejor para esto?"*
+- *"¿Cómo puedo verificar si un elemento existe en una lista sin recorrerla manualmente con un `for`?"*
+
+#### Refactorizar Código
+
+- *"Estoy usando múltiples variables para almacenar datos relacionados: `nombre1, nombre2, nombre3...`. ¿Cómo debería refactorizar esto?"*
+- *"Tengo este código que busca en una lista con un loop. ¿Hay una forma más Pythonic de hacerlo?"*
+
+#### Debugging de Operaciones
+
+- *"Obtengo `IndexError: list index out of range`. ¿Qué significa y cómo lo prevengo?"*
+- *"Modifiqué una tupla y Python dice que no puedo. ¿Por qué?"*
+- *"Mi lista no se ordena correctamente con `sort()`. ¿Qué estoy haciendo mal?"*
+
+#### Explorar Métodos y Técnicas
+
+- *"¿Cuáles son los métodos más útiles de listas en Python?"*
+- *"¿Cuándo debería usar una list comprehension y cuándo un loop `for` normal?"*
+- *"¿Cuál es la diferencia entre `list.sort()` y `sorted(list)`?"*
+
+### Ejemplos Específicos de este Módulo
+
+**Situación 1**: Elección de estructura
+
+❌ **Incorrecto**:
+```
+Prompt: "Tengo que almacenar nombres de alumnos sin repetidos. Dame el código."
+```
+
+✅ **Correcto**:
+```
+Prompt: "Necesito almacenar nombres sin repetidos. Estoy considerando 
+usar una lista o un set. ¿Cuál sería más apropiado y por qué?"
+```
+
+**Situación 2**: Slicing
+
+❌ **Incorrecto**:
+```
+Prompt: "¿Cómo obtengo los primeros 3 elementos de una lista?"
+```
+
+✅ **Correcto**:
+```
+Prompt: "Estoy usando `lista[0:3]` para obtener los primeros 3 elementos. 
+¿Es correcto o debería ser `lista[0:2]`? Tengo confusión con el índice final."
+```
+
+### Comprensión vs Memorización
+
+:::{tip} Enfoque correcto
+No intentes memorizar todos los métodos de cada estructura. En su lugar:
+
+1. **Entiende** qué hace cada estructura y cuándo usarla
+2. **Practica** las operaciones básicas (agregar, eliminar, buscar)
+3. **Consulta** la documentación (o la IA) para operaciones específicas
+
+La IA es excelente para recordarte sintaxis, pero **vos** debés saber QUÉ operación necesitás.
+:::
+
+### Errores Comunes en este Módulo
+
+:::{warning} No pidas código sin entender la estructura
+Antes de pedir código que use listas o diccionarios, asegurate de entender:
+
+- ¿Por qué esta estructura es apropiada?
+- ¿Cómo se accede a los elementos?
+- ¿Es mutable o inmutable?
+- ¿Permite duplicados?
+- ¿Está ordenada?
+
+Si no podés responder estas preguntas, **leé el apunte primero**.
+:::
+
+### Uso Avanzado: Comparar Enfoques
+
+Una vez que hayas resuelto un ejercicio, podés usar la IA para explorar:
+
+```
+Prompt: "Resolví este problema usando dos listas paralelas para nombres y edades.
+¿Hay alguna ventaja en usar un diccionario en su lugar? ¿O una lista de tuplas?"
+```
+
+Este tipo de pregunta te ayuda a **profundizar tu comprensión** más allá de lo básico.
+
+---
+
+
 ---
 
 ## Resumen

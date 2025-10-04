@@ -1384,6 +1384,137 @@ Caracteres: 8765
 Palabra más frecuente: "libertad" (23 veces)
 ```
 
+
+---
+
+(uso-ia-modulos)=
+## Uso Ético y Efectivo de la IA en Módulos
+
+:::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
+Entender cómo organizar código en módulos y usar bibliotecas es esencial para proyectos reales. La IA puede ayudarte a explorar la biblioteca estándar, pero **vos debés entender la estructura modular** de tu proyecto.
+:::
+
+### Buenas Prácticas para Módulos
+
+#### Generar Ejercicios Adicionales
+
+- *"Genera ejercicios sobre creación de módulos con funciones relacionadas"*
+- *"Crea problemas que requieran usar módulos de la biblioteca estándar como `math` o `random`"*
+- *"Dame ejercicios de organización de código en múltiples archivos"*
+
+#### Obtener Pistas sobre Organización
+
+- *"Tengo un programa grande. ¿Cómo decido qué funciones van en qué módulo?"*
+- *"¿Cuándo debería crear un paquete (con `__init__.py`) versus solo módulos separados?"*
+- *"Tengo funciones relacionadas con cálculos matemáticos y otras con entrada/salida. ¿Cómo las organizo?"*
+
+#### Explorar la Biblioteca Estándar
+
+- *"Necesito generar números aleatorios. ¿Qué módulo de Python me ayuda y cómo se usa?"*
+- *"¿Qué funciones del módulo `math` son más útiles para cálculos básicos?"*
+- *"Quiero trabajar con fechas y horas. ¿Qué módulo debería usar?"*
+
+#### Debugging de Imports
+
+- *"Obtengo `ModuleNotFoundError` al intentar importar mi módulo. ¿Qué estoy haciendo mal?"*
+- *"Mi importación funciona en el intérprete pero no cuando ejecuto el script. ¿Por qué?"*
+- *"¿Cuál es la diferencia entre `import math` y `from math import sqrt`?"*
+
+#### Buenas Prácticas de Imports
+
+- *"¿Es mala práctica hacer `from modulo import *`? ¿Por qué?"*
+- *"¿En qué orden debería organizar mis imports? ¿Importo primero bibliotecas estándar o mis propios módulos?"*
+- *"¿Debería importar funciones específicas o el módulo completo?"*
+
+### Ejemplos Específicos de este Módulo
+
+**Situación 1**: Exploración de biblioteca estándar
+
+❌ **Incorrecto**:
+```
+Prompt: "Dame código que calcule raíz cuadrada, seno y coseno de un número."
+```
+
+✅ **Correcto**:
+```
+Prompt: "Necesito calcular funciones matemáticas avanzadas.
+Sé que existe el módulo `math`, pero no sé qué funciones tiene disponibles.
+¿Podrías darme una lista de las más comunes con ejemplos breves?"
+```
+
+**Situación 2**: Organización de proyecto
+
+❌ **Incorrecto**:
+```
+Prompt: "Organiza mi programa en módulos por mí."
+```
+
+✅ **Correcto**:
+```
+Prompt: "Estoy organizando un programa de gestión de estudiantes.
+Identifiqué estos grupos de funciones:
+- Validación de datos (DNI, email, edad)
+- Cálculos (promedios, estadísticas)
+- Entrada/Salida (menús, archivos)
+
+¿Es buena esta división? ¿Cómo los nombro?"
+```
+
+### Exploración Segura de Bibliotecas
+
+:::{tip} Cómo aprender nuevas bibliotecas con IA
+1. **Pregunta por el propósito**: *"¿Para qué se usa el módulo X?"*
+2. **Pide ejemplos simples**: *"Dame un ejemplo básico de uso del módulo X"*
+3. **Explora gradualmente**: *"¿Qué otras funciones útiles tiene?"*
+4. **Prueba por tu cuenta**: Escribe código probando lo que aprendiste
+5. **Busca documentación oficial**: La IA puede errar, la documentación es la verdad
+
+**No saltes directamente a copiar código complejo** sin entender lo básico.
+:::
+
+### Uso Avanzado: Revisión de Estructura
+
+Después de organizar tu código en módulos:
+
+```
+Prompt: "Organicé mi proyecto así:
+- modulo_validaciones.py: Funciones de validación de datos
+- modulo_calculos.py: Cálculos matemáticos y estadísticos
+- modulo_io.py: Entrada/salida y menús
+- main.py: Programa principal
+
+¿Esta estructura tiene sentido? ¿Los nombres son apropiados?
+¿Hay algo que esté en el módulo equivocado?"
+```
+
+### Errores Comunes en este Módulo
+
+:::{warning} No copies código que usa bibliotecas que no entendés
+Es tentador copiar código que "funciona" usando bibliotecas complejas. Pero si no entendés:
+
+- **Para qué** sirve la biblioteca
+- **Cómo** funcionan las funciones que usás
+- **Por qué** ese código resuelve el problema
+
+Entonces **no estás aprendiendo**, solo estás copiando.
+
+**Aprendé las bases primero**, luego explora bibliotecas avanzadas.
+:::
+
+### Documentación Oficial
+
+Recordá que Python tiene **excelente documentación oficial**:
+
+- [Biblioteca Estándar de Python](https://docs.python.org/3/library/)
+- [Módulo math](https://docs.python.org/3/library/math.html)
+- [Módulo random](https://docs.python.org/3/library/random.html)
+- [Módulo datetime](https://docs.python.org/3/library/datetime.html)
+
+La IA es útil para **explicaciones rápidas**, pero la documentación oficial es **la fuente de verdad**.
+
+---
+
+
 ---
 
 ## Resumen

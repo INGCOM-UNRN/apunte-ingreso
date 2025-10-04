@@ -1559,6 +1559,164 @@ Creá un sistema completo de gestión de estudiantes con todas las validaciones.
 - Formato incorrecto
 - Backup automático antes de guardar
 
+
+---
+
+(uso-ia-excepciones)=
+## Uso Ético y Efectivo de la IA en Excepciones
+
+:::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
+Manejar errores correctamente es lo que separa código amateur de código profesional. La IA puede ayudarte a entender excepciones, pero **vos debés aprender a anticipar y manejar errores** en tu código.
+:::
+
+### Buenas Prácticas para Excepciones
+
+#### Generar Ejercicios Adicionales
+
+- *"Genera ejercicios sobre manejo de excepciones con try-except en Python"*
+- *"Crea problemas que requieran validación robusta de entrada con manejo de errores"*
+- *"Dame ejercicios que practiquen el uso de `finally` para limpieza de recursos"*
+
+#### Interpretar Mensajes de Error
+
+- *"Tengo este stack trace: [pega el error]. ¿Qué significa exactamente y cómo lo soluciono?"*
+- *"Mi programa lanza `ValueError: invalid literal for int()`. ¿Qué está causando esto?"*
+- *"¿Qué diferencia hay entre `ValueError`, `TypeError` y `KeyError`?"*
+
+#### Diseñar Manejo de Errores
+
+- *"Estoy validando entrada del usuario. ¿Debería usar try-except o if-else?"*
+- *"Tengo varios tipos de errores posibles en esta función. ¿Cómo estructuro múltiples except?"*
+- *"¿Cuándo debería usar `finally` versus simplemente poner código después del try-except?"*
+
+#### Crear Excepciones Personalizadas
+
+- *"¿Cuándo tiene sentido crear mi propia clase de excepción?"*
+- *"¿Cómo nombro excepciones personalizadas siguiendo convenciones de Python?"*
+
+#### Buenas Prácticas
+
+- *"¿Es mala práctica usar `except Exception:`? ¿Por qué?"*
+- *"¿Debería 'silenciar' errores con `pass` en un except?"*
+- *"¿Cómo decido si capturar una excepción o dejar que se propague?"*
+
+### Ejemplos Específicos de este Módulo
+
+**Situación 1**: Debugging con stack trace
+
+❌ **Incorrecto**:
+```
+Prompt: "Mi programa da error. Arreglalo.
+[pega 200 líneas de código sin contexto]"
+```
+
+✅ **Correcto**:
+```
+Prompt: "Estoy convirtiendo entrada del usuario a entero:
+edad = int(input("Edad: "))
+
+Cuando ingreso 'abc', obtengo:
+ValueError: invalid literal for int() with base 10: 'abc'
+
+Entiendo QUÉ es el error, pero no sé DÓNDE poner el try-except.
+¿Debería envolver solo la conversión o también el input?"
+```
+
+**Situación 2**: Diseño de validación
+
+❌ **Incorrecto**:
+```
+Prompt: "Dame código que valide entrada de usuario para edad."
+```
+
+✅ **Correcto**:
+```
+Prompt: "Estoy validando edad del usuario. Identifiqué estos errores posibles:
+- El usuario ingresa texto no numérico (ValueError)
+- El usuario ingresa número negativo
+- El usuario ingresa número > 150
+
+¿Debería manejar el ValueError con try-except y el resto con if,
+o hay mejor enfoque?"
+```
+
+### Filosofía del Manejo de Errores
+
+:::{tip} Principios clave
+1. **Específico es mejor que genérico**: Captura excepciones específicas, no `Exception` genérica
+2. **Fail fast, fail loud**: No silencies errores sin buena razón
+3. **Validación temprana**: Valida entradas lo antes posible
+4. **Documenta las excepciones**: En docstrings, indica qué excepciones puede lanzar tu función
+5. **Limpieza garantizada**: Usa `finally` o context managers para liberar recursos
+
+**La IA puede ayudarte a entender estos principios**, pero vos debés aplicarlos.
+:::
+
+### Uso Avanzado: Revisión de Manejo de Errores
+
+```
+Prompt: "Revisa el manejo de errores en este código:
+[tu código con try-except]
+
+¿Hay alguna excepción que debería capturar y no lo hago?
+¿Estoy capturando excepciones demasiado genéricas?
+¿El mensaje de error al usuario es suficientemente claro?"
+```
+
+### Errores Comunes en este Módulo
+
+:::{danger} No uses try-except para ocultar problemas
+Un error común es usar try-except para "que el programa no se rompa" sin realmente resolver el problema:
+
+```python
+# ¡MAL! Silencia el error sin resolverlo
+try:
+    resultado = operacion_peligrosa()
+except:
+    pass  # "Ya está, lo arreglé"
+
+# BIEN: Maneja el error apropiadamente
+try:
+    resultado = operacion_peligrosa()
+except ValueError as e:
+    print(f"Error: entrada inválida - {e}")
+    resultado = valor_por_defecto
+```
+
+**No uses excepciones para esconder errores**, úsalas para manejarlos correctamente.
+:::
+
+### Debugging con IA
+
+La IA es especialmente útil para interpretar stack traces complejos:
+
+```
+Prompt: "Tengo este error y no entiendo el stack trace:
+[pega el stack trace completo]
+
+¿Podrías explicarme:
+1. Dónde se originó el error
+2. Qué significa cada parte del trace
+3. Cuál es la causa probable
+4. Qué debería verificar primero?"
+```
+
+Pero **siempre leé el stack trace vos mismo primero** e intenta entenderlo.
+
+### Integración con Módulos Anteriores
+
+El manejo de excepciones se integra con todo lo que aprendiste:
+
+- **Funciones**: Las funciones deben documentar qué excepciones pueden lanzar
+- **Estructuras de datos**: Acceder a índices o claves puede causar excepciones
+- **Módulos**: Importar módulos puede fallar, archivos pueden no existir
+- **Validación**: La validación robusta requiere manejo de excepciones
+
+**La IA puede ayudarte a conectar estos conceptos**, pero vos debés verlos como un sistema integrado.
+
+---
+
+
 ---
 
 ## Resumen

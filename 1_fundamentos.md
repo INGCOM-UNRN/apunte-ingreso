@@ -1097,6 +1097,109 @@ Después del intercambio: a = 10, b = 5
 En Python podés intercambiar variables en una sola línea: `a, b = b, a`
 :::
 
+
+---
+
+(uso-ia-fundamentos)=
+## Uso Ético y Efectivo de la IA en Fundamentos
+
+:::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
+El objetivo de este curso es que **vos** aprendas a programar. La IA puede ser una herramienta poderosa para complementar tu aprendizaje, pero nunca debe reemplazar tu esfuerzo intelectual. **Vos sos, y debés ser siempre, el protagonista de tu aprendizaje.**
+:::
+
+### Buenas Prácticas para Fundamentos
+
+En el contexto de variables, tipos de datos y operaciones básicas, podés usar la IA de estas formas productivas:
+
+#### Generar Ejercicios Adicionales
+
+Si comprendiste cómo funcionan las variables y querés practicar más:
+
+- *"Genera cinco ejercicios sobre conversión de tipos en Python que involucren `int()`, `float()` y `str()`"*
+- *"Crea ejercicios de práctica sobre operadores aritméticos con números enteros y flotantes"*
+- *"Dame ejemplos de uso de `input()` con validación básica"*
+
+#### Obtener Pistas (No Soluciones)
+
+Si estás atascado en un ejercicio:
+
+- *"Estoy trabajando en un ejercicio de promedio de tres números. Ya tengo las tres variables con los valores, ¿cuál sería el siguiente paso lógico?"*
+- *"No entiendo por qué mi variable edad da error al sumarle 1. La inicialicé con `input()`. ¿Qué podría estar faltando?"*
+- *"¿Cómo puedo formatear la salida de `print()` para que muestre solo 2 decimales?"*
+
+#### Refactorizar y Mejorar tu Código
+
+Una vez que hayas resuelto un ejercicio:
+
+- *"Escribí este código para calcular el área de un rectángulo. ¿Sigue las buenas prácticas de PEP 8?"*
+- *"¿Los nombres de mis variables son suficientemente descriptivos?"*
+- *"¿Hay alguna forma más 'Pythonic' de intercambiar dos variables?"*
+
+#### Aclarar Conceptos
+
+Si un tema te resulta confuso:
+
+- *"Explicame la diferencia entre `int` y `float` con ejemplos cotidianos"*
+- *"¿Por qué necesito convertir el resultado de `input()` a `int` antes de hacer operaciones matemáticas?"*
+- *"Dame un resumen de los operadores de comparación en Python con ejemplos"*
+
+#### Debugging de Errores
+
+Si encuentras un mensaje de error que no entendés:
+
+- *"Tengo este error: `TypeError: can only concatenate str (not 'int') to str`. ¿Qué significa?"*
+- *"Mi programa dice `NameError: name 'resultado' is not defined`. ¿Qué debo hacer?"*
+
+### Malas Prácticas que Debes Evitar
+
+:::{danger} Prohibido: Copiar Soluciones Directamente
+**Nunca hagas esto:**
+- Copiar el enunciado del ejercicio y pedir: *"Dame el código completo para esto"*
+- Pedir que la IA escriba el programa por vos
+- Usar código que no entendés "para salir del paso"
+
+**Consecuencias:**
+- No desarrollarás las habilidades de resolución de problemas
+- Te encontrarás perdido en módulos siguientes
+- No aprenderás a pensar algorítmicamente
+- Estarás haciendo trampa contigo mismo
+
+**El objetivo no es "entregar el ejercicio", sino "aprender a resolverlo".**
+:::
+
+### Ejemplo de Uso Correcto de IA en este Módulo
+
+**Situación**: Estás trabajando en el Ejercicio 1.5 (calculadora de IMC) y no entendés cómo calcular la potencia.
+
+❌ **Uso Incorrecto**:
+```
+Prompt: "Dame el código completo del ejercicio 1.5 de IMC"
+```
+
+✅ **Uso Correcto**:
+```
+Prompt: "Estoy calculando el IMC. Tengo el peso y la altura, 
+pero no recuerdo cómo elevar la altura al cuadrado en Python. 
+¿Cuál es el operador?"
+```
+
+**Respuesta apropiada de la IA**: "Para elevar al cuadrado en Python, usás el operador `**`. Por ejemplo: `altura ** 2`"
+
+Ahora **vos** entendés el operador y podés completar tu solución.
+
+:::{tip} Progresión en el uso de IA
+A medida que avances en el curso, tu forma de interactuar con la IA debería evolucionar:
+
+- **Módulo 1-2**: Preguntas sobre sintaxis básica y clarificación de errores
+- **Módulo 3-4**: Refactorización de código y mejora de estilo
+- **Módulo 5-6**: Exploración de alternativas de diseño y patrones
+
+La IA es más útil cuando **ya sabés lo que estás haciendo** y querés pulir o explorar.
+:::
+
+---
+
+
 ---
 
 ## Resumen

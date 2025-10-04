@@ -1508,6 +1508,126 @@ inventario = {
 }
 ```
 
+
+---
+
+(uso-ia-funciones)=
+## Uso Ético y Efectivo de la IA en Funciones
+
+:::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
+Aprender a descomponer problemas en funciones es una habilidad fundamental. La IA puede ayudarte a mejorar tus funciones, pero **vos debés diseñar la descomposición** del problema.
+:::
+
+### Buenas Prácticas para Funciones
+
+#### Generar Ejercicios Adicionales
+
+- *"Genera ejercicios sobre funciones que reciban parámetros y retornen valores"*
+- *"Crea problemas que requieran descomponer un programa en múltiples funciones"*
+- *"Dame ejercicios de funciones recursivas simples para practicar"*
+
+#### Obtener Pistas sobre Diseño
+
+- *"Tengo un programa que hace varias cosas. ¿Cómo decido qué partes convertir en funciones?"*
+- *"Mi función `procesar_datos()` hace tres cosas diferentes. ¿Debería dividirla?"*
+- *"¿Cómo elijo buenos nombres para mis funciones?"*
+
+#### Refactorizar y Mejorar
+
+- *"Esta es mi función para calcular el promedio: [código]. ¿Cumple con el principio de responsabilidad única?"*
+- *"Mi docstring es: 'Calcula cosas'. ¿Cómo puedo mejorarlo siguiendo PEP 257?"*
+- *"¿Esta función debería retornar un valor o modificar un parámetro?"*
+
+#### Debugging de Funciones
+
+- *"Mi función retorna `None` en lugar del valor que calcula. ¿Qué estoy olvidando?"*
+- *"Tengo un error de scope: mi función no puede acceder a una variable. ¿Por qué?"*
+- *"Llamo a mi función pero dice que falta un argumento. ¿Cómo lo soluciono?"*
+
+#### Explorar Técnicas
+
+- *"¿Cuándo debería usar un parámetro con valor por defecto?"*
+- *"¿Cuál es la diferencia entre parámetros posicionales y parámetros con nombre?"*
+- *"¿Qué son los type hints y debería usarlos?"*
+
+### Ejemplos Específicos de este Módulo
+
+**Situación 1**: Descomposición en funciones
+
+❌ **Incorrecto**:
+```
+Prompt: "Tengo que hacer un programa que calcule el IMC y lo clasifique.
+Dame el código con funciones."
+```
+
+✅ **Correcto**:
+```
+Prompt: "Estoy descomponiendo un programa de IMC en funciones.
+Identifiqué estas tareas: calcular IMC, clasificar IMC, pedir datos, mostrar resultado.
+¿Es una buena división? ¿Debería combinar o dividir más?"
+```
+
+**Situación 2**: Parámetros y retorno
+
+❌ **Incorrecto**:
+```
+Prompt: "¿Cómo hago para que mi función use una variable del main?"
+```
+
+✅ **Correcto**:
+```
+Prompt: "Mi función necesita un valor que está en main. ¿Debería:
+a) Pasarlo como parámetro
+b) Usar una variable global
+c) Otra opción?
+Explica ventajas y desventajas."
+```
+
+### Enfoque en Buenas Prácticas
+
+:::{tip} Checklist antes de consultar la IA
+Antes de pedir ayuda sobre una función, verificá:
+
+- [ ] ¿Tiene un nombre descriptivo?
+- [ ] ¿Hace una sola cosa (SRP)?
+- [ ] ¿Tiene docstring completo?
+- [ ] ¿Usa `return` correctamente?
+- [ ] ¿Evita efectos secundarios (no print/input a menos que sea su propósito)?
+- [ ] ¿Los nombres de parámetros son descriptivos?
+
+Si no cumple estos criterios, **refactoriza primero**, luego consultá.
+:::
+
+### Uso Avanzado: Crítica de Diseño
+
+Una vez que hayas escrito tus funciones:
+
+```
+Prompt: "Escribí estas tres funciones para un programa de validación de contraseña:
+[pega tu código]
+
+¿Están bien diseñadas? ¿Hay algo que viole principios de diseño?
+¿Los nombres son suficientemente descriptivos?
+¿Los docstrings están completos?"
+```
+
+Este tipo de revisión te ayuda a **mejorar tu estilo** y aprender buenas prácticas.
+
+### Errores Comunes en este Módulo
+
+:::{danger} No pidas que la IA escriba tus funciones
+La capacidad de **descomponer un problema en funciones** es lo que estás aprendiendo. Si la IA hace esta descomposición por vos, perdés el objetivo del módulo.
+
+**Proceso correcto:**
+1. Vos identificás las tareas del problema
+2. Vos decidís qué funciones necesitás
+3. Vos escribís las funciones básicas
+4. La IA te ayuda a **refinar** lo que ya escribiste
+:::
+
+---
+
+
 ---
 
 ## Resumen
