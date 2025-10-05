@@ -1228,11 +1228,11 @@ Escribí un programa que calcule el perímetro y el área de un círculo dado su
 **Fórmulas:**
 
 $$
-Perímetro = 2 \times \pi \times radio
+\text{Perímetro} = 2 \times \pi \times \text{radio}
 $$
 
 $$
-Área = \pi \times radio^2
+\text{Área} = \pi \times \text{radio}^2
 $$
 
 **Entrada:**
