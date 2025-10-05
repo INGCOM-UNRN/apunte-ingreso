@@ -1,4 +1,3 @@
----
 title: Cuestiones de estilo en Python
 short_title: 0x0000h - Estilo Python
 subtitle: Pautas para la organización y prolijidad del código en Python basadas en PEP 8 y buenas prácticas.
@@ -8,14 +7,18 @@ subtitle: Pautas para la organización y prolijidad del código en Python basada
 
 Este documento establece un conjunto de reglas de estilo para Python, diseñadas para que tu código sea más claro, legible y menos propenso a errores. Estas reglas están alineadas con las mejores prácticas de la comunidad Python, especialmente:
 
-- **PEP 8**: La guía de estilo oficial de Python
-- **PEP 20**: The Zen of Python (filosofía de diseño)
-- **PEP 257**: Convenciones para docstrings
+- **[PEP 8](https://peps.python.org/pep-0008/)**: La guía de estilo oficial de Python
+- **[PEP 20](https://peps.python.org/pep-0020/)**: The Zen of Python (filosofía de diseño)
+- **[PEP 257](https://peps.python.org/pep-0257/)**: Convenciones para docstrings
+
+:::{note} ¿Qué es un PEP?
+**PEP** significa Python Enhancement Proposal (Propuesta de Mejora de Python). Los PEPs son documentos de diseño que proporcionan información a la comunidad Python o describen una nueva característica para Python, sus procesos o su entorno. Los PEPs son el mecanismo principal para proponer nuevas características importantes, recopilar opiniones de la comunidad sobre un problema y documentar las decisiones de diseño que han entrado en Python. Cada PEP tiene un número único y está disponible en [https://peps.python.org/](https://peps.python.org/).
+:::
 
 Python es un lenguaje que enfatiza la legibilidad y la simplicidad. Como dice el Zen de Python: **"La legibilidad cuenta"** (Readability counts). Estas reglas te ayudarán a escribir código que no solo funcione, sino que sea comprensible para cualquier desarrollador Python, incluyéndote a vos mismo en el futuro.
 
 :::{note} The Zen of Python
-Python tiene una filosofía de diseño expresada en "The Zen of Python" (PEP 20). Podés leerla ejecutando `import this` en un intérprete de Python. Algunos principios clave:
+Python tiene una filosofía de diseño expresada en "The Zen of Python" ({ref}`pep-20-ref`). Podés leerla ejecutando `import this` en un intérprete de Python. Algunos principios clave:
 - Bello es mejor que feo
 - Explícito es mejor que implícito
 - Simple es mejor que complejo
@@ -71,7 +74,7 @@ En Python, la indentación forzada ya promueve la claridad. Aprovechá esto escr
 
 **Principio:** Los nombres de variables, funciones, clases y módulos deben reflejar con precisión su propósito. Esto contribuye a que el código sea autodescriptivo.
 
-**Convenciones de Python (PEP 8):**
+**Convenciones de Python ({ref}`pep-8-ref`):
 - Variables y funciones: `snake_case` (minúsculas con guiones bajos)
 - Constantes: `SNAKE_CASE_MAYUSCULAS`
 - Clases: `PascalCase` (también llamado CapWords)
@@ -228,7 +231,7 @@ def agregar_elemento(elemento, lista=None):
 (0x0004h)=
 ### Regla `0x0004h`: Un espacio antes y después de cada operador binario
 
-**Principio (PEP 8):** Los operadores binarios deben estar rodeados de un espacio a cada lado para mejorar la legibilidad.
+**Principio ({ref}`pep-8-ref`):** Los operadores binarios deben estar rodeados de un espacio a cada lado para mejorar la legibilidad.
 
 ```diff
 - # Incorrecto
@@ -263,7 +266,7 @@ if nombre in lista_estudiantes:
     pass
 ```
 
-**Excepciones (PEP 8):**
+**Excepciones ({ref}`pep-8-ref`):**
 
 ```python
 # ✓ Sin espacios en argumentos por keyword
@@ -282,7 +285,7 @@ resultado = a*b + c*d  # Agrupa multiplicaciones sin espacios
 (0x0005h)=
 ### Regla `0x0005h`: La indentación debe ser consistente (4 espacios)
 
-**Principio (PEP 8):** Python usa indentación para definir bloques de código. **Siempre usar 4 espacios**, nunca tabs.
+**Principio ({ref}`pep-8-ref`):** Python usa indentación para definir bloques de código. **Siempre usar 4 espacios**, nunca tabs.
 
 ```python
 # ✓ Correcto: 4 espacios por nivel de indentación
@@ -512,7 +515,7 @@ print(f"El promedio es: {promedio}")
 ```python
 # ✓ Correcto: función cuyo propósito ES hacer I/O
 def solicitar_edad():
-    """Solicita y valida la edad del usuario.
+    """Solicita y valida la edad del usuario. 
     
     Returns:
         int: Edad válida ingresada por el usuario
@@ -537,13 +540,13 @@ def solicitar_edad():
 (0x000Ah)=
 ### Regla `0x000Ah`: Todas las funciones deben incluir docstrings
 
-**Principio (PEP 257):** Las funciones deben documentarse con docstrings que expliquen su propósito, parámetros, retorno y excepciones.
+**Principio ({ref}`pep-257-ref`):** Las funciones deben documentarse con docstrings que expliquen su propósito, parámetros, retorno y excepciones.
 
 **Formato recomendado (estilo Google/NumPy):**
 
 ```python
 def calcular_area_rectangulo(base, altura):
-    """Calcula el área de un rectángulo.
+    """Calcula el área de un rectángulo. 
     
     Descripción más detallada si es necesaria. El área se calcula
     multiplicando la base por la altura.
@@ -616,7 +619,7 @@ def imprimir_contador():
 ```python
 # ✓ Correcto: pasar estado como parámetros
 def incrementar_contador(contador):
-    """Incrementa un contador y retorna el nuevo valor.
+    """Incrementa un contador y retorna el nuevo valor. 
     
     Args:
         contador (int): Valor actual del contador
@@ -627,7 +630,7 @@ def incrementar_contador(contador):
     return contador + 1
 
 def imprimir_contador(contador):
-    """Imprime el valor del contador.
+    """Imprime el valor del contador. 
     
     Args:
         contador (int): Valor a imprimir
@@ -828,7 +831,7 @@ DIAS_POR_SEMANA = 7
 ---
 
 (0x000Fh)=
-### Regla `0x000Fh`: Limitar las líneas de código a 79 caracteres (PEP 8)
+### Regla `0x000Fh`: Limitar las líneas de código a 79 caracteres ({ref}`pep-8-ref`)
 
 **Principio:** Las líneas no deben exceder 79 caracteres para facilitar la lectura y visualización en múltiples ventanas.
 
@@ -1012,7 +1015,7 @@ def buscar_elemento(lista, elemento):
 NO_ENCONTRADO = -1
 
 def buscar_elemento(lista, elemento):
-    """Busca un elemento en la lista.
+    """Busca un elemento en la lista. 
     
     Args:
         lista: Lista donde buscar
@@ -1028,7 +1031,7 @@ def buscar_elemento(lista, elemento):
 
 # ✓ Opción 2: Más Pythonic usando None
 def buscar_elemento(lista, elemento):
-    """Busca un elemento en la lista.
+    """Busca un elemento en la lista. 
     
     Args:
         lista: Lista donde buscar
@@ -1069,7 +1072,7 @@ anos_restantes = 100 - edad             # Valores negativos posibles
 
 # ✓ Correcto: validación completa
 def solicitar_edad():
-    """Solicita y valida la edad del usuario.
+    """Solicita y valida la edad del usuario. 
     
     Returns:
         int: Edad válida en rango [0, 150]
@@ -1097,8 +1100,6 @@ def solicitar_edad():
 
 # Uso seguro
 edad = solicitar_edad()
-anos_restantes = 100 - edad
-print(f"Te quedan aproximadamente {anos_restantes} años para cumplir 100.")
 ```
 
 **Validaciones típicas:**
@@ -1204,7 +1205,7 @@ print(f"Perímetro: {perimetro}")
 
 # ✓ Correcto: funciones con responsabilidades claras
 def calcular_area_rectangulo(base, altura):
-    """Calcula el área de un rectángulo.
+    """Calcula el área de un rectángulo. 
     
     Args:
         base: Longitud de la base
@@ -1216,7 +1217,7 @@ def calcular_area_rectangulo(base, altura):
     return base * altura
 
 def calcular_perimetro_rectangulo(base, altura):
-    """Calcula el perímetro de un rectángulo.
+    """Calcula el perímetro de un rectángulo. 
     
     Args:
         base: Longitud de la base
@@ -1460,7 +1461,7 @@ def sumar(a, b):
 
 # ✓ Con type hints (intermedio - módulo 4+)
 def sumar(a: int, b: int) -> int:
-    """Suma dos números enteros.
+    """Suma dos números enteros. 
     
     Args:
         a: Primer número
@@ -1475,7 +1476,7 @@ def sumar(a: int, b: int) -> int:
 from typing import List, Dict, Optional, Union
 
 def procesar_nombres(nombres: List[str]) -> Dict[str, int]:
-    """Cuenta la longitud de cada nombre.
+    """Cuenta la longitud de cada nombre. 
     
     Args:
         nombres: Lista de nombres a procesar
@@ -1486,7 +1487,7 @@ def procesar_nombres(nombres: List[str]) -> Dict[str, int]:
     return {nombre: len(nombre) for nombre in nombres}
 
 def buscar_elemento(lista: List[int], elemento: int) -> Optional[int]:
-    """Busca un elemento en la lista.
+    """Busca un elemento en la lista. 
     
     Args:
         lista: Lista donde buscar
@@ -1580,7 +1581,7 @@ valor_cm = valor_pulgadas * factor
 
 # ✓ Los docstrings explican QUÉ hace la función
 def calcular_factorial(n):
-    """Calcula el factorial de n recursivamente.
+    """Calcula el factorial de n recursivamente. 
     
     Args:
         n: Número entero no negativo
@@ -1797,8 +1798,28 @@ Recordá el Zen de Python:
 
 ## Referencias
 
-- [PEP 8 - Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
-- [PEP 20 - The Zen of Python](https://www.python.org/dev/peps/pep-0020/)
-- [PEP 257 - Docstring Conventions](https://www.python.org/dev/peps/pep-0257/)
-- [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
-- [Real Python - Python Code Quality](https://realpython.com/python-code-quality/)
+### Python Enhancement Proposals (PEPs)
+
+Los PEPs son la documentación oficial que define las mejores prácticas y estándares de Python:
+
+(pep-8-ref)=
+- **[PEP 8 - Style Guide for Python Code](https://peps.python.org/pep-0008/)**: La guía de estilo oficial y más importante de Python. Define convenciones para la escritura de código Python legible y consistente.
+
+(pep-20-ref)=
+- **[PEP 20 - The Zen of Python](https://peps.python.org/pep-0020/)**: Los principios filosóficos de diseño de Python. Podés verlo ejecutando `import this` en el intérprete de Python.
+
+(pep-257-ref)=
+- **[PEP 257 - Docstring Conventions](https://peps.python.org/pep-0257/)**: Convenciones para escribir docstrings, la documentación integrada en el código Python.
+
+- **[PEP 0 - Index of Python Enhancement Proposals](https://peps.python.org/)**: Índice completo de todos los PEPs.
+
+### Guías de Estilo Adicionales
+
+- [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html): Guía de estilo de Google para Python, con extensiones prácticas sobre PEP 8.
+- [Real Python - Python Code Quality](https://realpython.com/python-code-quality/): Tutoriales y recursos sobre calidad de código.
+
+### Herramientas
+
+- [Black](https://black.readthedocs.io/): Formateador automático de código Python.
+- [Flake8](https://flake8.pycqa.org/): Herramienta de linting para verificar el cumplimiento de PEP 8.
+- [MyPy](https://mypy.readthedocs.io/): Verificador de tipos estáticos para Python.

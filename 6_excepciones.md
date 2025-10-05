@@ -56,7 +56,7 @@ Una **excepción** es un evento que ocurre durante la ejecución de un programa 
 
 ### Excepciones vs Errores de Sintaxis
 
-```python
+```{code-cell} ipython3
 # Error de sintaxis - no puede ejecutarse
 if x = 5:  # SyntaxError: invalid syntax
     print(x)
@@ -76,7 +76,7 @@ resultado = x / y  # ZeroDivisionError
 
 Cuando ocurre una excepción, Python muestra un **traceback**:
 
-```python
+```{code-cell} ipython3
 def dividir(a, b):
     return a / b
 
@@ -116,7 +116,7 @@ Python tiene muchas excepciones built-in. Aquí las más importantes:
 
 Valor inapropiado (tipo correcto, valor incorrecto):
 
-```python
+```{code-cell} ipython3
 # Conversión inválida
 numero = int("abc")  # ValueError: invalid literal for int()
 
@@ -132,7 +132,7 @@ a, b = [1, 2, 3]  # ValueError: too many values to unpack
 
 Tipo inapropiado:
 
-```python
+```{code-cell} ipython3
 # Operación entre tipos incompatibles
 resultado = "texto" + 5  # TypeError: can only concatenate str
 
@@ -148,7 +148,7 @@ lista[1.5]  # TypeError: list indices must be integers
 
 Clave no existe en diccionario:
 
-```python
+```{code-cell} ipython3
 persona = {"nombre": "Ana", "edad": 20}
 ciudad = persona["ciudad"]  # KeyError: 'ciudad'
 
@@ -160,7 +160,7 @@ persona.pop("ciudad")  # KeyError: 'ciudad'
 
 Índice fuera de rango:
 
-```python
+```{code-cell} ipython3
 lista = [1, 2, 3]
 elemento = lista[10]  # IndexError: list index out of range
 
@@ -172,7 +172,7 @@ elemento = lista[-10]  # IndexError: list index out of range
 
 Atributo o método no existe:
 
-```python
+```{code-cell} ipython3
 texto = "hola"
 texto.append("mundo")  # AttributeError: 'str' has no attribute 'append'
 
@@ -184,7 +184,7 @@ numero.upper()  # AttributeError: 'int' object has no attribute 'upper'
 
 Archivo no existe:
 
-```python
+```{code-cell} ipython3
 archivo = open("no_existe.txt", "r")
 # FileNotFoundError: [Errno 2] No such file or directory: 'no_existe.txt'
 ```
@@ -193,7 +193,7 @@ archivo = open("no_existe.txt", "r")
 
 División por cero:
 
-```python
+```{code-cell} ipython3
 resultado = 10 / 0  # ZeroDivisionError: division by zero
 resto = 10 % 0      # ZeroDivisionError: integer division or modulo by zero
 ```
@@ -202,7 +202,7 @@ resto = 10 % 0      # ZeroDivisionError: integer division or modulo by zero
 
 Módulo no encontrado:
 
-```python
+```{code-cell} ipython3
 import modulo_inexistente  # ModuleNotFoundError: No module named 'modulo_inexistente'
 
 from math import funcion_inexistente  # ImportError: cannot import name 'funcion_inexistente'
@@ -212,7 +212,7 @@ from math import funcion_inexistente  # ImportError: cannot import name 'funcion
 
 Variable no definida:
 
-```python
+```{code-cell} ipython3
 print(variable_no_definida)  # NameError: name 'variable_no_definida' is not defined
 ```
 
@@ -220,7 +220,7 @@ print(variable_no_definida)  # NameError: name 'variable_no_definida' is not def
 
 Error de indentación (tipo especial de SyntaxError):
 
-```python
+```{code-cell} ipython3
 def funcion():
 print("mal indentado")  # IndentationError: expected an indented block
 ```
@@ -250,7 +250,7 @@ BaseException
 
 :::{tip} Conocer la jerarquía
 Entender la jerarquía te permite capturar grupos de excepciones:
-```python
+```{code-cell} ipython3
 try:
     # código
     pass
@@ -285,7 +285,7 @@ except:
 
 :::{warning} Evitar `except` sin especificar
 Capturar todas las excepciones sin especificar es mala práctica:
-```python
+```{code-cell} ipython3
 # ❌ Muy genérico, oculta errores inesperados
 try:
     codigo()
@@ -418,7 +418,7 @@ else:
 
 `finally` se ejecuta SIEMPRE, haya o no excepción:
 
-```python
+```{code-cell} ipython3
 archivo = None
 try:
     archivo = open("datos.txt", "r")
@@ -435,7 +435,7 @@ finally:
 
 ### Estructura Completa
 
-```python
+```{code-cell} ipython3
 try:
     # Código que puede generar excepción
     print("Intentando operación...")
@@ -468,7 +468,7 @@ graph TD
 
 ### Ejemplo: Lectura Segura de Archivo
 
-```python
+```{code-cell} ipython3
 def leer_archivo_seguro(nombre_archivo):
     """Lee un archivo de forma segura.
     
@@ -515,7 +515,7 @@ if contenido:
 
 :::{note} Context managers vs finally
 Para archivos, es mejor usar `with` (context manager):
-```python
+```{code-cell} ipython3
 # ✓ Más simple y seguro
 try:
     with open("datos.txt", "r") as archivo:
@@ -535,7 +535,7 @@ Podés lanzar excepciones intencionalmente con `raise`.
 
 ### Raise Básico
 
-```python
+```{code-cell} ipython3
 def dividir(a, b):
     """Divide a entre b.
     
@@ -555,7 +555,7 @@ except ValueError as e:
 
 ### Raise con Diferentes Tipos
 
-```python
+```{code-cell} ipython3
 def validar_edad(edad):
     """Valida una edad.
     
@@ -593,7 +593,7 @@ except ValueError as e:
 
 Capturar, procesar y re-lanzar:
 
-```python
+```{code-cell} ipython3
 def procesar_archivo(nombre):
     """Procesa un archivo con logging.
     
@@ -618,7 +618,7 @@ except FileNotFoundError:
 
 Preservar la excepción original:
 
-```python
+```{code-cell} ipython3
 def cargar_configuracion(archivo):
     """Carga configuración desde JSON.
     
@@ -651,7 +651,7 @@ Crear tus propias excepciones para errores específicos de tu dominio.
 
 ### Excepción Simple
 
-```python
+```{code-cell} ipython3
 class ErrorValidacion(Exception):
     """Excepción base para errores de validación."""
     pass
@@ -675,7 +675,7 @@ except ErrorValidacion as e:
 
 ### Jerarquía de Excepciones
 
-```python
+```{code-cell} ipython3
 class ErrorAplicacion(Exception):
     """Excepción base para la aplicación."""
     pass
@@ -720,7 +720,7 @@ except ErrorAplicacion:
 
 ### Excepciones con Atributos
 
-```python
+```{code-cell} ipython3
 class ErrorRangoEdad(Exception):
     """Excepción para edad fuera de rango."""
     
@@ -756,7 +756,7 @@ except ErrorRangoEdad as e:
 
 ### Ejemplo Completo: Sistema de Validación
 
-```python
+```{code-cell} ipython3
 """Sistema de validación con excepciones personalizadas."""
 
 class ErrorValidacion(Exception):
@@ -886,7 +886,7 @@ Técnicas para encontrar y corregir errores.
 
 La técnica más simple y efectiva:
 
-```python
+```{code-cell} ipython3
 def calcular_promedio(numeros):
     print(f"DEBUG: numeros = {numeros}")  # Ver entrada
     print(f"DEBUG: len(numeros) = {len(numeros)}")
@@ -904,7 +904,7 @@ resultado = calcular_promedio([10, 20, 30])
 
 :::{tip} Prefijo DEBUG
 Usa un prefijo consistente para encontrar y eliminar prints fácilmente:
-```python
+```{code-cell} ipython3
 # Fácil de buscar y eliminar después
 print("DEBUG: variable =", variable)
 print(f"DEBUG: {nombre=}, {valor=}")  # Python 3.8+
@@ -913,7 +913,7 @@ print(f"DEBUG: {nombre=}, {valor=}")  # Python 3.8+
 
 ### Manejo de Información del Error
 
-```python
+```{code-cell} ipython3
 import sys
 import traceback
 
@@ -940,7 +940,7 @@ except Exception as e:
 
 `assert` verifica condiciones durante desarrollo:
 
-```python
+```{code-cell} ipython3
 def calcular_factorial(n):
     """Calcula factorial de n."""
     # Verificación de desarrollo
@@ -967,7 +967,7 @@ except AssertionError as e:
 ```
 
 :::{warning} Assert no es para validación de usuario
-```python
+```{code-cell} ipython3
 # ❌ NO usar assert para validar entrada de usuario
 def dividir(a, b):
     assert b != 0, "divisor no puede ser cero"
@@ -985,7 +985,7 @@ Assert puede desactivarse con `python -O`, por lo que no es confiable para valid
 
 ### Logging: Registro Profesional
 
-```python
+```{code-cell} ipython3
 import logging
 
 # Configurar logging
@@ -1200,7 +1200,7 @@ except ValueError:
 
 ### 2. No Silenciar Excepciones
 
-```python
+```{code-cell} ipython3
 # ❌ Silencia errores
 try:
     codigo_importante()
@@ -1217,7 +1217,7 @@ except ValueError as e:
 
 ### 3. Usar Jerarquía Correcta
 
-```python
+```{code-cell} ipython3
 # ❌ Captura amplia primero
 try:
     codigo()
@@ -1239,7 +1239,7 @@ except Exception:  # Solo si es necesario
 
 ### 4. Documentar Excepciones
 
-```python
+```{code-cell} ipython3
 def dividir(a, b):
     """Divide a entre b.
     
@@ -1267,7 +1267,7 @@ def dividir(a, b):
 
 Python favorece **EAFP** (Easier to Ask for Forgiveness than Permission):
 
-```python
+```{code-cell} ipython3
 # LBYL - Look Before You Leap
 if "clave" in diccionario:
     valor = diccionario["clave"]
@@ -1286,7 +1286,7 @@ valor = diccionario.get("clave")  # Retorna None si no existe
 
 ### 6. Excepciones en Funciones
 
-```python
+```{code-cell} ipython3
 # ✓ Lanzar excepciones en funciones para errores
 def procesar_usuario(usuario_id):
     """Procesa un usuario.
@@ -1368,7 +1368,7 @@ Creá un sistema que valide un formulario de registro con excepciones personaliz
 Creá funciones para leer diferentes tipos de archivos con manejo robusto de errores.
 
 **Funciones:**
-```python
+```{code-cell} ipython3
 def leer_texto(archivo):
     """Lee archivo de texto."""
     pass
@@ -1668,7 +1668,7 @@ Prompt: "Revisa el manejo de errores en este código:
 :::{danger} No uses try-except para ocultar problemas
 Un error común es usar try-except para "que el programa no se rompa" sin realmente resolver el problema:
 
-```python
+```{code-cell} ipython3
 # ¡MAL! Silencia el error sin resolverlo
 try:
     resultado = operacion_peligrosa()

@@ -24,7 +24,7 @@ Los fundamentos que aprenderás en este capítulo son universales en programaci�
 
 Todo viaje de programación comienza con el clásico "Hola Mundo". Este programa simple te introduce a la sintaxis básica de Python.
 
-```{code} python
+```{code-cell} ipython3
 print("¡Hola Mundo!")
 ```
 
@@ -61,7 +61,7 @@ Una **variable** es un nombre que le damos a un espacio en la memoria de la comp
 
 En Python, crear una variable es muy simple: elegís un nombre y le asignás un valor usando el símbolo `=`:
 
-```python
+```{code-cell} ipython3
 edad = 18
 nombre = "Ana"
 altura = 1.65
@@ -123,7 +123,7 @@ _valor_privado = 100
 
 Podés cambiar el valor de una variable en cualquier momento:
 
-```python
+```{code-cell} ipython3
 contador = 0
 print(contador)  # Salida: 0
 
@@ -178,7 +178,7 @@ Python maneja diferentes tipos de datos. Cada tipo tiene características y usos
 
 Los enteros representan números sin decimales, positivos o negativos.
 
-```python
+```{code-cell} ipython3
 edad = 18
 temperatura = -5
 año = 2023
@@ -189,7 +189,7 @@ poblacion = 1000000
 
 Los flotantes representan números con decimales.
 
-```python
+```{code-cell} ipython3
 altura = 1.75
 pi = 3.14159
 temperatura = -3.5
@@ -198,7 +198,7 @@ precio = 99.99
 
 :::{warning} Precisión de flotantes
 Los números de punto flotante pueden tener pequeños errores de redondeo:
-```python
+```{code-cell} ipython3
 resultado = 0.1 + 0.2
 print(resultado)  # Salida: 0.30000000000000004
 ```
@@ -209,7 +209,7 @@ Para comparaciones de flotantes, no uses `==`. Esto se verá más adelante.
 
 Las cadenas (strings) representan texto. Se escriben entre comillas simples (`'...'`) o dobles (`"..."`).
 
-```python
+```{code-cell} ipython3
 nombre = "María"
 apellido = 'González'
 mensaje = "¡Hola! ¿Cómo estás?"
@@ -218,7 +218,7 @@ direccion = 'Calle 123, Ciudad'
 
 **Cadenas multilínea:**
 
-```python
+```{code-cell} ipython3
 texto_largo = """Este es un texto
 que ocupa múltiples
 líneas."""
@@ -228,7 +228,7 @@ print(texto_largo)
 
 **Operaciones con strings:**
 
-```python
+```{code-cell} ipython3
 # Concatenación (unir strings)
 nombre = "Juan"
 apellido = "Pérez"
@@ -249,7 +249,7 @@ print(largo)  # Salida: 10
 
 Los booleanos representan valores de verdad: `True` (verdadero) o `False` (falso).
 
-```python
+```{code-cell} ipython3
 es_mayor_edad = True
 tiene_descuento = False
 esta_lloviendo = False
@@ -261,7 +261,7 @@ Los booleanos son fundamentales para tomar decisiones en el código (que verás 
 
 Usá la función `type()` para conocer el tipo de una variable:
 
-```python
+```{code-cell} ipython3
 edad = 25
 print(type(edad))  # Salida: <class 'int'>
 
@@ -315,7 +315,7 @@ Python soporta las operaciones matemáticas básicas y algunas adicionales.
 
 ### Operadores Básicos
 
-```python
+```{code-cell} ipython3
 # Suma
 resultado = 5 + 3
 print(resultado)  # Salida: 8
@@ -386,7 +386,7 @@ Python sigue el orden matemático estándar (PEMDAS):
 3. **M**ultiplicación, **D**ivisión, División entera, Módulo (`*`, `/`, `//`, `%`)
 4. **S**uma, **R**esta (`+`, `-`)
 
-```python
+```{code-cell} ipython3
 # Sin paréntesis
 resultado = 2 + 3 * 4
 print(resultado)  # Salida: 14 (primero 3*4, luego +2)
@@ -399,7 +399,7 @@ print(resultado)  # Salida: 20 (primero 2+3, luego *4)
 :::{tip} Usar paréntesis para claridad
 Aunque conozcas la precedencia de operadores, usar paréntesis hace el código más claro:
 
-```python
+```{code-cell} ipython3
 # Menos claro
 total = precio * cantidad + descuento * 0.1
 
@@ -412,7 +412,7 @@ total = (precio * cantidad) + (descuento * 0.1)
 
 Python permite combinar operaciones con asignación:
 
-```python
+```{code-cell} ipython3
 contador = 10
 
 # Equivalente a: contador = contador + 5
@@ -451,7 +451,7 @@ print(contador)  # Salida: 6.0
 
 Los operadores de comparación comparan dos valores y retornan un booleano (`True` o `False`).
 
-```python
+```{code-cell} ipython3
 # Igualdad
 print(5 == 5)   # Salida: True
 print(5 == 3)   # Salida: False
@@ -504,7 +504,7 @@ print(f"¿Descuento disponible? (precio > 50): {descuento_disponible}")
 :::{important} Comparación vs Asignación
 No confundas el operador de comparación `==` con el de asignación `=`:
 
-```python
+```{code-cell} ipython3
 # Asignación: guarda un valor en una variable
 edad = 18
 
@@ -517,7 +517,7 @@ es_mayor = edad == 18  # True
 
 Los strings se comparan lexicográficamente (orden del diccionario):
 
-```python
+```{code-cell} ipython3
 print("a" < "b")        # Salida: True
 print("manzana" < "pera")  # Salida: True
 print("Ana" == "ana")   # Salida: False (sensible a mayúsculas)
@@ -545,7 +545,7 @@ Los operadores lógicos permiten combinar expresiones booleanas.
 
 Retorna `True` solo si **ambas** condiciones son verdaderas.
 
-```python
+```{code-cell} ipython3
 edad = 20
 tiene_licencia = True
 
@@ -563,7 +563,7 @@ print(False and False)  # Salida: False
 
 Retorna `True` si **al menos una** condición es verdadera.
 
-```python
+```{code-cell} ipython3
 es_fin_semana = True
 es_feriado = False
 
@@ -581,7 +581,7 @@ print(False or False)   # Salida: False
 
 Invierte el valor booleano.
 
-```python
+```{code-cell} ipython3
 esta_lloviendo = False
 hace_buen_tiempo = not esta_lloviendo
 print(hace_buen_tiempo)  # Salida: True
@@ -627,7 +627,7 @@ print(f"(edad >= 18 AND licencia AND seguro): {puede_conducir_legal}")
 
 ### Combinando Operadores Lógicos
 
-```python
+```{code-cell} ipython3
 edad = 25
 tiene_experiencia = True
 tiene_titulo = False
@@ -640,7 +640,7 @@ print(puede_aplicar)  # Salida: True
 :::{tip} Claridad en Condiciones Complejas
 Según la {ref}`0x000Dh`, las condiciones complejas deben simplificarse:
 
-```python
+```{code-cell} ipython3
 # Menos claro
 if edad >= 18 and tiene_dni and (es_argentino or tiene_residencia) and not esta_inhabilitado:
     print("Puede votar")
@@ -675,7 +675,7 @@ Para interactuar con el usuario, necesitamos leer datos de entrada y mostrar res
 
 La función `print()` muestra información en la pantalla.
 
-```python
+```{code-cell} ipython3
 # Imprimir texto
 print("Hola Mundo")
 
@@ -690,7 +690,7 @@ print("Nombre:", nombre, "Edad:", edad)
 
 **F-strings (formateo moderno):**
 
-```python
+```{code-cell} ipython3
 nombre = "Carlos"
 edad = 25
 
@@ -748,7 +748,7 @@ Los f-strings (Python 3.6+) son la forma más legible y Pythonic de formatear st
 
 La función `input()` lee texto desde el teclado. **Siempre retorna un string**.
 
-```python
+```{code-cell} ipython3
 # Leer texto
 nombre = input("Ingrese su nombre: ")
 print(f"Hola, {nombre}!")
@@ -758,7 +758,7 @@ print(f"Hola, {nombre}!")
 
 Como `input()` siempre retorna un string, debés convertir explícitamente a otros tipos:
 
-```python
+```{code-cell} ipython3
 # Leer un número entero
 edad_str = input("Ingrese su edad: ")
 edad = int(edad_str)  # Convertir string a int
@@ -783,7 +783,7 @@ edad = int(input("Edad: "))  # Si escribe "veinte" → ValueError
 
 ### Ejemplo Completo
 
-```python
+```{code-cell} ipython3
 # Programa que calcula el área de un rectángulo
 
 # Entrada
@@ -807,7 +807,7 @@ A veces necesitás convertir un valor de un tipo a otro.
 
 ### Funciones de Conversión
 
-```python
+```{code-cell} ipython3
 # String a int
 numero_str = "42"
 numero_int = int(numero_str)
@@ -878,7 +878,7 @@ print(f"bool(0.0) = {bool(0.0)}")
 
 Python realiza algunas conversiones automáticamente:
 
-```python
+```{code-cell} ipython3
 # int + float → float
 resultado = 5 + 3.5
 print(resultado)  # Salida: 8.5 (float)
@@ -945,7 +945,7 @@ print(f"bool([]): {bool([])}")
 
 ### 1. Usar una variable sin inicializarla
 
-```python
+```{code-cell} ipython3
 # ❌ Incorrecto
 print(total)  # NameError: name 'total' is not defined
 
@@ -956,7 +956,7 @@ print(total)
 
 ### 2. Confundir `=` con `==`
 
-```python
+```{code-cell} ipython3
 # ❌ Incorrecto (asignación en lugar de comparación)
 if edad = 18:  # SyntaxError
     print("Mayor de edad")
@@ -968,7 +968,7 @@ if edad == 18:
 
 ### 3. Olvidar convertir `input()` a número
 
-```python
+```{code-cell} ipython3
 # ❌ Incorrecto
 numero = input("Ingrese un número: ")
 resultado = numero * 2  # Repite el string, no multiplica
@@ -980,7 +980,7 @@ resultado = numero * 2
 
 ### 4. División por cero
 
-```python
+```{code-cell} ipython3
 # ❌ Error en ejecución
 resultado = 10 / 0  # ZeroDivisionError
 
@@ -995,7 +995,7 @@ else:
 
 ### 5. Errores de indentación
 
-```python
+```{code-cell} ipython3
 # ❌ Incorrecto (mezcla de espacios y tabs, o indentación inconsistente)
 # Python es muy estricto con la indentación
 
@@ -1018,7 +1018,7 @@ Estas buenas prácticas están basadas en las reglas de estilo documentadas en e
 
 Según {ref}`0x0001h`, usá nombres que describan claramente el propósito:
 
-```python
+```{code-cell} ipython3
 # ❌ Poco descriptivo
 x = 25
 y = 1.75
@@ -1032,7 +1032,7 @@ altura_metros = 1.75
 
 Según {ref}`0x0003h`, inicializá siempre las variables:
 
-```python
+```{code-cell} ipython3
 # ✓ Correcto
 contador = 0
 suma_total = 0
@@ -1043,7 +1043,7 @@ lista_nombres = []
 
 Según {ref}`0x0004h`, usá espacios alrededor de operadores:
 
-```python
+```{code-cell} ipython3
 # ❌ Difícil de leer
 resultado=base*altura+10
 
@@ -1055,7 +1055,7 @@ resultado = base * altura + 10
 
 Los comentarios deben explicar **por qué**, no **qué**:
 
-```python
+```{code-cell} ipython3
 # ❌ Comentario obvio
 edad = 18  # Asigna 18 a edad
 
@@ -1065,7 +1065,7 @@ edad = 18  # Edad mínima para votar en Argentina
 
 ### 5. Usar Constantes para Valores Fijos
 
-```python
+```{code-cell} ipython3
 # ✓ Constantes en MAYÚSCULAS
 TASA_IVA = 0.21
 MAX_INTENTOS = 3

@@ -44,7 +44,7 @@ Python incluye una **biblioteca estándar** con cientos de módulos útiles.
 
 ### Importar un Módulo Completo
 
-```python
+```{code-cell} ipython3
 import math
 
 # Usar funciones del módulo con la sintaxis: modulo.funcion()
@@ -60,7 +60,7 @@ print(seno)  # 1.0
 
 ### Importar Funciones Específicas
 
-```python
+```{code-cell} ipython3
 from math import sqrt, pi, sin
 
 # Ahora podés usar directamente las funciones
@@ -72,7 +72,7 @@ print(pi)  # 3.141592653589793
 
 ### Importar con Alias
 
-```python
+```{code-cell} ipython3
 import math as m
 
 raiz = m.sqrt(25)
@@ -87,7 +87,7 @@ print(resultado)  # 3.0
 
 ### Importar Todo (No Recomendado)
 
-```python
+```{code-cell} ipython3
 # ❌ Evitar esto
 from math import *
 
@@ -106,7 +106,7 @@ Según las convenciones de Python:
 
 ### Módulos Útiles de la Biblioteca Estándar
 
-```python
+```{code-cell} ipython3
 # math - Funciones matemáticas
 import math
 print(math.ceil(4.3))   # 5 (redondear arriba)
@@ -143,7 +143,7 @@ Un módulo es simplemente un archivo `.py` con funciones, clases y variables.
 ### Crear un Módulo Simple
 
 **Archivo: `matematicas.py`**
-```python
+```{code-cell} ipython3
 """Módulo con funciones matemáticas básicas."""
 
 PI = 3.14159
@@ -190,7 +190,7 @@ def factorial(n):
 ### Usar Tu Módulo
 
 **Archivo: `programa.py`** (en el mismo directorio)
-```python
+```{code-cell} ipython3
 import matematicas
 
 # Usar funciones del módulo
@@ -212,7 +212,7 @@ print(f"PI = {matematicas.PI}")
 Por convención, nombres que comienzan con `_` son privados:
 
 **Archivo: `calculadora.py`**
-```python
+```{code-cell} ipython3
 """Módulo calculadora con funciones públicas y privadas."""
 
 # Variable privada (por convención)
@@ -238,7 +238,7 @@ def sumar(a, b):
 Permite que un módulo sea ejecutable pero también importable:
 
 **Archivo: `utilidades.py`**
-```python
+```{code-cell} ipython3
 """Módulo de utilidades."""
 
 def saludar(nombre):
@@ -258,7 +258,7 @@ if __name__ == "__main__":
 ```
 
 **Uso:**
-```python
+```{code-cell} ipython3
 # Importar como módulo - no ejecuta el bloque main
 import utilidades
 print(utilidades.saludar("Carlos"))
@@ -273,7 +273,7 @@ Usá este patrón cuando:
 - También querés poder ejecutarlo para testear
 - Querés incluir ejemplos de uso
 
-```python
+```{code-cell} ipython3
 def mi_funcion():
     """Función útil."""
     pass
@@ -305,7 +305,7 @@ mi_proyecto/
 ```
 
 **Archivo: `matematicas/__init__.py`**
-```python
+```{code-cell} ipython3
 """Paquete de matemáticas."""
 
 # Este archivo puede estar vacío o inicializar el paquete
@@ -316,7 +316,7 @@ __version__ = "1.0.0"
 ```
 
 **Archivo: `matematicas/basicas.py`**
-```python
+```{code-cell} ipython3
 """Operaciones matemáticas básicas."""
 
 def sumar(a, b):
@@ -339,7 +339,7 @@ def dividir(a, b):
 ```
 
 **Archivo: `matematicas/avanzadas.py`**
-```python
+```{code-cell} ipython3
 """Operaciones matemáticas avanzadas."""
 
 def potencia(base, exponente):
@@ -365,7 +365,7 @@ def factorial(n):
 ### Usar el Paquete
 
 **Archivo: `programa.py`**
-```python
+```{code-cell} ipython3
 # Importar todo el paquete
 import matematicas
 
@@ -385,7 +385,7 @@ print(factorial(5))  # 120
 
 Dentro de un paquete, podés usar importaciones relativas:
 
-```python
+```{code-cell} ipython3
 # En matematicas/avanzadas.py
 from .basicas import sumar  # Mismo paquete
 from ..otro_paquete import algo  # Paquete padre
@@ -400,7 +400,7 @@ Los archivos permiten que tus programas guarden y lean datos.
 
 ### Abrir y Cerrar Archivos
 
-```python
+```{code-cell} ipython3
 # Abrir archivo para lectura
 archivo = open("datos.txt", "r")
 contenido = archivo.read()
@@ -423,7 +423,7 @@ print(contenido)
 
 La forma recomendada de trabajar con archivos:
 
-```python
+```{code-cell} ipython3
 # ✓ Con 'with' - cierra automáticamente
 with open("datos.txt", "r") as archivo:
     contenido = archivo.read()
@@ -434,7 +434,7 @@ with open("datos.txt", "r") as archivo:
 :::{tip} Siempre usá `with`
 El context manager `with` garantiza que el archivo se cierre correctamente, incluso si ocurre un error.
 
-```python
+```{code-cell} ipython3
 # ❌ Arriesgado
 archivo = open("datos.txt", "r")
 contenido = archivo.read()  # Si hay error aquí...
@@ -449,7 +449,7 @@ with open("datos.txt", "r") as archivo:
 
 ### Leer Archivos
 
-```python
+```{code-cell} ipython3
 # Leer todo el contenido
 with open("datos.txt", "r") as archivo:
     contenido = archivo.read()
@@ -473,7 +473,7 @@ with open("datos.txt", "r") as archivo:
 
 ### Escribir Archivos
 
-```python
+```{code-cell} ipython3
 # Escribir (sobrescribe si existe)
 with open("salida.txt", "w") as archivo:
     archivo.write("Primera línea\n")
@@ -491,7 +491,7 @@ with open("salida.txt", "a") as archivo:
 
 ### Verificar si un Archivo Existe
 
-```python
+```{code-cell} ipython3
 import os
 
 # Verificar existencia
@@ -510,7 +510,7 @@ if os.path.isdir("carpeta"):
 
 ### Ejemplo: Guardar y Cargar Lista
 
-```python
+```{code-cell} ipython3
 def guardar_nombres(nombres, archivo):
     """Guarda una lista de nombres en un archivo.
     
@@ -556,7 +556,7 @@ JSON (JavaScript Object Notation) es un formato estándar para intercambiar dato
 
 ### Módulo `json`
 
-```python
+```{code-cell} ipython3
 import json
 
 # Convertir dict a JSON (string)
@@ -573,7 +573,7 @@ print(json_string)
 
 ### Guardar JSON en Archivo
 
-```python
+```{code-cell} ipython3
 import json
 
 # Guardar
@@ -591,7 +591,7 @@ print(datos_cargados)  # {'nombre': 'Ana', 'edad': 20}
 
 ### Ejemplo: Sistema de Configuración
 
-```python
+```{code-cell} ipython3
 import json
 import os
 
@@ -646,7 +646,7 @@ Las **excepciones** son errores que ocurren durante la ejecución del programa. 
 
 ### Tipos Comunes de Excepciones
 
-```python
+```{code-cell} ipython3
 # ValueError - valor inapropiado
 int("abc")  # ValueError: invalid literal for int()
 
@@ -684,7 +684,7 @@ except ZeroDivisionError:
 
 ### Try-Except-Else-Finally
 
-```python
+```{code-cell} ipython3
 try:
     archivo = open("datos.txt", "r")
     contenido = archivo.read()
@@ -722,7 +722,7 @@ except ValueError as error:
 
 ### Lanzar Excepciones
 
-```python
+```{code-cell} ipython3
 def dividir(a, b):
     """Divide a entre b.
     
@@ -754,7 +754,7 @@ except ValueError as e:
 
 ### Excepciones Personalizadas
 
-```python
+```{code-cell} ipython3
 class EdadInvalidaError(Exception):
     """Excepción para edad inválida."""
     pass
@@ -800,7 +800,7 @@ NO uses excepciones para:
 Un ejemplo que integra módulos, archivos y excepciones.
 
 **Archivo: `contactos.py`** (módulo)
-```python
+```{code-cell} ipython3
 """Módulo para gestionar contactos."""
 
 import json
@@ -1052,7 +1052,7 @@ if __name__ == "__main__":
 
 ### 1. Organización de Imports
 
-```python
+```{code-cell} ipython3
 # ✓ Orden correcto
 # 1. Biblioteca estándar
 import os
@@ -1070,7 +1070,7 @@ from .utilidades import funcion_util
 
 ### 2. Estructura de Módulos
 
-```python
+```{code-cell} ipython3
 """Docstring del módulo.
 
 Descripción más detallada de lo que hace el módulo.
@@ -1101,7 +1101,7 @@ if __name__ == "__main__":
 
 ### 3. Nombrar Módulos y Paquetes
 
-```python
+```{code-cell} ipython3
 # ✓ Buenos nombres (snake_case, descriptivos)
 mi_modulo.py
 utilidades_texto.py
@@ -1115,7 +1115,7 @@ m.py
 
 ### 4. Documentar Módulos
 
-```python
+```{code-cell} ipython3
 """Módulo de utilidades matemáticas.
 
 Este módulo proporciona funciones para operaciones matemáticas
@@ -1141,7 +1141,7 @@ def promedio(numeros):
 
 ### 5. Manejo de Archivos Robusto
 
-```python
+```{code-cell} ipython3
 def leer_archivo_seguro(nombre_archivo):
     """Lee un archivo de forma segura.
     
@@ -1176,7 +1176,7 @@ def leer_archivo_seguro(nombre_archivo):
 Creá un módulo `validaciones.py` con funciones para validar datos comunes.
 
 **Funciones a implementar:**
-```python
+```{code-cell} ipython3
 def validar_email(email):
     """Valida formato de email."""
     pass
@@ -1211,7 +1211,7 @@ Creá un sistema para guardar y cargar notas de estudiantes en archivos.
 - Cargar datos al iniciar
 
 **Estructura de datos:**
-```python
+```{code-cell} ipython3
 {
     "Ana": [8, 9, 7],
     "Bruno": [9, 8, 9],
@@ -1227,7 +1227,7 @@ Creá un sistema para guardar y cargar notas de estudiantes en archivos.
 Creá funciones para leer y escribir archivos CSV (valores separados por comas).
 
 **Funciones:**
-```python
+```{code-cell} ipython3
 def leer_csv(nombre_archivo):
     """Lee CSV y retorna lista de listas."""
     pass
@@ -1257,7 +1257,7 @@ Carlos,19,Rosario
 Implementá un módulo que registre mensajes en un archivo de log.
 
 **Funciones:**
-```python
+```{code-cell} ipython3
 def log_info(mensaje):
     """Registra mensaje informativo."""
     pass
@@ -1316,7 +1316,7 @@ Creá un sistema de TODO list que guarde tareas en JSON.
 - Guardar/cargar automáticamente
 
 **Estructura de tarea:**
-```python
+```{code-cell} ipython3
 {
     "id": 1,
     "descripcion": "Estudiar Python",

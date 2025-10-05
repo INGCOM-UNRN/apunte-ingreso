@@ -39,7 +39,7 @@ Las **estructuras condicionales** permiten que tu programa ejecute diferentes bl
 
 La forma más básica de tomar una decisión es con `if`:
 
-```python
+```{code-cell} ipython3
 edad = 18
 
 if edad >= 18:
@@ -48,7 +48,7 @@ if edad >= 18:
 ```
 
 **Sintaxis:**
-```python
+```{code-cell} ipython3
 if condicion:
     # Bloque de código que se ejecuta si la condición es True
     instruccion1
@@ -73,7 +73,7 @@ print("Mayor de edad")  # Sin indentación
 
 Cuando querés ejecutar un código si la condición es verdadera, y otro código si es falsa:
 
-```python
+```{code-cell} ipython3
 edad = 16
 
 if edad >= 18:
@@ -97,7 +97,7 @@ flowchart TD
 
 Para manejar múltiples condiciones, usá `elif` (else if):
 
-```python
+```{code-cell} ipython3
 nota = 85
 
 if nota >= 90:
@@ -144,7 +144,7 @@ elif numero >= 90:
 
 Podés colocar estructuras `if` dentro de otras estructuras `if`:
 
-```python
+```{code-cell} ipython3
 edad = 20
 tiene_licencia = True
 
@@ -161,7 +161,7 @@ else:
 
 Según la {ref}`0x000Dh`, las condiciones complejas deben simplificarse. Muchas veces podés evitar anidación usando `and`:
 
-```python
+```{code-cell} ipython3
 # Más simple y claro
 if edad >= 18 and tiene_licencia:
     print("Podés conducir")
@@ -173,7 +173,7 @@ else:
 
 Recordá que las condiciones deben evaluar a `True` o `False`:
 
-```python
+```{code-cell} ipython3
 # Comparaciones
 if temperatura > 30:
     print("Hace calor")
@@ -199,7 +199,7 @@ En Python, ciertos valores se consideran "falsos" en un contexto booleano:
 
 Todos los demás valores se consideran "verdaderos". Sin embargo, según las buenas prácticas, es preferible ser **explícito**:
 
-```python
+```{code-cell} ipython3
 lista = []
 
 # ❌ Menos claro (aunque funciona)
@@ -296,7 +296,7 @@ Un **loop** (bucle o lazo) permite ejecutar un bloque de código repetidamente. 
 
 ### Sintaxis Básica
 
-```python
+```{code-cell} ipython3
 while condicion:
     # Bloque de código que se repite
     # mientras la condición sea True
@@ -304,7 +304,7 @@ while condicion:
 
 ### Ejemplo Simple
 
-```python
+```{code-cell} ipython3
 contador = 1
 
 while contador <= 5:
@@ -338,7 +338,7 @@ flowchart TD
 :::{danger} Loops infinitos
 Si la condición nunca se vuelve `False`, el loop se ejecutará infinitamente:
 
-```python
+```{code-cell} ipython3
 # ❌ Loop infinito - nunca termina
 contador = 1
 while contador <= 5:
@@ -436,7 +436,7 @@ Según la {ref}`0x0006h`, en lugar de usar `break` y `continue` para loops compl
 
 ### Patrón de Bandera Simple
 
-```python
+```{code-cell} ipython3
 """Búsqueda con bandera de control."""
 
 numeros = [10, 25, 30, 45, 50]
@@ -487,7 +487,7 @@ if not entrada_valida:
 :::{tip} Cuándo usar break
 Si bien preferimos banderas, `break` es aceptable en Python para casos simples de búsqueda:
 
-```python
+```{code-cell} ipython3
 # Aceptable para búsquedas simples
 for elemento in lista:
     if elemento == objetivo:
@@ -507,7 +507,7 @@ El loop `for` se usa para iterar sobre secuencias (listas, strings, rangos, etc.
 
 ### Iterando sobre un Rango
 
-```python
+```{code-cell} ipython3
 # Iterar del 0 al 4
 for i in range(5):
     print(i)
@@ -517,7 +517,7 @@ for i in range(5):
 
 **La función `range()`:**
 
-```python
+```{code-cell} ipython3
 # range(stop) - desde 0 hasta stop-1
 for i in range(5):
     print(i)  # 0, 1, 2, 3, 4
@@ -537,7 +537,7 @@ for i in range(5, 0, -1):
 
 ### Iterando sobre Strings
 
-```python
+```{code-cell} ipython3
 mensaje = "Python"
 
 for letra in mensaje:
@@ -554,7 +554,7 @@ for letra in mensaje:
 
 ### Iterando sobre Listas
 
-```python
+```{code-cell} ipython3
 frutas = ["manzana", "banana", "naranja"]
 
 for fruta in frutas:
@@ -564,7 +564,7 @@ for fruta in frutas:
 :::{important} Estilo Pythonic
 Según la {ref}`0x0007h`, en Python es preferible iterar directamente sobre elementos en lugar de usar índices:
 
-```python
+```{code-cell} ipython3
 nombres = ["Ana", "Bruno", "Carlos"]
 
 # ❌ Menos Pythonic
@@ -581,7 +581,7 @@ for nombre in nombres:
 
 Si necesitás tanto el índice como el elemento, usá `enumerate()`:
 
-```python
+```{code-cell} ipython3
 colores = ["rojo", "verde", "azul"]
 
 for indice, color in enumerate(colores):
@@ -595,7 +595,7 @@ for indice, color in enumerate(colores):
 
 **Empezar desde un índice diferente:**
 
-```python
+```{code-cell} ipython3
 colores = ["rojo", "verde", "azul"]
 
 for indice, color in enumerate(colores, start=1):
@@ -624,7 +624,7 @@ for i in range(1, 11):
 
 ### Ejemplo: Suma de Lista
 
-```python
+```{code-cell} ipython3
 """Calcula la suma de una lista de números."""
 
 numeros = [10, 20, 30, 40, 50]
@@ -654,7 +654,7 @@ print(f"La suma es: {suma}")
    ```
 
 2. **La condición de parada es compleja**
-   ```python
+   ```{code-cell} ipython3
    intentos = 0
    exito = False
    MAX_INTENTOS = 5
@@ -664,7 +664,7 @@ print(f"La suma es: {suma}")
    ```
 
 3. **El loop puede no ejecutarse ninguna vez**
-   ```python
+   ```{code-cell} ipython3
    while hay_mas_datos():
        procesar_datos()
    ```
@@ -672,19 +672,19 @@ print(f"La suma es: {suma}")
 ### Usar `for` cuando:
 
 1. **Iterás sobre una secuencia conocida**
-   ```python
+   ```{code-cell} ipython3
    for nombre in lista_nombres:
        print(nombre)
    ```
 
 2. **Conocés exactamente cuántas iteraciones necesitás**
-   ```python
+   ```{code-cell} ipython3
    for i in range(10):
        print(i)
    ```
 
 3. **Necesitás procesar cada elemento de una colección**
-   ```python
+   ```{code-cell} ipython3
    for estudiante in estudiantes:
        calcular_promedio(estudiante)
    ```
@@ -707,7 +707,7 @@ Podés colocar loops dentro de otros loops. Cada iteración del loop externo eje
 
 ### Ejemplo: Tabla de Multiplicar Completa
 
-```python
+```{code-cell} ipython3
 """Genera tablas de multiplicar del 1 al 5."""
 
 for numero in range(1, 6):
@@ -719,7 +719,7 @@ for numero in range(1, 6):
 
 ### Ejemplo: Patrón de Asteriscos
 
-```python
+```{code-cell} ipython3
 """Imprime un triángulo de asteriscos."""
 
 altura = 5
@@ -739,7 +739,7 @@ for fila in range(1, altura + 1):
 
 ### Ejemplo: Verificación de Matriz
 
-```python
+```{code-cell} ipython3
 """Busca un valor en una matriz (lista de listas)."""
 
 matriz = [
@@ -784,7 +784,7 @@ Usá loops anidados solo cuando sea necesario.
 
 Sumar o acumular valores:
 
-```python
+```{code-cell} ipython3
 # Suma de números del 1 al 100
 suma = 0
 for i in range(1, 101):
@@ -796,7 +796,7 @@ print(f"Suma: {suma}")
 
 Contar cuántas veces ocurre algo:
 
-```python
+```{code-cell} ipython3
 # Contar números pares en una lista
 numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 contador_pares = 0
@@ -812,7 +812,7 @@ print(f"Hay {contador_pares} números pares")
 
 Encontrar un elemento:
 
-```python
+```{code-cell} ipython3
 # Buscar un nombre en una lista
 nombres = ["Ana", "Bruno", "Carlos", "Diana"]
 buscar = "Carlos"
@@ -832,7 +832,7 @@ else:
 
 Encontrar el valor máximo o mínimo:
 
-```python
+```{code-cell} ipython3
 # Encontrar el número mayor
 numeros = [45, 23, 67, 12, 89, 34]
 maximo = numeros[0]
@@ -959,7 +959,7 @@ elif nota >= 60:
 
 ### 5. Modificar lista mientras se itera
 
-```python
+```{code-cell} ipython3
 # ❌ Problemático
 numeros = [1, 2, 3, 4, 5]
 for numero in numeros:
@@ -981,7 +981,7 @@ for numero in numeros:
 
 ### 1. Nombres Descriptivos para Banderas
 
-```python
+```{code-cell} ipython3
 # ❌ Poco claro
 flag = True
 x = False
@@ -993,7 +993,7 @@ datos_validos = False
 
 ### 2. Condiciones Legibles
 
-```python
+```{code-cell} ipython3
 # ❌ Difícil de leer
 if a > 18 and b == True and c != 0 and (d == "admin" or d == "superuser"):
     hacer_algo()
@@ -1010,7 +1010,7 @@ if es_mayor_edad and esta_activo and tiene_saldo and es_administrador:
 
 ### 3. Evitar Anidación Excesiva
 
-```python
+```{code-cell} ipython3
 # ❌ Muy anidado
 if condicion1:
     if condicion2:
@@ -1034,7 +1034,7 @@ if condicion4:
 
 ### 4. Constantes para Valores Mágicos
 
-```python
+```{code-cell} ipython3
 # ❌ "Números mágicos"
 if edad >= 18 and edad <= 65:
     calcular_descuento()
@@ -1049,7 +1049,7 @@ if edad >= EDAD_MINIMA and edad <= EDAD_MAXIMA:
 
 ### 5. Comentarios en Condiciones Complejas
 
-```python
+```{code-cell} ipython3
 # Verificar si el usuario puede acceder al sistema
 # Debe ser mayor de edad, tener cuenta activa y no estar suspendido
 if edad >= 18 and cuenta_activa and not suspendido:
@@ -1338,7 +1338,7 @@ Intento 4: 43
 
 :::{tip}
 Para generar un número aleatorio:
-```python
+```{code-cell} ipython3
 import random
 numero_secreto = random.randint(1, 100)
 ```

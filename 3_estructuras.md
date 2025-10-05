@@ -39,7 +39,7 @@ Una **lista** es una colección ordenada y modificable de elementos. Es la estru
 
 ### Crear Listas
 
-```python
+```{code-cell} ipython3
 # Lista vacía
 mi_lista = []
 
@@ -61,7 +61,7 @@ colores = [
 
 Los índices en Python comienzan en **0**:
 
-```python
+```{code-cell} ipython3
 frutas = ["manzana", "banana", "naranja", "pera"]
 
 # Acceso por índice
@@ -85,7 +85,7 @@ Negativo:  -4         -3        -2        -1
 :::{warning} Índice fuera de rango
 Intentar acceder a un índice que no existe causa un error:
 
-```python
+```{code-cell} ipython3
 frutas = ["manzana", "banana"]
 print(frutas[5])  # IndexError: list index out of range
 ```
@@ -97,7 +97,7 @@ Siempre verificá que el índice esté dentro del rango válido: `0` a `len(list
 
 El slicing permite obtener sub-listas:
 
-```python
+```{code-cell} ipython3
 numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 # [inicio:fin] - desde inicio hasta fin-1
@@ -120,7 +120,7 @@ print(numeros[::-1])   # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 
 Las listas son **mutables** (modificables):
 
-```python
+```{code-cell} ipython3
 frutas = ["manzana", "banana", "naranja"]
 
 # Modificar un elemento
@@ -136,7 +136,7 @@ print(frutas)  # ["kiwi", "uva", "naranja"]
 
 #### Agregar Elementos
 
-```python
+```{code-cell} ipython3
 frutas = ["manzana", "banana"]
 
 # append() - agrega al final
@@ -154,7 +154,7 @@ print(frutas)  # ["manzana", "pera", "banana", "naranja", "kiwi", "uva"]
 
 #### Eliminar Elementos
 
-```python
+```{code-cell} ipython3
 frutas = ["manzana", "banana", "naranja", "pera", "banana"]
 
 # remove() - elimina la primera ocurrencia
@@ -183,7 +183,7 @@ print(frutas)   # []
 
 #### Búsqueda y Conteo
 
-```python
+```{code-cell} ipython3
 numeros = [1, 3, 5, 3, 7, 3, 9]
 
 # count() - cuenta ocurrencias
@@ -204,7 +204,7 @@ if 10 not in numeros:
 
 #### Ordenar y Revertir
 
-```python
+```{code-cell} ipython3
 numeros = [5, 2, 8, 1, 9, 3]
 
 # sort() - ordena la lista (modifica la original)
@@ -229,7 +229,7 @@ print(numeros)  # [5, 4, 3, 2, 1]
 
 ### Longitud de una Lista
 
-```python
+```{code-cell} ipython3
 frutas = ["manzana", "banana", "naranja"]
 cantidad = len(frutas)
 print(f"Hay {cantidad} frutas")  # Hay 3 frutas
@@ -237,7 +237,7 @@ print(f"Hay {cantidad} frutas")  # Hay 3 frutas
 
 ### Iterar sobre Listas
 
-```python
+```{code-cell} ipython3
 frutas = ["manzana", "banana", "naranja"]
 
 # Forma Pythonic
@@ -255,7 +255,7 @@ for i in range(len(frutas)):
 
 ### Listas Anidadas (Matrices)
 
-```python
+```{code-cell} ipython3
 # Matriz 3x3
 matriz = [
     [1, 2, 3],
@@ -300,7 +300,7 @@ Una **tupla** es una colección ordenada e **inmutable** (no se puede modificar 
 
 ### Crear Tuplas
 
-```python
+```{code-cell} ipython3
 # Con paréntesis
 coordenadas = (10, 20)
 colores = ("rojo", "verde", "azul")
@@ -318,7 +318,7 @@ vacia = ()
 
 ### Acceso a Elementos
 
-```python
+```{code-cell} ipython3
 punto = (10, 20, 30)
 
 # Por índice
@@ -332,7 +332,7 @@ print(numeros[2:5])  # (2, 3, 4)
 
 ### Inmutabilidad
 
-```python
+```{code-cell} ipython3
 punto = (10, 20)
 
 # Intentar modificar causa error
@@ -351,7 +351,7 @@ Las tuplas son útiles cuando:
 
 ### Desempaquetado de Tuplas
 
-```python
+```{code-cell} ipython3
 # Desempaquetado simple
 punto = (10, 20)
 x, y = punto
@@ -374,7 +374,7 @@ print(a, b)  # 10 5
 
 Las tuplas tienen solo dos métodos:
 
-```python
+```{code-cell} ipython3
 numeros = (1, 3, 5, 3, 7, 3)
 
 # count() - cuenta ocurrencias
@@ -386,7 +386,7 @@ print(numeros.index(5))  # 2
 
 ### Convertir entre Listas y Tuplas
 
-```python
+```{code-cell} ipython3
 # Lista a tupla
 lista = [1, 2, 3]
 tupla = tuple(lista)
@@ -407,7 +407,7 @@ Un **diccionario** es una colección de pares **clave-valor**. Cada clave es ún
 
 ### Crear Diccionarios
 
-```python
+```{code-cell} ipython3
 # Diccionario vacío
 vacio = {}
 tambien_vacio = dict()
@@ -431,7 +431,7 @@ datos = {
 Las claves deben ser **inmutables**: strings, números, tuplas.
 No pueden ser listas o diccionarios.
 
-```python
+```{code-cell} ipython3
 # ✓ Válido
 d = {"nombre": "Ana", 1: "uno", (1,2): "tupla"}
 
@@ -442,7 +442,7 @@ d = {"nombre": "Ana", 1: "uno", (1,2): "tupla"}
 
 ### Acceso a Valores
 
-```python
+```{code-cell} ipython3
 estudiante = {
     "nombre": "Ana",
     "edad": 20,
@@ -468,7 +468,7 @@ print(nota)  # 0
 :::{tip} Usar get() en lugar de []
 Es preferible usar `get()` cuando no estás seguro si la clave existe:
 
-```python
+```{code-cell} ipython3
 # ❌ Puede dar error
 # valor = diccionario[clave]  # KeyError si no existe
 
@@ -479,7 +479,7 @@ valor = diccionario.get(clave, valor_por_defecto)
 
 ### Modificar Diccionarios
 
-```python
+```{code-cell} ipython3
 estudiante = {"nombre": "Ana", "edad": 20}
 
 # Modificar valor existente
@@ -502,7 +502,7 @@ print(estudiante)   # {"nombre": "Ana"}
 
 ### Métodos de Diccionarios
 
-```python
+```{code-cell} ipython3
 estudiante = {
     "nombre": "Ana",
     "edad": 20,
@@ -532,7 +532,7 @@ print(estudiante)  # {}
 
 ### Verificar Existencia de Claves
 
-```python
+```{code-cell} ipython3
 estudiante = {"nombre": "Ana", "edad": 20}
 
 # in - verifica si existe una clave
@@ -545,7 +545,7 @@ if "nota" not in estudiante:
 
 ### Iterar sobre Diccionarios
 
-```python
+```{code-cell} ipython3
 estudiante = {
     "nombre": "Ana",
     "edad": 20,
@@ -571,7 +571,7 @@ for clave, valor in estudiante.items():
 
 ### Diccionarios Anidados
 
-```python
+```{code-cell} ipython3
 # Diccionario de diccionarios
 curso = {
     "estudiante1": {
@@ -596,7 +596,7 @@ print(primera_nota)  # 8
 
 ### Ejemplo Práctico: Contador de Palabras
 
-```python
+```{code-cell} ipython3
 """Cuenta cuántas veces aparece cada palabra en un texto."""
 
 texto = "python es genial python es fácil python es poderoso"
@@ -634,7 +634,7 @@ Un **set** es una colección **no ordenada** de elementos **únicos**. Es útil 
 
 ### Crear Sets
 
-```python
+```{code-cell} ipython3
 # Con llaves
 numeros = {1, 2, 3, 4, 5}
 colores = {"rojo", "verde", "azul"}
@@ -651,7 +651,7 @@ no_set = {}     # Esto es un diccionario vacío
 :::{warning} Sets no tienen orden
 Los sets no mantienen orden de inserción:
 
-```python
+```{code-cell} ipython3
 numeros = {5, 1, 3, 2, 4}
 print(numeros)  # Puede imprimir en cualquier orden
 ```
@@ -661,7 +661,7 @@ No podés acceder por índice: `numeros[0]` causará un error.
 
 ### Operaciones Básicas
 
-```python
+```{code-cell} ipython3
 # Agregar elementos
 colores = {"rojo", "verde"}
 colores.add("azul")
@@ -686,7 +686,7 @@ print(elemento)
 
 ### Operaciones de Conjuntos
 
-```python
+```{code-cell} ipython3
 a = {1, 2, 3, 4, 5}
 b = {4, 5, 6, 7, 8}
 
@@ -727,7 +727,7 @@ flowchart LR
 
 ### Métodos de Verificación
 
-```python
+```{code-cell} ipython3
 a = {1, 2, 3}
 b = {1, 2, 3, 4, 5}
 
@@ -747,7 +747,7 @@ print(x.isdisjoint(y))   # True
 
 ### Uso Práctico: Eliminar Duplicados
 
-```python
+```{code-cell} ipython3
 # Eliminar duplicados de una lista
 numeros = [1, 2, 2, 3, 3, 3, 4, 4, 5]
 sin_duplicados = list(set(numeros))
@@ -765,7 +765,7 @@ Ya viste strings en el capítulo de fundamentos. Ahora exploraremos métodos y o
 
 ### Métodos de Búsqueda
 
-```python
+```{code-cell} ipython3
 texto = "Python es un lenguaje de programación"
 
 # find() - encuentra posición (-1 si no existe)
@@ -790,7 +790,7 @@ if texto.endswith("ción"):
 
 ### Métodos de Transformación
 
-```python
+```{code-cell} ipython3
 texto = "Python es Genial"
 
 # upper() - convierte a mayúsculas
@@ -811,7 +811,7 @@ print(texto.swapcase())  # "pYTHON ES gENIAL"
 
 ### Métodos de Validación
 
-```python
+```{code-cell} ipython3
 # isalpha() - solo letras
 print("Python".isalpha())      # True
 print("Python3".isalpha())     # False
@@ -835,7 +835,7 @@ print("python".islower())      # True
 
 ### Métodos de Formato
 
-```python
+```{code-cell} ipython3
 # strip() - elimina espacios al inicio y final
 texto = "  Python  "
 print(texto.strip())       # "Python"
@@ -860,7 +860,7 @@ print(frase)  # "Python es genial"
 
 ### Format Strings
 
-```python
+```{code-cell} ipython3
 nombre = "Ana"
 edad = 20
 
@@ -883,7 +883,7 @@ print(f"Precio: ${precio:,.2f}")  # Precio: $1,234.56
 
 ### Strings Multilínea
 
-```python
+```{code-cell} ipython3
 # Con triple comillas
 texto = """
 Este es un texto
@@ -910,7 +910,7 @@ Las **comprensiones** son una forma concisa y Pythonic de crear estructuras de d
 
 ### List Comprehensions
 
-```python
+```{code-cell} ipython3
 # Forma tradicional
 cuadrados = []
 for i in range(10):
@@ -933,7 +933,7 @@ print(dobles_pares)  # [4, 8]
 :::{tip} Cuándo usar comprensiones
 Las comprensiones son más legibles para operaciones simples:
 
-```python
+```{code-cell} ipython3
 # ✓ Claro con comprensión
 cuadrados = [x**2 for x in range(10)]
 
@@ -948,7 +948,7 @@ resultado = [
 
 ### Dictionary Comprehensions
 
-```python
+```{code-cell} ipython3
 # Crear diccionario de cuadrados
 cuadrados = {x: x**2 for x in range(5)}
 print(cuadrados)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
@@ -966,7 +966,7 @@ print(pares)  # {'b': 2, 'd': 4}
 
 ### Set Comprehensions
 
-```python
+```{code-cell} ipython3
 # Set de cuadrados
 cuadrados = {x**2 for x in range(-5, 6)}
 print(cuadrados)  # {0, 1, 4, 9, 16, 25} - sin duplicados
@@ -984,7 +984,7 @@ print(unicos_dobles)  # {2, 4, 6, 8}
 
 ### Conversiones
 
-```python
+```{code-cell} ipython3
 # Lista ⟷ Tupla
 lista = [1, 2, 3]
 tupla = tuple(lista)
@@ -1004,7 +1004,7 @@ pares = list(d.items())     # [('a', 1), ('b', 2), ('c', 3)]
 
 ### Funciones Built-in Útiles
 
-```python
+```{code-cell} ipython3
 numeros = [3, 1, 4, 1, 5, 9, 2, 6]
 
 # len() - longitud
@@ -1095,7 +1095,7 @@ d = {(1, 2): "valor"}
 
 ### 5. Copia superficial vs profunda
 
-```python
+```{code-cell} ipython3
 # Copia superficial - problemas con listas anidadas
 original = [[1, 2], [3, 4]]
 copia = original.copy()
@@ -1117,7 +1117,7 @@ print(original)  # [[1, 2], [3, 4]] - no afectó al original
 
 ### 1. Elegir la Estructura Apropiada
 
-```python
+```{code-cell} ipython3
 # Para datos únicos sin orden → Set
 colores_unicos = {"rojo", "verde", "azul"}
 
@@ -1133,7 +1133,7 @@ tareas = ["estudiar", "practicar", "descansar"]
 
 ### 2. Usar Comprensiones para Operaciones Simples
 
-```python
+```{code-cell} ipython3
 # ✓ Claro y conciso
 pares = [x for x in range(20) if x % 2 == 0]
 
@@ -1146,7 +1146,7 @@ for x in range(20):
 
 ### 3. Usar `in` para Verificar Pertenencia
 
-```python
+```{code-cell} ipython3
 # ✓ Pythonic
 if "Python" in lenguajes:
     print("Python está en la lista")
@@ -1160,7 +1160,7 @@ for lenguaje in lenguajes:
 
 ### 4. Usar Métodos Apropiados
 
-```python
+```{code-cell} ipython3
 # Para agregar un elemento → append()
 lista.append(5)
 
@@ -1173,7 +1173,7 @@ lista.extend([6, 7, 8])
 
 ### 5. Nombrar Estructuras Descriptivamente
 
-```python
+```{code-cell} ipython3
 # ✓ Descriptivo
 estudiantes_aprobados = ["Ana", "Bruno"]
 precio_por_producto = {"manzana": 2.5, "banana": 1.8}
@@ -1203,7 +1203,7 @@ Una lista de números enteros.
 Las estadísticas calculadas.
 
 **Ejemplo:**
-```python
+```{code-cell} ipython3
 numeros = [12, 7, 3, 14, 25, 8, 19, 4]
 
 Promedio: 11.50
@@ -1227,7 +1227,7 @@ Lista con posibles duplicados.
 Lista sin duplicados, orden preservado.
 
 **Ejemplo:**
-```python
+```{code-cell} ipython3
 entrada = [1, 2, 3, 2, 4, 1, 5, 3]
 salida = [1, 2, 3, 4, 5]
 ```
@@ -1312,7 +1312,7 @@ Dos listas de números.
 Las tres operaciones de conjuntos.
 
 **Ejemplo:**
-```python
+```{code-cell} ipython3
 lista1 = [1, 2, 3, 4, 5]
 lista2 = [4, 5, 6, 7, 8]
 
@@ -1335,7 +1335,7 @@ Matriz (lista de listas).
 Matriz transpuesta.
 
 **Ejemplo:**
-```python
+```{code-cell} ipython3
 Original:
 1 2 3
 4 5 6
@@ -1420,7 +1420,7 @@ Dada una lista de números, encontrá los K elementos más grandes.
 Los K elementos más grandes (ordenados de mayor a menor).
 
 **Ejemplo:**
-```python
+```{code-cell} ipython3
 numeros = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]
 k = 3
 
@@ -1435,7 +1435,7 @@ Top 3 elementos: [9, 6, 5]
 Dada una lista de estudiantes (diccionarios), agrupalos por carrera.
 
 **Entrada:**
-```python
+```{code-cell} ipython3
 estudiantes = [
     {"nombre": "Ana", "carrera": "Ingeniería"},
     {"nombre": "Bruno", "carrera": "Medicina"},
@@ -1493,7 +1493,7 @@ Dos diccionarios.
 Diccionario fusionado.
 
 **Ejemplo:**
-```python
+```{code-cell} ipython3
 d1 = {"a": 1, "b": [1, 2], "c": "x"}
 d2 = {"b": [3, 4], "c": "y", "d": 2}
 
