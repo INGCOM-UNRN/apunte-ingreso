@@ -24,7 +24,7 @@ Los fundamentos que aprenderás en este capítulo son universales en programaci�
 
 Todo viaje de programación comienza con el clásico "Hola Mundo". Este programa simple te introduce a la sintaxis básica de Python.
 
-```python
+```{code} python
 print("¡Hola Mundo!")
 ```
 
@@ -40,7 +40,15 @@ Para ejecutar código Python:
 1. Guardá el código en un archivo con extensión `.py` (ejemplo: `hola.py`)
 2. Ejecutalo desde la terminal: `python hola.py`
 3. O usá el modo interactivo ejecutando simplemente `python` y escribiendo el código línea por línea
+4. **¡O probalo directamente aquí abajo!** Hacé clic en "run" para ejecutar el código
 :::
+
+**¡Probalo vos mismo!** Modificá el mensaje y hacé clic en "run":
+
+```{code-cell} ipython3
+print("¡Hola Mundo!")
+print("Esta es mi primera línea de código en Python")
+```
 
 ---
 
@@ -60,7 +68,24 @@ altura = 1.65
 es_estudiante = True
 ```
 
-:::{note} Nomenclatura de Variables
+**¡Probalo interactivamente!** Creá tus propias variables y mostrá sus valores:
+
+```{code-cell} ipython3
+# Creamos variables
+edad = 18
+nombre = "Ana"
+altura = 1.65
+es_estudiante = True
+
+# Mostramos los valores
+print(f"Nombre: {nombre}")
+print(f"Edad: {edad}")
+print(f"Altura: {altura}m")
+print(f"¿Es estudiante?: {es_estudiante}")
+```
+
+:::{note} Nomenclatura de Variables 
+
 Según la {ref}`0x0001h`, los nombres de variables deben ser descriptivos. En Python, se usa `snake_case`: palabras en minúscula separadas por guiones bajos.
 
 **Nombres apropiados:**
@@ -71,6 +96,7 @@ Según la {ref}`0x0001h`, los nombres de variables deben ser descriptivos. En Py
 **Nombres inapropiados:**
 - `x`, `a`, `dato` (poco descriptivos)
 - `PrecioTotal` (no es snake_case)
+
 :::
 
 ### Reglas para Nombres de Variables
@@ -106,6 +132,26 @@ print(contador)  # Salida: 5
 
 contador = contador + 1
 print(contador)  # Salida: 6
+```
+
+**Experimentá con reasignación:**
+
+```{code-cell} ipython3
+# Inicializa el contador
+contador = 0
+print(f"Valor inicial: {contador}")
+
+# Cambio el valor
+contador = 5
+print(f"Después de asignar 5: {contador}")
+
+# Incremento en 1
+contador = contador + 1
+print(f"Después de incrementar: {contador}")
+
+# Experimento: duplicamos el valor
+contador = contador * 2
+print(f"Después de duplicar: {contador}")
 ```
 
 :::{important} Inicialización de Variables
@@ -229,6 +275,28 @@ activo = True
 print(type(activo))  # Salida: <class 'bool'>
 ```
 
+**Experimentá con tipos de datos:**
+
+```{code-cell} ipython3
+# Diferentes tipos de datos
+edad = 25
+altura = 1.75
+nombre = "Ana"
+activo = True
+
+# Verificamos los tipos
+print(f"edad es de tipo: {type(edad)}")
+print(f"altura es de tipo: {type(altura)}")
+print(f"nombre es de tipo: {type(nombre)}")
+print(f"activo es de tipo: {type(activo)}")
+
+# Ejemplo: tipo de operaciones
+resultado_suma = 5 + 3
+resultado_division = 10 / 2
+print(f"\n5 + 3 = {resultado_suma}, tipo: {type(resultado_suma)}")
+print(f"10 / 2 = {resultado_division}, tipo: {type(resultado_division)}")
+```
+
 ### Tabla Resumen de Tipos Básicos
 
 | Tipo | Nombre | Ejemplo | Descripción |
@@ -275,6 +343,26 @@ print(resultado)  # Salida: 2
 # Potenciación
 resultado = 2 ** 3
 print(resultado)  # Salida: 8
+```
+
+**¡Experimentá con operadores aritméticos!**
+
+```{code-cell} ipython3
+# Operadores aritméticos básicos
+print("=== OPERADORES ARITMÉTICOS ===")
+print(f"5 + 3 = {5 + 3}")
+print(f"10 - 4 = {10 - 4}")
+print(f"7 * 6 = {7 * 6}")
+print(f"15 / 3 = {15 / 3}")
+print(f"17 // 5 = {17 // 5} (división entera)")
+print(f"17 % 5 = {17 % 5} (módulo/resto)")
+print(f"2 ** 3 = {2 ** 3} (potencia)")
+
+# Ejemplo práctico: cálculo de área
+base = 5
+altura = 10
+area = (base * altura) / 2
+print(f"\nÁrea de triángulo (base={base}, altura={altura}): {area}")
 ```
 
 :::{note} Espaciado en Operadores
@@ -391,6 +479,28 @@ print(5 <= 5)   # Salida: True
 print(8 <= 5)   # Salida: False
 ```
 
+**Probá operadores de comparación:**
+
+```{code-cell} ipython3
+# Operadores de comparación
+print("=== OPERADORES DE COMPARACIÓN ===")
+
+edad = 18
+print(f"edad = {edad}")
+print(f"edad == 18: {edad == 18}")
+print(f"edad != 16: {edad != 16}")
+print(f"edad > 16: {edad > 16}")
+print(f"edad >= 18: {edad >= 18}")
+print(f"edad < 21: {edad < 21}")
+print(f"edad <= 18: {edad <= 18}")
+
+# Ejemplo práctico
+precio = 100
+descuento_disponible = precio > 50
+print(f"\nPrecio: ${precio}")
+print(f"¿Descuento disponible? (precio > 50): {descuento_disponible}")
+```
+
 :::{important} Comparación vs Asignación
 No confundas el operador de comparación `==` con el de asignación `=`:
 
@@ -481,6 +591,40 @@ print(not True)   # Salida: False
 print(not False)  # Salida: True
 ```
 
+**Experimentá con operadores lógicos:**
+
+```{code-cell} ipython3
+# Operadores lógicos
+print("=== OPERADORES LÓGICOS ===")
+
+edad = 20
+tiene_licencia = True
+tiene_seguro = False
+
+# AND: ambas deben ser verdaderas
+puede_conducir = edad >= 18 and tiene_licencia
+print(f"Edad: {edad}, Tiene licencia: {tiene_licencia}")
+print(f"¿Puede conducir? (edad >= 18 AND tiene_licencia): {puede_conducir}")
+
+# OR: al menos una debe ser verdadera
+es_fin_semana = True
+es_feriado = False
+puede_descansar = es_fin_semana or es_feriado
+print(f"\n¿Fin de semana?: {es_fin_semana}, ¿Feriado?: {es_feriado}")
+print(f"¿Puede descansar? (fin_semana OR feriado): {puede_descansar}")
+
+# NOT: invierte el valor
+esta_lloviendo = False
+buen_tiempo = not esta_lloviendo
+print(f"\n¿Está lloviendo?: {esta_lloviendo}")
+print(f"¿Hace buen tiempo? (NOT lloviendo): {buen_tiempo}")
+
+# Combinación compleja
+print(f"\n¿Puede conducir legalmente?")
+puede_conducir_legal = edad >= 18 and tiene_licencia and tiene_seguro
+print(f"(edad >= 18 AND licencia AND seguro): {puede_conducir_legal}")
+```
+
 ### Combinando Operadores Lógicos
 
 ```python
@@ -558,6 +702,42 @@ print(f"Mi nombre es {nombre} y tengo {edad} años")
 precio = 19.99
 print(f"El precio es ${precio:.2f}")
 # Salida: El precio es $19.99
+```
+
+**Experimentá con `print()` y f-strings:**
+
+```{code-cell} ipython3
+# Salida con print()
+print("=== SALIDA CON PRINT ===")
+
+nombre = "Carlos"
+edad = 25
+altura = 1.75
+precio = 99.99
+
+# Diferentes formas de imprimir
+print("Hola Mundo")
+print("Nombre:", nombre)
+print("Edad:", edad, "años")
+
+# F-strings (preferidos)
+print(f"\n=== F-STRINGS ===")
+print(f"Mi nombre es {nombre} y tengo {edad} años")
+print(f"Mido {altura}m de altura")
+
+# Formateo numérico
+print(f"\nPrecio sin formato: ${precio}")
+print(f"Precio con 2 decimales: ${precio:.2f}")
+print(f"Precio con 0 decimales: ${precio:.0f}")
+
+# Expresiones dentro de f-strings
+print(f"\nEl próximo año tendré {edad + 1} años")
+print(f"Mi nombre tiene {len(nombre)} letras")
+
+# Alineación y formato
+for i in range(1, 6):
+    cuadrado = i ** 2
+    print(f"{i:2d} al cuadrado es {cuadrado:3d}")
 ```
 
 :::{tip} F-strings son preferibles
@@ -656,6 +836,44 @@ print(bool("hola")) # Salida: True
 print(bool(""))     # Salida: False
 ```
 
+**¡Experimentá con conversiones de tipos!**
+
+```{code-cell} ipython3
+# Conversión de tipos (casting)
+print("=== CONVERSIÓN DE TIPOS ===\n")
+
+# String a número
+numero_str = "42"
+numero_int = int(numero_str)
+print(f"String '{numero_str}' convertido a int: {numero_int}")
+print(f"Tipo: {type(numero_int)}")
+
+precio_str = "19.99"
+precio_float = float(precio_str)
+print(f"\nString '{precio_str}' convertido a float: {precio_float}")
+print(f"Tipo: {type(precio_float)}")
+
+# Número a string
+edad = 25
+edad_str = str(edad)
+print(f"\nInt {edad} convertido a string: '{edad_str}'")
+print(f"Tipo: {type(edad_str)}")
+
+# Float a int (trunca decimales)
+altura = 1.85
+altura_int = int(altura)
+print(f"\nFloat {altura} convertido a int: {altura_int} (se truncan decimales)")
+
+# Conversiones a bool
+print("\n=== CONVERSIÓN A BOOL ===")
+print(f"bool(1) = {bool(1)}")
+print(f"bool(0) = {bool(0)}")
+print(f"bool('hola') = {bool('hola')}")
+print(f"bool('') = {bool('')}")
+print(f"bool(3.14) = {bool(3.14)}")
+print(f"bool(0.0) = {bool(0.0)}")
+```
+
 ### Conversiones Implícitas
 
 Python realiza algunas conversiones automáticamente:
@@ -680,6 +898,45 @@ print("Tengo " + str(edad) + " años")  # ✓ Correcto
 | `float()` | Flotante | `float("3.14")` → `3.14` |
 | `str()` | String | `str(42)` → `"42"` |
 | `bool()` | Booleano | `bool(1)` → `True` |
+
+**Practicá conversiones de tipos:**
+
+```{code-cell} ipython3
+# Conversión de tipos (casting)
+print("=== CONVERSIÓN DE TIPOS ===")
+
+# String a número
+numero_str = "42"
+numero_int = int(numero_str)
+print(f"String '42' a int: {numero_int}, tipo: {type(numero_int)}")
+
+precio_str = "19.99"
+precio_float = float(precio_str)
+print(f"String '19.99' a float: {precio_float}, tipo: {type(precio_float)}")
+
+# Número a string
+edad = 25
+edad_str = str(edad)
+print(f"Int 25 a string: '{edad_str}', tipo: {type(edad_str)}")
+
+# Float a int (trunca decimales)
+altura = 1.85
+altura_int = int(altura)
+print(f"\nFloat 1.85 a int: {altura_int} (se truncan decimales)")
+
+# Conversiones implícitas
+resultado = 5 + 3.5  # int + float = float
+print(f"\n5 (int) + 3.5 (float) = {resultado}, tipo: {type(resultado)}")
+
+# Valores "truthy" y "falsy"
+print("\n=== CONVERSIÓN A BOOLEANO ===")
+print(f"bool(1): {bool(1)}")
+print(f"bool(0): {bool(0)}")
+print(f"bool('hola'): {bool('hola')}")
+print(f"bool(''): {bool('')}")
+print(f"bool([1, 2, 3]): {bool([1, 2, 3])}")
+print(f"bool([]): {bool([])}")
+```
 
 ---
 

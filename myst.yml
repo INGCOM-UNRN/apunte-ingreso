@@ -4,6 +4,8 @@ project:
   id: 8d0e6d11-6a89-4a3e-84ef-75c014d3e33f
   title: Apunte de Ingreso - Ingeniería en Computación
   description: Material didáctico para el curso de ingreso a Ingeniería en Computación. Introducción a la programación con Python desde cero.
+  jupyter:
+    lite: true
   keywords: 
     - python
     - programación
@@ -32,6 +34,3 @@ site:
     logo_text: "Ingreso - Ing. Computación"
     # favicon: favicon.ico
     # logo: site_logo.png
-  launch:
-    thebe: true
-    pyodide: true # Usa Pyodide para ejecutar en el navegador
