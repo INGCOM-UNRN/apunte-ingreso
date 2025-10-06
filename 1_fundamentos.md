@@ -1,6 +1,6 @@
 ---
 title: Fundamentos de Programación en Python
-short_title: Fundamentos
+short_title: 1 - Fundamentos
 subtitle: Introducción a la programación, variables, tipos de datos y operadores.
 ---
 

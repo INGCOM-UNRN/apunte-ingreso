@@ -1,6 +1,6 @@
 ---
 title: Control de Flujo
-short_title: Control de Flujo
+short_title: 2 - Control de Flujo
 subtitle: Condicionales y estructuras de repetición en Python.
 ---
 

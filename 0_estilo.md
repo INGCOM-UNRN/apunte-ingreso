@@ -1,5 +1,6 @@
-title: Cuestiones de estilo en Python
-short_title: 0x0000h - Estilo Python
+---
+title: Cuestiones de estilo
+short_title: 0x0000h - Estilo
 subtitle: Pautas para la organización y prolijidad del código en Python basadas en PEP 8 y buenas prácticas.
 ---
 

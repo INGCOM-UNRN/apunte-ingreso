@@ -1,6 +1,6 @@
 ---
 title: Manejo de Excepciones
-short_title: Excepciones
+short_title: 6 - Excepciones
 subtitle: Control robusto de errores, debugging y validación de datos.
 ---
 

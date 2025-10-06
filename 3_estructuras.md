@@ -1,6 +1,6 @@
 ---
 title: Estructuras de Datos
-short_title: Estructuras de Datos
+short_title: 3 - Estructuras de Datos
 subtitle: Listas, tuplas, diccionarios, sets y strings avanzados en Python.
 ---
 

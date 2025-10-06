@@ -1,6 +1,6 @@
 ---
 title: Funciones
-short_title: Funciones
+short_title: 4 - Funciones
 subtitle: Definición, parámetros, scope, documentación y buenas prácticas.
 ---
 
