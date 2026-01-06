@@ -28,7 +28,7 @@ graph TD
     style F fill:#c8e6c9
 ```
 
-**⏱️ Tiempo estimado:**5-7 horas
+**⏱️ Tiempo estimado:** 5-7 horas
 
 **Lo que vas a aprender:**
 - Cómo hacer que tu programa tome decisiones (`if`, `elif`, `else`)
@@ -98,15 +98,12 @@ graph LR
 Eso es **control de flujo**: tu programa "mira" la situación y **decide** qué hacer, como vos decidís según el color del semáforo.
 
 :::{important} ¿Por qué es tan importante?
-El control de flujo es lo que convierte un programa **simple** en una herramienta **poderosa**:
+El control de flujo es lo que convierte una secuencia fija de instrucciones en un programa que puede:
 
 - **Tomar decisiones** basadas en datos
 - **Evitar repetir código** (no copies y pegues 100 veces)
 - **Crear programas interactivos** que responden al usuario
 - **Manejar diferentes escenarios** en el mismo programa
-
-**Sin control de flujo:** Solo podés hacer calculadoras básicas  
-**Con control de flujo:** Podés hacer juegos, aplicaciones, sistemas completos.
 :::
 
 ### Ejemplos del Mundo Real
@@ -117,27 +114,27 @@ Todos estos usan control de flujo:
 :gutter: 2
 
 ::::{grid-item-card} 🏧 Cajero Automático
-- **Decisión:**¿El PIN es correcto?
-- **Repetición:**Permitir 3 intentos
-- **Menú:**Repetir hasta que elija "Salir"
+- **Decisión:** ¿El PIN es correcto?
+- **Repetición:** Permitir 3 intentos
+- **Menú:** Repetir hasta que elija "Salir"
 ::::
 
 ::::{grid-item-card} 🎮 Videojuego
-- **Decisión:**¿El jugador chocó?
-- **Repetición:**Loop principal del juego
-- **Validación:**¿Quedan vidas?
+- **Decisión:** ¿El jugador chocó?
+- **Repetición:** Loop principal del juego
+- **Validación:** ¿Quedan vidas?
 ::::
 
 ::::{grid-item-card} 🌡️ Termostato
-- **Decisión:**¿Temperatura baja?
-- **Repetición:**Revisar cada minuto
-- **Acción:**Encender/apagar calefacción
+- **Decisión:** ¿Temperatura baja?
+- **Repetición:** Revisar cada minuto
+- **Acción:** Encender/apagar calefacción
 ::::
 
 ::::{grid-item-card} 📱 Aplicación de Mensajes
-- **Decisión:**¿Hay conexión?
-- **Repetición:**Revisar nuevos mensajes
-- **Validación:**¿Mensaje válido?
+- **Decisión:** ¿Hay conexión?
+- **Repetición:** Revisar nuevos mensajes
+- **Validación:** ¿Mensaje válido?
 ::::
 
 :::::
@@ -229,11 +226,11 @@ print("Fin")
 ::::
 
 ::::{grid-item}
-1. **`if`**→ palabra clave
-2. **`edad >= 18`**→ condición (True/False)
-3. **`:`**→ dos puntos (obligatorio)
-4. **Indentación**→ define el bloque
-5. **Sin indent**→ fuera del if
+1. **`if`** → palabra clave
+2. **`edad >= 18`** → condición (True/False)
+3. **`:`** → dos puntos (obligatorio)
+4. **Indentación** → define el bloque
+5. **Sin indentar** → fuera del if
 ::::
 
 :::::
@@ -350,7 +347,7 @@ if soleado:
     print("¡Vamos al parque!")
 # Si no es soleado, no pasa nada
 ```
-**Problema:**¿Y si llueve? 🤷
+**Problema:** ¿Y si llueve? 🤷
 ::::
 
 ::::{grid-item-card} Con `if-else`
@@ -361,7 +358,7 @@ else:
     print("Nos quedamos en casa")
 # Siempre hacemos algo ✓
 ```
-**Mejor:**Cubrimos ambos casos ✅
+**Mejor:** Cubrimos ambos casos ✅
 ::::
 
 :::::
@@ -428,13 +425,13 @@ print(f"\nTu nota fue: {nota}")
 1️⃣ ¿`nota >= 90`? → No (85 < 90)  
    Pasa a la siguiente
 
-2️⃣ ¿`nota >= 70`? → **¡Sí!**(85 >= 70)  
+2️⃣ ¿`nota >= 70`? → **¡Sí!** (85 >= 70)  
    ✅ Ejecuta este bloque  
    🛑 **Se detiene, NO evalúa el resto**
 
-3️⃣ ~~¿`nota >= 60`?~~ → No se evalúa  
-4️⃣ ~~¿`nota >= 40`?~~ → No se evalúa  
-5️⃣ ~~`else`~~ → No se ejecuta
+3️⃣ ~~ ¿`nota >= 60`? ~~ → No se evalúa  
+4️⃣ ~~ ¿`nota >= 40`? ~~ → No se evalúa  
+5️⃣ ~~ `else` ~~ → No se ejecuta
 ::::
 
 ::::{grid-item}
@@ -454,8 +451,10 @@ graph TD
 
 :::::
 
-:::{danger} ¡CUIDADO con el Orden!
+````{danger} Cuidado con el orden!
 El **orden importa muchísimo**. Python evalúa de arriba hacia abajo y ejecuta **solo la primera** condición verdadera:
+
+
 
 :::::{grid} 1 1 2 2
 :gutter: 3
@@ -475,16 +474,16 @@ else:
     print("F")
 ```
 
-**Funciona bien:**85 no pasa el primer filtro, pero sí el segundo.
+**Funciona bien:** 85 no pasa el primer filtro, pero sí el segundo.
 ::::
 
 ::::{grid-item-card} ❌ INCORRECTO
 ```python
 numero = 85
 
-# Orden invertido (¡MAL!)
+# Con el orden invertido, obtenemos el resultado incorrecto
 if numero >= 70:
-    print("C+")  # ✗ Siempre gana
+    print("C+")  # ✗ ¡Siempre gana!
 elif numero >= 80:
     print("B")   # Nunca se alcanza
 elif numero >= 90:
@@ -496,10 +495,14 @@ elif numero >= 90:
 
 :::::
 
-**Regla de oro:**Siempre ordená de **más específico/restrictivo** a **menos específico**.
-:::
+````
 
-#### Comparación: if múltiple vs if-elif-else
+
+**Regla de oro:** Siempre ordená de **más específico/restrictivo** a **menos específico**.
+
+
+
+#### Comparación: `if` múltiple vs `if`-`elif`-`else`
 
 :::::{grid} 1 1 2 2
 :gutter: 3
@@ -523,7 +526,10 @@ Adolescente
 Persona
 ```
 
-**Se ejecutan TODAS las que sean True**
+**Se ejecutan TODAS las que sean `True`**
+
+Como son tres estructuras condicionales separadas, obtenemos tres resultados diferentes.
+
 ::::
 
 ::::{grid-item-card} Con `if-elif-else`
@@ -544,6 +550,8 @@ Adulto
 ```
 
 **Se ejecuta SOLO LA PRIMERA `True`**
+
+Como es una única estructura condicional, obtenemos un solo resultado, el primero que coincida.
 ::::
 
 :::::
