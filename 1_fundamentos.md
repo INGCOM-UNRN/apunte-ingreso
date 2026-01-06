@@ -7,33 +7,159 @@ subtitle: Introducción a la programación, variables, tipos de datos y operador
 (fundamentos)=
 # Fundamentos de Programación en Python
 
+::::{admonition} Mapa del Capítulo
+:class: tip dropdown
+
+Este capítulo es tu introducción al mundo de la programación. Vas a aprender los conceptos básicos que usarás **todos los días** como programador.
+
+```{mermaid}
+graph TD
+    A[Introducción] --> B[Variables]
+    B --> C[Tipos de Datos]
+    C --> D[Operadores]
+    D --> E[Entrada/Salida]
+    E --> F[Conversión de Tipos]
+    F --> G[Errores Comunes]
+    G --> H[Ejercicios]
+    
+    style A fill:#e3f2fd
+    style B fill:#e3f2fd
+    style C fill:#e3f2fd
+    style D fill:#e3f2fd
+    style E fill:#e3f2fd
+    style F fill:#e3f2fd
+    style G fill:#fff3e0
+    style H fill:#c8e6c9
+```
+
+**⏱️ Tiempo estimado:** 4-6 horas (incluye lectura, práctica y ejercicios)
+
+**Lo que vas a aprender:**
+- Cómo crear y usar variables para guardar información
+- Los 4 tipos de datos básicos: números, texto y booleanos
+- Operadores para hacer cálculos y comparaciones
+- Cómo interactuar con el usuario
+- Errores comunes y cómo evitarlos
+
+**Al final de este capítulo podrás:**
+- Escribir programas simples que pidan datos y muestren resultados
+- Hacer cálculos matemáticos en Python
+- Entender mensajes de error y corregirlos
+::::
+
 ## Introducción y Motivación
 
-La programación es el arte de dar instrucciones precisas a una computadora para resolver problemas. A través de este capítulo, aprenderás los conceptos fundamentales que son la base de todo programa: cómo almacenar información, cómo realizar cálculos y cómo comunicarte con el usuario.
+### ¿Qué es programar? 
 
-Python es un lenguaje de programación moderno, potente y fácil de aprender. Es utilizado en desarrollo web, análisis de datos, inteligencia artificial, automatización y muchos otros campos. Su sintaxis clara y legible lo convierte en una excelente elección para aprender a programar.
+Imaginate que tenés un robot muy obediente, pero que solo entiende instrucciones muy precisas. No podés decirle "hacé la tarea", sino que tenés que explicarle paso por paso: "tomá el lápiz", "abrí el cuaderno en la página 5", "escribí tu nombre", etc. **Programar es exactamente eso: dar instrucciones muy detalladas y precisas a una computadora para que resuelva problemas.**
 
-:::{important} ¿Por qué estos conceptos son importantes?
-Los fundamentos que aprenderás en este capítulo son universales en programación. Una vez que comprendas variables, tipos de datos y operadores, podrás aplicar estos conceptos en cualquier lenguaje de programación.
-:::
+La computadora es como ese robot: increíblemente rápida y precisa, pero necesita que le expliques **exactamente** qué hacer. A través de este capítulo, vas a aprender el "lenguaje" para comunicarte con ella.
+
+### ¿Por qué Python? 🐍
+
+Python es como el español de los lenguajes de programación: es claro, fácil de leer y lo entiende mucha gente (o mejor dicho, muchas computadoras). Compará estos dos ejemplos:
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} Otros lenguajes (más complicados)
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("¡Hola Mundo!");
+    }
+}
+```
+::::
+
+::::{grid-item-card} Python (¡simple!)
+```python
+print("¡Hola Mundo!")
+```
+::::
+
+:::::
+
+¿Ves la diferencia? Python te permite concentrarte en **qué** querés hacer, no en detalles técnicos complicados.
+
+::::{important} ¿Por qué estos conceptos son importantes?
+Los fundamentos que vas a aprender en este capítulo son **universales** en programación. Son como aprender a sumar, restar y multiplicar: una vez que los sabés, podés aplicarlos en cualquier contexto. Lo mismo pasa con variables, tipos de datos y operadores: los vas a usar en **cualquier** lenguaje de programación que aprendas en el futuro.
+
+```{mermaid}
+graph LR
+    A[Fundamentos<br/>Python] --> B[JavaScript]
+    A --> C[Java]
+    A --> D[C++]
+    A --> E[Cualquier<br/>lenguaje]
+    
+    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    style B fill:#fff3e0,stroke:#f57c00
+    style C fill:#fff3e0,stroke:#f57c00
+    style D fill:#fff3e0,stroke:#f57c00
+    style E fill:#fff3e0,stroke:#f57c00
+```
+::::
 
 ---
 
 (primer-programa)=
 ## Tu Primer Programa
 
-Todo viaje de programación comienza con el clásico "Hola Mundo". Este programa simple te introduce a la sintaxis básica de Python.
+### El legendario "Hola Mundo" 👋
+
+Desde 1972, **todos** los programadores del mundo empiezan con el mismo programa: mostrar "Hola Mundo" en la pantalla. Es una tradición que conecta a millones de personas que aprenden a programar. ¡Ahora te toca a vos!
 
 ```{code-cell} ipython3
 print("¡Hola Mundo!")
 ```
 
-**Salida:**
-```
-¡Hola Mundo!
-```
+:::{admonition} ¡Felicitaciones!
+:class: tip
 
-La función `print()` muestra texto en la pantalla. El texto entre comillas (`"..."` o `'...'`) se llama **cadena de texto** o **string**.
+Si ejecutaste ese código y viste `"¡Hola Mundo!"` en la pantalla, **ya sos un programador**. No importa si no entendés todo todavía: acabás de darle una instrucción a la computadora y ella la ejecutó. Eso es programar.
+:::
+
+### Anatomía de tu primer programa 
+
+Diseccionemos ese programa línea por línea:
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item}
+```python
+print("¡Hola Mundo!")
+```
+::::
+
+::::{grid-item}
+```{mermaid}
+graph LR
+    A[print] --> B["( )"]
+    B --> C["'¡Hola Mundo!'"]
+    
+    style A fill:#e3f2fd
+    style B fill:#fff3e0
+    style C fill:#c8e6c9
+```
+::::
+
+:::::
+
+- **`print`** es una **función** (un comando que hace algo)
+- **`(...)`** los paréntesis indican que es una función
+- **`"¡Hola Mundo!"`** es el texto (string) que queremos mostrar
+
+:::{note} Nota sobre las comillas
+El texto **siempre** va entre comillas (`"..."` o `'...'`). Sin comillas, Python pensaría que es el nombre de una variable.
+
+```python
+print("Hola")  # ✓ Correcto: muestra "Hola"
+print(Hola)    # ✗ Error: busca una variable llamada "Hola"
+```
+:::
+
+La función `print()` muestra texto en la pantalla. El texto entre comillas se llama **cadena de texto** o **string**.
 
 :::{tip} Ejecutando código Python
 Para ejecutar código Python:
@@ -55,7 +181,27 @@ print("Esta es mi primera línea de código en Python")
 (variables)=
 ## Variables: Almacenando Información
 
-Una **variable** es un nombre que le damos a un espacio en la memoria de la computadora donde almacenamos un valor. Pensá en las variables como cajas etiquetadas donde guardás información.
+### ¿Qué es una variable? 
+
+Imaginate que tenés muchas cajas para guardar cosas. Cada caja tiene una **etiqueta** con un nombre (como "juguetes", "libros", "ropa") y **adentro** guardás algo específico. Una **variable** en programación es exactamente eso: una caja con un nombre donde guardás información.
+
+![Variables como cajas](./1_fundamentos/variable_caja.svg)
+
+::::{admonition} Analogía del mundo real
+:class: tip
+
+Pensá en tu mochila escolar:
+- **Variable**: `peso_mochila`
+- **Valor**: `5` (kilogramos)
+
+Cuando decís "mi mochila pesa 5 kilos", estás creando mentalmente una "variable" llamada `peso_mochila` que almacena el valor `5`. En Python hacemos exactamente lo mismo, pero escribiéndolo:
+
+```python
+peso_mochila = 5
+```
+::::
+
+La diferencia es que en la computadora podés tener un montón de estas "cajas" al mismo tiempo, y Python te ayuda a organizarlas.
 
 ### Crear una Variable
 
@@ -84,9 +230,9 @@ print(f"Altura: {altura}m")
 print(f"¿Es estudiante?: {es_estudiante}")
 ```
 
-:::{note} Nomenclatura de Variables 
+:::{note} Nomenclatura de variables 
 
-Según la {ref}`0x0001h`, los nombres de variables deben ser descriptivos. En Python, se usa `snake_case`: palabras en minúscula separadas por guiones bajos.
+Según la {ref}`0x0001h`, los nombres de variables deben ser descriptivos, cuando hay pocas cajas es relativamente facil seguir que hacen en el programa, pero esto ser claro los va a ayudar a leer de forma mas directa sus programa. Y por otro lado, en Python, se usa `snake_case`: palabras en minúscula separadas por guiones bajos.
 
 **Nombres apropiados:**
 - `edad_usuario`
@@ -99,9 +245,9 @@ Según la {ref}`0x0001h`, los nombres de variables deben ser descriptivos. En Py
 
 :::
 
-### Reglas para Nombres de Variables
+### Reglas para nombres de variables
 
-1. Deben comenzar con una letra o guión bajo (`_`)
+1. Deben comenzar con una letra y pueden comenzar con guión bajo (`_`)
 2. Pueden contener letras, números y guiones bajos
 3. No pueden contener espacios ni caracteres especiales
 4. Son sensibles a mayúsculas y minúsculas (`edad` ≠ `Edad`)
@@ -172,28 +318,108 @@ print(resultado)  # Salida: 0
 (tipos-datos)=
 ## Tipos de Datos Básicos
 
-Python maneja diferentes tipos de datos. Cada tipo tiene características y usos específicos.
+### ¿Por qué existen diferentes tipos? 
 
-### Números Enteros (`int`)
+Así como en el mundo real usamos diferentes tipos de información (números para contar, palabras para hablar, respuestas de sí/no para decidir), Python necesita saber **qué tipo** de información estás guardando en cada variable. No es lo mismo sumar números (`5 + 3 = 8`) que unir palabras (`"Hola" + "Mundo" = "HolaMundo"`).
 
-Los enteros representan números sin decimales, positivos o negativos.
+Python tiene cuatro tipos básicos que son como los "bloques de construcción" de cualquier programa:
+
+![Tipos de datos en Python](./1_fundamentos/tipos_datos.svg)
+
+Veamos cada uno en detalle:
+
+### Números Enteros (`int`) 
+
+Los **enteros** son números sin decimales. Son los que usarías para contar cosas: personas, días, años, etc.
+
+::::{grid} 1 1 2 2
+
+:::{grid-item}
+**Ejemplos de la vida real:**
+- Tu edad: 18 años
+- Días de la semana: 7
+- Temperatura bajo cero: -5°C
+- Habitantes de una ciudad: 1.000.000
+:::
+
+:::{grid-item}
+**En Python:**
+```python
+edad = 18
+temperatura = -5
+año = 2023
+poblacion = 1000000
+```
+:::
+
+::::
+
+:::{tip} ¿Cuándo usar `int`?
+Usá enteros cuando:
+- Contás cosas que no se pueden dividir (personas, autos, libros)
+- Trabajás con años, días, edades
+- No necesitás precisión decimal
+:::
 
 ```{code-cell} ipython3
 edad = 18
 temperatura = -5
 año = 2023
 poblacion = 1000000
+
+print(f"Edad: {edad}")
+print(f"Temperatura: {temperatura}°C")
+print(f"Año: {año}")
+print(f"Población: {poblacion:,} habitantes")
 ```
 
-### Números de Punto Flotante (`float`)
+### Números de Punto Flotante (`float`) 
 
-Los flotantes representan números con decimales.
+Los **flotantes** son números con decimales. Reciben el nombre de "punto flotante" por la forma en la que se guardan las partes enteras y decimales en memoria. Los detalles de esto tienen que ver con que entre dos números decimales hay infinitos números decimales, mientras que la memoria de la computadora es limitada, sin embargo, lo veremos durante la cursada de la carrera, ya que tiene algunos efectos interesantes.
+
+::::{grid} 1 1 2 2
+
+:::{grid-item}
+**Ejemplos de la vida real:**
+- Tu altura: 1.75 metros
+- El valor de π (pi): 3.14159
+- Temperatura precisa: 36.5°C
+:::
+
+:::{grid-item}
+**En Python:**
+```python
+altura = 1.75
+pi = 3.14159
+temperatura = 36.5
+precio = 99.99
+```
+:::
+
+::::
+
+:::{attention} Los decimales en Python
+En Python (y en casi todos los lenguajes de programación), los decimales se escriben con **punto** (`.`), no con coma (`,`). Esta distinción es muy importante, porque utilizar la coma dará código válido pero con un significado completamente diferente.
+
+```python
+# ✓ Correcto
+precio = 99.99
+
+# ✗ Incorrecto
+precio = 99,99  # ¡Esto crea algo diferente!
+```
+:::
 
 ```{code-cell} ipython3
 altura = 1.75
 pi = 3.14159
-temperatura = -3.5
+temperatura = 36.5
 precio = 99.99
+
+print(f"Altura: {altura} m")
+print(f"Pi: {pi}")
+print(f"Temperatura: {temperatura}°C")
+print(f"Precio: ${precio}")
 ```
 
 :::{warning} Precisión de flotantes
@@ -202,18 +428,61 @@ Los números de punto flotante pueden tener pequeños errores de redondeo:
 resultado = 0.1 + 0.2
 print(resultado)  # Salida: 0.30000000000000004
 ```
-Para comparaciones de flotantes, no uses `==`. Esto se verá más adelante.
+Para comparaciones de flotantes, no uses `==`. Esto se verá más adelante en la carrera y está relacionado con el hecho de que los decimales son infinitos entre cualquier par de ellos mientras que la memoria de la computadora no lo es.
 :::
 
-### Cadenas de Texto (`str`)
+### Cadenas de Texto (`str`) 
 
-Las cadenas (strings) representan texto. Se escriben entre comillas simples (`'...'`) o dobles (`"..."`).
+Las **cadenas**(o *strings* en inglés) son simplemente **texto**: palabras, frases, letras. Se llaman "cadenas" porque son como una cadena de caracteres (letras) unidos uno tras otro.
+
+::::{grid} 1 1 2 2
+
+:::{grid-item}
+**Ejemplos de la vida real:**
+- Tu nombre: "María"
+- Un mensaje: "¡Hola!"
+- Una dirección: "Calle 123"
+- Una pregunta: "¿Cómo estás?"
+:::
+
+:::{grid-item}
+**En Python:**
+```python
+nombre = "María"
+apellido = 'González'
+mensaje = "¡Hola! ¿Cómo estás?"
+direccion = 'Calle 123, Ciudad'
+```
+:::
+
+::::
+
+:::{note} Comillas simples vs. dobles
+En Python podés usar comillas simples `'...'` o dobles `"..."`, ¡son exactamente lo mismo! Elegí la que más te guste, pero no olvides ser consistente:
+
+```python
+nombre1 = "Ana"      # Con comillas dobles
+nombre2 = 'Pedro'    # Con comillas simples
+# Ambas son válidas y equivalentes
+```
+
+La única diferencia es cuando querés incluir comillas **dentro** del texto:
+```python
+mensaje1 = "Ella dijo: 'Hola'"   # Simples dentro de dobles ✓
+mensaje2 = 'Él dijo: "Hola"'     # Dobles dentro de simples ✓
+```
+:::
 
 ```{code-cell} ipython3
 nombre = "María"
 apellido = 'González'
 mensaje = "¡Hola! ¿Cómo estás?"
 direccion = 'Calle 123, Ciudad'
+
+print(nombre)
+print(apellido)
+print(mensaje)
+print(direccion)
 ```
 
 **Cadenas multilínea:**
@@ -247,15 +516,66 @@ print(largo)  # Salida: 10
 
 ### Booleanos (`bool`)
 
-Los booleanos representan valores de verdad: `True` (verdadero) o `False` (falso).
+Los **booleanos** son el tipo más simple: solo pueden tener **dos valores posibles**: `True` (verdadero) o `False` (falso). Es como un interruptor de luz: está prendido o apagado, no hay término medio.
+
+::::{grid} 1 1 2 2
+
+:::{grid-item}
+**Ejemplos de la vida real:**
+- ¿Es mayor de edad? Sí/No
+- ¿Está lloviendo? Verdadero/Falso
+- ¿Tenés descuento? True/False
+- ¿El usuario está logueado? ✓/✗
+:::
+
+:::{grid-item}
+**En Python:**
+```python
+es_mayor_edad = True
+tiene_descuento = False
+esta_lloviendo = False
+usuario_activo = True
+```
+:::
+
+::::
+
+:::{important} ¿Para qué sirven?
+Los booleanos son **fundamentales** para que tu programa tome decisiones. Por ejemplo:
+
+```python
+if es_mayor_edad:
+    print("Puede votar")
+else:
+    print("No puede votar todavía")
+```
+
+Vas a ver esto en detalle en el próximo capítulo, pero la idea es: los booleanos permiten que tu programa haga cosas diferentes según si algo es verdadero o falso.
+:::
+
+:::{caution} Primera letra en mayúscula
+En Python, los valores booleanos se escriben con la **primera letra en MAYÚSCULA**:
+
+```python
+# ✓ Correcto
+activo = True
+inactivo = False
+
+# ✗ Incorrecto
+activo = true    # ¡Error! Python no reconoce "true"
+activo = TRUE    # ¡Error! Tampoco "TRUE"
+```
+:::
 
 ```{code-cell} ipython3
 es_mayor_edad = True
 tiene_descuento = False
 esta_lloviendo = False
-```
 
-Los booleanos son fundamentales para tomar decisiones en el código (que verás en el siguiente capítulo).
+print(f"¿Es mayor de edad? {es_mayor_edad}")
+print(f"¿Tiene descuento? {tiene_descuento}")
+print(f"¿Está lloviendo? {esta_lloviendo}")
+```
 
 ### Verificar el Tipo de una Variable
 
@@ -297,7 +617,7 @@ print(f"\n5 + 3 = {resultado_suma}, tipo: {type(resultado_suma)}")
 print(f"10 / 2 = {resultado_division}, tipo: {type(resultado_division)}")
 ```
 
-### Tabla Resumen de Tipos Básicos
+### Tabla resumen de tipos básicos
 
 | Tipo | Nombre | Ejemplo | Descripción |
 |------|--------|---------|-------------|
@@ -311,9 +631,15 @@ print(f"10 / 2 = {resultado_division}, tipo: {type(resultado_division)}")
 (operadores-aritmeticos)=
 ## Operadores Aritméticos
 
-Python soporta las operaciones matemáticas básicas y algunas adicionales.
+### ¿Qué son los operadores? 
 
-### Operadores Básicos
+Los **operadores** son símbolos que le dicen a Python qué operación matemática querés hacer. Es como los botones de una calculadora: cada uno hace algo diferente (sumar, restar, multiplicar, etc.).
+
+![Operadores Aritméticos en Python](./1_fundamentos/operadores_aritmeticos.svg)
+
+Python tiene los operadores que ya conocés de matemática, ¡y algunos extras muy útiles!
+
+### Operadores básicos
 
 ```{code-cell} ipython3
 # Suma
@@ -356,7 +682,7 @@ print(f"7 * 6 = {7 * 6}")
 print(f"15 / 3 = {15 / 3}")
 print(f"17 // 5 = {17 // 5} (división entera)")
 print(f"17 % 5 = {17 % 5} (módulo/resto)")
-print(f"2 ** 3 = {2 ** 3} (potencia)")
+print(f"2 **3 = {2 ** 3} (potencia)")
 
 # Ejemplo práctico: cálculo de área
 base = 5
@@ -379,12 +705,18 @@ resultado = 10 + 5 * 2
 
 ### Orden de Precedencia
 
-Python sigue el orden matemático estándar (PEMDAS):
+Cuando tenés varias operaciones en una misma expresión, Python necesita saber **en qué orden** hacerlas. Imaginate que tenés que resolver: `2 + 3 × 4`. ¿Hacés primero la suma o la multiplicación? 
 
-1. **P**aréntesis
-2. **E**xponenciación (`**`)
-3. **M**ultiplicación, **D**ivisión, División entera, Módulo (`*`, `/`, `//`, `%`)
-4. **S**uma, **R**esta (`+`, `-`)
+Python sigue el orden matemático estándar que aprendiste en la escuela (PEMDAS):
+
+![Orden de Precedencia](./1_fundamentos/precedencia_operadores.svg)
+
+:::{important} La regla PEMDAS
+1. **P**aréntesis → Primero lo que está entre `( )`
+2. **E**xponenciación → Después las potencias `**`
+3. **M**ultiplicación / **D**ivisión → Luego `*`, `/`, `//`, `%` (de izquierda a derecha)
+4. **S**uma / Resta → Por último `+`, `-` (de izquierda a derecha)
+:::
 
 ```{code-cell} ipython3
 # Sin paréntesis
@@ -397,7 +729,7 @@ print(resultado)  # Salida: 20 (primero 2+3, luego *4)
 ```
 
 :::{tip} Usar paréntesis para claridad
-Aunque conozcas la precedencia de operadores, usar paréntesis hace el código más claro:
+Aunque conozcas la precedencia de operadores, usar paréntesis hace el código explícitamente claro:
 
 ```{code-cell} ipython3
 # Menos claro
@@ -408,48 +740,65 @@ total = (precio * cantidad) + (descuento * 0.1)
 ```
 :::
 
-### Operadores de Asignación Compuesta
-
-Python permite combinar operaciones con asignación:
-
-```{code-cell} ipython3
-contador = 10
-
-# Equivalente a: contador = contador + 5
-contador += 5
-print(contador)  # Salida: 15
-
-# Equivalente a: contador = contador - 3
-contador -= 3
-print(contador)  # Salida: 12
-
-# Equivalente a: contador = contador * 2
-contador *= 2
-print(contador)  # Salida: 24
-
-# Equivalente a: contador = contador / 4
-contador /= 4
-print(contador)  # Salida: 6.0
-```
-
 ### Tabla Resumen de Operadores Aritméticos
 
-| Operador | Operación | Ejemplo | Resultado |
-|----------|-----------|---------|-----------|
-| `+` | Suma | `5 + 3` | `8` |
-| `-` | Resta | `10 - 4` | `6` |
-| `*` | Multiplicación | `7 * 6` | `42` |
-| `/` | División | `15 / 3` | `5.0` |
-| `//` | División entera | `17 // 5` | `3` |
-| `%` | Módulo (resto) | `17 % 5` | `2` |
-| `**` | Potenciación | `2 ** 3` | `8` |
+::::{tab-set}
+
+:::{tab-item} Operadores Básicos
+| Operador | Operación | Ejemplo | Resultado | Tipo |
+|----------|-----------|---------|-----------|------|
+| `+` | Suma | `5 + 3` | `8` | `int` |
+| `-` | Resta | `10 - 4` | `6` | `int` |
+| `*` | Multiplicación | `7 * 6` | `42` | `int` |
+| `/` | División | `15 / 3` | `5.0` | `float` |
+:::
+
+:::{tab-item} Operadores Avanzados
+| Operador | Operación | Ejemplo | Resultado | ¿Para qué sirve? |
+|----------|-----------|---------|-----------|------------------|
+| `//` | División entera | `17 // 5` | `3` | Descarta decimales |
+| `%` | Módulo (resto) | `17 % 5` | `2` | Da el resto de la división |
+| `**` | Potenciación | `2 **3` | `8` | Eleva a una potencia |
+:::
+
+:::{tab-item} Ejemplos Prácticos
+```python
+# División normal vs. entera
+print(17 / 5)   # 3.4 (resultado con decimales)
+print(17 // 5)  # 3 (solo la parte entera)
+
+# Módulo: útil para saber si un número es par
+print(10 % 2)   # 0 (es par, resto 0)
+print(11 % 2)   # 1 (es impar, resto 1)
+
+# Potenciación: para áreas y volúmenes
+radio = 5
+area = 3.14159 * radio **2  # π × r²
+print(f"Área del círculo: {area}")
+```
+:::
+
+::::
 
 ---
 
 (operadores-comparacion)=
 ## Operadores de Comparación
 
-Los operadores de comparación comparan dos valores y retornan un booleano (`True` o `False`).
+### Comparando valores 
+
+Los **operadores de comparación** comparan dos valores y te dicen si algo es verdadero o falso. Es como cuando comparás tu altura con la de un amigo: "¿Soy más alto que Juan?" → la respuesta es Sí (`True`) o No (`False`).
+
+Estos operadores **siempre** devuelven un valor booleano: `True` o `False`.
+
+![Operadores de Comparación](./1_fundamentos/operadores_comparacion.svg)
+
+:::{tip} Pensalo así
+Cada comparación es una **pregunta** que Python responde con verdadero o falso:
+- `edad >= 18` → "¿La edad es mayor o igual a 18?"
+- `nombre == "Ana"` → "¿El nombre es igual a 'Ana'?"
+- `precio < 100` → "¿El precio es menor que 100?"
+:::
 
 ```{code-cell} ipython3
 # Igualdad
@@ -539,7 +888,48 @@ print("Ana" == "ana")   # Salida: False (sensible a mayúsculas)
 (operadores-logicos)=
 ## Operadores Lógicos
 
-Los operadores lógicos permiten combinar expresiones booleanas.
+### Combinando condiciones 
+
+A veces necesitás verificar **múltiples** cosas al mismo tiempo. Por ejemplo: "¿Puedo conducir?" → Necesitás tener 18 años **Y** tener licencia. Acá es donde entran los **operadores lógicos**: te permiten combinar varias condiciones (varios `True`/`False`) en una sola respuesta.
+
+![Operadores Lógicos](./1_fundamentos/operadores_logicos.svg)
+
+Son solo tres, pero muy poderosos:
+
+:::::{grid} 1 1 3 3
+:gutter: 2
+
+::::{grid-item-card} `and` (Y)
+**Ambas** condiciones deben ser verdaderas
+
+```python
+edad >= 18 and tiene_licencia
+```
+
+Solo es `True` si **las dos**son `True`
+::::
+
+::::{grid-item-card} `or` (O)
+**Al menos una** debe ser verdadera
+
+```python
+es_finde or es_feriado
+```
+
+Es `True` si **alguna** (o ambas) es `True`
+::::
+
+::::{grid-item-card} `not` (NO)
+Invierte el valor
+
+```python
+not esta_lloviendo
+```
+
+Convierte `True` en `False` y viceversa
+::::
+
+:::::
 
 ### Operador `and` (Y lógico)
 
@@ -669,7 +1059,23 @@ if puede_votar:
 (entrada-salida)=
 ## Entrada y Salida Básica
 
-Para interactuar con el usuario, necesitamos leer datos de entrada y mostrar resultados.
+### Hablando con el usuario 
+
+Hasta ahora tu programa ha estado "hablando solo". Pero los programas útiles necesitan **interactuar**: pedirle información al usuario y mostrarle resultados. Es como una conversación:
+
+```{mermaid}
+sequenceDiagram
+    participant Usuario
+    participant Programa
+    
+    Programa->>Usuario: "¿Cuál es tu nombre?"
+    Usuario->>Programa: "Ana"
+    Programa->>Usuario: "¡Hola Ana!"
+    
+    Note over Usuario,Programa: Entrada y Salida
+```
+
+Para esto usamos dos funciones fundamentales: `input()` (entrada) y `print()` (salida).
 
 ### Salida: `print()`
 
@@ -736,7 +1142,7 @@ print(f"Mi nombre tiene {len(nombre)} letras")
 
 # Alineación y formato
 for i in range(1, 6):
-    cuadrado = i ** 2
+    cuadrado = i **2
     print(f"{i:2d} al cuadrado es {cuadrado:3d}")
 ```
 
@@ -781,29 +1187,71 @@ edad = int(input("Edad: "))  # Si escribe "veinte" → ValueError
 ```
 :::
 
-### Ejemplo Completo
+### Ejemplo Completo: Tu Primer Programa Interactivo 🎮
+
+Ahora que conocés entrada, salida y procesamiento, veamos cómo se juntan en un programa completo:
+
+![Flujo de un programa](./1_fundamentos/flujo_programa.svg)
+
+Todo programa sigue tres pasos simples:
+1. **Entrada**: Recibir información
+2. **Procesamiento**: Hacer cálculos/operaciones
+3. **Salida**: Mostrar resultados
 
 ```{code-cell} ipython3
 # Programa que calcula el área de un rectángulo
 
-# Entrada
+# 1. ENTRADA: Pedimos datos al usuario
 print("=== Calculadora de Área de Rectángulo ===")
 base = float(input("Ingrese la base en metros: "))
 altura = float(input("Ingrese la altura en metros: "))
 
-# Procesamiento
+# 2. PROCESAMIENTO: Hacemos el cálculo
 area = base * altura
+perimetro = 2 * (base + altura)
 
-# Salida
-print(f"\nEl área del rectángulo es: {area:.2f} m²")
+# 3. SALIDA: Mostramos los resultados
+print(f"\nResultados:")
+print(f"   Área: {area:.2f} m²")
+print(f"   Perímetro: {perimetro:.2f} m")
 ```
+
+:::{exercise} Desafío: Mejorá este programa
+:class: dropdown
+
+¿Podés agregar una validación para que no acepte números negativos? 
+(Pista: usá un `if` para verificar que `base > 0` y `altura > 0`)
+
+Vas a aprender sobre `if` en el próximo capítulo, pero ¡intentalo si te animás!
+:::
 
 ---
 
 (conversion-tipos)=
 ## Conversión de Tipos (Casting)
 
-A veces necesitás convertir un valor de un tipo a otro.
+### Cambiando de un tipo a otro 
+
+A veces tenés información en un tipo, pero necesitás usarla como otro. Por ejemplo: el usuario ingresa su edad como texto (`"18"`), pero vos necesitás un número (`18`) para hacer cálculos. Ahí es donde entra la **conversión de tipos** (o *casting*).
+
+![Conversión de Tipos](./1_fundamentos/conversion_tipos.svg)
+
+:::{important} ¿Cuándo necesitás convertir?
+El caso más común es con `input()`:
+
+```python
+# input() SIEMPRE devuelve un string
+edad = input("Tu edad: ")  # Si ingresás "18", edad = "18" (string)
+
+# Para hacer matemática, necesitás convertir a int
+edad = int(edad)  # Ahora edad = 18 (número)
+edad_futuro = edad + 5  # Ahora sí podés sumar
+```
+
+Sin la conversión, `"18" + 5` daría error (¡no podés sumar texto con números!).
+:::
+
+Es como tener un traductor entre diferentes "idiomas" de datos.
 
 ### Funciones de Conversión
 
@@ -943,40 +1391,138 @@ print(f"bool([]): {bool([])}")
 (errores-comunes)=
 ## Errores Comunes
 
+:::{admonition} ¡No te asustes con los errores!
+:class: tip
+
+Los errores son **normales** y **buenos** (sí, leíste bien). Son la forma que tiene Python de decirte: "Hey, acá hay algo que no entendí". 
+
+Incluso los programadores con años de experiencia cometen errores TODO el tiempo. La diferencia es que saben leerlos y corregirlos rápido. ¡Vos también vas a aprender!
+
+:::
+
 ### 1. Usar una variable sin inicializarla
 
-```{code-cell} ipython3
-# ❌ Incorrecto
-print(total)  # NameError: name 'total' is not defined
+:::::{grid} 1 1 2 2
+:gutter: 3
 
-# ✓ Correcto
-total = 0
-print(total)
+::::{grid-item-card} ❌ Error común
+```python
+print(total)  # NameError: name 'total' is not defined
 ```
 
-### 2. Confundir `=` con `==`
+**¿Por qué falla?**
+Python no sabe qué es `total`. Es como si le preguntaras a alguien "¿cuánto vale X?" sin haberle dicho antes qué es X.
 
-```{code-cell} ipython3
-# ❌ Incorrecto (asignación en lugar de comparación)
+```{danger}
+**Error que verás:**
+```
+NameError: name 'total' is not defined
+```
+::::
+
+::::{grid-item-card} ✅ Solución
+```python
+total = 0  # Primero la creamos
+print(total)  # Ahora sí podemos usarla
+```
+
+**¿Por qué funciona?**
+Primero le decimos a Python "existe una variable llamada `total` y vale 0", **después** la usamos.
+
+:::{tip}
+**Regla de oro:**Siempre inicializá tus variables antes de usarlas.
+:::
+::::
+
+:::::
+
+### 2. Confundir `=` con `==` 
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} ❌ Error común
+```python
 if edad = 18:  # SyntaxError
     print("Mayor de edad")
+```
 
-# ✓ Correcto
-if edad == 18:
+**¿Por qué falla?**
+`=` es para **asignar**(guardar un valor)  
+`==` es para **comparar**(verificar si son iguales)
+
+Los confundiste al revés.
+::::
+
+::::{grid-item-card} ✅ Solución
+```python
+if edad == 18:  # Comparación ✓
     print("Tiene 18 años")
 ```
 
-### 3. Olvidar convertir `input()` a número
+**Memotécnica:**
+- `=` → un solo igual → **guardar**(asignar)
+- `==` → doble igual → **preguntar**"¿son iguales?"
+::::
 
-```{code-cell} ipython3
-# ❌ Incorrecto
-numero = input("Ingrese un número: ")
-resultado = numero * 2  # Repite el string, no multiplica
+:::::
 
-# ✓ Correcto
-numero = int(input("Ingrese un número: "))
-resultado = numero * 2
+```{mermaid}
+graph TD
+    A[¿Qué querés hacer?] --> B{Guardar un valor}
+    A --> C{Comparar valores}
+    B --> D[Usá =<br/>edad = 18]
+    C --> E[Usá ==<br/>if edad == 18]
+    
+    style B fill:#fff3e0
+    style C fill:#e3f2fd
+    style D fill:#ffe0b2
+    style E fill:#bbdefb
 ```
+
+### 3. Olvidar convertir `input()` a número 
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} ❌ Error común
+```python
+numero = input("Ingrese un número: ")
+# Usuario ingresa: 5
+# numero = "5"  (¡es texto!)
+
+resultado = numero * 2
+print(resultado)  # Muestra: 55 😱
+```
+
+**¿Por qué pasa esto?**
+`input()` **siempre**devuelve texto (string).  
+`"5" * 2` repite el texto 2 veces → `"55"`
+::::
+
+::::{grid-item-card} ✅ Solución
+```python
+numero = input("Ingrese un número: ")
+numero = int(numero)  # Convertir a int
+# Ahora numero = 5 (número)
+
+resultado = numero * 2
+print(resultado)  # Muestra: 10 ✓
+```
+
+**O en una sola línea:**
+```python
+numero = int(input("Ingrese un número: "))
+```
+::::
+
+:::::
+
+:::{danger} 🚨 Cuidado
+Este es **EL ERROR MÁS COMÚN**de los principiantes. 
+
+**Recordá:**`input()` devuelve **string**, SIEMPRE. Si necesitás hacer matemática, convertí con `int()` o `float()`.
+:::
 
 ### 4. División por cero
 
@@ -1080,12 +1626,23 @@ precio_con_iva = precio_sin_iva * (1 + TASA_IVA)
 (ejercicios-fundamentos)=
 ## Ejercicios
 
+:::{admonition} 💪 ¡Hora de practicar!
+:class: important
+
+Los siguientes ejercicios están diseñados para que practiques **todo** lo que aprendiste en este capítulo. No tengas miedo de equivocarte: cada error es una oportunidad de aprender.
+
+**Recomendación:**Intentá resolver cada ejercicio **antes** de ver la solución. Si te trabás, releé la sección correspondiente del apunte.
+:::
+
+---
+
 (ejercicio-1-1)=
-### Ejercicio 1.1: Presentación Personal
+````{exercise} Presentación Personal
+:label: ejercicio-fundamentos-1-1
 
 Escribí un programa que solicite al usuario su nombre, edad y ciudad, y luego muestre un mensaje de presentación.
 
-**Entrada:**
+**📥 Entrada:**
 - Nombre (string)
 - Edad (int)
 - Ciudad (string)
@@ -1093,7 +1650,7 @@ Escribí un programa que solicite al usuario su nombre, edad y ciudad, y luego m
 **Salida:**
 Un mensaje formateado con los datos ingresados.
 
-**Ejemplo:**
+**Ejemplo de ejecución:**
 ```
 Ingrese su nombre: María
 Ingrese su edad: 22
@@ -1102,16 +1659,60 @@ Ingrese su ciudad: Buenos Aires
 Hola, me llamo María, tengo 22 años y vivo en Buenos Aires.
 ```
 
-:::{tip}
-Usá f-strings para formatear el mensaje de salida de forma clara y legible.
+:::{tip} Pistas
+- Usá `input()` para leer cada dato
+- Recordá convertir la edad con `int()`
+- Usá f-strings para el mensaje final
 :::
+
+**Conceptos que practicás:**`input()`, `print()`, f-strings, conversión de tipos
+````
+
+````{solution} ejercicio-fundamentos-1-1
+:label: solucion-fundamentos-1-1
+:class: dropdown
+
+```python
+# Solución del Ejercicio 1.1
+
+# Entrada de datos
+nombre = input("Ingrese su nombre: ")
+edad = int(input("Ingrese su edad: "))
+ciudad = input("Ingrese su ciudad: ")
+
+# Salida formateada
+print(f"\nHola, me llamo {nombre}, tengo {edad} años y vivo en {ciudad}.")
+```
+
+**Explicación:**
+1. Usamos `input()` tres veces para leer los datos
+2. La edad la convertimos con `int()` porque es un número
+3. Usamos un f-string para mostrar todo en una sola línea elegante
+
+**Variante mejorada:**
+```python
+# Versión con más información
+nombre = input("Ingrese su nombre: ")
+edad = int(input("Ingrese su edad: "))
+ciudad = input("Ingrese su ciudad: ")
+
+print(f"\n{'='*50}")
+print(f"PRESENTACIÓN PERSONAL")
+print(f"{'='*50}")
+print(f"Nombre: {nombre}")
+print(f"Edad: {edad} años")
+print(f"Ciudad: {ciudad}")
+print(f"{'='*50}")
+```
+````
 
 ---
 
 (ejercicio-1-2)=
-### Ejercicio 1.2: Calculadora de IMC
+````{exercise} Calculadora de IMC
+:label: ejercicio-fundamentos-1-2
 
-El Índice de Masa Corporal (IMC) se calcula con la siguiente fórmula:
+El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso con tu altura. Se calcula con esta fórmula:
 
 $$
 IMC = \frac{peso}{altura^2}
@@ -1119,16 +1720,14 @@ $$
 
 Donde el peso está en kilogramos y la altura en metros.
 
-Escribí un programa que calcule el IMC de una persona.
-
-**Entrada:**
+**📥 Entrada:**
 - Peso en kilogramos (float)
 - Altura en metros (float)
 
 **Salida:**
 El IMC calculado con 2 decimales.
 
-**Ejemplo:**
+**Ejemplo de ejecución:**
 ```
 Ingrese su peso en kg: 70
 Ingrese su altura en metros: 1.75
@@ -1136,33 +1735,146 @@ Ingrese su altura en metros: 1.75
 Su IMC es: 22.86
 ```
 
-:::{tip}
-Recordá usar el operador `**` para la potenciación, y formateá el resultado con `.2f` en el f-string.
+:::{tip} Pistas
+- Para elevar al cuadrado usá el operador `**`: `altura **2`
+- Para mostrar 2 decimales usá `.2f` en el f-string: `{imc:.2f}`
 :::
+
+**Conceptos que practicás:**operadores aritméticos, potenciación, formateo de números
+````
+
+````{solution} ejercicio-fundamentos-1-2
+:label: solucion-fundamentos-1-2
+:class: dropdown
+
+```python
+# Solución del Ejercicio 1.2
+
+# Entrada de datos
+peso = float(input("Ingrese su peso en kg: "))
+altura = float(input("Ingrese su altura en metros: "))
+
+# Cálculo del IMC
+imc = peso / (altura **2)
+
+# Salida
+print(f"\nSu IMC es: {imc:.2f}")
+```
+
+**Explicación:**
+1. Usamos `float()` porque peso y altura pueden tener decimales
+2. La fórmula es: peso dividido altura al cuadrado
+3. `altura **2` significa "altura elevada al cuadrado"
+4. `{imc:.2f}` formatea el número con 2 decimales
+
+**Variante mejorada con interpretación:**
+```python
+peso = float(input("Ingrese su peso en kg: "))
+altura = float(input("Ingrese su altura en metros: "))
+
+imc = peso / (altura ** 2)
+
+print(f"\nSu IMC es: {imc:.2f}")
+
+# Interpretación del resultado
+if imc < 18.5:
+    categoria = "bajo peso"
+elif imc < 25:
+    categoria = "peso normal"
+elif imc < 30:
+    categoria = "sobrepeso"
+else:
+    categoria = "obesidad"
+
+print(f"Categoría: {categoria}")
+```
+
+:::{note}
+La parte del `if/elif/else` la vas a aprender en el próximo capítulo, pero ya podés ver cómo se usa.
+:::
+````
 
 ---
 
 (ejercicio-1-3)=
-### Ejercicio 1.3: Conversión de Temperatura
+````{exercise} Conversión de Temperatura
+:label: ejercicio-fundamentos-1-3
 
-Escribí un programa que convierta una temperatura de grados Celsius a Fahrenheit usando la fórmula:
+¿Sabías que la mayoría del mundo usa Celsius, pero en Estados Unidos usan Fahrenheit? Escribí un programa que convierta temperaturas entre estos sistemas.
+
+La fórmula de conversión es:
 
 $$
 F = C \times \frac{9}{5} + 32
 $$
 
-**Entrada:**
+**📥 Entrada:**
 - Temperatura en Celsius (float)
 
 **Salida:**
 - Temperatura en Fahrenheit (float)
 
-**Ejemplo:**
+**Ejemplo de ejecución:**
 ```
 Ingrese temperatura en Celsius: 25
 
 25.0°C equivale a 77.0°F
 ```
+
+:::{tip} Pistas
+- En Python, la división `9/5` ya te da el resultado decimal (1.8)
+- Recordá seguir el orden de operaciones: primero multiplicar, después sumar
+:::
+
+**Conceptos que practicás:** operadores aritméticos, orden de precedencia, formateo
+````
+
+````{solution} ejercicio-fundamentos-1-3
+:label: solucion-fundamentos-1-3
+:class: dropdown
+
+```python
+# Solución del Ejercicio 1.3
+
+# Entrada
+celsius = float(input("Ingrese temperatura en Celsius: "))
+
+# Conversión
+fahrenheit = celsius * 9/5 + 32
+
+# Salida
+print(f"\n{celsius}°C equivale a {fahrenheit:.1f}°F")
+```
+
+**Explicación:**
+1. Leemos la temperatura en Celsius como `float`
+2. Aplicamos la fórmula: multiplicar por 9/5 y sumar 32
+3. El orden de operaciones es correcto: primero `*`, después `+`
+
+**Variante mejorada bidireccional:**
+```python
+print("=== CONVERTIDOR DE TEMPERATURA ===")
+print("1. Celsius a Fahrenheit")
+print("2. Fahrenheit a Celsius")
+
+opcion = int(input("\nSeleccione opción: "))
+
+if opcion == 1:
+    celsius = float(input("Ingrese temperatura en °C: "))
+    fahrenheit = celsius * 9/5 + 32
+    print(f"{celsius}°C = {fahrenheit:.1f}°F")
+elif opcion == 2:
+    fahrenheit = float(input("Ingrese temperatura en °F: "))
+    celsius = (fahrenheit - 32) * 5/9
+    print(f"{fahrenheit}°F = {celsius:.1f}°C")
+else:
+    print("Opción inválida")
+```
+
+:::{note}
+Esta versión avanzada usa `if/elif/else` que vas a ver en el próximo capítulo.
+:::
+````
 
 ---
 
@@ -1364,7 +2076,7 @@ En Python podés intercambiar variables en una sola línea: `a, b = b, a`
 El objetivo de este curso es que **vos** aprendas a programar. La IA puede ser una herramienta poderosa para complementar tu aprendizaje, pero nunca debe reemplazar tu esfuerzo intelectual. **Vos sos, y debés ser siempre, el protagonista de tu aprendizaje.**
 :::
 
-### Buenas Prácticas para Fundamentos
+### Buenas prácticas para esta parte del curso de ingreso
 
 En el contexto de variables, tipos de datos y operaciones básicas, podés usar la IA de estas formas productivas:
 
@@ -1390,7 +2102,7 @@ Una vez que hayas resuelto un ejercicio:
 
 - *"Escribí este código para calcular el área de un rectángulo. ¿Sigue las buenas prácticas de PEP 8?"*
 - *"¿Los nombres de mis variables son suficientemente descriptivos?"*
-- *"¿Hay alguna forma más 'Pythonic' de intercambiar dos variables?"*
+- *"¿Hay alguna forma más 'Pythonica' de intercambiar dos variables?"*
 
 #### Aclarar Conceptos
 
@@ -1428,12 +2140,12 @@ Si encuentras un mensaje de error que no entendés:
 
 **Situación**: Estás trabajando en el Ejercicio 1.5 (calculadora de IMC) y no entendés cómo calcular la potencia.
 
-❌ **Uso Incorrecto**:
+**Uso Incorrecto**:
 ```
 Prompt: "Dame el código completo del ejercicio 1.5 de IMC"
 ```
 
-✅ **Uso Correcto**:
+**Uso Correcto**:
 ```
 Prompt: "Estoy calculando el IMC. Tengo el peso y la altura, 
 pero no recuerdo cómo elevar la altura al cuadrado en Python. 
@@ -1456,22 +2168,125 @@ La IA es más útil cuando **ya sabés lo que estás haciendo** y querés pulir 
 
 ---
 
+## Resumen Visual 
+
+Antes de terminar, repasemos todo lo que aprendiste en este capítulo con un mapa visual:
+
+```{mermaid}
+mindmap
+  root((Fundamentos<br/>Python))
+    Variables
+      Nombres descriptivos
+      Inicialización
+      Reasignación
+    Tipos de Datos
+      int números enteros
+      float números decimales
+      str texto
+      bool True/False
+    Operadores
+      Aritméticos
+        + - * /
+        // % **
+      Comparación
+        == != > < >= <=
+      Lógicos
+        and or not
+    Entrada/Salida
+      input lectura
+      print salida
+      Conversión de tipos
+```
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} Variables
+Son "cajas" con nombres donde guardamos información.
+```python
+edad = 18
+nombre = "Ana"
+```
+::::
+
+::::{grid-item-card} Tipos de Datos
+Diferentes "sabores" de información.
+```python
+int:   42
+float: 3.14
+str:   "Hola"
+bool:  True
+```
+::::
+
+::::{grid-item-card} Operadores
+Herramientas para hacer cálculos y comparaciones.
+```python
+5 + 3       # → 8
+edad >= 18  # → True
+a and b     # → combina
+```
+::::
+
+::::{grid-item-card} E/S
+Interactuamos con el usuario.
+```python
+nombre = input("Nombre: ")
+print(f"Hola {nombre}")
+```
+::::
+
+:::::
+
+:::{admonition} Checklist de lo aprendido
+:class: tip
+
+Marcá lo que ya dominás:
+
+- [ ] Crear y usar variables con nombres descriptivos
+- [ ] Distinguir entre `int`, `float`, `str` y `bool`
+- [ ] Usar operadores aritméticos (+, -, *, /, //, %, **)
+- [ ] Comparar valores con ==\, \!=, >, <, >=, <=
+- [ ] Combinar condiciones con and, or, not
+- [ ] Leer entrada del usuario con `input()`
+- [ ] Mostrar salida con `print()` y f\-strings
+- [ ] Convertir entre tipos con `int()`, `float()`, `str()`
+- [ ] Identificar y corregir errores comunes
+
+Si marcaste todo, ¡estás listo para el próximo capítulo! 
+
+:::
 
 ---
 
-## Resumen
+### ¿Qué sigue? 
 
-En este capítulo aprendiste los fundamentos de la programación en Python:
+Estos fundamentos son como los ladrillos de una casa: **todo** lo que construyas de ahora en adelante se apoya en ellos. En el próximo capítulo vas a aprender algo muy importante: **cómo hacer que tu programa tome decisiones** usando `if`, `elif` y `else`.
 
-✓ **Variables**: Cómo almacenar y manipular datos  
-✓ **Tipos de datos**: `int`, `float`, `str`, `bool`  
-✓ **Operadores**: Aritméticos, de comparación y lógicos  
-✓ **Entrada/Salida**: `input()` y `print()`  
-✓ **Conversión de tipos**: Casting entre diferentes tipos  
-✓ **Buenas prácticas**: Nombres descriptivos, inicialización, espaciado  
+```{mermaid}
+graph LR
+    A[Capítulo 1<br/>Fundamentos] --> B[Capítulo 2<br/>Control de Flujo]
+    B --> C[Capítulo 3<br/>Estructuras de Datos]
+    C --> D[Capítulo 4<br/>Funciones]
+    
+    style A fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style B fill:#fff9c4,stroke:#f57f17
+    style C fill:#e1f5fe,stroke:#0277bd
+    style D fill:#f3e5f5,stroke:#7b1fa2
+```
 
-Estos conceptos son la base sobre la cual construirás todo tu conocimiento de programación. En el próximo capítulo aprenderás a tomar decisiones en tu código usando estructuras de control de flujo.
+:::{important} 💪 Practica, practica, practica
 
-:::{important} Practica, practica, practica
-La mejor forma de consolidar estos conceptos es resolviendo los ejercicios. No te limites a leerlos; escribí el código, probalo, modificalo. La programación se aprende programando.
+**La programación NO se aprende leyendo, se aprende HACIENDO.**
+
+No pases al siguiente capítulo hasta que puedas:
+1. Resolver **todos** los ejercicios sin mirar las soluciones
+2. Explicarle a alguien más (o a un patito de goma 🦆) qué es una variable
+3. Escribir un programa simple de entrada → procesamiento → salida sin ayuda
+
+**Recordá:** Los mejores programadores del mundo no llegaron ahí por ser genios, sino por **practicar constantemente**. Cada error que cometas hoy es una lección que no olvidarás mañana.
+
+¡Vamos Manaos!
+
 :::
+

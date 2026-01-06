@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 28px; font-weight: bold; fill: #2c3e50; }
+      .section-title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #34495e; }
+      .concept { font-family: Arial, sans-serif; font-size: 14px; fill: #2c3e50; }
+      .code { font-family: 'Courier New', monospace; font-size: 12px; fill: #27ae60; }
+      .box { fill: #ecf0f1; stroke: #3498db; stroke-width: 2; rx: 8; }
+      .box-definition { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .box-params { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .box-return { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .box-doc { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .box-scope { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+      .box-lambda { fill: #fff9c4; stroke: #fbc02d; stroke-width: 2; rx: 8; }
+      .arrow { stroke: #34495e; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .check { fill: #4caf50; }
+      .cross { fill: #f44336; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34495e" />
+    </marker>
+  </defs>
+  
+  <!-- Título principal -->
+  <text x="600" y="40" class="title" text-anchor="middle">FUNCIONES EN PYTHON</text>
+  
+  <!-- Definición -->
+  <rect x="30" y="70" width="280" height="140" class="box-definition"/>
+  <text x="170" y="95" class="section-title" text-anchor="middle">Definición</text>
+  <text x="40" y="120" class="code">def nombre(parametros):</text>
+  <text x="40" y="140" class="code">    """Docstring"""</text>
+  <text x="40" y="160" class="code">    # código</text>
+  <text x="40" y="180" class="code">    return resultado</text>
+  <text x="40" y="200" class="concept">✓ Reutilizable</text>
+  
+  <!-- Parámetros -->
+  <rect x="330" y="70" width="260" height="140" class="box-params"/>
+  <text x="460" y="95" class="section-title" text-anchor="middle">📥 Parámetros</text>
+  <text x="340" y="120" class="concept">• Posicionales: func(a, b)</text>
+  <text x="340" y="140" class="concept">• Con nombre: func(x=1)</text>
+  <text x="340" y="160" class="concept">• Por defecto: def f(x=0)</text>
+  <text x="340" y="180" class="concept">• *args: n argumentos</text>
+  <text x="340" y="200" class="concept">• **kwargs: n keywords</text>
+  
+  <!-- Return -->
+  <rect x="610" y="70" width="260" height="140" class="box-return"/>
+  <text x="740" y="95" class="section-title" text-anchor="middle">📤 Return</text>
+  <text x="620" y="120" class="concept">• Termina la función</text>
+  <text x="620" y="140" class="concept">• Devuelve valor(es)</text>
+  <text x="620" y="160" class="concept">• Tupla para múltiples</text>
+  <text x="620" y="180" class="concept">• Sin return → None</text>
+  <text x="620" y="200" class="code">return (x, y, z)</text>
+  
+  <!-- Documentación -->
+  <rect x="890" y="70" width="280" height="140" class="box-doc"/>
+  <text x="1030" y="95" class="section-title" text-anchor="middle">📝 Documentación</text>
+  <text x="900" y="120" class="code">"""Descripción breve.</text>
+  <text x="900" y="140" class="code"></text>
+  <text x="900" y="160" class="code">Args:</text>
+  <text x="900" y="180" class="code">    param: descripción</text>
+  <text x="900" y="200" class="code">Returns: valor"""</text>
+  
+  <!-- Scope -->
+  <rect x="30" y="240" width="360" height="160" class="box-scope"/>
+  <text x="210" y="265" class="section-title" text-anchor="middle">🔍 Scope (Ámbito)</text>
+  <text x="40" y="290" class="concept">• Local: dentro de función</text>
+  <text x="40" y="310" class="concept">• Global: fuera de funciones</text>
+  <text x="40" y="330" class="concept">• LEGB: Local → Enclosing → Global → Built-in</text>
+  <text x="40" y="350" class="concept">• Evitar 'global'</text>
+  <text x="40" y="370" class="code">✓ Usar parámetros y returns</text>
+  <text x="40" y="390" class="code">✓ Constantes en MAYÚSCULAS</text>
+  
+  <!-- Lambda -->
+  <rect x="410" y="240" width="360" height="160" class="box-lambda"/>
+  <text x="590" y="265" class="section-title" text-anchor="middle"> Funciones Lambda</text>
+  <text x="420" y="290" class="code">lambda x: x * 2</text>
+  <text x="420" y="310" class="concept">• Anónimas (sin nombre)</text>
+  <text x="420" y="330" class="concept">• Una sola expresión</text>
+  <text x="420" y="350" class="concept">• Útiles con map/filter</text>
+  <text x="420" y="370" class="code">map(lambda x: x*2, lista)</text>
+  <text x="420" y="390" class="concept">• No reemplazan def</text>
+  
+  <!-- Buenas Prácticas -->
+  <rect x="790" y="240" width="380" height="160" class="box"/>
+  <text x="980" y="265" class="section-title" text-anchor="middle">✅ Buenas Prácticas</text>
+  <g class="check">
+    <circle cx="805" cy="285" r="4"/>
+  </g>
+  <text x="815" y="290" class="concept">Una responsabilidad (SRP)</text>
+  <g class="check">
+    <circle cx="805" cy="305" r="4"/>
+  </g>
+  <text x="815" y="310" class="concept">Nombre descriptivo</text>
+  <g class="check">
+    <circle cx="805" cy="325" r="4"/>
+  </g>
+  <text x="815" y="330" class="concept">Docstring completo</text>
+  <g class="check">
+    <circle cx="805" cy="345" r="4"/>
+  </g>
+  <text x="815" y="350" class="concept">Return, no print</text>
+  <g class="check">
+    <circle cx="805" cy="365" r="4"/>
+  </g>
+  <text x="815" y="370" class="concept">3-4 parámetros máximo</text>
+  <g class="check">
+    <circle cx="805" cy="385" r="4"/>
+  </g>
+  <text x="815" y="390" class="concept">No modificar mutables</text>
+  
+  <!-- Errores Comunes -->
+  <rect x="30" y="430" width="560" height="180" class="box"/>
+  <text x="310" y="455" class="section-title" text-anchor="middle">❌ Errores Comunes</text>
+  
+  <g class="cross">
+    <line x1="42" y1="468" x2="52" y2="478" stroke="#f44336" stroke-width="2"/>
+    <line x1="52" y1="468" x2="42" y2="478" stroke="#f44336" stroke-width="2"/>
+  </g>
+  <text x="60" y="478" class="concept">Olvidar return</text>
+  <text x="60" y="495" class="code">def suma(a, b): a + b  # Falta!</text>
+  
+  <g class="cross">
+    <line x1="42" y1="513" x2="52" y2="523" stroke="#f44336" stroke-width="2"/>
+    <line x1="52" y1="513" x2="42" y2="523" stroke="#f44336" stroke-width="2"/>
+  </g>
+  <text x="60" y="523" class="concept">Default mutable</text>
+  <text x="60" y="540" class="code">def func(lista=[]):  # Peligro!</text>
+  
+  <g class="cross">
+    <line x1="42" y1="558" x2="52" y2="568" stroke="#f44336" stroke-width="2"/>
+    <line x1="52" y1="558" x2="42" y2="568" stroke="#f44336" stroke-width="2"/>
+  </g>
+  <text x="60" y="568" class="concept">Usar global</text>
+  <text x="60" y="585" class="code">global x; x = 10  # Evitar</text>
+  
+  <g class="cross">
+    <line x1="320" y1="468" x2="330" y2="478" stroke="#f44336" stroke-width="2"/>
+    <line x1="330" y1="468" x2="320" y2="478" stroke="#f44336" stroke-width="2"/>
+  </g>
+  <text x="338" y="478" class="concept">Sin documentación</text>
+  <text x="338" y="495" class="code">def calc(x, y):  # ¿Qué hace?</text>
+  
+  <g class="cross">
+    <line x1="320" y1="513" x2="330" y2="523" stroke="#f44336" stroke-width="2"/>
+    <line x1="330" y1="513" x2="320" y2="523" stroke="#f44336" stroke-width="2"/>
+  </g>
+  <text x="338" y="523" class="concept">Modificar argumentos</text>
+  <text x="338" y="540" class="code">lista.append(1)  # Side effect</text>
+  
+  <g class="cross">
+    <line x1="320" y1="558" x2="330" y2="568" stroke="#f44336" stroke-width="2"/>
+    <line x1="330" y1="558" x2="320" y2="568" stroke="#f44336" stroke-width="2"/>
+  </g>
+  <text x="338" y="568" class="concept">Muchos parámetros</text>
+  <text x="338" y="585" class="code">func(a, b, c, d, e, f, g)</text>
+  
+  <!-- Ejemplo Completo -->
+  <rect x="610" y="430" width="560" height="180" class="box-definition"/>
+  <text x="890" y="455" class="section-title" text-anchor="middle">💡 Ejemplo Completo</text>
+  <text x="620" y="478" class="code">def calcular_promedio(numeros, redondear=True):</text>
+  <text x="620" y="495" class="code">    """Calcula el promedio de una lista.</text>
+  <text x="620" y="512" class="code">    </text>
+  <text x="620" y="529" class="code">    Args:</text>
+  <text x="620" y="546" class="code">        numeros: Lista de números.</text>
+  <text x="620" y="563" class="code">        redondear: Si redondear a 2 decimales.</text>
+  <text x="620" y="580" class="code">    Returns:</text>
+  <text x="620" y="597" class="code">        El promedio como float."""</text>
+  
+  <!-- Footer -->
+  <rect x="30" y="640" width="1140" height="140" class="box"/>
+  <text x="600" y="665" class="section-title" text-anchor="middle">Conceptos Clave para Recordar</text>
+  
+  <text x="50" y="695" class="concept">1. Las funciones DIVIDEN problemas grandes en partes pequeñas</text>
+  <text x="50" y="715" class="concept">2. Una función = Una responsabilidad (como un empleado especializado)</text>
+  <text x="50" y="735" class="concept">3. SIEMPRE documentar con docstrings (Args, Returns)</text>
+  <text x="50" y="755" class="concept">4. Preferir parámetros y returns sobre variables globales</text>
+  
+  <text x="650" y="695" class="concept">5. Return devuelve valores, NO imprimas dentro</text>
+  <text x="650" y="715" class="concept">6. Evitar defaults mutables (lista=[], dict={})</text>
+  <text x="650" y="735" class="concept">7. Nombres verbos: calcular, obtener, validar</text>
+  <text x="650" y="755" class="concept">8. Funciones pequeñas (~20-30 líneas máximo)</text>
+</svg>

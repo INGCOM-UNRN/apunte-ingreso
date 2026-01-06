@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <style>
+      .title { font: bold 24px 'Segoe UI', Arial, sans-serif; fill: #2c3e50; }
+      .subtitle { font: bold 18px 'Segoe UI', Arial, sans-serif; fill: #34495e; }
+      .text { font: 14px 'Consolas', monospace; fill: #2c3e50; }
+      .index { font: bold 16px 'Consolas', monospace; fill: #e74c3c; }
+      .value { font: bold 14px 'Consolas', monospace; fill: #27ae60; }
+      .comment { font: 12px 'Segoe UI', Arial, sans-serif; fill: #7f8c8d; }
+      .cell { fill: #ecf0f1; stroke: #34495e; stroke-width: 2; }
+      .cell-header { fill: #3498db; stroke: #2980b9; stroke-width: 2; }
+      .arrow { fill: none; stroke: #e74c3c; stroke-width: 2; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#e74c3c" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title"> Listas Anidadas: Matrices y Tablas</text>
+  
+  <!-- Analogía: Estante -->
+  <g transform="translate(50, 60)">
+    <text x="0" y="0" class="subtitle">🏪 Analogía: Estante con Cajas</text>
+    
+    <!-- Estante -->
+    <rect x="0" y="20" width="300" height="180" fill="#8b7355" stroke="#654321" stroke-width="3" rx="5"/>
+    
+    <!-- Caja 0: Frutas -->
+    <rect x="20" y="35" width="80" height="50" class="cell-header" rx="4"/>
+    <text x="60" y="55" text-anchor="middle" fill="white" class="text">Caja 0</text>
+    <text x="60" y="70" text-anchor="middle" fill="white" class="text">🍎🍌🍊</text>
+    
+    <!-- Caja 1: Verduras -->
+    <rect x="110" y="35" width="80" height="50" class="cell-header" rx="4"/>
+    <text x="150" y="55" text-anchor="middle" fill="white" class="text">Caja 1</text>
+    <text x="150" y="70" text-anchor="middle" fill="white" class="text">🥕🥔🥦</text>
+    
+    <!-- Caja 2: Postres -->
+    <rect x="200" y="35" width="80" height="50" class="cell-header" rx="4"/>
+    <text x="240" y="55" text-anchor="middle" fill="white" class="text">Caja 2</text>
+    <text x="240" y="70" text-anchor="middle" fill="white" class="text">🍪🍰🎂</text>
+    
+    <!-- Explicación -->
+    <text x="20" y="115" class="text">estante[0]</text>
+    <path d="M 80 115 L 45 85" class="arrow"/>
+    
+    <text x="110" y="115" class="text">estante[1]</text>
+    <path d="M 170 115 L 145 85" class="arrow"/>
+    
+    <text x="200" y="115" class="text">estante[2]</text>
+    <path d="M 260 115 L 235 85" class="arrow"/>
+    
+    <text x="20" y="150" class="text">estante[1][0]</text>
+    <text x="130" y="150" class="comment">→ 🥕 (caja 1, ítem 0)</text>
+    
+    <text x="20" y="175" class="text">estante[2][1]</text>
+    <text x="130" y="175" class="comment">→ 🍰 (caja 2, ítem 1)</text>
+  </g>
+  
+  <!-- Matriz 3x3 -->
+  <g transform="translate(450, 60)">
+    <text x="0" y="0" class="subtitle">🔢 Matriz 3×3 (Tabla de Números)</text>
+    
+    <!-- Matriz visual -->
+    <g transform="translate(0, 20)">
+      <!-- Fila 0 -->
+      <rect x="0" y="0" width="60" height="40" class="cell" rx="4"/>
+      <text x="30" y="25" text-anchor="middle" class="value">1</text>
+      
+      <rect x="70" y="0" width="60" height="40" class="cell" rx="4"/>
+      <text x="100" y="25" text-anchor="middle" class="value">2</text>
+      
+      <rect x="140" y="0" width="60" height="40" class="cell" rx="4"/>
+      <text x="170" y="25" text-anchor="middle" class="value">3</text>
+      
+      <text x="220" y="25" class="comment">← fila 0</text>
+      
+      <!-- Fila 1 -->
+      <rect x="0" y="50" width="60" height="40" class="cell" rx="4"/>
+      <text x="30" y="75" text-anchor="middle" class="value">4</text>
+      
+      <rect x="70" y="50" width="60" height="40" class="cell" rx="4"/>
+      <text x="100" y="75" text-anchor="middle" class="value">5</text>
+      
+      <rect x="140" y="50" width="60" height="40" class="cell" rx="4"/>
+      <text x="170" y="75" text-anchor="middle" class="value">6</text>
+      
+      <text x="220" y="75" class="comment">← fila 1</text>
+      
+      <!-- Fila 2 -->
+      <rect x="0" y="100" width="60" height="40" class="cell" rx="4"/>
+      <text x="30" y="125" text-anchor="middle" class="value">7</text>
+      
+      <rect x="70" y="100" width="60" height="40" class="cell" rx="4"/>
+      <text x="100" y="125" text-anchor="middle" class="value">8</text>
+      
+      <rect x="140" y="100" width="60" height="40" class="cell" rx="4"/>
+      <text x="170" y="125" text-anchor="middle" class="value">9</text>
+      
+      <text x="220" y="125" class="comment">← fila 2</text>
+      
+      <!-- Etiquetas columnas -->
+      <text x="30" y="160" text-anchor="middle" class="comment">↑</text>
+      <text x="30" y="175" text-anchor="middle" class="comment">col 0</text>
+      
+      <text x="100" y="160" text-anchor="middle" class="comment">↑</text>
+      <text x="100" y="175" text-anchor="middle" class="comment">col 1</text>
+      
+      <text x="170" y="160" text-anchor="middle" class="comment">↑</text>
+      <text x="170" y="175" text-anchor="middle" class="comment">col 2</text>
+    </g>
+  </g>
+  
+  <!-- Código y acceso -->
+  <g transform="translate(50, 290)">
+    <rect x="0" y="0" width="800" height="240" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" rx="8"/>
+    
+    <text x="20" y="30" class="subtitle" fill="#3498db">📝 Código Python</text>
+    
+    <text x="20" y="60" class="text">matriz = [</text>
+    <text x="100" y="80" class="text">[1, 2, 3],</text>
+    <text x="250" y="80" class="comment"># Fila 0</text>
+    <text x="100" y="100" class="text">[4, 5, 6],</text>
+    <text x="250" y="100" class="comment"># Fila 1</text>
+    <text x="100" y="120" class="text">[7, 8, 9]</text>
+    <text x="250" y="120" class="comment"># Fila 2</text>
+    <text x="20" y="140" class="text">]</text>
+    
+    <!-- Ejemplos de acceso -->
+    <line x1="400" y1="30" x2="400" y2="230" stroke="#dee2e6" stroke-width="2"/>
+    
+    <text x="420" y="30" class="subtitle" fill="#e74c3c">Acceso a Elementos</text>
+    
+    <text x="420" y="60" class="text">matriz[0]</text>
+    <text x="550" y="60" class="comment">→ [1, 2, 3] (toda la fila 0)</text>
+    
+    <text x="420" y="85" class="text">matriz[1]</text>
+    <text x="550" y="85" class="comment">→ [4, 5, 6] (toda la fila 1)</text>
+    
+    <text x="420" y="110" class="text">matriz[0][0]</text>
+    <text x="550" y="110" class="comment">→ 1 (fila 0, col 0)</text>
+    
+    <text x="420" y="135" class="text">matriz[1][2]</text>
+    <text x="550" y="135" class="comment">→ 6 (fila 1, col 2)</text>
+    
+    <text x="420" y="160" class="text">matriz[2][1]</text>
+    <text x="550" y="160" class="comment">→ 8 (fila 2, col 1)</text>
+    
+    <!-- Tip -->
+    <rect x="420" y="175" width="360" height="50" fill="#fff3cd" stroke="#ffc107" stroke-width="2" rx="5"/>
+    <text x="430" y="195" class="text" fill="#856404">💡 Tip: Piensa [fila][columna]</text>
+    <text x="430" y="213" class="comment" fill="#856404">Primero elegís la fila, luego la columna</text>
+  </g>
+</svg>

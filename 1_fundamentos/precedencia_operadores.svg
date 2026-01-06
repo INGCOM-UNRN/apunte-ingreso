@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <style>
+      .titulo { font-family: 'Arial', sans-serif; font-size: 22px; font-weight: bold; fill: #1565c0; }
+      .nivel { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .texto-nivel { font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold; fill: #0d47a1; }
+      .operadores { font-family: 'Courier New', monospace; font-size: 20px; fill: #1976d2; }
+      .ejemplo { font-family: 'Courier New', monospace; font-size: 14px; fill: #424242; }
+      .resultado { font-family: 'Courier New', monospace; font-size: 14px; fill: #2e7d32; font-weight: bold; }
+      .flecha { stroke: #1976d2; stroke-width: 2; fill: none; marker-end: url(#arrow-prec); }
+    </style>
+    <marker id="arrow-prec" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976d2"/>
+    </marker>
+  </defs>
+  
+  <text x="300" y="30" text-anchor="middle" class="titulo">Orden de Precedencia (PEMDAS)</text>
+  <text x="300" y="55" text-anchor="middle" style="font-family: Arial; font-size: 14px; fill: #666;">
+    De mayor a menor prioridad
+  </text>
+  
+  <!-- Nivel 1: Paréntesis -->
+  <g transform="translate(100, 80)">
+    <rect class="nivel" width="400" height="50"/>
+    <text x="20" y="23" class="texto-nivel">1. Paréntesis</text>
+    <text x="20" y="40" class="operadores">( )</text>
+    <text x="200" y="33" class="ejemplo">→ (2 + 3) × 4 = 5 × 4 = 20</text>
+  </g>
+  
+  <!-- Flecha -->
+  <path class="flecha" d="M 300 135 L 300 155"/>
+  
+  <!-- Nivel 2: Potenciación -->
+  <g transform="translate(100, 160)">
+    <rect class="nivel" width="400" height="50"/>
+    <text x="20" y="23" class="texto-nivel">2. Potenciación</text>
+    <text x="20" y="40" class="operadores">**</text>
+    <text x="200" y="33" class="ejemplo">→ 2 ** 3 + 1 = 8 + 1 = 9</text>
+  </g>
+  
+  <!-- Flecha -->
+  <path class="flecha" d="M 300 215 L 300 235"/>
+  
+  <!-- Nivel 3: Multiplicación/División -->
+  <g transform="translate(100, 240)">
+    <rect class="nivel" width="400" height="50"/>
+    <text x="20" y="23" class="texto-nivel">3. Mult./Div./Div.Entera/Módulo</text>
+    <text x="20" y="40" class="operadores">*  /  //  %</text>
+    <text x="200" y="33" class="ejemplo">→ 2 + 3 × 4 = 2 + 12 = 14</text>
+  </g>
+  
+  <!-- Flecha -->
+  <path class="flecha" d="M 300 295 L 300 315"/>
+  
+  <!-- Nivel 4: Suma/Resta -->
+  <g transform="translate(100, 320)">
+    <rect class="nivel" width="400" height="50"/>
+    <text x="20" y="23" class="texto-nivel">4. Suma/Resta</text>
+    <text x="20" y="40" class="operadores">+  -</text>
+    <text x="200" y="33" class="ejemplo">→ 5 - 2 + 3 = 3 + 3 = 6</text>
+  </g>
+</svg>

@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .inicio-fin { fill: #c8e6c9; stroke: #2e7d32; stroke-width: 2; rx: 30; }
+      .decision { fill: #fff9c4; stroke: #f57f17; stroke-width: 2; }
+      .proceso { fill: #bbdefb; stroke: #1565c0; stroke-width: 2; }
+      .flecha { stroke: #424242; stroke-width: 2; fill: none; marker-end: url(#arrowelif); }
+      .texto { font-family: 'Arial', sans-serif; font-size: 13px; fill: #212121; text-anchor: middle; }
+      .titulo { font-family: 'Arial', sans-serif; font-size: 20px; font-weight: bold; fill: #1565c0; }
+    </style>
+    <marker id="arrowelif" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#424242"/>
+    </marker>
+  </defs>
+  
+  <text x="400" y="30" text-anchor="middle" class="titulo">Estructura if-elif-else - Múltiples Caminos</text>
+  
+  <!-- Inicio -->
+  <ellipse class="inicio-fin" cx="400" cy="70" rx="60" ry="25"/>
+  <text x="400" y="77" class="texto" font-weight="bold">INICIO</text>
+  
+  <!-- Primera decisión -->
+  <path class="flecha" d="M 400 95 L 400 130"/>
+  <path class="decision" d="M 400 130 L 480 170 L 400 210 L 320 170 Z"/>
+  <text x="400" y="167" class="texto" font-weight="bold">nota >= 90</text>
+  <text x="400" y="182" class="texto" font-size="11">¿?</text>
+  
+  <!-- Rama True 1 -->
+  <path class="flecha" d="M 480 170 L 600 170"/>
+  <text x="535" y="163" class="texto" fill="#2e7d32" font-weight="bold" font-size="11">Sí</text>
+  <rect class="proceso" x="600" y="145" width="110" height="50" rx="5"/>
+  <text x="655" y="168" class="texto" font-size="12">"Excelente"</text>
+  <text x="655" y="183" class="texto" font-size="12">(A)</text>
+  
+  <!-- Segunda decisión -->
+  <path class="flecha" d="M 400 210 L 400 250"/>
+  <text x="420" y="233" class="texto" fill="#c62828" font-weight="bold" font-size="11">No</text>
+  
+  <path class="decision" d="M 400 250 L 480 290 L 400 330 L 320 290 Z"/>
+  <text x="400" y="287" class="texto" font-weight="bold">nota >= 70</text>
+  <text x="400" y="302" class="texto" font-size="11">¿?</text>
+  
+  <!-- Rama True 2 -->
+  <path class="flecha" d="M 480 290 L 600 290"/>
+  <text x="535" y="283" class="texto" fill="#2e7d32" font-weight="bold" font-size="11">Sí</text>
+  <rect class="proceso" x="600" y="265" width="110" height="50" rx="5"/>
+  <text x="655" y="288" class="texto" font-size="12">"Muy Bien"</text>
+  <text x="655" y="303" class="texto" font-size="12">(B)</text>
+  
+  <!-- Tercera decisión -->
+  <path class="flecha" d="M 400 330 L 400 370"/>
+  <text x="420" y="353" class="texto" fill="#c62828" font-weight="bold" font-size="11">No</text>
+  
+  <path class="decision" d="M 400 370 L 480 410 L 400 450 L 320 410 Z"/>
+  <text x="400" y="407" class="texto" font-weight="bold">nota >= 50</text>
+  <text x="400" y="422" class="texto" font-size="11">¿?</text>
+  
+  <!-- Rama True 3 -->
+  <path class="flecha" d="M 480 410 L 600 410"/>
+  <text x="535" y="403" class="texto" fill="#2e7d32" font-weight="bold" font-size="11">Sí</text>
+  <rect class="proceso" x="600" y="385" width="110" height="50" rx="5"/>
+  <text x="655" y="408" class="texto" font-size="12">"Aprobado"</text>
+  <text x="655" y="423" class="texto" font-size="12">(C)</text>
+  
+  <!-- Else final -->
+  <path class="flecha" d="M 400 450 L 400 490"/>
+  <text x="420" y="473" class="texto" fill="#c62828" font-weight="bold" font-size="11">No</text>
+  
+  <rect class="proceso" x="345" y="490" width="110" height="50" rx="5"/>
+  <text x="400" y="513" class="texto" font-size="12">"Reprobado"</text>
+  <text x="400" y="528" class="texto" font-size="12">(D)</text>
+  
+  <!-- Convergencia al fin -->
+  <path class="flecha" d="M 655 195 L 655 555 L 400 555"/>
+  <path class="flecha" d="M 655 315 L 655 555"/>
+  <path class="flecha" d="M 655 435 L 655 555"/>
+  <path class="flecha" d="M 400 540 L 400 555"/>
+  
+  <!-- Fin -->
+  <ellipse class="inicio-fin" cx="400" cy="575" rx="50" ry="20"/>
+  <text x="400" y="580" class="texto" font-weight="bold" font-size="12">FIN</text>
+  
+  <!-- Código de ejemplo -->
+  <g transform="translate(30, 150)">
+    <rect fill="#f5f5f5" stroke="#ccc" width="250" height="280" rx="3"/>
+    <text x="10" y="20" style="font-family: 'Courier New'; font-size: 10px; fill: #424242;">
+      if nota >= 90:
+    </text>
+    <text x="20" y="38" style="font-family: 'Courier New'; font-size: 10px; fill: #1565c0;">
+      print("Excelente (A)")
+    </text>
+    <text x="10" y="60" style="font-family: 'Courier New'; font-size: 10px; fill: #424242;">
+      elif nota >= 70:
+    </text>
+    <text x="20" y="78" style="font-family: 'Courier New'; font-size: 10px; fill: #1565c0;">
+      print("Muy Bien (B)")
+    </text>
+    <text x="10" y="100" style="font-family: 'Courier New'; font-size: 10px; fill: #424242;">
+      elif nota >= 50:
+    </text>
+    <text x="20" y="118" style="font-family: 'Courier New'; font-size: 10px; fill: #1565c0;">
+      print("Aprobado (C)")
+    </text>
+    <text x="10" y="140" style="font-family: 'Courier New'; font-size: 10px; fill: #424242;">
+      else:
+    </text>
+    <text x="20" y="158" style="font-family: 'Courier New'; font-size: 10px; fill: #c62828;">
+      print("Reprobado (D)")
+    </text>
+    
+    <line x1="10" y1="175" x2="240" y2="175" stroke="#ccc" stroke-width="1"/>
+    
+    <text x="10" y="195" style="font-family: Arial; font-size: 10px; fill: #666;">
+      Python evalúa las condiciones
+    </text>
+    <text x="10" y="210" style="font-family: Arial; font-size: 10px; fill: #666;">
+      en orden. La primera que sea
+    </text>
+    <text x="10" y="225" style="font-family: Arial; font-size: 10px; fill: #666;">
+      True se ejecuta, las demás
+    </text>
+    <text x="10" y="240" style="font-family: Arial; font-size: 10px; fill: #666;">
+      se saltan.
+    </text>
+    
+    <text x="10" y="265" style="font-family: Arial; font-size: 10px; fill: #d32f2f; font-weight: bold;">
+      Solo UNA rama se ejecuta.
+    </text>
+  </g>
+</svg>

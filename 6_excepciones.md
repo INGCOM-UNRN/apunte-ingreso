@@ -1,1792 +1,1460 @@
 ---
 title: Manejo de Excepciones
 short_title: 6 - Excepciones
-subtitle: Control robusto de errores, debugging y validación de datos.
+subtitle: Aprende a manejar errores como un profesional
 ---
 
 (excepciones-capitulo)=
-# Manejo de Excepciones
+#  Manejo de Excepciones
 
-## Introducción y Motivación
+::::{grid} 1 1 2 2
+:gutter: 3
 
-En el mundo real, los programas enfrentan situaciones inesperadas: usuarios ingresan datos incorrectos, archivos no existen, conexiones de red fallan, memoria se agota. Un programa profesional debe anticipar estos problemas y manejarlos elegantemente, sin "romperse" ni perder datos.
+:::{grid-item-card} ¿Qué aprenderás?
+Dominarás el arte de manejar errores en Python para crear programas robustos y confiables.
+:::
 
-Las **excepciones** son el mecanismo de Python para manejar errores de forma estructurada y controlada.
+:::{grid-item-card} ⏱️ Tiempo estimado
+60-90 minutos de lectura y práctica
+:::
+::::
 
-:::{important} ¿Por qué son importantes las excepciones?
-Sin manejo de excepciones:
-```python
-# ❌ El programa se rompe abruptamente
-edad = int(input("Edad: "))  # Usuario ingresa "abc"
-# Traceback (most recent call last):
-#   File "...", line 1, in <module>
-# ValueError: invalid literal for int() with base 10: 'abc'
-# PROGRAMA TERMINADO ☠️
+##  Introducción: Los errores son parte del juego
+
+````{margin}
+```{tip}
+Los errores no son tus enemigos, ¡son oportunidades para hacer tu código más robusto!
 ```
+````
 
-Con manejo de excepciones:
+Imagina que estás construyendo un puente 🌉. ¿Qué pasa si viene un terremoto? ¿Una inundación? ¿Mucho tráfico? Un buen ingeniero no solo construye el puente, sino que también planifica qué hacer cuando las cosas salen mal.
+
+En programación es igual. Tu código puede enfrentar:
+-  Usuarios que ingresan datos incorrectos
+-  Archivos que no existen
+-  Conexiones de red que fallan
+-  Memoria que se agota
+
+Las **excepciones**son la forma de Python de decir: "¡Oye, algo salió mal!" Y con `try-except` podemos decir: "No te preocupes, yo me encargo".
+
+::::{grid} 1 1 2 2
+:gutter: 2
+
+:::{grid-item-card} Sin manejo de excepciones
 ```python
-# ✓ El programa continúa funcionando
+edad = int(input("Edad: "))
+# Usuario escribe "abc"
+# ¡Boom! Programa sale directamente.
+```
+**Resultado:**💀 Programa terminado abruptamente
+:::
+
+:::{grid-item-card} ✅ Con manejo de excepciones
+```python
 try:
     edad = int(input("Edad: "))
 except ValueError:
-    print("Error: ingrese un número válido")
+    print("Eso no es un número")
     edad = 0
-# PROGRAMA CONTINÚA ✓
+#  ¡Programa sigue funcionando!
 ```
+**Resultado:**Usuario puede reintentar
 :::
-
-En este capítulo aprenderás:
-- Entender qué son las excepciones
-- Tipos comunes de excepciones en Python
-- Capturar y manejar excepciones con try-except
-- Usar else y finally
-- Lanzar tus propias excepciones
-- Crear excepciones personalizadas
-- Debugging y técnicas de diagnóstico
-- Validación robusta de datos
-- Buenas prácticas profesionales
+::::
 
 ---
 
 (que-son-excepciones)=
-## ¿Qué son las Excepciones?
+## ¿Qué es una Excepción?
 
-Una **excepción** es un evento que ocurre durante la ejecución de un programa y que interrumpe el flujo normal de instrucciones.
+```{figure} ./6_excepciones/try_except_flujo.svg
+:name: fig-flujo-excepciones
+:align: center
+:width: 90%
 
-### Excepciones vs Errores de Sintaxis
+Flujo de ejecución cuando usamos try-except
+```
+
+### Pensemos con una analogía
+
+**Excepción = Alarma de seguridad**
+
+Imagina que tu casa tiene una alarma de seguridad:
+1. **Try**= Intentar hacer algo (entrar a casa)
+2. **Excepción**= Alarma que se dispara si algo sale mal
+3. **Except**= Protocolo de qué hacer si suena la alarma
 
 ```{code-cell} ipython3
-# Error de sintaxis - no puede ejecutarse
-if x = 5:  # SyntaxError: invalid syntax
-    print(x)
+# Veamos una excepción en acción
+def dividir_pizza(porciones, personas):
+    """Divide la pizza entre personas"""
+    return porciones / personas
 
-# Excepción - se detecta durante la ejecución
+# ¡Ups! No hay personas
+resultado = dividir_pizza(8, 0)
+```
+
+```{error}
+ZeroDivisionError: division by zero
+
+¡Python nos está diciendo que algo imposible pasó!
+```
+
+###  Excepciones vs Errores de Sintaxis
+
+::::{tab-set}
+
+:::{tab-item} Error de Sintaxis
+```python
+# ❌ Python ni siquiera puede leer esto
+if x = 5:  # SyntaxError
+    print(x)
+```
+Es como escribir una oración con palabras incorrectas.
+Python dice: "No entiendo lo que escribiste".
+:::
+
+:::{tab-item} Excepción
+```python
+# ✓ Python entiende el código...
 x = 5
 y = 0
 resultado = x / y  # ZeroDivisionError
+# ...pero la operación es imposible
 ```
-
-:::{note} Diferencia clave
-- **Errores de sintaxis**: Python no puede ni empezar a ejecutar
-- **Excepciones**: Ocurren durante la ejecución, pueden manejarse
+Es como pedir una receta válida pero con ingredientes imposibles.
+Python dice: "Entiendo, pero no puedo hacer eso".
 :::
 
-### Anatomía de una Excepción
+::::
 
-Cuando ocurre una excepción, Python muestra un **traceback**:
+```{admonition} Diferencia clave
+:class: note
+
+- **Error de sintaxis**: Python no puede ni empezar
+- **Excepción**: Python intenta, pero algo sale mal 
+```
+
+###  Anatomía de una Excepción (el Traceback)
+
+Cuando ocurre una excepción, Python nos da un **traceback**(rastreo). Es como una pista de cómo llegamos al error:
 
 ```{code-cell} ipython3
-def dividir(a, b):
-    return a / b
+def hacer_cafe():
+    return moler_granos()
 
-def calcular():
-    resultado = dividir(10, 0)
-    return resultado
+def moler_granos():
+    return usar_molino(0)
 
-calcular()
+def usar_molino(velocidad):
+    return 100 / velocidad  # 
+
+# Intentemos hacer café
+hacer_cafe()
 ```
 
-**Salida:**
+````{dropdown} Ver el Traceback completo
 ```
-Traceback (most recent call last):
-  File "programa.py", line 7, in <module>
-    calcular()
-  File "programa.py", line 5, in calcular
-    resultado = dividir(10, 0)
-  File "programa.py", line 2, in dividir
-    return a / b
-ZeroDivisionError: division by zero
+Traceback (most recent call last):          ← Empieza aquí
+  File "cafe.py", line 10, in <module>      
+    hacer_cafe()                            ← 1° llamada
+  File "cafe.py", line 2, in hacer_cafe    
+    return moler_granos()                   ← 2° llamada  
+  File "cafe.py", line 5, in moler_granos  
+    return usar_molino(0)                   ← 3° llamada
+  File "cafe.py", line 8, in usar_molino   
+    return 100 / velocidad                  ← ¡AQUÍ está el problema!
+ZeroDivisionError: division by zero         ← Tipo de error + mensaje
 ```
 
-**Partes del traceback:**
-1. `Traceback (most recent call last):` - Inicio del seguimiento
-2. Secuencia de llamadas (de más reciente a más antigua)
-3. `ZeroDivisionError` - Tipo de excepción
-4. `division by zero` - Mensaje descriptivo
+**¿Cómo leerlo?**
+1. Lee de **abajo hacia arriba** para encontrar el error
+2. La última línea dice **qué**pasó
+3. Las líneas superiores dicen **dónde**pasó
+````
 
 ---
 
 (tipos-excepciones)=
-## Tipos Comunes de Excepciones
+##  Tipos Comunes de Excepciones
 
-Python tiene muchas excepciones built-in. Aquí las más importantes:
+Python tiene una familia de excepciones. Conocerlas es como conocer las señales de tránsito.
 
-### ValueError
+```{figure} ./6_excepciones/jerarquia_excepciones.svg
+:name: fig-jerarquia-excepciones
+:align: center
+:width: 95%
 
-Valor inapropiado (tipo correcto, valor incorrecto):
-
-```{code-cell} ipython3
-# Conversión inválida
-numero = int("abc")  # ValueError: invalid literal for int()
-
-# Valor fuera de rango
-import math
-math.sqrt(-1)  # ValueError: math domain error
-
-# Desempaquetado incorrecto
-a, b = [1, 2, 3]  # ValueError: too many values to unpack
+Jerarquía de excepciones en Python
 ```
 
-### TypeError
+### Las "Top 10" Excepciones
 
-Tipo inapropiado:
+::::{tab-set}
+
+:::{tab-item} ValueError 
+**Problema:**El valor es del tipo correcto, pero no tiene sentido
 
 ```{code-cell} ipython3
-# Operación entre tipos incompatibles
-resultado = "texto" + 5  # TypeError: can only concatenate str
-
-# Función llamada con tipo incorrecto
-len(5)  # TypeError: object of type 'int' has no len()
-
-# Índice no entero
-lista = [1, 2, 3]
-lista[1.5]  # TypeError: list indices must be integers
+# Ejemplos de ValueError
+numero = int("abc")  # ❌ "abc" no es un número
+edad = int("25.5")   # ❌ tiene punto decimal
 ```
 
-### KeyError
+**Analogía:**Es como pedirle a alguien un número entre `1` y `10`, y te dicen `"banana"`.
+:::
 
-Clave no existe en diccionario:
+:::{tab-item} `TypeError`
+**Problema:**Usaste el tipo de dato equivocado
+
+```{code-cell} ipython3
+# Ejemplos de TypeError
+resultado = "5" + 3        # ❌ texto + número
+longitud = len(42)         # ❌ los números no tienen longitud
+lista[1.5]                 # ❌ índice debe ser entero
+```
+
+**Analogía:**Es como intentar usar un destornillador para clavar un clavo.
+:::
+
+:::{tab-item} `KeyError` 
+**Problema:**Buscaste una clave que no existe en un diccionario
 
 ```{code-cell} ipython3
 persona = {"nombre": "Ana", "edad": 20}
-ciudad = persona["ciudad"]  # KeyError: 'ciudad'
-
-# También en .pop()
-persona.pop("ciudad")  # KeyError: 'ciudad'
+ciudad = persona["ciudad"]  # ❌ no existe "ciudad"
 ```
 
-### IndexError
+**Analogía:**Buscas la llave de un cuarto que no existe en tu casa.
+:::
 
-Índice fuera de rango:
+:::{tab-item} `IndexError` 📍
+**Problema:**Intentaste acceder a una posición que no existe en una lista
 
 ```{code-cell} ipython3
-lista = [1, 2, 3]
-elemento = lista[10]  # IndexError: list index out of range
-
-# También con índices negativos excesivos
-elemento = lista[-10]  # IndexError: list index out of range
+frutas = ["🍎", "🍌", "🍊"]
+fruta = frutas[10]  # ❌ solo hay 3 elementos (0, 1, 2)
 ```
 
-### AttributeError
+**Analogía:**Intentas ir al piso 20 de un edificio de 5 pisos.
+:::
 
-Atributo o método no existe:
+:::{tab-item} `FileNotFoundError `
+**Problema:**El archivo que buscas no existe
+
+```{code-cell} ipython3
+archivo = open("datos_secretos.txt")  # ❌ archivo no existe
+```
+
+**Analogía:**Buscas un libro en la biblioteca que nunca fue comprado.
+:::
+
+:::{tab-item} `ZeroDivisionError`
+**Problema:**Intentaste dividir por cero (¡matemáticamente imposible!)
+
+```{code-cell} ipython3
+resultado = 10 / 0   # ❌ división por cero
+resto = 10 % 0       # ❌ módulo por cero
+```
+
+**Analogía:**Intentas repartir `10` pizzas entre `0` personas.
+:::
+
+:::{tab-item} `AttributeError`
+**Problema:**El objeto no tiene ese atributo o método
 
 ```{code-cell} ipython3
 texto = "hola"
-texto.append("mundo")  # AttributeError: 'str' has no attribute 'append'
+texto.append("!")  # ❌ strings no tienen .append()
 
 numero = 42
-numero.upper()  # AttributeError: 'int' object has no attribute 'upper'
+numero.upper()     # ❌ números no tienen .upper()
 ```
 
-### FileNotFoundError
-
-Archivo no existe:
-
-```{code-cell} ipython3
-archivo = open("no_existe.txt", "r")
-# FileNotFoundError: [Errno 2] No such file or directory: 'no_existe.txt'
-```
-
-### ZeroDivisionError
-
-División por cero:
-
-```{code-cell} ipython3
-resultado = 10 / 0  # ZeroDivisionError: division by zero
-resto = 10 % 0      # ZeroDivisionError: integer division or modulo by zero
-```
-
-### ImportError / ModuleNotFoundError
-
-Módulo no encontrado:
-
-```{code-cell} ipython3
-import modulo_inexistente  # ModuleNotFoundError: No module named 'modulo_inexistente'
-
-from math import funcion_inexistente  # ImportError: cannot import name 'funcion_inexistente'
-```
-
-### NameError
-
-Variable no definida:
-
-```{code-cell} ipython3
-print(variable_no_definida)  # NameError: name 'variable_no_definida' is not defined
-```
-
-### IndentationError
-
-Error de indentación (tipo especial de SyntaxError):
-
-```{code-cell} ipython3
-def funcion():
-print("mal indentado")  # IndentationError: expected an indented block
-```
-
-### Jerarquía de Excepciones
-
-Todas las excepciones heredan de `BaseException`:
-
-```
-BaseException
- ├── SystemExit
- ├── KeyboardInterrupt
- └── Exception
-      ├── ArithmeticError
-      │    ├── ZeroDivisionError
-      │    └── OverflowError
-      ├── LookupError
-      │    ├── IndexError
-      │    └── KeyError
-      ├── ValueError
-      ├── TypeError
-      ├── OSError
-      │    ├── FileNotFoundError
-      │    └── PermissionError
-      └── ... (muchas más)
-```
-
-:::{tip} Conocer la jerarquía
-Entender la jerarquía te permite capturar grupos de excepciones:
-```{code-cell} ipython3
-try:
-    # código
-    pass
-except LookupError:
-    # Captura IndexError y KeyError
-    pass
-except ArithmeticError:
-    # Captura ZeroDivisionError, OverflowError, etc.
-    pass
-```
+**Analogía:**Le pides a un gato que ladre.
 :::
+
+:::{tab-item} `ImportError` 
+**Problema:**No se puede importar el módulo
+
+```{code-cell} ipython3
+import modulo_magico  # ❌ ese módulo no existe
+from math import funcion_secreta  # ❌ no está en math
+```
+
+**Analogía:**Intentas usar una herramienta que no está en tu caja.
+:::
+
+::::
+
+### La Familia de Excepciones
+
+Las excepciones están organizadas en una jerarquía (familia):
+
+```{mermaid}
+graph TD
+    A[BaseException<br/>Bisabuelo] --> B[Exception<br/>Abuelo]
+    A --> C[SystemExit]
+    A --> D[KeyboardInterrupt]
+    B --> E[ValueError<br/>]
+    B --> F[TypeError<br/>]
+    B --> G[LookupError<br/>]
+    B --> H[ArithmeticError<br/>]
+    G --> I[KeyError ]
+    G --> J[IndexError]
+    H --> K[ZeroDivisionError]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:4px
+    style B fill:#bbf,stroke:#333,stroke-width:3px
+    style E fill:#bfb,stroke:#333,stroke-width:2px
+    style F fill:#bfb,stroke:#333,stroke-width:2px
+    style I fill:#ffb,stroke:#333,stroke-width:1px
+    style J fill:#ffb,stroke:#333,stroke-width:1px
+    style K fill:#ffb,stroke:#333,stroke-width:1px
+```
+
+```{tip}
+¿Por qué importa la jerarquía? Porque puedes capturar "familias" completas:
+- `except LookupError` captura `IndexError` y `KeyError`
+- `except ArithmeticError` captura `ZeroDivisionError`, `OverflowError`, etc.
+```
 
 ---
 
 (try-except)=
-## Try-Except: Manejo Básico
+##  Try-Except: Tu Escudo Protector
 
-La estructura `try-except` permite capturar y manejar excepciones.
+`try-except` es como un paracaídas 🪂: esperas no necesitarlo, pero te salva cuando las cosas salen mal.
 
-### Sintaxis Básica
+### 🎮 Sintaxis Básica
 
 ```python
 try:
-    # Código que puede generar excepción
-    numero = int(input("Ingrese un número: "))
+    # Código que PUEDE fallar (zona de riesgo)
+    numero = int(input("Número: "))
     resultado = 10 / numero
-    print(f"Resultado: {resultado}")
 except:
-    # Se ejecuta si ocurre CUALQUIER excepción
-    print("Ocurrió un error")
+    # Código que se ejecuta SI falla
+    print("¡Algo salió mal!")
 ```
 
-:::{warning} Evitar `except` sin especificar
-Capturar todas las excepciones sin especificar es mala práctica:
+````{warning} ¡No captures TODO!
+Usar `except` sin especificar el tipo es como poner una red para capturar cualquier cosa:
+
+```python
+# ❌ MAL: Oculta todos los errores
+try:
+    codigo_peligroso()
+except:
+    pass  # ¿Qué pasó? ¡No sabemos!
+
+# ✅ BIEN: Específico y claro
+try:
+    codigo_peligroso()
+except ValueError:
+    print("Error de valor específico")
+```
+````
+
+### Capturar Excepciones Específicas
+
+:::::{tab-set}
+
+::::{tab-item} Un tipo de error
 ```{code-cell} ipython3
-# ❌ Muy genérico, oculta errores inesperados
 try:
-    codigo()
-except:
-    pass  # ¿Qué error ocurrió? No sabemos
-
-# ✓ Específico, solo maneja errores esperados
-try:
-    codigo()
+    edad = int(input("¿Cuántos años tienes? "))
+    print(f"En 10 años tendrás {edad + 10}")
 except ValueError:
-    print("Error de valor")
-```
-:::
-
-### Capturar Excepción Específica
-
-```python
-try:
-    edad = int(input("Edad: "))
-except ValueError:
-    print("Error: debe ingresar un número entero")
-    edad = 0
+    print("❌ Eso no parece un número")
+    print("Intenta escribir solo dígitos: 25")
 ```
 
-### Capturar Múltiples Excepciones
+**¿Cuándo se ejecuta `except`?**
+- ✅ Si el usuario escribe "veinte" → ValueError
+- ❌ Si el usuario escribe "20" → No hay error, salta el except
+::::
 
-**Opción 1: Varios except**
-```python
+::::{tab-item} Múltiples errores (separados)
+```{code-cell} ipython3
 try:
     numero = int(input("Número: "))
     resultado = 10 / numero
     archivo = open("datos.txt")
 except ValueError:
-    print("Error: número inválido")
+    print("❌ Número inválido")
 except ZeroDivisionError:
-    print("Error: no se puede dividir por cero")
+    print("❌ No puedes dividir por cero")
 except FileNotFoundError:
-    print("Error: archivo no encontrado")
+    print("❌ Archivo no encontrado")
 ```
 
-**Opción 2: Tuple de excepciones**
-```python
+Python prueba cada `except` en orden hasta encontrar el correcto.
+::::
+
+::::{tab-item} Múltiples errores (agrupados)
+```{code-cell} ipython3
 try:
     numero = int(input("Número: "))
     resultado = 10 / numero
-except (ValueError, ZeroDivisionError):
-    print("Error en el cálculo")
+except (ValueError, ZeroDivisionError) as error:
+    print(f"❌ Error en el cálculo: {error}")
 ```
+
+Útil cuando quieres manejar varios errores de la misma forma.
+::::
+
+:::::
 
 ### Capturar el Objeto Excepción
 
-```python
+Puedes "atrapar" la excepción en una variable para obtener más información:
+
+```{code-cell} ipython3
 try:
-    numero = int(input("Número: "))
+    numero = int(input("Escribe un número: "))
 except ValueError as error:
-    print(f"Error específico: {error}")
-    print(f"Tipo: {type(error)}")
-    print(f"Args: {error.args}")
+    print(f" Mensaje del error: {error}")
+    print(f"🏷️  Tipo de error: {type(error)}")
+    print(f" Argumentos: {error.args}")
 ```
 
-**Salida (si usuario ingresa "abc"):**
+````{dropdown} 👁️ Ver ejemplo de salida
+Si el usuario escribe "abc":
 ```
-Error específico: invalid literal for int() with base 10: 'abc'
-Tipo: <class 'ValueError'>
-Args: ("invalid literal for int() with base 10: 'abc'",)
+ Mensaje del error: invalid literal for int() with base 10: 'abc'
+🏷️  Tipo de error: <class 'ValueError'>
+ Argumentos: ("invalid literal for int() with base 10: 'abc'",)
 ```
+````
 
-### Ejemplo: Validación Robusta
+###  Ejemplo Práctico: Calculadora Robusta
 
-```python
-def solicitar_entero(mensaje, minimo=None, maximo=None):
-    """Solicita un entero con validación.
+```{code-cell} ipython3
+def calculadora_segura():
+    """Una calculadora que no se rompe nunca"""
+    print(" Calculadora Super Segura")
+    print("=" * 30)
     
-    Args:
-        mensaje: Mensaje para mostrar.
-        minimo: Valor mínimo opcional.
-        maximo: Valor máximo opcional.
-    
-    Returns:
-        Entero válido.
-    """
     while True:
         try:
-            valor = int(input(mensaje))
+            # Solicitar números
+            num1 = float(input("\n1° número (o 'salir'): "))
+            num2 = float(input("2° número: "))
             
-            # Validar rango
-            if minimo is not None and valor < minimo:
-                print(f"Error: debe ser >= {minimo}")
+            # Solicitar operación
+            op = input("Operación (+, -, *, /): ")
+            
+            # Calcular
+            if op == '+':
+                resultado = num1 + num2
+            elif op == '-':
+                resultado = num1 - num2
+            elif op == '*':
+                resultado = num1 * num2
+            elif op == '/':
+                resultado = num1 / num2
+            else:
+                print("❌ Operación no válida")
                 continue
             
-            if maximo is not None and valor > maximo:
-                print(f"Error: debe ser <= {maximo}")
-                continue
-            
-            return valor
+            # Mostrar resultado
+            print(f"✅ Resultado: {num1} {op} {num2} = {resultado}")
             
         except ValueError:
-            print("Error: ingrese un número entero válido")
+            # Usuario escribió texto en vez de número
+            print("❌ Por favor ingresa números válidos")
+            
+        except ZeroDivisionError:
+            # Intentó dividir por cero
+            print("❌ ¡No puedes dividir por cero!")
+            print("En matemáticas, esto es indefinido")
+            
+        except KeyboardInterrupt:
+            # Usuario presionó Ctrl+C
+            print("\n👋 ¡Hasta luego!")
+            break
 
-# Uso
-edad = solicitar_entero("Edad (0-120): ", minimo=0, maximo=120)
-print(f"Edad ingresada: {edad}")
+# Prueba la calculadora
+# calculadora_segura()
 ```
 
 ---
 
 (try-except-else-finally)=
-## Try-Except-Else-Finally
+## Try-Except-Else-Finally: El Combo Completo
 
-Python ofrece cláusulas adicionales para control más fino.
+Python ofrece 4 cláusulas para control total. Es como tener un plan A, B, C y D:
 
-### Else: Cuando NO Hay Excepción
+```{figure} ./6_excepciones/try_except_else_finally.svg
+:name: fig-try-except-else-finally
+:align: center
+:width: 95%
 
-`else` se ejecuta solo si NO ocurrió ninguna excepción:
-
-```python
-try:
-    numero = int(input("Número: "))
-    resultado = 10 / numero
-except ValueError:
-    print("Error: número inválido")
-except ZeroDivisionError:
-    print("Error: división por cero")
-else:
-    # Solo se ejecuta si NO hubo excepción
-    print(f"Resultado exitoso: {resultado}")
+Flujo completo de Try-Except-Else-Finally
 ```
 
-### Finally: Siempre Se Ejecuta
+### Las 4 Cláusulas
 
-`finally` se ejecuta SIEMPRE, haya o no excepción:
+::::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item-card} 🔵 try
+**Siempre se ejecuta primero**
+
+Intenta ejecutar código que puede fallar
+:::
+
+:::{grid-item-card} 🔴 except
+**Solo si hay error**
+
+Maneja el error específico
+:::
+
+:::{grid-item-card} 🟢 else
+**Solo si NO hay error**
+
+Código para cuando todo salió bien
+:::
+
+:::{grid-item-card} 🟡 finally
+**SIEMPRE se ejecuta**
+
+Limpieza, cerrar archivos, etc.
+:::
+
+::::
+
+### Ejemplo Completo
+
+```{code-cell} ipython3
+def procesar_archivo(nombre):
+    """Procesa un archivo con manejo completo de errores"""
+    print(f"📂 Procesando: {nombre}")
+    print("-" * 40)
+    
+    archivo = None  # Importante inicializar
+    
+    try:
+        print("1️⃣ Intentando abrir archivo...")
+        archivo = open(nombre, 'r')
+        
+        print("2️⃣ Leyendo contenido...")
+        contenido = archivo.read()
+        
+        print("3️⃣ Procesando datos...")
+        lineas = contenido.split('\n')
+        
+    except FileNotFoundError:
+        print("❌ ERROR: El archivo no existe")
+        return None
+        
+    except PermissionError:
+        print("❌ ERROR: Sin permisos para leer")
+        return None
+        
+    else:
+        # Solo se ejecuta si TODO salió bien
+        print(f"✅ ÉXITO: {len(lineas)} líneas procesadas")
+        return lineas
+        
+    finally:
+        # SIEMPRE se ejecuta (haya error o no)
+        if archivo:
+            archivo.close()
+            print("Archivo cerrado correctamente")
+        print("4️⃣ Limpieza completada")
+
+# Prueba
+resultado = procesar_archivo("datos.txt")
+```
+
+````{dropdown} 👁️ Ver flujo de ejecución
+**Caso 1: Archivo existe y todo sale bien**
+```
+1️⃣ Intentando abrir archivo...
+2️⃣ Leyendo contenido...
+3️⃣ Procesando datos...
+✅ ÉXITO: 10 líneas procesadas
+Archivo cerrado correctamente
+4️⃣ Limpieza completada
+```
+
+**Caso 2: Archivo no existe**
+```
+1️⃣ Intentando abrir archivo...
+❌ ERROR: El archivo no existe
+4️⃣ Limpieza completada
+```
+
+Nota: `finally` siempre se ejecuta 
+````
+
+### ¿Cuándo usar cada uno?
+
+```{list-table}
+:header-rows: 1
+:widths: 20 40 40
+
+* - Cláusula
+  - ¿Cuándo?
+  - Ejemplo de uso
+* - `try`
+  - Siempre (es obligatorio)
+  - Código que puede fallar
+* - `except`
+  - Cuando esperas errores
+  - Validar entrada de usuario
+* - `else`
+  - Código que solo corre si todo salió bien
+  - Guardar resultados exitosos
+* - `finally`
+  - Limpieza que DEBE ocurrir siempre
+  - Cerrar archivos, conexiones
+```
+
+---
+
+(raise-excepciones)=
+## Raise: Lanzar Tus Propias Excepciones
+
+A veces TÚ quieres lanzar una excepción. Es como decir: "¡Alto! Esto no debería pasar".
+
+```{figure} ./6_excepciones/raise_excepcion.svg
+:name: fig-raise-excepcion
+:align: center
+:width: 90%
+
+Cómo funciona raise para validar datos
+```
+
+### ¿Por qué lanzar excepciones?
+
+**Analogía:**Eres un guardia de seguridad 💂. Si alguien intenta entrar sin credenciales, ¡activas la alarma!
+
+```{code-cell} ipython3
+def validar_edad(edad):
+    """Valida que la edad sea razonable"""
+    if edad < 0:
+        raise ValueError("La edad no puede ser negativa")
+    if edad > 150:
+        raise ValueError("Edad demasiado alta")
+    if not isinstance(edad, int):
+        raise TypeError("La edad debe ser un número entero")
+    
+    return edad
+
+# Uso
+try:
+    edad = validar_edad(-5)
+except ValueError as e:
+    print(f"❌ Error de validación: {e}")
+```
+
+###  Ejemplos Prácticos
+
+:::::{tab-set}
+
+::::{tab-item} Validar parámetros
+```{code-cell} ipython3
+def calcular_raiz_cuadrada(numero):
+    """Calcula la raíz cuadrada"""
+    if numero < 0:
+        raise ValueError(
+            f"No puedo calcular √{numero}. "
+            "Los números negativos no tienen raíz real."
+        )
+    
+    return numero **0.5
+
+# Uso seguro
+try:
+    resultado = calcular_raiz_cuadrada(-25)
+except ValueError as e:
+    print(f"❌ {e}")
+    print("Usa números positivos")
+```
+::::
+
+::::{tab-item} Validar precondiciones
+```{code-cell} ipython3
+def dividir_pizza(porciones, personas):
+    """Divide pizza entre personas"""
+    # Validar precondiciones
+    if personas <= 0:
+        raise ValueError("Debe haber al menos 1 persona")
+    if porciones <= 0:
+        raise ValueError("Debe haber al menos 1 porción")
+    if personas > porciones:
+        raise ValueError(
+            f"No hay suficiente pizza: "
+            f"{porciones} porciones para {personas} personas"
+        )
+    
+    return porciones / personas
+
+# Uso
+try:
+    por_persona = dividir_pizza(8, 0)
+except ValueError as e:
+    print(f"❌ {e}")
+```
+::::
+
+::::{tab-item} Validar estado
+```{code-cell} ipython3
+class CuentaBancaria:
+    def __init__(self, saldo_inicial):
+        self.saldo = saldo_inicial
+    
+    def retirar(self, monto):
+        """Retira dinero de la cuenta"""
+        if monto <= 0:
+            raise ValueError("El monto debe ser positivo")
+        
+        if monto > self.saldo:
+            raise ValueError(
+                f"Fondos insuficientes. "
+                f"Saldo: ${self.saldo}, Intentó retirar: ${monto}"
+            )
+        
+        self.saldo -= monto
+        return self.saldo
+
+# Uso
+cuenta = CuentaBancaria(100)
+try:
+    cuenta.retirar(150)
+except ValueError as e:
+    print(f"❌ {e}")
+```
+::::
+
+:::::
+
+### Re-lanzar Excepciones
+
+A veces quieres capturar, hacer algo, y luego re-lanzar:
+
+```{code-cell} ipython3
+def procesar_datos(datos):
+    try:
+        # Procesar
+        resultado = calcular(datos)
+        return resultado
+    except ValueError as e:
+        # Registrar el error
+        print(f"Error registrado: {e}")
+        # Re-lanzar para que el llamador también lo maneje
+        raise
+
+# Uso
+try:
+    procesar_datos(datos_invalidos)
+except ValueError:
+    print("El código superior también puede manejar el error")
+```
+
+---
+
+(excepciones-personalizadas)=
+##  Excepciones Personalizadas
+
+Puedes crear tus propias excepciones para situaciones específicas de tu programa.
+
+### 🏗️ Creando Excepciones Personalizadas
+
+```{code-cell} ipython3
+# Excepción básica
+class EdadInvalidaError(Exception):
+    """Se lanza cuando la edad no es válida"""
+    pass
+
+# Excepción con información adicional
+class SaldoInsuficienteError(Exception):
+    """Se lanza cuando no hay suficiente saldo"""
+    def __init__(self, saldo, monto_requerido):
+        self.saldo = saldo
+        self.monto_requerido = monto_requerido
+        self.faltante = monto_requerido - saldo
+        super().__init__(
+            f"Saldo insuficiente: tienes ${saldo}, "
+            f"necesitas ${monto_requerido} "
+            f"(faltan ${self.faltante})"
+        )
+
+# Excepción con contexto
+class ErrorDeValidacion(Exception):
+    """Error genérico de validación"""
+    def __init__(self, campo, valor, mensaje):
+        self.campo = campo
+        self.valor = valor
+        super().__init__(f"{campo}: {mensaje} (valor: {valor})")
+```
+
+### Ejemplo Completo: Sistema de Usuarios
+
+```{code-cell} ipython3
+# Definir excepciones personalizadas
+class UsuarioError(Exception):
+    """Clase base para errores de usuario"""
+    pass
+
+class NombreInvalidoError(UsuarioError):
+    """Nombre de usuario inválido"""
+    pass
+
+class EdadInvalidaError(UsuarioError):
+    """Edad inválida"""
+    pass
+
+class EmailInvalidoError(UsuarioError):
+    """Email inválido"""
+    pass
+
+# Clase Usuario con validación
+class Usuario:
+    def __init__(self, nombre, edad, email):
+        self.nombre = self._validar_nombre(nombre)
+        self.edad = self._validar_edad(edad)
+        self.email = self._validar_email(email)
+    
+    def _validar_nombre(self, nombre):
+        if not nombre:
+            raise NombreInvalidoError("El nombre no puede estar vacío")
+        if len(nombre) < 2:
+            raise NombreInvalidoError("El nombre debe tener al menos 2 caracteres")
+        if not nombre.replace(" ", "").isalpha():
+            raise NombreInvalidoError("El nombre solo puede contener letras")
+        return nombre.title()
+    
+    def _validar_edad(self, edad):
+        if not isinstance(edad, int):
+            raise EdadInvalidaError("La edad debe ser un número entero")
+        if edad < 0:
+            raise EdadInvalidaError("La edad no puede ser negativa")
+        if edad > 120:
+            raise EdadInvalidaError("La edad parece incorrecta")
+        return edad
+    
+    def _validar_email(self, email):
+        if "@" not in email or "." not in email:
+            raise EmailInvalidoError("Formato de email inválido")
+        return email.lower()
+    
+    def __str__(self):
+        return f"Usuario({self.nombre}, {self.edad}, {self.email})"
+
+# Función para crear usuario con manejo de errores
+def crear_usuario_seguro(nombre, edad, email):
+    """Crea un usuario con manejo completo de errores"""
+    try:
+        usuario = Usuario(nombre, edad, email)
+        print(f"✅ Usuario creado: {usuario}")
+        return usuario
+        
+    except NombreInvalidoError as e:
+        print(f"❌ Error en el nombre: {e}")
+        
+    except EdadInvalidaError as e:
+        print(f"❌ Error en la edad: {e}")
+        
+    except EmailInvalidoError as e:
+        print(f"❌ Error en el email: {e}")
+        
+    except UsuarioError as e:
+        # Captura cualquier otro error de usuario
+        print(f"❌ Error de usuario: {e}")
+        
+    return None
+
+# Pruebas
+print("Prueba 1: Datos válidos")
+crear_usuario_seguro("Juan Pérez", 25, "juan@email.com")
+
+print("\nPrueba 2: Nombre inválido")
+crear_usuario_seguro("A", 25, "juan@email.com")
+
+print("\nPrueba 3: Edad inválida")
+crear_usuario_seguro("Juan Pérez", -5, "juan@email.com")
+
+print("\nPrueba 4: Email inválido")
+crear_usuario_seguro("Juan Pérez", 25, "email_sin_arroba")
+```
+
+### 🌳 Jerarquía de Excepciones Personalizadas
+
+```{code-cell} ipython3
+# Crear una jerarquía de excepciones
+class AppError(Exception):
+    """Clase base para todas las excepciones de la app"""
+    pass
+
+class ErrorDeBaseDatos(AppError):
+    """Errores relacionados con la base de datos"""
+    pass
+
+class ErrorDeConexion(ErrorDeBaseDatos):
+    """No se puede conectar a la base de datos"""
+    pass
+
+class ErrorDeConsulta(ErrorDeBaseDatos):
+    """Error en una consulta SQL"""
+    pass
+
+class ErrorDeAutenticacion(AppError):
+    """Errores de autenticación"""
+    pass
+
+class CredencialesInvalidasError(ErrorDeAutenticacion):
+    """Usuario o contraseña incorrectos"""
+    pass
+
+class TokenExpiradoError(ErrorDeAutenticacion):
+    """El token de sesión expiró"""
+    pass
+
+# Ahora puedes capturar por categorías
+try:
+    # código que puede fallar
+    pass
+except ErrorDeBaseDatos:
+    # Captura TODOS los errores de BD
+    print("Error en la base de datos")
+except ErrorDeAutenticacion:
+    # Captura TODOS los errores de autenticación
+    print("Error de autenticación")
+except AppError:
+    # Captura cualquier error de la app
+    print("Error general de la aplicación")
+```
+
+---
+
+(manejo-archivos)=
+##  Manejo de Archivos: Context Managers
+
+El manejo de archivos es uno de los lugares más importantes para usar excepciones.
+
+```{figure} ./6_excepciones/manejo_archivos.svg
+:name: fig-manejo-archivos
+:align: center
+:width: 95%
+
+Comparación entre manejo riesgoso y seguro de archivos
+```
+
+### ❌ El Problema: Fugas de Recursos
+
+```{code-cell} ipython3
+# ❌ PELIGROSO: Si hay un error, el archivo queda abierto
+archivo = open("datos.txt", "r")
+contenido = archivo.read()
+procesar(contenido)  # ¿Y si esto falla?
+archivo.close()  # ¡Nunca llega aquí!
+```
+
+**Problemas:**
+-  Fuga de memoria
+- Archivo bloqueado
+- Límite de archivos abiertos
+-  Pérdida de datos
+
+### ✅ Solución 1: Try-Finally
 
 ```{code-cell} ipython3
 archivo = None
 try:
     archivo = open("datos.txt", "r")
     contenido = archivo.read()
-    print(contenido)
-except FileNotFoundError:
-    print("Archivo no encontrado")
+    procesar(contenido)
 finally:
-    # Siempre cierra el archivo si se abrió
     if archivo:
-        archivo.close()
-        print("Archivo cerrado")
+        archivo.close()  # ✅ SIEMPRE se cierra
 ```
 
-### Estructura Completa
+### Solución 2: Context Manager (with)
 
 ```{code-cell} ipython3
-try:
-    # Código que puede generar excepción
-    print("Intentando operación...")
-    resultado = operacion_riesgosa()
-except TipoError1:
-    # Maneja TipoError1
-    print("Error tipo 1")
-except TipoError2:
-    # Maneja TipoError2
-    print("Error tipo 2")
-else:
-    # Solo si NO hubo excepción
-    print("Operación exitosa")
-finally:
-    # SIEMPRE se ejecuta
-    print("Limpieza de recursos")
+#  MEJOR: Automático y limpio
+with open("datos.txt", "r") as archivo:
+    contenido = archivo.read()
+    procesar(contenido)
+# ✅ El archivo se cierra automáticamente
 ```
 
-**Flujo de ejecución:**
-
-```mermaid
-graph TD
-    A[Inicio try] --> B{¿Excepción?}
-    B -->|No| C[Ejecutar else]
-    B -->|Sí| D[Ejecutar except apropiado]
-    C --> E[Ejecutar finally]
-    D --> E
-    E --> F[Continuar programa]
-```
-
-### Ejemplo: Lectura Segura de Archivo
+### Ejemplo Completo: Lectura Segura
 
 ```{code-cell} ipython3
 def leer_archivo_seguro(nombre_archivo):
-    """Lee un archivo de forma segura.
-    
-    Args:
-        nombre_archivo: Nombre del archivo.
-    
-    Returns:
-        Contenido del archivo o None si hay error.
-    """
-    archivo = None
+    """Lee un archivo con manejo completo de errores"""
     try:
-        print(f"Abriendo {nombre_archivo}...")
-        archivo = open(nombre_archivo, "r", encoding="utf-8")
-        contenido = archivo.read()
-        
+        with open(nombre_archivo, 'r', encoding='utf-8') as archivo:
+            contenido = archivo.read()
+            lineas = contenido.split('\n')
+            
+            print(f"✅ Archivo leído: {len(lineas)} líneas")
+            return lineas
+            
     except FileNotFoundError:
-        print(f"Error: {nombre_archivo} no existe")
+        print(f"❌ El archivo '{nombre_archivo}' no existe")
+        print("Verifica la ruta y el nombre del archivo")
         return None
         
     except PermissionError:
-        print(f"Error: sin permisos para leer {nombre_archivo}")
+        print(f"❌ Sin permisos para leer '{nombre_archivo}'")
+        print("Verifica los permisos del archivo")
         return None
         
     except UnicodeDecodeError:
-        print(f"Error: problema de codificación en {nombre_archivo}")
+        print(f"❌ Problema de codificación en '{nombre_archivo}'")
+        print("Intenta con otra codificación")
         return None
         
-    else:
-        # Solo si la lectura fue exitosa
-        print(f"Archivo leído: {len(contenido)} caracteres")
-        return contenido
-        
-    finally:
-        # Siempre cierra el archivo
-        if archivo:
-            archivo.close()
-            print("Archivo cerrado")
+    except Exception as e:
+        print(f"❌ Error inesperado: {e}")
+        return None
 
 # Uso
-contenido = leer_archivo_seguro("datos.txt")
-if contenido:
-    print(contenido[:100])  # Primeros 100 caracteres
+lineas = leer_archivo_seguro("datos.txt")
+if lineas:
+    for i, linea in enumerate(lineas[:5], 1):
+        print(f"{i}. {linea}")
 ```
 
-:::{note} Context managers vs finally
-Para archivos, es mejor usar `with` (context manager):
-```{code-cell} ipython3
-# ✓ Más simple y seguro
-try:
-    with open("datos.txt", "r") as archivo:
-        contenido = archivo.read()
-except FileNotFoundError:
-    print("Archivo no encontrado")
-# El archivo se cierra automáticamente
-```
-:::
-
----
-
-(lanzar-excepciones)=
-## Lanzar Excepciones: raise
-
-Podés lanzar excepciones intencionalmente con `raise`.
-
-### Raise Básico
+###  Escritura Segura de Archivos
 
 ```{code-cell} ipython3
-def dividir(a, b):
-    """Divide a entre b.
-    
-    Raises:
-        ValueError: Si b es cero.
-    """
-    if b == 0:
-        raise ValueError("No se puede dividir por cero")
-    return a / b
-
-# Uso
-try:
-    resultado = dividir(10, 0)
-except ValueError as e:
-    print(f"Error: {e}")
-```
-
-### Raise con Diferentes Tipos
-
-```{code-cell} ipython3
-def validar_edad(edad):
-    """Valida una edad.
-    
-    Args:
-        edad: Edad a validar.
-    
-    Raises:
-        TypeError: Si edad no es int.
-        ValueError: Si edad está fuera de rango.
-    """
-    if not isinstance(edad, int):
-        raise TypeError(f"Edad debe ser entero, no {type(edad).__name__}")
-    
-    if edad < 0:
-        raise ValueError("Edad no puede ser negativa")
-    
-    if edad > 120:
-        raise ValueError("Edad no puede ser mayor a 120")
-    
-    return True
-
-# Uso
-try:
-    validar_edad("25")  # TypeError
-except TypeError as e:
-    print(e)
-
-try:
-    validar_edad(-5)  # ValueError
-except ValueError as e:
-    print(e)
-```
-
-### Re-lanzar Excepciones
-
-Capturar, procesar y re-lanzar:
-
-```{code-cell} ipython3
-def procesar_archivo(nombre):
-    """Procesa un archivo con logging.
-    
-    Raises:
-        FileNotFoundError: Si el archivo no existe.
-    """
+def guardar_datos_seguro(nombre_archivo, datos):
+    """Guarda datos en un archivo de forma segura"""
     try:
-        with open(nombre, "r") as archivo:
-            return archivo.read()
-    except FileNotFoundError:
-        print(f"LOG: Intento fallido de abrir {nombre}")
-        raise  # Re-lanza la misma excepción
-
-# Uso
-try:
-    contenido = procesar_archivo("no_existe.txt")
-except FileNotFoundError:
-    print("Manejando en nivel superior")
-```
-
-### Raise from: Cadena de Excepciones
-
-Preservar la excepción original:
-
-```{code-cell} ipython3
-def cargar_configuracion(archivo):
-    """Carga configuración desde JSON.
-    
-    Raises:
-        RuntimeError: Si hay error al cargar.
-    """
-    import json
-    
-    try:
-        with open(archivo, "r") as f:
-            return json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError) as e:
-        # Lanza nueva excepción preservando la original
-        raise RuntimeError(f"Error al cargar configuración") from e
-
-# Uso
-try:
-    config = cargar_configuracion("config.json")
-except RuntimeError as e:
-    print(f"Error: {e}")
-    print(f"Causa original: {e.__cause__}")
-```
-
----
-
-(excepciones-personalizadas)=
-## Excepciones Personalizadas
-
-Crear tus propias excepciones para errores específicos de tu dominio.
-
-### Excepción Simple
-
-```{code-cell} ipython3
-class ErrorValidacion(Exception):
-    """Excepción base para errores de validación."""
-    pass
-
-def validar_email(email):
-    """Valida formato de email.
-    
-    Raises:
-        ErrorValidacion: Si el email es inválido.
-    """
-    if "@" not in email:
-        raise ErrorValidacion(f"Email inválido: {email}")
-    return True
-
-# Uso
-try:
-    validar_email("usuario.com")
-except ErrorValidacion as e:
-    print(f"Error: {e}")
-```
-
-### Jerarquía de Excepciones
-
-```{code-cell} ipython3
-class ErrorAplicacion(Exception):
-    """Excepción base para la aplicación."""
-    pass
-
-class ErrorValidacion(ErrorAplicacion):
-    """Error de validación de datos."""
-    pass
-
-class ErrorAutenticacion(ErrorAplicacion):
-    """Error de autenticación."""
-    pass
-
-class ErrorPermiso(ErrorAplicacion):
-    """Error de permisos."""
-    pass
-
-# Uso específico
-def verificar_acceso(usuario, recurso):
-    """Verifica acceso de usuario a recurso.
-    
-    Raises:
-        ErrorAutenticacion: Si usuario no autenticado.
-        ErrorPermiso: Si no tiene permisos.
-    """
-    if not usuario.autenticado:
-        raise ErrorAutenticacion("Usuario no autenticado")
-    
-    if not usuario.tiene_permiso(recurso):
-        raise ErrorPermiso(f"Sin permiso para {recurso}")
-
-# Captura por jerarquía
-try:
-    verificar_acceso(usuario, "admin_panel")
-except ErrorAutenticacion:
-    print("Debe iniciar sesión")
-except ErrorPermiso:
-    print("Acceso denegado")
-except ErrorAplicacion:
-    # Captura cualquier error de la aplicación
-    print("Error general de la aplicación")
-```
-
-### Excepciones con Atributos
-
-```{code-cell} ipython3
-class ErrorRangoEdad(Exception):
-    """Excepción para edad fuera de rango."""
-    
-    def __init__(self, edad, minimo, maximo):
-        self.edad = edad
-        self.minimo = minimo
-        self.maximo = maximo
-        mensaje = f"Edad {edad} fuera de rango [{minimo}, {maximo}]"
-        super().__init__(mensaje)
-
-def registrar_persona(nombre, edad):
-    """Registra una persona.
-    
-    Raises:
-        ErrorRangoEdad: Si edad está fuera de rango.
-    """
-    EDAD_MIN = 0
-    EDAD_MAX = 120
-    
-    if not (EDAD_MIN <= edad <= EDAD_MAX):
-        raise ErrorRangoEdad(edad, EDAD_MIN, EDAD_MAX)
-    
-    return {"nombre": nombre, "edad": edad}
-
-# Uso
-try:
-    persona = registrar_persona("Ana", 150)
-except ErrorRangoEdad as e:
-    print(f"Error: {e}")
-    print(f"Edad ingresada: {e.edad}")
-    print(f"Rango válido: [{e.minimo}, {e.maximo}]")
-```
-
-### Ejemplo Completo: Sistema de Validación
-
-```{code-cell} ipython3
-"""Sistema de validación con excepciones personalizadas."""
-
-class ErrorValidacion(Exception):
-    """Excepción base para validación."""
-    pass
-
-class ErrorEmail(ErrorValidacion):
-    """Email inválido."""
-    pass
-
-class ErrorTelefono(ErrorValidacion):
-    """Teléfono inválido."""
-    pass
-
-class ErrorDNI(ErrorValidacion):
-    """DNI inválido."""
-    pass
-
-class Validador:
-    """Validador de datos personales."""
-    
-    @staticmethod
-    def email(email):
-        """Valida email.
+        # Crear backup si el archivo ya existe
+        import os
+        if os.path.exists(nombre_archivo):
+            backup = nombre_archivo + ".backup"
+            print(f"Creando backup: {backup}")
+            with open(nombre_archivo, 'r') as original:
+                with open(backup, 'w') as respaldo:
+                    respaldo.write(original.read())
         
-        Raises:
-            ErrorEmail: Si es inválido.
-        """
-        if not isinstance(email, str):
-            raise ErrorEmail("Email debe ser string")
+        # Guardar nuevos datos
+        with open(nombre_archivo, 'w', encoding='utf-8') as archivo:
+            if isinstance(datos, list):
+                archivo.write('\n'.join(map(str, datos)))
+            else:
+                archivo.write(str(datos))
         
-        if "@" not in email or "." not in email:
-            raise ErrorEmail(f"Formato de email inválido: {email}")
-        
-        partes = email.split("@")
-        if len(partes) != 2 or not partes[0] or not partes[1]:
-            raise ErrorEmail(f"Formato de email inválido: {email}")
-        
+        print(f"✅ Datos guardados en '{nombre_archivo}'")
         return True
-    
-    @staticmethod
-    def telefono(telefono):
-        """Valida teléfono argentino (10 dígitos).
         
-        Raises:
-            ErrorTelefono: Si es inválido.
-        """
-        # Limpiar caracteres no numéricos
-        numeros = "".join(c for c in str(telefono) if c.isdigit())
+    except PermissionError:
+        print(f"❌ Sin permisos para escribir en '{nombre_archivo}'")
+        return False
         
-        if len(numeros) != 10:
-            raise ErrorTelefono(
-                f"Teléfono debe tener 10 dígitos, tiene {len(numeros)}"
-            )
+    except OSError as e:
+        print(f"❌ Error del sistema: {e}")
+        return False
         
-        return True
-    
-    @staticmethod
-    def dni(dni):
-        """Valida DNI argentino (7-8 dígitos).
-        
-        Raises:
-            ErrorDNI: Si es inválido.
-        """
-        try:
-            dni_int = int(dni)
-        except ValueError:
-            raise ErrorDNI("DNI debe contener solo dígitos")
-        
-        if not (1_000_000 <= dni_int <= 99_999_999):
-            raise ErrorDNI(
-                f"DNI debe tener 7-8 dígitos, recibido: {dni}"
-            )
-        
-        return True
-
-def registrar_usuario(nombre, email, telefono, dni):
-    """Registra un usuario validando sus datos.
-    
-    Returns:
-        Dict con datos del usuario.
-    
-    Raises:
-        ErrorValidacion: Si algún dato es inválido.
-    """
-    # Validar cada campo
-    Validador.email(email)
-    Validador.telefono(telefono)
-    Validador.dni(dni)
-    
-    return {
-        "nombre": nombre,
-        "email": email,
-        "telefono": telefono,
-        "dni": dni
-    }
+    except Exception as e:
+        print(f"❌ Error inesperado: {e}")
+        return False
 
 # Uso
-datos_usuarios = [
-    ("Ana", "ana@example.com", "1134567890", "12345678"),
-    ("Bruno", "bruno@email", "123", "999"),  # Errores
-    ("Carlos", "carlos@test.com", "1198765432", "87654321"),
-]
-
-for nombre, email, tel, dni in datos_usuarios:
-    try:
-        usuario = registrar_usuario(nombre, email, tel, dni)
-        print(f"✓ Usuario registrado: {nombre}")
-    except ErrorEmail as e:
-        print(f"✗ Error en email de {nombre}: {e}")
-    except ErrorTelefono as e:
-        print(f"✗ Error en teléfono de {nombre}: {e}")
-    except ErrorDNI as e:
-        print(f"✗ Error en DNI de {nombre}: {e}")
-    except ErrorValidacion as e:
-        print(f"✗ Error de validación en {nombre}: {e}")
+datos = ["línea 1", "línea 2", "línea 3"]
+guardar_datos_seguro("salida.txt", datos)
 ```
 
 ---
 
 (debugging)=
-## Debugging y Diagnóstico
+##  Debugging: Encontrar y Arreglar Errores
 
-Técnicas para encontrar y corregir errores.
+El debugging es el arte de encontrar por qué tu código no funciona.
 
-### Print Debugging
+### Técnicas de Debugging
 
-La técnica más simple y efectiva:
+::::{tab-set}
 
+:::{tab-item} 1. Print Debugging
 ```{code-cell} ipython3
 def calcular_promedio(numeros):
-    print(f"DEBUG: numeros = {numeros}")  # Ver entrada
-    print(f"DEBUG: len(numeros) = {len(numeros)}")
+    print(f"Debug: numeros = {numeros}")
+    print(f"Debug: tipo = {type(numeros)}")
     
     total = sum(numeros)
-    print(f"DEBUG: total = {total}")  # Ver intermedio
+    print(f"Debug: total = {total}")
     
-    promedio = total / len(numeros)
-    print(f"DEBUG: promedio = {promedio}")  # Ver resultado
+    cantidad = len(numeros)
+    print(f"Debug: cantidad = {cantidad}")
+    
+    promedio = total / cantidad
+    print(f"Debug: promedio = {promedio}")
     
     return promedio
 
-resultado = calcular_promedio([10, 20, 30])
+# Usar
+calcular_promedio([10, 20, 30])
 ```
 
-:::{tip} Prefijo DEBUG
-Usa un prefijo consistente para encontrar y eliminar prints fácilmente:
-```{code-cell} ipython3
-# Fácil de buscar y eliminar después
-print("DEBUG: variable =", variable)
-print(f"DEBUG: {nombre=}, {valor=}")  # Python 3.8+
-```
+**Ventajas:**Simple y rápido
+**Desventajas:**Hay que borrar los prints después
 :::
 
-### Manejo de Información del Error
-
-```{code-cell} ipython3
-import sys
-import traceback
-
-def funcion_problematica():
-    return 1 / 0
-
-try:
-    funcion_problematica()
-except Exception as e:
-    # Información del error
-    print(f"Tipo: {type(e).__name__}")
-    print(f"Mensaje: {str(e)}")
-    print(f"Args: {e.args}")
-    
-    # Traceback completo
-    print("\nTraceback:")
-    traceback.print_exc()
-    
-    # Información del sistema
-    print(f"\nPython: {sys.version}")
-```
-
-### Assert: Verificaciones de Desarrollo
-
-`assert` verifica condiciones durante desarrollo:
-
-```{code-cell} ipython3
-def calcular_factorial(n):
-    """Calcula factorial de n."""
-    # Verificación de desarrollo
-    assert isinstance(n, int), "n debe ser entero"
-    assert n >= 0, "n debe ser no negativo"
-    
-    if n == 0 or n == 1:
-        return 1
-    
-    resultado = 1
-    for i in range(2, n + 1):
-        resultado *= i
-    
-    # Verificación de postcondición
-    assert resultado > 0, "Resultado debe ser positivo"
-    
-    return resultado
-
-# Si assert falla, lanza AssertionError
-try:
-    calcular_factorial(-5)
-except AssertionError as e:
-    print(f"Error de assert: {e}")
-```
-
-:::{warning} Assert no es para validación de usuario
-```{code-cell} ipython3
-# ❌ NO usar assert para validar entrada de usuario
-def dividir(a, b):
-    assert b != 0, "divisor no puede ser cero"
-    return a / b
-
-# ✓ Usar if + raise para validación
-def dividir(a, b):
-    if b == 0:
-        raise ValueError("divisor no puede ser cero")
-    return a / b
-```
-
-Assert puede desactivarse con `python -O`, por lo que no es confiable para validación.
-:::
-
-### Logging: Registro Profesional
-
+:::{tab-item} 2. Logging
 ```{code-cell} ipython3
 import logging
 
 # Configurar logging
 logging.basicConfig(
     level=logging.DEBUG,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    filename='app.log'
+    format='%(levelname)s - %(message)s'
 )
-
-logger = logging.getLogger(__name__)
 
 def procesar_datos(datos):
-    """Procesa datos con logging."""
-    logger.info(f"Procesando {len(datos)} elementos")
+    logging.debug(f"Procesando {len(datos)} elementos")
     
     try:
-        resultado = []
-        for i, item in enumerate(datos):
-            logger.debug(f"Procesando item {i}: {item}")
-            
-            if item < 0:
-                logger.warning(f"Valor negativo en posición {i}: {item}")
-            
-            resultado.append(item * 2)
-        
-        logger.info("Procesamiento completado exitosamente")
+        resultado = operacion_compleja(datos)
+        logging.info("Operación exitosa")
         return resultado
-        
     except Exception as e:
-        logger.error(f"Error durante procesamiento: {e}")
-        logger.exception("Traceback completo:")  # Incluye traceback
+        logging.error(f"Error en procesamiento: {e}")
+        logging.debug("Datos que causaron el error:", exc_info=True)
         raise
 
-# Uso
-datos = [1, 2, -3, 4, 5]
-procesar_datos(datos)
+# Niveles de logging:
+logging.debug("Información detallada para debugging")
+logging.info("Información general")
+logging.warning("Advertencia")
+logging.error("Error")
+logging.critical("Error crítico")
 ```
 
-**Niveles de logging:**
-- `DEBUG`: Información detallada para diagnóstico
-- `INFO`: Confirmación de que todo funciona
-- `WARNING`: Algo inesperado, pero el programa continúa
-- `ERROR`: Error serio, funcionalidad afectada
-- `CRITICAL`: Error crítico, programa puede terminar
+**Ventajas:**Profesional, se puede activar/desactivar
+**Desventajas:**Más complejo de configurar
+:::
+
+:::{tab-item} 3. Assertions
+```{code-cell} ipython3
+def calcular_factorial(n):
+    # Validar precondiciones
+    assert n >= 0, "n debe ser no negativo"
+    assert isinstance(n, int), "n debe ser entero"
+    
+    if n == 0:
+        return 1
+    
+    resultado = 1
+    for i in range(1, n + 1):
+        resultado *= i
+        # Validar invariantes
+        assert resultado > 0, "El resultado debe ser positivo"
+    
+    return resultado
+
+# Usar
+try:
+    calcular_factorial(-5)
+except AssertionError as e:
+    print(f"❌ Assertion falló: {e}")
+```
+
+**Ventajas:**Documenta suposiciones en el código
+**Desventajas:**Se desactivan con `python -O`
+:::
+
+:::{tab-item} 4. Traceback
+```{code-cell} ipython3
+import traceback
+
+def funcion_problematica():
+    try:
+        # Código que puede fallar
+        resultado = operacion_riesgosa()
+    except Exception as e:
+        # Obtener el traceback completo
+        tb_string = traceback.format_exc()
+        
+        print("=" * 50)
+        print("ERROR DETALLADO:")
+        print("=" * 50)
+        print(tb_string)
+        print("=" * 50)
+        
+        # También puedes registrarlo
+        with open("errores.log", "a") as log:
+            log.write(f"\n{tb_string}\n")
+```
+
+**Ventajas:**Información completa del error
+**Desventajas:**Puede ser verboso
+:::
+
+::::
+
+### Estrategia de Debugging
+
+```{mermaid}
+graph TD
+    A[¿Hay un error?] --> B[Leer el traceback]
+    B --> C[Identificar la línea del error]
+    C --> D[¿Entiendes el error?]
+    D -->|No| E[Buscar en Google]
+    D -->|Sí| F[Agregar prints]
+    F --> G[Ejecutar de nuevo]
+    G --> H{¿Se resolvió?}
+    H -->|No| I[Simplificar el problema]
+    I --> F
+    H -->|Sí| J[✅ ¡Listo!]
+    E --> F
+    
+    style A fill:#ffebee
+    style J fill:#e8f5e9
+```
 
 ---
 
-(validacion-robusta)=
-## Validación Robusta de Datos
+(validacion-datos)=
+## ✅ Validación de Datos
 
-Técnicas para validar entrada del usuario de forma profesional.
+La validación es el arte de asegurarte de que los datos sean correctos ANTES de usarlos.
 
-### Patrón de Validación Completa
+### Principios de Validación
 
-```python
-def solicitar_dato(
-    mensaje,
-    tipo=str,
-    validador=None,
-    mensaje_error="Valor inválido",
-    max_intentos=3
-):
-    """Solicita y valida un dato del usuario.
+```{admonition} Regla de Oro
+:class: tip
+**Nunca confíes en los datos de entrada**
+
+- Usuarios cometen errores
+- APIs pueden cambiar
+- Archivos pueden corromperse
+- Siempre valida ✅
+```
+
+###  Validador Genérico
+
+```{code-cell} ipython3
+class Validador:
+    """Clase helper para validaciones comunes"""
     
-    Args:
-        mensaje: Mensaje para mostrar.
-        tipo: Tipo de dato esperado (int, float, str).
-        validador: Función de validación adicional.
-        mensaje_error: Mensaje si validación falla.
-        max_intentos: Intentos máximos antes de lanzar excepción.
+    @staticmethod
+    def validar_entero(valor, nombre="valor", minimo=None, maximo=None):
+        """Valida que sea un entero en rango"""
+        if not isinstance(valor, int):
+            raise TypeError(f"{nombre} debe ser entero, no {type(valor).__name__}")
+        
+        if minimo is not None and valor < minimo:
+            raise ValueError(f"{nombre} debe ser >= {minimo}, es {valor}")
+        
+        if maximo is not None and valor > maximo:
+            raise ValueError(f"{nombre} debe ser <= {maximo}, es {valor}")
+        
+        return valor
     
-    Returns:
-        Dato validado del tipo correcto.
+    @staticmethod
+    def validar_texto(valor, nombre="texto", min_largo=None, max_largo=None):
+        """Valida que sea texto con largo apropiado"""
+        if not isinstance(valor, str):
+            raise TypeError(f"{nombre} debe ser texto, no {type(valor).__name__}")
+        
+        if min_largo is not None and len(valor) < min_largo:
+            raise ValueError(
+                f"{nombre} debe tener al menos {min_largo} caracteres, "
+                f"tiene {len(valor)}"
+            )
+        
+        if max_largo is not None and len(valor) > max_largo:
+            raise ValueError(
+                f"{nombre} debe tener máximo {max_largo} caracteres, "
+                f"tiene {len(valor)}"
+            )
+        
+        return valor.strip()
     
-    Raises:
-        ValueError: Si se agotan los intentos.
-    """
-    for intento in range(max_intentos):
-        try:
-            # Solicitar entrada
-            entrada = input(mensaje)
-            
-            # Convertir a tipo
-            valor = tipo(entrada)
-            
-            # Validación adicional
-            if validador and not validador(valor):
-                print(mensaje_error)
-                continue
-            
-            return valor
-            
-        except ValueError:
-            print(f"Error: debe ingresar un {tipo.__name__} válido")
-            if intento < max_intentos - 1:
-                print(f"Intentos restantes: {max_intentos - intento - 1}")
+    @staticmethod
+    def validar_email(email):
+        """Valida formato básico de email"""
+        email = email.strip().lower()
+        
+        if "@" not in email:
+            raise ValueError("Email debe contener @")
+        
+        if "." not in email.split("@")[1]:
+            raise ValueError("Email debe tener dominio válido")
+        
+        partes = email.split("@")
+        if len(partes[0]) == 0:
+            raise ValueError("Email debe tener usuario antes de @")
+        
+        return email
     
-    raise ValueError("Máximo de intentos alcanzado")
+    @staticmethod
+    def validar_opciones(valor, opciones, nombre="opción"):
+        """Valida que el valor esté en las opciones permitidas"""
+        if valor not in opciones:
+            opciones_str = ", ".join(map(str, opciones))
+            raise ValueError(
+                f"{nombre} debe ser una de: {opciones_str}. "
+                f"Recibido: {valor}"
+            )
+        
+        return valor
 
 # Ejemplos de uso
+try:
+    edad = Validador.validar_entero(150, "edad", minimo=0, maximo=120)
+except ValueError as e:
+    print(f"❌ {e}")
 
-# 1. Edad con validación de rango
-edad = solicitar_dato(
-    "Edad: ",
-    tipo=int,
-    validador=lambda x: 0 <= x <= 120,
-    mensaje_error="Edad debe estar entre 0 y 120"
-)
+try:
+    nombre = Validador.validar_texto("Ab", "nombre", min_largo=3)
+except ValueError as e:
+    print(f"❌ {e}")
 
-# 2. Calificación
-nota = solicitar_dato(
-    "Nota: ",
-    tipo=float,
-    validador=lambda x: 0 <= x <= 10,
-    mensaje_error="Nota debe estar entre 0 y 10"
-)
+try:
+    email = Validador.validar_email("correo_invalido")
+except ValueError as e:
+    print(f"❌ {e}")
 
-# 3. Email
-email = solicitar_dato(
-    "Email: ",
-    tipo=str,
-    validador=lambda x: "@" in x and "." in x,
-    mensaje_error="Email debe contener @ y ."
-)
-```
-
-### Validaciones Comunes
-
-```python
-def validar_rango(valor, minimo, maximo):
-    """Valida que valor esté en rango."""
-    if not (minimo <= valor <= maximo):
-        raise ValueError(
-            f"Valor {valor} fuera de rango [{minimo}, {maximo}]"
-        )
-    return True
-
-def validar_no_vacio(texto):
-    """Valida que texto no esté vacío."""
-    if not texto or not texto.strip():
-        raise ValueError("El texto no puede estar vacío")
-    return True
-
-def validar_longitud(texto, min_len=None, max_len=None):
-    """Valida longitud de texto."""
-    longitud = len(texto)
-    
-    if min_len and longitud < min_len:
-        raise ValueError(
-            f"Texto demasiado corto (mínimo {min_len} caracteres)"
-        )
-    
-    if max_len and longitud > max_len:
-        raise ValueError(
-            f"Texto demasiado largo (máximo {max_len} caracteres)"
-        )
-    
-    return True
-
-def validar_opciones(valor, opciones):
-    """Valida que valor esté en lista de opciones."""
-    if valor not in opciones:
-        raise ValueError(
-            f"Opción inválida. Opciones válidas: {opciones}"
-        )
-    return True
-
-# Uso combinado
-def solicitar_nombre():
-    """Solicita nombre con validaciones."""
-    while True:
-        try:
-            nombre = input("Nombre: ")
-            validar_no_vacio(nombre)
-            validar_longitud(nombre, min_len=2, max_len=50)
-            return nombre.strip().title()
-        except ValueError as e:
-            print(f"Error: {e}")
-
-def solicitar_opcion(opciones):
-    """Solicita opción de lista."""
-    print("Opciones:", ", ".join(opciones))
-    while True:
-        try:
-            opcion = input("Seleccione: ")
-            validar_opciones(opcion, opciones)
-            return opcion
-        except ValueError as e:
-            print(f"Error: {e}")
+try:
+    color = Validador.validar_opciones("verde", ["rojo", "azul"], "color")
+except ValueError as e:
+    print(f"❌ {e}")
 ```
 
 ---
 
-(buenas-practicas-excepciones)=
-## Buenas Prácticas
+(buenas-practicas)=
+##  Buenas Prácticas
 
-### 1. Ser Específico en Excepciones
+### Reglas de Oro
 
+::::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item-card} 1️⃣ Específico, no genérico
 ```python
-# ❌ Muy genérico
+# ❌ MAL
 try:
     codigo()
-except Exception:
-    print("Error")
-
-# ✓ Específico
-try:
-    edad = int(input("Edad: "))
-except ValueError:
-    print("Error: edad debe ser número entero")
-```
-
-### 2. No Silenciar Excepciones
-
-```{code-cell} ipython3
-# ❌ Silencia errores
-try:
-    codigo_importante()
 except:
-    pass  # ¡Error oculto!
+    pass
 
-# ✓ Maneja o propaga
+# ✅ BIEN
 try:
-    codigo_importante()
-except ValueError as e:
-    logger.error(f"Error de valor: {e}")
+    codigo()
+except ValueError:
+    manejar_error()
+```
+:::
+
+:::{grid-item-card} 2️⃣ No silencies errores
+```python
+# ❌ MAL
+except Exception:
+    pass  # Oculta todo
+
+# ✅ BIEN
+except Exception as e:
+    logging.error(f"Error: {e}")
     raise
 ```
+:::
 
-### 3. Usar Jerarquía Correcta
-
-```{code-cell} ipython3
-# ❌ Captura amplia primero
+:::{grid-item-card} 3️⃣ Captura lo más específico primero
+```python
+# ✅ BIEN: del más específico al más general
 try:
     codigo()
-except Exception:  # Captura TODO
-    pass
-except ValueError:  # Nunca se ejecuta
-    pass
-
-# ✓ De específico a general
-try:
-    codigo()
-except ValueError:
-    pass
-except TypeError:
-    pass
-except Exception:  # Solo si es necesario
-    pass
+except FileNotFoundError:
+    ...
+except OSError:
+    ...
+except Exception:
+    ...
 ```
+:::
 
-### 4. Documentar Excepciones
+:::{grid-item-card} 4️⃣ Usa context managers
+```python
+# ✅ BIEN
+with open("archivo.txt") as f:
+    contenido = f.read()
+# Se cierra automáticamente
+```
+:::
 
-```{code-cell} ipython3
+:::{grid-item-card} 5️⃣ Documenta excepciones
+```python
 def dividir(a, b):
     """Divide a entre b.
     
-    Args:
-        a: Dividendo.
-        b: Divisor.
-    
-    Returns:
-        Resultado de la división.
-    
     Raises:
-        TypeError: Si a o b no son números.
-        ValueError: Si b es cero.
+        ZeroDivisionError: Si b es 0
+        TypeError: Si a o b no son números
     """
-    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
-        raise TypeError("Ambos argumentos deben ser números")
-    
-    if b == 0:
-        raise ValueError("El divisor no puede ser cero")
-    
     return a / b
 ```
-
-### 5. EAFP vs LBYL
-
-Python favorece **EAFP** (Easier to Ask for Forgiveness than Permission):
-
-```{code-cell} ipython3
-# LBYL - Look Before You Leap
-if "clave" in diccionario:
-    valor = diccionario["clave"]
-else:
-    valor = None
-
-# EAFP - Easier to Ask for Forgiveness than Permission (Pythonic)
-try:
-    valor = diccionario["clave"]
-except KeyError:
-    valor = None
-
-# Mejor: usar método .get()
-valor = diccionario.get("clave")  # Retorna None si no existe
-```
-
-### 6. Excepciones en Funciones
-
-```{code-cell} ipython3
-# ✓ Lanzar excepciones en funciones para errores
-def procesar_usuario(usuario_id):
-    """Procesa un usuario.
-    
-    Raises:
-        ValueError: Si usuario_id es inválido.
-        RuntimeError: Si el usuario no existe.
-    """
-    if not isinstance(usuario_id, int) or usuario_id <= 0:
-        raise ValueError("usuario_id debe ser entero positivo")
-    
-    usuario = buscar_usuario(usuario_id)
-    if not usuario:
-        raise RuntimeError(f"Usuario {usuario_id} no encontrado")
-    
-    return procesar(usuario)
-
-# El código que llama decide cómo manejar
-try:
-    resultado = procesar_usuario(usuario_id)
-except ValueError as e:
-    print(f"ID inválido: {e}")
-except RuntimeError as e:
-    print(f"Error de procesamiento: {e}")
-```
-
----
-
-(ejercicios-excepciones)=
-## Ejercicios
-
-(ejercicio-6-1)=
-### Ejercicio 6.1: Calculadora Robusta
-
-Creá una calculadora que maneje todas las excepciones posibles.
-
-**Funcionalidades:**
-- Operaciones: +, -, *, /, //, %, **
-- Validar entrada de números
-- Manejar división por cero
-- Manejar operadores inválidos
-- Permitir múltiples cálculos
-- Mostrar mensajes de error claros
-
-**Ejemplo:**
-```
-Calculadora
-1. 5 + 3 = 8
-2. 10 / 0 = Error: división por cero
-3. abc + 5 = Error: número inválido
-```
-
----
-
-(ejercicio-6-2)=
-### Ejercicio 6.2: Validador de Formulario
-
-Creá un sistema que valide un formulario de registro con excepciones personalizadas.
-
-**Campos a validar:**
-- Nombre: 2-50 caracteres, no vacío
-- Email: formato válido (contiene @ y .)
-- Edad: 18-100
-- Teléfono: 10 dígitos
-- Contraseña: mínimo 8 caracteres, al menos una mayúscula y un número
-
-**Excepciones personalizadas:**
-- `ErrorNombre`
-- `ErrorEmail`
-- `ErrorEdad`
-- `ErrorTelefono`
-- `ErrorContraseña`
-
----
-
-(ejercicio-6-3)=
-### Ejercicio 6.3: Lector de Archivos con Manejo de Errores
-
-Creá funciones para leer diferentes tipos de archivos con manejo robusto de errores.
-
-**Funciones:**
-```{code-cell} ipython3
-def leer_texto(archivo):
-    """Lee archivo de texto."""
-    pass
-
-def leer_numeros(archivo):
-    """Lee archivo con números (uno por línea)."""
-    pass
-
-def leer_csv_simple(archivo):
-    """Lee CSV y retorna lista de listas."""
-    pass
-```
-
-**Maneja:**
-- Archivo no existe
-- Sin permisos
-- Formato incorrecto
-- Encoding incorrecto
-
----
-
-(ejercicio-6-4)=
-### Ejercicio 6.4: Sistema de Login
-
-Implementá un sistema de login con manejo de excepciones.
-
-**Excepciones personalizadas:**
-- `ErrorUsuarioNoExiste`
-- `ErrorContraseñaIncorrecta`
-- `ErrorCuentaBloqueada`
-- `ErrorIntentosAgotados`
-
-**Funcionalidades:**
-- Máximo 3 intentos de login
-- Bloquear cuenta tras 3 fallos
-- Registrar intentos de login
-- Mensajes específicos para cada error
-
----
-
-(ejercicio-6-5)=
-### Ejercicio 6.5: Procesador de Transacciones Bancarias
-
-Creá un sistema que procese transacciones bancarias con validación exhaustiva.
-
-**Excepciones:**
-- `ErrorSaldoInsuficiente`
-- `ErrorMontoInvalido`
-- `ErrorCuentaInexistente`
-- `ErrorLimiteExcedido`
-
-**Operaciones:**
-- Depósito (validar monto > 0)
-- Retiro (validar saldo, monto, límite diario)
-- Transferencia (validar ambas cuentas, saldo)
-
-**Límites:**
-- Retiro máximo: $50,000 por operación
-- Límite diario: $100,000
-
----
-
-(ejercicio-6-6)=
-### Ejercicio 6.6: Parser de Configuración
-
-Creá un parser que lea un archivo de configuración con formato clave=valor.
-
-**Maneja:**
-- Archivo no existe
-- Formato incorrecto
-- Claves duplicadas
-- Valores inválidos (tipos)
-
-**Ejemplo de archivo config.txt:**
-```
-nombre=MiApp
-version=1.0
-puerto=8080
-debug=true
-```
-
-**Convierte tipos:**
-- Números a int/float
-- true/false a bool
-- Resto a string
-
----
-
-(ejercicio-6-7)=
-### Ejercicio 6.7: Sistema de Reservas con Validación
-
-Implementá un sistema de reservas (hotel, restaurant, etc.) con validación completa.
-
-**Validaciones:**
-- Fecha válida (formato, no pasada)
-- Cantidad de personas (1-10)
-- Horario válido (09:00-22:00)
-- Disponibilidad
-
-**Excepciones:**
-- `ErrorFecha`
-- `ErrorHorario`
-- `ErrorCapacidad`
-- `ErrorDisponibilidad`
-
----
-
-(ejercicio-6-8)=
-### Ejercicio 6.8: Conversor de Unidades Robusto
-
-Creá un conversor de unidades con manejo completo de errores.
-
-**Conversiones:**
-- Temperatura: Celsius, Fahrenheit, Kelvin
-- Longitud: metros, kilómetros, millas
-- Peso: kilogramos, libras, onzas
-
-**Valida:**
-- Unidades válidas
-- Números válidos
-- Rangos físicos (ej: temperatura > -273.15°C)
-
-**Excepciones:**
-- `ErrorUnidadInvalida`
-- `ErrorValorFueraDeRango`
-- `ErrorConversionImposible`
-
----
-
-(ejercicio-6-9)=
-### Ejercicio 6.9: Evaluador de Expresiones Matemáticas
-
-Creá un evaluador de expresiones matemáticas simples con manejo de errores.
-
-**Soporta:**
-- Operaciones: +, -, *, /, **
-- Paréntesis
-- Números decimales
-
-**Maneja:**
-- Sintaxis incorrecta
-- División por cero
-- Paréntesis desbalanceados
-- Caracteres inválidos
-
-**Ejemplo:**
-```
-Entrada: (5 + 3) * 2
-Salida: 16
-
-Entrada: 10 / 0
-Error: División por cero
-
-Entrada: 5 + * 3
-Error: Sintaxis inválida
-```
-
----
-
-(ejercicio-6-10)=
-### Ejercicio 6.10: Sistema de Gestión de Estudiantes con Validación Completa
-
-Creá un sistema completo de gestión de estudiantes con todas las validaciones.
-
-**Funcionalidades:**
-- Agregar estudiante (nombre, DNI, email, edad, notas)
-- Modificar notas
-- Calcular promedios
-- Listar estudiantes
-- Guardar/cargar desde archivo JSON
-
-**Validaciones:**
-- Nombre: 2-50 caracteres
-- DNI: único, 7-8 dígitos
-- Email: formato válido, único
-- Edad: 17-99
-- Notas: 0-10
-
-**Excepciones personalizadas:**
-- `ErrorEstudianteExiste`
-- `ErrorEstudianteNoExiste`
-- `ErrorDNIDuplicado`
-- `ErrorEmailDuplicado`
-- `ErrorNota`
-
-**Manejo de archivos:**
-- Archivo corrupto
-- Formato incorrecto
-- Backup automático antes de guardar
-
-
----
-
-(uso-ia-excepciones)=
-## Uso Ético y Efectivo de la IA en Excepciones
-
-:::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
-Manejar errores correctamente es lo que separa código amateur de código profesional. La IA puede ayudarte a entender excepciones, pero **vos debés aprender a anticipar y manejar errores** en tu código.
 :::
 
-### Buenas Prácticas para Excepciones
-
-#### Generar Ejercicios Adicionales
-
-- *"Genera ejercicios sobre manejo de excepciones con try-except en Python"*
-- *"Crea problemas que requieran validación robusta de entrada con manejo de errores"*
-- *"Dame ejercicios que practiquen el uso de `finally` para limpieza de recursos"*
-
-#### Interpretar Mensajes de Error
-
-- *"Tengo este stack trace: [pega el error]. ¿Qué significa exactamente y cómo lo soluciono?"*
-- *"Mi programa lanza `ValueError: invalid literal for int()`. ¿Qué está causando esto?"*
-- *"¿Qué diferencia hay entre `ValueError`, `TypeError` y `KeyError`?"*
-
-#### Diseñar Manejo de Errores
-
-- *"Estoy validando entrada del usuario. ¿Debería usar try-except o if-else?"*
-- *"Tengo varios tipos de errores posibles en esta función. ¿Cómo estructuro múltiples except?"*
-- *"¿Cuándo debería usar `finally` versus simplemente poner código después del try-except?"*
-
-#### Crear Excepciones Personalizadas
-
-- *"¿Cuándo tiene sentido crear mi propia clase de excepción?"*
-- *"¿Cómo nombro excepciones personalizadas siguiendo convenciones de Python?"*
-
-#### Buenas Prácticas
-
-- *"¿Es mala práctica usar `except Exception:`? ¿Por qué?"*
-- *"¿Debería 'silenciar' errores con `pass` en un except?"*
-- *"¿Cómo decido si capturar una excepción o dejar que se propague?"*
-
-### Ejemplos Específicos de este Módulo
-
-**Situación 1**: Debugging con stack trace
-
-❌ **Incorrecto**:
+:::{grid-item-card} 6️⃣ Valida temprano
+```python
+# ✅ BIEN: Valida al inicio
+def procesar(datos):
+    if not datos:
+        raise ValueError("datos no puede estar vacío")
+    # ... resto del código
 ```
-Prompt: "Mi programa da error. Arreglalo.
-[pega 200 líneas de código sin contexto]"
-```
-
-✅ **Correcto**:
-```
-Prompt: "Estoy convirtiendo entrada del usuario a entero:
-edad = int(input("Edad: "))
-
-Cuando ingreso 'abc', obtengo:
-ValueError: invalid literal for int() with base 10: 'abc'
-
-Entiendo QUÉ es el error, pero no sé DÓNDE poner el try-except.
-¿Debería envolver solo la conversión o también el input?"
-```
-
-**Situación 2**: Diseño de validación
-
-❌ **Incorrecto**:
-```
-Prompt: "Dame código que valide entrada de usuario para edad."
-```
-
-✅ **Correcto**:
-```
-Prompt: "Estoy validando edad del usuario. Identifiqué estos errores posibles:
-- El usuario ingresa texto no numérico (ValueError)
-- El usuario ingresa número negativo
-- El usuario ingresa número > 150
-
-¿Debería manejar el ValueError con try-except y el resto con if,
-o hay mejor enfoque?"
-```
-
-### Filosofía del Manejo de Errores
-
-:::{tip} Principios clave
-1. **Específico es mejor que genérico**: Captura excepciones específicas, no `Exception` genérica
-2. **Fail fast, fail loud**: No silencies errores sin buena razón
-3. **Validación temprana**: Valida entradas lo antes posible
-4. **Documenta las excepciones**: En docstrings, indica qué excepciones puede lanzar tu función
-5. **Limpieza garantizada**: Usa `finally` o context managers para liberar recursos
-
-**La IA puede ayudarte a entender estos principios**, pero vos debés aplicarlos.
 :::
 
-### Uso Avanzado: Revisión de Manejo de Errores
-
-```
-Prompt: "Revisa el manejo de errores en este código:
-[tu código con try-except]
-
-¿Hay alguna excepción que debería capturar y no lo hago?
-¿Estoy capturando excepciones demasiado genéricas?
-¿El mensaje de error al usuario es suficientemente claro?"
-```
-
-### Errores Comunes en este Módulo
-
-:::{danger} No uses try-except para ocultar problemas
-Un error común es usar try-except para "que el programa no se rompa" sin realmente resolver el problema:
-
-```{code-cell} ipython3
-# ¡MAL! Silencia el error sin resolverlo
-try:
-    resultado = operacion_peligrosa()
-except:
-    pass  # "Ya está, lo arreglé"
-
-# BIEN: Maneja el error apropiadamente
-try:
-    resultado = operacion_peligrosa()
-except ValueError as e:
-    print(f"Error: entrada inválida - {e}")
-    resultado = valor_por_defecto
-```
-
-**No uses excepciones para esconder errores**, úsalas para manejarlos correctamente.
-:::
-
-### Debugging con IA
-
-La IA es especialmente útil para interpretar stack traces complejos:
-
-```
-Prompt: "Tengo este error y no entiendo el stack trace:
-[pega el stack trace completo]
-
-¿Podrías explicarme:
-1. Dónde se originó el error
-2. Qué significa cada parte del trace
-3. Cuál es la causa probable
-4. Qué debería verificar primero?"
-```
-
-Pero **siempre leé el stack trace vos mismo primero** e intenta entenderlo.
-
-### Integración con Módulos Anteriores
-
-El manejo de excepciones se integra con todo lo que aprendiste:
-
-- **Funciones**: Las funciones deben documentar qué excepciones pueden lanzar
-- **Estructuras de datos**: Acceder a índices o claves puede causar excepciones
-- **Módulos**: Importar módulos puede fallar, archivos pueden no existir
-- **Validación**: La validación robusta requiere manejo de excepciones
-
-**La IA puede ayudarte a conectar estos conceptos**, pero vos debés verlos como un sistema integrado.
+::::
 
 ---
 
+## Resumen del Capítulo
+
+::::{grid} 1
+:gutter: 3
+
+:::{grid-item-card} Conceptos Clave
+- Las excepciones son eventos que interrumpen el flujo normal
+- `try-except` permite capturar y manejar errores
+- `else` ejecuta si NO hay error, `finally` SIEMPRE
+- `raise` permite lanzar tus propias excepciones
+- Las excepciones personalizadas ayudan a organizar errores
+- Los context managers (`with`) garantizan limpieza de recursos
+:::
+
+:::{grid-item-card} ✅ Checklist de Buenas Prácticas
+- [ ] Capturo excepciones específicas, no genéricas
+- [ ] No silencio errores con `pass`
+- [ ] Uso `with` para archivos y recursos
+- [ ] Valido datos de entrada
+- [ ] Documento qué excepciones puede lanzar mi código
+- [ ] Uso excepciones personalizadas para mi dominio
+- [ ] Registro errores con logging
+- [ ] Limpio recursos en `finally` o `with`
+:::
+
+::::
 
 ---
 
-## Resumen
+## 💪 Ejercicios
 
-En este capítulo aprendiste sobre manejo de excepciones:
+### Ejercicio 1: Calculadora Segura
+Crea una calculadora que maneje todos los errores posibles.
 
-✓ **Qué son las excepciones**: Eventos que interrumpen el flujo normal  
-✓ **Tipos comunes**: ValueError, TypeError, KeyError, IndexError, etc.  
-✓ **Try-except**: Capturar y manejar excepciones  
-✓ **Else y finally**: Control fino del flujo  
-✓ **Raise**: Lanzar excepciones intencionalmente  
-✓ **Excepciones personalizadas**: Crear tipos específicos de errores  
-✓ **Debugging**: Print, logging, assert, traceback  
-✓ **Validación robusta**: Patrones para validar entrada del usuario  
-✓ **Buenas prácticas**: EAFP, ser específico, documentar  
+### Ejercicio 2: Validador de Formulario
+Implementa un validador completo para un formulario de registro.
 
-Las excepciones son fundamentales para escribir código robusto y profesional que:
-- No se "rompe" ante errores esperables
-- Proporciona mensajes claros al usuario
-- Facilita el debugging
-- Separa código normal de manejo de errores
-- Permite control granular del flujo
-
-:::{important} Excepciones y código profesional
-El manejo apropiado de excepciones es lo que diferencia un programa amateur de uno profesional:
-
-**Código amateur:**
-- Se rompe con entrada incorrecta
-- Mensajes de error crípticos
-- Pierde datos al fallar
-- Difícil de debuggear
-
-**Código profesional:**
-- Maneja errores elegantemente
-- Mensajes claros y útiles
-- Preserva datos importantes
-- Fácil de diagnosticar y corregir
-
-Dominar las excepciones te convierte en un programador profesional.
-:::
+### Ejercicio 3: Procesador de Archivos
+Crea un programa que procese archivos CSV con manejo robusto de errores.
 
 ---
 
-## Conclusión
+##  Referencias
 
-Las excepciones son una herramienta poderosa que:
-
-1. **Mejoran la robustez**: Tu programa no se rompe ante lo inesperado
-2. **Mejoran la UX**: Mensajes claros en lugar de crashes
-3. **Facilitan el debugging**: Información detallada sobre errores
-4. **Separan concerns**: Código normal vs manejo de errores
-5. **Permiten validación elegante**: Sin if/else anidados interminables
-
-Con el conocimiento de este capítulo, podés:
-- Escribir código que falle elegantemente
-- Validar datos de forma robusta
-- Crear sistemas de error personalizados
-- Debuggear eficientemente
-- Manejar archivos y recursos de forma segura
-- Escribir código de calidad profesional
-
-:::{tip} Practica con los ejercicios
-Los 10 ejercicios de este capítulo cubren escenarios reales que encontrarás en tu carrera. Resolverlos te dará experiencia práctica invaluable en:
-- Validación de datos del usuario
-- Manejo de archivos
-- Sistemas complejos con múltiples puntos de fallo
-- Creación de jerarquías de excepciones
-- Debugging y diagnóstico
-
-¡Dedicá tiempo a resolverlos todos!
-:::
-
-**¡Éxitos escribiendo código robusto y profesional!** 🛡️💪
+- [Documentación oficial de Excepciones](https://docs.python.org/3/tutorial/errors.html)
+- [PEP 8 - Guía de estilo](https://pep8.org/)
+- [Built-in Exceptions](https://docs.python.org/3/library/exceptions.html)

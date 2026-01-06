@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 750">
+  <defs>
+    <style>
+      .box-try { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .box-except { fill: #ffebee; stroke: #c62828; stroke-width: 2; }
+      .box-else { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2; }
+      .box-finally { fill: #fff9c4; stroke: #f57f17; stroke-width: 2; }
+      .arrow { stroke: #424242; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-yes { stroke: #c62828; stroke-width: 2; fill: none; marker-end: url(#arrowhead-yes); }
+      .arrow-no { stroke: #388e3c; stroke-width: 2; fill: none; marker-end: url(#arrowhead-no); }
+      .text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; fill: #212121; }
+      .text-small { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #424242; }
+      .text-code { font-family: 'Consolas', monospace; font-size: 14px; }
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #1976d2; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#424242" />
+    </marker>
+    <marker id="arrowhead-yes" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#c62828" />
+    </marker>
+    <marker id="arrowhead-no" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388e3c" />
+    </marker>
+  </defs>
+
+  <text x="450" y="35" text-anchor="middle" class="title">Try-Except-Else-Finally: Flujo Completo</text>
+
+  <!-- Start -->
+  <ellipse cx="450" cy="80" rx="70" ry="30" fill="#90caf9" stroke="#1976d2" stroke-width="2"/>
+  <text x="450" y="88" text-anchor="middle" class="text">INICIO</text>
+
+  <path d="M 450 110 L 450 140" class="arrow"/>
+
+  <!-- TRY BLOCK -->
+  <rect x="320" y="140" width="260" height="80" class="box-try" rx="5"/>
+  <text x="450" y="165" text-anchor="middle" class="text-code" fill="#1565c0">try:</text>
+  <text x="450" y="188" text-anchor="middle" class="text-small">Código que puede</text>
+  <text x="450" y="208" text-anchor="middle" class="text-small">generar excepción</text>
+
+  <path d="M 450 220 L 450 260" class="arrow"/>
+
+  <!-- Decision Diamond -->
+  <path d="M 450 260 L 580 320 L 450 380 L 320 320 Z" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+  <text x="450" y="315" text-anchor="middle" class="text-small">¿Ocurrió una</text>
+  <text x="450" y="335" text-anchor="middle" class="text-small">excepción?</text>
+
+  <!-- YES path - to EXCEPT -->
+  <path d="M 320 320 L 180 320 L 180 430" class="arrow-yes"/>
+  <text x="230" y="315" class="text" fill="#c62828" font-weight="bold">SÍ ✗</text>
+
+  <!-- EXCEPT BLOCK -->
+  <rect x="50" y="430" width="260" height="100" class="box-except" rx="5"/>
+  <text x="180" y="460" text-anchor="middle" class="text-code" fill="#c62828">except TipoError:</text>
+  <text x="180" y="485" text-anchor="middle" class="text-small">Maneja la excepción</text>
+  <text x="180" y="505" text-anchor="middle" class="text-small">Código de recuperación</text>
+  <text x="180" y="522" text-anchor="middle" class="text-small" font-style="italic">🛠️ Se ejecuta solo si hay error</text>
+
+  <path d="M 180 530 L 180 590" class="arrow"/>
+
+  <!-- NO path - to ELSE -->
+  <path d="M 580 320 L 720 320 L 720 430" class="arrow-no"/>
+  <text x="670" y="315" class="text" fill="#388e3c" font-weight="bold">NO ✓</text>
+
+  <!-- ELSE BLOCK -->
+  <rect x="590" y="430" width="260" height="100" class="box-else" rx="5"/>
+  <text x="720" y="460" text-anchor="middle" class="text-code" fill="#2e7d32">else:</text>
+  <text x="720" y="485" text-anchor="middle" class="text-small">Código que se ejecuta</text>
+  <text x="720" y="505" text-anchor="middle" class="text-small">solo si NO hubo error</text>
+  <text x="720" y="522" text-anchor="middle" class="text-small" font-style="italic">✓ Éxito garantizado</text>
+
+  <path d="M 720 530 L 720 590" class="arrow"/>
+
+  <!-- Convergence point -->
+  <circle cx="450" cy="590" r="8" fill="#424242"/>
+  <path d="M 310 590 L 442 590" class="arrow"/>
+  <path d="M 590 590 L 458 590" class="arrow"/>
+
+  <path d="M 450 598 L 450 630" class="arrow"/>
+
+  <!-- FINALLY BLOCK -->
+  <rect x="320" y="630" width="260" height="100" class="box-finally" rx="5"/>
+  <text x="450" y="658" text-anchor="middle" class="text-code" fill="#f57f17">finally:</text>
+  <text x="450" y="680" text-anchor="middle" class="text-small">Siempre se ejecuta</text>
+  <text x="450" y="700" text-anchor="middle" class="text-small">Limpieza, cerrar archivos</text>
+  <text x="450" y="717" text-anchor="middle" class="text-small" font-style="italic">⚙️ Pase lo que pase</text>
+
+  <!-- Annotations -->
+  <g>
+    <line x1="85" y1="380" x2="85" y2="420" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="4"/>
+    <text x="85" y="405" text-anchor="middle" class="text-small" fill="#9e9e9e">Solo si</text>
+    <text x="85" y="418" text-anchor="middle" class="text-small" fill="#9e9e9e">hay error</text>
+  </g>
+
+  <g>
+    <line x1="815" y1="380" x2="815" y2="420" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="4"/>
+    <text x="815" y="405" text-anchor="middle" class="text-small" fill="#9e9e9e">Solo si</text>
+    <text x="815" y="418" text-anchor="middle" class="text-small" fill="#9e9e9e">NO hay error</text>
+  </g>
+
+  <g>
+    <line x1="600" y1="665" x2="620" y2="665" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="4"/>
+    <text x="710" y="668" text-anchor="middle" class="text-small" fill="#9e9e9e">SIEMPRE se ejecuta</text>
+  </g>
+
+  <path d="M 450 730 L 450 760" class="arrow"/>
+
+  <!-- End -->
+  <ellipse cx="450" cy="780" rx="70" ry="30" fill="#81c784" stroke="#388e3c" stroke-width="2"/>
+  <text x="450" y="788" text-anchor="middle" class="text">FIN</text>
+
+  <!-- Legend Box -->
+  <rect x="20" y="20" width="200" height="110" fill="white" stroke="#9e9e9e" stroke-width="1.5" rx="5"/>
+  <text x="120" y="40" text-anchor="middle" class="text" font-weight="bold">📋 Bloques:</text>
+  <text x="30" y="60" class="text-small">🔵 <tspan fill="#1565c0">try</tspan>: intenta</text>
+  <text x="30" y="78" class="text-small">🔴 <tspan fill="#c62828">except</tspan>: captura error</text>
+  <text x="30" y="96" class="text-small">🟢 <tspan fill="#2e7d32">else</tspan>: si todo bien</text>
+  <text x="30" y="114" class="text-small">🟡 <tspan fill="#f57f17">finally</tspan>: siempre</text>
+</svg>

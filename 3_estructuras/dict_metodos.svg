@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs>
+    <style>
+      .title { font: bold 24px 'Segoe UI', Arial, sans-serif; fill: #2c3e50; }
+      .subtitle { font: bold 16px 'Segoe UI', Arial, sans-serif; fill: #34495e; }
+      .text { font: 14px 'Consolas', monospace; fill: #2c3e50; }
+      .method { font: bold 14px 'Consolas', monospace; fill: #e74c3c; }
+      .key { font: bold 13px 'Consolas', monospace; fill: #8e44ad; }
+      .value { font: bold 13px 'Consolas', monospace; fill: #27ae60; }
+      .comment { font: 12px 'Segoe UI', Arial, sans-serif; fill: #7f8c8d; }
+      .box { fill: #ecf0f1; stroke: #95a5a6; stroke-width: 2; }
+      .header { fill: #3498db; }
+      .key-box { fill: #e8daef; stroke: #8e44ad; stroke-width: 1.5; }
+      .value-box { fill: #d5f4e6; stroke: #27ae60; stroke-width: 1.5; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">🗂️ Métodos de Diccionarios en Python</text>
+  
+  <!-- Acceso Seguro -->
+  <g transform="translate(30, 60)">
+    <rect class="box" width="260" height="155" rx="8"/>
+    <rect class="header" width="260" height="35" rx="8"/>
+    <text x="130" y="23" text-anchor="middle" fill="white" class="subtitle">🔍 ACCESO SEGURO</text>
+    
+    <text x="10" y="60" class="method">.get(clave)</text>
+    <text x="10" y="75" class="comment">Retorna None si no existe</text>
+    
+    <text x="10" y="100" class="method">.get(clave, default)</text>
+    <text x="10" y="115" class="comment">Retorna default si no existe</text>
+    
+    <text x="10" y="140" class="method">.setdefault(k, v)</text>
+    <text x="10" y="155" class="comment">Get o set si no existe</text>
+  </g>
+  
+  <!-- Modificar -->
+  <g transform="translate(310, 60)">
+    <rect class="box" width="260" height="155" rx="8"/>
+    <rect class="header" width="260" height="35" rx="8" fill="#e74c3c"/>
+    <text x="130" y="23" text-anchor="middle" fill="white" class="subtitle">✏️ MODIFICAR</text>
+    
+    <text x="10" y="60" class="method">.update(otro_dict)</text>
+    <text x="10" y="75" class="comment">Fusiona diccionarios</text>
+    
+    <text x="10" y="100" class="method">.pop(clave)</text>
+    <text x="10" y="115" class="comment">Elimina y retorna valor</text>
+    
+    <text x="10" y="140" class="method">.popitem()</text>
+    <text x="10" y="155" class="comment">Elimina último par clave:valor</text>
+  </g>
+  
+  <!-- Consultar -->
+  <g transform="translate(590, 60)">
+    <rect class="box" width="280" height="155" rx="8"/>
+    <rect class="header" width="280" height="35" rx="8" fill="#9b59b6"/>
+    <text x="140" y="23" text-anchor="middle" fill="white" class="subtitle">📋 CONSULTAR</text>
+    
+    <text x="10" y="60" class="method">.keys()</text>
+    <text x="10" y="75" class="comment">Vista de todas las claves</text>
+    
+    <text x="10" y="100" class="method">.values()</text>
+    <text x="10" y="115" class="comment">Vista de todos los valores</text>
+    
+    <text x="10" y="140" class="method">.items()</text>
+    <text x="10" y="155" class="comment">Vista de pares (clave, valor)</text>
+  </g>
+  
+  <!-- Ejemplo 1: .get() vs [] -->
+  <g transform="translate(30, 240)">
+    <text x="0" y="0" class="subtitle">💡 Ejemplo 1: Acceso Seguro con .get()</text>
+    
+    <rect x="0" y="15" width="840" height="130" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" rx="8"/>
+    
+    <text x="20" y="40" class="text">usuario = {"nombre": "Ana", "edad": 25, "ciudad": "Madrid"}</text>
+    
+    <!-- Comparación -->
+    <g transform="translate(20, 60)">
+      <!-- Método inseguro -->
+      <text x="0" y="0" class="comment" fill="#e74c3c">❌ PELIGROSO (puede dar error):</text>
+      <text x="0" y="20" class="text">email = usuario["email"]</text>
+      <text x="0" y="35" class="comment">→ KeyError: 'email' </text>
+      
+      <!-- Método seguro -->
+      <text x="400" y="0" class="comment" fill="#27ae60">✅ SEGURO:</text>
+      <text x="400" y="20" class="text">email = usuario.</text><text x="530" y="20" class="method">get</text><text x="565" y="20" class="text">("email")</text>
+      <text x="400" y="35" class="comment">→ None (sin error)</text>
+      
+      <!-- Con default -->
+      <text x="400" y="60" class="text">email = usuario.</text><text x="530" y="60" class="method">get</text><text x="565" y="60" class="text">("email", "sin@email")</text>
+      <text x="400" y="75" class="comment">→ "sin@email" (valor por defecto)</text>
+    </g>
+  </g>
+  
+  <!-- Ejemplo 2: .update() -->
+  <g transform="translate(30, 390)">
+    <text x="0" y="0" class="subtitle">💡 Ejemplo 2: Fusionar con .update()</text>
+    
+    <rect x="0" y="15" width="840" height="120" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" rx="8"/>
+    
+    <text x="20" y="40" class="text">config_base = {"debug": False, "timeout": 30}</text>
+    <text x="20" y="60" class="text">config_usuario = {"timeout": 60, "verbose": True}</text>
+    
+    <text x="20" y="85" class="text">config_base.</text><text x="155" y="85" class="method">update</text><text x="220" y="85" class="text">(config_usuario)</text>
+    <text x="20" y="105" class="comment">→ {"debug": False, "timeout": 60, "verbose": True}</text>
+    <text x="20" y="125" class="comment">   (timeout actualizado, verbose agregado)</text>
+  </g>
+  
+  <!-- Ejemplo 3: Iterar con .items() -->
+  <g transform="translate(30, 530)">
+    <text x="0" y="0" class="subtitle">💡 Ejemplo 3: Iterar con .items()</text>
+    
+    <rect x="0" y="15" width="840" height="100" fill="#e8f8f5" stroke="#a9dfbf" stroke-width="2" rx="8"/>
+    
+    <text x="20" y="40" class="text">precios = {"manzana": 1.5, "banana": 0.8, "naranja": 1.2}</text>
+    
+    <text x="20" y="65" class="text">for fruta, precio in precios.</text><text x="340" y="65" class="method">items</text><text x="395" y="65" class="text">():</text>
+    <text x="40" y="85" class="text">    print(f"{fruta}: ${precio}")</text>
+    
+    <text x="450" y="50" class="comment">→ manzana: $1.5</text>
+    <text x="450" y="70" class="comment">→ banana: $0.8</text>
+    <text x="450" y="90" class="comment">→ naranja: $1.2</text>
+  </g>
+</svg>

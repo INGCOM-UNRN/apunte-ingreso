@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <!-- Título -->
+  <text x="400" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#7b1fa2">
+    Diccionario: Pares Clave-Valor
+  </text>
+  
+  <!-- Analogía del diccionario real -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="330" height="140" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="10"/>
+    <text x="165" y="25" font-size="16" font-weight="bold" text-anchor="middle" fill="#7b1fa2">
+      Como un diccionario real 📖
+    </text>
+    
+    <text x="20" y="55" font-size="14" fill="#333" font-weight="bold">Palabra:</text>
+    <text x="120" y="55" font-size="14" fill="#333">"Python"</text>
+    
+    <text x="20" y="80" font-size="14" fill="#333" font-weight="bold">Definición:</text>
+    <text x="120" y="80" font-size="13" fill="#666">"Lenguaje de programación"</text>
+    
+    <line x1="10" y1="95" x2="320" y2="95" stroke="#7b1fa2" stroke-width="1" stroke-dasharray="5,5"/>
+    
+    <text x="20" y="115" font-size="14" fill="#333" font-weight="bold">Palabra:</text>
+    <text x="120" y="115" font-size="14" fill="#333">"Lista"</text>
+    
+    <text x="20" y="135" font-size="14" fill="#333" font-weight="bold">Definición:</text>
+    <text x="120" y="135" font-size="13" fill="#666">"Colección ordenada"</text>
+  </g>
+  
+  <!-- Diccionario de Python -->
+  <g transform="translate(420, 60)">
+    <rect x="0" y="0" width="330" height="140" fill="#e1bee7" stroke="#7b1fa2" stroke-width="2" rx="10"/>
+    <text x="165" y="25" font-size="16" font-weight="bold" text-anchor="middle" fill="#7b1fa2">
+      Diccionario de Python { }
+    </text>
+    
+    <text x="20" y="55" font-size="14" fill="#333" font-weight="bold">Clave:</text>
+    <text x="120" y="55" font-size="14" fill="#333">"nombre"</text>
+    
+    <text x="20" y="80" font-size="14" fill="#333" font-weight="bold">Valor:</text>
+    <text x="120" y="80" font-size="13" fill="#666">"Ana"</text>
+    
+    <line x1="10" y1="95" x2="320" y2="95" stroke="#7b1fa2" stroke-width="1" stroke-dasharray="5,5"/>
+    
+    <text x="20" y="115" font-size="14" fill="#333" font-weight="bold">Clave:</text>
+    <text x="120" y="115" font-size="14" fill="#333">"edad"</text>
+    
+    <text x="20" y="135" font-size="14" fill="#333" font-weight="bold">Valor:</text>
+    <text x="120" y="135" font-size="13" fill="#666">25</text>
+  </g>
+  
+  <!-- Estructura visual -->
+  <g transform="translate(150, 240)">
+    <text x="250" y="0" font-size="18" font-weight="bold" text-anchor="middle" fill="#7b1fa2">
+      estudiante = { "nombre": "Ana", "edad": 25, "carrera": "Ingeniería" }
+    </text>
+    
+    <!-- Flechas y explicaciones -->
+    <g transform="translate(0, 30)">
+      <!-- Clave 1 -->
+      <ellipse cx="100" cy="30" rx="70" ry="25" fill="#ce93d8" stroke="#7b1fa2" stroke-width="2"/>
+      <text x="100" y="37" font-size="14" text-anchor="middle" fill="white" font-weight="bold">CLAVE</text>
+      <text x="100" y="65" font-size="12" text-anchor="middle" fill="#7b1fa2">"nombre"</text>
+      
+      <!-- Flecha -->
+      <line x1="170" y1="30" x2="230" y2="30" stroke="#7b1fa2" stroke-width="2" marker-end="url(#arrowhead)"/>
+      <text x="200" y="25" font-size="12" text-anchor="middle" fill="#7b1fa2">→</text>
+      
+      <!-- Valor 1 -->
+      <ellipse cx="300" cy="30" rx="70" ry="25" fill="#ba68c8" stroke="#7b1fa2" stroke-width="2"/>
+      <text x="300" y="37" font-size="14" text-anchor="middle" fill="white" font-weight="bold">VALOR</text>
+      <text x="300" y="65" font-size="12" text-anchor="middle" fill="#7b1fa2">"Ana"</text>
+    </g>
+    
+    <g transform="translate(0, 120)">
+      <!-- Clave 2 -->
+      <ellipse cx="100" cy="30" rx="70" ry="25" fill="#ce93d8" stroke="#7b1fa2" stroke-width="2"/>
+      <text x="100" y="37" font-size="14" text-anchor="middle" fill="white" font-weight="bold">CLAVE</text>
+      <text x="100" y="65" font-size="12" text-anchor="middle" fill="#7b1fa2">"edad"</text>
+      
+      <!-- Flecha -->
+      <line x1="170" y1="30" x2="230" y2="30" stroke="#7b1fa2" stroke-width="2"/>
+      <text x="200" y="25" font-size="12" text-anchor="middle" fill="#7b1fa2">→</text>
+      
+      <!-- Valor 2 -->
+      <ellipse cx="300" cy="30" rx="70" ry="25" fill="#ba68c8" stroke="#7b1fa2" stroke-width="2"/>
+      <text x="300" y="37" font-size="14" text-anchor="middle" fill="white" font-weight="bold">VALOR</text>
+      <text x="300" y="65" font-size="12" text-anchor="middle" fill="#7b1fa2">25</text>
+    </g>
+  </g>
+  
+  <!-- Marker for arrow -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#7b1fa2"/>
+    </marker>
+  </defs>
+</svg>

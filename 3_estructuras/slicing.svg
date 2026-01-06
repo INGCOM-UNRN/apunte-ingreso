@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Título -->
+  <text x="400" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#1565c0">
+    Slicing: lista[inicio:fin:paso]
+  </text>
+  
+  <!-- Lista original -->
+  <text x="50" y="70" font-size="16" font-weight="bold" fill="#333">Lista original:</text>
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+    <text x="35" y="30" font-size="14" text-anchor="middle">0</text>
+    <text x="35" y="70" font-size="12" text-anchor="middle" fill="#666">idx 0</text>
+    
+    <rect x="70" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+    <text x="105" y="30" font-size="14" text-anchor="middle">1</text>
+    <text x="105" y="70" font-size="12" text-anchor="middle" fill="#666">idx 1</text>
+    
+    <rect x="140" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+    <text x="175" y="30" font-size="14" text-anchor="middle">2</text>
+    <text x="175" y="70" font-size="12" text-anchor="middle" fill="#666">idx 2</text>
+    
+    <rect x="210" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+    <text x="245" y="30" font-size="14" text-anchor="middle">3</text>
+    <text x="245" y="70" font-size="12" text-anchor="middle" fill="#666">idx 3</text>
+    
+    <rect x="280" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+    <text x="315" y="30" font-size="14" text-anchor="middle">4</text>
+    <text x="315" y="70" font-size="12" text-anchor="middle" fill="#666">idx 4</text>
+    
+    <rect x="350" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+    <text x="385" y="30" font-size="14" text-anchor="middle">5</text>
+    <text x="385" y="70" font-size="12" text-anchor="middle" fill="#666">idx 5</text>
+  </g>
+  
+  <!-- Ejemplo 1: lista[1:4] -->
+  <g transform="translate(50, 180)">
+    <text x="0" y="0" font-size="16" font-weight="bold" fill="#2e7d32">lista[1:4] →</text>
+    <text x="100" y="0" font-size="14" fill="#666">(desde 1 hasta 4, sin incluir 4)</text>
+    
+    <rect x="70" y="10" width="70" height="50" fill="#c8e6c9" stroke="#2e7d32" stroke-width="3"/>
+    <text x="105" y="40" font-size="14" text-anchor="middle" font-weight="bold">1</text>
+    
+    <rect x="140" y="10" width="70" height="50" fill="#c8e6c9" stroke="#2e7d32" stroke-width="3"/>
+    <text x="175" y="40" font-size="14" text-anchor="middle" font-weight="bold">2</text>
+    
+    <rect x="210" y="10" width="70" height="50" fill="#c8e6c9" stroke="#2e7d32" stroke-width="3"/>
+    <text x="245" y="40" font-size="14" text-anchor="middle" font-weight="bold">3</text>
+    
+    <text x="320" y="40" font-size="16" font-weight="bold" fill="#2e7d32">= [1, 2, 3]</text>
+  </g>
+  
+  <!-- Ejemplo 2: lista[::2] -->
+  <g transform="translate(50, 270)">
+    <text x="0" y="0" font-size="16" font-weight="bold" fill="#f57f17">lista[::2] →</text>
+    <text x="100" y="0" font-size="14" fill="#666">(todos, de 2 en 2)</text>
+    
+    <rect x="0" y="10" width="70" height="50" fill="#fff9c4" stroke="#f57f17" stroke-width="3"/>
+    <text x="35" y="40" font-size="14" text-anchor="middle" font-weight="bold">0</text>
+    
+    <rect x="140" y="10" width="70" height="50" fill="#fff9c4" stroke="#f57f17" stroke-width="3"/>
+    <text x="175" y="40" font-size="14" text-anchor="middle" font-weight="bold">2</text>
+    
+    <rect x="280" y="10" width="70" height="50" fill="#fff9c4" stroke="#f57f17" stroke-width="3"/>
+    <text x="315" y="40" font-size="14" text-anchor="middle" font-weight="bold">4</text>
+    
+    <text x="390" y="40" font-size="16" font-weight="bold" fill="#f57f17">= [0, 2, 4]</text>
+  </g>
+  
+  <!-- Ejemplo 3: lista[::-1] -->
+  <g transform="translate(50, 360)">
+    <text x="0" y="0" font-size="16" font-weight="bold" fill="#c62828">lista[::-1] →</text>
+    <text x="110" y="0" font-size="14" fill="#666">(todos, al revés)</text>
+    
+    <text x="0" y="30" font-size="16" font-weight="bold" fill="#c62828">= [5, 4, 3, 2, 1, 0]</text>
+  </g>
+</svg>

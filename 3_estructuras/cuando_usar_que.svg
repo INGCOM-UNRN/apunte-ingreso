@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800">
+  <defs>
+    <style>
+      .title { font: bold 26px 'Segoe UI', Arial, sans-serif; fill: #2c3e50; }
+      .subtitle { font: bold 18px 'Segoe UI', Arial, sans-serif; fill: #34495e; }
+      .question { font: bold 16px 'Segoe UI', Arial, sans-serif; fill: #2c3e50; }
+      .text { font: 14px 'Segoe UI', Arial, sans-serif; fill: #2c3e50; }
+      .code { font: 13px 'Consolas', monospace; fill: #2c3e50; }
+      .comment { font: 12px 'Segoe UI', Arial, sans-serif; fill: #7f8c8d; }
+      .box-list { fill: #e3f2fd; stroke: #2196f3; stroke-width: 3; }
+      .box-tuple { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 3; }
+      .box-dict { fill: #fff3e0; stroke: #ff9800; stroke-width: 3; }
+      .box-set { fill: #e8f5e9; stroke: #4caf50; stroke-width: 3; }
+      .icon { font: 24px 'Segoe UI', Arial, sans-serif; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" class="title">Guía Rápida: ¿Cuándo Usar Cada Estructura?</text>
+  
+  <!-- Lista -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="460" height="160" class="box-list" rx="10"/>
+    <text x="15" y="30" class="icon">📋</text>
+    <text x="50" y="33" class="subtitle" fill="#1976d2">LISTA - list</text>
+    
+    <text x="15" y="60" class="question">¿Cuándo usar?</text>
+    <text x="15" y="80" class="text">✓ Necesitás orden de elementos</text>
+    <text x="15" y="100" class="text">✓ Vas a modificar (agregar/quitar)</text>
+    <text x="15" y="120" class="text">✓ Permitís duplicados</text>
+    <text x="15" y="140" class="text">✓ Acceso por posición (índice)</text>
+    
+    <text x="250" y="60" class="code" fill="#1976d2">tareas = ["estudiar", "leer"]</text>
+    <text x="250" y="80" class="code" fill="#1976d2">tareas.append("ejercicio")</text>
+    <text x="250" y="100" class="comment">→ Lista de tareas</text>
+    <text x="250" y="120" class="comment">→ Carrito de compras</text>
+    <text x="250" y="140" class="comment">→ Historial de navegación</text>
+  </g>
+  
+  <!-- Tupla -->
+  <g transform="translate(510, 80)">
+    <rect x="0" y="0" width="460" height="160" class="box-tuple" rx="10"/>
+    <text x="15" y="30" class="icon">📌</text>
+    <text x="50" y="33" class="subtitle" fill="#7b1fa2">TUPLA - tuple</text>
+    
+    <text x="15" y="60" class="question">¿Cuándo usar?</text>
+    <text x="15" y="80" class="text">✓ Datos que NO deben cambiar</text>
+    <text x="15" y="100" class="text">✓ Retornar múltiples valores</text>
+    <text x="15" y="120" class="text">✓ Usar como clave de diccionario</text>
+    <text x="15" y="140" class="text">✓ Coordenadas, configuración</text>
+    
+    <text x="250" y="60" class="code" fill="#7b1fa2">punto = (10, 20)</text>
+    <text x="250" y="80" class="code" fill="#7b1fa2">rgb = (255, 128, 0)</text>
+    <text x="250" y="100" class="comment">→ Coordenadas (x, y)</text>
+    <text x="250" y="120" class="comment">→ Fechas (año, mes, día)</text>
+    <text x="250" y="140" class="comment">→ Configuración inmutable</text>
+  </g>
+  
+  <!-- Diccionario -->
+  <g transform="translate(30, 260)">
+    <rect x="0" y="0" width="460" height="180" class="box-dict" rx="10"/>
+    <text x="15" y="30" class="icon">🗂️</text>
+    <text x="50" y="33" class="subtitle" fill="#f57c00">DICCIONARIO - dict</text>
+    
+    <text x="15" y="60" class="question">¿Cuándo usar?</text>
+    <text x="15" y="80" class="text">✓ Asociar clave → valor</text>
+    <text x="15" y="100" class="text">✓ Búsqueda rápida por clave</text>
+    <text x="15" y="120" class="text">✓ Datos estructurados (objetos)</text>
+    <text x="15" y="140" class="text">✓ Contar/agrupar elementos</text>
+    <text x="15" y="160" class="text">✓ Configuración con nombres</text>
+    
+    <text x="250" y="60" class="code" fill="#f57c00">persona = {</text>
+    <text x="270" y="80" class="code" fill="#f57c00">"nombre": "Ana",</text>
+    <text x="270" y="100" class="code" fill="#f57c00">"edad": 25</text>
+    <text x="250" y="120" class="code" fill="#f57c00">}</text>
+    <text x="250" y="145" class="comment">→ Datos de usuario</text>
+    <text x="250" y="165" class="comment">→ Configuración app</text>
+  </g>
+  
+  <!-- Set -->
+  <g transform="translate(510, 260)">
+    <rect x="0" y="0" width="460" height="180" class="box-set" rx="10"/>
+    <text x="15" y="30" class="icon"></text>
+    <text x="50" y="33" class="subtitle" fill="#388e3c">SET - set</text>
+    
+    <text x="15" y="60" class="question">¿Cuándo usar?</text>
+    <text x="15" y="80" class="text">✓ Eliminar duplicados</text>
+    <text x="15" y="100" class="text">✓ Pertenencia rápida (x in set)</text>
+    <text x="15" y="120" class="text">✓ Operaciones matemáticas</text>
+    <text x="15" y="140" class="text">   (unión, intersección)</text>
+    <text x="15" y="160" class="text">✓ No importa el orden</text>
+    
+    <text x="250" y="60" class="code" fill="#388e3c">emails = set()</text>
+    <text x="250" y="80" class="code" fill="#388e3c">tags = {"python", "web"}</text>
+    <text x="250" y="105" class="comment">→ IDs únicos</text>
+    <text x="250" y="125" class="comment">→ Tags/etiquetas</text>
+    <text x="250" y="145" class="comment">→ Usuarios activos</text>
+    <text x="250" y="165" class="comment">→ Palabras únicas</text>
+  </g>
+  
+  <!-- Árbol de decisión -->
+  <g transform="translate(30, 460)">
+    <rect x="0" y="0" width="940" height="320" fill="#f8f9fa" stroke="#dee2e6" stroke-width="3" rx="10"/>
+    <text x="470" y="30" text-anchor="middle" class="subtitle">🌳 Árbol de Decisión</text>
+    
+    <!-- Pregunta 1 -->
+    <g transform="translate(320, 60)">
+      <rect x="0" y="0" width="300" height="50" fill="#fff9c4" stroke="#f57f17" stroke-width="2" rx="8"/>
+      <text x="150" y="30" text-anchor="middle" class="question">¿Necesitás clave → valor?</text>
+    </g>
+    
+    <!-- Sí - Diccionario -->
+    <line x1="620" y1="110" x2="750" y2="150" stroke="#333" stroke-width="2"/>
+    <text x="700" y="135" class="text" fill="#27ae60">SÍ →</text>
+    <rect x="750" y="140" width="150" height="40" class="box-dict" rx="6"/>
+    <text x="825" y="165" text-anchor="middle" class="subtitle" fill="#f57c00">DICCIONARIO</text>
+    
+    <!-- No - Pregunta 2 -->
+    <line x1="320" y1="110" x2="200" y2="150" stroke="#333" stroke-width="2"/>
+    <text x="240" y="135" class="text" fill="#e74c3c">NO ←</text>
+    
+    <g transform="translate(50, 150)">
+      <rect x="0" y="0" width="300" height="50" fill="#fff9c4" stroke="#f57f17" stroke-width="2" rx="8"/>
+      <text x="150" y="30" text-anchor="middle" class="question">¿Necesitás elementos únicos?</text>
+    </g>
+    
+    <!-- Sí - Set -->
+    <line x1="350" y1="200" x2="450" y2="240" stroke="#333" stroke-width="2"/>
+    <text x="410" y="225" class="text" fill="#27ae60">SÍ →</text>
+    <rect x="450" y="230" width="100" height="40" class="box-set" rx="6"/>
+    <text x="500" y="255" text-anchor="middle" class="subtitle" fill="#388e3c">SET</text>
+    
+    <!-- No - Pregunta 3 -->
+    <line x1="50" y1="200" x2="50" y2="240" stroke="#333" stroke-width="2"/>
+    <text x="25" y="225" class="text" fill="#e74c3c">NO ↓</text>
+    
+    <g transform="translate(-100, 240)">
+      <rect x="0" y="0" width="300" height="50" fill="#fff9c4" stroke="#f57f17" stroke-width="2" rx="8"/>
+      <text x="150" y="30" text-anchor="middle" class="question">¿Va a cambiar (modificable)?</text>
+    </g>
+    
+    <!-- Sí - Lista -->
+    <line x1="-100" y1="290" x2="-150" y2="330" stroke="#333" stroke-width="2"/>
+    <text x="-110" y="315" class="text" fill="#27ae60">SÍ →</text>
+    <rect x="-250" y="320" width="100" height="40" class="box-list" rx="6"/>
+    <text x="-200" y="345" text-anchor="middle" class="subtitle" fill="#1976d2">LISTA</text>
+    
+    <!-- No - Tupla -->
+    <line x1="200" y1="290" x2="250" y2="330" stroke="#333" stroke-width="2"/>
+    <text x="235" y="315" class="text" fill="#e74c3c">NO →</text>
+    <rect x="250" y="320" width="100" height="40" class="box-tuple" rx="6"/>
+    <text x="300" y="345" text-anchor="middle" class="subtitle" fill="#7b1fa2">TUPLA</text>
+  </g>
+</svg>

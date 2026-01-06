@@ -29,8 +29,8 @@ project:
     - file: 4_funciones.md
     - file: 5_modulos.md
     - file: 6_excepciones.md
-    - file: ejercicios_estructuras_funciones.ipynb
-    - file: ejercicios_fundamentos_control.ipynb
+    - file: 7_jupyterlab.md
+    - file: 8_fstrings.md
     - file: 0_estilo.md
     
 site:

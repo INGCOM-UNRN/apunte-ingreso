@@ -1,0 +1,70 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 18px sans-serif; fill: #2c3e50; }
+      .label { font: 14px sans-serif; fill: #34495e; }
+      .code { font: 13px monospace; fill: #27ae60; }
+      .box { fill: #ecf0f1; stroke: #34495e; stroke-width: 2; rx: 5; }
+      .good { fill: #d5f4e6; stroke: #27ae60; stroke-width: 2; rx: 5; }
+      .bad { fill: #fadbd8; stroke: #e74c3c; stroke-width: 2; rx: 5; }
+      .result { font: 12px monospace; fill: #7f8c8d; }
+    </style>
+  </defs>
+
+  <text x="400" y="30" class="title" text-anchor="middle">🔄 Formas de Importar Módulos</text>
+  
+  <!-- Forma 1: import completo -->
+  <rect x="50" y="60" width="340" height="100" class="good"/>
+  <text x="220" y="85" class="title" text-anchor="middle">✅ Import Completo</text>
+  <text x="70" y="110" class="code">import math</text>
+  <text x="70" y="130" class="code">resultado = math.sqrt(16)</text>
+  <text x="70" y="145" class="result"># Claro de dónde viene sqrt</text>
+  
+  <!-- Forma 2: from ... import -->
+  <rect x="410" y="60" width="340" height="100" class="good"/>
+  <text x="580" y="85" class="title" text-anchor="middle">✅ Import Específico</text>
+  <text x="430" y="110" class="code">from math import sqrt, pi</text>
+  <text x="430" y="130" class="code">resultado = sqrt(16)</text>
+  <text x="430" y="145" class="result"># Más corto y claro</text>
+  
+  <!-- Forma 3: import con alias -->
+  <rect x="50" y="180" width="340" height="100" class="good"/>
+  <text x="220" y="205" class="title" text-anchor="middle">✅ Import con Alias</text>
+  <text x="70" y="230" class="code">import pandas as pd</text>
+  <text x="70" y="250" class="code">df = pd.DataFrame()</text>
+  <text x="70" y="265" class="result"># Convención de la comunidad</text>
+  
+  <!-- Forma 4: import * -->
+  <rect x="410" y="180" width="340" height="100" class="bad"/>
+  <text x="580" y="205" class="title" text-anchor="middle">❌ Import Todo (Evitar)</text>
+  <text x="430" y="230" class="code">from math import *</text>
+  <text x="430" y="250" class="code">resultado = sqrt(16)</text>
+  <text x="430" y="265" class="result"># ¿De dónde viene sqrt?</text>
+  
+  <!-- Comparación visual -->
+  <text x="400" y="310" class="title" text-anchor="middle">💡 Analogía: Caja de Herramientas</text>
+  
+  <!-- Analogía 1 -->
+  <rect x="50" y="330" width="220" height="130" class="box"/>
+  <text x="160" y="355" class="label" text-anchor="middle" font-weight="bold">🧰 import math</text>
+  <text x="70" y="380" class="label">Traés toda la caja</text>
+  <text x="70" y="400" class="label">Sacás la herramienta:</text>
+  <text x="70" y="420" class="code">math.sqrt()</text>
+  <text x="70" y="440" class="label" font-size="12">✓ Organizado</text>
+  
+  <!-- Analogía 2 -->
+  <rect x="290" y="330" width="220" height="130" class="box"/>
+  <text x="400" y="355" class="label" text-anchor="middle" font-weight="bold">🔧 from math import sqrt</text>
+  <text x="310" y="380" class="label">Sacás solo lo que necesitás</text>
+  <text x="310" y="400" class="label">Usás directo:</text>
+  <text x="310" y="420" class="code">sqrt()</text>
+  <text x="310" y="440" class="label" font-size="12">✓ Más corto</text>
+  
+  <!-- Analogía 3 -->
+  <rect x="530" y="330" width="220" height="130" class="box"/>
+  <text x="640" y="355" class="label" text-anchor="middle" font-weight="bold">🌪️ from math import *</text>
+  <text x="550" y="380" class="label">Volcás toda la caja</text>
+  <text x="550" y="400" class="label">Todo mezclado:</text>
+  <text x="550" y="420" class="code">sqrt() # ¿de dónde?</text>
+  <text x="550" y="440" class="label" font-size="12">✗ Confuso</text>
+</svg>

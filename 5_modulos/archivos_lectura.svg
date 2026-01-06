@@ -1,0 +1,74 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 18px sans-serif; fill: #2c3e50; }
+      .label { font: 14px sans-serif; fill: #34495e; }
+      .code { font: 12px monospace; fill: #27ae60; }
+      .file-icon { fill: #ecf0f1; stroke: #34495e; stroke-width: 2; }
+      .python-icon { fill: #3498db; stroke: #2980b9; stroke-width: 2; }
+      .arrow { stroke: #e74c3c; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .step { fill: #9b59b6; }
+      .step-text { font: bold 14px sans-serif; fill: white; text-anchor: middle; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#e74c3c" />
+    </marker>
+  </defs>
+
+  <text x="400" y="30" class="title" text-anchor="middle">📖 Leer un Archivo: Los 3 Pasos</text>
+  
+  <!-- Paso 1: Abrir -->
+  <circle cx="100" cy="100" r="25" class="step"/>
+  <text x="100" y="107" class="step-text">1</text>
+  <text x="150" y="107" class="title">ABRIR el archivo</text>
+  
+  <rect x="50" y="130" width="250" height="100" class="file-icon" rx="5"/>
+  <text x="175" y="155" class="label" text-anchor="middle" font-weight="bold">📄 datos.txt</text>
+  <text x="65" y="180" class="code">Línea 1: Juan</text>
+  <text x="65" y="200" class="code">Línea 2: Ana</text>
+  <text x="65" y="220" class="code">Línea 3: Luis</text>
+  
+  <text x="320" y="150" class="code">archivo = open("datos.txt", "r")</text>
+  <text x="320" y="170" class="label" font-size="12">"r" = read (leer)</text>
+  
+  <!-- Flecha al paso 2 -->
+  <path d="M 175 240 L 175 280" class="arrow"/>
+  
+  <!-- Paso 2: Leer -->
+  <circle cx="100" cy="310" r="25" class="step"/>
+  <text x="100" y="317" class="step-text">2</text>
+  <text x="150" y="317" class="title">LEER el contenido</text>
+  
+  <rect x="50" y="340" width="700" height="80" class="python-icon" rx="5"/>
+  <text x="400" y="365" class="code" text-anchor="middle" fill="white">contenido = archivo.read()</text>
+  <text x="70" y="390" class="label" fill="white">Opciones de lectura:</text>
+  <text x="90" y="410" class="code" fill="white">• archivo.read() → lee TODO el archivo</text>
+  <text x="350" y="410" class="code" fill="white">• archivo.readline() → lee UNA línea</text>
+  <text x="90" y="428" class="code" fill="white">• archivo.readlines() → lee TODO en una lista</text>
+  
+  <!-- Flecha al paso 3 -->
+  <path d="M 400 430 L 400 460" class="arrow"/>
+  
+  <!-- Paso 3: Cerrar -->
+  <circle cx="325" cy="480" r="25" class="step"/>
+  <text x="325" y="487" class="step-text">3</text>
+  <text x="380" y="487" class="title">CERRAR el archivo</text>
+  
+  <text x="520" y="487" class="code">archivo.close()</text>
+  <text x="620" y="487" class="label" font-size="12">¡Importante!</text>
+  
+  <!-- Ejemplo completo en la derecha -->
+  <rect x="480" y="60" width="290" height="250" rx="5" fill="#2ecc71" opacity="0.1" stroke="#27ae60" stroke-width="2"/>
+  <text x="625" y="85" class="title" text-anchor="middle">✅ Forma Segura (with)</text>
+  
+  <text x="500" y="115" class="code">with open("datos.txt", "r") as archivo:</text>
+  <text x="520" y="140" class="code">contenido = archivo.read()</text>
+  <text x="520" y="160" class="code">print(contenido)</text>
+  <text x="500" y="180" class="code"># Se cierra automáticamente </text>
+  
+  <text x="625" y="210" class="label" text-anchor="middle" font-weight="bold">💡 Ventajas:</text>
+  <text x="500" y="235" class="label">• No te olvidás de cerrar</text>
+  <text x="500" y="255" class="label">• Se cierra incluso si hay error</text>
+  <text x="500" y="275" class="label">• Código más limpio</text>
+  <text x="500" y="295" class="label">• ¡SIEMPRE usá esta forma!</text>
+</svg>

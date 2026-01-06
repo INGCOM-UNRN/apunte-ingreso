@@ -7,368 +7,2908 @@ subtitle: Listas, tuplas, diccionarios, sets y strings avanzados en Python.
 (estructuras-datos)=
 # Estructuras de Datos
 
-## Introducción y Motivación
+## Introducción: Del Dato Individual a las Colecciones 
 
-Hasta ahora has trabajado con datos individuales: un número, un string, un booleano. Pero en la programación real, necesitás trabajar con **colecciones de datos**: una lista de estudiantes, los precios de productos, un inventario, las calificaciones de un curso, etc.
+### ¿Por qué Necesitamos Estructuras de Datos?
 
-Las **estructuras de datos** son formas organizadas de almacenar y manipular colecciones de información. Python ofrece varias estructuras built-in, cada una con características y usos específicos.
+Hasta ahora trabajaste con **una cosa a la vez**: un número, un texto, un booleano. Pero imaginate estos escenarios:
 
-:::{important} ¿Por qué son importantes las estructuras de datos?
-Las estructuras de datos te permiten:
-- **Organizar información** de forma lógica y eficiente
-- **Procesar múltiples valores** sin crear cientos de variables
-- **Modelar problemas reales** como inventarios, listas de usuarios, etc.
-- **Escribir código más limpio** y mantenible
-- **Resolver problemas complejos** de forma estructurada
+::::{admonition} Problema Real
+:class: tip
+
+**Sin estructuras de datos:**
+```python
+estudiante1 = "Ana"
+estudiante2 = "Bruno"
+estudiante3 = "Carlos"
+estudiante4 = "Diana"
+# ... ¿y si tenés 1000 estudiantes? 😱
+```
+
+**Con estructuras de datos:**
+```python
+estudiantes = ["Ana", "Bruno", "Carlos", "Diana"]  # ¡Y podés agregar más!
+```
+
+¿Ves la diferencia? En lugar de 1000 variables, tenés **1 lista**.
+::::
+
+---
+
+### Mapa del Capítulo 
+
+```{mermaid}
+mindmap
+  root(( Cap 3<br/>Estructuras<br/>de Datos))
+    **Listas**
+      Creación y acceso
+      Slicing avanzado
+      Métodos principales
+      List comprehensions
+      Listas anidadas
+    **Tuplas**
+      Inmutabilidad
+      Empaquetado/desempaquetado
+      Usos idiomáticos
+      Named tuples
+    **Diccionarios**
+      Pares clave-valor
+      Métodos de acceso
+      Iteración avanzada
+      Dict comprehensions
+      Diccionarios anidados
+    **Sets**
+      Unicidad de elementos
+      Operaciones de conjuntos
+      Set comprehensions
+      Frozen sets
+    **Strings Avanzados**
+      Métodos de búsqueda
+      Formateo avanzado
+      Expresiones regulares básicas
+      Encoding y Unicode
+```
+
+::::{grid} 1 1 2 2
+:gutter: 2
+
+:::{card} Objetivos de Aprendizaje
+:class-header: bg-primary text-white
+
+**Al finalizar este capítulo podrás:**
+
+✅ Elegir la estructura correcta para cada problema  
+✅ Manipular colecciones de datos eficientemente  
+✅ Usar comprehensions para código más limpio  
+✅ Aplicar operaciones avanzadas sobre estructuras  
+✅ Combinar estructuras para datos complejos
 :::
 
-En este capítulo aprenderás:
-- **Listas**: Colecciones ordenadas y modificables
-- **Tuplas**: Colecciones ordenadas e inmutables
-- **Diccionarios**: Pares clave-valor
-- **Sets**: Colecciones de elementos únicos
-- **Strings avanzados**: Métodos y operaciones
-- **Comprensiones**: Forma concisa de crear estructuras
+:::{card} Comparación Rápida
+:class-header: bg-success text-white
+
+| Estructura | Mutable | Ordenada | Indexable | Única |
+|------------|---------|----------|-----------|-------|
+| **Lista**| ✅ | ✅ | ✅ | ❌ |
+| **Tupla**| ❌ | ✅ | ✅ | ❌ |
+| **Dict**| ✅ | ✅* | ❌ | Claves ✅ |
+| **Set**| ✅ | ❌ | ❌ | ✅ |
+
+*Ordenado desde Python 3.7+
+:::
+
+::::
+
+---
+
+### ⏱️ Tiempo Estimado
+
+::::{grid} 1 1 3 3
+:gutter: 2
+
+:::{card}  Lectura
+:class-header: bg-info text-white
+:text-align: center
+
+**45-60 minutos**
+
+Teoría y ejemplos
+:::
+
+:::{card} 💻 Práctica
+:class-header: bg-warning text-white
+:text-align: center
+
+**60-90 minutos**
+
+Ejercicios guiados
+:::
+
+:::{card} Proyecto
+:class-header: bg-danger text-white
+:text-align: center
+
+**30-45 minutos**
+
+Proyecto integrador
+:::
+
+::::
+
+---
+
+```{mermaid}
+graph TD
+    A[Estructuras<br/>de Datos] --> B[LISTAS]
+    A --> C[TUPLAS]
+    A --> D[DICCIONARIOS]
+    A --> E[SETS]
+    A --> F[STRINGS]
+    
+    B --> B1[Mutables<br/>Ordenadas]
+    C --> C1[Inmutables<br/>Ordenadas]
+    D --> D1[Clave-Valor<br/>No ordenadas*]
+    E --> E1[Únicos<br/>No ordenadas]
+    F --> F1[Inmutables<br/>Ordenadas]
+    
+    style A fill:#e3f2fd
+    style B fill:#c8e6c9
+    style C fill:#fff9c4
+    style D fill:#e1bee7
+    style E fill:#ffccbc
+    style F fill:#b3e5fc
+```
+
+**Tiempo estimado:**4-5 horas  
+**Dificultad:**Intermedia
+
+```{figure} ./3_estructuras/cuando_usar_que.svg
+:name: fig-cuando-usar-que
+:align: center
+:width: 100%
+
+Guía rápida para elegir la estructura de datos correcta según tus necesidades
+```
+
+---
+
+### Analogía del Mundo Real 
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} Sin Estructuras
+**Guardar cosas sueltas:**
+
+Imaginate que tenés que llevar 50 cosas a la escuela. Sin una mochila, llevás:
+- 1 cosa en la mano derecha
+- 1 cosa en la mano izquierda
+- 1 cosa en el bolsillo
+- ¿Y las otras 47? 😰
+
+**Código:**
+```python
+item1 = "lapiz"
+item2 = "cuaderno"
+item3 = "goma"
+# ... imposible de manejar
+```
+::::
+
+::::{grid-item-card} Con Estructuras
+**Guardar cosas organizadas:**
+
+Con una mochila (estructura), llevás:
+- 50 cosas en **un solo lugar**
+- Organizadas y fáciles de encontrar
+- Podés agregar o sacar cosas
+
+**Código:**
+```python
+mochila = ["lapiz", "cuaderno", "goma", ...]
+# ¡Fácil de manejar!
+```
+::::
+
+:::::
+
+---
+
+### ¿Qué Aprenderás?
+
+:::{important} Objetivos del Capítulo
+
+Al finalizar este capítulo, podrás:
+
+1. **Listas**→ Guardar cosas que cambian (lista de compras)
+2. **Tuplas**→ Guardar cosas fijas (coordenadas GPS)
+3. **Diccionarios**→ Guardar info con etiquetas (perfil de usuario)
+4. **Sets**→ Guardar elementos únicos (sin repetidos)
+5. **Strings avanzados**→ Manipular texto como un profesional
+
+**Bonus:**Comprensiones de listas (código más elegante)
+:::
+
+---
+
+### Comparación Visual: ¿Cuál Elegir?
+
+![Comparación de Estructuras](./3_estructuras/estructuras_comparacion.svg)
+
+:::{tip} Regla de Oro
+- **¿Cambia?**→ Lista
+- **¿No cambia?**→ Tupla
+- **¿Tiene etiquetas?**→ Diccionario
+- **¿Solo únicos?**→ Set
+- **¿Es texto?**→ String
+:::
+
+---
+
+### Ejemplos del Mundo Real
+
+:::::{grid} 1 1 2 2
+:gutter: 2
+
+::::{grid-item-card} Lista
+**Lista de reproducción de Spotify**
+```python
+canciones = [
+    "Bohemian Rhapsody",
+    "Imagine",
+    "Stairway to Heaven"
+]
+# Podés agregar o quitar canciones
+```
+::::
+
+::::{grid-item-card} Tupla
+**Coordenadas GPS**
+```python
+ubicacion = (-34.6037, -58.3816)
+# Buenos Aires no se mueve 
+```
+::::
+
+::::{grid-item-card} Diccionario
+**Perfil de Instagram**
+```python
+perfil = {
+    "usuario": "@ana",
+    "seguidores": 1500,
+    "posts": 89
+}
+```
+::::
+
+::::{grid-item-card} Set
+**Etiquetas únicas de un blog**
+```python
+tags = {"python", "tutorial", "datos"}
+# No puede haber "python" dos veces
+```
+::::
+
+:::::
+
+¡Empecemos! 
 
 ---
 
 (listas)=
-## Listas
+## Listas: Tu Colección Ordenada 
 
-Una **lista** es una colección ordenada y modificable de elementos. Es la estructura de datos más versátil y utilizada en Python.
+### ¿Qué es una Lista?
 
-### Crear Listas
+Una **lista** es como una **fila de cajitas**donde podés guardar cosas. Características:
+-  **Ordenada:**Cada cosa tiene su posición (0, 1, 2...)
+- **Mutable:**Podés cambiar, agregar o quitar elementos
+- **Versátil:**Puede contener cualquier tipo de dato
+- **Duplicados:**Puede tener elementos repetidos
+
+::::{admonition} Analogía: Lista de Compras
+:class: tip
+
+Una lista de Python es como tu lista del supermercado:
+
+```python
+compras = ["pan", "leche", "huevos", "queso"]
+```
+
+- ✅ Está **ordenada**(pan es primero, queso último)
+- ✅ Podés **tachar**cosas (eliminar elementos)
+- ✅ Podés **agregar**más cosas (append)
+- ✅ Podés tener "pan" dos veces si querés
+
+**En la vida real:**Escribís en papel  
+**En Python:**Usás corchetes `[]`
+::::
+
+---
+
+### Crear Listas: Tres Formas
 
 ```{code-cell} ipython3
-# Lista vacía
+# 1️⃣ Lista vacía (para ir agregando después)
 mi_lista = []
+otra_vacia = list()  # Alternativa
 
-# Lista con elementos
+# 2️⃣ Lista con elementos (lo más común)
 numeros = [1, 2, 3, 4, 5]
 frutas = ["manzana", "banana", "naranja"]
-mixta = [1, "dos", 3.0, True]  # Puede contener diferentes tipos
+precios = [10.5, 20.0, 15.75]
 
-# Lista de múltiples líneas
-colores = [
-    "rojo",
-    "verde",
-    "azul",
-    "amarillo"
-]
+# 3️⃣ Lista mixta (diferentes tipos)
+mixta = [1, "dos", 3.0, True, ["lista", "dentro"]]
+print(f"Una lista puede tener {len(mixta)} tipos diferentes!")
 ```
 
-### Acceso a Elementos
+:::{note}  Listas con Diferentes Tipos
+Python es **flexible**. Una lista puede contener:
+- Números: `[1, 2, 3]`
+- Strings: `["a", "b", "c"]`
+- Booleans: `[True, False, True]`
+- Otras listas: `[[1, 2], [3, 4]]` (lista de listas)
+- Mezclados: `[1, "texto", True, 3.14]`
 
-Los índices en Python comienzan en **0**:
-
-```{code-cell} ipython3
-frutas = ["manzana", "banana", "naranja", "pera"]
-
-# Acceso por índice
-print(frutas[0])   # "manzana"
-print(frutas[1])   # "banana"
-print(frutas[3])   # "pera"
-
-# Índices negativos (desde el final)
-print(frutas[-1])  # "pera" (último elemento)
-print(frutas[-2])  # "naranja" (penúltimo)
-```
-
-**Diagrama de índices:**
-
-```
-Lista:  ["manzana", "banana", "naranja", "pera"]
-Índice:     0          1         2         3
-Negativo:  -4         -3        -2        -1
-```
-
-:::{warning} Índice fuera de rango
-Intentar acceder a un índice que no existe causa un error:
-
-```{code-cell} ipython3
-frutas = ["manzana", "banana"]
-print(frutas[5])  # IndexError: list index out of range
-```
-
-Siempre verificá que el índice esté dentro del rango válido: `0` a `len(lista) - 1`.
+**Tip:**En la práctica, generalmente usás un solo tipo por lista para que sea más fácil de procesar.
 :::
 
-### Slicing (Rebanado)
+**Lista en múltiples líneas (más legible):**
 
-El slicing permite obtener sub-listas:
+```{code-cell} ipython3
+# Cuando la lista es larga, formato multi-línea
+colores_arcoiris = [
+    "rojo",      # 🔴
+    "naranja",   # 🟠
+    "amarillo",  # 🟡
+    "verde",     # 🟢
+    "azul",      # 🔵
+    "añil",      # 🔵
+    "violeta",   # 🟣
+]  # ← Nota: coma final permitida (buena práctica)
+
+print(f"El arcoíris tiene {len(colores_arcoiris)} colores")
+```
+
+### Acceso a Elementos: Los Índices 
+
+#### La Regla del Índice 0
+
+:::{danger} ¡IMPORTANTE!
+En Python, **¡contamos desde 0!**No desde 1.
+
+El **primer**elemento está en la posición **0**.
+:::
+
+::::{admonition} Analogía: Los Pisos del Edificio
+:class: tip
+
+En algunos países (como USA), los edificios se numeran así:
+- Planta Baja = Piso 0
+- Primer Piso = Piso 1
+- Segundo Piso = Piso 2
+
+Python funciona igual:
+```python
+pisos = ["Lobby", "Oficinas", "Restaurant", "Gimnasio"]
+#        índice 0    índice 1    índice 2      índice 3
+```
+
+Para llegar al Lobby (planta baja), pedís `pisos[0]`
+::::
+
+---
+
+#### Índices Positivos y Negativos
+
+![Índices de Lista](./3_estructuras/lista_indices.svg)
+
+```{code-cell} ipython3
+frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja", "🍐 pera"]
+
+# Índices POSITIVOS (de izquierda a derecha)
+print(f"Primera fruta: {frutas[0]}")   # 🍎 manzana
+print(f"Segunda fruta: {frutas[1]}")   # 🍌 banana
+print(f"Tercera fruta: {frutas[2]}")   # 🍊 naranja
+print(f"Cuarta fruta: {frutas[3]}")    # 🍐 pera
+
+print("\n" + "="*50 + "\n")
+
+# Índices NEGATIVOS (de derecha a izquierda)
+print(f"Última fruta: {frutas[-1]}")     # 🍐 pera
+print(f"Penúltima: {frutas[-2]}")        # 🍊 naranja
+print(f"Antepenúltima: {frutas[-3]}")    # 🍌 banana
+print(f"Primera (con -4): {frutas[-4]}") # 🍎 manzana
+```
+
+:::{tip} ¿Cuándo usar índices negativos?
+**Índices positivos:**Cuando sabés la posición exacta desde el inicio  
+**Índices negativos:**Cuando querés el último, penúltimo, etc. sin saber el tamaño
+
+```python
+# Obtener el último elemento (sin saber el tamaño)
+ultimo = frutas[-1]  # ✓ Siempre funciona
+
+# vs (calculando)
+ultimo = frutas[len(frutas) - 1]  # ✓ Funciona pero es más largo
+```
+:::
+
+---
+
+#### Comparación Visual
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} ✅ Índice Válido
+```python
+letras = ['A', 'B', 'C', 'D']
+print(letras[0])  # 'A' ✓
+print(letras[3])  # 'D' ✓
+print(letras[-1]) # 'D' ✓
+```
+
+**Resultado:**✅ Funciona perfecto
+::::
+
+::::{grid-item-card} ❌ Índice Fuera de Rango
+```python
+letras = ['A', 'B', 'C', 'D']
+print(letras[4])   # ❌ Error
+print(letras[100]) # ❌ Error
+print(letras[-5])  # ❌ Error
+```
+
+**Resultado:**`IndexError: list index out of range`
+::::
+
+:::::
+
+:::{danger} 🚨 Error Común: Índice Fuera de Rango
+
+```{code-cell} ipython3
+# Ejemplo de error
+frutas = ["🍎", "🍌"]
+
+# ❌ Esto da error (solo hay 2 elementos: índices 0 y 1)
+try:
+    print(frutas[5])
+except IndexError as e:
+    print(f"ERROR: {e}")
+    print(f"La lista solo tiene {len(frutas)} elementos")
+    print(f"   Índices válidos: 0 a {len(frutas)-1}")
+```
+
+**Cómo evitarlo:**
+```python
+# Verificar antes de acceder
+index = 5
+if index < len(frutas):
+    print(frutas[index])
+else:
+    print(f"Índice {index} no existe. La lista tiene {len(frutas)} elementos.")
+```
+:::
+
+### Slicing: Cortar Rebanadas de la Lista 🍰
+
+#### ¿Qué es Slicing?
+
+**Slicing** es como cortar una torta: tomás un pedazo (sub-lista) de la lista original.
+
+::::{admonition} Analogía: Torta con 10 Rebanadas
+:class: tip
+
+Imaginate una torta con 10 rebanadas numeradas del 0 al 9:
+
+```python
+torta = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+**Slicing te permite decir:**
+- "Dame las rebanadas 2 a 5" → `torta[2:5]` = `[2, 3, 4]`
+- "Dame las primeras 3" → `torta[:3]` = `[0, 1, 2]`
+- "Dame las últimas 2" → `torta[-2:]` = `[8, 9]`
+- "Dame de 2 en 2" → `torta[::2]` = `[0, 2, 4, 6, 8]`
+::::
+
+---
+
+#### Sintaxis: `lista[inicio:fin:paso]`
+
+![Slicing Explicado](./3_estructuras/slicing.svg)
 
 ```{code-cell} ipython3
 numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-# [inicio:fin] - desde inicio hasta fin-1
-print(numeros[2:5])    # [2, 3, 4]
+# 1️⃣ [inicio:fin] - desde inicio hasta fin-1 (¡el fin NO se incluye!)
+print("Elementos [2:5]:", numeros[2:5])    # [2, 3, 4] (NO incluye el 5)
 
-# [inicio:] - desde inicio hasta el final
-print(numeros[5:])     # [5, 6, 7, 8, 9]
+# 2️⃣ [inicio:] - desde inicio hasta el final
+print("Elementos [5:]:", numeros[5:])      # [5, 6, 7, 8, 9]
 
-# [:fin] - desde el inicio hasta fin-1
-print(numeros[:4])     # [0, 1, 2, 3]
+# 3️⃣ [:fin] - desde el inicio hasta fin-1
+print("Elementos [:4]:", numeros[:4])      # [0, 1, 2, 3]
 
-# [inicio:fin:paso] - con incremento
-print(numeros[0:9:2])  # [0, 2, 4, 6, 8]
+# 4️⃣ [:] - copia toda la lista
+print("Copia [:]:", numeros[:])            # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-# Invertir una lista
-print(numeros[::-1])   # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+# 5️⃣ [inicio:fin:paso] - con incremento (saltos)
+print("Cada 2 [::2]:", numeros[::2])       # [0, 2, 4, 6, 8]
+print("Cada 3 [::3]:", numeros[::3])       # [0, 3, 6, 9]
+
+# 6️⃣ Paso negativo - invertir
+print("Invertido [::-1]:", numeros[::-1])  # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 ```
 
-### Modificar Listas
+:::{tip} Regla del Fin No Incluido
+El índice final **NO se incluye**en el slice:
 
-Las listas son **mutables** (modificables):
+```python
+lista[2:5]  # Incluye: 2, 3, 4  (NO incluye 5)
+lista[:3]   # Incluye: 0, 1, 2  (NO incluye 3)
+```
+
+**¿Por qué?**Para que sea más fácil calcular el tamaño:
+```python
+lista[2:5]  # Tamaño = 5 - 2 = 3 elementos ✓
+```
+:::
+
+---
+
+#### Ejemplos Prácticos de Slicing
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} Primeros y Últimos
+```python
+numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Primeros 3
+primeros = numeros[:3]
+# [0, 1, 2]
+
+# Últimos 3
+ultimos = numeros[-3:]
+# [7, 8, 9]
+
+# Todos excepto primero y último
+medio = numeros[1:-1]
+# [1, 2, 3, 4, 5, 6, 7, 8]
+```
+::::
+
+::::{grid-item-card} Pares e Impares
+```python
+numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Solo pares (empieza en 0, salta de 2)
+pares = numeros[::2]
+# [0, 2, 4, 6, 8]
+
+# Solo impares (empieza en 1, salta de 2)
+impares = numeros[1::2]
+# [1, 3, 5, 7, 9]
+```
+::::
+
+::::{grid-item-card} Invertir
+```python
+palabra = ['P', 'Y', 'T', 'H', 'O', 'N']
+
+# Invertir con paso negativo
+invertida = palabra[::-1]
+# ['N', 'O', 'H', 'T', 'Y', 'P']
+
+# Cada 2, pero al revés
+salteada = palabra[::-2]
+# ['N', 'H', 'Y']
+```
+::::
+
+::::{grid-item-card} Copiar Lista
+```python
+original = [1, 2, 3, 4, 5]
+
+# Copia superficial
+copia = original[:]
+
+copia[0] = 999
+print(original)  # [1, 2, 3, 4, 5] ✓
+print(copia)     # [999, 2, 3, 4, 5]
+```
+::::
+
+:::::
+
+---
+
+#### Slicing con Índices Negativos
 
 ```{code-cell} ipython3
-frutas = ["manzana", "banana", "naranja"]
+letras = ['A', 'B', 'C', 'D', 'E', 'F']
+#         0    1    2    3    4    5     ← Índices positivos
+#        -6   -5   -4   -3   -2   -1     ← Índices negativos
 
-# Modificar un elemento
-frutas[1] = "pera"
-print(frutas)  # ["manzana", "pera", "naranja"]
+# Desde penúltimo hasta el final
+print("[-2:]:", letras[-2:])      # ['E', 'F']
 
-# Modificar con slice
-frutas[0:2] = ["kiwi", "uva"]
-print(frutas)  # ["kiwi", "uva", "naranja"]
+# Desde inicio hasta antepenúltimo
+print("[:-2]:", letras[:-2])      # ['A', 'B', 'C', 'D']
+
+# Desde antepenúltimo hasta penúltimo (sin incluir)
+print("[-3:-1]:", letras[-3:-1])  # ['D', 'E']
+
+# Últimos 4, cada 2
+print("[-4::2]:", letras[-4::2])  # ['C', 'E']
 ```
 
-### Métodos de Listas
-
-#### Agregar Elementos
+:::{danger} 🚨 Error Común: Orden Invertido
 
 ```{code-cell} ipython3
-frutas = ["manzana", "banana"]
+numeros = [0, 1, 2, 3, 4, 5]
 
-# append() - agrega al final
-frutas.append("naranja")
-print(frutas)  # ["manzana", "banana", "naranja"]
+# ❌ Esto da lista vacía (inicio > fin con paso positivo)
+print("Mal [5:2]:", numeros[5:2])  # [] vacío
 
-# insert() - inserta en una posición
-frutas.insert(1, "pera")
-print(frutas)  # ["manzana", "pera", "banana", "naranja"]
-
-# extend() - agrega múltiples elementos
-frutas.extend(["kiwi", "uva"])
-print(frutas)  # ["manzana", "pera", "banana", "naranja", "kiwi", "uva"]
+# ✓ Para ir hacia atrás, usá paso negativo
+print("Bien [5:2:-1]:", numeros[5:2:-1])  # [5, 4, 3]
 ```
+
+**Regla:**Si inicio > fin, necesitás paso negativo.
+:::
+
+---
+
+#### Tabla de Referencia Rápida
+
+| Sintaxis | Descripción | Ejemplo | Resultado |
+|----------|-------------|---------|-----------|
+| `[n]` | Elemento en posición n | `lst[2]` | Un elemento |
+| `[n:m]` | Desde n hasta m-1 | `lst[1:4]` | `[lst[1], lst[2], lst[3]]` |
+| `[n:]` | Desde n hasta el final | `lst[3:]` | Todo desde 3 |
+| `[:m]` | Desde inicio hasta m-1 | `lst[:5]` | Primeros 5 |
+| `[:]` | Copia completa | `lst[:]` | Toda la lista |
+| `[::s]` | Cada s elementos | `lst[::2]` | Cada 2 |
+| `[::-1]` | Invertida | `lst[::-1]` | Al revés |
+| `[-n:]` | Últimos n | `lst[-3:]` | Últimos 3 |
+| `[:-n]` | Todos menos últimos n | `lst[:-2]` | Sin últimos 2 |
+
+---
+
+### Modificar Listas: El Poder de lo Mutable 
+
+#### ¿Qué Significa Mutable?
+
+::::{admonition} Analogía: Lista de Papel vs Piedra
+:class: tip
+
+**Lista Python = Lista de papel:**
+- Podés **tachar**cosas (eliminar)
+- Podés **agregar**más cosas (append)
+- Podés **cambiar**una cosa por otra (modificar)
+- Es **flexible**y **editable**
+
+**Tupla Python = Texto en piedra:**
+- Una vez escrito, **NO podés cambiar**
+- Es **inmutable**(veremos más adelante)
+
+```python
+# Mutable (lista) - ✓ Podés cambiar
+compras = ["pan", "leche"]
+compras[0] = "facturas"  # ✓ Funciona
+
+# Inmutable (tupla) - ✗ NO podés cambiar
+coordenadas = (10, 20)
+coordenadas[0] = 15  # ✗ ERROR: no se puede
+```
+::::
+
+---
+
+#### Formas de Modificar
+
+```{code-cell} ipython3
+frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja"]
+
+print("Original:", frutas)
+
+# 1️⃣ Modificar UN elemento por índice
+frutas[1] = "🍐 pera"
+print("Después de [1]='pera':", frutas)
+
+# 2️⃣ Modificar VARIOS elementos con slice
+frutas[0:2] = ["🥝 kiwi", "🍇 uva"]
+print("Después de [0:2]=['kiwi','uva']:", frutas)
+
+# 3️⃣ Reemplazar con diferente cantidad
+colores = ["rojo", "verde", "azul"]
+colores[1:2] = ["amarillo", "naranja", "violeta"]  # 1 por 3
+print("Reemplazo de diferente tamaño:", colores)
+```
+
+:::{warning} Diferencia Importante
+**Asignación directa vs Slice:**
+
+```python
+lista = [1, 2, 3, 4, 5]
+
+# Asignación directa - REEMPLAZA un elemento
+lista[2] = 99
+# [1, 2, 99, 4, 5]
+
+# Asignación con slice - REEMPLAZA un rango
+lista[2:4] = [88, 77, 66]  # Puede cambiar el tamaño
+# [1, 2, 88, 77, 66, 5]
+```
+:::
+
+---
+
+#### Modificar con Índices Negativos
+
+```{code-cell} ipython3
+numeros = [10, 20, 30, 40, 50]
+
+# Modificar el último
+numeros[-1] = 999
+print("Último modificado:", numeros)  # [10, 20, 30, 40, 999]
+
+# Modificar los últimos 2
+numeros[-2:] = [888, 777]
+print("Últimos 2 modificados:", numeros)  # [10, 20, 30, 888, 777]
+```
+
+---
+
+#### Insertar en el Medio con Slice
+
+```{code-cell} ipython3
+# Truco: slice vacío para insertar sin eliminar
+letras = ['A', 'B', 'E', 'F']
+print("Original:", letras)
+
+# Insertar en posición 2 (sin eliminar nada)
+letras[2:2] = ['C', 'D']
+print("Con C,D insertadas:", letras)  # ['A', 'B', 'C', 'D', 'E', 'F']
+```
+
+:::{tip} Slice Vacío para Insertar
+`lista[n:n] = [valores]` inserta **antes**de la posición n **sin eliminar nada**
+
+```python
+nums = [1, 2, 5, 6]
+nums[2:2] = [3, 4]  # Inserta en posición 2
+# Resultado: [1, 2, 3, 4, 5, 6]
+```
+:::
+
+---
+
+#### Eliminar con Slice
+
+```{code-cell} ipython3
+numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Eliminar elementos con slice vacío
+numeros[3:6] = []  # Elimina posiciones 3, 4, 5
+print("Después de eliminar [3:6]:", numeros)  # [0, 1, 2, 6, 7, 8, 9]
+```
+
+---
+
+### Métodos de Listas: Tu Caja de Herramientas 🧰
+
+Las listas tienen **métodos integrados**(funciones especiales) que facilitan operaciones comunes.
+
+```{figure} ./3_estructuras/lista_metodos.svg
+:name: fig-lista-metodos
+:align: center
+:width: 90%
+
+Resumen visual de los métodos más importantes de listas en Python
+```
+
+---
+
+#### 📥 Agregar Elementos
+
+::::{admonition} Analogía: Agregar a una Fila
+:class: tip
+
+Imaginate una fila de personas esperando:
+
+**append()**= Una persona se suma **al final**de la fila
+**insert()**= Una persona se **mete en el medio**(posición específica)
+**extend()**= Llega un **grupo**y se suma al final
+::::
+
+```{code-cell} ipython3
+# Lista inicial
+frutas = ["🍎 manzana", "🍌 banana"]
+print("Inicial:", frutas)
+
+# 1️⃣ append(elemento) - agrega UN elemento al final
+frutas.append("🍊 naranja")
+print("Después de append:", frutas)
+
+# 2️⃣ insert(índice, elemento) - inserta en posición específica
+frutas.insert(1, "🍐 pera")  # Inserta en posición 1
+print("Después de insert(1):", frutas)
+
+# 3️⃣ extend(iterable) - agrega VARIOS elementos al final
+frutas.extend(["🥝 kiwi", "🍇 uva"])
+print("Después de extend:", frutas)
+```
+
+---
+
+##### append() vs extend() vs + : ¿Cuál usar?
+
+:::::{grid} 1 1 3 3
+:gutter: 2
+
+::::{grid-item-card} append()
+**Agrega 1 elemento**
+
+```python
+lista = [1, 2, 3]
+lista.append(4)
+# [1, 2, 3, 4]
+
+lista.append([5, 6])
+# [1, 2, 3, 4, [5, 6]]
+#              ↑ lista dentro
+```
+
+**Usa cuando:**Agregás 1 cosa
+::::
+
+::::{grid-item-card} extend()
+**Agrega varios elementos**
+
+```python
+lista = [1, 2, 3]
+lista.extend([4, 5, 6])
+# [1, 2, 3, 4, 5, 6]
+
+lista.extend("abc")
+# [1, 2, 3, 4, 5, 6, 'a', 'b', 'c']
+```
+
+**Usa cuando:**Agregás varios
+::::
+
+::::{grid-item-card} Operador +
+**Crea lista nueva**
+
+```python
+lista1 = [1, 2, 3]
+lista2 = [4, 5, 6]
+lista3 = lista1 + lista2
+# [1, 2, 3, 4, 5, 6]
+
+# lista1 NO cambia
+print(lista1)
+# [1, 2, 3]
+```
+
+**Usa cuando:**No querés modificar original
+::::
+
+:::::
+
+```{code-cell} ipython3
+# Comparación práctica
+a = [1, 2, 3]
+b = [1, 2, 3]
+c = [1, 2, 3]
+
+# append - agrega el objeto completo
+a.append([4, 5])
+print("append([4,5]):", a)  # [1, 2, 3, [4, 5]]
+
+# extend - agrega cada elemento
+b.extend([4, 5])
+print("extend([4,5]):", b)  # [1, 2, 3, 4, 5]
+
+# + - crea nueva lista
+c = c + [4, 5]
+print("c + [4,5]:", c)      # [1, 2, 3, 4, 5]
+```
+
+:::{tip} Regla Rápida
+- `append(x)` → Agrega x **como está**(1 elemento, puede ser lista)
+- `extend(iterable)` → Agrega **cada elemento**del iterable
+- `lista + otra` → Crea **nueva lista**(no modifica original)
+:::
+
+---
+
+##### insert(): Insertar en Cualquier Posición
+
+```{code-cell} ipython3
+numeros = [10, 20, 40, 50]
+print("Original:", numeros)
+
+# Insertar en posición 2 (antes del 40)
+numeros.insert(2, 30)
+print("insert(2, 30):", numeros)  # [10, 20, 30, 40, 50]
+
+# Insertar al principio
+numeros.insert(0, 5)
+print("insert(0, 5):", numeros)   # [5, 10, 20, 30, 40, 50]
+
+# Insertar al final (equivalente a append)
+numeros.insert(len(numeros), 60)
+print("insert(len, 60):", numeros)  # [5, 10, 20, 30, 40, 50, 60]
+
+# Índice mayor al tamaño - inserta al final
+numeros.insert(1000, 70)
+print("insert(1000, 70):", numeros)  # Se agrega al final
+```
+
+:::{note} Comportamiento de insert()
+- **insert(0, x)**→ Inserta al **principio**
+- **insert(n, x)**→ Inserta **antes**de la posición n
+- **insert(len(lista), x)**→ Inserta al **final**(= append)
+- **insert(999, x)**→ Si índice > tamaño, inserta al final
+:::
+
+---
 
 #### Eliminar Elementos
 
+::::{admonition} Analogía: Sacar de la Fila
+:class: tip
+
+Hay 4 formas de sacar a alguien de la fila:
+
+1. **remove("nombre")**→ Buscás por nombre y lo sacás (primera coincidencia)
+2. **pop()**→ Sacás el último de la fila
+3. **pop(n)**→ Sacás al que está en posición n
+4. **del lista[n]**→ Eliminás sin recibir el elemento
+5. **clear()**→ Echás a TODOS (vacías la fila)
+::::
+
+---
+
+##### remove(): Eliminar por Valor
+
 ```{code-cell} ipython3
-frutas = ["manzana", "banana", "naranja", "pera", "banana"]
+frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja", "🍐 pera", "🍌 banana"]
+print("Original:", frutas)
 
-# remove() - elimina la primera ocurrencia
-frutas.remove("banana")
-print(frutas)  # ["manzana", "naranja", "pera", "banana"]
-
-# pop() - elimina y retorna el último elemento
-ultima = frutas.pop()
-print(ultima)   # "banana"
-print(frutas)   # ["manzana", "naranja", "pera"]
-
-# pop(índice) - elimina en posición específica
-segunda = frutas.pop(1)
-print(segunda)  # "naranja"
-print(frutas)   # ["manzana", "pera"]
-
-# del - elimina por índice o slice
-numeros = [1, 2, 3, 4, 5]
-del numeros[2]
-print(numeros)  # [1, 2, 4, 5]
-
-# clear() - vacía la lista
-frutas.clear()
-print(frutas)   # []
+# remove(valor) - elimina la PRIMERA ocurrencia
+frutas.remove("🍌 banana")
+print("Después de remove:", frutas)  # Solo elimina la primera banana
 ```
+
+:::{danger} 🚨 Error si el valor no existe
+
+```{code-cell} ipython3
+# ❌ Si el valor no existe, da error
+frutas = ["🍎 manzana", "🍊 naranja"]
+
+try:
+    frutas.remove("🍌 banana")  # No existe
+except ValueError as e:
+    print(f"❌ ERROR: {e}")
+
+# ✓ Verificar antes de eliminar
+if "🍌 banana" in frutas:
+    frutas.remove("🍌 banana")
+else:
+    print("Banana no está en la lista")
+```
+:::
+
+---
+
+##### pop(): Eliminar y Obtener el Elemento
+
+```{code-cell} ipython3
+pila_libros = ["📕 libro1", "📗 libro2", "📘 libro3", "📙 libro4"]
+print("Pila inicial:", pila_libros)
+
+# 1️⃣ pop() sin argumentos - elimina y retorna el ÚLTIMO
+ultimo = pila_libros.pop()
+print(f"Sacaste: {ultimo}")
+print(f"Quedan: {pila_libros}")
+
+# 2️⃣ pop(índice) - elimina y retorna elemento en posición específica
+segundo = pila_libros.pop(1)
+print(f"Sacaste el segundo: {segundo}")
+print(f"Quedan: {pila_libros}")
+
+# 3️⃣ pop(0) - saca el primero (uso común en colas)
+primero = pila_libros.pop(0)
+print(f"Sacaste el primero: {primero}")
+print(f"Quedan: {pila_libros}")
+```
+
+:::{tip} pop() vs remove()
+
+| Método | Elimina por | Retorna el elemento | Error si vacía |
+|--------|-------------|---------------------|----------------|
+| `remove(valor)` | Valor | ❌ No (None) | ValueError si no existe |
+| `pop()` | Posición (último) | ✅ Sí | IndexError si vacía |
+| `pop(n)` | Posición n | ✅ Sí | IndexError si índice inválido |
+
+**Usa pop()**cuando necesitás el elemento eliminado (ej: pila, cola)  
+**Usa remove()**cuando solo querés eliminar algo específico
+:::
+
+---
+
+##### del: Eliminar sin Retornar
+
+```{code-cell} ipython3
+numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print("Original:", numeros)
+
+# 1️⃣ del lista[índice] - elimina un elemento
+del numeros[5]
+print("Después de del [5]:", numeros)
+
+# 2️⃣ del lista[inicio:fin] - elimina un rango
+del numeros[2:5]
+print("Después de del [2:5]:", numeros)
+
+# 3️⃣ del lista[::paso] - elimina con patrón
+numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+del numeros[::2]  # Elimina elementos en posiciones pares
+print("Después de del [::2]:", numeros)  # [1, 3, 5, 7, 9]
+```
+
+:::{note} del vs pop()
+**del:**
+- No retorna el elemento
+- Puede eliminar slices completos
+- Es una **declaración**(statement), no un método
+
+**pop():**
+- Retorna el elemento eliminado
+- Solo elimina un elemento a la vez
+- Es un **método**de lista
+:::
+
+---
+
+##### clear(): Vaciar Completamente
+
+```{code-cell} ipython3
+tareas = ["tarea1", "tarea2", "tarea3"]
+print("Antes de clear:", tareas)
+
+# clear() - elimina TODOS los elementos
+tareas.clear()
+print("Después de clear:", tareas)  # []
+print(f"¿Está vacía? {len(tareas) == 0}")
+```
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} clear()
+```python
+lista = [1, 2, 3]
+lista.clear()
+print(lista)  # []
+```
+**Ventaja:**Claro y legible  
+**Efecto:**Vacía la lista
+::::
+
+::::{grid-item-card} Alternativas
+```python
+# Opción 2: Asignar slice vacío
+lista[:] = []
+
+# Opción 3: Crear nueva (NO es lo mismo)
+lista = []  # Crea nueva referencia
+```
+**Diferencia:**`clear()` modifica la lista existente
+::::
+
+:::::
+
+---
+
+#### Comparación Visual: Métodos de Eliminación
+
+```{mermaid}
+graph TD
+    A[¿Cómo eliminar?] --> B{¿Conocés el valor?}
+    B -->|Sí| C[remove valor]
+    B -->|No| D{¿Qué posición?}
+    
+    D -->|Último| E[pop ]
+    D -->|Específica| F[pop índice]
+    D -->|Rango| G[del lista inicio:fin]
+    
+    A --> H{¿Vaciar todo?}
+    H -->|Sí| I[clear ]
+    
+    style C fill:#c8e6c9
+    style E fill:#fff9c4
+    style F fill:#fff9c4
+    style G fill:#ffccbc
+    style I fill:#e1bee7
+```
+
+---
 
 #### Búsqueda y Conteo
 
+::::{admonition} Analogía: Buscar en la Biblioteca
+:class: tip
+
+**count()**= ¿Cuántos libros de Harry Potter tenés?  
+**index()**= ¿En qué estante está Harry Potter?  
+**in**= ¿Tenés Harry Potter? (Sí/No)
+::::
+
+---
+
+##### count(): Contar Ocurrencias
+
 ```{code-cell} ipython3
-numeros = [1, 3, 5, 3, 7, 3, 9]
+numeros = [1, 3, 5, 3, 7, 3, 9, 3]
+print("Lista:", numeros)
 
-# count() - cuenta ocurrencias
-cantidad = numeros.count(3)
-print(cantidad)  # 3
+# Contar cuántas veces aparece el 3
+veces = numeros.count(3)
+print(f"El 3 aparece {veces} veces")
 
-# index() - encuentra la primera posición
-posicion = numeros.index(5)
-print(posicion)  # 2
-
-# in - verifica pertenencia
-if 7 in numeros:
-    print("7 está en la lista")
-
-if 10 not in numeros:
-    print("10 no está en la lista")
+# Contar algo que no existe
+veces_10 = numeros.count(10)
+print(f"El 10 aparece {veces_10} veces")  # 0 (no da error)
 ```
 
-#### Ordenar y Revertir
+**Ejemplo práctico:**
 
 ```{code-cell} ipython3
-numeros = [5, 2, 8, 1, 9, 3]
+# Contar votos
+votos = ["🍎 manzana", "🍌 banana", "🍎 manzana", "🍊 naranja", "🍎 manzana"]
 
-# sort() - ordena la lista (modifica la original)
+print(f"Votos por manzana: {votos.count('🍎 manzana')}")
+print(f"Votos por banana: {votos.count('🍌 banana')}")
+print(f"Votos por naranja: {votos.count('🍊 naranja')}")
+```
+
+---
+
+##### index(): Encontrar la Primera Posición
+
+```{code-cell} ipython3
+frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja", "🍐 pera", "🍌 banana"]
+print("Lista:", frutas)
+
+# Encontrar la primera posición de banana
+posicion = frutas.index("🍌 banana")
+print(f"Primera banana está en posición: {posicion}")  # 1
+
+# index() con rango de búsqueda
+# Buscar banana después de la posición 2
+segunda_banana = frutas.index("🍌 banana", 2)  # Busca desde índice 2
+print(f"Segunda banana está en posición: {segunda_banana}")  # 4
+```
+
+:::{danger} 🚨 Error si no existe
+
+```{code-cell} ipython3
+# ❌ Si el elemento no existe, da error
+frutas = ["🍎 manzana", "🍌 banana"]
+
+try:
+    pos = frutas.index("🍇 uva")
+except ValueError as e:
+    print(f"❌ ERROR: {e}")
+
+# ✓ Verificar antes de buscar
+if "🍇 uva" in frutas:
+    pos = frutas.index("🍇 uva")
+    print(f"Posición: {pos}")
+else:
+    print("Uva no está en la lista")
+```
+:::
+
+**index() con inicio y fin:**
+
+```{code-cell} ipython3
+numeros = [10, 20, 30, 40, 30, 50, 30]
+#          0   1   2   3   4   5   6
+
+# Buscar 30 en toda la lista
+print("Primer 30:", numeros.index(30))  # 2
+
+# Buscar 30 desde posición 3
+print("30 desde pos 3:", numeros.index(30, 3))  # 4
+
+# Buscar 30 entre posiciones 5 y 7
+print("30 entre [5:7]:", numeros.index(30, 5, 7))  # 6
+```
+
+:::{tip} Sintaxis de index()
+```python
+lista.index(valor)              # Busca en toda la lista
+lista.index(valor, inicio)      # Busca desde inicio hasta el final
+lista.index(valor, inicio, fin) # Busca en rango [inicio:fin)
+```
+:::
+
+---
+
+##### in / not in: Verificar Pertenencia
+
+```{code-cell} ipython3
+colores = ["🔴 rojo", "🟢 verde", "🔵 azul"]
+
+# Operador 'in' - retorna True/False
+print("¿Está rojo?", "🔴 rojo" in colores)      # True
+print("¿Está amarillo?", "🟡 amarillo" in colores)  # False
+
+# Operador 'not in'
+print("¿No está amarillo?", "🟡 amarillo" not in colores)  # True
+```
+
+**Uso práctico con if:**
+
+```{code-cell} ipython3
+lista_compras = ["🥖 pan", "🥛 leche", "🥚 huevos"]
+
+# Agregar solo si no existe
+nueva_compra = "🥖 pan"
+if nueva_compra not in lista_compras:
+    lista_compras.append(nueva_compra)
+    print(f"✓ Agregado: {nueva_compra}")
+else:
+    print(f"Ya estaba: {nueva_compra}")
+
+# Eliminar solo si existe
+item_a_borrar = "🥛 leche"
+if item_a_borrar in lista_compras:
+    lista_compras.remove(item_a_borrar)
+    print(f"✓ Eliminado: {item_a_borrar}")
+```
+
+---
+
+##### Comparación: count() vs index() vs in
+
+| Método | Retorna | Si no existe | Velocidad | Uso |
+|--------|---------|--------------|-----------|-----|
+| `count(x)` | Número (int) | 0 | O(n) | Contar repeticiones |
+| `index(x)` | Posición (int) | ValueError | O(n) | Encontrar ubicación |
+| `x in lista` | Bool | False | O(n) | Verificar existencia |
+
+```{code-cell} ipython3
+# Comparación práctica
+lista = [1, 2, 3, 2, 4, 2, 5]
+
+print(f"count(2): {lista.count(2)}")        # 3
+print(f"index(2): {lista.index(2)}")        # 1 (primera posición)
+print(f"2 in lista: {2 in lista}")          # True
+print(f"10 in lista: {10 in lista}")        # False
+```
+
+---
+
+#### Ordenamiento y Reversión
+
+::::{admonition} Analogía: Ordenar Cartas
+:class: tip
+
+**sort()**= Reordenar tu mano de cartas (modifica tu mano)  
+**sorted()**= Copiar las cartas y ordenar la copia (tu mano original no cambia)  
+**reverse()**= Dar vuelta la mano (del final al principio)
+::::
+
+---
+
+##### sort(): Ordenar In-Place
+
+```{code-cell} ipython3
+# Lista desordenada
+numeros = [5, 2, 8, 1, 9, 3, 7, 4, 6]
+print("Original:", numeros)
+
+# 1️⃣ sort() - ordena de menor a mayor (modifica la lista)
 numeros.sort()
-print(numeros)  # [1, 2, 3, 5, 8, 9]
+print("Después de sort():", numeros)
 
-# sort(reverse=True) - orden descendente
+# 2️⃣ sort(reverse=True) - orden descendente
 numeros.sort(reverse=True)
-print(numeros)  # [9, 8, 5, 3, 2, 1]
+print("Descendente:", numeros)
+```
 
-# sorted() - retorna nueva lista ordenada (no modifica original)
-original = [5, 2, 8, 1]
+**Con strings:**
+
+```{code-cell} ipython3
+frutas = ["🍊 naranja", "🍎 manzana", "🍐 pera", "🍌 banana"]
+print("Original:", frutas)
+
+# Orden alfabético
+frutas.sort()
+print("Alfabético:", frutas)
+
+# Orden alfabético inverso
+frutas.sort(reverse=True)
+print("Inverso:", frutas)
+```
+
+**Ordenamiento con clave personalizada:**
+
+```{code-cell} ipython3
+# Ordenar por longitud (cantidad de caracteres)
+palabras = ["sol", "mariposa", "pan", "elefante", "aro"]
+print("Original:", palabras)
+
+palabras.sort(key=len)  # key=función que extrae el criterio
+print("Por longitud:", palabras)
+
+# Ordenar ignorando mayúsculas/minúsculas
+nombres = ["ana", "Bruno", "carlos", "Diana"]
+nombres.sort(key=str.lower)  # Convierte a minúsculas para comparar
+print("Orden alfabético (case-insensitive):", nombres)
+```
+
+:::{note} sort() modifica la lista
+**sort():**
+- Modifica la lista **in-place**(en el lugar)
+- Retorna `None` (no retorna la lista)
+- Es un **método**de lista
+
+```python
+numeros = [3, 1, 2]
+resultado = numeros.sort()
+print(resultado)  # None
+print(numeros)    # [1, 2, 3] ← La lista cambió
+```
+:::
+
+---
+
+##### sorted(): Crear Lista Ordenada Nueva
+
+```{code-cell} ipython3
+# Lista original
+original = [5, 2, 8, 1, 9, 3]
+print("Original:", original)
+
+# sorted() crea una NUEVA lista ordenada
 ordenada = sorted(original)
-print(original)   # [5, 2, 8, 1]
-print(ordenada)   # [1, 2, 5, 8]
+print("Ordenada (nueva):", ordenada)
+print("Original (sin cambios):", original)  # ← ¡No cambió!
 
-# reverse() - invierte el orden
+# sorted() también funciona con reverse
+desc = sorted(original, reverse=True)
+print("Descendente (nueva):", desc)
+```
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} sort()
+**Método de lista**
+
+```python
+lista = [3, 1, 2]
+lista.sort()
+print(lista)  # [1, 2, 3]
+
+# ❌ No funciona con otros tipos
+# tupla.sort()  # ERROR
+```
+
+**Modifica**la lista original  
+**Retorna**None  
+**Solo** para listas
+::::
+
+::::{grid-item-card} sorted()
+**Función built-in**
+
+```python
+lista = [3, 1, 2]
+nueva = sorted(lista)
+print(nueva)  # [1, 2, 3]
+print(lista)  # [3, 1, 2]
+
+# ✓ Funciona con cualquier iterable
+sorted((3,1,2))  # [1, 2, 3]
+sorted("cab")    # ['a', 'b', 'c']
+```
+
+**No modifica**el original  
+**Retorna**nueva lista  
+**Funciona**con cualquier iterable
+::::
+
+:::::
+
+---
+
+##### reverse(): Invertir el Orden
+
+```{code-cell} ipython3
+# Invertir lista
 numeros = [1, 2, 3, 4, 5]
-numeros.reverse()
-print(numeros)  # [5, 4, 3, 2, 1]
+print("Original:", numeros)
+
+numeros.reverse()  # Invierte in-place
+print("Después de reverse():", numeros)
+
+# También se puede con slicing [::-1]
+letras = ['A', 'B', 'C', 'D']
+invertida = letras[::-1]  # Crea nueva lista
+print("Con [::-1]:", invertida)
+print("Original sin cambios:", letras)
 ```
 
-### Longitud de una Lista
+:::::{grid} 1 1 2 2
+:gutter: 3
 
-```{code-cell} ipython3
-frutas = ["manzana", "banana", "naranja"]
-cantidad = len(frutas)
-print(f"Hay {cantidad} frutas")  # Hay 3 frutas
+::::{grid-item-card} reverse()
+**Método**
+
+```python
+lista = [1, 2, 3]
+lista.reverse()
+print(lista)  # [3, 2, 1]
 ```
 
-### Iterar sobre Listas
+**Modifica**la lista  
+**Retorna**None  
+**Más rápido**
+::::
+
+::::{grid-item-card} [::-1]
+**Slicing**
+
+```python
+lista = [1, 2, 3]
+nueva = lista[::-1]
+print(nueva)  # [3, 2, 1]
+print(lista)  # [1, 2, 3]
+```
+
+**Crea**nueva lista  
+**No modifica**original  
+**Más flexible**
+::::
+
+:::::
+
+:::{tip} ¿Cuándo usar cada uno?
+
+**sort()**→ Cuando querés modificar la lista existente  
+**sorted()**→ Cuando necesitás conservar el original  
+**reverse()**→ Para invertir in-place  
+**[::-1]**→ Para obtener copia invertida
+:::
+
+---
+
+##### copy(): Copiar una Lista
 
 ```{code-cell} ipython3
-frutas = ["manzana", "banana", "naranja"]
+# Problema: asignación simple NO copia
+original = [1, 2, 3]
+referencia = original  # ¡NO es una copia!
 
-# Forma Pythonic
+referencia[0] = 999
+print("Original:", original)      # [999, 2, 3] ← ¡Cambió!
+print("Referencia:", referencia)  # [999, 2, 3]
+
+print("\n" + "="*50 + "\n")
+
+# Solución 1: método copy()
+lista1 = [1, 2, 3]
+lista2 = lista1.copy()  # Copia superficial
+
+lista2[0] = 777
+print("Lista1:", lista1)  # [1, 2, 3] ← No cambió ✓
+print("Lista2:", lista2)  # [777, 2, 3]
+
+print("\n" + "="*50 + "\n")
+
+# Solución 2: slicing [:]
+lista3 = [1, 2, 3]
+lista4 = lista3[:]
+
+lista4[0] = 555
+print("Lista3:", lista3)  # [1, 2, 3] ← No cambió ✓
+print("Lista4:", lista4)  # [555, 2, 3]
+```
+
+:::{danger} 🚨 Copia Superficial vs Profunda
+
+```{code-cell} ipython3
+# Problema con listas anidadas
+original = [[1, 2], [3, 4]]
+copia = original.copy()  # Copia superficial
+
+# Modificar la sub-lista
+copia[0][0] = 999
+
+print("Original:", original)  # [[999, 2], [3, 4]] ← ¡Cambió!
+print("Copia:", copia)        # [[999, 2], [3, 4]]
+
+# Para listas anidadas, usar deepcopy
+import copy
+original2 = [[1, 2], [3, 4]]
+copia_profunda = copy.deepcopy(original2)
+
+copia_profunda[0][0] = 777
+print("\nOriginal2:", original2)           # [[1, 2], [3, 4]] ← No cambió ✓
+print("Copia profunda:", copia_profunda)   # [[777, 2], [3, 4]]
+```
+
+**Regla:**
+- `copy()` o `[:]` → Copia superficial (OK para listas simples)
+- `copy.deepcopy()` → Copia profunda (necesaria para listas anidadas)
+:::
+
+---
+
+### Longitud y Operaciones Básicas
+
+```{code-cell} ipython3
+frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja"]
+
+# len() - cantidad de elementos
+print(f"Cantidad: {len(frutas)}")  # 3
+
+# min() y max() - mínimo y máximo
+numeros = [5, 2, 8, 1, 9]
+print(f"Mínimo: {min(numeros)}")   # 1
+print(f"Máximo: {max(numeros)}")   # 9
+
+# sum() - suma de elementos
+print(f"Suma: {sum(numeros)}")     # 25
+
+# any() - ¿alguno es True?
+booleanos = [False, False, True, False]
+print(f"¿Alguno True? {any(booleanos)}")  # True
+
+# all() - ¿todos son True?
+print(f"¿Todos True? {all(booleanos)}")   # False
+```
+
+---
+
+### Iterar sobre Listas: Las 3 Formas
+
+::::{admonition} Analogía: Recorrer una Fila
+:class: tip
+
+Imaginate que tenés que saludar a cada persona en una fila:
+
+**Forma 1:**"Hola [nombre]" → No te importa la posición  
+**Forma 2:**"Sos el número [N], [nombre]" → Necesitás la posición  
+**Forma 3:**"Hola persona en posición [N]" → Estilo antiguo (no recomendado)
+::::
+
+---
+
+#### Forma 1: Iterar sobre Elementos (Pythonic 🐍)
+
+```{code-cell} ipython3
+frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja"]
+
+# La forma más común y legible
 for fruta in frutas:
-    print(fruta)
-
-# Con enumerate() si necesitás el índice
-for i, fruta in enumerate(frutas):
-    print(f"{i}: {fruta}")
-
-# Con índices (menos Pythonic)
-for i in range(len(frutas)):
-    print(frutas[i])
+    print(f"Me gusta: {fruta}")
 ```
 
-### Listas Anidadas (Matrices)
+**Ventajas:**
+- ✅ Más legible
+- ✅ Menos propenso a errores
+- ✅ Más eficiente
+- ✅ **Estilo Pythonic**
+
+---
+
+#### Forma 2: Iterar con Índice y Elemento (enumerate)
 
 ```{code-cell} ipython3
-# Matriz 3x3
+frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja"]
+
+# enumerate() te da (índice, elemento)
+for i, fruta in enumerate(frutas):
+    print(f"{i+1}. {fruta}")  # Numeración desde 1
+
+# enumerate() con inicio personalizado
+for i, fruta in enumerate(frutas, start=1):
+    print(f"{i}. {fruta}")  # Más directo
+```
+
+**Cuándo usar:**
+- Necesitás saber la posición
+- Querés numerar elementos
+- Necesitás el índice para algo más
+
+---
+
+#### Forma 3: Iterar con Índices (Estilo C/Java)
+
+```{code-cell} ipython3
+frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja"]
+
+# Forma "antigua" (menos Pythonic)
+for i in range(len(frutas)):
+    print(f"{i}: {frutas[i]}")
+```
+
+:::{warning} Esta forma es menos Pythonic
+**Evitala**a menos que tengas una razón específica:
+- Necesitás modificar índices específicos en múltiples listas
+- Estás trabajando con índices de forma compleja
+
+**Usa enumerate()**en su lugar cuando necesités índices.
+:::
+
+---
+
+#### Comparación: Las 3 Formas
+
+:::::{grid} 1 1 3 3
+:gutter: 2
+
+::::{grid-item-card} Solo Elementos
+```python
+for item in lista:
+    print(item)
+```
+
+**Uso:**90% de los casos  
+**Legibilidad:**
+**Pythonic:**✅
+::::
+
+::::{grid-item-card} Con Índice
+```python
+for i, item in enumerate(lista):
+    print(i, item)
+```
+
+**Uso:**Cuando necesitás posición  
+**Legibilidad:**
+**Pythonic:**✅
+::::
+
+::::{grid-item-card} Solo Índices
+```python
+for i in range(len(lista)):
+    print(i, lista[i])
+```
+
+**Uso:**Casos específicos  
+**Legibilidad:**
+**Pythonic:**❌
+::::
+
+:::::
+
+---
+
+#### Ejemplos Prácticos
+
+```{code-cell} ipython3
+# Ejemplo 1: Procesar elementos
+precios = [100, 200, 150, 300]
+total = 0
+for precio in precios:
+    total += precio
+print(f"Total: ${total}")
+
+# Ejemplo 2: Filtrar y procesar
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for num in numeros:
+    if num % 2 == 0:
+        print(f"{num} es par")
+
+# Ejemplo 3: Enumerar con formato
+tareas = ["Estudiar", "💻 Programar", "🏃 Ejercicio"]
+print("MI LISTA DE TAREAS:")
+for i, tarea in enumerate(tareas, start=1):
+    print(f"  {i}. {tarea}")
+```
+
+---
+
+###  Listas Anidadas: Listas Dentro de Listas
+
+::::{admonition} Analogía: Estante con Cajas
+:class: tip
+
+Una **lista anidada** es como un estante con cajas, donde cada caja tiene cosas adentro:
+
+```python
+estante = [
+    ["🍎", "🍌", "🍊"],  # Caja 0: frutas
+    ["🥕", "🥔", "🥦"],  # Caja 1: verduras
+    ["🍪", "🍰", "🎂"]   # Caja 2: postres
+]
+```
+
+Para sacar algo:
+1. Elegís la **caja**(primera dimensión): `estante[1]` → caja de verduras
+2. Elegís el **ítem**en la caja (segunda dimensión): `estante[1][0]` → 🥕
+::::
+
+```{figure} ./3_estructuras/lista_anidada.svg
+:name: fig-lista-anidada
+:align: center
+:width: 95%
+
+Visualización de listas anidadas: desde la analogía del estante hasta matrices numéricas
+```
+
+---
+
+#### Crear Listas Anidadas
+
+```{code-cell} ipython3
+# Lista de listas (matriz 3x3)
 matriz = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ]
 
-# Acceso a elementos
-print(matriz[0][0])  # 1
-print(matriz[1][2])  # 6
-print(matriz[2][1])  # 8
+print("Matriz completa:", matriz)
+print("Primera fila:", matriz[0])
+print("Segunda fila:", matriz[1])
+```
 
-# Iterar sobre matriz
+**Casos de uso reales:**
+
+```{code-cell} ipython3
+# Tabla de estudiantes con notas
+estudiantes = [
+    ["Ana", 85, 90, 88],
+    ["Bruno", 78, 82, 80],
+    ["Carlos", 92, 88, 95]
+]
+
+# Tablero de tres en raya
+tablero = [
+    ["X", "O", "X"],
+    ["O", "X", "O"],
+    ["X", "O", "X"]
+]
+
+# Datos de productos
+productos = [
+    ["Laptop", 1200, 5],     # [nombre, precio, stock]
+    ["Mouse", 25, 50],
+    ["Teclado", 75, 30]
+]
+```
+
+---
+
+#### Acceder a Elementos
+
+```{code-cell} ipython3
+matriz = [
+    [1, 2, 3],    # Fila 0
+    [4, 5, 6],    # Fila 1
+    [7, 8, 9]     # Fila 2
+]
+#   Col: 0  1  2
+
+# Acceso con doble índice: matriz[fila][columna]
+print("Elemento [0][0]:", matriz[0][0])  # 1 (arriba izquierda)
+print("Elemento [1][2]:", matriz[1][2])  # 6 (centro derecha)
+print("Elemento [2][1]:", matriz[2][1])  # 8 (abajo centro)
+
+# Acceder a una fila completa
+print("Fila 1:", matriz[1])              # [4, 5, 6]
+
+# Elemento del centro
+centro = matriz[1][1]
+print("Centro:", centro)                 # 5
+```
+
+**Visualización:**
+
+```
+matriz[0][0]  matriz[0][1]  matriz[0][2]
+    1             2             3
+
+matriz[1][0]  matriz[1][1]  matriz[1][2]
+    4             5             6
+
+matriz[2][0]  matriz[2][1]  matriz[2][2]
+    7             8             9
+```
+
+---
+
+#### Modificar Elementos
+
+```{code-cell} ipython3
+tablero = [
+    [".", ".", "."],
+    [".", ".", "."],
+    [".", ".", "."]
+]
+
+print("Tablero inicial:")
+for fila in tablero:
+    print(fila)
+
+# Jugador X en el centro
+tablero[1][1] = "X"
+
+# Jugador O en esquina superior izquierda
+tablero[0][0] = "O"
+
+print("\nDespués de 2 movimientos:")
+for fila in tablero:
+    print(fila)
+```
+
+---
+
+#### Iterar sobre Matrices
+
+```{code-cell} ipython3
+matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Forma 1: Iterar sobre elementos
+print("Todos los elementos:")
 for fila in matriz:
     for elemento in fila:
         print(elemento, end=" ")
-    print()  # Nueva línea
+    print()  # Nueva línea después de cada fila
+
+print("\n" + "="*30 + "\n")
+
+# Forma 2: Con índices (para saber posición)
+print("Con posiciones:")
+for i, fila in enumerate(matriz):
+    for j, elemento in enumerate(fila):
+        print(f"[{i}][{j}] = {elemento}")
+
+print("\n" + "="*30 + "\n")
+
+# Forma 3: Procesar fila por fila
+print("Suma por fila:")
+for i, fila in enumerate(matriz):
+    suma_fila = sum(fila)
+    print(f"Fila {i}: {fila} → suma = {suma_fila}")
 ```
 
-### Tabla Resumen de Métodos de Listas
+---
 
-| Método | Descripción | Ejemplo |
-|--------|-------------|---------|
-| `append(x)` | Agrega x al final | `lista.append(5)` |
-| `insert(i, x)` | Inserta x en posición i | `lista.insert(0, 5)` |
-| `extend(iterable)` | Agrega elementos de iterable | `lista.extend([1,2,3])` |
-| `remove(x)` | Elimina primera ocurrencia de x | `lista.remove(5)` |
-| `pop([i])` | Elimina y retorna elemento en i | `lista.pop()` |
-| `clear()` | Vacía la lista | `lista.clear()` |
-| `index(x)` | Retorna índice de primera ocurrencia | `lista.index(5)` |
-| `count(x)` | Cuenta ocurrencias de x | `lista.count(5)` |
-| `sort()` | Ordena la lista | `lista.sort()` |
-| `reverse()` | Invierte la lista | `lista.reverse()` |
-| `copy()` | Retorna copia superficial | `nueva = lista.copy()` |
+#### Operaciones Comunes en Matrices
+
+```{code-cell} ipython3
+# Crear matriz vacía 3x3
+filas, columnas = 3, 3
+matriz_vacia = [[0 for _ in range(columnas)] for _ in range(filas)]
+print("Matriz 3x3 de ceros:")
+for fila in matriz_vacia:
+    print(fila)
+
+print("\n" + "="*30 + "\n")
+
+# Transponer una matriz (intercambiar filas por columnas)
+original = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+
+transpuesta = [[original[j][i] for j in range(len(original))] 
+               for i in range(len(original[0]))]
+
+print("Original:")
+for fila in original:
+    print(fila)
+
+print("\nTranspuesta:")
+for fila in transpuesta:
+    print(fila)
+
+print("\n" + "="*30 + "\n")
+
+# Buscar un elemento
+matriz = [
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90]
+]
+
+buscar = 50
+encontrado = False
+
+for i, fila in enumerate(matriz):
+    for j, elemento in enumerate(fila):
+        if elemento == buscar:
+            print(f"✓ Encontrado {buscar} en posición [{i}][{j}]")
+            encontrado = True
+            break
+    if encontrado:
+        break
+
+if not encontrado:
+    print(f"✗ No se encontró {buscar}")
+```
+
+---
+
+#### Ejemplos Prácticos
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} Tabla de Calificaciones
+```python
+# [estudiante, mate, fisica, quimica]
+notas = [
+    ["Ana", 85, 90, 88],
+    ["Bruno", 78, 82, 80],
+    ["Carlos", 92, 88, 95]
+]
+
+# Promedio de Ana
+promedio = sum(notas[0][1:]) / 3
+print(f"Promedio Ana: {promedio}")
+
+# Todos los estudiantes
+for estudiante in notas:
+    nombre = estudiante[0]
+    prom = sum(estudiante[1:]) / 3
+    print(f"{nombre}: {prom:.1f}")
+```
+::::
+
+::::{grid-item-card} 🎮 Tablero de Juego
+```python
+# Tablero 3x3
+tablero = [
+    ["X", "O", "X"],
+    ["O", "X", " "],
+    [" ", "O", "X"]
+]
+
+# Mostrar tablero bonito
+for i, fila in enumerate(tablero):
+    print(" | ".join(fila))
+    if i < 2:
+        print("-" * 9)
+
+# Output:
+# X | O | X
+# ---------
+# O | X |  
+# ---------
+#   | O | X
+```
+::::
+
+:::::
+
+:::{tip} Listas Anidadas vs NumPy
+Para matrices grandes o cálculos científicos, usá **NumPy**en lugar de listas anidadas:
+
+```python
+# Con listas (lento para cálculos)
+matriz = [[1, 2], [3, 4]]
+
+# Con NumPy (rápido, optimizado)
+import numpy as np
+matriz = np.array([[1, 2], [3, 4]])
+```
+
+**Listas anidadas:**OK para estructuras simples, tablas pequeñas  
+**NumPy:**Mejor para álgebra lineal, estadística, grandes volúmenes
+:::
+
+---
+
+### Tabla Resumen Completa: Métodos de Listas
+
+#### Métodos que Modifican la Lista
+
+| Método | Descripción | Modifica | Retorna | Ejemplo |
+|--------|-------------|----------|---------|---------|
+| `append(x)` | Agrega x al final | ✅ | None | `lista.append(5)` |
+| `insert(i, x)` | Inserta x en posición i | ✅ | None | `lista.insert(0, 5)` |
+| `extend(iterable)` | Agrega elementos de iterable | ✅ | None | `lista.extend([1,2,3])` |
+| `remove(x)` | Elimina primera ocurrencia de x | ✅ | None | `lista.remove(5)` |
+| `pop([i])` | Elimina y retorna elemento en i (último si no se especifica) | ✅ | Elemento | `x = lista.pop()` |
+| `clear()` | Vacía la lista completamente | ✅ | None | `lista.clear()` |
+| `sort(key, reverse)` | Ordena la lista in-place | ✅ | None | `lista.sort()` |
+| `reverse()` | Invierte el orden de la lista | ✅ | None | `lista.reverse()` |
+
+---
+
+#### Métodos que NO Modifican la Lista
+
+| Método | Descripción | Retorna | Complejidad | Ejemplo |
+|--------|-------------|---------|-------------|---------|
+| `index(x, [start, end])` | Índice de primera ocurrencia de x | int | O(n) | `i = lista.index(5)` |
+| `count(x)` | Número de veces que aparece x | int | O(n) | `n = lista.count(5)` |
+| `copy()` | Copia superficial de la lista | list | O(n) | `copia = lista.copy()` |
+
+---
+
+#### Funciones Built-in para Listas
+
+| Función | Descripción | Modifica | Retorna | Ejemplo |
+|---------|-------------|----------|---------|---------|
+| `len(lista)` | Cantidad de elementos | ❌ | int | `n = len(lista)` |
+| `sorted(lista)` | Nueva lista ordenada | ❌ | list | `nueva = sorted(lista)` |
+| `min(lista)` | Elemento mínimo | ❌ | Elemento | `m = min(lista)` |
+| `max(lista)` | Elemento máximo | ❌ | Elemento | `m = max(lista)` |
+| `sum(lista)` | Suma de elementos (numéricos) | ❌ | Número | `s = sum(lista)` |
+| `any(lista)` | ¿Alguno es True? | ❌ | bool | `b = any(lista)` |
+| `all(lista)` | ¿Todos son True? | ❌ | bool | `b = all(lista)` |
+| `reversed(lista)` | Iterador invertido | ❌ | iterator | `for x in reversed(lista)` |
+| `enumerate(lista)` | Iterador (índice, valor) | ❌ | iterator | `for i, v in enumerate(lista)` |
+
+---
+
+#### Operadores
+
+| Operador | Descripción | Ejemplo | Resultado |
+|----------|-------------|---------|-----------|
+| `+` | Concatenación | `[1,2] + [3,4]` | `[1, 2, 3, 4]` |
+| `*` | Repetición | `[1,2] * 3` | `[1, 2, 1, 2, 1, 2]` |
+| `in` | Pertenencia | `5 in [1,2,5]` | `True` |
+| `not in` | No pertenencia | `5 not in [1,2]` | `True` |
+| `[i]` | Acceso por índice | `lista[0]` | Primer elemento |
+| `[i:j]` | Slicing | `lista[1:3]` | Sublista |
+| `[i:j:k]` | Slicing con paso | `lista[::2]` | Elementos alternos |
+
+---
+
+#### Cuándo Usar Cada Método: Guía Rápida
+
+```{mermaid}
+graph TD
+    A[¿Qué necesitás hacer?] --> B{Agregar elementos}
+    A --> C{Eliminar elementos}
+    A --> D{Buscar/Consultar}
+    A --> E{Ordenar/Reorganizar}
+    
+    B --> B1[append: agregar 1 al final]
+    B --> B2[insert: agregar en posición]
+    B --> B3[extend: agregar varios]
+    
+    C --> C1[remove: eliminar por valor]
+    C --> C2[pop: sacar y obtener]
+    C --> C3[clear: vaciar todo]
+    C --> C4[del: eliminar por índice/slice]
+    
+    D --> D1[in: ¿existe?]
+    D --> D2[index: ¿dónde está?]
+    D --> D3[count: ¿cuántas veces?]
+    
+    E --> E1[sort: ordenar in-place]
+    E --> E2[sorted: nueva ordenada]
+    E --> E3[reverse: invertir]
+    
+    style B1 fill:#c8e6c9
+    style B2 fill:#c8e6c9
+    style B3 fill:#c8e6c9
+    style C1 fill:#ffccbc
+    style C2 fill:#ffccbc
+    style C3 fill:#ffccbc
+    style C4 fill:#ffccbc
+    style D1 fill:#fff9c4
+    style D2 fill:#fff9c4
+    style D3 fill:#fff9c4
+    style E1 fill:#e1bee7
+    style E2 fill:#e1bee7
+    style E3 fill:#e1bee7
+```
+
+---
+
+#### Complejidad Temporal (Big O)
+
+| Operación | Complejidad | Explicación |
+|-----------|-------------|-------------|
+| `lista[i]` | O(1) | Acceso directo por índice |
+| `lista.append(x)` | O(1) | Agregar al final |
+| `lista.insert(0, x)` | O(n) | Debe mover todos los elementos |
+| `lista.pop()` | O(1) | Eliminar último |
+| `lista.pop(0)` | O(n) | Eliminar primero, debe mover todos |
+| `lista.remove(x)` | O(n) | Debe buscar el elemento |
+| `x in lista` | O(n) | Debe buscar en toda la lista |
+| `lista.sort()` | O(n log n) | Algoritmo eficiente de ordenamiento |
+| `lista.reverse()` | O(n) | Recorre toda la lista |
+| `lista.copy()` | O(n) | Copia todos los elementos |
+
+:::{tip} Consejos de Rendimiento
+- **Agregar al final:**Usa `append()` (rápido)
+- **Agregar al principio:**Considera usar `collections.deque` si lo hacés frecuentemente
+- **Eliminar del final:**Usa `pop()` (rápido)
+- **Eliminar del principio:**Considera `collections.deque`
+- **Buscar elementos:**Si hacés muchas búsquedas, considera usar `set` o `dict`
+:::
+
+---
+
+### 🧠 Referencias y Memoria: Entendiendo Cómo Python Guarda Datos
+
+Cuando trabajás con listas (y otros objetos mutables), es fundamental entender cómo Python maneja la memoria para evitar errores sutiles pero importantes.
+
+```{figure} ./3_estructuras/memoria_referencias.svg
+:name: fig-memoria-referencias
+:align: center
+:width: 95%
+
+Visualización de cómo Python maneja referencias y memoria para tipos mutables e inmutables
+```
+
+#### El Problema de las Referencias Compartidas
+
+::::{admonition} Analogía: Documento Compartido
+:class: warning
+
+Imaginate que vos y un amigo están editando el **mismo documento**de Google Docs (no una copia, el mismo archivo):
+
+- Si tu amigo cambia algo, **vos también lo ves**
+- Si vos cambiás algo, **tu amigo también lo ve**
+- Ambos están mirando y editando **el mismo documento**
+
+Esto es lo que pasa con listas cuando hacés `lista2 = lista1`:
+::::
+
+```{code-cell} ipython3
+# CUIDADO: Esto NO crea una copia
+lista1 = [1, 2, 3]
+lista2 = lista1  # lista2 apunta al MISMO objeto que lista1
+
+print("Antes de modificar:")
+print("lista1:", lista1)  # [1, 2, 3]
+print("lista2:", lista2)  # [1, 2, 3]
+
+# Modificamos lista2
+lista2[0] = 999
+
+print("\nDespués de modificar lista2:")
+print("lista1:", lista1)  # [999, 2, 3] ← ¡También cambió!
+print("lista2:", lista2)  # [999, 2, 3]
+
+# ¿Por qué? Porque ambas variables apuntan al MISMO objeto en memoria
+print("\n¿Son el mismo objeto?", lista1 is lista2)  # True
+```
+
+#### Cómo Copiar Listas Correctamente
+
+```{code-cell} ipython3
+# ✅ CORRECTO: Estas formas SÍ crean copias independientes
+
+# Método 1: Slicing [:]
+original = [1, 2, 3]
+copia1 = original[:]
+copia1[0] = 999
+print("Original:", original)  # [1, 2, 3] ✓ No cambió
+print("Copia1:", copia1)      # [999, 2, 3]
+
+# Método 2: .copy()
+copia2 = original.copy()
+copia2[0] = 888
+print("Original:", original)  # [1, 2, 3] ✓ Sigue igual
+print("Copia2:", copia2)      # [888, 2, 3]
+
+# Método 3: list()
+copia3 = list(original)
+copia3[0] = 777
+print("Original:", original)  # [1, 2, 3] ✓ Intacta
+print("Copia3:", copia3)      # [777, 2, 3]
+```
+
+#### Copias Superficiales vs Profundas
+
+:::{warning} Copia Superficial (Shallow Copy)
+Los métodos anteriores hacen **copias superficiales**: copian la lista, pero si la lista contiene otras listas, esas listas internas **sí se comparten**.
+
+```{code-cell} ipython3
+# Problema con listas anidadas
+original = [[1, 2], [3, 4]]
+copia = original[:]  # Copia superficial
+
+# Modificamos una lista interna
+copia[0][0] = 999
+
+print("Original:", original)  # [[999, 2], [3, 4]] ← ¡Se modificó!
+print("Copia:", copia)        # [[999, 2], [3, 4]]
+```
+
+Para copiar listas anidadas completamente, necesitás **copia profunda**:
+
+```{code-cell} ipython3
+import copy
+
+original = [[1, 2], [3, 4]]
+copia_profunda = copy.deepcopy(original)
+
+copia_profunda[0][0] = 999
+
+print("Original:", original)        # [[1, 2], [3, 4]] ✓ Intacta
+print("Copia profunda:", copia_profunda)  # [[999, 2], [3, 4]]
+```
+:::
+
+#### Verificar si Dos Variables Comparten el Mismo Objeto
+
+```{code-cell} ipython3
+lista1 = [1, 2, 3]
+lista2 = lista1        # Referencia al mismo objeto
+lista3 = lista1[:]     # Copia nueva
+
+# is: verifica si son el MISMO objeto en memoria
+print("lista1 is lista2:", lista1 is lista2)  # True - mismo objeto
+print("lista1 is lista3:", lista1 is lista3)  # False - objetos diferentes
+
+# ==: verifica si tienen el MISMO contenido
+print("lista1 == lista2:", lista1 == lista2)  # True - mismo contenido
+print("lista1 == lista3:", lista1 == lista3)  # True - mismo contenido
+
+# id(): muestra la dirección en memoria
+print("\nDirecciones en memoria:")
+print("id(lista1):", id(lista1))
+print("id(lista2):", id(lista2))  # Misma dirección que lista1
+print("id(lista3):", id(lista3))  # Dirección diferente
+```
+
+:::{important} Regla de Oro
+- **Tipos inmutables**(int, float, str, tuple): Se copian automáticamente por valor
+- **Tipos mutables**(list, dict, set): Se comparten por referencia, necesitás copiar explícitamente
+
+```python
+# Inmutables - no hay problema
+a = 10
+b = a
+b = 20  # a sigue siendo 10
+
+# Mutables - ¡cuidado!
+lista_a = [1, 2, 3]
+lista_b = lista_a  # Referencia compartida
+lista_b[0] = 999   # lista_a también cambió a [999, 2, 3]
+```
+:::
 
 ---
 
 (tuplas)=
-## Tuplas
+## Tuplas: La Prima Inmutable de las Listas 
 
-Una **tupla** es una colección ordenada e **inmutable** (no se puede modificar después de creada). Se usa para datos que no deben cambiar.
+### ¿Qué es una Tupla?
 
-### Crear Tuplas
+Una **tupla** es como una lista, pero **inmutable**(no se puede cambiar después de crear). 
+
+::::{admonition} Analogía: Lista vs Tupla
+:class: tip
+
+**Lista = Playlist de Spotify:**
+- Podés agregar canciones
+- Podés eliminar canciones
+- Podés cambiar el orden
+- **Mutable**→ Cambia
+
+**Tupla = DVD grabado:**
+- Las canciones están grabadas
+- NO podés agregar canciones
+- NO podés cambiar nada
+- **Inmutable**→ No cambia
+
+```python
+# Lista - puedo cambiar
+playlist = ["Canción 1", "Canción 2"]
+playlist[0] = "Otra canción"  # ✓ Funciona
+
+# Tupla - NO puedo cambiar
+dvd = ("Canción 1", "Canción 2")
+dvd[0] = "Otra canción"  # ✗ ERROR
+```
+::::
+
+---
+
+### Comparación Visual: Lista vs Tupla
+
+![Lista vs Tupla](./3_estructuras/lista_vs_tupla.svg)
+
+| Característica | Lista `[]` | Tupla `()` |
+|----------------|------------|------------|
+| **Sintaxis**| Corchetes `[]` | Paréntesis `()` |
+| **Mutable**| ✅ Sí | ❌ No |
+| **Velocidad**| Más lenta | Más rápida |
+| **Uso de memoria**| Más | Menos |
+| **Cuándo usar**| Datos que cambian | Datos constantes |
+| **Métodos**| Muchos (append, etc.) | Solo 2 (count, index) |
+| **Como clave de dict**| ❌ No | ✅ Sí |
+
+---
+
+### Crear Tuplas: 4 Formas
 
 ```{code-cell} ipython3
-# Con paréntesis
+# 1️⃣ Con paréntesis (forma común)
 coordenadas = (10, 20)
-colores = ("rojo", "verde", "azul")
+colores = ("🔴 rojo", "🟢 verde", "🔵 azul")
+print("Coordenadas:", coordenadas)
+print("Colores:", colores)
 
-# Sin paréntesis (también válido)
-punto = 5, 10
+# 2️⃣ Sin paréntesis (tuple packing)
+punto = 5, 10, 15  # Python entiende que es tupla
+print("Punto:", punto)
 
-# Tupla de un elemento (requiere coma)
-solo_uno = (5,)   # Tupla
-no_tupla = (5)    # Esto es un int, no una tupla
+# 3️⃣ Tupla de un elemento (requiere coma final)
+solo_uno = (5,)   # ✓ Esto ES una tupla
+no_tupla = (5)    # ✗ Esto es un int (paréntesis de agrupación)
+print(f"solo_uno es tupla: {type(solo_uno)}")
+print(f"no_tupla es int: {type(no_tupla)}")
 
-# Tupla vacía
+# 4️⃣ Tupla vacía
 vacia = ()
+tambien_vacia = tuple()
+print(f"Tupla vacía: {vacia}, longitud: {len(vacia)}")
 ```
 
-### Acceso a Elementos
+:::{danger} 🚨 Error Común: Tupla de 1 Elemento
 
 ```{code-cell} ipython3
-punto = (10, 20, 30)
+# ❌ INCORRECTO - Es un entero, no tupla
+numero = (42)
+print(f"Tipo: {type(numero)}, valor: {numero}")  # <class 'int'>
 
-# Por índice
-print(punto[0])   # 10
-print(punto[-1])  # 30
-
-# Slicing
-numeros = (0, 1, 2, 3, 4, 5)
-print(numeros[2:5])  # (2, 3, 4)
+# ✓ CORRECTO - La coma lo hace tupla
+tupla = (42,)  # ← Nota la coma
+print(f"Tipo: {type(tupla)}, valor: {tupla}")    # <class 'tuple'>
 ```
 
-### Inmutabilidad
-
-```{code-cell} ipython3
-punto = (10, 20)
-
-# Intentar modificar causa error
-# punto[0] = 15  # TypeError: 'tuple' object does not support item assignment
-
-# NO se puede agregar, eliminar o modificar elementos
-```
-
-:::{note} ¿Por qué usar tuplas?
-Las tuplas son útiles cuando:
-1. **Los datos no deben cambiar**: coordenadas, RGB, dimensiones
-2. **Mejor rendimiento**: son más rápidas que las listas
-3. **Como claves de diccionarios**: las tuplas pueden, las listas no
-4. **Retornar múltiples valores** de una función
+**Regla:**Para tupla de 1 elemento, **siempre ponés la coma**: `(elemento,)`
 :::
 
-### Desempaquetado de Tuplas
+---
+
+### Crear Tuplas con tuple()
 
 ```{code-cell} ipython3
-# Desempaquetado simple
-punto = (10, 20)
-x, y = punto
-print(f"x={x}, y={y}")  # x=10, y=20
+# Convertir lista a tupla
+lista = [1, 2, 3, 4, 5]
+tupla = tuple(lista)
+print(f"Lista: {lista}")
+print(f"Tupla: {tupla}")
 
-# Desempaquetado con *
-numeros = (1, 2, 3, 4, 5)
-primero, *resto, ultimo = numeros
-print(primero)  # 1
-print(resto)    # [2, 3, 4]
-print(ultimo)   # 5
+# Convertir string a tupla (cada caracter es un elemento)
+texto = "Python"
+tupla_letras = tuple(texto)
+print(f"Tupla de letras: {tupla_letras}")
 
-# Intercambio de variables
-a, b = 5, 10
-a, b = b, a  # Intercambio elegante
-print(a, b)  # 10 5
+# Convertir range a tupla
+tupla_nums = tuple(range(5))
+print(f"Tupla de 0 a 4: {tupla_nums}")
 ```
+
+---
+
+### Acceso a Elementos: Igual que Listas
+
+```{code-cell} ipython3
+punto_3d = (10, 20, 30)
+print("Tupla:", punto_3d)
+
+# Acceso por índice (igual que listas)
+print(f"Primer elemento [0]: {punto_3d[0]}")    # 10
+print(f"Segundo [1]: {punto_3d[1]}")            # 20
+print(f"Último [-1]: {punto_3d[-1]}")           # 30
+
+# Slicing (igual que listas)
+numeros = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+print(f"[2:5]: {numeros[2:5]}")       # (2, 3, 4)
+print(f"[:3]: {numeros[:3]}")         # (0, 1, 2)
+print(f"[::2]: {numeros[::2]}")       # (0, 2, 4, 6, 8)
+print(f"[::-1]: {numeros[::-1]}")     # Invertida
+
+# Iterar (igual que listas)
+colores = ("🔴", "🟢", "🔵")
+for color in colores:
+    print(color)
+```
+
+:::{tip} Operaciones de Lectura
+Todas las operaciones de **lectura**de listas funcionan igual en tuplas:
+- ✅ Acceso por índice: `tupla[i]`
+- ✅ Slicing: `tupla[inicio:fin]`
+- ✅ Iteración: `for x in tupla`
+- ✅ Búsqueda: `x in tupla`
+- ✅ Longitud: `len(tupla)`
+
+Lo que **NO funciona**son operaciones de **escritura**:
+- ❌ Modificar: `tupla[i] = x`
+- ❌ Agregar: `tupla.append(x)`
+- ❌ Eliminar: `tupla.remove(x)`
+:::
+
+---
+
+### Inmutabilidad: El Poder de "No Cambiar" 
+
+::::{admonition} Analogía: Tatuaje vs Sticker
+:class: tip
+
+**Lista = Sticker:**
+- Podés pegar otro encima
+- Podés sacarlo
+- Podés modificarlo
+- **Mutable**
+
+**Tupla = Tatuaje:**
+- Una vez hecho, es permanente
+- No podés modificarlo
+- Tenés que vivir con él (o crear uno nuevo)
+- **Inmutable**
+::::
+
+```{code-cell} ipython3
+# Lista - MUTABLE
+lista = [1, 2, 3]
+print("Lista original:", lista)
+lista[0] = 999  # ✓ Funciona
+print("Lista modificada:", lista)
+
+print("\n" + "="*50 + "\n")
+
+# Tupla - INMUTABLE
+tupla = (1, 2, 3)
+print("Tupla original:", tupla)
+
+try:
+    tupla[0] = 999  # ✗ Error
+except TypeError as e:
+    print(f"❌ ERROR: {e}")
+    print("✓ Las tuplas NO se pueden modificar")
+```
+
+---
+
+#### ¿Qué NO Podés Hacer con Tuplas?
+
+```{code-cell} ipython3
+mi_tupla = (10, 20, 30)
+
+# ❌ No podés modificar elementos
+try:
+    mi_tupla[0] = 99
+except TypeError:
+    print("❌ No se puede modificar elementos")
+
+# ❌ No podés agregar elementos
+try:
+    mi_tupla.append(40)
+except AttributeError:
+    print("❌ No existe método append()")
+
+# ❌ No podés eliminar elementos
+try:
+    mi_tupla.remove(20)
+except AttributeError:
+    print("❌ No existe método remove()")
+
+# ❌ No podés ordenar in-place
+try:
+    mi_tupla.sort()
+except AttributeError:
+    print("❌ No existe método sort()")
+```
+
+---
+
+#### ¿Por qué Usar Tuplas? 5 Razones
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} 1️⃣ Datos Constantes
+**Cuando los datos NO deben cambiar:**
+
+```python
+# Coordenadas GPS
+ubicacion = (-34.6037, -58.3816)
+
+# Color RGB
+rojo = (255, 0, 0)
+
+# Dimensiones de pantalla
+resolucion = (1920, 1080)
+
+# Días de la semana (no cambian)
+dias = ("Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom")
+```
+
+**Ventaja:**Evitás modificaciones accidentales
+::::
+
+::::{grid-item-card} 2️⃣ Mejor Rendimiento
+**Las tuplas son más rápidas:**
+
+```python
+# Tupla - más rápida de crear
+tupla = (1, 2, 3, 4, 5)
+
+# Lista - más lenta de crear
+lista = [1, 2, 3, 4, 5]
+```
+
+**Ventaja:**
+- Menos memoria
+- Más rápidas de crear
+- Acceso más eficiente
+::::
+
+::::{grid-item-card} 3️⃣ Claves de Diccionarios
+**Solo tuplas pueden ser claves:**
+
+```python
+# ✓ Tupla como clave
+cache = {}
+coordenada = (10, 20)
+cache[coordenada] = "Tesoro"
+
+# ✗ Lista NO puede
+# punto = [10, 20]
+# cache[punto] = "Tesoro"  # ERROR
+```
+
+**Ventaja:**Hashable (puede ser clave)
+::::
+
+::::{grid-item-card} 4️⃣ Retornar Múltiples Valores
+**Funciones retornan tuplas:**
+
+```python
+def obtener_coordenadas():
+    return (10, 20, 30)  # Tupla
+
+x, y, z = obtener_coordenadas()
+```
+
+**Ventaja:**Sintaxis clara para múltiples valores
+::::
+
+:::::
+
+::::{grid-item-card} 5️⃣ Protección de Datos
+**Pasar datos sin riesgo de modificación:**
+
+```python
+def procesar_datos(tupla_datos):
+    # tupla_datos no puede ser modificada
+    # dentro de la función
+    pass
+
+configuracion = (800, 600, True)
+procesar_datos(configuracion)
+# configuracion no fue modificada
+```
+
+**Ventaja:**Seguridad en el código
+::::
+
+---
+
+### Métodos de Tuplas: Solo 2
+
+Las tuplas tienen **solo 2 métodos**(vs 11 de las listas):
+
+```{code-cell} ipython3
+numeros = (1, 3, 5, 3, 7, 3, 9)
+
+# 1️⃣ count() - cuenta ocurrencias
+cantidad = numeros.count(3)
+print(f"El 3 aparece {cantidad} veces")
+
+# 2️⃣ index() - encuentra posición de primera ocurrencia
+posicion = numeros.index(5)
+print(f"El 5 está en posición {posicion}")
+
+# También funciona con inicio y fin
+segunda_pos = numeros.index(3, 2)  # Busca desde posición 2
+print(f"Segundo 3 está en posición {segunda_pos}")
+```
+
+---
+
+### Desempaquetado (Unpacking): El Super Poder de las Tuplas 🎁
+
+El **desempaquetado**(unpacking) es una característica poderosa que permite extraer los elementos de una tupla en variables individuales.
+
+::::{admonition} Analogía: Desempacar una Caja
+:class: tip
+
+Imaginate que recibís una caja con 3 regalos:
+
+```python
+caja = (🎁, 🎁, 🎁)
+```
+
+**Desempaquetar** es sacar cada regalo y ponerlo en su propio lugar:
+
+```python
+regalo1, regalo2, regalo3 = caja
+# Ahora tenés 3 variables separadas
+```
+::::
+
+```{figure} ./3_estructuras/tupla_unpacking.svg
+:name: fig-tupla-unpacking
+:align: center
+:width: 90%
+
+Visualización del desempaquetado de tuplas: desde lo básico hasta casos avanzados
+```
+
+---
+
+#### Desempaquetado Básico
+
+```{code-cell} ipython3
+# Ejemplo 1: Coordenadas
+punto = (10, 20)
+x, y = punto  # Desempaqueta en 2 variables
+print(f"x = {x}, y = {y}")
+
+# Ejemplo 2: Color RGB
+color = (255, 128, 0)
+rojo, verde, azul = color
+print(f"R={rojo}, G={verde}, B={azul}")
+
+# Ejemplo 3: Datos de persona
+persona = ("Ana", 25, "Argentina")
+nombre, edad, pais = persona
+print(f"{nombre} tiene {edad} años y es de {pais}")
+```
+
+:::{warning} Cantidad de Variables Debe Coincidir
+
+```{code-cell} ipython3
+tupla = (1, 2, 3)
+
+# ❌ Muy pocas variables
+try:
+    a, b = tupla  # Espera 2, hay 3
+except ValueError as e:
+    print(f"ERROR: {e}")
+
+# ❌ Demasiadas variables
+try:
+    a, b, c, d = tupla  # Espera 4, hay 3
+except ValueError as e:
+    print(f"ERROR: {e}")
+
+# ✓ Cantidad correcta
+a, b, c = tupla
+print(f"✓ Correcto: a={a}, b={b}, c={c}")
+```
+:::
+
+---
+
+#### Desempaquetado con * (Rest Pattern)
+
+```{code-cell} ipython3
+# El * captura "el resto" de los elementos
+numeros = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# 1️⃣ Primero y el resto
+primero, *resto = numeros
+print(f"Primero: {primero}")
+print(f"Resto: {resto}")
+
+print("\n" + "="*50 + "\n")
+
+# 2️⃣ Primero, resto y último
+primero, *medio, ultimo = numeros
+print(f"Primero: {primero}")
+print(f"Medio: {medio}")
+print(f"Último: {ultimo}")
+
+print("\n" + "="*50 + "\n")
+
+# 3️⃣ Primeros dos y el resto
+a, b, *resto = numeros
+print(f"a={a}, b={b}")
+print(f"Resto: {resto}")
+```
+
+**Ejemplo práctico con CSV:**
+
+```{code-cell} ipython3
+# Datos de estudiante: nombre, apellido, nota1, nota2, nota3, ...
+estudiante = ("Ana", "García", 85, 90, 88, 92, 87)
+
+nombre, apellido, *notas = estudiante
+print(f"Estudiante: {nombre} {apellido}")
+print(f"Notas: {notas}")
+print(f"Promedio: {sum(notas) / len(notas):.1f}")
+```
+
+---
+
+#### Intercambio de Variables: El Truco Elegante
+
+```{code-cell} ipython3
+# Forma tradicional (con variable temporal)
+a = 5
+b = 10
+print(f"Antes: a={a}, b={b}")
+
+temp = a
+a = b
+b = temp
+print(f"Después (tradicional): a={a}, b={b}")
+
+print("\n" + "="*50 + "\n")
+
+# Forma Pythonic (con desempaquetado de tuplas)
+a = 5
+b = 10
+print(f"Antes: a={a}, b={b}")
+
+a, b = b, a  #  Magia! 
+print(f"Después (Pythonic): a={a}, b={b}")
+```
+
+**¿Cómo funciona?**
+
+```python
+a, b = b, a
+
+# Se evalúa así:
+# 1. Primero se crea una tupla: (b, a) → (10, 5)
+# 2. Luego se desempaqueta: a, b = (10, 5)
+# 3. Resultado: a=10, b=5
+```
+
+---
+
+#### Desempaquetado en Funciones
+
+```{code-cell} ipython3
+# Función que retorna tupla
+def obtener_datos_usuario():
+    return ("Carlos", "carlos@email.com", 28, "México")
+
+# Desempaquetar el retorno
+nombre, email, edad, pais = obtener_datos_usuario()
+print(f"Nombre: {nombre}")
+print(f"Email: {email}")
+print(f"Edad: {edad}")
+print(f"País: {pais}")
+
+print("\n" + "="*50 + "\n")
+
+# Ignorar valores con _
+def obtener_coordenadas():
+    return (10, 20, 30)
+
+x, _, z = obtener_coordenadas()  # Ignoramos y
+print(f"x={x}, z={z}")  # Solo usamos x y z
+```
+
+---
+
+#### Desempaquetado en Loops
+
+```{code-cell} ipython3
+# Lista de tuplas
+personas = [
+    ("Ana", 25, "🇦🇷"),
+    ("Bruno", 30, "🇧🇷"),
+    ("Carlos", 28, "🇲🇽")
+]
+
+# Desempaquetar cada tupla en el loop
+for nombre, edad, pais in personas:
+    print(f"{nombre} ({edad} años) {pais}")
+
+print("\n" + "="*50 + "\n")
+
+# Con enumerate
+frutas = ("🍎 manzana", "🍌 banana", "🍊 naranja")
+for i, fruta in enumerate(frutas, start=1):
+    print(f"{i}. {fruta}")
+```
+
+---
+
+#### Desempaquetado Anidado
+
+```{code-cell} ipython3
+# Tupla con tuplas adentro
+datos = (("Ana", "García"), (25, "Argentina"))
+
+# Desempaquetado anidado
+(nombre, apellido), (edad, pais) = datos
+print(f"Nombre completo: {nombre} {apellido}")
+print(f"Edad: {edad}, País: {pais}")
+```
+
+---
+
+#### Casos Prácticos
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} División con Resto
+```python
+# divmod() retorna tupla (cociente, resto)
+resultado = divmod(17, 5)
+cociente, resto = resultado
+print(f"17 ÷ 5 = {cociente} resto {resto}")
+# 17 ÷ 5 = 3 resto 2
+```
+::::
+
+::::{grid-item-card} Min y Max Simultáneos
+```python
+numeros = [10, 5, 20, 15, 8]
+
+# Obtener min y max a la vez
+minimo, maximo = min(numeros), max(numeros)
+print(f"Min: {minimo}, Max: {maximo}")
+# Min: 5, Max: 20
+```
+::::
+
+::::{grid-item-card} Rotar Lista
+```python
+lista = [1, 2, 3, 4, 5]
+
+# Rotar elementos
+primero, *resto = lista
+lista = resto + [primero]
+print(lista)
+# [2, 3, 4, 5, 1]
+```
+::::
+
+::::{grid-item-card} Procesar CSV
+```python
+# Línea CSV
+linea = "Juan,Pérez,30,Argentina"
+
+# Desempaquetar datos
+datos = tuple(linea.split(","))
+nombre, apellido, edad, pais = datos
+print(f"{nombre} {apellido}")
+```
+::::
+
+:::::
+
+:::{tip} Consejos de Desempaquetado
+1. **Usa `_`** para valores que no necesitás: `x, _, z = tupla`
+2. **Usa `*`** para capturar múltiples valores: `primero, *resto, ultimo`
+3. **Combina con enumerate()**en loops: `for i, valor in enumerate(tupla)`
+4. **Intercambio elegante**de variables: `a, b = b, a`
+5. **Funciones que retornan tuplas**→ desempaqueta directamente
+:::
+
+---
 
 ### Métodos de Tuplas
 
@@ -502,6 +3042,16 @@ print(estudiante)   # {"nombre": "Ana"}
 
 ### Métodos de Diccionarios
 
+Los diccionarios en Python tienen métodos poderosos para acceder, modificar y consultar datos de forma segura y eficiente.
+
+```{figure} ./3_estructuras/dict_metodos.svg
+:name: fig-dict-metodos
+:align: center
+:width: 95%
+
+Métodos esenciales de diccionarios con ejemplos prácticos de uso
+```
+
 ```{code-cell} ipython3
 estudiante = {
     "nombre": "Ana",
@@ -630,7 +3180,7 @@ print(contador)
 (sets)=
 ## Sets (Conjuntos)
 
-Un **set** es una colección **no ordenada** de elementos **únicos**. Es útil para eliminar duplicados y realizar operaciones matemáticas de conjuntos.
+Un **set** es una colección **no ordenada**de elementos **únicos**. Es útil para eliminar duplicados y realizar operaciones matemáticas de conjuntos.
 
 ### Crear Sets
 
@@ -762,6 +3312,14 @@ print(sin_duplicados)  # [1, 2, 3, 4, 5]
 ## Strings Avanzados
 
 Ya viste strings en el capítulo de fundamentos. Ahora exploraremos métodos y operaciones más avanzadas.
+
+```{figure} ./3_estructuras/string_metodos.svg
+:name: fig-string-metodos
+:align: center
+:width: 95%
+
+Catálogo completo de métodos de strings organizados por categoría
+```
 
 ### Métodos de Búsqueda
 
@@ -906,18 +3464,28 @@ def funcion():
 (comprensiones)=
 ## Comprensiones
 
-Las **comprensiones** son una forma concisa y Pythonic de crear estructuras de datos.
+Las **comprensiones**son una forma concisa y Pythonic de crear estructuras de datos.
 
 ### List Comprehensions
+
+Las **list comprehensions**te permiten crear listas en una sola línea de código, de manera más elegante y legible que con loops tradicionales.
+
+```{figure} ./3_estructuras/comprension_listas.svg
+:name: fig-comprension-listas
+:align: center
+:width: 95%
+
+Anatomía y ejemplos de list comprehensions: la forma Pythonic de crear listas
+```
 
 ```{code-cell} ipython3
 # Forma tradicional
 cuadrados = []
 for i in range(10):
-    cuadrados.append(i ** 2)
+    cuadrados.append(i **2)
 
 # Con list comprehension
-cuadrados = [i ** 2 for i in range(10)]
+cuadrados = [i **2 for i in range(10)]
 print(cuadrados)  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 # Con condición
@@ -1508,7 +4076,7 @@ Resultado:
 ## Uso Ético y Efectivo de la IA en Estructuras de Datos
 
 :::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
-Dominar estructuras de datos es fundamental para la programación. La IA puede ayudarte a explorar diferentes formas de resolver problemas, pero **vos debés entender cómo funcionan las estructuras** antes de usarlas.
+Dominar estructuras de datos es fundamental para la programación. La IA puede ayudarte a explorar diferentes formas de resolver problemas, pero **vos debés entender cómo funcionan las estructuras**antes de usarlas.
 :::
 
 ### Buenas Prácticas para Estructuras de Datos
@@ -1575,11 +4143,11 @@ Prompt: "Estoy usando `lista[0:3]` para obtener los primeros 3 elementos.
 :::{tip} Enfoque correcto
 No intentes memorizar todos los métodos de cada estructura. En su lugar:
 
-1. **Entiende** qué hace cada estructura y cuándo usarla
-2. **Practica** las operaciones básicas (agregar, eliminar, buscar)
-3. **Consulta** la documentación (o la IA) para operaciones específicas
+1. **Entiende**qué hace cada estructura y cuándo usarla
+2. **Practica**las operaciones básicas (agregar, eliminar, buscar)
+3. **Consulta**la documentación (o la IA) para operaciones específicas
 
-La IA es excelente para recordarte sintaxis, pero **vos** debés saber QUÉ operación necesitás.
+La IA es excelente para recordarte sintaxis, pero **vos**debés saber QUÉ operación necesitás.
 :::
 
 ### Errores Comunes en este Módulo
@@ -1605,7 +4173,7 @@ Prompt: "Resolví este problema usando dos listas paralelas para nombres y edade
 ¿Hay alguna ventaja en usar un diccionario en su lugar? ¿O una lista de tuplas?"
 ```
 
-Este tipo de pregunta te ayuda a **profundizar tu comprensión** más allá de lo básico.
+Este tipo de pregunta te ayuda a **profundizar tu comprensión**más allá de lo básico.
 
 ---
 

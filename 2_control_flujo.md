@@ -7,37 +7,202 @@ subtitle: Condicionales y estructuras de repetición en Python.
 (control-flujo)=
 # Control de Flujo
 
+::::{admonition} Mapa del Capítulo
+:class: tip dropdown
+
+Este capítulo te enseña a hacer que tus programas **piensen** y **repitan** acciones. ¡Es donde tu código cobra vida!
+
+```{mermaid}
+graph TD
+    A[Introducción] --> B[Condicionales if/elif/else]
+    B --> C[Bucles while]
+    C --> D[Bucles for]
+    D --> E[Control de Bucles]
+    E --> F[Patrones Comunes]
+    
+    style A fill:#e3f2fd
+    style B fill:#fff9c4
+    style C fill:#e1bee7
+    style D fill:#e1bee7
+    style E fill:#ffccbc
+    style F fill:#c8e6c9
+```
+
+**⏱️ Tiempo estimado:**5-7 horas
+
+**Lo que vas a aprender:**
+- Cómo hacer que tu programa tome decisiones (`if`, `elif`, `else`)
+- Repetir acciones con `while` y `for`
+- Controlar bucles con `break` y `continue`
+- Patrones comunes de programación
+
+**Al final podrás:**
+- Crear programas que reaccionan a diferentes situaciones
+- Evitar repetir código usando bucles
+- Construir menús interactivos y validaciones
+::::
+
 ## Introducción y Motivación
 
-Hasta ahora has escrito programas que ejecutan instrucciones de forma secuencial, una tras otra. Sin embargo, los programas reales necesitan tomar decisiones y repetir acciones. El **control de flujo** te permite hacer exactamente eso: que tu programa tome diferentes caminos según las condiciones que encuentre, y que repita tareas sin escribir el mismo código una y otra vez.
+### ¿Qué es el Control de Flujo? 🚦
 
-Imagina un cajero automático: debe verificar si el PIN es correcto antes de continuar, debe permitir múltiples intentos, y debe repetir el menú hasta que el usuario elija salir. Todas estas acciones requieren control de flujo.
+Hasta ahora, tus programas han sido como seguir una receta paso a paso: haces **una cosa tras otra**, siempre en el mismo orden. Pero los programas reales necesitan ser **inteligentes**:
 
-:::{important} ¿Por qué es importante el control de flujo?
-El control de flujo es lo que convierte un programa simple en una herramienta poderosa y flexible. Te permite:
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} Sin Control de Flujo
+```python
+# Programa "tonto"
+print("Buenos días")
+print("Buenas tardes")
+print("Buenas noches")
+# Siempre saluda igual...
+```
+::::
+
+::::{grid-item-card} Con Control de Flujo
+```python
+# Programa "inteligente"
+hora = 14
+if hora < 12:
+    print("Buenos días")
+elif hora < 20:
+    print("Buenas tardes")
+else:
+    print("Buenas noches")
+# ¡Saluda según la hora! 
+```
+::::
+
+:::::
+
+### Analogía del Semáforo 🚦
+
+Imaginate que sos un auto en una intersección:
+
+```{mermaid}
+graph LR
+    A[Llego al semáforo] --> B{¿Qué color?}
+    B -->|🟢 Verde| C[Paso]
+    B -->|🟡 Amarillo| D[Freno con cuidado]
+    B -->|🔴 Rojo| E[Me detengo]
+    
+    style A fill:#e3f2fd
+    style B fill:#fff9c4
+    style C fill:#c8e6c9
+    style D fill:#fff3e0
+    style E fill:#ffcdd2
+```
+
+Eso es **control de flujo**: tu programa "mira" la situación y **decide** qué hacer, como vos decidís según el color del semáforo.
+
+:::{important} ¿Por qué es tan importante?
+El control de flujo es lo que convierte un programa **simple** en una herramienta **poderosa**:
+
 - **Tomar decisiones** basadas en datos
-- **Evitar repetición de código** mediante loops
+- **Evitar repetir código** (no copies y pegues 100 veces)
 - **Crear programas interactivos** que responden al usuario
-- **Manejar diferentes escenarios** en un mismo programa
+- **Manejar diferentes escenarios** en el mismo programa
+
+**Sin control de flujo:** Solo podés hacer calculadoras básicas  
+**Con control de flujo:** Podés hacer juegos, aplicaciones, sistemas completos.
 :::
 
-En este capítulo aprenderás:
-- Estructuras condicionales (`if`, `elif`, `else`)
-- Loops con `while`
-- Loops con `for`
-- Control de loops con banderas
-- Patrones comunes de programación
+### Ejemplos del Mundo Real
+
+Todos estos usan control de flujo:
+
+:::::{grid} 1 1 2 2
+:gutter: 2
+
+::::{grid-item-card} 🏧 Cajero Automático
+- **Decisión:**¿El PIN es correcto?
+- **Repetición:**Permitir 3 intentos
+- **Menú:**Repetir hasta que elija "Salir"
+::::
+
+::::{grid-item-card} 🎮 Videojuego
+- **Decisión:**¿El jugador chocó?
+- **Repetición:**Loop principal del juego
+- **Validación:**¿Quedan vidas?
+::::
+
+::::{grid-item-card} 🌡️ Termostato
+- **Decisión:**¿Temperatura baja?
+- **Repetición:**Revisar cada minuto
+- **Acción:**Encender/apagar calefacción
+::::
+
+::::{grid-item-card} 📱 Aplicación de Mensajes
+- **Decisión:**¿Hay conexión?
+- **Repetición:**Revisar nuevos mensajes
+- **Validación:**¿Mensaje válido?
+::::
+
+:::::
+
+### ¿Qué Vas a Aprender?
+
+```{mermaid}
+mindmap
+  root((Control<br/>de Flujo))
+    Decisiones
+      if simple
+      if-else
+      if-elif-else
+    Repetición
+      while
+      for
+      range
+    Control
+      break
+      continue
+      pass
+    Patrones
+      Validación
+      Menús
+      Banderas
+```
+
+¡Empecemos! 
 
 ---
 
 (condicionales)=
 ## Estructuras Condicionales
 
-Las **estructuras condicionales** permiten que tu programa ejecute diferentes bloques de código según si una condición es verdadera o falsa.
+### ¿Qué son las Condicionales? 
 
-### La Estructura `if`
+Las **condicionales** son como las bifurcaciones en un camino: según la situación, tu programa toma un camino u otro.
 
-La forma más básica de tomar una decisión es con `if`:
+![Diagrama if](./2_control_flujo/if_decision.svg)
+
+::::{admonition} Analogía: El Guardia de Seguridad
+:class: tip
+
+Imaginate un guardia en la entrada de un boliche:
+
+```python
+edad = 17
+
+if edad >= 18:
+    print("¡Bienvenido! Pasá")  # Solo si cumple la condición
+    
+print("Que tengas buen día")  # Esto se ejecuta siempre
+```
+
+- **Si** tenés 18+ → te deja pasar Y te saluda
+- **Si** tenés menos → solo te saluda
+
+El guardia **decide** basándose en tu edad. ¡Eso es una condicional!
+::::
+
+---
+
+### La Estructura `if` Simple
+
+La forma más básica: "Si se cumple esto, hacé aquello"
 
 ```{code-cell} ipython3
 edad = 18
@@ -45,128 +210,488 @@ edad = 18
 if edad >= 18:
     print("Sos mayor de edad")
     print("Podés votar")
+    
+print("Este mensaje se muestra siempre")
 ```
 
-**Sintaxis:**
-```{code-cell} ipython3
-if condicion:
-    # Bloque de código que se ejecuta si la condición es True
-    instruccion1
-    instruccion2
-```
+#### Anatomía del `if`
 
-:::{important} Indentación en Python
-Python usa la **indentación** (espacios al inicio de la línea) para definir bloques de código. Según la {ref}`0x0005h`, debés usar **4 espacios** para cada nivel de indentación.
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item}
+```python
+if edad >= 18:
+    print("Mayor")
+    print("Votar")
+print("Fin")
+```
+::::
+
+::::{grid-item}
+1. **`if`**→ palabra clave
+2. **`edad >= 18`**→ condición (True/False)
+3. **`:`**→ dos puntos (obligatorio)
+4. **Indentación**→ define el bloque
+5. **Sin indent**→ fuera del if
+::::
+
+:::::
+
+:::{important} Indentación: ¡La Clave en Python!
+
+Python es **especial**: usa **espacios** para definir bloques de código (no llaves `{}` como otros lenguajes).
+
+![Indentación](./2_control_flujo/indentacion.svg)
+
+**Reglas de oro:**
+- ✅ Usá **4 espacios** por nivel
+- ✅ Sé **consistente**(siempre 4)
+- ❌ NO mezcles espacios con tabuladores (esto no es un problema en el JupyterLab)
+- ❌ NO olvidar los dos puntos `:`
 
 ```python
-# ✓ Correcto
+# ✓ CORRECTO
 if edad >= 18:
-    print("Mayor de edad")  # 4 espacios de indentación
+    print("Mayor de edad")  # 4 espacios
+    print("Podés votar")    # 4 espacios
 
-# ❌ Incorrecto - Error de sintaxis
+# ✗ ERROR: Sin indentación
 if edad >= 18:
-print("Mayor de edad")  # Sin indentación
+print("Mayor de edad")  # IndentationError!
+
+# ✗ ERROR: Inconsistente
+if edad >= 18:
+  print("Esto")    # 2 espacios
+    print("Malo")  # 4 espacios - ¡No funciona!
 ```
 :::
 
-### La Estructura `if-else`
+**Experimentá con `if`:**
 
-Cuando querés ejecutar un código si la condición es verdadera, y otro código si es falsa:
+```{code-cell} ipython3
+# Probá cambiando los valores
+temperatura = 25
+
+if temperatura > 30:
+    print("🔥 Hace mucho calor!")
+    print("   Mejor quedarse adentro")
+
+if temperatura < 10:
+    print("🥶 Hace mucho frío!")
+    print("   Abrigate bien")
+
+if temperatura >= 10 and temperatura <= 30:
+    print(" Temperatura agradable")
+    print("   Buen día para salir")
+
+print(f"Temperatura actual: {temperatura}°C")
+```
+
+### La Estructura `if-else`: Dos Caminos 🛤️
+
+A veces necesitás hacer **una cosa** si se cumple, y **otra cosa diferente** si no se cumple. Ahí usás `if-else`.
+
+![Diagrama if-else](./2_control_flujo/if_else_decision.svg)
+
+::::{admonition} Analogía: Moneda al Aire
+:class: tip
+
+Tirás una moneda:
+- **Si** sale cara → ganás
+- **Si** sale cruz (else) → perdés
+
+```python
+moneda = "cara"
+
+if moneda == "cara":
+    print("¡Ganaste! ")
+else:
+    print("Perdiste 😔")
+```
+
+**Siempre pasa UNA de las dos cosas**, nunca ambas.
+::::
 
 ```{code-cell} ipython3
 edad = 16
 
 if edad >= 18:
     print("Sos mayor de edad")
+    print("Podés votar")
 else:
     print("Sos menor de edad")
+    print("Todavía no podés votar")
+    
+print("Gracias por consultar")
 ```
 
-**Diagrama de flujo:**
+:::{note} ¿Cuándo usar `if-else`?
+Usá `if-else` cuando:
+- Hay **exactamente 2 opciones** (blanco o negro, sí o no)
+- **Siempre** querés hacer algo (una cosa u otra)
+- Las opciones son **excluyentes** (no pueden pasar las dos)
 
-```{mermaid}
-flowchart TD
-    A[Inicio] --> B{edad >= 18?}
-    B -->|True| C[print: Mayor de edad]
-    B -->|False| D[print: Menor de edad]
-    C --> E[Fin]
-    D --> E
+**Ejemplos:**
+- Aprobar/Reprobar un examen
+- Día/Noche
+- Par/Impar
+- Usuario logueado / No logueado
+:::
+
+**Comparación visual:**
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} Solo `if`
+```python
+if soleado:
+    print("¡Vamos al parque!")
+# Si no es soleado, no pasa nada
+```
+**Problema:**¿Y si llueve? 🤷
+::::
+
+::::{grid-item-card} Con `if-else`
+```python
+if soleado:
+    print("¡Vamos al parque!")
+else:
+    print("Nos quedamos en casa")
+# Siempre hacemos algo ✓
+```
+**Mejor:**Cubrimos ambos casos ✅
+::::
+
+:::::
+
+### La Estructura `if-elif-else`: Múltiples Caminos 
+
+Cuando tenés **más de 2 opciones** a elegir, usás `elif` (abreviación de "else if").
+
+![Diagrama if-elif-else](./2_control_flujo/if_elif_else.svg)
+
+::::{admonition} Analogía: El Semáforo de 4 Luces
+:class: tip
+
+Imaginate un semáforo especial con 4 luces que indica velocidades:
+
+```python
+velocidad = 80
+
+if velocidad > 120:
+    print("🔴 ¡Peligro! Muy rápido")
+elif velocidad > 80:
+    print("🟡 Cuidado, reducí velocidad")
+elif velocidad > 40:
+    print("🟢 Velocidad normal, bien")
+else:
+    print("🔵 Muy lento, podés acelerar")
 ```
 
-### La Estructura `if-elif-else`
+Python revisa **en orden** hasta encontrar la primera que es verdadera. Una vez que encuentra una, **se detiene y no revisa las demás**.
+::::
 
-Para manejar múltiples condiciones, usá `elif` (else if):
+#### Ejemplo Completo: Sistema de Calificaciones
 
 ```{code-cell} ipython3
 nota = 85
 
 if nota >= 90:
-    print("Excelente")
+    print("📗 Excelente - Calificación: A")
+    print("   ¡Felicitaciones!")
 elif nota >= 70:
-    print("Muy Bueno")
+    print("📘 Muy Bueno - Calificación: B")
+    print("   Buen trabajo")
 elif nota >= 60:
-    print("Bueno")
+    print("📙 Bueno - Calificación: C")
+    print("   Aprobado")
+elif nota >= 40:
+    print("📕 Regular - Calificación: D")
+    print("   Necesitás mejorar")
 else:
-    print("Necesitás mejorar")
+    print("❌ Insuficiente - Calificación: F")
+    print("   Reprobado")
+
+print(f"\nTu nota fue: {nota}")
 ```
 
+#### ¿Cómo Funciona?
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item}
 **Flujo de evaluación:**
-1. Se evalúa la primera condición (`nota >= 90`)
-2. Si es `False`, se evalúa la siguiente (`nota >= 70`)
-3. Si alguna es `True`, se ejecuta su bloque y se sale
-4. Si todas son `False`, se ejecuta el bloque `else` (si existe)
 
-:::{warning} Las condiciones se evalúan en orden
-Python evalúa las condiciones de arriba hacia abajo y ejecuta **solo el primer bloque** cuya condición sea verdadera:
+1️⃣ ¿`nota >= 90`? → No (85 < 90)  
+   Pasa a la siguiente
 
+2️⃣ ¿`nota >= 70`? → **¡Sí!**(85 >= 70)  
+   ✅ Ejecuta este bloque  
+   🛑 **Se detiene, NO evalúa el resto**
+
+3️⃣ ~~¿`nota >= 60`?~~ → No se evalúa  
+4️⃣ ~~¿`nota >= 40`?~~ → No se evalúa  
+5️⃣ ~~`else`~~ → No se ejecuta
+::::
+
+::::{grid-item}
+```{mermaid}
+graph TD
+    A[nota = 85] --> B{≥ 90?}
+    B -->|No| C{≥ 70?}
+    C -->|Sí| D[Muy Bueno B]
+    C -->|No| E{≥ 60?}
+    E -->|No| F{≥ 40?}
+    F -->|No| G[Reprobado]
+    
+    style D fill:#c8e6c9
+    style G fill:#ffcdd2
+```
+::::
+
+:::::
+
+:::{danger} ¡CUIDADO con el Orden!
+El **orden importa muchísimo**. Python evalúa de arriba hacia abajo y ejecuta **solo la primera** condición verdadera:
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} ✅ CORRECTO
 ```python
 numero = 85
 
-# ✓ Correcto - orden de más restrictivo a menos restrictivo
+# Orden: más restrictivo → menos
 if numero >= 90:
     print("A")
 elif numero >= 80:
-    print("B")  # Esta se ejecuta
+    print("B")  # ✓ Esta se ejecuta
 elif numero >= 70:
     print("C")
-
-# ❌ Problemático - la primera condición captura todo
-if numero >= 70:
-    print("C o mejor")  # Siempre se ejecuta si numero >= 70
-elif numero >= 80:
-    print("B o mejor")  # Nunca se alcanza
-elif numero >= 90:
-    print("A")  # Nunca se alcanza
+else:
+    print("F")
 ```
+
+**Funciona bien:**85 no pasa el primer filtro, pero sí el segundo.
+::::
+
+::::{grid-item-card} ❌ INCORRECTO
+```python
+numero = 85
+
+# Orden invertido (¡MAL!)
+if numero >= 70:
+    print("C+")  # ✗ Siempre gana
+elif numero >= 80:
+    print("B")   # Nunca se alcanza
+elif numero >= 90:
+    print("A")   # Nunca se alcanza
+```
+
+**Problema:** La primera condición "atrapa" todos los números >= 70, las siguientes nunca se ejecutan.
+::::
+
+:::::
+
+**Regla de oro:**Siempre ordená de **más específico/restrictivo** a **menos específico**.
 :::
 
-### Condiciones Anidadas
+#### Comparación: if múltiple vs if-elif-else
 
-Podés colocar estructuras `if` dentro de otras estructuras `if`:
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} Múltiples `if` separados
+```python
+edad = 25
+
+if edad >= 18:
+    print("Adulto")
+if edad >= 13:
+    print("Adolescente")
+if edad >= 0:
+    print("Persona")
+```
+
+**Resultado:**
+```
+Adulto
+Adolescente
+Persona
+```
+
+**Se ejecutan TODAS las que sean True**
+::::
+
+::::{grid-item-card} Con `if-elif-else`
+```python
+edad = 25
+
+if edad >= 18:
+    print("Adulto")
+elif edad >= 13:
+    print("Adolescente")
+elif edad >= 0:
+    print("Persona")
+```
+
+**Resultado:**
+```
+Adulto
+```
+
+**Se ejecuta SOLO LA PRIMERA `True`**
+::::
+
+:::::
+
+**Experimentá con diferentes valores:**
+
+```{code-cell} ipython3
+# Programa: Recomendación de actividad según la temperatura
+temperatura = 25
+
+if temperatura >= 35:
+    print("🥵 ¡Mucho calor!")
+    print("   Recomendación: Quedáte en casa con AC")
+elif temperatura >= 25:
+    print("☀️ Clima cálido")
+    print("   Recomendación: Playa o pileta")
+elif temperatura >= 15:
+    print(" Clima agradable")
+    print("   Recomendación: Caminar o hacer deporte")
+elif temperatura >= 5:
+    print("🧥 Hace frío")
+    print("   Recomendación: Abrigate bien")
+else:
+    print("🥶 ¡Mucho frío!")
+    print("   Recomendación: Quedáte adentro")
+
+print(f"\nTemperatura actual: {temperatura}°C")
+```
+
+### Condiciones Anidadas: `if` dentro de `if` 🪆
+
+A veces necesitás verificar **una cosa dentro de otra**, como muñecas rusas. Eso se llama **anidamiento**.
+
+::::{admonition} Analogía: Seguridad del Banco
+:class: tip
+
+Para entrar a la bóveda de un banco:
+1. **Primero** verifican tu ID
+2. **Si** tu ID es correcta, **entonces** verifican tu huella
+3. **Si** ambas son correctas → Acceso permitido
+
+```python
+id_correcta = True
+huella_correcta = True
+
+if id_correcta:
+    print("✓ ID verificada")
+    if huella_correcta:
+        print("✓ Huella verificada")
+        print("   Acceso permitido a la bóveda")
+    else:
+        print("✗ Huella incorrecta - Acceso denegado")
+else:
+    print("✗ ID incorrecta - Acceso denegado")
+```
+::::
+
+**Ejemplo clásico:**
 
 ```{code-cell} ipython3
 edad = 20
 tiene_licencia = True
 
 if edad >= 18:
+    print("✓ Tenés la edad mínima")
+    if tiene_licencia:
+        print("✓ Tenés licencia")
+        print("🚗 ¡Podés manejar!")
+    else:
+        print("✗ No tenés licencia")
+        print(" Necesitás obtener la licencia primero")
+else:
+    print("✗ Sos menor de edad")
+    print("⏳ Sos muy pequeño para manejar")
+```
+
+#### Simplificación con Operadores Lógicos
+
+Muchas veces podés **simplificar** usando `and` en lugar de anidar:
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} ❌ Anidado (más complejo)
+```python
+if edad >= 18:
     if tiene_licencia:
         print("Podés conducir")
     else:
-        print("Necesitás obtener la licencia")
+        print("Necesitás licencia")
 else:
-    print("Sos muy joven para conducir")
+    print("Muy joven")
 ```
 
-**Simplificación con operadores lógicos:**
+**Con dos niveles de indentación, es más difícil de leer.**
+::::
 
-Según la {ref}`0x000Dh`, las condiciones complejas deben simplificarse. Muchas veces podés evitar anidación usando `and`:
-
-```{code-cell} ipython3
-# Más simple y claro
+::::{grid-item-card} ✅ Con `and` (más simple)
+```python
 if edad >= 18 and tiene_licencia:
     print("Podés conducir")
+elif edad >= 18:
+    print("Necesitás licencia")
 else:
-    print("No podés conducir")
+    print("Muy joven")
+```
+
+**Pero con solo un nivel de indentación, es más directo**
+::::
+
+:::::
+
+:::{tip} ¿Cuándo anidar vs cuándo usar `and`?
+
+**Usá anidamiento cuando:**
+- Querés mostrar mensajes diferentes en cada nivel
+- La lógica de cada nivel es independiente
+- Necesitás hacer acciones diferentes en cada paso
+
+**Usá `and` cuando:**
+- Todas las condiciones deben ser `True` al mismo tiempo
+- No necesitás mensajes intermedios
+- Querés código más simple y legible
+
+**Regla de oro:** Si podés usar `and`, usá `and`. El código más simple es mejor.
+:::
+
+**Ejemplo combinado:**
+
+```{code-cell} ipython3
+# Sistema de acceso a un club
+edad = 21
+es_socio = True
+tiene_invitacion = False
+
+if edad >= 18:
+    if es_socio:
+        print("🎫 Bienvenido, socio!")
+        print("   Entrada gratuita")
+    elif tiene_invitacion:
+        print("📨 Entrada con invitación")
+        print("   Acceso permitido")
+    else:
+        print("Entrada: $500")
+        print("   Podés pagar en la entrada")
+else:
+    print("⛔ Lo sentimos, solo mayores de 18")
+    print("   No podés ingresar")
 ```
 
 ### Expresiones Booleanas en Condiciones
@@ -292,7 +817,7 @@ else:
 (while-loops)=
 ## Loops con `while`
 
-Un **loop** (bucle o lazo) permite ejecutar un bloque de código repetidamente. El loop `while` continúa ejecutándose mientras una condición sea verdadera.
+Un **loop**(bucle o lazo) permite ejecutar un bloque de código repetidamente. El loop `while` continúa ejecutándose mientras una condición sea verdadera.
 
 ### Sintaxis Básica
 
@@ -309,7 +834,7 @@ contador = 1
 
 while contador <= 5:
     print(f"Contador: {contador}")
-    contador += 1
+    contador = contador + 1
 
 print("Fin del loop")
 ```
@@ -330,72 +855,146 @@ Fin del loop
 flowchart TD
     A[contador = 1] --> B{contador <= 5?}
     B -->|True| C[print contador]
-    C --> D[contador += 1]
+    C --> D[contador = contador + 1]
     D --> B
     B -->|False| E[Fin del loop]
 ```
 
-:::{danger} Loops infinitos
-Si la condición nunca se vuelve `False`, el loop se ejecutará infinitamente:
+:::{danger} 🚨 ¡Cuidado con los Loops Infinitos!
 
-```{code-cell} ipython3
-# ❌ Loop infinito - nunca termina
+Si la condición **nunca** se vuelve `False`, el bucle se ejecutará ** para siempre**:
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} Loop Infinito (¡Ooops!)
+```python
 contador = 1
 while contador <= 5:
     print(contador)
-    # Olvidamos incrementar contador!
-
-# Para detenerlo: Ctrl+C en la terminal
+    # ¡Olvidamos incrementar!
 ```
 
-**Siempre asegurate de que:**
-1. La condición eventualmente se vuelva `False`
-2. Las variables usadas en la condición se modifiquen dentro del loop
+**Problema:**`contador` siempre vale 1  
+**Resultado:**Imprime "1" infinitamente 😱
+**Solución:** Utiliza el botón para detener la celda en Jupyter
+::::
+
+::::{grid-item-card} ✅ Loop Correcto
+```python
+contador = 1
+while contador <= 5:
+    print(contador)
+    contador = contador + 1 # ✓ Incrementa
+```
+
+**Funciona:**`contador` cambia  
+**Resultado:**Imprime 1, 2, 3, 4, 5 y termina ✓
+::::
+
+:::::
+
+**Checklist anti-loops-infinitos:**
+- [ ] ¿La condición puede volverse `False`?
+- [ ] ¿Modifico las variables de la condición dentro del bucle?
+- [ ] ¿Hay una forma de salir del bucle?
+
+**Tip:**Si tu programa "se colgó", probablemente tenés un loop infinito. Presiona **Ctrl+C** para detenerlo.
 :::
 
-### Inicialización de Variables en Loops
+### Patrones Comunes con `while`
 
-Según la {ref}`0x0003h`, debés inicializar las variables antes de usarlas:
+#### Patrón 1: Acumulador (Sumar números)
 
-```python
-# ✓ Correcto - inicialización antes del loop
-suma = 0
+```{code-cell} ipython3
+# Calcular la suma de los primeros 10 números
+suma = 0  # Acumulador (empieza en 0)
 contador = 1
 
 while contador <= 10:
-    suma += contador
-    contador += 1
+    suma = suma + contador  # Acumula el valor
+    contador = contador + 1
 
-print(f"La suma es: {suma}")
+print(f"La suma de 1 a 10 es: {suma}")
 ```
 
-### Ejemplo: Suma de Números
+:::{tip} Patrón Acumulador
+**Estructura:**
+1. Inicializar acumulador en 0
+2. En cada vuelta, sumar al acumulador
+3. Al final, el acumulador tiene el total
 
-```python
-"""Suma números ingresados por el usuario hasta que ingrese 0."""
+**Usos:**Sumar números, contar elementos, promedios
+:::
 
-suma = 0
-numero = int(input("Ingrese un número (0 para terminar): "))
+#### Patrón 2: Contador Regresivo
 
-while numero != 0:
-    suma += numero
-    numero = int(input("Ingrese un número (0 para terminar): "))
-
-print(f"La suma total es: {suma}")
-```
-
-### Ejemplo: Contador Regresivo
-
-```python
-"""Cuenta regresivamente desde un número dado."""
-
-numero = int(input("Desde qué número quiere contar: "))
+```{code-cell} ipython3
+print("Cuenta regresiva para despegue:")
+numero = 10
 
 while numero > 0:
-    print(numero)
-    numero -= 1
+    print(f"   {numero}...")
+    numero = numero - 1
 
-print("¡Despegue! 🚀")
+print("   ¡DESPEGUE! ")
+```
+
+#### Patrón 3: Validación con Repetición
+
+```{code-cell} ipython3
+# Pedir contraseña hasta que sea correcta
+PASSWORD_CORRECTA = "python123"
+intentos = 0
+MAX_INTENTOS = 3
+
+contraseña = input("Ingrese la contraseña: ")
+intentos = intentos + 1
+
+while contraseña != PASSWORD_CORRECTA and intentos < MAX_INTENTOS:
+    print(f"❌ Contraseña incorrecta. Te quedan {MAX_INTENTOS - intentos} intentos.")
+    contraseña = input("Ingrese la contraseña: ")
+    intentos = intentos + 1
+
+if contraseña == PASSWORD_CORRECTA:
+    print("✅ ¡Acceso concedido!")
+else:
+    print("Cuenta bloqueada por seguridad")
+```
+
+:::{note} Patrón Validación
+Este patrón es **muy común** en programación:
+- Sistemas de login
+- Validación de datos
+- Menús interactivos
+- Juegos (seguir jugando mientras...)
+:::
+
+#### Patrón 4: Menú Interactivo
+
+```{code-cell} ipython3
+print("=== CALCULADORA SIMPLE ===")
+continuar = "s"
+
+while continuar.lower() == "s":
+    a = float(input("\nPrimer número: "))
+    operacion = input("Operación (+, -, *, /): ")
+    b = float(input("Segundo número: "))
+    
+    if operacion == "+":
+        print(f"Resultado: {a + b}")
+    elif operacion == "-":
+        print(f"Resultado: {a - b}")
+    elif operacion == "*":
+        print(f"Resultado: {a * b}")
+    elif operacion == "/" and b != 0:
+        print(f"Resultado: {a / b}")
+    else:
+        print("Operación inválida")
+    
+    continuar = input("\n¿Otra operación? (s/n): ")
+
+print("¡Hasta luego! 👋")
 ```
 
 ### Loops con Condiciones Complejas
@@ -413,7 +1012,7 @@ adivinado = False
 
 while intentos < MAX_INTENTOS and not adivinado:
     intento = int(input("Adiviná el número (1-100): "))
-    intentos += 1
+    intentos = intentos + 1
     
     if intento == NUMERO_SECRETO:
         adivinado = True
@@ -448,7 +1047,7 @@ while i < len(numeros) and not encontrado:
     if numeros[i] == objetivo:
         encontrado = True
         print(f"Encontrado en posición {i}")
-    i += 1
+    i = i + 1
 
 if not encontrado:
     print("No se encontró el número")
@@ -465,7 +1064,7 @@ MAX_INTENTOS = 3
 
 while not entrada_valida and intentos < MAX_INTENTOS:
     edad = int(input("Ingrese su edad (18-100): "))
-    intentos += 1
+    intentos = intentos + 1
     
     if edad >= 18 and edad <= 100:
         entrada_valida = True
@@ -501,18 +1100,91 @@ Para lógica más compleja, usá banderas.
 ---
 
 (for-loops)=
-## Loops con `for`
+## Loops con `for`: Para Cada Elemento... 
 
-El loop `for` se usa para iterar sobre secuencias (listas, strings, rangos, etc.). Según la {ref}`0x0007h`, usá `for` cuando conozcas la secuencia sobre la que iterás.
+Detalle importante, lo que está entre `[]` son **listas**, que veremos en profundidad en el próximo capítulo.
+Por ahora, entendé que es simplemente un conjunto ordenado de valores.
+
+### ¿Qué es un Bucle `for`?
+
+El bucle `for` es para cuando querés hacer algo **con cada elemento** de una lista, palabra, o secuencia. Es como decir: "**Para cada** cosa en este grupo, hacé esto".
+
+![Diagrama for](./2_control_flujo/for_loop.svg)
+
+::::{admonition} Analogía: Lista de Compras
+:class: tip
+
+Imaginate que tenés una lista de compras:
+
+```python
+lista_compras = ["pan", "leche", "huevos", "queso"]
+
+for producto in lista_compras:
+    print(f"✓ Comprar: {producto}")
+```
+
+**Salida:**
+```
+✓ Comprar: pan
+✓ Comprar: leche
+✓ Comprar: huevos
+✓ Comprar: queso
+```
+
+Python **automáticamente** toma cada elemento de la lista, uno por uno, y ejecuta el código para cada uno. ¡No necesitás contador ni incremento manual!
+::::
+
+---
+
+### Diferencia: `while` vs `for`
+
+:::::{grid} 1 1 2 2
+:gutter: 3
+
+::::{grid-item-card} while (Mientras...)
+```python
+# Usar cuando NO sabés
+# cuántas veces repetir
+
+contraseña = ""
+while contraseña != "abc123":
+    contraseña = input("Contraseña: ")
+```
+
+**Cuándo usarlo:**
+- Login (hasta que acierte)
+- Menús (hasta que salga)
+- Validaciones
+::::
+
+::::{grid-item-card} for (Para cada...)
+```python
+# Usar cuando SÍ sabés
+# cuántas veces repetir
+
+frutas = ["🍎", "🍌", "🍊"]
+for fruta in frutas:
+    print(fruta)
+```
+
+**Cuándo usarlo:**
+- Recorrer listas
+- Repetir N veces
+- Procesar colecciones
+::::
+
+:::::
+
+---
 
 ### Iterando sobre un Rango
 
-```{code-cell} ipython3
-# Iterar del 0 al 4
-for i in range(5):
-    print(i)
+La función `range()` genera una secuencia de números:
 
-# Salida: 0, 1, 2, 3, 4
+```{code-cell} ipython3
+# Contar del 0 al 4
+for i in range(5):
+    print(f"Número: {i}")
 ```
 
 **La función `range()`:**
@@ -567,11 +1239,11 @@ Según la {ref}`0x0007h`, en Python es preferible iterar directamente sobre elem
 ```{code-cell} ipython3
 nombres = ["Ana", "Bruno", "Carlos"]
 
-# ❌ Menos Pythonic
+# ❌ Menos Pythonico
 for i in range(len(nombres)):
     print(nombres[i])
 
-# ✓ Pythonic
+# ✓ Pythonico
 for nombre in nombres:
     print(nombre)
 ```
@@ -631,11 +1303,10 @@ numeros = [10, 20, 30, 40, 50]
 suma = 0
 
 for numero in numeros:
-    suma += numero
+    suma = suma + numero
 
 print(f"La suma es: {suma}")
 
-# Nota: En Python real usarías: suma = sum(numeros)
 ```
 
 ---
@@ -693,10 +1364,10 @@ print(f"La suma es: {suma}")
 
 | Aspecto | `while` | `for` |
 |---------|---------|-------|
-| **Iteraciones** | Número desconocido | Número conocido o secuencia |
-| **Condición** | Puede ser compleja | Implícita (hasta terminar secuencia) |
-| **Uso típico** | Validaciones, menús | Procesar colecciones, rangos |
-| **Riesgo** | Loop infinito si no hay cuidado | Menor riesgo |
+| **Iteraciones**| Número desconocido | Número conocido o secuencia |
+| **Condición**| Puede ser compleja | Implícita (hasta terminar secuencia) |
+| **Uso típico**| Validaciones, menús | Procesar colecciones, rangos |
+| **Riesgo**| Loop infinito si no hay cuidado | Menor riesgo |
 
 ---
 
@@ -737,33 +1408,53 @@ for fila in range(1, altura + 1):
 # *****
 ```
 
-### Ejemplo: Verificación de Matriz
+### Ejemplo: Validación de Múltiples Credenciales
 
 ```{code-cell} ipython3
-"""Busca un valor en una matriz (lista de listas)."""
+"""Verificar usuario y contraseña con múltiples intentos permitidos."""
 
-matriz = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
+# Credenciales correctas (en un caso real, esto estaría en una base de datos)
+usuario_valido = "admin"
+password_valida = "python123"
 
-objetivo = 5
-encontrado = False
-fila_encontrada = -1
-columna_encontrada = -1
+# Configuración
+max_intentos_usuario = 3
+max_intentos_password = 3
+acceso_concedido = False
 
-for i in range(len(matriz)):
-    for j in range(len(matriz[i])):
-        if matriz[i][j] == objetivo:
-            encontrado = True
-            fila_encontrada = i
-            columna_encontrada = j
+print("=== SISTEMA DE ACCESO ===")
 
-if encontrado:
-    print(f"Encontrado en fila {fila_encontrada}, columna {columna_encontrada}")
-else:
-    print("No encontrado")
+# Loop externo: intentos de usuario
+for intento_usuario in range(1, max_intentos_usuario + 1):
+    print(f"\n[Intento de usuario {intento_usuario}/{max_intentos_usuario}]")
+    usuario = input("Usuario: ")
+    
+    if usuario == usuario_valido:
+        print("✓ Usuario correcto")
+        
+        # Loop interno: intentos de contraseña
+        for intento_password in range(1, max_intentos_password + 1):
+            print(f"[Intento de contraseña {intento_password}/{max_intentos_password}]")
+            password = input("Contraseña: ")
+            
+            if password == password_valida:
+                print("\n✓ ACCESO CONCEDIDO")
+                acceso_concedido = True
+                break  # Salir del loop de contraseñas
+            else:
+                print("✗ Contraseña incorrecta")
+        
+        # Si encontró la contraseña, salir del loop de usuarios también
+        if acceso_concedido:
+            break
+        else:
+            print("\n✗ Contraseña bloqueada")
+            break
+    else:
+        print("✗ Usuario incorrecto")
+
+if not acceso_concedido:
+    print("\n✗ ACCESO DENEGADO - Cuenta bloqueada")
 ```
 
 :::{warning} Cuidado con la complejidad
@@ -788,7 +1479,7 @@ Sumar o acumular valores:
 # Suma de números del 1 al 100
 suma = 0
 for i in range(1, 101):
-    suma += i
+    suma = suma + i
 print(f"Suma: {suma}")
 ```
 
@@ -803,7 +1494,7 @@ contador_pares = 0
 
 for numero in numeros:
     if numero % 2 == 0:
-        contador_pares += 1
+        contador_pares = contador_pares + 1
 
 print(f"Hay {contador_pares} números pares")
 ```
@@ -935,7 +1626,7 @@ while contador < 10:
 contador = 0
 while contador < 10:
     print(contador)
-    contador += 1
+    contador = contador + 1
 ```
 
 ### 4. Condiciones incorrectas en rangos
@@ -1018,18 +1709,12 @@ if condicion1:
             if condicion4:
                 hacer_algo()
 
-# ✓ Retorno temprano o condiciones combinadas
-if not condicion1:
-    return
-
-if not condicion2:
-    return
-
-if not condicion3:
-    return
-
-if condicion4:
+# ✓ Utilizá condiciones combinadas
+if condicion1 and condicion2 and condicion3 and condicion4:
     hacer_algo()
+
+# En particular cuando la acción a hacer es única.
+# (No hay uso para los caminos 'else')    
 ```
 
 ### 4. Constantes para Valores Mágicos
@@ -1064,7 +1749,7 @@ if edad >= 18 and cuenta_activa and not suspendido:
 (ejercicio-2-1)=
 ### Ejercicio 2.1: Calculadora de IMC con Clasificación
 
-Ampliá el ejercicio del IMC del capítulo anterior. Calculá el IMC y clasificalo según la tabla de la OMS:
+Calculá el IMC y clasificalo según la tabla de la OMS:
 
 | IMC | Clasificación |
 |-----|---------------|
@@ -1521,22 +2206,253 @@ Si podés responder estas preguntas, **ya sabés cómo resolver el ejercicio**. 
 
 ---
 
-## Resumen
+## Resumen Visual del Capítulo 
 
-En este capítulo aprendiste sobre control de flujo en Python:
+### Mapa Mental Completo
 
-✓ **Condicionales**: `if`, `elif`, `else` para tomar decisiones  
-✓ **Loops `while`**: Repetir mientras una condición sea verdadera  
-✓ **Loops `for`**: Iterar sobre secuencias y rangos  
-✓ **Banderas de control**: Alternativa clara a `break` y `continue`  
-✓ **Loops anidados**: Loops dentro de otros loops  
-✓ **Patrones comunes**: Acumuladores, contadores, búsqueda, validación  
-✓ **Buenas prácticas**: Código claro, mantenible y eficiente  
+```{mermaid}
+mindmap
+  root((Control de<br/>Flujo))
+    Condicionales
+      if simple
+        Una decisión
+        Puede no ejecutarse
+      if-else
+        Dos caminos
+        Siempre uno se ejecuta
+      if-elif-else
+        Múltiples opciones
+        Solo una se ejecuta
+      Anidadas
+        if dentro de if
+        Simplificar con and/or
+    Bucles
+      while
+        Mientras condición True
+        Puede nunca ejecutarse
+        Usar para validaciones
+      for
+        Para cada elemento
+        Sobre listas strings range
+        Más seguro que while
+      Anidados
+        Loop dentro de loop
+        Cuidado con complejidad
+    Control
+      break
+        Sale del bucle
+        Para búsquedas
+      continue
+        Salta esta vuelta
+        Para filtrar
+      pass
+        Placeholder
+        Para código futuro
+    Patrones
+      Acumulador
+        Sumar valores
+      Contador
+        Contar elementos
+      Validación
+        Repetir hasta correcto
+      Menú
+        Loop hasta salir
+```
 
-Estos conceptos te permiten crear programas dinámicos e interactivos que responden a diferentes situaciones. El control de flujo es fundamental para resolver problemas complejos dividiéndolos en partes más pequeñas y manejables.
+---
 
-:::{important} Práctica y experimentación
-Los loops y condicionales requieren práctica para dominarlos. Resolvé los ejercicios, experimentá con diferentes condiciones, y no tengas miedo de cometer errores. Cada error es una oportunidad de aprendizaje.
+### Checklist de Dominio ✓
+
+Antes de avanzar al **Capítulo 3: Listas**, asegurate de poder hacer todo esto **sin ayuda**:
+
+::::{admonition} Condicionales - Decisiones
+:class: tip
+
+**Sintaxis básica:**
+- [ ] Escribir un `if` simple correctamente (con `:` y indentación)
+- [ ] Usar `if-else` para dos alternativas
+- [ ] Usar `if-elif-else` para múltiples opciones
+- [ ] Anidar condicionales cuando sea necesario
+
+**Operadores:**
+- [ ] Usar correctamente `==`, `!=`, `<`, `>`, `<=`, `>=`
+- [ ] Combinar condiciones con `and`, `or`, `not`
+- [ ] Entender precedencia de operadores lógicos
+
+**Aplicación:**
+- [ ] Validar entrada del usuario
+- [ ] Clasificar valores en rangos
+- [ ] Tomar decisiones basadas en múltiples condiciones
+::::
+
+::::{admonition} Bucles while - Repetición con condición
+:class: tip
+
+**Sintaxis y control:**
+- [ ] Escribir un `while` que termine correctamente
+- [ ] Inicializar variables antes del bucle
+- [ ] Actualizar la variable de control dentro del bucle
+- [ ] Evitar loops infinitos
+
+**Patrones comunes:**
+- [ ] Implementar un contador (incrementar/decrementar)
+- [ ] Implementar un acumulador (sumar valores)
+- [ ] Validar entrada hasta que sea correcta
+- [ ] Crear un menú que se repita hasta "salir"
+
+**Con banderas:**
+- [ ] Usar variables booleanas para controlar el flujo
+- [ ] Salir del bucle cuando se cumple una condición
+::::
+
+::::{admonition} Bucles for - Iteración sobre secuencias
+:class: tip
+
+**Con range():**
+- [ ] Usar `range(n)` para iterar de 0 a n-1
+- [ ] Usar `range(inicio, fin)` para rangos específicos
+- [ ] Usar `range(inicio, fin, paso)` con incrementos personalizados
+- [ ] Entender que el fin NO se incluye
+
+**Con strings:**
+- [ ] Iterar sobre cada carácter de un string
+- [ ] Contar caracteres específicos
+- [ ] Buscar un carácter en un string
+
+**Aplicación:**
+- [ ] Sumar números en un rango
+- [ ] Generar tablas de multiplicar
+- [ ] Contar elementos que cumplen una condición
+::::
+
+::::{admonition} Control de bucles - break y continue
+:class: tip
+
+**break:**
+- [ ] Salir de un bucle antes de que termine naturalmente
+- [ ] Usar con banderas para búsquedas
+- [ ] Entender que solo sale del bucle más interno
+
+**continue:**
+- [ ] Saltar a la siguiente iteración
+- [ ] Filtrar elementos sin procesar
+
+**Aplicación:**
+- [ ] Buscar el primer elemento que cumple una condición
+- [ ] Procesar solo algunos elementos de una secuencia
+- [ ] Implementar validación con reintentos
+::::
+
+::::{admonition} Bucles anidados
+:class: tip
+
+**Estructura:**
+- [ ] Escribir un bucle dentro de otro correctamente
+- [ ] Entender que el interno se ejecuta completamente por cada iteración del externo
+- [ ] Usar variables de control con nombres claros (`fila`, `columna`, etc.)
+
+**Aplicación:**
+- [ ] Generar patrones con caracteres (triángulos, rectángulos)
+- [ ] Crear tablas de multiplicar múltiples
+- [ ] Implementar validaciones de múltiples niveles
+::::
+
+::::{admonition} Buenas prácticas
+:class: tip
+
+**Código limpio:**
+- [ ] Indentar con 4 espacios consistentemente
+- [ ] Usar nombres descriptivos para variables y banderas
+- [ ] Evitar condicionales demasiado anidadas
+- [ ] Simplificar condiciones complejas
+
+**Errores comunes a evitar:**
+- [ ] No confundir `=` (asignación) con `==` (comparación)
+- [ ] Siempre actualizar variables de control en while
+- [ ] No modificar la variable de control dentro de for
+- [ ] Inicializar acumuladores y contadores antes del bucle
+::::
+
+:::{important} ¿Cuándo estás listo?
+Cuando puedas marcar **TODAS** estas casillas sin mirar el apunte ni buscar ayuda.
+
+**Test final:** Intentá resolver estos problemas sin ayuda:
+1. Sistema de menú con validación
+2. Buscar un número primo en un rango
+3. Calcular factorial de un número
+4. Dibujar un triángulo de asteriscos
+
+Si podés resolverlos, ¡estás listo para el Capítulo 3: Listas! 🚀
 :::
 
-En el próximo capítulo, aprenderás sobre estructuras de datos que te permitirán organizar y manipular colecciones de información de forma eficiente.
+---
+
+### Tabla de Referencia Rápida
+
+| Concepto | Cuándo Usarlo | Ejemplo | Salida |
+|----------|---------------|---------|---------|
+| **if**| Una decisión | `if x > 0: print("+")`  | Puede no mostrar nada |
+| **if-else**| Dos caminos | `if par: ... else: ...` | Siempre ejecuta uno |
+| **if-elif-else**| 3+ opciones | Notas A/B/C/D | Solo ejecuta uno |
+| **while**| No sabés cuántas veces | Login, menú | Hasta que condición cambie |
+| **for**| Sabés la secuencia | Procesar lista | Una vez por elemento |
+| **break**| Salir ya | Encontraste algo | Sale del bucle |
+| **continue**| Saltar esta vez | Ignorar elemento | Pasa al siguiente |
+
+---
+
+### Lo Más Importante 
+
+:::{important} Los 3 Conceptos Clave
+1. **Condicionales**→ Tu programa **decide** qué hacer
+2. **Bucles**→ Tu programa **repite** sin copiar código
+3. **Control**→ Tu programa **responde** a situaciones diferentes
+
+```{mermaid}
+graph LR
+    A[Programa<br/>Secuencial] -->|+ Control| B[Programa<br/>Inteligente]
+    
+    B --> C[✓ Toma decisiones]
+    B --> D[✓ Repite tareas]
+    B --> E[✓ Valida datos]
+    B --> F[✓ Responde al usuario]
+    
+    style A fill:#ffcdd2
+    style B fill:#c8e6c9
+    style C fill:#e3f2fd
+    style D fill:#e3f2fd
+    style E fill:#e3f2fd
+    style F fill:#e3f2fd
+```
+:::
+
+---
+
+### Próximos Pasos 
+
+**¡Felicitaciones! Ya podés:**
+- ✅ Crear programas que toman decisiones
+- ✅ Repetir acciones eficientemente
+- ✅ Validar entrada del usuario
+- ✅ Crear menús interactivos
+- ✅ Resolver problemas más complejos
+
+**En el Capítulo 3: Listas aprenderás:**
+- 📋 Crear y manipular listas de datos
+- 🔍 Acceder y modificar elementos
+- ➕ Agregar y eliminar elementos
+- 🔄 Iterar sobre listas con `for`
+- 🎯 Combinar listas con control de flujo para resolver problemas reales
+
+:::{tip} 💪 La Práctica Hace al Maestro
+El control de flujo **se domina practicando**. 
+
+**Tu plan de acción:**
+1. ✍️ Hacé todos los ejercicios del capítulo
+2. Repasá los ejemplos y modificalos
+3. 🎮 Creá tus propios programas pequeños
+4.  Debuggeá errores (aprendés mucho así)
+5. Combiná condicionales y bucles creativamente
+
+**Recordá:**Cada programador empezó donde estás vos ahora. ¡Seguí adelante!
+:::

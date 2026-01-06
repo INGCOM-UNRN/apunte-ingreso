@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500">
+  <defs>
+    <style>
+      .titulo { font-family: 'Arial', sans-serif; font-size: 24px; font-weight: bold; fill: #1565c0; }
+      .conversion-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .funcion { font-family: 'Courier New', monospace; font-size: 20px; font-weight: bold; fill: #0d47a1; }
+      .descripcion { font-family: 'Arial', sans-serif; font-size: 14px; fill: #424242; }
+      .ejemplo-antes { font-family: 'Courier New', monospace; font-size: 13px; fill: #c62828; }
+      .ejemplo-despues { font-family: 'Courier New', monospace; font-size: 13px; fill: #2e7d32; font-weight: bold; }
+      .flecha { stroke: #1976d2; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976d2"/>
+    </marker>
+  </defs>
+  
+  <text x="350" y="35" text-anchor="middle" class="titulo">Conversión de Tipos (Casting)</text>
+  
+  <!-- int() -->
+  <g transform="translate(50, 70)">
+    <rect class="conversion-box" width="280" height="150"/>
+    <text x="140" y="35" text-anchor="middle" class="funcion">int()</text>
+    <text x="140" y="60" text-anchor="middle" class="descripcion">Convierte a entero</text>
+    <line x1="20" y1="70" x2="260" y2="70" stroke="#1976d2" stroke-width="1"/>
+    
+    <text x="30" y="95" class="ejemplo-antes">int("42")</text>
+    <text x="140" y="95" text-anchor="middle" class="descripcion">→</text>
+    <text x="180" y="95" class="ejemplo-despues">42</text>
+    
+    <text x="30" y="120" class="ejemplo-antes">int(3.9)</text>
+    <text x="140" y="120" text-anchor="middle" class="descripcion">→</text>
+    <text x="180" y="120" class="ejemplo-despues">3</text>
+  </g>
+  
+  <!-- float() -->
+  <g transform="translate(370, 70)">
+    <rect class="conversion-box" width="280" height="150"/>
+    <text x="140" y="35" text-anchor="middle" class="funcion">float()</text>
+    <text x="140" y="60" text-anchor="middle" class="descripcion">Convierte a flotante</text>
+    <line x1="20" y1="70" x2="260" y2="70" stroke="#1976d2" stroke-width="1"/>
+    
+    <text x="30" y="95" class="ejemplo-antes">float("3.14")</text>
+    <text x="140" y="95" text-anchor="middle" class="descripcion">→</text>
+    <text x="180" y="95" class="ejemplo-despues">3.14</text>
+    
+    <text x="30" y="120" class="ejemplo-antes">float(5)</text>
+    <text x="140" y="120" text-anchor="middle" class="descripcion">→</text>
+    <text x="180" y="120" class="ejemplo-despues">5.0</text>
+  </g>
+  
+  <!-- str() -->
+  <g transform="translate(50, 250)">
+    <rect class="conversion-box" width="280" height="150"/>
+    <text x="140" y="35" text-anchor="middle" class="funcion">str()</text>
+    <text x="140" y="60" text-anchor="middle" class="descripcion">Convierte a cadena</text>
+    <line x1="20" y1="70" x2="260" y2="70" stroke="#1976d2" stroke-width="1"/>
+    
+    <text x="30" y="95" class="ejemplo-antes">str(42)</text>
+    <text x="140" y="95" text-anchor="middle" class="descripcion">→</text>
+    <text x="180" y="95" class="ejemplo-despues">"42"</text>
+    
+    <text x="30" y="120" class="ejemplo-antes">str(3.14)</text>
+    <text x="140" y="120" text-anchor="middle" class="descripcion">→</text>
+    <text x="180" y="120" class="ejemplo-despues">"3.14"</text>
+  </g>
+  
+  <!-- bool() -->
+  <g transform="translate(370, 250)">
+    <rect class="conversion-box" width="280" height="150"/>
+    <text x="140" y="35" text-anchor="middle" class="funcion">bool()</text>
+    <text x="140" y="60" text-anchor="middle" class="descripcion">Convierte a booleano</text>
+    <line x1="20" y1="70" x2="260" y2="70" stroke="#1976d2" stroke-width="1"/>
+    
+    <text x="30" y="95" class="ejemplo-antes">bool(1)</text>
+    <text x="140" y="95" text-anchor="middle" class="descripcion">→</text>
+    <text x="180" y="95" class="ejemplo-despues">True</text>
+    
+    <text x="30" y="120" class="ejemplo-antes">bool(0)</text>
+    <text x="140" y="120" text-anchor="middle" class="descripcion">→</text>
+    <text x="180" y="120" class="ejemplo-despues">False</text>
+  </g>
+  
+  <!-- Nota importante -->
+  <g transform="translate(50, 430)">
+    <rect fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="5" width="600" height="50"/>
+    <text x="300" y="23" text-anchor="middle" style="font-family: Arial; font-size: 14px; fill: #e65100; font-weight: bold;">
+      ⚠️ Importante:
+    </text>
+    <text x="300" y="40" text-anchor="middle" style="font-family: Arial; font-size: 13px; fill: #424242;">
+      input() siempre retorna un string. Debés convertirlo si necesitás un número.
+    </text>
+  </g>
+</svg>

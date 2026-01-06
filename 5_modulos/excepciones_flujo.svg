@@ -1,0 +1,104 @@
+<svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 18px sans-serif; fill: #2c3e50; }
+      .label { font: 14px sans-serif; fill: #34495e; }
+      .code { font: 12px monospace; fill: #27ae60; }
+      .box { fill: #ecf0f1; stroke: #34495e; stroke-width: 2; rx: 8; }
+      .error-box { fill: #fadbd8; stroke: #e74c3c; stroke-width: 3; rx: 8; }
+      .success-box { fill: #d5f4e6; stroke: #27ae60; stroke-width: 3; rx: 8; }
+      .arrow { stroke: #e74c3c; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .arrow-good { stroke: #27ae60; stroke-width: 3; fill: none; marker-end: url(#arrowhead-good); }
+      .step-num { font: bold 16px sans-serif; fill: white; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#e74c3c" />
+    </marker>
+    <marker id="arrowhead-good" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#27ae60" />
+    </marker>
+  </defs>
+
+  <text x="400" y="30" class="title" text-anchor="middle"> Flujo de Manejo de Excepciones</text>
+  
+  <!-- Sin manejo de excepciones -->
+  <text x="200" y="65" class="title" text-anchor="middle">❌ Sin try-except</text>
+  
+  <!-- Paso 1 -->
+  <circle cx="80" cy="95" r="20" fill="#3498db"/>
+  <text x="80" y="102" class="step-num" text-anchor="middle">1</text>
+  <rect x="110" y="75" width="180" height="40" class="box"/>
+  <text x="200" y="100" class="code" text-anchor="middle">numero = int("abc")</text>
+  
+  <!-- Flecha a error -->
+  <path d="M 200 115 L 200 155" class="arrow"/>
+  
+  <!-- Error -->
+  <circle cx="80" cy="175" r="20" fill="#e74c3c"/>
+  <text x="80" y="182" class="step-num" text-anchor="middle"></text>
+  <rect x="110" y="155" width="180" height="60" class="error-box"/>
+  <text x="200" y="178" class="label" text-anchor="middle" font-weight="bold">ValueError</text>
+  <text x="200" y="198" class="label" text-anchor="middle" font-size="11">Programa se detiene</text>
+  
+  <!-- Siguiente línea no se ejecuta -->
+  <rect x="110" y="225" width="180" height="40" class="box" opacity="0.3"/>
+  <text x="200" y="250" class="code" text-anchor="middle" opacity="0.5">print("Continúa")</text>
+  <text x="200" y="280" class="warning" text-anchor="middle" font-size="13">Esta línea NUNCA se ejecuta</text>
+  
+  <!-- Con manejo de excepciones -->
+  <text x="600" y="65" class="title" text-anchor="middle">✅ Con try-except</text>
+  
+  <!-- Try block -->
+  <rect x="410" y="75" width="380" height="120" fill="#e8f8f5" stroke="#27ae60" stroke-width="2" rx="5"/>
+  <text x="420" y="95" class="code" font-weight="bold">try:</text>
+  
+  <circle cx="430" cy="115" r="15" fill="#3498db"/>
+  <text x="430" y="121" class="step-num" text-anchor="middle" font-size="12">1</text>
+  <rect x="455" y="100" width="180" height="30" class="box"/>
+  <text x="545" y="120" class="code" text-anchor="middle" font-size="11">numero = int("abc")</text>
+  
+  <!-- Flecha del error detectado -->
+  <path d="M 545 130 L 545 155" class="arrow"/>
+  <text x="560" y="145" class="label" font-size="11">Error detectado</text>
+  
+  <!-- Except block -->
+  <circle cx="430" cy="175" r="15" fill="#f39c12"/>
+  <text x="430" y="181" class="step-num" text-anchor="middle" font-size="12">2</text>
+  <rect x="420" y="200" width="360" height="80" fill="#fff3cd" stroke="#f39c12" stroke-width="2" rx="5"/>
+  <text x="430" y="220" class="code" font-weight="bold">except ValueError:</text>
+  <text x="450" y="240" class="code" font-size="11">print("Error: ingresá un número")</text>
+  <text x="450" y="260" class="code" font-size="11">numero = 0  # valor por defecto</text>
+  <text x="600" y="275" class="label" font-size="10"> Maneja el error</text>
+  
+  <!-- Flecha a continuar -->
+  <path d="M 600 280 L 600 320" class="arrow-good"/>
+  
+  <!-- Continúa -->
+  <circle cx="570" cy="340" r="15" fill="#27ae60"/>
+  <text x="570" y="346" class="step-num" text-anchor="middle" font-size="12">3</text>
+  <rect x="455" y="325" width="280" height="40" class="success-box"/>
+  <text x="595" y="350" class="code" text-anchor="middle">print(f"Número: {numero}")</text>
+  
+  <text x="600" y="380" class="label" text-anchor="middle" font-weight="bold" fill="#27ae60">¡El programa continúa! ✅</text>
+  
+  <!-- Ejemplo visual completo -->
+  <text x="400" y="420" class="title" text-anchor="middle">💡 Estructura Completa</text>
+  
+  <rect x="50" y="440" width="700" height="90" fill="#f8f9fa" stroke="#95a5a6" stroke-width="2" rx="5"/>
+  
+  <text x="70" y="465" class="code">try:</text>
+  <text x="90" y="485" class="code">codigo_peligroso()  </text>
+  <text x="260" y="485" class="label" font-size="11">← Código que puede fallar</text>
+  
+  <text x="70" y="505" class="code">except TipoDeError:</text>
+  <text x="90" y="525" class="code">manejar_error()     </text>
+  <text x="260" y="525" class="label" font-size="11">← Qué hacer si falla</text>
+  
+  <text x="420" y="465" class="code">else:</text>
+  <text x="440" y="485" class="code">todo_bien()         </text>
+  <text x="580" y="485" class="label" font-size="11">← Si NO hubo error</text>
+  
+  <text x="420" y="505" class="code">finally:</text>
+  <text x="440" y="525" class="code">siempre_ejecuta()   </text>
+  <text x="580" y="525" class="label" font-size="11">← SIEMPRE se ejecuta</text>
+</svg>

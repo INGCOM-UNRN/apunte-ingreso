@@ -1,0 +1,101 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 24px sans-serif; fill: #2c3e50; }
+      .subtitle { font: bold 18px sans-serif; fill: #34495e; }
+      .text { font: 14px monospace; fill: #2c3e50; }
+      .label { font: 12px sans-serif; fill: #7f8c8d; }
+      .code { font: 13px monospace; }
+      .box { fill: #fff; stroke: #bdc3c7; stroke-width: 2; }
+      .write-box { fill: #e74c3c; stroke: #c0392b; stroke-width: 2; }
+      .append-box { fill: #27ae60; stroke: #229954; stroke-width: 2; }
+      .content { fill: #ecf0f1; stroke: #95a5a6; stroke-width: 1; }
+      .old-content { fill: #3498db; opacity: 0.7; }
+      .new-content { fill: #e74c3c; opacity: 0.8; }
+      .added-content { fill: #27ae60; opacity: 0.8; }
+      .arrow { stroke: #e74c3c; stroke-width: 2; fill: none; marker-end: url(#arrowhead-red); }
+      .arrow-green { stroke: #27ae60; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
+    </style>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#e74c3c" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#27ae60" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" class="title">Modo "w" vs Modo "a"</text>
+
+  <!-- LEFT SIDE: Modo "w" (Write) -->
+  <g transform="translate(50, 70)">
+    <text x="150" y="0" text-anchor="middle" class="subtitle">Modo "w" (Write) - Borra todo</text>
+    
+    <!-- Step 1: Original file -->
+    <g transform="translate(0, 30)">
+      <text x="0" y="15" class="label">1. Archivo original:</text>
+      <rect x="0" y="25" width="300" height="80" class="content" rx="5"/>
+      <text x="10" y="45" class="text">línea 1</text>
+      <text x="10" y="65" class="text">línea 2</text>
+      <text x="10" y="85" class="text">línea 3</text>
+      <rect x="0" y="25" width="300" height="80" class="old-content" rx="5"/>
+    </g>
+
+    <!-- Arrow down -->
+    <path d="M 150 130 L 150 145" class="arrow"/>
+    <text x="160" y="142" class="code fill-red" style="fill: #e74c3c;">open("f.txt", "w")</text>
+
+    <!-- Step 2: After write -->
+    <g transform="translate(0, 160)">
+      <text x="0" y="15" class="label">2. Después de write():</text>
+      <rect x="0" y="25" width="300" height="50" class="content" rx="5"/>
+      <text x="10" y="45" class="text">NUEVO contenido</text>
+      <rect x="0" y="25" width="300" height="50" class="new-content" rx="5"/>
+    </g>
+
+    <!-- Warning -->
+    <g transform="translate(0, 235)">
+      <rect x="0" y="0" width="300" height="45" rx="5" style="fill: #fff3cd; stroke: #ffc107; stroke-width: 2;"/>
+      <text x="10" y="20" style="font: bold 14px sans-serif; fill: #856404;">⚠️ BORRA todo lo anterior</text>
+      <text x="10" y="37" style="font: 12px sans-serif; fill: #856404;">Usar solo para empezar de cero</text>
+    </g>
+  </g>
+
+  <!-- RIGHT SIDE: Modo "a" (Append) -->
+  <g transform="translate(450, 70)">
+    <text x="150" y="0" text-anchor="middle" class="subtitle">Modo "a" (Append) - Agrega</text>
+    
+    <!-- Step 1: Original file -->
+    <g transform="translate(0, 30)">
+      <text x="0" y="15" class="label">1. Archivo original:</text>
+      <rect x="0" y="25" width="300" height="80" class="content" rx="5"/>
+      <text x="10" y="45" class="text">línea 1</text>
+      <text x="10" y="65" class="text">línea 2</text>
+      <text x="10" y="85" class="text">línea 3</text>
+      <rect x="0" y="25" width="300" height="80" class="old-content" rx="5"/>
+    </g>
+
+    <!-- Arrow down -->
+    <path d="M 150 130 L 150 145" class="arrow-green"/>
+    <text x="160" y="142" class="code" style="fill: #27ae60;">open("f.txt", "a")</text>
+
+    <!-- Step 2: After append -->
+    <g transform="translate(0, 160)">
+      <text x="0" y="15" class="label">2. Después de write():</text>
+      <rect x="0" y="25" width="300" height="110" class="content" rx="5"/>
+      <text x="10" y="45" class="text">línea 1</text>
+      <text x="10" y="65" class="text">línea 2</text>
+      <text x="10" y="85" class="text">línea 3</text>
+      <rect x="0" y="25" width="300" height="80" class="old-content" rx="5"/>
+      <text x="10" y="115" class="text" style="font-weight: bold;">NUEVO contenido</text>
+      <rect x="0" y="95" width="300" height="40" class="added-content" rx="5"/>
+    </g>
+
+    <!-- Success -->
+    <g transform="translate(0, 290)">
+      <rect x="0" y="0" width="300" height="45" rx="5" style="fill: #d4edda; stroke: #28a745; stroke-width: 2;"/>
+      <text x="10" y="20" style="font: bold 14px sans-serif; fill: #155724;">✅ MANTIENE lo anterior</text>
+      <text x="10" y="37" style="font: 12px sans-serif; fill: #155724;">Ideal para logs e historial</text>
+    </g>
+  </g>
+</svg>

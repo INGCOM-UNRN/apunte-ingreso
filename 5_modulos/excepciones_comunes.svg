@@ -1,0 +1,79 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 18px sans-serif; fill: #2c3e50; }
+      .subtitle { font: bold 14px sans-serif; fill: #34495e; }
+      .label { font: 13px sans-serif; fill: #34495e; }
+      .code { font: 12px monospace; fill: #e74c3c; }
+      .code-good { font: 12px monospace; fill: #27ae60; }
+      .error-box { fill: #fadbd8; stroke: #e74c3c; stroke-width: 2; rx: 5; }
+      .fix-box { fill: #d5f4e6; stroke: #27ae60; stroke-width: 2; rx: 5; }
+      .small-text { font: 11px sans-serif; fill: #7f8c8d; }
+    </style>
+  </defs>
+
+  <text x="450" y="30" class="title" text-anchor="middle"> Excepciones Más Comunes en Python</text>
+  
+  <!-- ValueError -->
+  <rect x="30" y="60" width="400" height="110" class="error-box"/>
+  <text x="40" y="85" class="subtitle">ValueError</text>
+  <text x="40" y="105" class="label">Valor incorrecto para el tipo esperado</text>
+  <text x="50" y="130" class="code">int("abc")  # No se puede convertir "abc" a entero</text>
+  <text x="50" y="150" class="code">float("hola")  # No es un número válido</text>
+  
+  <rect x="450" y="60" width="420" height="110" class="fix-box"/>
+  <text x="460" y="85" class="subtitle" fill="#27ae60">✅ Solución:</text>
+  <text x="470" y="110" class="code-good">try:</text>
+  <text x="485" y="130" class="code-good">numero = int(input("Número: "))</text>
+  <text x="470" y="150" class="code-good">except ValueError:</text>
+  <text x="485" y="170" class="code-good">print("Ingresá un número válido")</text>
+  
+  <!-- TypeError -->
+  <rect x="30" y="180" width="400" height="110" class="error-box"/>
+  <text x="40" y="205" class="subtitle">TypeError</text>
+  <text x="40" y="225" class="label">Operación con tipos incompatibles</text>
+  <text x="50" y="250" class="code">"5" + 3  # No se puede sumar str y int</text>
+  <text x="50" y="270" class="code">len(42)  # len() necesita una secuencia</text>
+  
+  <rect x="450" y="180" width="420" height="110" class="fix-box"/>
+  <text x="460" y="205" class="subtitle" fill="#27ae60">✅ Solución:</text>
+  <text x="470" y="230" class="code-good">int("5") + 3  # Convertir primero</text>
+  <text x="470" y="250" class="code-good"># o</text>
+  <text x="470" y="270" class="code-good">"5" + str(3)  # Convertir el otro</text>
+  
+  <!-- KeyError -->
+  <rect x="30" y="300" width="400" height="110" class="error-box"/>
+  <text x="40" y="325" class="subtitle">KeyError</text>
+  <text x="40" y="345" class="label">Clave no existe en el diccionario</text>
+  <text x="50" y="370" class="code">dic = {"nombre": "Ana"}</text>
+  <text x="50" y="390" class="code">dic["edad"]  # "edad" no existe</text>
+  
+  <rect x="450" y="300" width="420" height="110" class="fix-box"/>
+  <text x="460" y="325" class="subtitle" fill="#27ae60">✅ Solución:</text>
+  <text x="470" y="350" class="code-good">dic.get("edad", 0)  # Valor por defecto</text>
+  <text x="470" y="370" class="code-good"># o verificar antes:</text>
+  <text x="470" y="390" class="code-good">if "edad" in dic:</text>
+  <text x="485" y="410" class="code-good">print(dic["edad"])</text>
+  
+  <!-- IndexError -->
+  <rect x="30" y="420" width="400" height="110" class="error-box"/>
+  <text x="40" y="445" class="subtitle">IndexError</text>
+  <text x="40" y="465" class="label">Índice fuera de rango</text>
+  <text x="50" y="490" class="code">lista = [1, 2, 3]</text>
+  <text x="50" y="510" class="code">lista[10]  # Solo hay 3 elementos (0, 1, 2)</text>
+  
+  <rect x="450" y="420" width="420" height="110" class="fix-box"/>
+  <text x="460" y="445" class="subtitle" fill="#27ae60">✅ Solución:</text>
+  <text x="470" y="470" class="code-good">if indice < len(lista):</text>
+  <text x="485" y="490" class="code-good">elemento = lista[indice]</text>
+  <text x="470" y="510" class="code-good"># o usar try-except</text>
+  
+  <!-- FileNotFoundError -->
+  <rect x="30" y="540" width="400" height="50" class="error-box"/>
+  <text x="40" y="560" class="subtitle">FileNotFoundError</text>
+  <text x="40" y="580" class="label">Archivo no existe</text>
+  
+  <rect x="450" y="540" width="420" height="50" class="fix-box"/>
+  <text x="460" y="560" class="subtitle" fill="#27ae60">✅ Usar try-except</text>
+  <text x="470" y="580" class="code-good">o verificar con os.path.exists()</text>
+</svg>

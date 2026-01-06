@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Definiciones de estilos -->
+  <defs>
+    <style>
+      .cell-markdown { fill: #e3f2fd; stroke: #2196f3; stroke-width: 3; }
+      .cell-code { fill: #fff3e0; stroke: #ff6f00; stroke-width: 3; }
+      .cell-output { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2; }
+      .label { fill: #263238; font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold; }
+      .label-small { fill: #546e7a; font-family: 'Arial', sans-serif; font-size: 13px; }
+      .code-text { fill: #263238; font-family: 'Courier New', monospace; font-size: 14px; }
+      .markdown-text { fill: #1565c0; font-family: 'Arial', sans-serif; font-size: 14px; }
+      .output-text { fill: #2e7d32; font-family: 'Courier New', monospace; font-size: 13px; }
+      .arrow { stroke: #546e7a; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .icon { fill: #ff6f00; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#546e7a" />
+    </marker>
+  </defs>
+  
+  <!-- Título -->
+  <text x="400" y="30" text-anchor="middle" class="label" font-size="22">Tipos de Celdas en Jupyter Notebook</text>
+  
+  <!-- ========== CELDA MARKDOWN ========== -->
+  <g transform="translate(50, 70)">
+    <!-- Etiqueta -->
+    <text x="0" y="-10" class="label" fill="#2196f3">Celda Markdown (Texto)</text>
+    
+    <!-- Rectángulo de la celda -->
+    <rect class="cell-markdown" x="0" y="0" width="320" height="120" rx="5"/>
+    
+    <!-- Contenido simulado -->
+    <text class="markdown-text" x="15" y="25" font-weight="bold" font-size="16">## Mi Primer Notebook</text>
+    <text class="markdown-text" x="15" y="50" font-size="13">Este notebook explica:</text>
+    <text class="markdown-text" x="15" y="70" font-size="13">• Variables en Python</text>
+    <text class="markdown-text" x="15" y="90" font-size="13">• Operaciones **básicas**</text>
+    
+    <!-- Ícono de documento -->
+    <g transform="translate(280, 15)">
+      <rect fill="#2196f3" x="0" y="0" width="25" height="30" rx="2"/>
+      <rect fill="white" x="4" y="5" width="17" height="3"/>
+      <rect fill="white" x="4" y="11" width="17" height="3"/>
+      <rect fill="white" x="4" y="17" width="12" height="3"/>
+    </g>
+  </g>
+  
+  <!-- Características Markdown -->
+  <g transform="translate(50, 210)">
+    <text class="label-small" x="0" y="0">Características:</text>
+    <text class="label-small" x="0" y="20" font-weight="normal">📝 Texto explicativo y documentación</text>
+    <text class="label-small" x="0" y="38" font-weight="normal">📄 Soporta formato (negritas, listas, etc.)</text>
+    <text class="label-small" x="0" y="56" font-weight="normal">🔗 No se ejecuta como código</text>
+  </g>
+  
+  <!-- ========== CELDA CODE ========== -->
+  <g transform="translate(430, 70)">
+    <!-- Etiqueta -->
+    <text x="0" y="-10" class="label" fill="#ff6f00">Celda Code (Código)</text>
+    
+    <!-- Rectángulo de la celda -->
+    <rect class="cell-code" x="0" y="0" width="320" height="120" rx="5"/>
+    
+    <!-- Prompt In -->
+    <text class="code-text" x="15" y="25" font-weight="bold" fill="#d84315">In [1]:</text>
+    
+    <!-- Contenido código -->
+    <text class="code-text" x="15" y="50" fill="#1565c0"># Mi primer programa</text>
+    <text class="code-text" x="15" y="70">nombre = "Ana"</text>
+    <text class="code-text" x="15" y="90">edad = 20</text>
+    <text class="code-text" x="15" y="110" fill="#c62828">print(</text>
+    <text class="code-text" x="70" y="110" fill="#2e7d32">"Hola"</text>
+    <text class="code-text" x="120" y="110" fill="#c62828">)</text>
+    
+    <!-- Ícono de código -->
+    <g transform="translate(280, 15)">
+      <rect fill="#ff6f00" x="0" y="0" width="25" height="30" rx="2"/>
+      <text fill="white" x="12.5" y="22" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold">&lt;/&gt;</text>
+    </g>
+  </g>
+  
+  <!-- Output de la celda código -->
+  <g transform="translate(430, 195)">
+    <rect class="cell-output" x="0" y="0" width="320" height="35" rx="5"/>
+    <text class="output-text" x="15" y="22">Hola</text>
+    <text class="label-small" x="280" y="22" fill="#4caf50">Out[1]:</text>
+  </g>
+  
+  <!-- Características Code -->
+  <g transform="translate(430, 250)">
+    <text class="label-small" x="0" y="0">Características:</text>
+    <text class="label-small" x="0" y="20" font-weight="normal">💻 Código Python ejecutable</text>
+    <text class="label-small" x="0" y="38" font-weight="normal">📊 Muestra resultados debajo</text>
+    <text class="label-small" x="0" y="56" font-weight="normal">🔢 Tiene número de ejecución</text>
+  </g>
+  
+  <!-- ========== COMPARACIÓN VISUAL ========== -->
+  <line x1="50" y1="330" x2="750" y2="330" stroke="#cfd8dc" stroke-width="2"/>
+  
+  <g transform="translate(50, 360)">
+    <text x="350" y="0" text-anchor="middle" class="label" font-size="18">¿Cuándo usar cada tipo?</text>
+    
+    <!-- Tabla comparativa -->
+    <g transform="translate(0, 30)">
+      <!-- Headers -->
+      <rect fill="#e3f2fd" x="0" y="0" width="150" height="30"/>
+      <rect fill="#fff3e0" x="155" y="0" width="280" height="30"/>
+      <rect fill="#e8f5e9" x="440" y="0" width="260" height="30"/>
+      
+      <text x="75" y="20" text-anchor="middle" class="label" font-size="13" fill="#2196f3">Qué</text>
+      <text x="295" y="20" text-anchor="middle" class="label" font-size="13" fill="#ff6f00">Celda Markdown</text>
+      <text x="570" y="20" text-anchor="middle" class="label" font-size="13" fill="#4caf50">Celda Code</text>
+      
+      <!-- Fila 1 -->
+      <rect fill="#fafafa" x="0" y="30" width="150" height="35"/>
+      <text x="10" y="52" class="label-small" font-size="12">Contenido</text>
+      
+      <rect fill="#f5f5f5" x="155" y="30" width="280" height="35"/>
+      <text x="165" y="52" class="label-small" font-size="11" font-weight="normal">Texto, explicaciones</text>
+      
+      <rect fill="#f5f5f5" x="440" y="30" width="260" height="35"/>
+      <text x="450" y="52" class="label-small" font-size="11" font-weight="normal">Código Python</text>
+      
+      <!-- Fila 2 -->
+      <rect fill="#fafafa" x="0" y="65" width="150" height="35"/>
+      <text x="10" y="87" class="label-small" font-size="12">Se ejecuta</text>
+      
+      <rect fill="#f5f5f5" x="155" y="65" width="280" height="35"/>
+      <text x="165" y="87" class="label-small" font-size="11" font-weight="normal">❌ No, solo se renderiza</text>
+      
+      <rect fill="#f5f5f5" x="440" y="65" width="260" height="35"/>
+      <text x="450" y="87" class="label-small" font-size="11" font-weight="normal">✅ Sí, con Shift+Enter</text>
+      
+      <!-- Fila 3 -->
+      <rect fill="#fafafa" x="0" y="100" width="150" height="35"/>
+      <text x="10" y="122" class="label-small" font-size="12">Uso típico</text>
+      
+      <rect fill="#f5f5f5" x="155" y="100" width="280" height="35"/>
+      <text x="165" y="122" class="label-small" font-size="11" font-weight="normal">Documentar, explicar</text>
+      
+      <rect fill="#f5f5f5" x="440" y="100" width="260" height="35"/>
+      <text x="450" y="122" class="label-small" font-size="11" font-weight="normal">Programar, calcular</text>
+    </g>
+  </g>
+</svg>

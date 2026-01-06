@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .box-raise { fill: #ffebee; stroke: #c62828; stroke-width: 2; }
+      .box-check { fill: #fff9c4; stroke: #f57f17; stroke-width: 2; }
+      .arrow { stroke: #424242; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-raise { stroke: #c62828; stroke-width: 3; fill: none; marker-end: url(#arrowhead-raise); }
+      .text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; fill: #212121; }
+      .text-small { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #424242; }
+      .text-code { font-family: 'Consolas', monospace; font-size: 13px; fill: #1565c0; }
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #c62828; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#424242" />
+    </marker>
+    <marker id="arrowhead-raise" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto">
+      <polygon points="0 0, 12 3, 0 6" fill="#c62828" />
+    </marker>
+  </defs>
+
+  <text x="400" y="30" text-anchor="middle" class="title">Lanzamiento de Excepciones con raise</text>
+
+  <!-- Function start -->
+  <rect x="250" y="60" width="300" height="60" class="box" rx="5"/>
+  <text x="400" y="85" text-anchor="middle" class="text-code">def calcular_edad(año_nacimiento):</text>
+  <text x="400" y="105" text-anchor="middle" class="text-small">Función que valida datos</text>
+
+  <path d="M 400 120 L 400 150" class="arrow"/>
+
+  <!-- Validation check -->
+  <rect x="250" y="150" width="300" height="70" class="box-check" rx="5"/>
+  <text x="400" y="175" text-anchor="middle" class="text-small">¿El año es válido?</text>
+  <text x="400" y="195" text-anchor="middle" class="text-code">if año &lt; 1900 or año &gt; 2024:</text>
+  <text x="400" y="212" text-anchor="middle" class="text-small" fill="#f57f17">🔍 Validación</text>
+
+  <!-- Decision paths -->
+  <path d="M 400 220 L 400 250" class="arrow"/>
+  
+  <!-- Decision diamond -->
+  <path d="M 400 250 L 500 290 L 400 330 L 300 290 Z" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+  <text x="400" y="295" text-anchor="middle" class="text-small">¿Dato</text>
+  <text x="400" y="310" text-anchor="middle" class="text-small">inválido?</text>
+
+  <!-- Invalid path (YES) -->
+  <path d="M 300 290 L 150 290 L 150 380" class="arrow-raise"/>
+  <text x="205" y="285" class="text" fill="#c62828" font-weight="bold">SÍ ✗</text>
+
+  <!-- RAISE block -->
+  <rect x="50" y="380" width="200" height="90" class="box-raise" rx="5"/>
+  <text x="150" y="405" text-anchor="middle" class="text-code" fill="#c62828">raise ValueError(</text>
+  <text x="150" y="425" text-anchor="middle" class="text-code" fill="#c62828">  "Año inválido"</text>
+  <text x="150" y="445" text-anchor="middle" class="text-code" fill="#c62828">)</text>
+  <text x="150" y="462" text-anchor="middle" class="text-small" font-style="italic">🚨 Lanza excepción</text>
+
+  <!-- Explosion/propagation -->
+  <g>
+    <circle cx="150" cy="500" r="30" fill="none" stroke="#c62828" stroke-width="2" opacity="0.3"/>
+    <circle cx="150" cy="500" r="45" fill="none" stroke="#c62828" stroke-width="1.5" opacity="0.2" stroke-dasharray="3"/>
+    <circle cx="150" cy="500" r="60" fill="none" stroke="#c62828" stroke-width="1" opacity="0.1" stroke-dasharray="3"/>
+    <text x="150" y="508" text-anchor="middle" class="text" fill="#c62828"></text>
+  </g>
+
+  <text x="150" y="545" text-anchor="middle" class="text-small" fill="#c62828">Excepción se propaga</text>
+  <text x="150" y="562" text-anchor="middle" class="text-small" fill="#c62828">hacia arriba en el código</text>
+
+  <!-- Valid path (NO) -->
+  <path d="M 500 290 L 650 290 L 650 380" class="arrow"/>
+  <text x="595" y="285" class="text" fill="#388e3c" font-weight="bold">NO ✓</text>
+
+  <!-- Continue execution -->
+  <rect x="550" y="380" width="200" height="90" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" rx="5"/>
+  <text x="650" y="405" text-anchor="middle" class="text-code" fill="#2e7d32">edad = 2024 - año</text>
+  <text x="650" y="425" text-anchor="middle" class="text-code" fill="#2e7d32">return edad</text>
+  <text x="650" y="445" text-anchor="middle" class="text-small">Cálculo normal</text>
+  <text x="650" y="462" text-anchor="middle" class="text-small" font-style="italic">✓ Retorna resultado</text>
+
+  <!-- Success end -->
+  <path d="M 650 470 L 650 520" class="arrow"/>
+  <ellipse cx="650" cy="545" rx="80" ry="25" fill="#81c784" stroke="#388e3c" stroke-width="2"/>
+  <text x="650" y="552" text-anchor="middle" class="text">Función termina OK</text>
+
+  <!-- Example usage box -->
+  <rect x="50" y="90" width="180" height="120" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="1.5" rx="5"/>
+  <text x="140" y="110" text-anchor="middle" class="text-small" font-weight="bold">💡 Uso:</text>
+  <text x="60" y="130" class="text-code">try:</text>
+  <text x="70" y="148" class="text-code">  edad = calcular_</text>
+  <text x="70" y="166" class="text-code">    edad(1800)</text>
+  <text x="60" y="184" class="text-code">except ValueError:</text>
+  <text x="70" y="202" class="text-code">  print("Error!")</text>
+
+  <!-- Info box -->
+  <rect x="570" y="90" width="180" height="120" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5" rx="5"/>
+  <text x="660" y="110" text-anchor="middle" class="text-small" font-weight="bold">📌 Cuándo usar raise:</text>
+  <text x="580" y="132" class="text-small">• Validar parámetros</text>
+  <text x="580" y="150" class="text-small">• Indicar precondiciones</text>
+  <text x="580" y="168" class="text-small">• Detener flujo inválido</text>
+  <text x="580" y="186" class="text-small">• Comunicar errores</text>
+  <text x="580" y="204" class="text-small">  claros al llamador</text>
+</svg>

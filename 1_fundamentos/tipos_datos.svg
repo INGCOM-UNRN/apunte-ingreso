@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500">
+  <defs>
+    <style>
+      .tipo-box { stroke-width: 3; rx: 8; }
+      .int-box { fill: #fff3e0; stroke: #f57c00; }
+      .float-box { fill: #e8f5e9; stroke: #388e3c; }
+      .str-box { fill: #e1f5fe; stroke: #0277bd; }
+      .bool-box { fill: #fce4ec; stroke: #c2185b; }
+      .titulo { font-family: 'Arial', sans-serif; font-size: 20px; font-weight: bold; }
+      .tipo-nombre { font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; }
+      .ejemplo { font-family: 'Courier New', monospace; font-size: 16px; }
+      .descripcion { font-family: 'Arial', sans-serif; font-size: 14px; }
+    </style>
+  </defs>
+  
+  <!-- Título -->
+  <text x="350" y="30" text-anchor="middle" class="titulo" font-size="26">Tipos de Datos en Python</text>
+  
+  <!-- int -->
+  <g transform="translate(50, 70)">
+    <rect class="tipo-box int-box" width="280" height="150"/>
+    <text x="140" y="35" text-anchor="middle" class="tipo-nombre" fill="#e65100">int (Entero)</text>
+    <text x="20" y="65" class="descripcion" fill="#424242">Números sin decimales</text>
+    <line x1="20" y1="75" x2="260" y2="75" stroke="#f57c00" stroke-width="1"/>
+    
+    <text x="30" y="100" class="ejemplo" fill="#d84315">edad = 18</text>
+    <text x="30" y="125" class="ejemplo" fill="#d84315">año = 2023</text>
+  </g>
+  
+  <!-- float -->
+  <g transform="translate(370, 70)">
+    <rect class="tipo-box float-box" width="280" height="150"/>
+    <text x="140" y="35" text-anchor="middle" class="tipo-nombre" fill="#1b5e20">float (Flotante)</text>
+    <text x="20" y="65" class="descripcion" fill="#424242">Números con decimales</text>
+    <line x1="20" y1="75" x2="260" y2="75" stroke="#388e3c" stroke-width="1"/>
+    
+    <text x="30" y="100" class="ejemplo" fill="#2e7d32">altura = 1.75</text>
+    <text x="30" y="125" class="ejemplo" fill="#2e7d32">pi = 3.14159</text>
+  </g>
+  
+  <!-- str -->
+  <g transform="translate(50, 260)">
+    <rect class="tipo-box str-box" width="280" height="150"/>
+    <text x="140" y="35" text-anchor="middle" class="tipo-nombre" fill="#01579b">str (Cadena)</text>
+    <text x="20" y="65" class="descripcion" fill="#424242">Texto entre comillas</text>
+    <line x1="20" y1="75" x2="260" y2="75" stroke="#0277bd" stroke-width="1"/>
+    
+    <text x="30" y="100" class="ejemplo" fill="#0277bd">nombre = "Ana"</text>
+    <text x="30" y="125" class="ejemplo" fill="#0277bd">ciudad = 'Madrid'</text>
+  </g>
+  
+  <!-- bool -->
+  <g transform="translate(370, 260)">
+    <rect class="tipo-box bool-box" width="280" height="150"/>
+    <text x="140" y="35" text-anchor="middle" class="tipo-nombre" fill="#880e4f">bool (Booleano)</text>
+    <text x="20" y="65" class="descripcion" fill="#424242">Verdadero o Falso</text>
+    <line x1="20" y1="75" x2="260" y2="75" stroke="#c2185b" stroke-width="1"/>
+    
+    <text x="30" y="100" class="ejemplo" fill="#ad1457">es_mayor = True</text>
+    <text x="30" y="125" class="ejemplo" fill="#ad1457">activo = False</text>
+  </g>
+  
+  <!-- Nota inferior -->
+  <text x="350" y="470" text-anchor="middle" class="descripcion" font-style="italic">
+    Python determina automáticamente el tipo según el valor que asignes
+  </text>
+</svg>

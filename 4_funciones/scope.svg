@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Título -->
+  <text x="400" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#2c3e50">
+    Scope (Alcance) de Variables
+  </text>
+  
+  <!-- Scope Global -->
+  <rect x="50" y="60" width="700" height="400" fill="#e8f5e9" stroke="#2e7d32" stroke-width="3" rx="5"/>
+  <text x="70" y="90" font-size="18" font-weight="bold" fill="#2e7d32">
+    Scope Global 🌍
+  </text>
+  
+  <!-- Variables globales -->
+  <rect x="70" y="100" width="200" height="100" fill="#ffffff" stroke="#2e7d32" stroke-width="2" rx="3"/>
+  <text x="90" y="125" font-family="monospace" font-size="14" fill="#000">
+    mensaje = "Hola"
+  </text>
+  <text x="90" y="150" font-family="monospace" font-size="14" fill="#000">
+    contador = 0
+  </text>
+  <text x="90" y="175" font-family="monospace" font-size="14" fill="#000">
+    total = 100
+  </text>
+  
+  <text x="170" y="220" font-size="12" fill="#2e7d32" text-anchor="middle">
+    ✓ Visibles en todo el programa
+  </text>
+  
+  <!-- Scope Local 1 -->
+  <rect x="320" y="100" width="400" height="150" fill="#fff3e0" stroke="#e65100" stroke-width="2" rx="5"/>
+  <text x="340" y="125" font-size="16" font-weight="bold" fill="#e65100">
+    Scope Local: función calcular() 🏠
+  </text>
+  
+  <rect x="340" y="135" width="350" height="100" fill="#ffffff" stroke="#e65100" stroke-width="2" rx="3"/>
+  <text x="360" y="160" font-family="monospace" font-size="14" fill="#000">
+    resultado = mensaje + "!"
+  </text>
+  <text x="360" y="185" font-family="monospace" font-size="14" fill="#666">
+    # puede acceder a 'mensaje'
+  </text>
+  <text x="360" y="210" font-family="monospace" font-size="14" fill="#000">
+    suma = 10 + 5
+  </text>
+  
+  <text x="515" y="250" font-size="11" fill="#e65100" text-anchor="middle">
+    ✓ 'resultado' y 'suma' solo existen aquí
+  </text>
+  <text x="515" y="265" font-size="11" fill="#e65100" text-anchor="middle">
+    ✗ No visibles fuera de la función
+  </text>
+  
+  <!-- Scope Local 2 -->
+  <rect x="320" y="280" width="400" height="150" fill="#e1f5fe" stroke="#0277bd" stroke-width="2" rx="5"/>
+  <text x="340" y="305" font-size="16" font-weight="bold" fill="#0277bd">
+    Scope Local: función procesar() 🏠
+  </text>
+  
+  <rect x="340" y="315" width="350" height="100" fill="#ffffff" stroke="#0277bd" stroke-width="2" rx="3"/>
+  <text x="360" y="340" font-family="monospace" font-size="14" fill="#000">
+    valor = total * 2
+  </text>
+  <text x="360" y="365" font-family="monospace" font-size="14" fill="#666">
+    # puede acceder a 'total'
+  </text>
+  <text x="360" y="390" font-family="monospace" font-size="14" fill="#000">
+    temp = valor + 10
+  </text>
+  
+  <text x="515" y="430" font-size="11" fill="#0277bd" text-anchor="middle">
+    ✓ 'valor' y 'temp' solo existen aquí
+  </text>
+  <text x="515" y="445" font-size="11" fill="#0277bd" text-anchor="middle">
+    ✗ No pueden ver 'resultado' ni 'suma'
+  </text>
+  
+  <!-- Flechas de acceso -->
+  <defs>
+    <marker id="arrow-access" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2e7d32"/>
+    </marker>
+  </defs>
+  
+  <!-- Flecha de global a local 1 -->
+  <path d="M 270 140 L 320 140" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrow-access)" stroke-dasharray="5,5"/>
+  <text x="280" y="135" font-size="10" fill="#2e7d32">
+    puede leer
+  </text>
+  
+  <!-- Flecha de global a local 2 -->
+  <path d="M 270 180 L 290 180 L 290 330 L 320 330" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrow-access)" stroke-dasharray="5,5"/>
+  <text x="280" y="250" font-size="10" fill="#2e7d32">
+    puede leer
+  </text>
+  
+  <!-- Leyenda -->
+  <rect x="50" y="470" width="700" height="20" fill="#f5f5f5" stroke="#999" stroke-width="1" rx="3"/>
+  <text x="400" y="485" font-size="12" fill="#666" text-anchor="middle">
+    💡 Regla: Las funciones pueden LEER variables globales, pero sus variables locales NO son visibles afuera
+  </text>
+</svg>

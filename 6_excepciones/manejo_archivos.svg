@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <defs>
+    <style>
+      .box-try { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .box-bad { fill: #ffebee; stroke: #c62828; stroke-width: 2; }
+      .box-good { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2; }
+      .box-finally { fill: #fff9c4; stroke: #f57f17; stroke-width: 2; }
+      .arrow { stroke: #424242; stroke-width: 2; fill: none; }
+      .text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; fill: #212121; }
+      .text-small { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #424242; }
+      .text-code { font-family: 'Consolas', monospace; font-size: 12px; }
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #1976d2; }
+    </style>
+  </defs>
+
+  <text x="450" y="30" text-anchor="middle" class="title">Manejo de Archivos: Comparación</text>
+
+  <!-- BAD APPROACH -->
+  <text x="200" y="70" text-anchor="middle" class="text" fill="#c62828" font-weight="bold">❌ Enfoque Riesgoso</text>
+  
+  <rect x="50" y="80" width="300" height="280" class="box-bad" rx="5"/>
+  <text x="200" y="105" text-anchor="middle" class="text-code" fill="#c62828"># Sin manejo adecuado</text>
+  
+  <!-- Step 1 -->
+  <rect x="70" y="120" width="260" height="45" fill="white" stroke="#c62828" stroke-width="1" rx="3"/>
+  <text x="80" y="138" class="text-code">archivo = open("datos.txt")</text>
+  <text x="80" y="154" class="text-small">📂 Abre archivo</text>
+
+  <!-- Step 2 -->
+  <rect x="70" y="180" width="260" height="45" fill="white" stroke="#c62828" stroke-width="1" rx="3"/>
+  <text x="80" y="198" class="text-code">contenido = archivo.read()</text>
+  <text x="80" y="214" class="text-small">📖 Lee contenido</text>
+
+  <!-- Step 3 - Problem -->
+  <rect x="70" y="240" width="260" height="60" fill="#ffcdd2" stroke="#c62828" stroke-width="2" rx="3"/>
+  <text x="80" y="258" class="text-code">resultado = procesar(contenido)</text>
+  <text x="200" y="275" text-anchor="middle" class="text-small" fill="#c62828"> ¿Error aquí?</text>
+  <text x="200" y="292" text-anchor="middle" class="text-small" fill="#c62828">¡Archivo queda abierto!</text>
+
+  <!-- Step 4 - Never reached -->
+  <rect x="70" y="315" width="260" height="35" fill="#e0e0e0" stroke="#757575" stroke-width="1" rx="3" opacity="0.5"/>
+  <text x="80" y="335" class="text-code" opacity="0.5">archivo.close()  # ¡Nunca llega!</text>
+
+  <!-- Problems list -->
+  <text x="200" y="380" text-anchor="middle" class="text" fill="#c62828" font-weight="bold">⚠️ Problemas:</text>
+  <text x="70" y="400" class="text-small" fill="#c62828">• Fuga de recursos</text>
+  <text x="70" y="418" class="text-small" fill="#c62828">• Límite de archivos abiertos</text>
+  <text x="70" y="436" class="text-small" fill="#c62828">• Archivo bloqueado</text>
+  <text x="70" y="454" class="text-small" fill="#c62828">• Pérdida de datos</text>
+
+  <!-- VS Arrow -->
+  <text x="450" y="250" text-anchor="middle" class="text" font-size="40" fill="#9e9e9e">VS</text>
+  <circle cx="450" cy="235" r="50" fill="none" stroke="#9e9e9e" stroke-width="2"/>
+
+  <!-- GOOD APPROACH -->
+  <text x="700" y="70" text-anchor="middle" class="text" fill="#388e3c" font-weight="bold">✅ Enfoque Seguro</text>
+  
+  <rect x="550" y="80" width="300" height="280" class="box-good" rx="5"/>
+  <text x="700" y="105" text-anchor="middle" class="text-code" fill="#2e7d32"># Con try-finally o with</text>
+
+  <!-- Option 1: try-finally -->
+  <rect x="570" y="120" width="260" height="105" fill="white" stroke="#388e3c" stroke-width="1" rx="3"/>
+  <text x="700" y="138" text-anchor="middle" class="text-small" font-weight="bold">Opción 1: try-finally</text>
+  <text x="580" y="155" class="text-code">try:</text>
+  <text x="590" y="170" class="text-code">  archivo = open("datos.txt")</text>
+  <text x="590" y="185" class="text-code">  contenido = archivo.read()</text>
+  <text x="590" y="200" class="text-code">  procesar(contenido)</text>
+  <text x="580" y="215" class="text-code">finally:</text>
+  <text x="590" y="230" class="text-code" fill="#2e7d32">  archivo.close()  # ✓ Siempre</text>
+
+  <!-- Option 2: with -->
+  <rect x="570" y="240" width="260" height="75" fill="white" stroke="#388e3c" stroke-width="2" rx="3"/>
+  <text x="700" y="258" text-anchor="middle" class="text-small" font-weight="bold">Opción 2: with (MEJOR) </text>
+  <text x="580" y="275" class="text-code">with open("datos.txt") as archivo:</text>
+  <text x="590" y="290" class="text-code">    contenido = archivo.read()</text>
+  <text x="590" y="305" class="text-code">    procesar(contenido)</text>
+  <text x="700" y="320" text-anchor="middle" class="text-small" fill="#2e7d32" font-style="italic"># Se cierra automáticamente ✓</text>
+
+  <!-- Benefits list -->
+  <text x="700" y="355" text-anchor="middle" class="text" fill="#388e3c" font-weight="bold"> Ventajas:</text>
+  <text x="570" y="375" class="text-small" fill="#388e3c">• Cierre garantizado</text>
+  <text x="570" y="393" class="text-small" fill="#388e3c">• Código más limpio</text>
+  <text x="570" y="411" class="text-small" fill="#388e3c">• Menos errores</text>
+  <text x="570" y="429" class="text-small" fill="#388e3c">• Pythonic ✓</text>
+
+  <!-- Bottom explanation -->
+  <rect x="50" y="500" width="800" height="180" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="2" rx="5"/>
+  <text x="450" y="530" text-anchor="middle" class="text" font-weight="bold">Context Manager (with): Cómo funciona</text>
+
+  <!-- Diagram -->
+  <rect x="70" y="550" width="200" height="45" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="3"/>
+  <text x="170" y="570" text-anchor="middle" class="text-code">with open(...) as f:</text>
+  <text x="170" y="585" text-anchor="middle" class="text-small">1️⃣ Entra al contexto</text>
+
+  <path d="M 270 572 L 300 572" class="arrow"/>
+  <polygon points="300,569 310,572 300,575" fill="#424242"/>
+
+  <rect x="310" y="550" width="200" height="45" fill="#fff9c4" stroke="#f57f17" stroke-width="2" rx="3"/>
+  <text x="410" y="570" text-anchor="middle" class="text-code">    # tu código aquí</text>
+  <text x="410" y="585" text-anchor="middle" class="text-small">2️⃣ Ejecuta bloque</text>
+
+  <path d="M 510 572 L 540 572" class="arrow"/>
+  <polygon points="540,569 550,572 540,575" fill="#424242"/>
+
+  <rect x="550" y="550" width="200" height="45" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" rx="3"/>
+  <text x="650" y="570" text-anchor="middle" class="text-code">f.close()</text>
+  <text x="650" y="585" text-anchor="middle" class="text-small">3️⃣ Cierra automático ✓</text>
+
+  <!-- Additional note -->
+  <text x="450" y="620" text-anchor="middle" class="text-small" font-style="italic">💡 El with garantiza que close() se llame incluso si hay excepciones</text>
+
+  <!-- Examples of other context managers -->
+  <text x="450" y="650" text-anchor="middle" class="text-small" font-weight="bold">Otros usos de with:</text>
+  <text x="150" y="670" text-anchor="middle" class="text-code">with lock: ...</text>
+  <text x="350" y="670" text-anchor="middle" class="text-code">with conexion_bd: ...</text>
+  <text x="550" y="670" text-anchor="middle" class="text-code">with tempfile(): ...</text>
+  <text x="750" y="670" text-anchor="middle" class="text-code">with Timer(): ...</text>
+</svg>

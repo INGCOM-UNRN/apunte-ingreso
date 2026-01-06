@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .operador-box { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; rx: 5; }
+      .titulo { font-family: 'Arial', sans-serif; font-size: 24px; font-weight: bold; fill: #4a148c; }
+      .operador { font-family: 'Courier New', monospace; font-size: 32px; font-weight: bold; fill: #6a1b9a; }
+      .nombre { font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold; fill: #4a148c; }
+      .ejemplo { font-family: 'Courier New', monospace; font-size: 14px; fill: #424242; }
+      .resultado { font-family: 'Courier New', monospace; font-size: 14px; fill: #1b5e20; }
+    </style>
+  </defs>
+  
+  <text x="400" y="35" text-anchor="middle" class="titulo">Operadores Aritméticos</text>
+  
+  <!-- Fila 1 -->
+  <!-- Suma -->
+  <g transform="translate(50, 70)">
+    <rect class="operador-box" width="220" height="120"/>
+    <text x="110" y="45" text-anchor="middle" class="operador">+</text>
+    <text x="110" y="70" text-anchor="middle" class="nombre">Suma</text>
+    <text x="15" y="95" class="ejemplo">5 + 3</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="resultado">8</text>
+  </g>
+  
+  <!-- Resta -->
+  <g transform="translate(290, 70)">
+    <rect class="operador-box" width="220" height="120"/>
+    <text x="110" y="45" text-anchor="middle" class="operador">-</text>
+    <text x="110" y="70" text-anchor="middle" class="nombre">Resta</text>
+    <text x="15" y="95" class="ejemplo">10 - 4</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="resultado">6</text>
+  </g>
+  
+  <!-- Multiplicación -->
+  <g transform="translate(530, 70)">
+    <rect class="operador-box" width="220" height="120"/>
+    <text x="110" y="45" text-anchor="middle" class="operador">*</text>
+    <text x="110" y="70" text-anchor="middle" class="nombre">Multiplicación</text>
+    <text x="15" y="95" class="ejemplo">7 * 6</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="resultado">42</text>
+  </g>
+  
+  <!-- Fila 2 -->
+  <!-- División -->
+  <g transform="translate(50, 220)">
+    <rect class="operador-box" width="220" height="120"/>
+    <text x="110" y="45" text-anchor="middle" class="operador">/</text>
+    <text x="110" y="70" text-anchor="middle" class="nombre">División</text>
+    <text x="15" y="95" class="ejemplo">15 / 3</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="resultado">5.0</text>
+  </g>
+  
+  <!-- División entera -->
+  <g transform="translate(290, 220)">
+    <rect class="operador-box" width="220" height="120"/>
+    <text x="110" y="45" text-anchor="middle" class="operador">//</text>
+    <text x="110" y="70" text-anchor="middle" class="nombre">División entera</text>
+    <text x="15" y="95" class="ejemplo">17 // 5</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="resultado">3</text>
+  </g>
+  
+  <!-- Módulo -->
+  <g transform="translate(530, 220)">
+    <rect class="operador-box" width="220" height="120"/>
+    <text x="110" y="45" text-anchor="middle" class="operador">%</text>
+    <text x="110" y="70" text-anchor="middle" class="nombre">Módulo (resto)</text>
+    <text x="15" y="95" class="ejemplo">17 % 5</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="resultado">2</text>
+  </g>
+  
+  <!-- Fila 3 -->
+  <!-- Potenciación -->
+  <g transform="translate(290, 370)">
+    <rect class="operador-box" width="220" height="120"/>
+    <text x="110" y="45" text-anchor="middle" class="operador">**</text>
+    <text x="110" y="70" text-anchor="middle" class="nombre">Potenciación</text>
+    <text x="15" y="95" class="ejemplo">2 ** 3</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="resultado">8</text>
+  </g>
+  
+  <!-- Nota sobre precedencia -->
+  <g transform="translate(50, 520)">
+    <rect fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="5" width="700" height="60"/>
+    <text x="350" y="25" text-anchor="middle" class="nombre" fill="#e65100">Orden de Precedencia (PEMDAS):</text>
+    <text x="350" y="45" text-anchor="middle" class="ejemplo">
+      1. Paréntesis  →  2. Potencia (**)  →  3. *, /, //, %  →  4. +, -
+    </text>
+  </g>
+</svg>

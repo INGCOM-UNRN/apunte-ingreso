@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <!-- Definiciones de estilos -->
+  <defs>
+    <style>
+      .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 3; }
+      .label { fill: #1976d2; font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; }
+      .value { fill: #d32f2f; font-family: 'Courier New', monospace; font-size: 24px; font-weight: bold; }
+      .arrow { stroke: #424242; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .text { fill: #424242; font-family: 'Arial', sans-serif; font-size: 16px; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#424242" />
+    </marker>
+  </defs>
+  
+  <!-- Título -->
+  <text x="300" y="30" text-anchor="middle" class="label" font-size="24">Variables: Cajas con Nombres</text>
+  
+  <!-- Caja 1: edad -->
+  <g transform="translate(50, 80)">
+    <rect class="box" x="0" y="0" width="120" height="80" rx="5"/>
+    <text x="60" y="30" text-anchor="middle" class="label">edad</text>
+    <text x="60" y="60" text-anchor="middle" class="value">18</text>
+  </g>
+  
+  <!-- Caja 2: nombre -->
+  <g transform="translate(230, 80)">
+    <rect class="box" x="0" y="0" width="140" height="80" rx="5"/>
+    <text x="70" y="30" text-anchor="middle" class="label">nombre</text>
+    <text x="70" y="60" text-anchor="middle" class="value">"Ana"</text>
+  </g>
+  
+  <!-- Caja 3: altura -->
+  <g transform="translate(430, 80)">
+    <rect class="box" x="0" y="0" width="120" height="80" rx="5"/>
+    <text x="60" y="30" text-anchor="middle" class="label">altura</text>
+    <text x="60" y="60" text-anchor="middle" class="value">1.65</text>
+  </g>
+  
+  <!-- Explicación con flechas -->
+  <g transform="translate(0, 200)">
+    <path class="arrow" d="M 110 0 L 110 -30"/>
+    <text x="110" y="25" text-anchor="middle" class="text">Nombre de la variable</text>
+  </g>
+  
+  <g transform="translate(0, 200)">
+    <path class="arrow" d="M 300 0 L 300 -30"/>
+    <text x="300" y="25" text-anchor="middle" class="text">Valor almacenado</text>
+  </g>
+  
+  <!-- Leyenda inferior -->
+  <text x="300" y="260" text-anchor="middle" class="text" font-style="italic">
+    Cada variable es como una caja etiquetada que guarda un valor
+  </text>
+</svg>

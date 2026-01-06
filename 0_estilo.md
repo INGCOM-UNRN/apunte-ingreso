@@ -4,9 +4,13 @@ short_title: 0x0000h - Estilo
 subtitle: Pautas para la organización y prolijidad del código en Python basadas en PEP 8 y buenas prácticas.
 ---
 
+## Falta simplificar esto...
+
+Hay una montaña de cosas acá que son de avanzadas a muy avanzadas :-P
+
 ## Introducción
 
-Este documento establece un conjunto de reglas de estilo para Python, diseñadas para que tu código sea más claro, legible y menos propenso a errores. Estas reglas están alineadas con las mejores prácticas de la comunidad Python, especialmente:
+Este documento establece un conjunto de reglas de estilo para Python, pensadas como la condensación de años de experiencia programando y enseñando a programar. Estas están diseñadas para que tu código sea más claro, legible y menos propenso a errores. Se encuentran alineadas con las mejores prácticas de la comunidad Python, especialmente:
 
 - **[PEP 8](https://peps.python.org/pep-0008/)**: La guía de estilo oficial de Python
 - **[PEP 20](https://peps.python.org/pep-0020/)**: The Zen of Python (filosofía de diseño)
@@ -28,6 +32,18 @@ Python tiene una filosofía de diseño expresada en "The Zen of Python" ({ref}`p
 :::
 
 Un código de calidad no solo debe ser funcional, sino también comprensible para cualquier profesional que deba leerlo. Un código limpio y bien organizado facilita la colaboración, ahorra tiempo en corrección y previene complicaciones durante la depuración.
+
+## ¿Entra en el examen?
+
+Una aclaración fundamental, en especial porque son un _montón_ de reglas, es que no les tomaremos examen de estas reglas.
+
+Sin embargo, como aplicar estas reglas los va a ayudar **más a ustedes que a nosotros**, les recomendamos fuertemente aplicarlas.
+
+:::{warning} Entonces... ¿Entran?
+
+La respuesta corta es **no**, pero tener las reglas presentes los va a ayudar.
+
+:::
 
 ## Apertura a Sugerencias y Debate
 
@@ -117,7 +133,7 @@ Bajo ciertas condiciones, los nombres cortos son aceptables y hasta preferibles:
 ```python
 # ✓ Aceptable: contexto matemático claro
 for i in range(10):
-    resultado = i ** 2
+    resultado = i **2
 
 # ✓ Aceptable: comprensión simple
 cuadrados = [x**2 for x in range(10)]
@@ -171,7 +187,7 @@ a, b, c = x, y, z = calcular(), procesar(), validar()
 (0x0003h)=
 ### Regla `0x0003h`: Siempre inicializar variables con valores explícitos
 
-**Principio:** En Python, las variables no existen hasta que se les asigna un valor. Es importante inicializar contadores, acumuladores y variables de control con valores explícitos antes de usarlos.
+**Principio:**En Python, las variables no existen hasta que se les asigna un valor. Es importante inicializar contadores, acumuladores y variables de control con valores explícitos antes de usarlos.
 
 ```python
 # ❌ Incorrecto: variable no inicializada
@@ -232,7 +248,7 @@ def agregar_elemento(elemento, lista=None):
 (0x0004h)=
 ### Regla `0x0004h`: Un espacio antes y después de cada operador binario
 
-**Principio ({ref}`pep-8-ref`):** Los operadores binarios deben estar rodeados de un espacio a cada lado para mejorar la legibilidad.
+**Principio ({ref}`pep-8-ref`):**Los operadores binarios deben estar rodeados de un espacio a cada lado para mejorar la legibilidad.
 
 ```diff
 - # Incorrecto
@@ -286,7 +302,7 @@ resultado = a*b + c*d  # Agrupa multiplicaciones sin espacios
 (0x0005h)=
 ### Regla `0x0005h`: La indentación debe ser consistente (4 espacios)
 
-**Principio ({ref}`pep-8-ref`):** Python usa indentación para definir bloques de código. **Siempre usar 4 espacios**, nunca tabs.
+**Principio ({ref}`pep-8-ref`):**Python usa indentación para definir bloques de código. **Siempre usar 4 espacios**, nunca tabs.
 
 ```python
 # ✓ Correcto: 4 espacios por nivel de indentación
@@ -304,9 +320,9 @@ def calcular_promedio(numeros):
 
 **Reglas de indentación:**
 
-1. **4 espacios por nivel** (no 2, no 8, no tabs)
-2. **Consistencia total** en todo el archivo
-3. **Líneas continuadas:** Alinear con el delimitador de apertura o usar indentación colgante
+1. **4 espacios por nivel**(no 2, no 8, no tabs)
+2. **Consistencia total**en todo el archivo
+3. **Líneas continuadas:**Alinear con el delimitador de apertura o usar indentación colgante
 
 ```python
 # ✓ Opción 1: Alinear con delimitador
@@ -339,7 +355,7 @@ Python 3 no permite mezclar tabs y espacios. Configurá tu editor para convertir
 (0x0006h)=
 ### Regla `0x0006h`: Evitar `break` y `continue`; usar banderas de control
 
-**Principio:** Aunque Python permite `break` y `continue`, en este curso preferimos usar **banderas de control** (variables booleanas) para gestionar la terminación de loops. Esto produce código más predecible y estructurado.
+**Principio:**Aunque Python permite `break` y `continue`, en este curso preferimos usar **banderas de control**(variables booleanas) para gestionar la terminación de loops. Esto produce código más predecible y estructurado.
 
 ```python
 # ❌ Evitar (aunque Python lo permite)
@@ -368,10 +384,10 @@ while i < len(numeros) and seguir_procesando:
 
 **Ventajas del enfoque con banderas:**
 
-1. **Flujo explícito:** La condición de salida está en el `while`
-2. **Más fácil de razonar:** No hay saltos inesperados
-3. **Mejor para debugging:** Puedes inspeccionar la bandera
-4. **Más fácil de testear:** El estado es visible
+1. **Flujo explícito:**La condición de salida está en el `while`
+2. **Más fácil de razonar:**No hay saltos inesperados
+3. **Mejor para debugging:**Puedes inspeccionar la bandera
+4. **Más fácil de testear:**El estado es visible
 
 :::{note} Contexto Pedagógico
 Esta regla es específica de este curso para enseñar control de flujo estructurado. En código Python profesional, `break` y `continue` son comunes y aceptados cuando mejoran la claridad.
@@ -382,7 +398,7 @@ Esta regla es específica de este curso para enseñar control de flujo estructur
 (0x0007h)=
 ### Regla `0x0007h`: Preferir `while` sobre `for` para loops condicionales
 
-**Principio:** Usar `while` cuando la condición de parada no es un simple recorrido de secuencia. El `for` de Python es idiomático para iterar sobre colecciones.
+**Principio:**Usar `while` cuando la condición de parada no es un simple recorrido de secuencia. El `for` de Python es idiomático para iterar sobre colecciones.
 
 **Usar `while` cuando:**
 - No sabés cuántas iteraciones necesitarás
@@ -434,7 +450,7 @@ for clave, valor in diccionario.items():
 (0x0008h)=
 ### Regla `0x0008h`: Cada función debe tener un único punto de retorno
 
-**Principio:** Limitar una función a un único `return` mejora la legibilidad y facilita el seguimiento del flujo de control.
+**Principio:**Limitar una función a un único `return` mejora la legibilidad y facilita el seguimiento del flujo de control.
 
 ```python
 # ❌ Evitar: múltiples returns
@@ -484,7 +500,7 @@ Usá tu criterio: si múltiples returns hacen el código **más claro**, pueden 
 (0x0009h)=
 ### Regla `0x0009h`: Las funciones no deben contener `print()` o `input()`, a menos que ese sea su propósito explícito
 
-**Principio:** Las funciones deben estar desacopladas de I/O para maximizar su reutilización y facilitar las pruebas.
+**Principio:**Las funciones deben estar desacopladas de I/O para maximizar su reutilización y facilitar las pruebas.
 
 ```python
 # ❌ Incorrecto: mezcla lógica con I/O
@@ -532,16 +548,16 @@ def solicitar_edad():
 ```
 
 **Ventajas del desacoplamiento:**
-1. **Reutilización:** La función puede usarse en diferentes contextos
-2. **Testing:** Fácil de probar sin interacción humana
-3. **Flexibilidad:** El caller decide cómo usar el resultado (print, guardar, enviar, etc.)
+1. **Reutilización:**La función puede usarse en diferentes contextos
+2. **Testing:**Fácil de probar sin interacción humana
+3. **Flexibilidad:**El caller decide cómo usar el resultado (print, guardar, enviar, etc.)
 
 ---
 
 (0x000Ah)=
 ### Regla `0x000Ah`: Todas las funciones deben incluir docstrings
 
-**Principio ({ref}`pep-257-ref`):** Las funciones deben documentarse con docstrings que expliquen su propósito, parámetros, retorno y excepciones.
+**Principio ({ref}`pep-257-ref`):**Las funciones deben documentarse con docstrings que expliquen su propósito, parámetros, retorno y excepciones.
 
 **Formato recomendado (estilo Google/NumPy):**
 
@@ -576,13 +592,13 @@ def calcular_area_rectangulo(base, altura):
 
 **Elementos del docstring:**
 
-1. **Primera línea:** Resumen breve (una línea, termina con punto)
+1. **Primera línea:**Resumen breve (una línea, termina con punto)
 2. **Línea en blanco**
-3. **Descripción extendida:** (opcional) Explicación más detallada
-4. **Args:** Cada parámetro con tipo y descripción
-5. **Returns:** Qué retorna la función
-6. **Raises:** Qué excepciones puede lanzar
-7. **Examples:** (opcional) Ejemplos de uso
+3. **Descripción extendida:**(opcional) Explicación más detallada
+4. **Args:**Cada parámetro con tipo y descripción
+5. **Returns:**Qué retorna la función
+6. **Raises:**Qué excepciones puede lanzar
+7. **Examples:**(opcional) Ejemplos de uso
 
 **Docstrings mínimos para funciones simples:**
 
@@ -593,9 +609,9 @@ def sumar(a, b):
 ```
 
 :::{important} Cuándo documentar
-- **Siempre:** Funciones públicas (que serán usadas por otros)
-- **Recomendado:** Funciones complejas o con lógica no obvia
-- **Opcional:** Funciones privadas muy simples (pero consideralo)
+- **Siempre:**Funciones públicas (que serán usadas por otros)
+- **Recomendado:**Funciones complejas o con lógica no obvia
+- **Opcional:**Funciones privadas muy simples (pero consideralo)
 :::
 
 ---
@@ -603,7 +619,7 @@ def sumar(a, b):
 (0x000Bh)=
 ### Regla `0x000Bh`: Evitar variables globales; usar parámetros y retornos
 
-**Principio:** Las variables globales pueden ser modificadas desde cualquier parte del programa, causando efectos secundarios impredecibles.
+**Principio:**Las variables globales pueden ser modificadas desde cualquier parte del programa, causando efectos secundarios impredecibles.
 
 ```python
 # ❌ Incorrecto: variable global
@@ -645,8 +661,8 @@ imprimir_contador(contador_local)
 ```
 
 **Excepciones aceptables:**
-- **Constantes:** Variables que no cambian (en MAYUSCULAS)
-- **Configuración:** Valores de configuración del programa
+- **Constantes:**Variables que no cambian (en MAYUSCULAS)
+- **Configuración:**Valores de configuración del programa
 
 ```python
 # ✓ Aceptable: constantes globales
@@ -661,9 +677,9 @@ DATABASE_URL = "sqlite:///datos.db"
 
 :::{tip} Alternativas a globales
 Si necesitás compartir estado:
-1. **Clases:** Encapsular estado en objetos (verás esto más adelante)
-2. **Parámetros:** Pasar explícitamente
-3. **Return múltiple:** Retornar estado actualizado
+1. **Clases:**Encapsular estado en objetos (verás esto más adelante)
+2. **Parámetros:**Pasar explícitamente
+3. **Return múltiple:**Retornar estado actualizado
 :::
 
 ---
@@ -671,7 +687,7 @@ Si necesitás compartir estado:
 (0x000Ch)=
 ### Regla `0x000Ch`: Cada función debe tener una única responsabilidad (SRP)
 
-**Principio (Single Responsibility Principle):** Una función debe hacer una cosa y hacerla bien. Si necesitás usar "y" para describir qué hace una función, probablemente hace demasiadas cosas.
+**Principio (Single Responsibility Principle):**Una función debe hacer una cosa y hacerla bien. Si necesitás usar "y" para describir qué hace una función, probablemente hace demasiadas cosas.
 
 ```python
 # ❌ Incorrecto: función con múltiples responsabilidades
@@ -731,17 +747,17 @@ def procesar_estudiante(nombre, notas):
 ```
 
 **Ventajas:**
-1. **Testeo:** Cada función se puede probar independientemente
-2. **Reutilización:** Funciones específicas son reutilizables
-3. **Mantenimiento:** Cambios localizados en una función
-4. **Comprensión:** Funciones simples son fáciles de entender
+1. **Testeo:**Cada función se puede probar independientemente
+2. **Reutilización:**Funciones específicas son reutilizables
+3. **Mantenimiento:**Cambios localizados en una función
+4. **Comprensión:**Funciones simples son fáciles de entender
 
 ---
 
 (0x000Dh)=
 ### Regla `0x000Dh`: Las condiciones complejas deben extraerse a variables booleanas descriptivas
 
-**Principio:** Las expresiones booleanas complejas deben descomponerse en variables con nombres descriptivos para mejorar la legibilidad.
+**Principio:**Las expresiones booleanas complejas deben descomponerse en variables con nombres descriptivos para mejorar la legibilidad.
 
 ```python
 # ❌ Difícil de leer
@@ -789,7 +805,7 @@ if puede_acceder(edad, tiene_dni, esta_inhabilitado, es_emancipado, tiene_autori
 (0x000Eh)=
 ### Regla `0x000Eh`: Usar constantes con nombres descriptivos en lugar de "números mágicos"
 
-**Principio:** Los números literales en el código (excepto 0, 1, -1 en contextos obvios) deben ser reemplazados por constantes con nombres descriptivos.
+**Principio:**Los números literales en el código (excepto 0, 1, -1 en contextos obvios) deben ser reemplazados por constantes con nombres descriptivos.
 
 ```python
 # ❌ Números mágicos
@@ -813,7 +829,7 @@ def validar_edad(edad):
     return EDAD_MINIMA_LEGAL <= edad <= EDAD_MAXIMA_RAZONABLE
 ```
 
-**Convención:** Constantes en `MAYUSCULAS_CON_GUIONES_BAJOS`
+**Convención:**Constantes en `MAYUSCULAS_CON_GUIONES_BAJOS`
 
 ```python
 # Constantes al inicio del archivo o módulo
@@ -834,7 +850,7 @@ DIAS_POR_SEMANA = 7
 (0x000Fh)=
 ### Regla `0x000Fh`: Limitar las líneas de código a 79 caracteres ({ref}`pep-8-ref`)
 
-**Principio:** Las líneas no deben exceder 79 caracteres para facilitar la lectura y visualización en múltiples ventanas.
+**Principio:**Las líneas no deben exceder 79 caracteres para facilitar la lectura y visualización en múltiples ventanas.
 
 ```python
 # ❌ Línea demasiado larga
@@ -901,7 +917,7 @@ PEP 8 permite hasta 99 caracteres para comentarios y docstrings, pero recomienda
 (0x0010h)=
 ### Regla `0x0010h`: No comparar con `True`, `False` o `None` usando `==`
 
-**Principio:** Usar comparadores de identidad (`is`, `is not`) para `None`, `True`, `False`, y evaluar directamente valores booleanos.
+**Principio:**Usar comparadores de identidad (`is`, `is not`) para `None`, `True`, `False`, y evaluar directamente valores booleanos.
 
 ```python
 # ❌ Incorrecto
@@ -925,7 +941,7 @@ if not bandera:  # Negar con 'not'
     continuar()
 ```
 
-**Razón:** `is` compara identidad (mismo objeto en memoria), mientras `==` compara valor. Para singletons como `None`, `True`, `False`, siempre usar `is`.
+**Razón:**`is` compara identidad (mismo objeto en memoria), mientras `==` compara valor. Para singletons como `None`, `True`, `False`, siempre usar `is`.
 
 ```python
 # Comparaciones correctas
@@ -963,7 +979,7 @@ if nombre:  # True si nombre no está vacío
 (0x0011h)=
 ### Regla `0x0011h`: Mantener el alcance de las variables al mínimo posible
 
-**Principio:** Las variables deben declararse en el ámbito más pequeño posible donde sean necesarias. Esto reduce confusión, facilita el debugging y hace el código más predecible.
+**Principio:**Las variables deben declararse en el ámbito más pequeño posible donde sean necesarias. Esto reduce confusión, facilita el debugging y hace el código más predecible.
 
 ```python
 # ❌ Incorrecto: variable con alcance innecesariamente amplio
@@ -1002,7 +1018,7 @@ def procesar_datos():
 (0x0012h)=
 ### Regla `0x0012h`: Usar constantes o `None` para valores especiales
 
-**Principio:** Los valores de retorno especiales (como -1 para "no encontrado") deben ser constantes con nombres descriptivos, o mejor aún, usar `None` cuando sea apropiado.
+**Principio:**Los valores de retorno especiales (como -1 para "no encontrado") deben ser constantes con nombres descriptivos, o mejor aún, usar `None` cuando sea apropiado.
 
 ```python
 # ❌ Incorrecto: número mágico
@@ -1055,8 +1071,8 @@ else:
 ```
 
 :::{note} ¿Cuándo usar None vs. constante?
-- **Usar `None`:** Cuando representa ausencia de valor (más Pythonic)
-- **Usar constante:** Cuando el valor especial tiene significado en el dominio del problema
+- **Usar `None`:**Cuando representa ausencia de valor (más Pythonic)
+- **Usar constante:**Cuando el valor especial tiene significado en el dominio del problema
 :::
 
 ---
@@ -1064,7 +1080,7 @@ else:
 (0x0013h)=
 ### Regla `0x0013h`: Validar siempre las entradas del usuario
 
-**Principio:** Nunca confiar en que el usuario ingresará datos válidos. Siempre validar tipo, rango y formato.
+**Principio:**Nunca confiar en que el usuario ingresará datos válidos. Siempre validar tipo, rango y formato.
 
 ```python
 # ❌ Incorrecto: sin validación (propenso a errores)
@@ -1104,21 +1120,21 @@ edad = solicitar_edad()
 ```
 
 **Validaciones típicas:**
-- **Tipo:** ¿Es un número, string, etc.?
-- **Rango:** ¿Está dentro de valores aceptables?
-- **Formato:** ¿Cumple con el patrón esperado? (emails, DNI, etc.)
-- **Lógica:** ¿Tiene sentido en el contexto? (fecha de nacimiento no puede ser futura)
+- **Tipo:**¿Es un número, string, etc.?
+- **Rango:**¿Está dentro de valores aceptables?
+- **Formato:**¿Cumple con el patrón esperado? (emails, DNI, etc.)
+- **Lógica:**¿Tiene sentido en el contexto? (fecha de nacimiento no puede ser futura)
 
 ---
 
 (0x0014h)=
 ### Regla `0x0014h`: Usar comprehensions solo cuando mejoren la legibilidad
 
-**Principio:** Las list/dict comprehensions son poderosas y Pythonic, pero solo usarlas cuando hagan el código **más claro**, no más complejo.
+**Principio:**Las list/dict comprehensions son poderosas y Pythonic, pero solo usarlas cuando hagan el código **más claro**, no más complejo.
 
 ```python
 # ✓ Correcto: comprehensions simples y claras
-cuadrados = [x ** 2 for x in range(10)]
+cuadrados = [x **2 for x in range(10)]
 pares = [x for x in numeros if x % 2 == 0]
 mayusculas = [nombre.upper() for nombre in nombres]
 
@@ -1147,14 +1163,14 @@ for x in range(100):
                 resultado.append(x * 3)
 ```
 
-**Regla práctica:** Si tu comprehension necesita más de 79 caracteres o tiene más de 2 condiciones, probablemente sea mejor usar un loop explícito.
+**Regla práctica:**Si tu comprehension necesita más de 79 caracteres o tiene más de 2 condiciones, probablemente sea mejor usar un loop explícito.
 
 ---
 
 (0x0015h)=
 ### Regla `0x0015h`: Usar `with` para manejo de archivos
 
-**Principio:** El context manager `with` garantiza que los recursos (archivos, conexiones, etc.) se cierren correctamente, incluso si ocurren errores.
+**Principio:**El context manager `with` garantiza que los recursos (archivos, conexiones, etc.) se cierren correctamente, incluso si ocurren errores.
 
 ```python
 # ❌ Incorrecto: manejo manual (riesgo de no cerrar)
@@ -1180,9 +1196,9 @@ with open('datos.txt', 'w') as archivo:
 ```
 
 **Ventajas del `with`:**
-1. **Seguridad:** Garantiza cierre incluso si hay excepciones
-2. **Limpieza:** No necesitás recordar cerrar manualmente
-3. **Legibilidad:** El ámbito del recurso es explícito
+1. **Seguridad:**Garantiza cierre incluso si hay excepciones
+2. **Limpieza:**No necesitás recordar cerrar manualmente
+3. **Legibilidad:**El ámbito del recurso es explícito
 
 :::{tip} Context managers más allá de archivos
 El `with` funciona con cualquier "context manager". Más adelante verás otros usos como locks, conexiones a bases de datos, y transacciones.
@@ -1193,7 +1209,7 @@ El `with` funciona con cualquier "context manager". Más adelante verás otros u
 (0x0016h)=
 ### Regla `0x0016h`: Estructurar programas con funciones
 
-**Principio:** Incluso en ejercicios simples, organizar el código en funciones mejora la claridad, testabilidad y reutilización.
+**Principio:**Incluso en ejercicios simples, organizar el código en funciones mejora la claridad, testabilidad y reutilización.
 
 ```python
 # ❌ Incorrecto: lógica suelta en programa principal
@@ -1270,7 +1286,7 @@ if __name__ == "__main__":
 (0x0017h)=
 ### Regla `0x0017h`: Usar operador `in` para pertenencia
 
-**Principio:** Python tiene operadores poderosos para verificar pertenencia. Usarlos en lugar de loops manuales hace el código más Pythonic y eficiente.
+**Principio:**Python tiene operadores poderosos para verificar pertenencia. Usarlos en lugar de loops manuales hace el código más Pythonic y eficiente.
 
 ```python
 # ❌ Incorrecto: búsqueda manual
@@ -1317,7 +1333,7 @@ if objetivo not in lista_prohibidos:
 (0x0018h)=
 ### Regla `0x0018h`: Usar `enumerate()` en lugar de `range(len())`
 
-**Principio:** Cuando necesitás el índice y el elemento, `enumerate()` es más Pythonic y menos propenso a errores que usar `range(len())`.
+**Principio:**Cuando necesitás el índice y el elemento, `enumerate()` es más Pythonic y menos propenso a errores que usar `range(len())`.
 
 ```python
 nombres = ['Ana', 'Luis', 'Carlos']
@@ -1352,7 +1368,7 @@ for i, linea in enumerate(archivo):
 (0x0019h)=
 ### Regla `0x0019h`: Usar `zip()` para iterar múltiples secuencias
 
-**Principio:** Cuando necesitás iterar sobre múltiples listas en paralelo, `zip()` es la forma Pythonic de hacerlo.
+**Principio:**Cuando necesitás iterar sobre múltiples listas en paralelo, `zip()` es la forma Pythonic de hacerlo.
 
 ```python
 nombres = ['Ana', 'Luis', 'Carlos']
@@ -1393,7 +1409,7 @@ diccionario = dict(zip(claves, valores))
 (0x001Ah)=
 ### Regla `0x001Ah`: Usar f-strings para formateo (Python 3.6+)
 
-**Principio:** Las f-strings son la forma moderna, legible y eficiente de formatear strings en Python.
+**Principio:**Las f-strings son la forma moderna, legible y eficiente de formatear strings en Python.
 
 ```python
 nombre = "Ana"
@@ -1422,8 +1438,8 @@ mensaje = f"π ≈ {pi:.4f}"  # π ≈ 3.1416
 
 # ✓ Con alineación
 for i in range(1, 11):
-    cuadrado = i ** 2
-    cubo = i ** 3
+    cuadrado = i **2
+    cubo = i **3
     print(f"{i:2d} | {cuadrado:3d} | {cubo:4d}")
 # Tabla alineada
 
@@ -1452,7 +1468,7 @@ print(f"{numero_grande:,}") # 1,000,000
 (0x001Bh)=
 ### Regla `0x001Bh`: Type hints para documentación (opcional, progresivo)
 
-**Principio:** Los type hints mejoran la documentación del código y permiten detección temprana de errores. Se introducen progresivamente en el curso.
+**Principio:**Los type hints mejoran la documentación del código y permiten detección temprana de errores. Se introducen progresivamente en el curso.
 
 ```python
 # Sin type hints (principiantes - módulos 1-3)
@@ -1510,9 +1526,9 @@ def convertir_a_entero(valor: Union[str, int, float]) -> int:
 
 :::{note} Type hints en este curso
 Los type hints se introducen **gradualmente**:
-- **Módulos 1-3:** Sin type hints (enfoque en lógica)
-- **Módulo 4:** Introducción básica (int, str, float, bool)
-- **Módulos 5-6:** Types complejos (List, Dict, Optional)
+- **Módulos 1-3:**Sin type hints (enfoque en lógica)
+- **Módulo 4:**Introducción básica (int, str, float, bool)
+- **Módulos 5-6:**Types complejos (List, Dict, Optional)
 :::
 
 ---
@@ -1520,7 +1536,7 @@ Los type hints se introducen **gradualmente**:
 (0x001Ch)=
 ### Regla `0x001Ch`: Acceso seguro a diccionarios con `get()`
 
-**Principio:** Usar `dict.get()` en lugar de acceso directo previene errores `KeyError` y hace el código más robusto.
+**Principio:**Usar `dict.get()` en lugar de acceso directo previene errores `KeyError` y hace el código más robusto.
 
 ```python
 usuario = {'nombre': 'Ana', 'edad': 25}
@@ -1563,7 +1579,7 @@ ciudad = usuario.get('ciudad', 'Desconocida')
 (0x001Dh)=
 ### Regla `0x001Dh`: Comentarios explican "por qué", no "qué"
 
-**Principio:** El código debe ser autoexplicativo (el "qué"). Los comentarios deben explicar el razonamiento (el "por qué").
+**Principio:**El código debe ser autoexplicativo (el "qué"). Los comentarios deben explicar el razonamiento (el "por qué").
 
 ```python
 # ❌ Incorrecto: comentarios obvios
@@ -1618,7 +1634,7 @@ cache = {}
 (0x001Eh)=
 ### Regla `0x001Eh`: Aprovechar métodos de string
 
-**Principio:** Python tiene métodos de string muy poderosos. Conocerlos y usarlos hace el código más limpio y eficiente.
+**Principio:**Python tiene métodos de string muy poderosos. Conocerlos y usarlos hace el código más limpio y eficiente.
 
 ```python
 texto = "  Hola Mundo  "
@@ -1676,7 +1692,7 @@ def validar_dni(dni_str):
 (0x001Fh)=
 ### Regla `0x001Fh`: Nunca usar mutables como argumentos por defecto
 
-**Principio:** Los valores mutables (listas, diccionarios) como defaults se evalúan **una sola vez** cuando se define la función, causando bugs sutiles.
+**Principio:**Los valores mutables (listas, diccionarios) como defaults se evalúan **una sola vez**cuando se define la función, causando bugs sutiles.
 
 ```python
 # ❌ ERROR COMÚN: lista mutable como default
@@ -1790,9 +1806,9 @@ Estas reglas están basadas en décadas de experiencia de la comunidad Python. S
 
 Recordá el Zen de Python:
 
-> **Beautiful is better than ugly.**  
-> **Explicit is better than implicit.**  
-> **Simple is better than complex.**  
+> **Beautiful is better than ugly.**
+> **Explicit is better than implicit.**
+> **Simple is better than complex.**
 > **Readability counts.**
 
 ---

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <!-- Definiciones de estilos -->
+  <defs>
+    <style>
+      .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .box-prefix { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
+      .box-expresion { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2; }
+      .label { fill: #263238; font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold; }
+      .code { fill: #263238; font-family: 'Courier New', monospace; font-size: 18px; }
+      .code-big { fill: #263238; font-family: 'Courier New', monospace; font-size: 24px; font-weight: bold; }
+      .text { fill: #546e7a; font-family: 'Arial', sans-serif; font-size: 14px; }
+      .arrow { stroke: #1976d2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-orange { stroke: #f57c00; stroke-width: 2; fill: none; marker-end: url(#arrowhead-orange); }
+      .arrow-green { stroke: #4caf50; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976d2" />
+    </marker>
+    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#f57c00" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4caf50" />
+    </marker>
+  </defs>
+  
+  <!-- Título -->
+  <text x="450" y="30" text-anchor="middle" class="label" font-size="24">Anatomía de una F-String</text>
+  
+  <!-- ========== F-STRING COMPLETA ========== -->
+  <g transform="translate(100, 80)">
+    <!-- Rectángulo contenedor -->
+    <rect fill="#f5f5f5" stroke="#424242" stroke-width="3" x="0" y="0" width="700" height="80" rx="8"/>
+    
+    <!-- Prefijo f -->
+    <rect class="box-prefix" x="15" y="15" width="40" height="50" rx="4"/>
+    <text class="code-big" x="35" y="50" text-anchor="middle" fill="#f57c00">f</text>
+    
+    <!-- Comilla de apertura -->
+    <text class="code-big" x="70" y="50" fill="#d32f2f">"</text>
+    
+    <!-- Texto literal 1 -->
+    <text class="code" x="95" y="50" fill="#1976d2">Hola,</text>
+    
+    <!-- Expresión (entre llaves) -->
+    <rect class="box-expresion" x="185" y="15" width="100" height="50" rx="4"/>
+    <text class="code" x="197" y="45" fill="#2e7d32">{nombre}</text>
+    
+    <!-- Texto literal 2 -->
+    <text class="code" x="310" y="50" fill="#1976d2">, tenés</text>
+    
+    <!-- Expresión 2 -->
+    <rect class="box-expresion" x="435" y="15" width="85" height="50" rx="4"/>
+    <text class="code" x="445" y="45" fill="#2e7d32">{edad}</text>
+    
+    <!-- Texto literal 3 -->
+    <text class="code" x="540" y="50" fill="#1976d2">años</text>
+    
+    <!-- Comilla de cierre -->
+    <text class="code-big" x="645" y="50" fill="#d32f2f">"</text>
+  </g>
+  
+  <!-- ========== FLECHAS Y EXPLICACIONES ========== -->
+  
+  <!-- Flecha 1: Prefijo f -->
+  <g transform="translate(0, 0)">
+    <path class="arrow-orange" d="M 135 170 L 135 200"/>
+    <rect class="box-prefix" x="70" y="210" width="130" height="60" rx="4"/>
+    <text x="135" y="235" text-anchor="middle" class="label" font-size="14" fill="#f57c00">Prefijo 'f'</text>
+    <text x="135" y="255" text-anchor="middle" class="text" font-size="12">Indica que es</text>
+    <text x="135" y="268" text-anchor="middle" class="text" font-size="12">una f-string</text>
+  </g>
+  
+  <!-- Flecha 2: Comillas -->
+  <g transform="translate(0, 0)">
+    <path class="arrow" d="M 170 170 L 170 305"/>
+    <rect class="box" x="220" y="285" width="140" height="60" rx="4"/>
+    <text x="290" y="310" text-anchor="middle" class="label" font-size="14">Comillas</text>
+    <text x="290" y="330" text-anchor="middle" class="text" font-size="12">Pueden ser " " o ' '</text>
+  </g>
+  
+  <!-- Flecha 3: Texto literal -->
+  <g transform="translate(0, 0)">
+    <path class="arrow" d="M 250 170 L 250 200"/>
+    <rect class="box" x="380" y="210" width="140" height="60" rx="4"/>
+    <text x="450" y="235" text-anchor="middle" class="label" font-size="14">Texto Literal</text>
+    <text x="450" y="255" text-anchor="middle" class="text" font-size="12">Se imprime tal cual</text>
+    <text x="450" y="268" text-anchor="middle" class="text" font-size="12">sin cambios</text>
+  </g>
+  
+  <!-- Flecha 4: Expresión -->
+  <g transform="translate(0, 0)">
+    <path class="arrow-green" d="M 335 170 L 335 285"/>
+    <rect class="box-expresion" x="540" y="285" width="160" height="60" rx="4"/>
+    <text x="620" y="310" text-anchor="middle" class="label" font-size="14" fill="#4caf50">Expresión</text>
+    <text x="620" y="330" text-anchor="middle" class="text" font-size="12">Se evalúa y reemplaza</text>
+  </g>
+  
+  <!-- Flecha 5: Otra expresión -->
+  <g transform="translate(0, 0)">
+    <path class="arrow-green" d="M 577 170 L 577 200"/>
+    <rect class="box-expresion" x="720" y="210" width="160" height="60" rx="4"/>
+    <text x="800" y="235" text-anchor="middle" class="label" font-size="14" fill="#4caf50">Otra Expresión</text>
+    <text x="800" y="255" text-anchor="middle" class="text" font-size="12">Pueden haber muchas</text>
+    <text x="800" y="268" text-anchor="middle" class="text" font-size="12">expresiones</text>
+  </g>
+  
+  <!-- ========== EJEMPLO DE EVALUACIÓN ========== -->
+  <line x1="50" y1="365" x2="850" y2="365" stroke="#cfd8dc" stroke-width="2"/>
+  
+  <g transform="translate(50, 385)">
+    <text x="0" y="0" class="text" font-weight="bold">Ejemplo:</text>
+    <text x="80" y="0" class="code" font-size="14">nombre = "Ana"</text>
+    <text x="250" y="0" class="code" font-size="14">edad = 25</text>
+  </g>
+  
+  <g transform="translate(50, 410)">
+    <text x="0" y="0" class="text" font-weight="bold">Resultado:</text>
+    <text x="90" y="0" class="code" font-size="14" fill="#2e7d32">"Hola, Ana, tenés 25 años"</text>
+  </g>
+</svg>

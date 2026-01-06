@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600">
+  <defs>
+    <style>
+      .inicio-fin { fill: #c8e6c9; stroke: #2e7d32; stroke-width: 2; rx: 30; }
+      .proceso { fill: #bbdefb; stroke: #1565c0; stroke-width: 2; }
+      .entrada-salida { fill: #fff9c4; stroke: #f57f17; stroke-width: 2; }
+      .flecha { stroke: #424242; stroke-width: 2; fill: none; marker-end: url(#arrowblack); }
+      .texto { font-family: 'Arial', sans-serif; font-size: 14px; fill: #212121; text-anchor: middle; }
+      .titulo { font-family: 'Arial', sans-serif; font-size: 20px; font-weight: bold; fill: #1565c0; }
+    </style>
+    <marker id="arrowblack" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#424242"/>
+    </marker>
+  </defs>
+  
+  <text x="250" y="30" text-anchor="middle" class="titulo">Flujo de un Programa Simple</text>
+  
+  <!-- Inicio -->
+  <ellipse class="inicio-fin" cx="250" cy="80" rx="80" ry="35"/>
+  <text x="250" y="87" class="texto" font-weight="bold">INICIO</text>
+  
+  <!-- Flecha -->
+  <path class="flecha" d="M 250 115 L 250 145"/>
+  
+  <!-- Entrada: nombre -->
+  <path class="entrada-salida" d="M 150 145 L 200 145 L 220 175 L 170 175 Z"/>
+  <path class="entrada-salida" d="M 280 145 L 330 145 L 350 175 L 300 175 Z"/>
+  <rect class="entrada-salida" x="200" y="145" width="80" height="30"/>
+  <text x="250" y="165" class="texto">input("Nombre")</text>
+  
+  <!-- Flecha -->
+  <path class="flecha" d="M 250 175 L 250 205"/>
+  
+  <!-- Entrada: edad -->
+  <path class="entrada-salida" d="M 150 205 L 200 205 L 220 235 L 170 235 Z"/>
+  <path class="entrada-salida" d="M 280 205 L 330 205 L 350 235 L 300 235 Z"/>
+  <rect class="entrada-salida" x="200" y="205" width="80" height="30"/>
+  <text x="250" y="225" class="texto">input("Edad")</text>
+  
+  <!-- Flecha -->
+  <path class="flecha" d="M 250 235 L 250 265"/>
+  
+  <!-- Proceso: conversión -->
+  <rect class="proceso" x="170" y="265" width="160" height="40"/>
+  <text x="250" y="280" class="texto">edad = int(edad)</text>
+  <text x="250" y="297" class="texto" font-size="12">(conversión a entero)</text>
+  
+  <!-- Flecha -->
+  <path class="flecha" d="M 250 305 L 250 335"/>
+  
+  <!-- Proceso: cálculo -->
+  <rect class="proceso" x="150" y="335" width="200" height="40"/>
+  <text x="250" y="350" class="texto">años_restantes = </text>
+  <text x="250" y="367" class="texto">100 - edad</text>
+  
+  <!-- Flecha -->
+  <path class="flecha" d="M 250 375 L 250 405"/>
+  
+  <!-- Salida: print -->
+  <path class="entrada-salida" d="M 120 405 L 170 405 L 190 435 L 140 435 Z"/>
+  <path class="entrada-salida" d="M 310 405 L 360 405 L 380 435 L 330 435 Z"/>
+  <rect class="entrada-salida" x="170" y="405" width="140" height="30"/>
+  <text x="250" y="425" class="texto">print(resultado)</text>
+  
+  <!-- Flecha -->
+  <path class="flecha" d="M 250 435 L 250 475"/>
+  
+  <!-- Fin -->
+  <ellipse class="inicio-fin" cx="250" cy="510" rx="80" ry="35"/>
+  <text x="250" y="517" class="texto" font-weight="bold">FIN</text>
+  
+  <!-- Leyenda -->
+  <g transform="translate(50, 560)">
+    <rect fill="#bbdefb" stroke="#1565c0" stroke-width="1" x="0" y="0" width="30" height="20"/>
+    <text x="40" y="15" style="font-family: Arial; font-size: 12px; fill: #424242;">Proceso</text>
+    
+    <path fill="#fff9c4" stroke="#f57f17" stroke-width="1" d="M 130 0 L 150 0 L 160 10 L 150 20 L 130 20 Z"/>
+    <text x="170" y="15" style="font-family: Arial; font-size: 12px; fill: #424242;">Entrada/Salida</text>
+    
+    <ellipse fill="#c8e6c9" stroke="#2e7d32" stroke-width="1" cx="310" cy="10" rx="25" ry="10"/>
+    <text x="345" y="15" style="font-family: Arial; font-size: 12px; fill: #424242;">Inicio/Fin</text>
+  </g>
+</svg>

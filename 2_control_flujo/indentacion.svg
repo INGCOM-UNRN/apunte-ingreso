@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <style>
+      .titulo { font-family: 'Arial', sans-serif; font-size: 22px; font-weight: bold; fill: #1565c0; }
+      .codigo { font-family: 'Courier New', monospace; font-size: 14px; fill: #212121; }
+      .comentario { font-family: 'Arial', sans-serif; font-size: 12px; fill: #666; }
+      .correcto { fill: #c8e6c9; stroke: #2e7d32; }
+      .incorrecto { fill: #ffcdd2; stroke: #c62828; }
+      .espacios { fill: #bbdefb; opacity: 0.3; }
+      .flecha { stroke: #1565c0; stroke-width: 2; fill: none; marker-end: url(#arrow-indent); }
+    </style>
+    <marker id="arrow-indent" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1565c0"/>
+    </marker>
+  </defs>
+  
+  <text x="300" y="30" text-anchor="middle" class="titulo">Indentación en Python</text>
+  <text x="300" y="50" text-anchor="middle" class="comentario">
+    Python usa espacios para definir bloques de código
+  </text>
+  
+  <!-- Ejemplo Correcto -->
+  <g transform="translate(50, 80)">
+    <rect class="correcto" width="240" height="140" rx="5" stroke-width="2"/>
+    <text x="120" y="25" text-anchor="middle" style="font-family: Arial; font-size: 14px; fill: #1b5e20; font-weight: bold;">
+      ✓ CORRECTO
+    </text>
+    
+    <text x="15" y="55" class="codigo">if edad >= 18:</text>
+    
+    <!-- Espacios visualizados -->
+    <rect class="espacios" x="15" y="65" width="10" height="15"/>
+    <rect class="espacios" x="25" y="65" width="10" height="15"/>
+    <rect class="espacios" x="35" y="65" width="10" height="15"/>
+    <rect class="espacios" x="45" y="65" width="10" height="15"/>
+    <text x="55" y="77" class="codigo">print("Mayor")</text>
+    
+    <rect class="espacios" x="15" y="90" width="10" height="15"/>
+    <rect class="espacios" x="25" y="90" width="10" height="15"/>
+    <rect class="espacios" x="35" y="90" width="10" height="15"/>
+    <rect class="espacios" x="45" y="90" width="10" height="15"/>
+    <text x="55" y="102" class="codigo">print("Votar")</text>
+    
+    <text x="15" y="127" class="codigo">print("Fin")</text>
+    
+    <!-- Flecha indicando espacios -->
+    <path class="flecha" d="M 30 115 L 30 135"/>
+    <text x="120" y="153" text-anchor="middle" class="comentario" fill="#2e7d32">
+      4 espacios = 1 nivel de indentación
+    </text>
+  </g>
+  
+  <!-- Ejemplo Incorrecto -->
+  <g transform="translate(310, 80)">
+    <rect class="incorrecto" width="240" height="140" rx="5" stroke-width="2"/>
+    <text x="120" y="25" text-anchor="middle" style="font-family: Arial; font-size: 14px; fill: #b71c1c; font-weight: bold;">
+      ✗ INCORRECTO
+    </text>
+    
+    <text x="15" y="55" class="codigo">if edad >= 18:</text>
+    <text x="15" y="77" class="codigo">print("Mayor")</text>
+    <text x="15" y="102" class="codigo">print("Votar")</text>
+    <text x="15" y="127" class="codigo">print("Fin")</text>
+    
+    <!-- Cruz indicando error -->
+    <line x1="200" y1="70" x2="220" y2="90" stroke="#c62828" stroke-width="3"/>
+    <line x1="220" y1="70" x2="200" y2="90" stroke="#c62828" stroke-width="3"/>
+    
+    <text x="120" y="153" text-anchor="middle" class="comentario" fill="#c62828">
+      ¡Error! Falta indentación
+    </text>
+  </g>
+  
+  <!-- Ejemplo Anidado -->
+  <g transform="translate(50, 260)">
+    <rect fill="#f5f5f5" stroke="#1565c0" width="500" height="110" rx="5" stroke-width="2"/>
+    <text x="250" y="25" text-anchor="middle" style="font-family: Arial; font-size: 14px; fill: #1565c0; font-weight: bold;">
+      Bloques Anidados (varios niveles)
+    </text>
+    
+    <text x="15" y="50" class="codigo">if tiene_dinero:</text>
+    
+    <rect class="espacios" x="15" y="55" width="40" height="15"/>
+    <text x="55" y="67" class="codigo">if precio <= dinero:</text>
+    
+    <rect class="espacios" x="15" y="72" width="80" height="15"/>
+    <text x="95" y="84" class="codigo">print("Comprar")</text>
+    
+    <rect class="espacios" x="15" y="89" width="40" height="15"/>
+    <text x="55" y="101" class="codigo">print("Transacción OK")</text>
+    
+    <!-- Indicadores de nivel -->
+    <line x1="10" y1="55" x2="10" y2="105" stroke="#1565c0" stroke-width="2"/>
+    <line x1="8" y1="55" x2="12" y2="55" stroke="#1565c0" stroke-width="2"/>
+    <text x="250" y="125" text-anchor="middle" class="comentario" fill="#1565c0">
+      Nivel 0 → Nivel 1 (4 espacios) → Nivel 2 (8 espacios)
+    </text>
+  </g>
+  
+  <!-- Regla importante -->
+  <g transform="translate(50, 385)">
+    <text x="0" y="0" style="font-family: Arial; font-size: 13px; fill: #d32f2f; font-weight: bold;">
+      ⚠️ Regla de oro: Siempre usar 4 espacios. NO mezclar espacios y tabs.
+    </text>
+  </g>
+</svg>

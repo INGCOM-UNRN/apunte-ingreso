@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 650">
+  <defs>
+    <style>
+      .log-box { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 5; }
+      .titulo { font-family: 'Arial', sans-serif; font-size: 24px; font-weight: bold; fill: #e65100; }
+      .operador { font-family: 'Courier New', monospace; font-size: 26px; font-weight: bold; fill: #f57c00; }
+      .nombre { font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold; fill: #e65100; }
+      .tabla-header { fill: #ffe0b2; stroke: #f57c00; stroke-width: 1; }
+      .tabla-cell { fill: #fff8e1; stroke: #ffb74d; stroke-width: 1; }
+      .texto-tabla { font-family: 'Courier New', monospace; font-size: 13px; fill: #424242; text-anchor: middle; }
+      .true { fill: #1b5e20; font-weight: bold; }
+      .false { fill: #c62828; font-weight: bold; }
+    </style>
+  </defs>
+  
+  <text x="400" y="35" text-anchor="middle" class="titulo">Operadores Lógicos</text>
+  
+  <!-- AND -->
+  <g transform="translate(50, 70)">
+    <rect class="log-box" width="220" height="50"/>
+    <text x="110" y="33" text-anchor="middle" class="operador">and</text>
+  </g>
+  <text x="160" y="140" text-anchor="middle" class="nombre">Y lógico (ambas deben ser True)</text>
+  
+  <!-- Tabla AND -->
+  <g transform="translate(50, 155)">
+    <rect class="tabla-header" x="0" y="0" width="70" height="30"/>
+    <rect class="tabla-header" x="70" y="0" width="70" height="30"/>
+    <rect class="tabla-header" x="140" y="0" width="80" height="30"/>
+    
+    <text x="35" y="20" class="texto-tabla">A</text>
+    <text x="105" y="20" class="texto-tabla">B</text>
+    <text x="180" y="20" class="texto-tabla">A and B</text>
+    
+    <rect class="tabla-cell" x="0" y="30" width="70" height="25"/>
+    <rect class="tabla-cell" x="70" y="30" width="70" height="25"/>
+    <rect class="tabla-cell" x="140" y="30" width="80" height="25"/>
+    <text x="35" y="47" class="texto-tabla true">True</text>
+    <text x="105" y="47" class="texto-tabla true">True</text>
+    <text x="180" y="47" class="texto-tabla true">True</text>
+    
+    <rect class="tabla-cell" x="0" y="55" width="70" height="25"/>
+    <rect class="tabla-cell" x="70" y="55" width="70" height="25"/>
+    <rect class="tabla-cell" x="140" y="55" width="80" height="25"/>
+    <text x="35" y="72" class="texto-tabla true">True</text>
+    <text x="105" y="72" class="texto-tabla false">False</text>
+    <text x="180" y="72" class="texto-tabla false">False</text>
+    
+    <rect class="tabla-cell" x="0" y="80" width="70" height="25"/>
+    <rect class="tabla-cell" x="70" y="80" width="70" height="25"/>
+    <rect class="tabla-cell" x="140" y="80" width="80" height="25"/>
+    <text x="35" y="97" class="texto-tabla false">False</text>
+    <text x="105" y="97" class="texto-tabla true">True</text>
+    <text x="180" y="97" class="texto-tabla false">False</text>
+    
+    <rect class="tabla-cell" x="0" y="105" width="70" height="25"/>
+    <rect class="tabla-cell" x="70" y="105" width="70" height="25"/>
+    <rect class="tabla-cell" x="140" y="105" width="80" height="25"/>
+    <text x="35" y="122" class="texto-tabla false">False</text>
+    <text x="105" y="122" class="texto-tabla false">False</text>
+    <text x="180" y="122" class="texto-tabla false">False</text>
+  </g>
+  
+  <!-- OR -->
+  <g transform="translate(310, 70)">
+    <rect class="log-box" width="220" height="50"/>
+    <text x="110" y="33" text-anchor="middle" class="operador">or</text>
+  </g>
+  <text x="420" y="140" text-anchor="middle" class="nombre">O lógico (al menos una debe ser True)</text>
+  
+  <!-- Tabla OR -->
+  <g transform="translate(310, 155)">
+    <rect class="tabla-header" x="0" y="0" width="70" height="30"/>
+    <rect class="tabla-header" x="70" y="0" width="70" height="30"/>
+    <rect class="tabla-header" x="140" y="0" width="80" height="30"/>
+    
+    <text x="35" y="20" class="texto-tabla">A</text>
+    <text x="105" y="20" class="texto-tabla">B</text>
+    <text x="180" y="20" class="texto-tabla">A or B</text>
+    
+    <rect class="tabla-cell" x="0" y="30" width="70" height="25"/>
+    <rect class="tabla-cell" x="70" y="30" width="70" height="25"/>
+    <rect class="tabla-cell" x="140" y="30" width="80" height="25"/>
+    <text x="35" y="47" class="texto-tabla true">True</text>
+    <text x="105" y="47" class="texto-tabla true">True</text>
+    <text x="180" y="47" class="texto-tabla true">True</text>
+    
+    <rect class="tabla-cell" x="0" y="55" width="70" height="25"/>
+    <rect class="tabla-cell" x="70" y="55" width="70" height="25"/>
+    <rect class="tabla-cell" x="140" y="55" width="80" height="25"/>
+    <text x="35" y="72" class="texto-tabla true">True</text>
+    <text x="105" y="72" class="texto-tabla false">False</text>
+    <text x="180" y="72" class="texto-tabla true">True</text>
+    
+    <rect class="tabla-cell" x="0" y="80" width="70" height="25"/>
+    <rect class="tabla-cell" x="70" y="80" width="70" height="25"/>
+    <rect class="tabla-cell" x="140" y="80" width="80" height="25"/>
+    <text x="35" y="97" class="texto-tabla false">False</text>
+    <text x="105" y="97" class="texto-tabla true">True</text>
+    <text x="180" y="97" class="texto-tabla true">True</text>
+    
+    <rect class="tabla-cell" x="0" y="105" width="70" height="25"/>
+    <rect class="tabla-cell" x="70" y="105" width="70" height="25"/>
+    <rect class="tabla-cell" x="140" y="105" width="80" height="25"/>
+    <text x="35" y="122" class="texto-tabla false">False</text>
+    <text x="105" y="122" class="texto-tabla false">False</text>
+    <text x="180" y="122" class="texto-tabla false">False</text>
+  </g>
+  
+  <!-- NOT -->
+  <g transform="translate(570, 70)">
+    <rect class="log-box" width="180" height="50"/>
+    <text x="90" y="33" text-anchor="middle" class="operador">not</text>
+  </g>
+  <text x="660" y="140" text-anchor="middle" class="nombre">Negación (invierte)</text>
+  
+  <!-- Tabla NOT -->
+  <g transform="translate(570, 155)">
+    <rect class="tabla-header" x="0" y="0" width="80" height="30"/>
+    <rect class="tabla-header" x="80" y="0" width="100" height="30"/>
+    
+    <text x="40" y="20" class="texto-tabla">A</text>
+    <text x="130" y="20" class="texto-tabla">not A</text>
+    
+    <rect class="tabla-cell" x="0" y="30" width="80" height="25"/>
+    <rect class="tabla-cell" x="80" y="30" width="100" height="25"/>
+    <text x="40" y="47" class="texto-tabla true">True</text>
+    <text x="130" y="47" class="texto-tabla false">False</text>
+    
+    <rect class="tabla-cell" x="0" y="55" width="80" height="25"/>
+    <rect class="tabla-cell" x="80" y="55" width="100" height="25"/>
+    <text x="40" y="72" class="texto-tabla false">False</text>
+    <text x="130" y="72" class="texto-tabla true">True</text>
+  </g>
+  
+  <!-- Ejemplos prácticos -->
+  <g transform="translate(50, 350)">
+    <text x="0" y="0" class="nombre">Ejemplos Prácticos:</text>
+    
+    <rect fill="#ffe0b2" stroke="#f57c00" rx="5" x="0" y="10" width="700" height="240"/>
+    
+    <text x="20" y="40" style="font-family: 'Courier New'; font-size: 14px; fill: #424242;">
+      # AND: ambas condiciones deben cumplirse
+    </text>
+    <text x="20" y="65" style="font-family: 'Courier New'; font-size: 14px; fill: #424242;">
+      edad = 20
+    </text>
+    <text x="20" y="85" style="font-family: 'Courier New'; font-size: 14px; fill: #424242;">
+      tiene_licencia = True
+    </text>
+    <text x="20" y="105" style="font-family: 'Courier New'; font-size: 14px; fill: #1b5e20; font-weight: bold;">
+      puede_conducir = edad >= 18 and tiene_licencia  # True
+    </text>
+    
+    <text x="20" y="140" style="font-family: 'Courier New'; font-size: 14px; fill: #424242;">
+      # OR: al menos una condición debe cumplirse
+    </text>
+    <text x="20" y="165" style="font-family: 'Courier New'; font-size: 14px; fill: #424242;">
+      es_fin_semana = True
+    </text>
+    <text x="20" y="185" style="font-family: 'Courier New'; font-size: 14px; fill: #424242;">
+      es_feriado = False
+    </text>
+    <text x="20" y="205" style="font-family: 'Courier New'; font-size: 14px; fill: #1b5e20; font-weight: bold;">
+      puede_descansar = es_fin_semana or es_feriado  # True
+    </text>
+    
+    <text x="20" y="235" style="font-family: 'Courier New'; font-size: 14px; fill: #1b5e20; font-weight: bold;">
+      no_puede_descansar = not puede_descansar  # False
+    </text>
+  </g>
+</svg>

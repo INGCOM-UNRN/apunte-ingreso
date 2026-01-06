@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .box-error { fill: #ffebee; stroke: #c62828; stroke-width: 2; }
+      .box-success { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2; }
+      .arrow { stroke: #424242; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-error { stroke: #c62828; stroke-width: 2; fill: none; marker-end: url(#arrowhead-error); }
+      .arrow-success { stroke: #388e3c; stroke-width: 2; fill: none; marker-end: url(#arrowhead-success); }
+      .text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; fill: #212121; }
+      .text-small { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; fill: #424242; }
+      .text-code { font-family: 'Consolas', monospace; font-size: 14px; fill: #1565c0; }
+      .title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #1976d2; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#424242" />
+    </marker>
+    <marker id="arrowhead-error" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#c62828" />
+    </marker>
+    <marker id="arrowhead-success" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388e3c" />
+    </marker>
+  </defs>
+
+  <text x="400" y="30" text-anchor="middle" class="title">Flujo de Ejecución Try-Except</text>
+
+  <!-- Inicio -->
+  <ellipse cx="400" cy="70" rx="60" ry="30" fill="#64b5f6" stroke="#1976d2" stroke-width="2"/>
+  <text x="400" y="78" text-anchor="middle" class="text">Inicio</text>
+
+  <!-- Arrow to try -->
+  <path d="M 400 100 L 400 130" class="arrow"/>
+
+  <!-- Try block -->
+  <rect x="300" y="130" width="200" height="80" class="box" rx="5"/>
+  <text x="400" y="155" text-anchor="middle" class="text-code">try:</text>
+  <text x="400" y="180" text-anchor="middle" class="text-small">Código que puede</text>
+  <text x="400" y="200" text-anchor="middle" class="text-small">generar excepciones</text>
+
+  <!-- Arrow decision -->
+  <path d="M 400 210 L 400 240" class="arrow"/>
+
+  <!-- Decision diamond -->
+  <path d="M 400 240 L 500 290 L 400 340 L 300 290 Z" fill="#fff9c4" stroke="#f57f17" stroke-width="2"/>
+  <text x="400" y="285" text-anchor="middle" class="text-small">¿Ocurrió</text>
+  <text x="400" y="305" text-anchor="middle" class="text-small">excepción?</text>
+
+  <!-- No exception path (success) -->
+  <path d="M 500 290 L 600 290 L 600 450" class="arrow-success"/>
+  <text x="560" y="285" class="text-small" fill="#388e3c">NO ✓</text>
+
+  <!-- Exception path (error) -->
+  <path d="M 300 290 L 180 290 L 180 380" class="arrow-error"/>
+  <text x="220" y="285" class="text-small" fill="#c62828">SÍ ✗</text>
+
+  <!-- Except block -->
+  <rect x="80" y="380" width="200" height="80" class="box-error" rx="5"/>
+  <text x="180" y="405" text-anchor="middle" class="text-code">except:</text>
+  <text x="180" y="430" text-anchor="middle" class="text-small">Manejo de</text>
+  <text x="180" y="450" text-anchor="middle" class="text-small">la excepción</text>
+
+  <!-- Arrow from except to end -->
+  <path d="M 180 460 L 180 500 L 400 500" class="arrow"/>
+
+  <!-- Success continuation -->
+  <rect x="500" y="450" width="200" height="50" class="box-success" rx="5"/>
+  <text x="600" y="470" text-anchor="middle" class="text-small">Código después</text>
+  <text x="600" y="490" text-anchor="middle" class="text-small">del try (si no hay error)</text>
+
+  <!-- Arrow to final -->
+  <path d="M 600 500 L 400 500" class="arrow"/>
+
+  <!-- End -->
+  <ellipse cx="400" cy="550" rx="80" ry="30" fill="#81c784" stroke="#388e3c" stroke-width="2"/>
+  <text x="400" y="558" text-anchor="middle" class="text">Programa continúa</text>
+
+  <!-- Legend -->
+  <rect x="20" y="20" width="150" height="60" fill="white" stroke="#bdbdbd" stroke-width="1" rx="3"/>
+  <text x="30" y="40" class="text-small">📗 Try: intenta</text>
+  <text x="30" y="60" class="text-small">📕 Except: atrapa</text>
+  <text x="30" y="80" class="text-small">✓ Continúa</text>
+</svg>

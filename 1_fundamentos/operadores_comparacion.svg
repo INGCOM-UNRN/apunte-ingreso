@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .comp-box { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2; rx: 5; }
+      .titulo { font-family: 'Arial', sans-serif; font-size: 24px; font-weight: bold; fill: #1b5e20; }
+      .operador { font-family: 'Courier New', monospace; font-size: 28px; font-weight: bold; fill: #2e7d32; }
+      .nombre { font-family: 'Arial', sans-serif; font-size: 15px; font-weight: bold; fill: #1b5e20; }
+      .ejemplo { font-family: 'Courier New', monospace; font-size: 13px; fill: #424242; }
+      .true { font-family: 'Courier New', monospace; font-size: 14px; fill: #1b5e20; font-weight: bold; }
+      .false { font-family: 'Courier New', monospace; font-size: 14px; fill: #c62828; font-weight: bold; }
+    </style>
+  </defs>
+  
+  <text x="400" y="35" text-anchor="middle" class="titulo">Operadores de Comparación</text>
+  <text x="400" y="60" text-anchor="middle" style="font-family: Arial; font-size: 14px; fill: #424242;">
+    (Retornan True o False)
+  </text>
+  
+  <!-- Fila 1 -->
+  <!-- Igual -->
+  <g transform="translate(50, 90)">
+    <rect class="comp-box" width="220" height="140"/>
+    <text x="110" y="40" text-anchor="middle" class="operador">==</text>
+    <text x="110" y="65" text-anchor="middle" class="nombre">Igual a</text>
+    <text x="15" y="95" class="ejemplo">5 == 5</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="true">True</text>
+    <text x="15" y="115" class="ejemplo">5 == 3</text>
+    <text x="110" y="115" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="115" class="false">False</text>
+  </g>
+  
+  <!-- Diferente -->
+  <g transform="translate(290, 90)">
+    <rect class="comp-box" width="220" height="140"/>
+    <text x="110" y="40" text-anchor="middle" class="operador">!=</text>
+    <text x="110" y="65" text-anchor="middle" class="nombre">Diferente de</text>
+    <text x="15" y="95" class="ejemplo">5 != 3</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="true">True</text>
+    <text x="15" y="115" class="ejemplo">5 != 5</text>
+    <text x="110" y="115" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="115" class="false">False</text>
+  </g>
+  
+  <!-- Mayor -->
+  <g transform="translate(530, 90)">
+    <rect class="comp-box" width="220" height="140"/>
+    <text x="110" y="40" text-anchor="middle" class="operador">&gt;</text>
+    <text x="110" y="65" text-anchor="middle" class="nombre">Mayor que</text>
+    <text x="15" y="95" class="ejemplo">8 &gt; 5</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="true">True</text>
+    <text x="15" y="115" class="ejemplo">3 &gt; 10</text>
+    <text x="110" y="115" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="115" class="false">False</text>
+  </g>
+  
+  <!-- Fila 2 -->
+  <!-- Menor -->
+  <g transform="translate(50, 260)">
+    <rect class="comp-box" width="220" height="140"/>
+    <text x="110" y="40" text-anchor="middle" class="operador">&lt;</text>
+    <text x="110" y="65" text-anchor="middle" class="nombre">Menor que</text>
+    <text x="15" y="95" class="ejemplo">3 &lt; 10</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="true">True</text>
+    <text x="15" y="115" class="ejemplo">8 &lt; 5</text>
+    <text x="110" y="115" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="115" class="false">False</text>
+  </g>
+  
+  <!-- Mayor o igual -->
+  <g transform="translate(290, 260)">
+    <rect class="comp-box" width="220" height="140"/>
+    <text x="110" y="40" text-anchor="middle" class="operador">&gt;=</text>
+    <text x="110" y="65" text-anchor="middle" class="nombre">Mayor o igual</text>
+    <text x="15" y="95" class="ejemplo">5 &gt;= 5</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="true">True</text>
+    <text x="15" y="115" class="ejemplo">3 &gt;= 5</text>
+    <text x="110" y="115" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="115" class="false">False</text>
+  </g>
+  
+  <!-- Menor o igual -->
+  <g transform="translate(530, 260)">
+    <rect class="comp-box" width="220" height="140"/>
+    <text x="110" y="40" text-anchor="middle" class="operador">&lt;=</text>
+    <text x="110" y="65" text-anchor="middle" class="nombre">Menor o igual</text>
+    <text x="15" y="95" class="ejemplo">3 &lt;= 5</text>
+    <text x="110" y="95" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="95" class="true">True</text>
+    <text x="15" y="115" class="ejemplo">8 &lt;= 5</text>
+    <text x="110" y="115" text-anchor="middle" class="ejemplo">→</text>
+    <text x="150" y="115" class="false">False</text>
+  </g>
+</svg>
