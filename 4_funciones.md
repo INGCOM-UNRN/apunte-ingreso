@@ -17,6 +17,8 @@ Al finalizar este capítulo serás capaz de:
 - Documentar funciones profesionalmente
 - Aplicar buenas prácticas en el diseño de funciones
 - Usar funciones lambda y recursivas
+- **Descomponer problemas complejos en funciones más simples**
+- **Aplicar principios de diseño funcional (SRP, DRY, abstracción)**
 :::
 
 ## Mapa del Capítulo
@@ -68,7 +70,13 @@ graph TB
     Pract2[Diseño de Funciones]
     Pract3[Errores Comunes]
     
-    %% Sección 8: Final
+    %% Sección 8: Descomposición
+    Decomp[Descomposición Funcional]
+    Decomp1[Dividir Problemas]
+    Decomp2[Casos de Estudio]
+    Decomp3[Estrategias]
+    
+    %% Sección 9: Final
     Final[Cierre]
     Final1[Ejercicios Prácticos]
     Final2[Resumen]
@@ -96,7 +104,10 @@ graph TB
     Adv4 --> Pract
     Pract --> Pract1 --> Pract2 --> Pract3
     
-    Pract3 --> Final
+    Pract3 --> Decomp
+    Decomp --> Decomp1 --> Decomp2 --> Decomp3
+    
+    Decomp3 --> Final
     Final --> Final1 --> Final2 --> Final3
     
     %% Estilos
@@ -1816,6 +1827,1109 @@ crear_cuenta(
 
 ---
 
+(descomposicion-funcional)=
+## Descomposición Funcional: Dividir para Conquistar
+
+:::{admonition} ¿Qué es la Descomposición Funcional?
+:class: tip
+
+La **descomposición funcional** es el proceso de dividir un problema complejo en subproblemas más pequeños y manejables, donde cada subproblema se resuelve con una función específica.
+
+Es como desarmar un motor complejo en sus piezas individuales: pistones, bielas, válvulas... cada una con una función clara y específica.
+:::
+
+### ¿Por qué Descomponer?
+
+Imaginate que tenés que escribir un programa de gestión de biblioteca. Si intentás escribir todo en una sola función gigante, terminás con algo así:
+
+```python
+# ❌ Código monolítico (todo junto)
+def sistema_biblioteca():
+    """Función gigante que hace TODO."""
+    # 300 líneas de código mezclando:
+    # - Validar usuarios
+    # - Buscar libros
+    # - Registrar préstamos
+    # - Calcular multas
+    # - Generar reportes
+    # ... ¡imposible de mantener!
+```
+
+**Problemas de este enfoque:**
+- 🐛 **Difícil de debuggear**: Si hay un error, ¿dónde está?
+- 🔍 **Difícil de entender**: ¿Qué hace exactamente?
+- ♻️ **No se puede reutilizar**: Todo está mezclado
+- 🧪 **No se puede testear**: No se puede probar cada parte
+- 👥 **Difícil trabajar en equipo**: Todos tocan el mismo código
+
+### Principios de Descomposición
+
+#### 1. Principio de Responsabilidad Única (SRP)
+
+Cada función debe hacer **una sola cosa**, y hacerla bien.
+
+```python
+# ❌ Hace demasiadas cosas
+def procesar_pedido(cliente, items):
+    # Valida cliente
+    # Valida stock
+    # Calcula precio
+    # Aplica descuentos
+    # Genera factura
+    # Envía email
+    # Actualiza inventario
+    pass
+
+# ✓ Cada función una responsabilidad
+def validar_cliente(cliente):
+    """Solo valida datos del cliente."""
+    pass
+
+def verificar_stock(items):
+    """Solo verifica disponibilidad."""
+    pass
+
+def calcular_total(items, descuento=0):
+    """Solo calcula el precio total."""
+    pass
+
+def generar_factura(pedido):
+    """Solo genera el documento."""
+    pass
+
+def enviar_email(cliente, factura):
+    """Solo envía el email."""
+    pass
+
+def actualizar_inventario(items):
+    """Solo actualiza el stock."""
+    pass
+```
+
+#### 2. Abstracción: Esconder la Complejidad
+
+Las funciones te permiten **usar** algo sin necesitar saber **cómo** funciona internamente.
+
+```python
+# Función de alto nivel (abstracción)
+def procesar_pedido(cliente, items):
+    """Orquesta todas las operaciones."""
+    validar_cliente(cliente)
+    verificar_stock(items)
+    total = calcular_total(items)
+    factura = generar_factura(cliente, items, total)
+    enviar_email(cliente, factura)
+    actualizar_inventario(items)
+    return factura
+
+# ¡Fácil de leer y entender el flujo general!
+```
+
+#### 3. DRY (Don't Repeat Yourself)
+
+Si hacés algo más de una vez, probablemente debería ser una función.
+
+```python
+# ❌ Código repetitivo
+edad1 = 2024 - 1998
+edad2 = 2024 - 2005
+edad3 = 2024 - 1990
+
+# ✓ Función reutilizable
+def calcular_edad(año_nacimiento):
+    """Calcula edad a partir del año de nacimiento."""
+    return 2024 - año_nacimiento
+
+edad1 = calcular_edad(1998)
+edad2 = calcular_edad(2005)
+edad3 = calcular_edad(1990)
+```
+
+### Proceso de Descomposición: Paso a Paso
+
+Vamos a descomponer un problema real paso a paso.
+
+#### Problema: Sistema de Cálculo de Notas
+
+**Requerimientos:**
+- Pedir notas de 3 parciales
+- Calcular promedio
+- Determinar si aprobó (≥6)
+- Mostrar mensaje según resultado
+- Calcular nota necesaria en recuperatorio
+
+#### Paso 1: Identificar las Tareas Principales
+
+Leé el problema y subrayá los **verbos de acción**:
+- **Pedir** notas
+- **Calcular** promedio
+- **Determinar** si aprobó
+- **Mostrar** mensaje
+- **Calcular** nota necesaria
+
+Cada verbo es potencialmente una función.
+
+#### Paso 2: Diseñar la Estructura
+
+```python
+# Estructura de alto nivel (pseudocódigo)
+def main():
+    notas = pedir_notas()
+    promedio = calcular_promedio(notas)
+    aprobado = verificar_aprobacion(promedio)
+    mostrar_resultado(promedio, aprobado)
+    
+    if not aprobado:
+        nota_necesaria = calcular_nota_recuperatorio(promedio)
+        print(f"Necesitás {nota_necesaria} en el recuperatorio")
+```
+
+#### Paso 3: Implementar Cada Función
+
+```python
+def pedir_notas():
+    """Solicita las 3 notas al usuario.
+    
+    Returns:
+        list: Lista con las 3 notas ingresadas.
+    """
+    notas = []
+    for i in range(1, 4):
+        while True:
+            try:
+                nota = float(input(f"Ingresá la nota del parcial {i} (0-10): "))
+                if 0 <= nota <= 10:
+                    notas.append(nota)
+                    break
+                else:
+                    print("La nota debe estar entre 0 y 10")
+            except ValueError:
+                print("Ingresá un número válido")
+    return notas
+
+
+def calcular_promedio(notas):
+    """Calcula el promedio de una lista de notas.
+    
+    Args:
+        notas: Lista de notas numéricas.
+    
+    Returns:
+        float: El promedio de las notas.
+    """
+    return sum(notas) / len(notas)
+
+
+def verificar_aprobacion(promedio, nota_minima=6):
+    """Verifica si un promedio es aprobado.
+    
+    Args:
+        promedio: El promedio a verificar.
+        nota_minima: Nota mínima para aprobar (default: 6).
+    
+    Returns:
+        bool: True si aprobó, False si no.
+    """
+    return promedio >= nota_minima
+
+
+def mostrar_resultado(promedio, aprobado):
+    """Muestra el resultado de la evaluación.
+    
+    Args:
+        promedio: El promedio obtenido.
+        aprobado: Si el estudiante aprobó o no.
+    """
+    print(f"\n{'='*40}")
+    print(f"Promedio: {promedio:.2f}")
+    
+    if aprobado:
+        print("Estado: ✅ APROBADO")
+        if promedio >= 8:
+            print("¡Excelente trabajo!")
+        else:
+            print("Buen trabajo.")
+    else:
+        print("Estado: ❌ DESAPROBADO")
+    print(f"{'='*40}\n")
+
+
+def calcular_nota_recuperatorio(promedio_actual, nota_minima=6, peso_parciales=0.6, peso_recup=0.4):
+    """Calcula qué nota se necesita en el recuperatorio para aprobar.
+    
+    Args:
+        promedio_actual: Promedio actual de parciales.
+        nota_minima: Nota mínima para aprobar.
+        peso_parciales: Peso de los parciales en la nota final.
+        peso_recup: Peso del recuperatorio en la nota final.
+    
+    Returns:
+        float: Nota necesaria en el recuperatorio.
+    """
+    # promedio_actual * peso_parciales + nota_recup * peso_recup >= nota_minima
+    # Despejamos nota_recup:
+    nota_necesaria = (nota_minima - promedio_actual * peso_parciales) / peso_recup
+    return max(0, min(10, nota_necesaria))  # Entre 0 y 10
+
+
+def main():
+    """Función principal que orquesta el programa."""
+    print("Sistema de Cálculo de Notas")
+    print("="*40)
+    
+    notas = pedir_notas()
+    promedio = calcular_promedio(notas)
+    aprobado = verificar_aprobacion(promedio)
+    mostrar_resultado(promedio, aprobado)
+    
+    if not aprobado:
+        nota_recup = calcular_nota_recuperatorio(promedio)
+        if nota_recup <= 10:
+            print(f"Nota necesaria en recuperatorio: {nota_recup:.2f}")
+        else:
+            print("Lamentablemente, ya no es posible aprobar con el recuperatorio.")
+
+
+# Ejecutar el programa
+if __name__ == "__main__":
+    main()
+```
+
+#### Paso 4: Analizar los Beneficios
+
+Comparemos:
+
+::::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item-card} ❌ Sin Descomposición
+```python
+# Todo en una función
+def sistema_notas():
+    # 80 líneas mezcladas
+    # Difícil de leer
+    # Imposible de testear
+    # No reutilizable
+    pass
+```
+
+**Problemas:**
+- No se puede reutilizar `calcular_promedio`
+- No se puede testear `verificar_aprobacion` aisladamente
+- Cambiar la lógica de input rompe todo
+:::
+
+:::{grid-item-card} ✅ Con Descomposición
+```python
+# Funciones separadas
+pedir_notas()
+calcular_promedio()
+verificar_aprobacion()
+mostrar_resultado()
+calcular_nota_recuperatorio()
+main()
+```
+
+**Ventajas:**
+- ✅ Cada función se puede testear sola
+- ✅ `calcular_promedio` se reutiliza en otros programas
+- ✅ Cambiar input no afecta cálculos
+- ✅ Fácil de entender y mantener
+:::
+
+::::
+
+### Niveles de Descomposición
+
+La descomposición suele tener varios niveles de abstracción:
+
+```{figure} 4_funciones/niveles_descomposicion.svg
+:label: fig-niveles-descomposicion
+:align: center
+:width: 100%
+
+Niveles de descomposición: desde la función principal hasta las funciones auxiliares
+```
+
+```python
+# NIVEL 1: Función de máximo nivel (orquestación)
+def procesar_ventas_mensuales():
+    """Función principal que coordina todo el proceso."""
+    ventas = cargar_ventas()
+    reporte = generar_reporte(ventas)
+    guardar_reporte(reporte)
+
+# NIVEL 2: Funciones de nivel medio (operaciones principales)
+def generar_reporte(ventas):
+    """Genera reporte de ventas."""
+    resumen = calcular_resumen(ventas)
+    grafico = crear_grafico(ventas)
+    return formatear_reporte(resumen, grafico)
+
+# NIVEL 3: Funciones de bajo nivel (operaciones básicas)
+def calcular_resumen(ventas):
+    """Calcula estadísticas de ventas."""
+    total = calcular_total(ventas)
+    promedio = calcular_promedio(ventas)
+    maximo = encontrar_maximo(ventas)
+    return {"total": total, "promedio": promedio, "max": maximo}
+
+# NIVEL 4: Funciones auxiliares (operaciones atómicas)
+def calcular_total(valores):
+    """Suma todos los valores."""
+    return sum(valores)
+```
+
+**Principio:** Las funciones de nivel superior **usan** las de nivel inferior, creando una jerarquía clara.
+
+### Caso de Estudio 1: Validador de Contraseñas
+
+Vamos a descomponer un programa que valida contraseñas.
+
+**Requerimientos:**
+- Longitud mínima de 8 caracteres
+- Al menos una mayúscula
+- Al menos una minúscula
+- Al menos un número
+- Al menos un carácter especial
+- Dar feedback específico de qué falta
+
+#### Solución Sin Descomponer (Monolítica)
+
+```python
+# ❌ Todo en una función
+def validar_password(password):
+    """Valida una contraseña según criterios."""
+    if len(password) < 8:
+        return False, "Muy corta"
+    
+    tiene_mayuscula = False
+    tiene_minuscula = False
+    tiene_numero = False
+    tiene_especial = False
+    
+    for char in password:
+        if char.isupper():
+            tiene_mayuscula = True
+        elif char.islower():
+            tiene_minuscula = True
+        elif char.isdigit():
+            tiene_numero = True
+        elif char in "!@#$%^&*()_+-=[]{}|;:,.<>?":
+            tiene_especial = True
+    
+    errores = []
+    if not tiene_mayuscula:
+        errores.append("Falta mayúscula")
+    if not tiene_minuscula:
+        errores.append("Falta minúscula")
+    if not tiene_numero:
+        errores.append("Falta número")
+    if not tiene_especial:
+        errores.append("Falta carácter especial")
+    
+    if errores:
+        return False, ", ".join(errores)
+    return True, "Contraseña válida"
+
+# Difícil de entender, modificar y testear
+```
+
+#### Solución Descompuesta (Modular)
+
+```python
+# ✅ Descompuesto en funciones especializadas
+
+def tiene_longitud_minima(password, minimo=8):
+    """Verifica si la contraseña tiene la longitud mínima.
+    
+    Args:
+        password: Contraseña a validar.
+        minimo: Longitud mínima requerida.
+    
+    Returns:
+        bool: True si cumple, False si no.
+    """
+    return len(password) >= minimo
+
+
+def tiene_mayuscula(password):
+    """Verifica si la contraseña tiene al menos una mayúscula.
+    
+    Args:
+        password: Contraseña a validar.
+    
+    Returns:
+        bool: True si tiene mayúscula, False si no.
+    """
+    return any(char.isupper() for char in password)
+
+
+def tiene_minuscula(password):
+    """Verifica si la contraseña tiene al menos una minúscula.
+    
+    Args:
+        password: Contraseña a validar.
+    
+    Returns:
+        bool: True si tiene minúscula, False si no.
+    """
+    return any(char.islower() for char in password)
+
+
+def tiene_numero(password):
+    """Verifica si la contraseña tiene al menos un número.
+    
+    Args:
+        password: Contraseña a validar.
+    
+    Returns:
+        bool: True si tiene número, False si no.
+    """
+    return any(char.isdigit() for char in password)
+
+
+def tiene_caracter_especial(password):
+    """Verifica si la contraseña tiene al menos un carácter especial.
+    
+    Args:
+        password: Contraseña a validar.
+    
+    Returns:
+        bool: True si tiene carácter especial, False si no.
+    """
+    caracteres_especiales = "!@#$%^&*()_+-=[]{}|;:,.<>?"
+    return any(char in caracteres_especiales for char in password)
+
+
+def obtener_errores_validacion(password):
+    """Obtiene lista de errores de validación.
+    
+    Args:
+        password: Contraseña a validar.
+    
+    Returns:
+        list: Lista de mensajes de error.
+    """
+    errores = []
+    
+    if not tiene_longitud_minima(password):
+        errores.append("Debe tener al menos 8 caracteres")
+    if not tiene_mayuscula(password):
+        errores.append("Debe tener al menos una mayúscula")
+    if not tiene_minuscula(password):
+        errores.append("Debe tener al menos una minúscula")
+    if not tiene_numero(password):
+        errores.append("Debe tener al menos un número")
+    if not tiene_caracter_especial(password):
+        errores.append("Debe tener al menos un carácter especial")
+    
+    return errores
+
+
+def validar_password(password):
+    """Valida una contraseña según todos los criterios.
+    
+    Args:
+        password: Contraseña a validar.
+    
+    Returns:
+        tuple: (es_valida, mensaje)
+    """
+    errores = obtener_errores_validacion(password)
+    
+    if errores:
+        return False, " | ".join(errores)
+    return True, "✅ Contraseña válida"
+
+
+def solicitar_password():
+    """Solicita contraseña al usuario hasta que sea válida.
+    
+    Returns:
+        str: Contraseña válida ingresada.
+    """
+    while True:
+        password = input("Ingresá una contraseña: ")
+        valida, mensaje = validar_password(password)
+        
+        print(mensaje)
+        
+        if valida:
+            return password
+        print("Intentá de nuevo.\n")
+
+
+def main():
+    """Función principal del programa."""
+    print("=== Creación de Contraseña Segura ===\n")
+    print("Requisitos:")
+    print("  • Mínimo 8 caracteres")
+    print("  • Al menos una mayúscula")
+    print("  • Al menos una minúscula")
+    print("  • Al menos un número")
+    print("  • Al menos un carácter especial (!@#$...)\n")
+    
+    password = solicitar_password()
+    print(f"\n✅ Contraseña creada exitosamente!")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+**Ventajas de esta descomposición:**
+
+1. **Testeable:** Cada función se puede testear individualmente
+   ```python
+   assert tiene_mayuscula("Hola123!") == True
+   assert tiene_numero("Hola!") == False
+   ```
+
+2. **Reutilizable:** Podés usar `tiene_numero()` en otros contextos
+   ```python
+   if tiene_numero(codigo_postal):
+       print("El código postal contiene números")
+   ```
+
+3. **Modificable:** Cambiar un requisito es fácil
+   ```python
+   # Solo modificar una función
+   def tiene_longitud_minima(password, minimo=12):  # Cambio aquí
+       return len(password) >= minimo
+   ```
+
+4. **Legible:** El código se lee como una historia
+   ```python
+   # Se lee naturalmente:
+   if not tiene_mayuscula(password):
+       errores.append("Falta mayúscula")
+   ```
+
+### Caso de Estudio 2: Calculadora de IMC Completa
+
+Vamos a construir una calculadora de Índice de Masa Corporal (IMC) profesional.
+
+**Requerimientos:**
+- Pedir peso y altura
+- Validar que sean valores positivos
+- Calcular IMC
+- Clasificar según estándares OMS
+- Mostrar reporte formateado
+- Dar recomendación personalizada
+
+#### Análisis y Descomposición
+
+```python
+# PASO 1: Identificar responsabilidades
+# - Obtener datos (input)
+# - Validar datos (validación)
+# - Calcular IMC (cálculo)
+# - Clasificar IMC (clasificación)
+# - Generar recomendación (lógica de negocio)
+# - Mostrar resultado (output)
+
+# PASO 2: Diseñar funciones
+
+def solicitar_numero_positivo(mensaje, nombre_campo):
+    """Solicita un número positivo al usuario con validación.
+    
+    Args:
+        mensaje: Mensaje a mostrar al usuario.
+        nombre_campo: Nombre del campo para mensajes de error.
+    
+    Returns:
+        float: Número positivo ingresado.
+    """
+    while True:
+        try:
+            valor = float(input(mensaje))
+            if valor <= 0:
+                print(f"❌ {nombre_campo} debe ser positivo")
+                continue
+            return valor
+        except ValueError:
+            print(f"❌ Ingresá un número válido para {nombre_campo}")
+
+
+def calcular_imc(peso, altura):
+    """Calcula el Índice de Masa Corporal.
+    
+    Args:
+        peso: Peso en kilogramos.
+        altura: Altura en metros.
+    
+    Returns:
+        float: IMC calculado.
+    
+    Formula:
+        IMC = peso / (altura^2)
+    """
+    return peso / (altura ** 2)
+
+
+def clasificar_imc(imc):
+    """Clasifica el IMC según estándares de la OMS.
+    
+    Args:
+        imc: Índice de masa corporal.
+    
+    Returns:
+        str: Clasificación del IMC.
+    """
+    if imc < 18.5:
+        return "Bajo peso"
+    elif imc < 25:
+        return "Peso normal"
+    elif imc < 30:
+        return "Sobrepeso"
+    elif imc < 35:
+        return "Obesidad I"
+    elif imc < 40:
+        return "Obesidad II"
+    else:
+        return "Obesidad III"
+
+
+def obtener_emoji_clasificacion(clasificacion):
+    """Obtiene emoji según la clasificación.
+    
+    Args:
+        clasificacion: Clasificación del IMC.
+    
+    Returns:
+        str: Emoji representativo.
+    """
+    emojis = {
+        "Bajo peso": "⚠️",
+        "Peso normal": "✅",
+        "Sobrepeso": "⚠️",
+        "Obesidad I": "❌",
+        "Obesidad II": "❌",
+        "Obesidad III": "🚨"
+    }
+    return emojis.get(clasificacion, "")
+
+
+def generar_recomendacion(clasificacion):
+    """Genera recomendación personalizada según clasificación.
+    
+    Args:
+        clasificacion: Clasificación del IMC.
+    
+    Returns:
+        str: Recomendación personalizada.
+    """
+    recomendaciones = {
+        "Bajo peso": "Considerá consultar a un nutricionista para aumentar tu masa muscular de forma saludable.",
+        "Peso normal": "¡Excelente! Mantené tus hábitos saludables de alimentación y ejercicio.",
+        "Sobrepeso": "Considerá incorporar más actividad física y mejorar tu alimentación.",
+        "Obesidad I": "Te recomendamos consultar a un profesional de la salud para un plan personalizado.",
+        "Obesidad II": "Es importante que consultes con un médico para evaluación y tratamiento.",
+        "Obesidad III": "Te recomendamos urgente consulta médica para prevenir complicaciones."
+    }
+    return recomendaciones.get(clasificacion, "Consultá con un profesional de la salud.")
+
+
+def calcular_peso_ideal(altura):
+    """Calcula rango de peso ideal para una altura.
+    
+    Args:
+        altura: Altura en metros.
+    
+    Returns:
+        tuple: (peso_minimo, peso_maximo) para IMC normal (18.5-25).
+    """
+    peso_minimo = 18.5 * (altura ** 2)
+    peso_maximo = 25 * (altura ** 2)
+    return peso_minimo, peso_maximo
+
+
+def mostrar_reporte(peso, altura, imc, clasificacion):
+    """Muestra reporte completo formateado.
+    
+    Args:
+        peso: Peso en kg.
+        altura: Altura en m.
+        imc: IMC calculado.
+        clasificacion: Clasificación del IMC.
+    """
+    emoji = obtener_emoji_clasificacion(clasificacion)
+    recomendacion = generar_recomendacion(clasificacion)
+    peso_min, peso_max = calcular_peso_ideal(altura)
+    
+    print("\n" + "="*50)
+    print("         REPORTE DE ÍNDICE DE MASA CORPORAL")
+    print("="*50)
+    print(f"\n📊 Datos ingresados:")
+    print(f"   • Peso: {peso:.1f} kg")
+    print(f"   • Altura: {altura:.2f} m")
+    print(f"\n📈 Resultados:")
+    print(f"   • IMC: {imc:.2f}")
+    print(f"   • Clasificación: {emoji} {clasificacion}")
+    print(f"\n💡 Recomendación:")
+    print(f"   {recomendacion}")
+    print(f"\n🎯 Rango de peso saludable para tu altura:")
+    print(f"   {peso_min:.1f} kg - {peso_max:.1f} kg")
+    print("="*50)
+
+
+def ejecutar_calculadora_imc():
+    """Función principal que ejecuta la calculadora de IMC."""
+    print("╔" + "="*48 + "╗")
+    print("║     CALCULADORA DE ÍNDICE DE MASA CORPORAL    ║")
+    print("╚" + "="*48 + "╝\n")
+    
+    # Obtener datos
+    peso = solicitar_numero_positivo("Ingresá tu peso (kg): ", "peso")
+    altura = solicitar_numero_positivo("Ingresá tu altura (m): ", "altura")
+    
+    # Procesar
+    imc = calcular_imc(peso, altura)
+    clasificacion = clasificar_imc(imc)
+    
+    # Mostrar resultado
+    mostrar_reporte(peso, altura, imc, clasificacion)
+
+
+def main():
+    """Función principal con manejo de reinicio."""
+    while True:
+        ejecutar_calculadora_imc()
+        
+        respuesta = input("\n¿Calcular otro IMC? (s/n): ").lower()
+        if respuesta != 's':
+            print("\n¡Hasta luego! Cuidá tu salud. 💪")
+            break
+        print("\n")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+**Análisis de la Descomposición:**
+
+| Función | Responsabilidad | Nivel | Reutilizable |
+|---------|----------------|-------|--------------|
+| `solicitar_numero_positivo` | Input validado | Bajo | ✅ Muy |
+| `calcular_imc` | Cálculo puro | Bajo | ✅ Muy |
+| `clasificar_imc` | Lógica de negocio | Medio | ✅ Sí |
+| `obtener_emoji_clasificacion` | Presentación | Bajo | ✅ Sí |
+| `generar_recomendacion` | Lógica de negocio | Medio | ✅ Sí |
+| `calcular_peso_ideal` | Cálculo derivado | Medio | ✅ Sí |
+| `mostrar_reporte` | Output formateado | Medio | ⚠️ Parcial |
+| `ejecutar_calculadora_imc` | Orquestación | Alto | ❌ No |
+| `main` | Control flujo | Muy Alto | ❌ No |
+
+### Estrategias de Descomposición
+
+#### 1. Top-Down (De Arriba hacia Abajo)
+
+Empezás con la función principal y vas detallando:
+
+```python
+# 1. Definir qué hace el programa en alto nivel
+def procesar_ventas():
+    datos = cargar_datos()
+    resultados = analizar_datos(datos)
+    guardar_resultados(resultados)
+
+# 2. Detallar cada función de nivel medio
+def analizar_datos(datos):
+    limpios = limpiar_datos(datos)
+    estadisticas = calcular_estadisticas(limpios)
+    return generar_reporte(estadisticas)
+
+# 3. Implementar funciones específicas
+def limpiar_datos(datos):
+    # Implementación detallada
+    pass
+```
+
+**Ventaja:** Ves el panorama completo primero.
+
+#### 2. Bottom-Up (De Abajo hacia Arriba)
+
+Empezás con las funciones más básicas y construís hacia arriba:
+
+```python
+# 1. Funciones básicas primero
+def es_numero_valido(texto):
+    return texto.isdigit()
+
+def convertir_a_numero(texto):
+    return int(texto)
+
+# 2. Combinar en funciones de nivel medio
+def obtener_numero_valido(mensaje):
+    while True:
+        entrada = input(mensaje)
+        if es_numero_valido(entrada):
+            return convertir_a_numero(entrada)
+        print("Error: no es un número válido")
+
+# 3. Función de alto nivel
+def main():
+    edad = obtener_numero_valido("Ingresá tu edad: ")
+    # ...
+```
+
+**Ventaja:** Cada pieza está testeada antes de combinarla.
+
+#### 3. Por Responsabilidad
+
+Agrupá funciones según su tipo de responsabilidad:
+
+```python
+# === VALIDACIÓN ===
+def validar_email(email):
+    pass
+
+def validar_telefono(telefono):
+    pass
+
+# === CÁLCULO ===
+def calcular_descuento(precio, porcentaje):
+    pass
+
+def calcular_impuestos(monto):
+    pass
+
+# === FORMATO ===
+def formatear_fecha(fecha):
+    pass
+
+def formatear_moneda(monto):
+    pass
+
+# === PERSISTENCIA ===
+def guardar_en_archivo(datos, archivo):
+    pass
+
+def cargar_desde_archivo(archivo):
+    pass
+```
+
+### Indicadores de que Necesitás Descomponer
+
+:::{danger} Señales de Alerta 🚨
+
+Tu función probablemente necesita descomponerse si:
+
+1. **Tiene más de 20-30 líneas** (regla general)
+2. **Usa la palabra "y" al describir qué hace**
+   - "Valida datos *y* calcula resultado *y* muestra output"
+3. **Tiene más de 3 niveles de indentación**
+   ```python
+   def funcion():
+       if condicion1:
+           for item in lista:
+               if condicion2:
+                   while algo:  # ¡4 niveles!
+   ```
+4. **Es difícil ponerle nombre** (hace demasiado)
+5. **Necesitás scrollear para ver toda**
+6. **Tiene muchas variables locales** (>7)
+7. **Tiene secciones separadas por comentarios**
+   ```python
+   def funcion():
+       # Validar entrada
+       # ... 10 líneas ...
+       
+       # Procesar datos
+       # ... 10 líneas ...
+       
+       # Generar output
+       # ... 10 líneas ...
+       # ¡Cada sección debería ser una función!
+   ```
+:::
+
+### Ejercicios de Descomposición
+
+#### Ejercicio 1: Análisis de Código
+
+Dado este código monolítico, identificá qué funciones crearías:
+
+```python
+def procesar():
+    # Pedir nombre
+    nombre = input("Nombre: ")
+    while len(nombre) < 2:
+        print("Muy corto")
+        nombre = input("Nombre: ")
+    
+    # Pedir edad
+    edad = input("Edad: ")
+    while not edad.isdigit():
+        print("Debe ser número")
+        edad = input("Edad: ")
+    edad = int(edad)
+    
+    # Calcular categoría
+    if edad < 18:
+        categoria = "Menor"
+        descuento = 0.2
+    elif edad < 65:
+        categoria = "Adulto"
+        descuento = 0
+    else:
+        categoria = "Senior"
+        descuento = 0.3
+    
+    # Calcular precio
+    precio_base = 100
+    precio_final = precio_base * (1 - descuento)
+    
+    # Mostrar resultado
+    print(f"Hola {nombre}")
+    print(f"Categoría: {categoria}")
+    print(f"Precio: ${precio_final}")
+
+# ¿Qué funciones crearías? Lista al menos 5.
+```
+
+<details>
+<summary>💡 Ver Solución</summary>
+
+```python
+def solicitar_nombre():
+    """Solicita y valida el nombre."""
+    pass
+
+def solicitar_edad():
+    """Solicita y valida la edad."""
+    pass
+
+def determinar_categoria(edad):
+    """Determina categoría según edad."""
+    pass
+
+def calcular_descuento(categoria):
+    """Calcula descuento según categoría."""
+    pass
+
+def calcular_precio_final(precio_base, descuento):
+    """Calcula precio final aplicando descuento."""
+    pass
+
+def mostrar_resumen(nombre, categoria, precio):
+    """Muestra resumen de la compra."""
+    pass
+
+def main():
+    """Función principal."""
+    nombre = solicitar_nombre()
+    edad = solicitar_edad()
+    categoria = determinar_categoria(edad)
+    descuento = calcular_descuento(categoria)
+    precio = calcular_precio_final(100, descuento)
+    mostrar_resumen(nombre, categoria, precio)
+```
+</details>
+
+#### Ejercicio 2: Sistema de Gestión de Tareas
+
+**Problema:** Diseñá la descomposición funcional para un sistema de gestión de tareas que debe:
+- Agregar tareas nuevas
+- Marcar tareas como completadas
+- Listar tareas pendientes
+- Listar tareas completadas
+- Eliminar tareas
+- Buscar tareas por palabra clave
+- Guardar y cargar desde archivo
+
+**Tu tarea:** Antes de escribir código, diseñá:
+1. Lista de funciones necesarias
+2. Qué parámetros recibe cada una
+3. Qué retorna cada una
+4. Cómo se relacionan entre sí
+
+<details>
+<summary>💡 Ver Diseño Sugerido</summary>
+
+```python
+# === OPERACIONES BÁSICAS (CRUD) ===
+def agregar_tarea(tareas, descripcion, prioridad="normal"):
+    """Agrega nueva tarea a la lista."""
+    pass
+
+def marcar_completada(tareas, indice):
+    """Marca una tarea como completada."""
+    pass
+
+def eliminar_tarea(tareas, indice):
+    """Elimina una tarea de la lista."""
+    pass
+
+# === CONSULTAS ===
+def obtener_pendientes(tareas):
+    """Retorna lista de tareas pendientes."""
+    pass
+
+def obtener_completadas(tareas):
+    """Retorna lista de tareas completadas."""
+    pass
+
+def buscar_tareas(tareas, palabra_clave):
+    """Busca tareas que contengan la palabra clave."""
+    pass
+
+# === PERSISTENCIA ===
+def guardar_tareas(tareas, archivo="tareas.txt"):
+    """Guarda tareas en archivo."""
+    pass
+
+def cargar_tareas(archivo="tareas.txt"):
+    """Carga tareas desde archivo."""
+    pass
+
+# === INTERFAZ ===
+def mostrar_menu():
+    """Muestra menú de opciones."""
+    pass
+
+def obtener_opcion():
+    """Obtiene opción válida del usuario."""
+    pass
+
+def mostrar_tareas(tareas, titulo="Tareas"):
+    """Muestra lista de tareas formateada."""
+    pass
+
+# === ORQUESTACIÓN ===
+def main():
+    """Función principal."""
+    pass
+```
+</details>
+
+### Checklist de Descomposición
+
+Antes de considerar que tu descomposición está completa, verificá:
+
+- [ ] **Cada función tiene un nombre descriptivo** que dice qué hace
+- [ ] **Cada función hace una sola cosa bien** (SRP)
+- [ ] **Funciones no tienen más de 20-30 líneas**
+- [ ] **No hay código duplicado** (DRY)
+- [ ] **Cada función tiene docstring** explicando qué hace
+- [ ] **Parámetros son descriptivos** y mínimos necesarios
+- [ ] **Return es claro:** sabes qué retorna cada función
+- [ ] **Funciones son testeables** independientemente
+- [ ] **No hay efectos secundarios** inesperados
+- [ ] **Niveles de abstracción** están claros (alto/medio/bajo)
+
+### Recursos Adicionales
+
+Para profundizar en descomposición funcional:
+
+- **Libro:** "Clean Code" de Robert C. Martin (Capítulos 3-4)
+- **Artículo:** [Function Design Principles](https://www.python.org/dev/peps/pep-0020/) (Zen of Python)
+- **Video:** [Writing Clean Functions](https://www.youtube.com/watch?v=7EmboKQH8lM)
+
+---
+
 (ejercicios-funciones)=
 ## Ejercicios Prácticos
 
@@ -2966,6 +4080,8 @@ En este capítulo aprendiste sobre funciones en Python:
 ✓ **Funciones como objetos**: Primera clase, lambda  
 ✓ **Recursión**: Caso base y recursivo (opcional)  
 ✓ **Buenas prácticas**: Responsabilidad única, nombres, efectos secundarios  
+✓ **Descomposición funcional**: Dividir problemas complejos en funciones simples  
+✓ **Principios de diseño**: SRP, DRY, abstracción y niveles de descomposición
 
 Las funciones son fundamentales para escribir código modular, reutilizable y mantenible. Te permiten dividir problemas complejos en partes más pequeñas y manejables, cada una con una responsabilidad clara.
 
@@ -2977,7 +4093,7 @@ Un programa bien diseñado está compuesto de muchas funciones pequeñas, cada u
 - Reutilizar código en diferentes contextos
 - Trabajar en equipo
 
-Pensá en funciones como "bloques de construcción" que combinás para crear programas más grandes.
+Pensá en funciones como "bloques de construcción" que combinás para crear programas más grandes. La **descomposición funcional** es la habilidad más importante que desarrollarás como programador: dividir un problema complejo en subproblemas simples, donde cada función tiene una responsabilidad única y clara.
 :::
 
 En el próximo capítulo, aprenderás sobre modularización avanzada: cómo organizar funciones en módulos y paquetes, y cómo trabajar con archivos para persistir datos.
