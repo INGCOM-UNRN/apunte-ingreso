@@ -3255,7 +3255,7 @@ Creá una función `generar_password(longitud=12, incluir_especiales=True)` que:
 - Opcionalmente incluya caracteres especiales
 - Asegure que cumple requisitos de seguridad (usar `validar_password`)
 
-**Pista:**Necesitarás `import random` y `import string`
+**Pista:** Necesitarás `import random` y `import string`
 
 :::{dropdown} Solución
 ```python
@@ -4047,7 +4047,7 @@ Prompt: "Escribí estas tres funciones para un programa de validación de contra
 ¿Los docstrings están completos?"
 ```
 
-Este tipo de revisión te ayuda a **mejorar tu estilo**y aprender buenas prácticas.
+Este tipo de revisión te ayuda a **mejorar tu estilo** y aprender buenas prácticas.
 
 ### Errores Comunes en este Módulo
 
@@ -4058,7 +4058,7 @@ La capacidad de **descomponer un problema en funciones** es lo que estás aprend
 1. Vos identificás las tareas del problema
 2. Vos decidís qué funciones necesitás
 3. Vos escribís las funciones básicas
-4. La IA te ayuda a **refinar**lo que ya escribiste
+4. La IA te ayuda a **refinar** lo que ya escribiste
 :::
 
 ---
