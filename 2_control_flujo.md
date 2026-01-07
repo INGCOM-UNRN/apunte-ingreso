@@ -883,8 +883,8 @@ while contador <= 5:
     # ¡Olvidamos incrementar!
 ```
 
-**Problema:**`contador` siempre vale 1  
-**Resultado:**Imprime "1" infinitamente 😱
+**Problema:** `contador` siempre vale 1  
+**Resultado:** Imprime "1" infinitamente 😱
 **Solución:** Utiliza el botón para detener la celda en Jupyter
 ::::
 
@@ -896,8 +896,8 @@ while contador <= 5:
     contador = contador + 1 # ✓ Incrementa
 ```
 
-**Funciona:**`contador` cambia  
-**Resultado:**Imprime 1, 2, 3, 4, 5 y termina ✓
+**Funciona:** `contador` cambia  
+**Resultado:** Imprime 1, 2, 3, 4, 5 y termina ✓
 ::::
 
 :::::
