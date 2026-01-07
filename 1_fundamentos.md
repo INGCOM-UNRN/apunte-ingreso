@@ -1448,8 +1448,8 @@ if edad = 18:  # SyntaxError
 ```
 
 **¿Por qué falla?**
-`=` es para **asignar**(guardar un valor)  
-`==` es para **comparar**(verificar si son iguales)
+`=` es para **asignar** (guardar un valor)  
+`==` es para **comparar** (verificar si son iguales)
 
 Los confundiste al revés.
 ::::
@@ -1496,7 +1496,7 @@ print(resultado)  # Muestra: 55 😱
 ```
 
 **¿Por qué pasa esto?**
-`input()` **siempre**devuelve texto (string).  
+`input()` **siempre** devuelve texto (string).  
 `"5" * 2` repite el texto 2 veces → `"55"`
 ::::
 
@@ -1519,7 +1519,7 @@ numero = int(input("Ingrese un número: "))
 :::::
 
 :::{danger} 🚨 Cuidado
-Este es **EL ERROR MÁS COMÚN**de los principiantes. 
+Este es **EL ERROR MÁS COMÚN** de los principiantes. 
 
 **Recordá:**`input()` devuelve **string**, SIEMPRE. Si necesitás hacer matemática, convertí con `int()` o `float()`.
 :::
@@ -2121,7 +2121,7 @@ Si encuentras un mensaje de error que no entendés:
 
 ### Malas Prácticas que Debes Evitar
 
-:::{danger} Prohibido: Copiar Soluciones Directamente
+:::{danger} No muy sabio, copiar soluciones directamente
 **Nunca hagas esto:**
 - Copiar el enunciado del ejercicio y pedir: *"Dame el código completo para esto"*
 - Pedir que la IA escriba el programa por vos
@@ -2238,7 +2238,7 @@ print(f"Hola {nombre}")
 
 :::::
 
-:::{admonition} Checklist de lo aprendido
+:::{admonition} Checklist de lo aprendido:
 :class: tip
 
 Marcá lo que ya dominás:
