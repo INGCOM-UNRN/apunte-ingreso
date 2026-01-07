@@ -1,3 +1,7 @@
 # MyST build outputs
+.venv
 _build
 .manuals
+manual_*
+.jupyter*
+.ipynb_checkpoints

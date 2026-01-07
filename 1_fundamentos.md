@@ -2290,3 +2290,82 @@ No pases al siguiente capítulo hasta que puedas:
 
 :::
 
+
+---
+
+(glosario-fundamentos)=
+## Glosario
+
+```{glossary}
+Variable
+  Espacio en memoria con un nombre que almacena un valor. Ejemplo: `edad = 25` crea una variable llamada `edad` que guarda el número 25. Las variables pueden cambiar de valor durante la ejecución del programa.
+
+Tipo de dato
+Tipo
+  Categoría que define qué clase de información puede almacenar una {term}`variable` y qué operaciones se pueden hacer con ella. Los tipos básicos son {term}`int`, {term}`float`, {term}`str` y {term}`bool`.
+
+int
+Entero
+  Tipo de dato para números enteros (sin decimales). Ejemplos: `42`, `-17`, `0`. También conocido como **entero** o **integer** en inglés.
+
+float
+Flotante
+  Tipo de dato para números con decimales (punto flotante). Ejemplos: `3.14`, `-0.5`, `2.0`. También conocido como **flotante** o **float** en inglés.
+
+str
+String
+Cadena
+  Tipo de dato para texto. Se escribe entre comillas simples o dobles. Ejemplos: `"Hola"`, `'Python'`, `"123"`. También conocido como **string**, **cadena** o **cadena de caracteres**.
+
+bool
+Booleano
+  Tipo de dato lógico que solo puede ser `True` (verdadero) o `False` (falso). Se usa para condiciones y decisiones. También conocido como **booleano** o **boolean** en inglés.
+
+Operador
+  Símbolo que realiza una operación sobre uno o más valores. Ejemplos: `+` (suma), `-` (resta), `==` (igual a), `and` (y lógico).
+
+Expresión
+  Combinación de valores, variables y {term}`operadores <operador>` que Python puede evaluar para producir un resultado. Ejemplos: `2 + 3`, `edad >= 18`, `nombre + " García"`.
+
+Asignación
+  Acción de guardar un valor en una {term}`variable` usando el operador `=`. Ejemplo: `x = 10` asigna el valor 10 a la variable x. **No confundir** con comparación de igualdad `==`.
+
+Literal
+  Valor escrito directamente en el código. Ejemplos: `42` (literal entero), `3.14` (literal flotante), `"texto"` (literal string), `True` (literal booleano).
+
+Comentario
+  Texto en el código que Python ignora, usado para explicar el código. Se escribe con `#`. Ejemplo: `# Esto es un comentario`.
+
+input()
+  Función que pide datos al usuario. Siempre devuelve un {term}`string`. Ejemplo: `nombre = input("Tu nombre: ")` muestra el mensaje y guarda lo que escribe el usuario.
+
+print()
+  Función que muestra información en la pantalla. Ejemplo: `print("Hola")` muestra el texto Hola. Puede mostrar múltiples valores separados por comas.
+
+f-string
+String formateado
+  {term}`String <str>` que permite insertar valores de variables usando `f"..."` y llaves `{}`. Ejemplo: `f"Hola {nombre}"` inserta el valor de la variable nombre en el string.
+
+Casting
+Conversión de tipo
+  Cambiar un valor de un {term}`tipo de dato` a otro. Funciones: `int()` convierte a entero, `float()` a flotante, `str()` a string, `bool()` a booleano.
+
+Concatenación
+  Unir dos o más {term}`strings <str>` usando el operador `+`. Ejemplo: `"Hola" + " " + "Mundo"` resulta en `"Hola Mundo"`.
+
+Precedencia
+  Orden en que Python evalúa los {term}`operadores <operador>` en una {term}`expresión`. Similar a la matemática: primero `**`, luego `* / // %`, luego `+ -`. Usá paréntesis `()` para cambiar el orden.
+
+Palabra reservada
+Keyword
+  Palabra especial del lenguaje que tiene un significado fijo y no puede usarse como nombre de {term}`variable`. Ejemplos: `if`, `for`, `while`, `True`, `False`, `and`, `or`, `not`.
+
+snake_case
+  Convención para nombres de variables donde las palabras se separan con guiones bajos y todo en minúsculas. Ejemplos: `nombre_completo`, `edad_actual`, `precio_final`. Es la convención estándar en Python.
+
+Inmutabilidad de strings
+  Propiedad de los {term}`strings <str>` en Python que no permite modificar caracteres individuales una vez creados. Para "modificar" un string hay que crear uno nuevo.
+
+Truthy y Falsy
+  Valores que Python evalúa como verdadero (truthy) o falso (falsy) en contextos booleanos. **Falsy:** `0`, `0.0`, `""` (string vacío), `None`, `False`. **Truthy:** todo lo demás.
+```

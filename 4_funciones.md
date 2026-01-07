@@ -4097,3 +4097,120 @@ Pensá en funciones como "bloques de construcción" que combinás para crear pro
 :::
 
 En el próximo capítulo, aprenderás sobre modularización avanzada: cómo organizar funciones en módulos y paquetes, y cómo trabajar con archivos para persistir datos.
+
+---
+
+(glosario-funciones)=
+## Glosario
+
+```{glossary}
+Función
+  Bloque de código reutilizable que realiza una tarea específica. Se define una vez con `def` y puede llamarse muchas veces. Puede recibir datos ({term}`parámetros <parámetro>`), procesarlos y devolver un resultado ({term}`return`).
+
+def
+  Palabra clave para **definir** una función. Sintaxis: `def nombre_funcion():`. Indica a Python que el código indentado siguiente es el cuerpo de la función.
+
+Llamada de función
+Invocar
+  Ejecutar el código de una función escribiendo su nombre seguido de paréntesis. Ejemplo: `saludar()` llama a la función `saludar`. También se dice **invocar** una función.
+
+Parámetro
+Parameter
+  Variable en la **definición** de una función que recibe un valor cuando se llama. Ejemplo: en `def sumar(a, b):`, `a` y `b` son parámetros. También conocido como **parameter** en inglés.
+
+Argumento
+Argument
+  Valor **real** que se pasa a una función al llamarla. Ejemplo: en `sumar(5, 3)`, `5` y `3` son argumentos. También conocido como **argument** en inglés.
+
+return
+  Palabra clave que devuelve un valor desde una función y termina su ejecución. El valor retornado puede usarse en el código que llamó la función. Ejemplo: `return resultado`.
+
+Valor de retorno
+Return value
+  Resultado que una función devuelve con {term}`return`. Puede asignarse a una variable o usarse directamente. Si no hay `return`, la función devuelve {term}`None`.
+
+None
+  Valor especial que representa "nada" o "sin valor". Es lo que devuelve una función si no tiene `return` explícito. También se usa para indicar ausencia de valor.
+
+Cuerpo de la función
+  Bloque de código indentado que contiene las instrucciones que ejecuta la función. Todo lo que está indentado después de `def nombre():` es el cuerpo.
+
+Docstring
+  String de documentación al inicio de una función, entre triple comillas `"""..."""`. Describe qué hace la función, sus parámetros y valor de retorno. Se accede con `help(funcion)` o `funcion.__doc__`.
+
+Argumento posicional
+  {term}`Argumento` que se asigna a un {term}`parámetro` según su **posición**. En `sumar(5, 3)`, `5` va al primer parámetro y `3` al segundo, por posición.
+
+Argumento con nombre
+Keyword argument
+  Argumento que se asigna explícitamente a un parámetro usando su nombre. Ejemplo: `sumar(a=5, b=3)`. El orden no importa. También conocido como **keyword argument**.
+
+Parámetro por defecto
+Default parameter
+  Parámetro con un valor predeterminado en la definición. Si no se pasa argumento, usa ese valor. Ejemplo: `def saludar(nombre="Mundo"):`. Debe ir después de parámetros sin defecto.
+
+Scope
+Alcance
+  Región del código donde una variable es accesible. Hay dos tipos: {term}`scope local` (dentro de función) y {term}`scope global` (fuera de funciones). También conocido como **alcance**.
+
+Scope local
+Variable local
+  Variables definidas **dentro** de una función. Solo existen mientras la función se ejecuta y no son accesibles fuera de ella. Se crean al llamar la función y se destruyen al terminar.
+
+Scope global
+Variable global
+  Variables definidas **fuera** de funciones, en el nivel principal del programa. Son accesibles desde cualquier parte del código, incluyendo dentro de funciones.
+
+global
+  Palabra clave para declarar que se usará una variable global dentro de una función. Permite **modificar** una variable global. Ejemplo: `global contador`. Usar con precaución.
+
+Shadowing
+Enmascaramiento
+  Cuando una {term}`variable local` tiene el mismo nombre que una {term}`variable global`, "tapa" o "enmascara" la global dentro de la función. La función usa la local, no la global.
+
+*args
+  Parámetro especial que recibe una **cantidad variable** de argumentos posicionales como una tupla. El `*` es lo importante, `args` es convención. Ejemplo: `def sumar(*numeros):`.
+
+**kwargs
+  Parámetro especial que recibe una **cantidad variable** de argumentos con nombre como diccionario. El `**` es lo importante, `kwargs` es convención. Ejemplo: `def config(**opciones):`.
+
+Función lambda
+Lambda
+  Función anónima de una sola línea. Sintaxis: `lambda parametros: expresion`. Ejemplo: `lambda x: x * 2` multiplica por 2. Útil para funciones simples temporales.
+
+Recursión
+Función recursiva
+  Técnica donde una función **se llama a sí misma** para resolver un problema dividiéndolo en casos más pequeños. Debe tener un **caso base** para detenerse, sino resulta en {term}`stack overflow`.
+
+Caso base
+  Condición en una {term}`función recursiva <recursión>` que detiene las llamadas recursivas. Sin caso base, la recursión nunca termina. Ejemplo: `if n == 0: return 1`.
+
+Stack overflow
+Desbordamiento de pila
+  Error que ocurre cuando hay demasiadas llamadas de función anidadas (especialmente en {term}`recursión` sin {term}`caso base`). Python lanza `RecursionError`. La pila de llamadas se llena.
+
+Firma de función
+Signatura
+Function signature
+  Definición de una función: nombre, parámetros y tipos (si se especifican). Ejemplo: `def area_rectangulo(base, altura):`. Define la interfaz de la función.
+
+Side effect
+Efecto secundario
+  Cuando una función modifica algo **fuera** de ella: variables globales, archivos, pantalla (print), etc. Funciones puras no tienen efectos secundarios, solo retornan valores.
+
+Función pura
+Pure function
+  Función que: 1) Siempre retorna el mismo resultado para los mismos argumentos, y 2) No tiene {term}`efectos secundarios <side effect>`. Ejemplo: funciones matemáticas como `abs()`, `len()`.
+
+DRY
+  Principio "Don't Repeat Yourself" (No te repitas). Si escribís el mismo código varias veces, extraelo en una {term}`función` para reutilizarlo. Reduce bugs y facilita mantenimiento.
+
+SRP
+  Principio "Single Responsibility Principle" (Principio de Responsabilidad Única). Cada función debe hacer **una cosa** y hacerla bien. Si hace múltiples cosas, dividirla en funciones más pequeñas.
+
+Descomposición funcional
+  Técnica de dividir un problema complejo en funciones más simples. Cada función resuelve una parte del problema. Facilita entendimiento, testing y mantenimiento del código.
+
+Abstracción
+  Ocultar detalles de implementación complejos detrás de una interfaz simple (la función). Los usuarios de la función no necesitan saber **cómo** funciona, solo **qué** hace.
+```

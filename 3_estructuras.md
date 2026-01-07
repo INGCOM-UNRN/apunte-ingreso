@@ -4206,3 +4206,75 @@ Las estructuras de datos cobran vida cuando trabajás con datos reales. Probá l
 :::
 
 En el próximo capítulo, aprenderás sobre funciones, que te permitirán organizar y reutilizar tu código de forma modular.
+
+
+---
+
+(glosario-estructuras)=
+## Glosario
+
+```{glossary}
+Colección
+  Grupo de elementos almacenados juntos. Ejemplo: `[1, 2, 3]` es una {term}`colección` de tres números.
+
+Elemento
+  Cada ítem individual dentro de una {term}`colección`. En `["Ana", "Bruno"]`, `"Ana"` y `"Bruno"` son elementos.
+
+Índice
+  Posición numérica de un {term}`elemento` en una colección {term}`ordenada`. **Siempre empieza en 0**. En `["x", "y", "z"]`, `"y"` está en el índice 1.
+
+Longitud
+  Cantidad de elementos en una {term}`colección`. Se obtiene con `len()`. Si `lista = [1, 2, 3]`, entonces `len(lista)` es 3.
+
+Mutable
+  Una estructura que **puede cambiar** después de ser creada. Podés modificar, agregar o eliminar elementos. Ejemplo: las **listas** son mutables.
+
+Inmutable
+  Una estructura que **no puede cambiar** después de ser creada. Para "modificarla", debés crear una nueva. Ejemplo: las **tuplas** son inmutables.
+
+Slicing
+Rebanado
+  Técnica para extraer una porción de una secuencia. `lista[1:3]` obtiene elementos desde el índice 1 hasta el 2 (el 3 no se incluye). También conocido como **rebanado**.
+
+Iterable
+  Cualquier objeto que se puede recorrer {term}`elemento` por elemento con un bucle `for`. Listas, tuplas, strings, diccionarios y sets son iterables.
+
+Clave
+Key
+  Identificador único para acceder a un {term}`valor` en un diccionario. En `{"nombre": "Ana"}`, `"nombre"` es la clave. También se conoce como **key** en inglés.
+
+Valor
+Value
+  Dato asociado a una {term}`clave` en un diccionario. En `{"edad": 25}`, `25` es el valor. También se conoce como **value** en inglés.
+
+Par clave-valor
+  Combinación de una {term}`clave` y su {term}`valor` correspondiente. `"ciudad": "Rosario"` es un par clave-valor.
+
+Mapping
+Mapeo
+  Relación que asocia claves únicas con valores. Los diccionarios son estructuras de mapeo (mapping).
+
+Unicidad
+  Propiedad de los sets donde cada {term}`elemento` aparece solo una vez. En `{1, 2, 2, 3}`, el resultado es `{1, 2, 3}`.
+
+Ordenada
+  Colección donde los elementos mantienen su posición. Listas y tuplas son ordenadas.
+
+Desordenada
+  Colección donde no hay orden garantizado. Los sets son desordenados (aunque Python 3.7+ mantiene orden de inserción en diccionarios).
+
+Comprehension
+  Sintaxis compacta para crear colecciones basadas en otras colecciones. Ejemplo: `[x*2 for x in range(5)]` crea `[0, 2, 4, 6, 8]`.
+
+Anidado
+Nested
+  Estructura dentro de otra estructura. `[[1, 2], [3, 4]]` es una lista anidada (lista de listas). También conocido como **nested** en inglés.
+
+Empaquetado
+Packing
+  Agrupar múltiples valores en una tupla. Ejemplo: `coords = (10, 20)` empaqueta dos valores. También conocido como **packing** en inglés.
+
+Desempaquetado
+Unpacking
+  Extraer valores de una tupla a variables individuales. Ejemplo: `x, y = (10, 20)` desempaqueta los valores en `x=10, y=20`. También conocido como **unpacking** en inglés.
+```
