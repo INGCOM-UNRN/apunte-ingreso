@@ -1066,12 +1066,12 @@ print("Después de del [::2]:", numeros)  # [1, 3, 5, 7, 9]
 ```
 
 :::{note} del vs pop()
-**del:**
+**`del`:**
 - No retorna el elemento
 - Puede eliminar slices completos
 - Es una **declaración**(statement), no un método
 
-**pop():**
+**`pop()`:**
 - Retorna el elemento eliminado
 - Solo elimina un elemento a la vez
 - Es un **método**de lista
@@ -1079,7 +1079,7 @@ print("Después de del [::2]:", numeros)  # [1, 3, 5, 7, 9]
 
 ---
 
-##### clear(): Vaciar Completamente
+##### `clear()`: Vaciar Completamente
 
 ```{code-cell} ipython3
 tareas = ["tarea1", "tarea2", "tarea3"]
@@ -1100,8 +1100,8 @@ lista = [1, 2, 3]
 lista.clear()
 print(lista)  # []
 ```
-**Ventaja:**Claro y legible  
-**Efecto:**Vacía la lista
+**Ventaja:** Claro y legible  
+**Efecto:** Vacía la lista
 ::::
 
 ::::{grid-item-card} Alternativas
@@ -1112,7 +1112,7 @@ lista[:] = []
 # Opción 3: Crear nueva (NO es lo mismo)
 lista = []  # Crea nueva referencia
 ```
-**Diferencia:**`clear()` modifica la lista existente
+**Diferencia:** `clear()` modifica la lista existente
 ::::
 
 :::::
@@ -1148,14 +1148,14 @@ graph TD
 ::::{admonition} Analogía: Buscar en la Biblioteca
 :class: tip
 
-**count()**= ¿Cuántos libros de Harry Potter tenés?  
-**index()**= ¿En qué estante está Harry Potter?  
-**in**= ¿Tenés Harry Potter? (Sí/No)
+**count()** = ¿Cuántos libros de Harry Potter tenés?  
+**index()** = ¿En qué estante está Harry Potter?  
+**in** = ¿Tenés Harry Potter? (Sí/No)
 ::::
 
 ---
 
-##### count(): Contar Ocurrencias
+##### `count()`: Contar Ocurrencias
 
 ```{code-cell} ipython3
 numeros = [1, 3, 5, 3, 7, 3, 9, 3]
@@ -1359,7 +1359,7 @@ nombres.sort(key=str.lower)  # Convierte a minúsculas para comparar
 print("Orden alfabético (case-insensitive):", nombres)
 ```
 
-:::{note} sort() modifica la lista
+:::{note} `sort()` modifica la lista
 **sort():**
 - Modifica la lista **in-place**(en el lugar)
 - Retorna `None` (no retorna la lista)
@@ -1375,7 +1375,7 @@ print(numeros)    # [1, 2, 3] ← La lista cambió
 
 ---
 
-##### sorted(): Crear Lista Ordenada Nueva
+##### `sorted()`: Crear Lista Ordenada Nueva
 
 ```{code-cell} ipython3
 # Lista original
@@ -1395,7 +1395,7 @@ print("Descendente (nueva):", desc)
 :::::{grid} 1 1 2 2
 :gutter: 3
 
-::::{grid-item-card} sort()
+::::{grid-item-card} `sort()`
 **Método de lista**
 
 ```python
@@ -1407,12 +1407,12 @@ print(lista)  # [1, 2, 3]
 # tupla.sort()  # ERROR
 ```
 
-**Modifica**la lista original  
-**Retorna**None  
+**Modifica** la lista original  
+**Retorna** `None`  
 **Solo** para listas
 ::::
 
-::::{grid-item-card} sorted()
+::::{grid-item-card} `sorted()`
 **Función built-in**
 
 ```python
@@ -1426,16 +1426,16 @@ sorted((3,1,2))  # [1, 2, 3]
 sorted("cab")    # ['a', 'b', 'c']
 ```
 
-**No modifica**el original  
-**Retorna**nueva lista  
-**Funciona**con cualquier iterable
+**No modifica** el original  
+**Retorna** nueva lista  
+**Funciona** con cualquier iterable
 ::::
 
 :::::
 
 ---
 
-##### reverse(): Invertir el Orden
+##### `reverse()`: Invertir el Orden
 
 ```{code-cell} ipython3
 # Invertir lista
@@ -1455,7 +1455,7 @@ print("Original sin cambios:", letras)
 :::::{grid} 1 1 2 2
 :gutter: 3
 
-::::{grid-item-card} reverse()
+::::{grid-item-card} `reverse()`
 **Método**
 
 ```python
@@ -1464,8 +1464,8 @@ lista.reverse()
 print(lista)  # [3, 2, 1]
 ```
 
-**Modifica**la lista  
-**Retorna**None  
+**Modifica** la lista  
+**Retorna** None  
 **Más rápido**
 ::::
 
@@ -1479,8 +1479,8 @@ print(nueva)  # [3, 2, 1]
 print(lista)  # [1, 2, 3]
 ```
 
-**Crea**nueva lista  
-**No modifica**original  
+**Crea** nueva lista  
+**No modifica** original  
 **Más flexible**
 ::::
 
@@ -1488,10 +1488,10 @@ print(lista)  # [1, 2, 3]
 
 :::{tip} ¿Cuándo usar cada uno?
 
-**sort()**→ Cuando querés modificar la lista existente  
-**sorted()**→ Cuando necesitás conservar el original  
-**reverse()**→ Para invertir in-place  
-**[::-1]**→ Para obtener copia invertida
+**`sort()`** → Cuando querés modificar la lista existente  
+**`sorted()`** → Cuando necesitás conservar el original  
+**`reverse()`** → Para invertir in-place  
+**`[::-1]`** → Para obtener copia invertida
 :::
 
 ---
