@@ -868,7 +868,7 @@ flowchart TD
     B -->|False| E[Fin del loop]
 ```
 
-:::{danger} 🚨 ¡Cuidado con los Loops Infinitos!
+````{danger} 🚨 ¡Cuidado con los Loops Infinitos!
 
 Si la condición **nunca** se vuelve `False`, el bucle se ejecutará ** para siempre**:
 
@@ -907,8 +907,9 @@ while contador <= 5:
 - [ ] ¿Modifico las variables de la condición dentro del bucle?
 - [ ] ¿Hay una forma de salir del bucle?
 
-**Tip:**Si tu programa "se colgó", probablemente tenés un loop infinito. Presiona **Ctrl+C** para detenerlo.
-:::
+**Tip:** Si tu programa "se colgó", probablemente tenés un loop infinito. Presiona **Ctrl+C** para detenerlo.
+
+````
 
 ### Patrones Comunes con `while`
 
