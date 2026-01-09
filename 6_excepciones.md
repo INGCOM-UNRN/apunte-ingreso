@@ -1458,3 +1458,183 @@ Crea un programa que procese archivos CSV con manejo robusto de errores.
 - [Documentación oficial de Excepciones](https://docs.python.org/3/tutorial/errors.html)
 - [PEP 8 - Guía de estilo](https://pep8.org/)
 - [Built-in Exceptions](https://docs.python.org/3/library/exceptions.html)
+
+---
+
+(glosario-excepciones)=
+## Glosario de Terminología 📖
+
+Este glosario contiene los términos clave sobre manejo de excepciones y programación defensiva que se trataron en este capítulo.
+
+:::{admonition} 💡 Cómo usar este glosario
+:class: tip
+
+- **Consultalo cuando necesites refrescar un concepto**
+- Los términos pueden referenciarse con {term}`término` en el texto
+- Incluye terminología de manejo robusto de errores
+- **Repasá los términos clave antes de los ejercicios**
+:::
+
+```{glossary}
+Excepción
+Exception
+  Evento que interrumpe el flujo normal de ejecución cuando ocurre un error. Python crea un objeto de excepción con información del error. Si no se maneja, el programa termina. También conocida como **exception** en inglés.
+
+Error
+  Problema que impide la ejecución correcta del programa. Puede ser de {term}`sintaxis` (código mal escrito) o de {term}`tiempo de ejecución` (runtime). Las excepciones manejan errores de runtime.
+
+Error de sintaxis
+Syntax error
+  Error en la escritura del código que Python detecta antes de ejecutar. Ejemplo: `if x = 5:` (debería ser `==`). Python no ejecuta código con errores de sintaxis.
+
+Error de tiempo de ejecución
+Runtime error
+  Error que ocurre durante la ejecución del programa, no al escribirlo. Ejemplo: dividir por cero, archivo no encontrado. Estos generan {term}`excepciones <excepción>`.
+
+try
+  Bloque donde se coloca código que podría generar una {term}`excepción`. Python intenta ejecutarlo y si hay error, salta al bloque {term}`except` correspondiente.
+
+except
+  Bloque que captura y maneja {term}`excepciones <excepción>`. Se ejecuta solo si ocurre el tipo de error especificado en el `try`. Sintaxis: `except TipoError:`.
+
+try-except
+  Estructura para manejar excepciones. `try` contiene código riesgoso, `except` maneja el error. Evita que el programa termine abruptamente. Permite recuperación elegante de errores.
+
+else (en try)
+  Bloque opcional que se ejecuta solo si NO hubo ninguna {term}`excepción` en `try`. Útil para código que solo debe ejecutarse tras éxito. Diferente del `else` en bucles.
+
+finally
+  Bloque que SIEMPRE se ejecuta después de `try-except`, haya o no excepción. Usado para limpieza: cerrar archivos, liberar recursos, desconectar BD. Garantiza ejecución.
+
+raise
+  Palabra clave para lanzar (generar) una {term}`excepción` manualmente. Sintaxis: `raise TipoError("mensaje")`. Útil para validación y reportar condiciones de error en funciones propias.
+
+Traceback
+Stack trace
+  Informe detallado del error que muestra: tipo de excepción, mensaje, y la cadena de llamadas que llevó al error. Lee desde abajo hacia arriba. También conocido como **stack trace**.
+
+ValueError
+  Excepción lanzada cuando una función recibe argumento del tipo correcto pero valor inapropiado. Ejemplo: `int("abc")`, `math.sqrt(-1)`. Valor fuera del dominio válido.
+
+TypeError
+  Excepción lanzada cuando se usa un tipo de dato incorrecto. Ejemplo: `"texto" + 5`, `len(5)`. Operación no soportada para ese tipo.
+
+ZeroDivisionError
+  Excepción lanzada al dividir o hacer módulo por cero. Ejemplo: `5 / 0`. Error matemático común que debe manejarse en calculadoras.
+
+FileNotFoundError
+  Excepción lanzada cuando se intenta abrir archivo que no existe. Común con `open()`. Debe manejarse o verificar existencia con `os.path.exists()` antes.
+
+IndexError
+  Excepción lanzada al acceder a índice que no existe en lista/tupla. Ejemplo: `lista[10]` cuando lista tiene 5 elementos. Índice fuera de rango.
+
+KeyError
+  Excepción lanzada al acceder a clave que no existe en diccionario. Ejemplo: `dict["clave_inexistente"]`. Usar `dict.get()` o `in` para evitarla.
+
+AttributeError
+  Excepción lanzada al acceder a atributo/método inexistente de un objeto. Ejemplo: `"texto".append()` (strings no tienen append). Atributo no existe.
+
+ImportError
+ModuleNotFoundError
+  Excepción lanzada cuando falla un import. `ImportError` es genérico, `ModuleNotFoundError` (más específico) cuando módulo no existe. Común con bibliotecas no instaladas.
+
+NameError
+  Excepción lanzada al usar variable no definida. Ejemplo: usar `resultado` antes de asignarle valor. Variable no existe en el {term}`scope` actual.
+
+SyntaxError
+IndentationError
+  {term}`Error de sintaxis`. `SyntaxError` por código mal escrito, `IndentationError` (subtipo) por indentación incorrecta. Python no ejecuta código con estos errores.
+
+Excepción personalizada
+Custom exception
+  Clase de excepción creada por el programador, heredando de `Exception`. Permite errores específicos del dominio. Ejemplo: `class EdadInvalidaError(ValueError):`.
+
+assert
+Aserción
+  Declaración que verifica una condición debe ser verdadera. Si es falsa, lanza `AssertionError`. Sintaxis: `assert condicion, "mensaje"`. Usado para debugging y validación.
+
+AssertionError
+  Excepción lanzada cuando un {term}`assert` falla (condición es falsa). Indica que una suposición del código no se cumplió. Útil para detectar bugs.
+
+Manejo de excepciones
+Exception handling
+  Técnica de capturar y gestionar errores con {term}`try-except` en lugar de dejar que terminen el programa. Permite recuperación elegante y mensajes útiles.
+
+Capturar excepción
+Catch
+  Detectar y manejar una {term}`excepción` con un bloque {term}`except`. "Capturar" = "catch" en inglés. Previene terminación abrupta del programa.
+
+Lanzar excepción
+Throw/Raise
+  Generar una {term}`excepción` con {term}`raise`. "Lanzar" = "throw" (otros lenguajes) o "raise" (Python). Señala condición de error.
+
+Jerarquía de excepciones
+Exception hierarchy
+  Estructura de clases de excepciones en Python. Todas heredan de `BaseException`. `Exception` es padre de mayoría. Capturar padre captura también hijos.
+
+BaseException
+  Clase raíz de todas las excepciones en Python. `Exception` hereda de ella. Capturarla captura TODAS las excepciones (mala práctica, incluye `KeyboardInterrupt`).
+
+Exception (clase)
+  Clase base de todas las excepciones de usuario (no del sistema). Hereda de `BaseException`. Tus excepciones personalizadas deben heredar de esta o sus subclases.
+
+Bare except
+Except desnudo
+  Usar `except:` sin especificar tipo de excepción. **Mala práctica** porque captura TODO (incluso Ctrl+C). Siempre especificar qué capturar.
+
+Context manager
+Gestor de contexto
+  Objeto que gestiona recursos automáticamente con {term}`with`. Garantiza limpieza (cierre) incluso si hay error. Implementa métodos `__enter__` y `__exit__`.
+
+with
+  Palabra clave para usar {term}`context manager`. Sintaxis: `with recurso as var:`. Asegura que el recurso se cierre/limpie correctamente, haya o no excepción.
+
+Programación defensiva
+Defensive programming
+  Estilo de programación que anticipa y previene errores. Incluye validación de entrada, manejo de excepciones, aserciones. Hace código más robusto.
+
+Validación de entrada
+Input validation
+  Verificar que datos de usuario/externa sean correctos antes de procesarlos. Previene errores y vulnerabilidades. Usar {term}`excepciones <excepción>` o condicionales.
+
+LBYL
+  "Look Before You Leap" (Mira antes de saltar). Estilo que verifica condiciones ANTES de actuar. Usa `if` para prevenir errores. Opuesto a {term}`EAFP`.
+
+EAFP
+  "Easier to Ask Forgiveness than Permission" (Más fácil pedir perdón que permiso). Estilo Python: intenta la acción, maneja error si ocurre. Usa {term}`try-except`.
+
+Logging
+  Registrar eventos y errores en archivos/consola para debugging y monitoreo. Usa módulo `logging`. Mejor que `print()` para producción. Niveles: DEBUG, INFO, WARNING, ERROR, CRITICAL.
+
+Debugging
+Depuración
+  Proceso de encontrar y corregir errores (bugs) en código. Técnicas: print(), debugger, logging, dividir y conquistar. También conocido como **depuración**.
+
+Stack
+Pila de llamadas
+  Estructura que registra funciones activas. Al llamar función, se apila; al retornar, se desapila. El {term}`traceback` muestra esta pila cuando hay error.
+
+Reraise
+Re-lanzar
+  Capturar una excepción, hacer algo (ej: logging), y lanzarla de nuevo con `raise` (sin argumentos) para que suba por la pila. Permite manejo multinivel.
+```
+
+:::{tip} Referencias cruzadas
+Este glosario complementa los glosarios de capítulos anteriores. Los términos están vinculados para facilitar la navegación entre conceptos relacionados.
+:::
+
+:::{admonition} Glosarios relacionados
+:class: seealso
+
+- {ref}`glosario-fundamentos` - Variables, tipos, operadores
+- {ref}`glosario-control-flujo` - Condicionales, bucles, patrones
+- {ref}`glosario-estructuras` - Listas, diccionarios, sets
+- {ref}`glosario-funciones` - def, return, scope, parámetros
+- {ref}`glosario-modulos` - import, archivos, módulos
+
+Juntos forman una **referencia completa** de terminología Python.
+:::
+
+---
+
+**Fin del Capítulo 6 - Manejo de Excepciones**

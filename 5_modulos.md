@@ -2817,3 +2817,145 @@ Para seguir creciendo como programador:
 :::
 
 **¡Éxitos en tu carrera de Ingeniería en Computación!**
+
+---
+
+(glosario-modulos)=
+## Glosario sobre módulos
+
+```{glossary}
+Módulo
+Module
+  Archivo `.py` que contiene código Python (funciones, clases, variables). Permite organizar código en unidades lógicas reutilizables. Ejemplo: `import math` importa el módulo math. También conocido como **module** en inglés.
+
+import
+  Palabra clave para traer código de un {term}`módulo` a tu programa. Sintaxis básica: `import nombre_modulo`. Hace disponible el código del módulo en tu programa actual.
+
+from ... import
+  Sintaxis para importar elementos específicos de un {term}`módulo`. Ejemplo: `from math import sqrt` importa solo la función `sqrt`. Evita tener que usar el nombre del módulo cada vez.
+
+as
+  Palabra clave para crear un {term}`alias` al importar. Ejemplo: `import numpy as np` permite usar `np` en lugar de `numpy`. Útil para nombres largos o evitar conflictos.
+
+Alias
+  Nombre alternativo para un módulo o función importada. Se crea con {term}`as`. Ejemplo: `import pandas as pd` hace que `pd` sea un alias de `pandas`. Reduce escritura.
+
+Namespace
+Espacio de nombres
+  Contexto que contiene nombres de variables, funciones y clases. Cada {term}`módulo` tiene su propio namespace. Previene conflictos de nombres entre módulos. También conocido como **espacio de nombres**.
+
+Biblioteca estándar
+Standard library
+  Colección de {term}`módulos <módulo>` incluidos con Python sin necesidad de instalación. Ejemplos: `math`, `random`, `datetime`, `os`, `json`. Disponible inmediatamente después de instalar Python.
+
+Biblioteca de terceros
+Third-party library
+  {term}`Módulo` o {term}`paquete` creado por la comunidad, no incluido por defecto. Debe instalarse con `pip`. Ejemplos: NumPy, Pandas, Django, Flask. También conocida como **third-party library**.
+
+pip
+  Herramienta para **instalar y gestionar** bibliotecas de Python. Descarga paquetes de PyPI. Uso: `pip install nombre_paquete`. Viene incluido con Python desde versión 3.4+.
+
+PyPI
+  "Python Package Index", repositorio oficial donde se publican {term}`bibliotecas de terceros <biblioteca de terceros>`. URL: pypi.org. Contiene más de 400,000 paquetes. `pip` descarga desde aquí.
+
+Paquete
+Package
+  Directorio que contiene múltiples {term}`módulos <módulo>` y un archivo especial `__init__.py`. Organiza módulos relacionados en una jerarquía. Ejemplo: `from paquete.subpaquete import modulo`.
+
+__init__.py
+  Archivo especial que convierte un directorio en un {term}`paquete` Python. Puede estar vacío o contener código de inicialización. Su presencia indica que el directorio es importable.
+
+__name__
+  Variable especial que contiene el nombre del {term}`módulo`. Cuando un módulo se ejecuta directamente, `__name__ == "__main__"`. Cuando se importa, contiene el nombre del archivo.
+
+__main__
+  Valor especial de {term}`__name__` cuando un módulo se ejecuta directamente (no importado). Patrón común: `if __name__ == "__main__":` para código que solo corre en ejecución directa.
+
+sys.path
+  Lista de directorios donde Python busca {term}`módulos <módulo>` al importar. Incluye el directorio actual, directorios de biblioteca estándar y {term}`site-packages`. Modificable en tiempo de ejecución.
+
+site-packages
+  Directorio donde {term}`pip` instala {term}`bibliotecas de terceros <biblioteca de terceros>`. Ubicación típica: `.../Python3.x/site-packages/`. Python busca aquí automáticamente al importar.
+
+Archivo
+File
+  Entidad en el sistema de archivos que almacena datos. Python puede leer/escribir archivos de texto, binarios, JSON, CSV, etc. Se abre con `open()`.
+
+open()
+  Función que abre un archivo y devuelve un objeto de archivo. Sintaxis: `open(ruta, modo)`. Modos: `'r'` (leer), `'w'` (escribir), `'a'` (append), `'b'` (binario).
+
+Modo de apertura
+File mode
+  String que especifica cómo abrir un archivo con {term}`open()`. Principales: `'r'` (lectura), `'w'` (escritura sobrescribe), `'a'` (append agrega), `'x'` (crea nuevo).
+
+Context manager
+Gestor de contexto
+  Estructura `with` que garantiza la correcta apertura/cierre de recursos. Ejemplo: `with open('file.txt') as f:`. Cierra el archivo automáticamente, incluso si hay error.
+
+with
+  Palabra clave para usar un {term}`context manager`. Sintaxis: `with recurso as variable:`. Asegura limpieza correcta de recursos (archivos, conexiones, etc.).
+
+Ruta absoluta
+Absolute path
+  Ruta completa desde la raíz del sistema de archivos. Ejemplos: `/home/user/file.txt` (Linux), `C:\Users\user\file.txt` (Windows). No depende del directorio actual.
+
+Ruta relativa
+Relative path
+  Ruta desde el directorio actual. Ejemplos: `./archivo.txt`, `../data/datos.csv`. Usa `.` (actual) y `..` (padre). Depende de dónde se ejecute el programa.
+
+Excepción
+Exception
+  Evento que interrumpe el flujo normal del programa cuando ocurre un error. Ejemplos: `FileNotFoundError`, `ValueError`, `TypeError`. Si no se maneja, el programa termina.
+
+try-except
+  Estructura para **manejar excepciones**. El código en `try` se ejecuta, si hay error, se ejecuta `except`. Evita que el programa termine abruptamente. Permite recuperación de errores.
+
+try-except-else
+  Extensión de {term}`try-except` con bloque `else` que se ejecuta solo si **no** hubo excepción en `try`. Útil para código que depende del éxito del `try`.
+
+try-except-finally
+  Extensión de {term}`try-except` con bloque `finally` que **siempre** se ejecuta, haya o no excepción. Usado para limpieza: cerrar archivos, liberar recursos, etc.
+
+raise
+  Palabra clave para **lanzar** una {term}`excepción` manualmente. Sintaxis: `raise TipoError("mensaje")`. Útil para validar condiciones y reportar errores específicos en funciones.
+
+FileNotFoundError
+  {term}`Excepción` lanzada cuando se intenta abrir un archivo que no existe. Común con `open()`. Debe manejarse con {term}`try-except` o verificar existencia antes.
+
+ValueError
+  Excepción lanzada cuando una función recibe un argumento del tipo correcto pero valor inapropiado. Ejemplo: `int("abc")` lanza `ValueError`.
+
+JSON
+  Formato de texto para intercambio de datos (JavaScript Object Notation). Python lo maneja con el módulo `json`. Convierte entre dict/list de Python y texto JSON.
+
+CSV
+  Formato de archivo de texto para datos tabulares (Comma-Separated Values). Python lo maneja con el módulo `csv`. Cada línea es una fila, valores separados por comas.
+
+Serialización
+  Convertir un objeto Python a un formato que se puede guardar en archivo o transmitir. Ejemplo: dict → JSON string. También: pickle, YAML.
+
+Deserialización
+  Convertir datos serializados de vuelta a objetos Python. Ejemplo: JSON string → dict. Operación inversa de {term}`serialización`.
+
+Biblioteca
+Library
+  Conjunto de {term}`módulos <módulo>` y {term}`paquetes <paquete>` que proporcionan funcionalidad específica. Término general para código reutilizable de otros. Ejemplos: biblioteca estándar, NumPy, Pandas.
+
+Dependencia
+Dependency
+  {term}`Biblioteca de terceros <biblioteca de terceros>` que tu proyecto necesita para funcionar. Se especifican en `requirements.txt`. Deben instalarse con {term}`pip` antes de ejecutar el programa.
+
+requirements.txt
+  Archivo de texto que lista las {term}`dependencias <dependencia>` de un proyecto Python. Formato: `nombre_paquete==version`. Se instalan con `pip install -r requirements.txt`.
+
+Virtual environment
+Entorno virtual
+  Entorno Python aislado con sus propias bibliotecas. Evita conflictos entre proyectos con diferentes versiones de dependencias. Se crea con `venv` o `virtualenv`.
+
+__pycache__
+  Directorio generado automáticamente por Python con versiones compiladas (`.pyc`) de módulos. Mejora velocidad de importación. Se puede ignorar en git (`.gitignore`).
+
+Importación circular
+Circular import
+  Error cuando dos {term}`módulos <módulo>` se importan mutuamente. Ejemplo: A importa B, B importa A. Causa `ImportError`. Se soluciona reestructurando código.
+```
