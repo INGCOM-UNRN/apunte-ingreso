@@ -1,19 +1,10 @@
 ---
 marp: true
-theme: default
-paginate: true
-header: 'Funciones en Python'
+theme: UNRN
+paginate: false
+header: 'UNRN Andina'
+#header: 'Funciones en Python'
 footer: 'Definición, parámetros, scope y buenas prácticas'
-style: |
-  section {
-    font-size: 26px;
-  }
-  h1 {
-    color: #1976d2;
-  }
-  code {
-    background-color: #f5f5f5;
-  }
 ---
 
 <!-- _paginate: false -->
@@ -23,6 +14,9 @@ style: |
 
 **Definición, parámetros, scope, documentación y buenas prácticas**
 
+<!--
+¡Buenas a todos! Hoy vamos a hablar de una de las herramientas más importantes en la caja de herramientas de cualquier programador: las Funciones. Hasta ahora, veníamos escribiendo código secuencial, todo junto. Las funciones nos permiten empaquetar lógica, darle un nombre y usarla cuando queramos. Es como pasar de escribir recetas en un papel a tener electrodomésticos que hacen el trabajo por nosotros.
+-->
 ---
 
 ## ¿Qué vas a aprender?
@@ -35,6 +29,9 @@ style: |
 * Aplicar **buenas prácticas** en el diseño
 * **Descomponer problemas** complejos en funciones simples
 
+<!--
+¿Qué vamos a ver hoy? Primero, cómo crear nuestras propias funciones y cómo usarlas. Vamos a aprender a pasarles información (parámetros) y a recibir resultados (retorno). También vamos a tocar un tema clave: el scope o alcance de las variables, para evitar errores tontos. Y por supuesto, vamos a ver cómo escribir funciones profesionales, bien documentadas y prolijas.
+-->
 ---
 
 ## ¿Qué es una Función?
@@ -53,6 +50,9 @@ def saludar():
 saludar()  # Llamar la función
 ```
 
+<!--
+Imaginen una función como una maquinita. Vos le metés ingredientes por un lado (argumentos), la máquina hace su magia adentro (código), y te saca un producto terminado (valor de retorno). Lo mejor es que no necesitás saber cómo funciona la máquina por dentro cada vez que la usás, solo necesitás saber qué botón apretar. Eso es abstracción.
+-->
 ---
 
 ## ¿Por qué Usar Funciones?
@@ -77,6 +77,9 @@ area3 = calcular_area(6, 9)
 
 **Ventajas:** Reutilización, claridad, mantenimiento
 
+<!--
+Miren la diferencia. Sin funciones, si tenés que calcular el área de 3 rectángulos, escribís la misma fórmula 3 veces. Si te equivocaste en la fórmula, tenés que corregirla en 3 lugares. Con funciones, definís la lógica UNA vez y la llamás 3 veces. Es más limpio, menos propenso a errores y mucho más fácil de leer.
+-->
 ---
 
 ## Beneficios de las Funciones
@@ -104,12 +107,18 @@ def calcular_descuento(precio):
     return precio * 0.15  # Cambiar % aquí
 ```
 
+<!--
+Tres pilares fundamentales: Reutilización (escribir una vez, usar muchas), Organización (dividir problemas grandes en partes chicas) y Mantenimiento (si hay un bug, lo arreglás en un solo lugar y se arregla en todo el programa). Es la base de la programación modular.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Definir y Llamar Funciones
 
+<!--
+Para crear una función usamos la palabra clave `def`. Le ponemos un nombre (en minúsculas y con guiones bajos, por convención), paréntesis `()` y dos puntos `:`. Adentro va todo el código indentado. Ojo, definirla no hace que se ejecute. Para que 'arranque', hay que llamarla por su nombre con paréntesis `saludar()`.
+-->
 ---
 
 ## Tu Primera Función
@@ -132,6 +141,9 @@ def saludar():
 saludar()
 ```
 
+<!--
+Vamos a diseccionar una función real. Tiene una cabecera con `def`, nombre y parámetros. Tiene un docstring (esa cadena entre triples comillas) que explica qué hace. Tiene el cuerpo con la lógica. Y tiene un `return` que devuelve el resultado al mundo exterior. Si entienden estas partes, entienden todo.
+-->
 ---
 
 ## Anatomía de una Función
@@ -152,6 +164,9 @@ def calcular_area(base, altura):
 6. Cuerpo → Código indentado
 7. `return` → Valor que devuelve
 
+<!--
+El flujo es como un desvío en la ruta. El programa viene ejecutando línea por línea. Cuando encuentra una llamada a función, 'salta' a la definición de esa función, ejecuta todo lo que hay ahí, y cuando termina, 'vuelve' al lugar exacto donde estaba y sigue. Es un viaje de ida y vuelta.
+-->
 ---
 
 ## Flujo de Ejecución
@@ -177,12 +192,18 @@ print("Fin")
 4. **Vuelve** justo después de la llamada
 5. Continúa con el resto
 
+<!--
+Las funciones son más útiles cuando son flexibles. En lugar de una función que solo salude a 'Mundo', hacemos una que salude a QUIEN SEA. Para eso usamos parámetros. Son como variables huecas que se llenan cuando llamamos a la función.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Parámetros y Argumentos
 
+<!--
+Acá hay una distinción técnica fina pero útil. 'Parámetro' es la variable en la definición (el nombre del marcador de posición). 'Argumento' es el valor real que le enviás cuando la usás. En la práctica, los usamos casi como sinónimos, pero está bueno saber la diferencia.
+-->
 ---
 
 ## Funciones que Reciben Información
@@ -200,6 +221,9 @@ saludar_persona("Bruno")
 saludar_persona("Carlos")
 ```
 
+<!--
+Podés pasar todos los datos que quieras. Nombre, edad, ciudad... Python los recibe en orden. Es como llenar un formulario: campo 1, campo 2, campo 3. Si te equivocás en el orden, te pueden quedar datos cruzados.
+-->
 ---
 
 ## Vocabulario: Parámetro vs Argumento
@@ -215,6 +239,9 @@ def saludar(nombre):  # ← "nombre" es el PARÁMETRO
 saludar("Ana")  # ← "Ana" es el ARGUMENTO
 ```
 
+<!--
+Por defecto, los argumentos son posicionales. El primero va al primero, el segundo al segundo. Si tenés una función `restar(a, b)`, `restar(10, 3)` no es lo mismo que `restar(3, 10)`. El orden es sagrado acá.
+-->
 ---
 
 ## Múltiples Parámetros
@@ -232,6 +259,9 @@ presentar_persona("Ana", 20, "Buenos Aires")
 presentar_persona("Bruno", 22, "Córdoba")
 ```
 
+<!--
+Pero Python tiene un truco genial: los argumentos con nombre o 'keyword arguments'. Podés decir explícitamente `ingrediente='queso'`. Ahí el orden deja de importar porque estás etiquetando cada valor. Es mucho más legible, sobre todo en funciones con muchos parámetros.
+-->
 ---
 
 ## Argumentos Posicionales
@@ -258,6 +288,9 @@ describir_mascota("Firulais", "perro", 5)  # ✓ Correcto
 describir_mascota("perro", 5, "Firulais")  # ✗ Incorrecto
 ```
 
+<!--
+Podés mezclar. Pero ojo: los posicionales (los que dependen del orden) siempre tienen que ir PRIMERO. No podés tirar un nombre y después volver a confiar en el orden. Python te va a gritar si intentás eso.
+-->
 ---
 
 ## Argumentos con Nombre (Keyword)
@@ -278,6 +311,9 @@ hacer_pizza(extra_queso=False, ingrediente="jamón", tamaño="mediana")
 
 **Ventaja:** Más claro y legible
 
+<!--
+Esto confunde a muchos al principio. `print` muestra algo en la pantalla para el HUMANO. `return` devuelve un dato al PROGRAMA para que lo siga usando. Si una función solo hace `print`, su valor de retorno es `None` y no podés hacer cuentas con eso.
+-->
 ---
 
 ## Mezclar Posicionales y Keyword
@@ -296,12 +332,18 @@ crear_usuario("Bruno", 30, ciudad="Córdoba", premium=False)
 # crear_usuario(nombre="Ana", 25, "Buenos Aires")
 ```
 
+<!--
+Regla de oro: si la función hace un cálculo, usá `return`. Si la función es para interactuar con el usuario o debuggear, usá `print`. Las funciones que retornan valores son más fáciles de testear y de reutilizar en otros contextos.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Retornar Valores
 
+<!--
+Python es muy generoso y te deja devolver varias cosas a la vez. En realidad, te está devolviendo una tupla, pero vos podés desempaquetarla en variables sueltas al vuelo. Es comodísimo para funciones como 'división con resto' o coordenadas.
+-->
 ---
 
 ## `print()` vs `return`
@@ -324,6 +366,9 @@ resultado = sumar(5, 3)  # resultado = 8
 print(resultado * 2)  # Podés usarlo: 16
 ```
 
+<!--
+El `return` también funciona como un botón de 'Eject'. En cuanto se ejecuta, la función termina INSTANTÁNEAMENTE. No importa si hay código abajo. Esto es genial para validar cosas al principio (Guard clauses) y salir rápido si algo está mal.
+-->
 ---
 
 ## ¿Cuándo usar cada uno?
@@ -348,6 +393,9 @@ area = calcular_area(5, 10)
 print(f"El área es: {area}")
 ```
 
+<!--
+Si te olvidás del `return`, no pasa nada grave, pero la función devuelve `None` (nulo). Es importante tenerlo en cuenta si esperás recibir un número o un texto. A veces `None` es un resultado válido, a veces es un error.
+-->
 ---
 
 ## Retornar Múltiples Valores
@@ -367,6 +415,9 @@ print(f"17 ÷ 5 = {c} con resto {r}")
 # 17 ÷ 5 = 3 con resto 2
 ```
 
+<!--
+El Scope o Alcance es fundamental. Las variables no viven para siempre ni se ven desde todos lados. Hay variables locales (dentro de la función) y globales (fuera). Lo que pasa en Las Vegas (la función), queda en Las Vegas.
+-->
 ---
 
 ## Retorno Temprano (Early Return)
@@ -390,6 +441,9 @@ else:
 
 **Ventaja:** Evita anidación excesiva
 
+<!--
+Las variables que creás adentro de una función son invisibles desde afuera. Nacen cuando empieza la función y mueren cuando termina. Si intentás imprimir `area` desde afuera, Python te va a decir '¿de qué me estás hablando?'.
+-->
 ---
 
 ## Sin Return Explícito
@@ -405,12 +459,18 @@ resultado = saludar("Ana")
 print(resultado)  # None
 ```
 
+<!--
+Las variables de afuera (globales) se pueden LEER desde adentro, pero NO se pueden MODIFICAR así nomás (a menos que uses `global`, que es mala palabra en muchos casos). Traten de evitar depender de variables globales, hacen que el código sea difícil de entender.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Scope (Alcance) de Variables
 
+<!--
+Si tenés una variable global `x` y definís una local `x` adentro de una función, la local gana. Es como si te pusieras auriculares: dejás de escuchar la música de afuera y solo escuchás la tuya. Esto se llama 'Shadowing'.
+-->
 ---
 
 ## ¿Qué es el Scope?
@@ -435,6 +495,9 @@ print(edad_global)  # ✓ Puede acceder a global
 print(edad_local)   # ❌ Error: no existe aquí
 ```
 
+<!--
+Resumen de Scope: Pasen los datos necesarios como parámetros. Devuelvan los resultados con return. No toquen variables globales desde adentro de las funciones. Así se evitan dolores de cabeza y bugs difíciles de rastrear.
+-->
 ---
 
 ## Variables Locales
@@ -453,6 +516,9 @@ print(area)  # ❌ NameError: 'area' no existe aquí
 
 **Regla:** Las variables locales **solo existen dentro de la función**
 
+<!--
+Podés hacer que algunos parámetros sean opcionales dándoles un valor por defecto. Si el usuario no manda nada, se usa el default. Si manda algo, se usa lo que mandó. Es súper práctico para configuraciones.
+-->
 ---
 
 ## Variables Globales
@@ -473,6 +539,9 @@ print(contador)  # 2
 
 **⚠️ Evitá modificar variables globales:** Es mejor usar parámetros y `return`
 
+<!--
+Regla de sintaxis: los que tienen default van AL FINAL. No podés poner uno opcional y después uno obligatorio, porque Python no sabría a quién asignarle los valores posicionales.
+-->
 ---
 
 ## Shadowing (Ocultamiento)
@@ -492,6 +561,9 @@ print(f"Fuera: {x}")  # global (no cambió)
 
 **La variable local "oculta" a la global dentro de la función**
 
+<!--
+¡Alerta de error clásico! Nunca usen listas o diccionarios vacíos como valor por defecto (`lista=[]`). Python crea ese objeto UNA sola vez al definir la función, y se reutiliza en cada llamada. Si lo modificás, el cambio persiste. Usen `None` y inicialicen adentro.
+-->
 ---
 
 ## Reglas de Oro del Scope
@@ -507,12 +579,18 @@ print(f"Fuera: {x}")  # global (no cambió)
 - Depender de variables globales mutables
 - Nombres que oculten globales importantes
 
+<!--
+A veces no sabés cuántos datos te van a mandar. `*args` (el nombre puede ser cualquiera, pero el asterisco es lo que importa) te permite recibir infinitos argumentos posicionales y los mete todos en una tupla.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Parámetros por Defecto
 
+<!--
+Lo mismo para argumentos con nombre. `**kwargs` (doble asterisco) te permite recibir cualquier cosa con nombre y te lo guarda en un diccionario. Es muy potente para funciones de configuración flexibles.
+-->
 ---
 
 ## Valores por Defecto
@@ -532,6 +610,9 @@ print(saludar("Ana", "Buenos días"))  # Buenos días, Ana!
 print(saludar("Ana", saludo="Buenas tardes"))  # Buenas tardes, Ana!
 ```
 
+<!--
+Podés combinar todo. Pero el orden es estricto: 1. Posicionales normales, 2. `*args`, 3. Defaults/Keyword-only, 4. `**kwargs`. Es la jerarquía de parámetros de Python.
+-->
 ---
 
 ## Orden de Parámetros
@@ -551,6 +632,9 @@ presentar("Bruno", 30, "Córdoba")  # Especifica ciudad
 #     ...
 ```
 
+<!--
+Las funciones Lambda son funciones 'de bolsillo'. Son anónimas (sin nombre) y tienen una sola línea. Son útiles para cosas rápidas y descartables, como una regla de ordenamiento o una transformación simple.
+-->
 ---
 
 ## ⚠️ Valores Mutables por Defecto
@@ -577,12 +661,18 @@ def agregar_item(item, lista=None):
     return lista
 ```
 
+<!--
+No abusen de las lambdas. Son geniales para pasarlas como argumento a `map`, `filter` o `sort`. Pero si la lógica es compleja, definan una función normal con `def`. La legibilidad siempre gana.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Número Variable de Argumentos
 
+<!--
+La regla es simple: si necesitás más de una expresión, o si necesitás documentarla, o si la vas a usar en varios lados, usá `def`. Lambda es solo para snippets de código rápidos.
+-->
 ---
 
 ## `*args` - Argumentos Posicionales Variables
@@ -604,6 +694,9 @@ print(sumar(5))  # 5
 
 **`*args` crea una tupla con todos los argumentos**
 
+<!--
+Documentar es un acto de amor a tu yo del futuro. Los Docstrings son la forma estándar de explicar qué hace tu función. Se escriben justo abajo del `def` y herramientas como `help()` los leen.
+-->
 ---
 
 ## `**kwargs` - Argumentos con Nombre Variables
@@ -624,6 +717,9 @@ imprimir_info(nombre="Ana", edad=25, ciudad="Buenos Aires")
 
 **`**kwargs` crea un diccionario con todos los argumentos keyword**
 
+<!--
+Un buen docstring explica QUÉ hace, qué ARGUMENTOS espera (y sus tipos) y qué RETORNA. Si pueden agregar un ejemplo de uso, mejor todavía. Acostúmbrense a escribir esto, es señal de profesionalismo.
+-->
 ---
 
 ## Combinar `*args` y `**kwargs`
@@ -640,12 +736,18 @@ funcion_completa(1, 2, 3, 4, kwarg1="valor", extra1="a", extra2="b")
 
 **Orden:** Posicionales, `*args`, keyword, `**kwargs`
 
+<!--
+Miren este ejemplo. Es claro, completo y tiene ejemplos. Cualquiera que lea esto sabe exactamente cómo usar la función sin tener que leer el código interno. Esa es la meta.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Funciones Lambda
 
+<!--
+Nombres. Por favor, usen nombres que signifiquen algo. `calc(x,y)` no me dice nada. `calcular_area(base, altura)` me dice todo. El código se lee muchas más veces de las que se escribe.
+-->
 ---
 
 ## Funciones Lambda (Anónimas)
@@ -665,6 +767,9 @@ print(cuadrado(5))  # 25
 
 **Sintaxis:** `lambda parametros: expresion`
 
+<!--
+SRP: Principio de Responsabilidad Única. Una función, una tarea. Si tu función se llama `procesar_todo`, probablemente está haciendo demasiado. Dividila en `validar`, `calcular` y `guardar`. Es mucho más fácil de mantener.
+-->
 ---
 
 ## ¿Cuándo usar Lambda?
@@ -691,6 +796,9 @@ ordenadas = sorted(palabras, key=lambda x: len(x))
 print(ordenadas)  # ['es', 'genial', 'python']
 ```
 
+<!--
+Funciones cortas. Si tenés que scrollear para ver el final de la función, es muy larga. Tratamos de mantenerlas en 20-30 líneas. Si es más larga, seguramente se puede dividir en sub-funciones.
+-->
 ---
 
 ## Lambda vs Función Normal
@@ -710,12 +818,18 @@ def procesar_datos(datos):
 
 **Regla:** Si necesitás más de una línea, usá función normal
 
+<!--
+Eviten los efectos secundarios. Una función idealmente debería recibir datos y devolver nuevos datos, SIN modificar los originales ni el estado global. Eso las hace predecibles y seguras (Funciones puras).
+-->
 ---
 
 <!-- _class: lead -->
 
 # Documentación de Funciones
 
+<!--
+Separación de intereses. La lógica de negocio (calcular total) no debería mezclarse con la interfaz de usuario (print). Retornen el valor y dejen que quien llamó a la función decida si imprimirlo, guardarlo o mandarlo por mail.
+-->
 ---
 
 ## Docstrings
@@ -745,6 +859,9 @@ def calcular_area(base, altura):
 help(calcular_area)
 ```
 
+<!--
+No confíen ciegamente en los datos que entran. Validen. Si la altura no puede ser negativa, chequéenlo al principio y levanten un error o retornen algo indicativo. Hace al código robusto.
+-->
 ---
 
 ## Formato de Docstrings
@@ -758,6 +875,9 @@ help(calcular_area)
 6. **Raises:** Excepciones (opcional)
 7. **Example:** Ejemplos de uso
 
+<!--
+Repasemos errores. Olvidar el `return` es el clásico número 1. Hacés todo el cálculo perfecto pero la función devuelve `None`. Siempre verifiquen qué sale de la función.
+-->
 ---
 
 ## Ejemplo Completo
@@ -788,12 +908,18 @@ def dividir(dividendo, divisor):
     return dividendo / divisor
 ```
 
+<!--
+Si definís 3 parámetros, tenés que pasar 3 argumentos (a menos que tengan defaults). Python cuenta y te va a retar si no coinciden.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Buenas Prácticas
 
+<!--
+El tema de modificar listas que pasás como argumento. A veces es lo que querés, pero muchas veces es un error accidental. Si no querés tocar el original, trabajá sobre una copia o creá una lista nueva.
+-->
 ---
 
 ## 1. Nombres Descriptivos
@@ -810,6 +936,9 @@ def calcular_area_rectangulo(base, altura):
 
 **Regla:** El nombre debe indicar qué hace la función
 
+<!--
+Documenten. En serio. Una función sin docstring es una caja negra. Abran la caja y pongan la etiqueta.
+-->
 ---
 
 ## 2. Hacer Una Sola Cosa (SRP)
@@ -834,6 +963,9 @@ def notificar_registro(nombre):
     enviar_email(nombre)
 ```
 
+<!--
+Descomponer es clave. Enfrentar un problema gigante asusta. Dividirlo en problemitas chiquitos y manejables es la estrategia ganadora. 'Divide y vencerás'.
+-->
 ---
 
 ## 3. Funciones Cortas
@@ -854,6 +986,9 @@ def calcular_promedio(notas):
 
 **Regla:** Si no cabe en una pantalla, es demasiado larga
 
+<!--
+Empiecen por el 'qué' (la función principal de alto nivel) y después vayan al 'cómo' (los detalles en sub-funciones). Es como hacer un boceto y después pintar los detalles.
+-->
 ---
 
 ## 4. Evitar Efectos Secundarios
@@ -878,6 +1013,9 @@ duplicada = duplicar_valores(original)
 print(original)  # [1, 2, 3] ✓
 ```
 
+<!--
+Cada pieza del rompecabezas tiene que encajar y hacer su trabajo. Si `validar_pedido` también calcula el total, está mal diseñada. Separen las tareas.
+-->
 ---
 
 ## 5. Retornar, No Imprimir
@@ -898,6 +1036,9 @@ total = calcular_total(items)
 print(f"Total: ${total}")
 ```
 
+<!--
+Miren este validador. En vez de un choclo de `if` complejos, tenemos tres funciones chiquitas con nombres claros. `es_password_valido` se lee casi como lenguaje natural. Eso es calidad de código.
+-->
 ---
 
 ## 6. Validar Entradas
@@ -917,12 +1058,18 @@ except ValueError as e:
     print(f"Error: {e}")
 ```
 
+<!--
+Resumiendo: `def` para definir, indentación para el cuerpo, parámetros para entrada, `return` para salida. Scope local vs global. Y herramientas poderosas como lambda y argumentos variables.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Errores Comunes
 
+<!--
+Recuerden: Return devuelve, Print muestra. Scope local protege variables. Eviten `global`.
+-->
 ---
 
 ## Error #1: Olvidar el Return
@@ -943,6 +1090,9 @@ total = sumar(5, 3)
 print(total)  # 8
 ```
 
+<!--
+Las buenas prácticas no son capricho. Nombres claros, funciones cortas, responsabilidad única. Son las reglas que nos permiten trabajar en equipos y mantener proyectos grandes.
+-->
 ---
 
 ## Error #2: Cantidad Incorrecta de Argumentos
@@ -958,6 +1108,9 @@ saludar("Ana")  # TypeError: missing 1 required argument
 saludar("Ana", 20)
 ```
 
+<!--
+El flujo de trabajo profesional: Entender el problema -> Diseñar la firma de la función (nombre y parámetros) -> Escribir el docstring -> Implementar -> Probar. Y repetir.
+-->
 ---
 
 ## Error #3: Modificar Argumentos Mutables
@@ -978,6 +1131,9 @@ def duplicar(lista):
     return [x * 2 for x in lista]
 ```
 
+<!--
+Cuidado con los sospechosos de siempre: `return` faltante, argumentos incorrectos, mutabilidad inesperada. Estén atentos.
+-->
 ---
 
 ## Error #4: No Documentar
@@ -1002,12 +1158,18 @@ def calcular_costo_total(precio, cantidad, envio):
     return precio * cantidad + envio
 ```
 
+<!--
+¡Eso es todo por hoy! Las funciones son los ladrillos con los que construimos software. Practiquen crear sus propias funciones, jueguen con los parámetros y traten de escribir código limpio. ¡A programar!
+-->
 ---
 
 <!-- _class: lead -->
 
 # Descomposición Funcional
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## ¿Qué es la Descomposición?
@@ -1034,6 +1196,9 @@ guardar_en_bd()
 enviar_notificacion()
 ```
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Estrategia: Top-Down
@@ -1058,6 +1223,9 @@ def mostrar_resultados(resultados):
     # ...
 ```
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Principio de Responsabilidad Única
@@ -1081,6 +1249,9 @@ def calcular_total(pedido):
     return sum(item['precio'] for item in pedido['items'])
 ```
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Ejemplo: Validador de Contraseña
@@ -1106,12 +1277,18 @@ def es_password_valido(password):
 
 **Ventaja:** Cada función es simple, testeable, reutilizable
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 <!-- _class: lead -->
 
 # Resumen
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Conceptos Clave
@@ -1127,6 +1304,9 @@ def es_password_valido(password):
 - Por defecto: valores opcionales
 - `*args`, `**kwargs`: variables
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Conceptos Clave (cont.)
@@ -1145,6 +1325,9 @@ def es_password_valido(password):
 - Lambda: funciones anónimas
 - Recursión: función que se llama a sí misma
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Buenas Prácticas Fundamentales
@@ -1158,6 +1341,9 @@ def es_password_valido(password):
 7. **Validar entradas**
 8. **Descomponer problemas** complejos
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Flujo de Desarrollo
@@ -1185,6 +1371,9 @@ assert calcular_promedio([]) == 0
 # 5. Refactorizar si es necesario
 ```
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Errores Más Comunes
@@ -1198,6 +1387,9 @@ assert calcular_promedio([]) == 0
 ❌ Valores mutables por defecto
 ❌ Nombres poco descriptivos
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 <!-- _paginate: false -->

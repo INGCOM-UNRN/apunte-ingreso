@@ -1,19 +1,11 @@
 ---
 marp: true
-theme: default
-paginate: true
-header: 'Modularización en Python'
+theme: UNRN
+paginate: false
+header: 'UNRN Andina'
+#header: 'Modularización en Python'
 footer: 'Módulos, paquetes y biblioteca estándar'
-style: |
-  section {
-    font-size: 26px;
-  }
-  h1 {
-    color: #1976d2;
-  }
-  code {
-    background-color: #f5f5f5;
-  }
+
 ---
 
 <!-- _paginate: false -->
@@ -23,6 +15,9 @@ style: |
 
 **Organización de código, módulos, paquetes y biblioteca estándar**
 
+<!--
+¡Buenas, buenas! Hoy vamos a subir el nivel. Vamos a hablar de Modularización. Hasta ahora, nuestros programas eran scripts chiquitos, de un solo archivo. Pero cuando la cosa se pone seria, no podés tener todo mezclado. Hoy vamos a aprender a organizar el código como profesionales, usando módulos y paquetes. Es la diferencia entre tener un cajón de herramientas desordenado y un taller impecable.
+-->
 ---
 
 ## ¿Qué vas a aprender?
@@ -34,6 +29,9 @@ style: |
 * **Trabajar con archivos** de forma segura
 * **Manejar excepciones** correctamente
 
+<!--
+El menú de hoy viene cargado. Vamos a ver cómo usar el código que otros ya escribieron (la biblioteca estándar), cómo crear nuestros propios archivos de código reutilizable (módulos) y cómo organizarlos en carpetas (paquetes). También vamos a tocar dos temas fundamentales para cualquier programa real: trabajar con archivos (leer y escribir datos) y manejar errores (excepciones) para que el programa no explote en la cara del usuario.
+-->
 ---
 
 ## El Problema: Código Monolítico
@@ -50,6 +48,9 @@ style: |
 - ✅ Reutilizable en otros proyectos
 - ✅ Colaboración efectiva
 
+<!--
+Imaginen un archivo de 5000 líneas. Es una pesadilla. Encontrás un error y no sabés dónde mirar. Querés usar una función en otro lado y tenés que copiar y pegar. Es imposible trabajar en equipo así. La solución es dividir y conquistar. Romper ese monolito en piezas pequeñas, lógicas y manejables. Eso es modularizar.
+-->
 ---
 
 ## Analogía: Tu Celular 📱
@@ -63,12 +64,18 @@ Tu celular no tiene una sola app gigante, tiene muchas apps pequeñas:
 
 **Cada app (módulo) hace una cosa bien y la usás cuando la necesitás**
 
+<!--
+Piensen en su celular. No es una sola aplicación gigante que hace todo. Tienen la app de Cámara, la de Mapas, la de Spotify. Cada una es un módulo especializado. Cuando querés sacar una foto, abrís la Cámara. Cuando querés escuchar música, abrís Spotify. En Python es igual: tenés un módulo para matemáticas, otro para fechas, otro para archivos. Cada uno hace lo suyo y lo hace bien.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Importar Módulos
 
+<!--
+Python viene con 'pilas incluidas'. La Biblioteca Estándar es una colección enorme de módulos que ya vienen instalados. Tienen de todo: desde cosas matemáticas complejas hasta herramientas para conectarse a internet. Antes de escribir una función complicada, fíjense si Python no la trae ya hecha. Spoiler: probablemente sí.
+-->
 ---
 
 ## La Biblioteca Estándar
@@ -84,6 +91,9 @@ Python viene con una **caja de herramientas gigante** lista para usar.
 
 **¡Y muchos más!**
 
+<!--
+Para usar estas herramientas, tenemos que avisarle a Python. La forma más clásica es `import modulo`. Traés la caja de herramientas entera. Para usar algo, tenés que decir 'caja.herramienta', o sea `math.sqrt`. Es muy claro porque leyendo el código sabés exactamente de dónde salió esa función.
+-->
 ---
 
 ## Forma 1: Importar el Módulo Completo
@@ -106,6 +116,9 @@ print(f"Seno de π/2: {math.sin(math.pi / 2)}")  # 1.0
 
 **Ventaja:** Claro de dónde viene cada función
 
+<!--
+Si solo vas a usar el martillo, ¿para qué traer toda la caja? Con `from modulo import funcion` traés solo lo que necesitás. La ventaja es que lo usás directo: `sqrt(16)`. El código queda más limpio. Pero ojo con los nombres, si tenés una función `sqrt` tuya, podés tener conflictos.
+-->
 ---
 
 ## Forma 2: Importar Solo lo que Necesitás
@@ -127,6 +140,9 @@ print(f"Seno: {sin(pi / 2)}")
 **Ventajas:** Código más corto, menos tipeo
 **Desventaja:** Puede crear conflictos de nombres
 
+<!--
+¡Alerta roja! `from modulo import *` parece cómodo porque traés todo y lo usás directo. Pero es una mala práctica. Estás volcando toda la caja de herramientas en tu mesa de trabajo. No sabés qué trajiste, y podés sobrescribir funciones tuyas sin darte cuenta. Eviten esto en código de producción.
+-->
 ---
 
 ## Forma 3: Importar Todo (⚠️ Cuidado)
@@ -151,6 +167,9 @@ def sqrt(x):
     return x  # Tu versión diferente
 ```
 
+<!--
+A veces los nombres son largos o querés seguir una convención. `import pandas as pd` es el estándar en ciencia de datos. `import numpy as np`. Usás el alias para escribir menos, pero seguís siendo explícito sobre el origen. Es un buen balance.
+-->
 ---
 
 ## Forma 4: Alias (Renombrar)
@@ -170,23 +189,42 @@ plt.plot([1, 2, 3])
 
 **Cuándo usar:** Módulos con nombres largos o convención de la comunidad
 
+<!--
+Acá tienen un machete para decidir qué import usar. `import modulo` es lo más seguro y claro. `from modulo import funcion` es bueno para cosas muy específicas. Los alias son geniales para bibliotecas populares. Y el asterisco... bueno, déjenlo para la consola interactiva nomás.
+-->
 ---
 
 ## Comparación de Formas de Import
 
 | Forma | Sintaxis | Uso | Cuándo Usar |
-|-------|----------|-----|-------------|
+|
+---
+----|
+---
+---
+----|
+-----|
+---
+---
+---
+----|
 | Completo | `import math` | `math.sqrt(16)` | Muchas funciones |
 | Específico | `from math import sqrt` | `sqrt(16)` | Pocas funciones |
 | Todo | `from math import *` | `sqrt(16)` | ⚠️ Evitar |
 | Alias | `import numpy as np` | `np.array([])` | Nombres largos |
 
+<!--
+Vamos a ver algunos módulos estrella. `math` tiene todo lo que soñaron en el colegio y más. Raíces, potencias, trigonometría, constantes como Pi y Euler. Si tienen que hacer cuentas, arranquen por acá.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Módulos de la Biblioteca Estándar
 
+<!--
+`random` es divertidísimo. Números al azar, tirar dados, elegir cartas de un mazo, mezclar listas. Es fundamental para juegos, simulaciones y para testear programas con datos de prueba.
+-->
 ---
 
 ## `math` - Matemáticas
@@ -210,6 +248,9 @@ print(math.pi)  # 3.141592...
 print(math.e)   # 2.718281...
 ```
 
+<!--
+`datetime` es el dueño del tiempo. Manejar fechas a mano es un dolor de cabeza (años bisiestos, zonas horarias). Este módulo lo resuelve. Pueden calcular 'mañana', restar fechas, formatear la hora para que se vea linda. Imprescindible.
+-->
 ---
 
 ## `random` - Números Aleatorios
@@ -236,6 +277,9 @@ random.shuffle(numeros)
 print(numeros)  # Orden aleatorio
 ```
 
+<!--
+`os` es el puente con el sistema operativo. Crear carpetas, listar archivos, ver si un archivo existe. Esto es clave para hacer scripts que automaticen tareas en tu computadora.
+-->
 ---
 
 ## `datetime` - Fechas y Tiempos
@@ -261,6 +305,9 @@ print(f"Mañana: {mañana}")
 print(ahora.strftime("%d/%m/%Y %H:%M"))
 ```
 
+<!--
+Ahora sí, manos a la obra. ¿Cómo hacemos nuestros propios módulos? Es ridículamente fácil: cualquier archivo `.py` ES un módulo. Si creás `matematicas.py` y le ponés funciones adentro, ¡listo! Ya tenés un módulo.
+-->
 ---
 
 ## `os` - Sistema Operativo
@@ -289,12 +336,18 @@ info = os.path.getsize("archivo.txt")
 print(f"Tamaño: {info} bytes")
 ```
 
+<!--
+Una vez creado el archivo, lo importás igual que a los de Python. `import matematicas`. Y usás sus funciones con `matematicas.funcion()`. Mágicamente, tu código principal queda limpio y ordenado, y toda la lógica pesada está escondida en el otro archivo.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Crear Tus Propios Módulos
 
+<!--
+También podés importar funciones específicas de tu módulo. `from matematicas import area_circulo`. Es exactamente igual que con la biblioteca estándar. Tu código se comporta como ciudadano de primera clase.
+-->
 ---
 
 ## ¿Qué es un Módulo Tuyo?
@@ -313,6 +366,9 @@ mi_proyecto/
 - 📦 Organizás mejor
 - 🧪 Más fácil de testear
 
+<!--
+Documentar es vital. Si vas a reutilizar código, tenés que explicar qué hace. Los docstrings no son solo comentarios, son la ayuda oficial. Si alguien hace `help(tu_funcion)`, va a ver lo que escribiste ahí. Sean claros y profesionales.
+-->
 ---
 
 ## Paso 1: Crear el Módulo
@@ -342,6 +398,9 @@ def factorial(n):
     return resultado
 ```
 
+<!--
+Este truco es clave: `if __name__ == '__main__':`. Este bloque de código solo se ejecuta si corrés el archivo DIRECTAMENTE. Si lo importás desde otro lado, Python lo ignora. Es el lugar perfecto para poner tests rápidos o ejemplos de uso sin ensuciar el código cuando se importa.
+-->
 ---
 
 ## Paso 2: Usar tu Módulo
@@ -365,6 +424,9 @@ print(f"5! = {fact}")
 print(f"Pi: {matematicas.PI}")
 ```
 
+<!--
+Para entender `__name__`: es una variable mágica que Python define. Si sos el programa principal, vale `__main__`. Si fuiste importado, vale el nombre de tu archivo. Es la forma que tiene el módulo de saber si es el protagonista o un actor de reparto.
+-->
 ---
 
 ## Importar Selectivamente
@@ -381,6 +443,9 @@ print(f"Pi: {PI}")
 
 **Ventaja:** Más conciso cuando usás pocas funciones
 
+<!--
+Cuando tenés muchos módulos, una carpeta plana no alcanza. Necesitás Paquetes. Un paquete es simplemente una carpeta que contiene módulos. El secreto es el archivo `__init__.py`. Ese archivo le dice a Python: 'Che, esta carpeta es un paquete, tratalo con respeto'.
+-->
 ---
 
 ## Documentación en Módulos
@@ -409,6 +474,9 @@ def area_circulo(radio):
 help(matematicas.area_circulo)
 ```
 
+<!--
+Paso a paso: creás la carpeta, metés el `__init__.py` (puede estar vacío o exponer funciones principales) y adentro ponés tus módulos `.py`. Ahora tenés una estructura jerárquica profesional.
+-->
 ---
 
 ## `if __name__ == "__main__"`
@@ -433,6 +501,9 @@ if __name__ == "__main__":
 
 **Cuando importás el módulo, este código NO se ejecuta**
 
+<!--
+Los módulos del paquete pueden ser tan simples o complejos como quieras. Acá `basicas.py` tiene sumar y restar. Fíjense que cada función tiene su docstring. La prolijidad ante todo.
+-->
 ---
 
 ## ¿Para qué sirve `__name__`?
@@ -454,12 +525,18 @@ import matematicas
 - 📝 Ejemplos de uso
 - 🛠️ Herramientas CLI
 
+<!--
+Y `avanzadas.py` tiene cosas más potentes. Dividir el código así te ayuda a mentalizar el problema. ¿Es una cuenta básica? Voy a `basicas`. ¿Es algo raro? Voy a `avanzadas`.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Paquetes
 
+<!--
+Para usarlo, navegás la jerarquía con puntos. `from paquete import modulo`. O `from paquete.modulo import funcion`. Es muy intuitivo. Python se encarga de encontrar los archivos.
+-->
 ---
 
 ## ¿Qué es un Paquete?
@@ -478,6 +555,9 @@ mi_proyecto/
 
 **Sin `__init__.py`, Python NO reconoce la carpeta como paquete**
 
+<!--
+Y esto puede seguir. Paquetes dentro de paquetes. `mate.geometria.plano`. No hay límite (más allá del sentido común). Así están organizadas las grandes librerías como Django o Flask.
+-->
 ---
 
 ## Crear un Paquete Paso a Paso
@@ -502,6 +582,9 @@ __version__ = "1.0.0"
 - `basicas.py` → Funciones simples
 - `avanzadas.py` → Funciones complejas
 
+<!--
+Cambio de tema: Archivos. Los programas necesitan memoria a largo plazo. Leer y escribir archivos es básico. La regla de oro acá es usar `with open(...)`. El `with` se encarga de cerrar el archivo pase lo que pase. Es el cinturón de seguridad de los archivos.
+-->
 ---
 
 ## Módulo `basicas.py`
@@ -529,6 +612,9 @@ def dividir(a, b):
     return a / b
 ```
 
+<!--
+Escribir es igual de fácil. Ojo con los modos: `'w'` borra todo lo que había y escribe de cero. `'a'` (append) agrega al final sin borrar. Elijan con sabiduría.
+-->
 ---
 
 ## Módulo `avanzadas.py`
@@ -554,6 +640,9 @@ def factorial(n):
     return n * factorial(n - 1)
 ```
 
+<!--
+Esta tabla es para imprimir y pegar en el monitor. `r` (read), `w` (write), `a` (append). Y si trabajan con imágenes o archivos binarios, le agregan una `b` (`rb`, `wb`).
+-->
 ---
 
 ## Usar el Paquete
@@ -577,6 +666,9 @@ import matematicas
 print(matematicas.restar(10, 3))    # 7
 ```
 
+<!--
+JSON es el formato estándar de la web. Python lo ama. El módulo `json` te permite convertir diccionarios de Python a texto JSON (`dump`) y viceversa (`load`). Es la forma más fácil de guardar configuraciones o datos estructurados.
+-->
 ---
 
 ## Paquetes Anidados
@@ -603,12 +695,18 @@ from mate.aritmetica.basicas import sumar
 from mate.geometria.plano import area_circulo
 ```
 
+<!--
+Antes de intentar abrir un archivo, preguntá si existe. `os.path.exists()` te salva de errores feos. Es como golpear antes de entrar.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Trabajar con Archivos
 
+<!--
+Hablando de errores... Manejo de Excepciones. Los programas fallan. El usuario ingresa texto en vez de números, el archivo no está, se corta internet. Si no manejamos estos errores, el programa crashea feo. Las excepciones son la forma elegante de manejar lo inesperado.
+-->
 ---
 
 ## Leer Archivos
@@ -630,6 +728,9 @@ with open("datos.txt", "r", encoding="utf-8") as archivo:
 
 **Ventaja del `with`:** Cierra el archivo automáticamente, incluso si hay error
 
+<!--
+El bloque `try-except` es la red de contención. En el `try` ponés el código riesgoso. En el `except` decís qué hacer si falla. En lugar de un error rojo y feo, el usuario recibe un mensaje amable.
+-->
 ---
 
 ## Escribir Archivos
@@ -650,12 +751,27 @@ with open("salida.txt", "w", encoding="utf-8") as archivo:
     archivo.writelines(lineas)
 ```
 
+<!--
+Podés capturar el error en una variable `e` para saber qué pasó exactamente. A veces querés mostrar el error técnico, a veces solo un mensaje genérico.
+-->
 ---
 
 ## Modos de Apertura
 
 | Modo | Descripción | Crea si no existe |
-|------|-------------|-------------------|
+|
+---
+---|
+---
+---
+---
+----|
+---
+---
+---
+---
+---
+----|
 | `"r"` | Solo lectura | ❌ Error |
 | `"w"` | Escritura (sobrescribe) | ✅ Sí |
 | `"a"` | Agregar al final | ✅ Sí |
@@ -664,6 +780,9 @@ with open("salida.txt", "w", encoding="utf-8") as archivo:
 
 **Agregar `b` para binario:** `"rb"`, `"wb"`
 
+<!--
+`else` se ejecuta si todo salió bien (útil para código que depende del éxito del `try` pero no querés que sus errores sean capturados). `finally` se ejecuta SIEMPRE, haya error o no. Es ideal para limpieza, cerrar conexiones, etc.
+-->
 ---
 
 ## Trabajar con JSON
@@ -689,6 +808,9 @@ with open("persona.json", "r", encoding="utf-8") as archivo:
 print(datos["nombre"])  # Ana
 ```
 
+<!--
+Podés tener múltiples `except` para atajar distintos problemas. No es lo mismo dividir por cero que no encontrar un archivo. Y podés tener un `except Exception` genérico para 'cualquier otra cosa', pero úsenlo con cuidado.
+-->
 ---
 
 ## Verificar Existencia de Archivo
@@ -712,12 +834,18 @@ else:
         f.write("Archivo nuevo\n")
 ```
 
+<!--
+A veces vos querés generar tus propios errores. Si la función espera positivos y recibe un negativo, ¡`raise ValueError`! Es la forma de decirle a quien usa tu función: 'Hiciste algo mal'.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Manejo de Excepciones
 
+<!--
+Volvemos al `with`. Técnicamente es un 'Context Manager'. Se asegura de que los recursos (archivos, conexiones) se liberen correctamente. Úsenlo siempre que puedan.
+-->
 ---
 
 ## ¿Qué es una Excepción?
@@ -732,6 +860,9 @@ Un **error** que ocurre durante la ejecución del programa.
 - `KeyError`: Clave no existe en dict
 - `IndexError`: Índice fuera de rango
 
+<!--
+Buenas prácticas para cerrar. Los imports van arriba de todo. Ordenados: primero biblioteca estándar, después librerías externas, y al final tus módulos. Separados por grupos. Es cuestión de orden y limpieza.
+-->
 ---
 
 ## Try-Except Básico
@@ -750,6 +881,9 @@ except ZeroDivisionError:
 
 **Sin try-except, el programa se detiene. Con try-except, lo manejás.**
 
+<!--
+Jamás de los jamases confíen en cerrar archivos manualmente. Siempre `with`. Un error antes del `close()` y el archivo queda abierto, consumiendo memoria y bloqueando el sistema.
+-->
 ---
 
 ## Capturar el Error
@@ -764,6 +898,9 @@ except ValueError as e:
 
 **La variable `e` contiene información del error**
 
+<!--
+Documenten sus módulos. Un docstring al principio del archivo explicando qué hace el módulo entero ayuda muchísimo a entender la arquitectura del proyecto.
+-->
 ---
 
 ## Try-Except-Else-Finally
@@ -784,6 +921,9 @@ finally:
         print("Archivo cerrado")
 ```
 
+<!--
+Repito: NO usen `from modulo import *`. Ensucia el espacio de nombres (namespace). Sean explícitos. `math.sqrt` es mejor que `sqrt` suelta que no sabés de dónde vino.
+-->
 ---
 
 ## Múltiples Excepciones
@@ -803,6 +943,9 @@ except Exception as e:
     print(f"Ocurrió un error: {e}")
 ```
 
+<!--
+Nombres claros. `import modulo_procesamiento_imagenes` es largo pero claro. Si es muy largo, usen un alias `import modulo... as mpi`. Pero no usen nombres crípticos.
+-->
 ---
 
 ## Lanzar Excepciones
@@ -825,6 +968,9 @@ except ValueError as e:
     print(f"Error: {e}")
 ```
 
+<!--
+Repasemos. Vimos Módulos (archivos), Paquetes (carpetas con `__init__`), cómo importar, cómo leer/escribir archivos con `with` y JSON, y cómo manejar errores con `try-except`. Tienen el kit completo.
+-->
 ---
 
 ## Context Managers (with)
@@ -845,12 +991,18 @@ with open("datos.txt", "r") as archivo:
 # Se cierra automáticamente, incluso si hay error
 ```
 
+<!--
+Checklist mental. Archivos, excepciones, módulos estándar. Si dominan esto, ya no son principiantes. Están escribiendo software robusto.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Buenas Prácticas
 
+<!--
+La biblioteca estándar es su mejor amiga. `os`, `sys`, `math`, `json`, `datetime`. Apréndanlos, los van a usar en todos los proyectos.
+-->
 ---
 
 ## 1. Organizar Imports
@@ -873,6 +1025,9 @@ import configuracion
 
 **Regla:** Alfabéticamente dentro de cada grupo
 
+<!--
+Si pueden tachar todo esto de la lista, felicidades. Están listos para construir sistemas complejos y organizados.
+-->
 ---
 
 ## 2. Usar `with` para Archivos
@@ -889,6 +1044,9 @@ with open("datos.txt", "r") as archivo:
 # Garantizado que se cierra
 ```
 
+<!--
+Cuidado con estos errores. Olvidar el `__init__`, no cerrar archivos, importar todo con asterisco. Son errores de novato que ahora ya saben evitar.
+-->
 ---
 
 ## 3. Documentar Módulos
@@ -917,6 +1075,9 @@ def factorial(n):
     pass
 ```
 
+<!--
+¡Gracias por la atención! Ahora, a romper el código. Prueben crear su propio paquete, intenten leer un archivo que no existe y atajen el error. La práctica hace al maestro. ¡A codear!
+-->
 ---
 
 ## 4. No Usar `import *`
@@ -935,6 +1096,9 @@ import random
 resultado = math.sqrt(16)  # Claro que es de math
 ```
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## 5. Nombres Descriptivos
@@ -949,12 +1113,18 @@ import procesador_datos as proc_datos
 from utilidades import validar_email
 ```
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 <!-- _class: lead -->
 
 # Resumen
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Conceptos Clave
@@ -969,6 +1139,9 @@ from utilidades import validar_email
 - Organizar código relacionado
 - Imports: `from paquete.modulo import funcion`
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Conceptos Clave (cont.)
@@ -983,12 +1156,22 @@ from utilidades import validar_email
 - `finally` siempre se ejecuta
 - `raise` para lanzar excepciones propias
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Biblioteca Estándar Esencial
 
 | Módulo | Para qué sirve |
-|--------|----------------|
+|
+---
+-----|
+---
+---
+---
+---
+----|
 | `math` | Matemáticas avanzadas |
 | `random` | Números aleatorios |
 | `datetime` | Fechas y tiempos |
@@ -996,6 +1179,9 @@ from utilidades import validar_email
 | `json` | Formato JSON |
 | `sys` | Información del sistema |
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Checklist de Aprendizaje
@@ -1008,6 +1194,9 @@ from utilidades import validar_email
 ✅ Usar módulos de la biblioteca estándar
 ✅ Documentar módulos con docstrings
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Errores Comunes
@@ -1019,6 +1208,9 @@ from utilidades import validar_email
 ❌ Rutas hardcodeadas en lugar de `os.path`
 ❌ No documentar módulos
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 <!-- _paginate: false -->

@@ -1,19 +1,11 @@
 ---
 marp: true
-theme: default
-paginate: true
-header: 'Manejo de Excepciones en Python'
+theme: UNRN
+paginate: false
+header: 'UNRN Andina'
+#header: 'Manejo de Excepciones en Python'
 footer: 'Crear programas robustos y confiables'
-style: |
-  section {
-    font-size: 26px;
-  }
-  h1 {
-    color: #1976d2;
-  }
-  code {
-    background-color: #f5f5f5;
-  }
+
 ---
 
 <!-- _paginate: false -->
@@ -23,6 +15,9 @@ style: |
 
 **Aprende a manejar errores como un profesional**
 
+<!--
+¡Hola a todos! Hoy vamos a hablar de un tema crucial para cualquier programador que quiera salir del jardín de infantes: el Manejo de Excepciones. Hasta ahora, cuando algo salía mal, nuestro programa explotaba y nos mostraba un mensaje rojo horrible. Hoy vamos a aprender a atajar esos errores, manejarlos con elegancia y hacer que nuestros programas sean a prueba de balas.
+-->
 ---
 
 ## ¿Qué vas a aprender?
@@ -34,6 +29,9 @@ style: |
 * **Crear excepciones personalizadas**
 * **Buenas prácticas** para código robusto
 
+<!--
+¿Qué tenemos en el menú? Vamos a entender qué son realmente las excepciones (spoiler: no son el fin del mundo). Vamos a aprender la estructura `try-except`, que es nuestro escudo protector. También vamos a ver cláusulas avanzadas como `else` y `finally`. Y para los que quieran ir más allá, vamos a ver cómo crear nuestros propios errores y las mejores prácticas para no meter la pata.
+-->
 ---
 
 ## Los Errores son Parte del Juego
@@ -51,6 +49,9 @@ En programación es igual. Tu código puede enfrentar:
 - 🌐 Conexiones de red que fallan
 - 💾 Memoria que se agota
 
+<!--
+Piensen en esto como ingeniería civil. Cuando diseñás un puente, no asumís que siempre va a haber sol y viento calmo. Planificás para terremotos, huracanes y sobrecarga. En software es igual. El usuario va a meter el dedo donde no debe, el archivo que buscás no va a estar, internet se va a cortar. Si tu programa no está listo para eso, es un programa frágil.
+-->
 ---
 
 ## Sin vs Con Manejo de Excepciones
@@ -72,12 +73,18 @@ except ValueError:
 # ✅ Programa sigue funcionando
 ```
 
+<!--
+Miren este ejemplo clásico. Le pedís la edad al usuario. Esperás un número. El usuario escribe 'veinte'. ¡Pum! `ValueError` y el programa se cierra. Con manejo de excepciones, podemos detectar ese error, decirle amablemente 'Che, poné un número' y seguir adelante o poner un valor por defecto. Esa es la diferencia entre un script de juguete y una aplicación profesional.
+-->
 ---
 
 <!-- _class: lead -->
 
 # ¿Qué es una Excepción?
 
+<!--
+Entonces, ¿qué es una excepción? Es una señal, una alarma. No es un error de sintaxis (eso es escribir mal el código). Es un error en tiempo de ejecución. El código está bien escrito, pero algo en el entorno o en los datos hizo que la operación sea imposible. Dividir por cero es el ejemplo de libro.
+-->
 ---
 
 ## Excepción = Alarma de Seguridad
@@ -97,6 +104,9 @@ resultado = dividir_pizza(8, 0)
 # ZeroDivisionError: division by zero
 ```
 
+<!--
+Acá se ve clara la diferencia. El error de sintaxis es como escribir mal una palabra; Python no te entiende. La excepción es como pedirle a alguien que vuele; te entiende, pero no puede hacerlo. Python levanta la mano y dice '¡Excepción!', y ahí es donde entramos nosotros para manejarla.
+-->
 ---
 
 ## Excepción vs Error de Sintaxis
@@ -119,6 +129,9 @@ resultado = x / y  # ZeroDivisionError
 ```
 Python dice: **"Entiendo, pero no puedo hacer eso"**
 
+<!--
+Cuando el programa explota, Python nos tira un 'Traceback'. No se asusten, es un mapa. Les dice exactamente dónde ocurrió el problema y qué camino tomó el código para llegar ahí. Leer tracebacks es una habilidad fundamental. La última línea suele tener la posta: qué error fue y por qué.
+-->
 ---
 
 ## El Traceback (Rastreo)
@@ -152,18 +165,35 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 ```
 
+<!--
+Hay un zoológico de excepciones, pero estas son las que van a ver el 90% del tiempo. `ValueError` para datos que no tienen sentido. `TypeError` para mezclar peras con manzanas. `ZeroDivisionError`... bueno, se explica solo. `FileNotFoundError` para cuando el archivo no está. Conocerlas es el primer paso para atraparlas.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Tipos Comunes de Excepciones
 
+<!--
+Vamos a ver ejemplos concretos. `ValueError` aparece mucho cuando convertimos tipos. Si trato de convertir 'hola' a entero, explota. Si capturo la excepción, puedo avisarle al usuario y el programa no se rompe.
+-->
 ---
 
 ## Excepciones Más Frecuentes
 
 | Excepción | Cuándo Ocurre | Ejemplo |
-|-----------|---------------|---------|
+|
+---
+---
+-----|
+---
+---
+---
+---
+---|
+---
+---
+---|
 | `ValueError` | Valor inválido | `int("abc")` |
 | `TypeError` | Tipo incorrecto | `"5" + 3` |
 | `ZeroDivisionError` | División por cero | `10 / 0` |
@@ -171,6 +201,9 @@ ZeroDivisionError: division by zero
 | `KeyError` | Clave no existe | `dict["key"]` |
 | `IndexError` | Índice fuera de rango | `lista[100]` |
 
+<!--
+`TypeError` es cuando intentás hacer algo con un tipo de dato que no corresponde. Sumar texto y número, o intentar llamar a un número como si fuera una función. Python es estricto con los tipos, y eso es bueno.
+-->
 ---
 
 ## `ValueError` - Valor Incorrecto
@@ -189,6 +222,9 @@ except ValueError:
     print("❌ Contiene caracteres no numéricos")
 ```
 
+<!--
+`ZeroDivisionError`. Matemáticamente imposible. Si están calculando promedios o porcentajes, siempre hay riesgo de que el denominador sea cero. Atrápenlo antes de que rompa todo.
+-->
 ---
 
 ## `TypeError` - Tipo Incorrecto
@@ -208,6 +244,9 @@ except TypeError:
     print("❌ No es una función")
 ```
 
+<!--
+Archivos. El usuario te dice que el archivo estátá ahí, pero lo borró o le cambió el nombre. `FileNotFoundError` es tu amigo. En lugar de crashear, podés crear el archivo o pedirle al usuario que verifique la ruta.
+-->
 ---
 
 ## `ZeroDivisionError` - División por Cero
@@ -226,6 +265,9 @@ print(dividir_seguro(10, 2))  # 5.0
 print(dividir_seguro(10, 0))  # None
 ```
 
+<!--
+Diccionarios. Buscás una clave que no existe: `KeyError`. Es súper común. Podés usar `try-except` o el método `.get()` que es más seguro. Ambas son válidas, pero el `try-except` es más explícito sobre el error.
+-->
 ---
 
 ## `FileNotFoundError` - Archivo No Existe
@@ -241,6 +283,9 @@ except FileNotFoundError:
         archivo.write("Contenido inicial\n")
 ```
 
+<!--
+Listas. Querés el elemento 10 de una lista de 3. `IndexError`. Siempre validen los índices o manejen esta excepción. Es típico en bucles o cuando procesamos datos que vienen de afuera.
+-->
 ---
 
 ## `KeyError` - Clave No Existe
@@ -261,6 +306,9 @@ except KeyError:
 carrera = estudiante.get("carrera", "No especificada")
 ```
 
+<!--
+Ahora sí, la herramienta principal: `try-except`. Es como un seguro. En el bloque `try` ponés el código peligroso, el que puede fallar. En el `except` ponés el plan de contingencia. Si todo va bien, el `except` se ignora. Si algo falla, saltamos directo al `except`.
+-->
 ---
 
 ## `IndexError` - Índice Fuera de Rango
@@ -282,12 +330,18 @@ else:
     print("❌ Índice inválido")
 ```
 
+<!--
+Miren qué lindo queda. Intento convertir y dividir. Si falla la conversión (`ValueError`), le digo que ponga un número. Si falla la división (`ZeroDivisionError`), le digo que no ponga cero. Cubro todas las bases.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Try-Except Básico
 
+<!--
+El orden importa. Python va probando los `except` de arriba a abajo. El primero que coincida con el error gana. Si tenés un error genérico y uno específico, poné el específico primero.
+-->
 ---
 
 ## Sintaxis Básica
@@ -307,6 +361,9 @@ except TipoDeError:
 3. Si NO ocurre error, salta el `except`
 4. Continúa con el resto del programa
 
+<!--
+A veces querés tratar varios errores igual. 'Si falla, avisá'. Podés agrupar excepciones en una tupla `(Error1, Error2)`. También podés capturar la instancia del error con `as error` para imprimir el mensaje técnico o loguearlo.
+-->
 ---
 
 ## Ejemplo Simple
@@ -326,6 +383,9 @@ except ZeroDivisionError:
 **Si el usuario ingresa "0"** → ZeroDivisionError
 **Si el usuario ingresa "5"** → ✅ Todo bien
 
+<!--
+Capturar el objeto de excepción es muy útil para debugging. Te da detalles del error que podés guardar en un log o mostrar (con cuidado) al usuario. `e` o `error` es la convención para nombrarlo.
+-->
 ---
 
 ## Múltiples Except
@@ -345,6 +405,9 @@ except ZeroDivisionError:
 
 **Python evalúa los `except` en orden y ejecuta el primero que coincida**
 
+<!--
+El `try-except` tiene dos hermanos menos conocidos pero muy útiles: `else` y `finally`. `else` corre si NO hubo errores en el `try`. `finally` corre SIEMPRE, haya error o no. Es el lugar perfecto para limpiar el desastre.
+-->
 ---
 
 ## Capturar Múltiples en Uno
@@ -363,6 +426,9 @@ except (ValueError, TypeError) as error:
     print(f"❌ Error: {error}")
 ```
 
+<!--
+Este es el flujo completo. Intento abrir (try). Si falla, aviso (except). Si funciona, digo cuántos caracteres leí (else). Y pase lo que pase, cierro el archivo (finally). Es un patrón muy robusto.
+-->
 ---
 
 ## Capturar el Objeto Excepción
@@ -383,23 +449,46 @@ except ValueError as error:
 📦 Args: ("invalid literal for int() with base 10: 'abc'",)
 ```
 
+<!--
+Acá vemos un ejemplo más realista. Procesar un archivo. Manejamos que no exista, que no tengamos permisos. Si todo sale bien, devolvemos las líneas. Y siempre, siempre, cerramos el archivo en el `finally`.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Try-Except-Else-Finally
 
+<!--
+Para resumir: `try` es obligatorio. `except` maneja el problema. `else` es para la lógica que depende del éxito del `try` (separar lo riesgoso de lo seguro). `finally` es para limpieza garantizada (cerrar conexiones, borrar temporales).
+-->
 ---
 
 ## Las 4 Cláusulas
 
 | Cláusula | Cuándo se Ejecuta | Para Qué Sirve |
-|----------|-------------------|----------------|
+|
+---
+---
+----|
+---
+---
+---
+---
+---
+----|
+---
+---
+---
+---
+----|
 | `try` | Siempre primero | Código que puede fallar |
 | `except` | Solo si hay error | Manejar el error |
 | `else` | Solo si NO hay error | Código de éxito |
 | `finally` | SIEMPRE | Limpieza (cerrar archivos) |
 
+<!--
+Hasta ahora solo atajamos penales. Pero a veces queremos patearlos nosotros. `raise` nos permite generar una excepción intencionalmente. Es útil para validar reglas de negocio. 'Si la edad es negativa, esto es un error grave, ¡lanzá una excepción!'.
+-->
 ---
 
 ## Flujo Completo
@@ -422,6 +511,9 @@ finally:
         print("🔒 Archivo cerrado")
 ```
 
+<!--
+Validar datos es el uso número 1 de `raise`. Si la función espera un nombre y recibe vacío, no tiene sentido seguir. Lanzamos `ValueError` con un mensaje claro. Quien llame a la función tendrá que manejar ese error.
+-->
 ---
 
 ## Ejemplo: Procesar Archivo
@@ -460,6 +552,9 @@ def procesar_archivo(nombre):
 lineas = procesar_archivo("datos.txt")
 ```
 
+<!--
+A veces capturamos un error, hacemos algo (como loguearlo) y queremos que el error siga subiendo para que lo maneje otro nivel superior. Para eso usamos `raise` solito, sin argumentos. Re-lanza la excepción activa.
+-->
 ---
 
 ## ¿Cuándo usar cada cláusula?
@@ -481,12 +576,18 @@ finally:
     liberar_recursos()
 ```
 
+<!--
+Python nos deja crear nuestros propios tipos de error. Es tan simple como crear una clase que herede de `Exception`. Esto hace que tu código sea mucho más expresivo. `NombreVacioError` se entiende mucho más que un `ValueError` genérico.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Lanzar Excepciones
 
+<!--
+Podés hacer excepciones tan complejas como quieras. Agregarles atributos, métodos... Imaginense un `ErrorDePago` que guarde el monto y el usuario que falló. Súper útil para el equipo de soporte.
+-->
 ---
 
 ## `raise` - Lanzar Excepciones
@@ -511,6 +612,9 @@ except ValueError as e:
     print(f"❌ {e}")
 ```
 
+<!--
+En sistemas grandes, organizamos las excepciones en jerarquías. `ErrorDeBaseDatos` puede ser el padre de `ErrorDeConexion` y `ErrorDeConsulta`. Así podés capturar todos los de base de datos juntos, o ser específico si querés.
+-->
 ---
 
 ## Validar Entradas
@@ -536,6 +640,9 @@ except ValueError as e:
     print(f"❌ Error de validación: {e}")
 ```
 
+<!--
+Volvemos a los archivos. Abrir y cerrar a mano es propenso a errores. Si hay una excepción antes del `close()`, el archivo queda abierto. Eso es una fuga de recursos.
+-->
 ---
 
 ## Re-Lanzar Excepciones
@@ -559,12 +666,18 @@ except ValueError:
 
 **`raise` sin argumentos re-lanza la excepción actual**
 
+<!--
+La solución mágica: Context Managers (`with`). Hacen lo mismo que el `try-finally` pero en una línea. Abren el recurso y te garantizan que se va a cerrar al salir del bloque, pase lo que pase. Úsenlo siempre.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Excepciones Personalizadas
 
+<!--
+Miren la diferencia. `leer_archivo_seguro` usa `with` y `try-except`. Es código profesional. Maneja codificación, permisos, existencia. Así se escribe software de verdad.
+-->
 ---
 
 ## Crear Tus Propias Excepciones
@@ -595,6 +708,9 @@ except EdadInvalidaError as e:
     print(f"❌ Error de edad: {e}")
 ```
 
+<!--
+Para escribir es lo mismo. El `with` asegura que los datos se guarden y el archivo se cierre. Capturamos errores de permisos o de sistema operativo (disco lleno). Retornamos `True` o `False` para indicar éxito.
+-->
 ---
 
 ## Excepciones con Información Extra
@@ -622,6 +738,9 @@ except ErrorDePago as e:
     print(f"💰 Monto problemático: ${e.monto}")
 ```
 
+<!--
+Buenas prácticas. Regla 1: Sean específicos. `except Exception:` o `except:` (bare except) es una mala práctica conocida como 'Pokémon Exception Handling' (atraparlos a todos). Oculta bugs reales. Solo capturen lo que saben manejar.
+-->
 ---
 
 ## Jerarquía de Excepciones
@@ -654,12 +773,18 @@ except AppError:
     print("❌ Error general")
 ```
 
+<!--
+Regla 2: No silencien errores. Un `except: pass` es lo peor que pueden hacer. El error ocurre y el programa sigue como si nada, probablemente con datos corruptos. Como mínimo, logueen el error.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Context Managers (with)
 
+<!--
+Regla 3: El bloque `try` debe ser chiquito. Si ponen 100 líneas en el `try`, y salta un `ValueError`, no saben cuál de las 20 líneas posibles lo causó. Solo envuelvan la parte peligrosa.
+-->
 ---
 
 ## El Problema: Fugas de Recursos
@@ -678,6 +803,9 @@ archivo.close()  # ¡Nunca llega aquí!
 - ⚠️ Límite de archivos abiertos
 - 📉 Pérdida de datos
 
+<!--
+Regla 4: Los mensajes de error son para humanos. 'Error 504' no ayuda. 'El archivo tiene un formato inválido' sí. Ayuden a su usuario (y a ustedes mismos cuando tengan que debuggear).
+-->
 ---
 
 ## Solución: Context Manager (with)
@@ -695,6 +823,9 @@ with open("datos.txt", "r") as archivo:
 - Código más limpio
 - No te olvidás de cerrar
 
+<!--
+Regla 5: Limpien. Si abrieron algo, ciérrenlo. Si crearon un temporal, bórrenlo. El `finally` o el `with` son obligatorios para recursos del sistema.
+-->
 ---
 
 ## Lectura Segura de Archivos
@@ -725,6 +856,9 @@ def leer_archivo_seguro(nombre):
 lineas = leer_archivo_seguro("datos.txt")
 ```
 
+<!--
+Regla 6: No capturen `Exception` a menos que sea en el nivel más alto del programa (para loguear un crash y salir). Capturar `Exception` puede ocultar errores de sintaxis o `KeyboardInterrupt` (Ctrl+C).
+-->
 ---
 
 ## Escritura Segura
@@ -754,12 +888,18 @@ datos = ["línea 1", "línea 2", "línea 3"]
 guardar_datos("salida.txt", datos)
 ```
 
+<!--
+Regla 7: Documenten qué excepciones lanza su función. Es parte de la interfaz. El que usa tu función necesita saber qué errores esperar para poder manejarlos.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Buenas Prácticas
 
+<!--
+Resumiendo: Las excepciones son amigas. Nos permiten manejar lo inesperado. `try-except` es la estructura base. `finally` asegura limpieza.
+-->
 ---
 
 ## 1. Específico, No Genérico
@@ -780,6 +920,9 @@ except FileNotFoundError:
     manejar_archivo_faltante()
 ```
 
+<!--
+`raise` nos da control para hacer cumplir nuestras reglas. `with` es la forma moderna y segura de manejar recursos.
+-->
 ---
 
 ## 2. No Ocultar Errores
@@ -800,6 +943,9 @@ except Exception as e:
     logging.error(f"Error: {e}")
 ```
 
+<!--
+Tengan esta lista a mano. Son los sospechosos de siempre. Conocerlos les va a ahorrar mucho tiempo de búsqueda en Google.
+-->
 ---
 
 ## 3. Mantener Try Pequeño
@@ -826,6 +972,9 @@ except ValueError as e:
 guardar_resultados(datos)
 ```
 
+<!--
+Si se llevan algo de hoy: Sean específicos, no oculten basura bajo la alfombra (`pass`), y usen `with`. Con eso ya están por encima del promedio.
+-->
 ---
 
 ## 4. Mensajes Descriptivos
@@ -841,6 +990,9 @@ except ValueError as e:
     print("Sugerencia: Verifica los datos de entrada")
 ```
 
+<!--
+Este patrón de `operacion_segura` es una plantilla que pueden usar. Validación al principio (Guard Clauses), operación peligrosa en `try`, manejo de errores específicos, mensaje de éxito en `else` y limpieza en `finally`.
+-->
 ---
 
 ## 5. Limpiar Recursos
@@ -859,6 +1011,9 @@ with open("datos.txt") as archivo:
 # Se cierra automáticamente
 ```
 
+<!--
+Checklist final. Si pueden hacer todo esto, ya dominan el manejo de errores. Su código va a ser mucho más estable y profesional.
+-->
 ---
 
 ## 6. No Capturar Exception
@@ -877,6 +1032,9 @@ except (ValueError, TypeError) as e:
     print(f"Error esperado: {e}")
 ```
 
+<!--
+¡Eso es todo! No le tengan miedo a los errores, ténganle miedo a no manejarlos. Practiquen romper su código y arreglarlo con excepciones. ¡Nos vemos la próxima!
+-->
 ---
 
 ## 7. Documentar Excepciones
@@ -905,12 +1063,18 @@ def dividir(a, b):
     return a / b
 ```
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 <!-- _class: lead -->
 
 # Resumen
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Conceptos Clave
@@ -926,6 +1090,9 @@ def dividir(a, b):
 - `else`: Si no falla
 - `finally`: Siempre se ejecuta
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Conceptos Clave (cont.)
@@ -940,12 +1107,20 @@ def dividir(a, b):
 - Garantiza limpieza de recursos
 - Especialmente para archivos
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Excepciones Comunes
 
 | Excepción | Cuándo |
-|-----------|--------|
+|
+---
+---
+-----|
+---
+-----|
 | `ValueError` | Valor incorrecto |
 | `TypeError` | Tipo incorrecto |
 | `ZeroDivisionError` | División por cero |
@@ -953,6 +1128,9 @@ def dividir(a, b):
 | `KeyError` | Clave no existe |
 | `IndexError` | Índice fuera de rango |
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Buenas Prácticas Esenciales
@@ -965,6 +1143,9 @@ def dividir(a, b):
 6. ✅ **Documentar** excepciones que se lanzan
 7. ✅ No capturar `Exception` genérico
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Patrón Típico
@@ -993,6 +1174,9 @@ def operacion_segura(datos):
         print("🔒 Limpieza completa")
 ```
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Checklist
@@ -1006,6 +1190,9 @@ def operacion_segura(datos):
 ✅ Aplicar buenas prácticas
 ✅ Escribir código robusto
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 <!-- _paginate: false -->

@@ -1,19 +1,10 @@
 ---
 marp: true
-theme: default
-paginate: true
-header: 'Estructuras de Datos en Python'
+theme: UNRN
+paginate: false
+header: 'UNRN Andina'
+#header: 'Estructuras de Datos en Python'
 footer: 'Listas, tuplas, diccionarios y sets'
-style: |
-  section {
-    font-size: 26px;
-  }
-  h1 {
-    color: #1976d2;
-  }
-  code {
-    background-color: #f5f5f5;
-  }
 ---
 
 <!-- _paginate: false -->
@@ -23,6 +14,9 @@ style: |
 
 **Listas, tuplas, diccionarios, sets y strings avanzados**
 
+<!--
+¡Buenas, buenas! Hoy nos metemos de lleno en el corazón de Python: las Estructuras de Datos. Si las variables son cajitas, las estructuras de datos son los muebles, las estanterías y los organizadores donde guardamos esas cajitas. Vamos a ver cómo organizar nuestra información de forma eficiente para no volvernos locos.
+-->
 ---
 
 ## ¿Qué vas a aprender?
@@ -33,6 +27,9 @@ style: |
 * **Sets**: conjuntos sin duplicados
 * **Comprehensions**: crear estructuras de forma elegante
 
+<!--
+El menú de hoy es contundente. Vamos a conocer a los 'cuatro fantásticos' de Python: Listas, Tuplas, Diccionarios y Sets. Cada uno tiene su superpoder y su momento de brillar. Y de postre, las 'comprehensions', que son una forma muy elegante y 'pro' de crear estas estructuras.
+-->
 ---
 
 ## ¿Por qué Necesitamos Estructuras de Datos?
@@ -54,12 +51,30 @@ estudiantes = ["Ana", "Bruno", "Carlos", "Diana"]
 
 En lugar de 1000 variables, tenés **1 lista**.
 
+<!--
+Imaginen que tienen que guardar los nombres de todos los alumnos de la universidad. ¿Van a crear `estudiante1`, `estudiante2`... hasta `estudiante1000`? ¡Ni locos! Sería inmanejable. Para eso usamos estructuras. Una sola lista `estudiantes` que contiene a todos. Es más limpio, más fácil de manejar y escalable.
+-->
 ---
 
 ## Comparación Rápida
 
 | Estructura | Mutable | Ordenada | Indexable | Única |
-|------------|---------|----------|-----------|-------|
+|
+---
+---
+---
+---|
+---
+---
+---|
+---
+---
+----|
+---
+---
+-----|
+---
+----|
 | **Lista** | ✅ | ✅ | ✅ | ❌ |
 | **Tupla** | ❌ | ✅ | ✅ | ❌ |
 | **Dict** | ✅ | ✅* | ❌ | Claves ✅ |
@@ -67,12 +82,18 @@ En lugar de 1000 variables, tenés **1 lista**.
 
 *Ordenado desde Python 3.7+
 
+<!--
+Acá tienen un machete rápido. Las Listas son las todo terreno: ordenadas y modificables. Las Tuplas son como listas pero 'blindadas' (inmutables). Los Diccionarios son para buscar rápido por clave (como una agenda). Y los Sets son para elementos únicos, sin repetidos. Tengan esta tabla en mente.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Listas
 
+<!--
+Arrancamos con la reina de la fiesta: la Lista. Es una colección ordenada, lo que significa que el primero es el primero y el último es el último. Y es mutable: podés agregar, sacar y cambiar cosas a tu antojo. Se usan corchetes `[]` para definirlas.
+-->
 ---
 
 ## ¿Qué es una Lista?
@@ -92,6 +113,9 @@ vacia = []
 - Los elementos tienen orden y posición
 - Se pueden modificar después de crear
 
+<!--
+Crear listas es fácil. Pueden estar vacías, tener frutas, números o una mezcla de todo (Python es muy permisivo con esto). La función `list()` también sirve, especialmente para convertir otras cosas en listas, como los rangos.
+-->
 ---
 
 ## Crear Listas
@@ -114,6 +138,9 @@ mixta = ["Ana", 25, 1.75, True]
 numeros = list(range(5))  # [0, 1, 2, 3, 4]
 ```
 
+<!--
+Para sacar algo de la lista, usamos su índice (su dirección). Ojo que en programación los edificios se numeran desde el 0. El primer elemento es el 0. Los índices negativos son geniales: `-1` es el último, `-2` el anteúltimo. Muy útil cuando no sabés el largo de la lista.
+-->
 ---
 
 ## Acceder a Elementos por Índice
@@ -136,6 +163,9 @@ print(frutas[-2])  # 🍊 (penúltima)
 print(frutas[-3])  # 🍌 (antepenúltima)
 ```
 
+<!--
+¡Alerta roja! Si tratás de acceder al piso 5 de un edificio de 2 pisos, te chocás contra el techo. Eso es el `IndexError`. Siempre verifiquen el largo con `len()` antes de acceder a índices dudosos.
+-->
 ---
 
 ## ⚠️ Error: Índice Fuera de Rango
@@ -156,6 +186,9 @@ else:
     print(f"Índice {index} no existe")
 ```
 
+<!--
+El Slicing (rebanado) es una de las cosas más potentes de Python. Podés sacar sub-listas con la sintaxis `[inicio:fin]`. Acuérdense que el límite superior NO se incluye. Es como decir 'desde el 2 HASTA (pero no incluyendo) el 5'.
+-->
 ---
 
 ## Slicing: Cortar Rebanadas 🍰
@@ -178,6 +211,9 @@ print(numeros[5:])     # [5, 6, 7, 8, 9]
 print(numeros[:])      # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
+<!--
+El slicing tiene un tercer parámetro: el paso. `[::2]` va de 2 en 2. `[::-1]` es el truco de magia para invertir una lista al instante. Es súper expresivo y eficiente.
+-->
 ---
 
 ## Slicing con Paso
@@ -198,6 +234,9 @@ print(numeros[::-1])   # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 print(numeros[-3:])    # [7, 8, 9]
 ```
 
+<!--
+Como dijimos, las listas son mutables. Podés ir a una posición específica y cambiar lo que hay ahí. 'Sacame la banana y pone uvas'. Así de simple.
+-->
 ---
 
 ## Modificar Listas
@@ -216,6 +255,9 @@ frutas[0:2] = ["🍓", "🍉"]
 print(frutas)  # ["🍓", "🍉", "🍊"]
 ```
 
+<!--
+Para agregar inquilinos: `append()` lo manda al fondo de la cola. `insert()` lo mete donde vos le digas (empujando al resto). Y `extend()` es para sumar otra lista entera de una sola vez.
+-->
 ---
 
 ## Agregar Elementos
@@ -241,6 +283,9 @@ frutas.extend(["🍊", "🍐"])
 print(frutas)  # ["🍎", "🍌", "🍊", "🍐"]
 ```
 
+<!--
+Para desalojar: `remove()` busca el elemento y lo saca (al primero que encuentre). `pop()` saca por índice (por defecto el último) y TE LO DEVUELVE, ideal para pilas de tareas. Si no necesitás el valor, `del` también sirve.
+-->
 ---
 
 ## Eliminar Elementos
@@ -263,6 +308,9 @@ segunda = frutas.pop(1)     # Elimina índice 1
 print(segunda)              # "🍌"
 ```
 
+<!--
+¿Está el 3 en la lista? `count()` te dice cuántas veces. `index()` te dice dónde está el primero (ojo si no está, tira error). Y el operador `in` es la forma más pythonica de preguntar '¿tenemos bananas?'.
+-->
 ---
 
 ## Buscar en Listas
@@ -287,6 +335,9 @@ if "🍌" in frutas:
     print("Tenemos bananas")
 ```
 
+<!--
+El orden es importante. `sort()` ordena la lista original (la modifica). `sorted()` te devuelve UNA COPIA ordenada y deja la original intacta. Si necesitan preservar el orden de llegada, usen `sorted()`.
+-->
 ---
 
 ## Ordenar Listas
@@ -310,6 +361,9 @@ print(original)  # [5, 2, 8, 1, 9] (sin cambios)
 print(ordenada)  # [1, 2, 5, 8, 9]
 ```
 
+<!--
+Iterar es recorrer la lista elemento por elemento. El `for` simple es lo más común. Si necesitan saber en qué posición están, `enumerate()` es su mejor amigo. Les da el índice y el valor en cada vuelta.
+-->
 ---
 
 ## Iterar sobre Listas
@@ -336,6 +390,9 @@ for i, fruta in enumerate(frutas, start=1):
     print(f"{i}: {fruta}")
 ```
 
+<!--
+List Comprehensions. Esto es Python puro. En lugar de escribir 3 líneas para llenar una lista, lo hacés en una. Se lee: 'Poné x al cuadrado PARA CADA x EN el rango'. Es conciso y generalmente más rápido.
+-->
 ---
 
 ## List Comprehensions
@@ -354,6 +411,9 @@ print(cuadrados)
 # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 ```
 
+<!--
+Y se pone mejor. Podés filtrar sobre la marcha. 'Solo los pares'. Es como tener un `filter` y un `map` integrados en la sintaxis de la lista.
+-->
 ---
 
 ## Comprehensions con Condición
@@ -370,6 +430,9 @@ dobles_pares = [n * 2 for n in numeros if n % 2 == 0]
 print(dobles_pares)  # [4, 8]
 ```
 
+<!--
+Listas dentro de listas. Inception. Así hacemos matrices o tablas. Para acceder, usás doble corchete `[fila][columna]`. Acuérdense que siempre es fila primero.
+-->
 ---
 
 ## Listas Anidadas (Matrices)
@@ -393,12 +456,18 @@ for fila in matriz:
     print()
 ```
 
+<!--
+Pasamos a las Tuplas. Son listas que hicieron un voto de silencio y quietud. Una vez creadas, NO CAMBIAN. Son inmutables. Se usan paréntesis `()`.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Tuplas
 
+<!--
+Se pueden crear con o sin paréntesis (el poder de la coma). Ojo con la tupla de un solo elemento: `(42)` es un número, `(42,)` es una tupla. Esa coma final es clave.
+-->
 ---
 
 ## ¿Qué es una Tupla?
@@ -416,6 +485,9 @@ un_elemento = (42,)  # Nota la coma
 - Listas: `[]` → mutables (se pueden modificar)
 - Tuplas: `()` → inmutables (NO se pueden modificar)
 
+<!--
+Intentar cambiar una tupla es chocar contra una pared. No `append`, no asignación `[0] = x`. Si querés cambiarla, tenés que crear una nueva combinando partes.
+-->
 ---
 
 ## Crear Tuplas
@@ -437,6 +509,9 @@ solo_uno = (42,)     # ✓ Tupla
 no_tupla = (42)      # ✗ Es solo el número 42
 ```
 
+<!--
+Para leerlas, funcionan IGUAL que las listas. Índices, slicing... todo eso anda perfecto.
+-->
 ---
 
 ## ⚠️ Las Tuplas son Inmutables
@@ -460,6 +535,9 @@ tupla = (1, 2, 3)
 nueva = tupla + (4, 5)  # (1, 2, 3, 4, 5)
 ```
 
+<!--
+Como son estáticas, tienen pocos métodos. Básicamente `count` e `index`. No busquen `sort` o `reverse` acá porque modifican in-place.
+-->
 ---
 
 ## Acceder a Elementos
@@ -477,6 +555,9 @@ print(persona[-1])  # "Argentina"
 print(persona[1:])  # (25, "Argentina")
 ```
 
+<!--
+El desempaquetado es magia. Podés asignar los valores de la tupla a variables sueltas en una línea. `x, y = punto`. Es súper cómodo y legible.
+-->
 ---
 
 ## Métodos de Tuplas
@@ -495,6 +576,9 @@ posicion = numeros.index(5)
 print(posicion)  # 2
 ```
 
+<!--
+El asterisco `*` captura 'todo lo demás'. Es muy útil cuando solo te interesan el primero y el último, por ejemplo.
+-->
 ---
 
 ## Desempaquetado (Unpacking) 🎁
@@ -518,6 +602,9 @@ nombre, edad, pais = persona
 print(f"{nombre} tiene {edad} años")
 ```
 
+<!--
+El truco de intercambiar variables en Python. En otros lenguajes necesitás una variable temporal `aux`. Acá no. `a, b = b, a`. Elegante.
+-->
 ---
 
 ## Desempaquetado con * (Rest)
@@ -537,6 +624,9 @@ print(f"Medio: {medio}")      # [2, 3, 4, 5, 6, 7, 8]
 print(f"Último: {ultimo}")    # 9
 ```
 
+<!--
+¿Por qué limitarnos? Usen tuplas para cosas que son conceptualmente fijas: días de la semana, coordenadas GPS, config de base de datos. Además, ocupan menos memoria y protegen los datos.
+-->
 ---
 
 ## Intercambio de Variables
@@ -561,6 +651,9 @@ a, b = b, a  # ¡Una sola línea!
 print(a, b)  # 10 5
 ```
 
+<!--
+Ahora, los Diccionarios. Son la estructura más poderosa. Clave-Valor. Como una agenda: buscás 'Juan' (clave) y tenés su 'Teléfono' (valor). El acceso es instantáneo, no importa si hay 10 o 10 millones de datos.
+-->
 ---
 
 ## ¿Cuándo usar Tuplas?
@@ -583,12 +676,18 @@ fecha = (2024, 1, 15)
 config = ("localhost", 8080, False)
 ```
 
+<!--
+Se crean con llaves `{}`. Clave a la izquierda, dos puntos, valor a la derecha. También pueden usar `dict()`.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Diccionarios
 
+<!--
+Accedemos por clave, no por índice. `persona['nombre']`. Si la clave no existe, explota. Por eso `get()` es más seguro: si no está, te devuelve `None` o lo que vos quieras, y el programa sigue vivo.
+-->
 ---
 
 ## ¿Qué es un Diccionario?
@@ -608,6 +707,9 @@ persona = {
 - **DNI** (clave) → **Persona** (valor)
 - **Email** (clave) → **Usuario** (valor)
 
+<!--
+Son mutables. Podés cambiar el valor de una clave, o crear una clave nueva simplemente asignándole algo. `update()` sirve para mezclar diccionarios.
+-->
 ---
 
 ## Crear Diccionarios
@@ -631,6 +733,9 @@ estudiante = dict(nombre="Carlos", nota=8.5)
 datos = dict([("a", 1), ("b", 2), ("c", 3)])
 ```
 
+<!--
+Para borrar: `del` por clave, `pop` si querés el valor de despedida, o `clear` para limpiar la casa.
+-->
 ---
 
 ## Acceder a Valores
@@ -654,6 +759,9 @@ print(persona.get("telefono"))  # None
 print(persona.get("telefono", "No tiene"))  # "No tiene"
 ```
 
+<!--
+Métodos clave: `keys()` te da la lista de entradas, `values()` los datos, e `items()` te da las parejitas para iterar.
+-->
 ---
 
 ## Modificar y Agregar
@@ -674,6 +782,9 @@ print(persona)
 persona.update({"telefono": "123-456", "email": "ana@mail.com"})
 ```
 
+<!--
+Iterar un diccionario tiene trucos. Por defecto iterás claves. Si querés todo, usá `.items()` y desempaquetá la clave y el valor en el `for`.
+-->
 ---
 
 ## Eliminar Elementos
@@ -695,6 +806,9 @@ persona.clear()
 print(persona)  # {}
 ```
 
+<!--
+También existen las comprehensions para diccionarios. `{k: v ...}`. Muy útil para invertir diccionarios o filtrar datos.
+-->
 ---
 
 ## Métodos Principales
@@ -715,6 +829,9 @@ print(persona.items())
 # dict_items([('nombre', 'Ana'), ('edad', 25), ('ciudad', 'BA')])
 ```
 
+<!--
+Diccionarios dentro de diccionarios. Ideal para estructuras complejas como JSONs de APIs. Accedés encadenando corchetes `['clave1']['clave2']`.
+-->
 ---
 
 ## Iterar sobre Diccionarios
@@ -738,6 +855,9 @@ for clave, valor in persona.items():
 # ciudad: BA
 ```
 
+<!--
+Finalmente, los Sets (Conjuntos). Son bolsas de gatos. No tienen orden, pero tienen una regla de oro: NO ADMITEN DUPLICADOS. Son súper rápidos para verificar si algo existe.
+-->
 ---
 
 ## Dictionary Comprehensions
@@ -760,6 +880,9 @@ pares = {k: v for k, v in numeros.items() if v % 2 == 0}
 print(pares)  # {'b': 2, 'd': 4}
 ```
 
+<!--
+Ojo al crear un set vacío: `{}` es un diccionario vacío. Usen `set()`. Los sets son geniales para limpiar listas con repetidos.
+-->
 ---
 
 ## Diccionarios Anidados
@@ -787,12 +910,18 @@ notas_ana = estudiantes["001"]["notas"]
 print(sum(notas_ana) / len(notas_ana))  # 8.0
 ```
 
+<!--
+La magia de los sets: unicidad garantizada. Si metés el 4 cinco veces, solo se guarda uno. Convertir lista a set y volver a lista es el truco clásico para borrar duplicados.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Sets (Conjuntos)
 
+<!--
+Tienen sus propios métodos `add`, `remove`, `discard` (que no falla si no está). No hay `append` ni índices.
+-->
 ---
 
 ## ¿Qué es un Set?
@@ -810,6 +939,9 @@ mixto = {1, "dos", 3.0, True}
 - No permiten duplicados
 - Útiles para eliminar duplicados y operaciones matemáticas
 
+<!--
+Acá es donde brillan: teoría de conjuntos. Unión, Intersección, Diferencia. Si quieren saber 'usuarios que están en A pero no en B', esto se hace en una línea con sets.
+-->
 ---
 
 ## Crear Sets
@@ -832,6 +964,9 @@ letras = set("hola")
 print(letras)  # {'h', 'o', 'l', 'a'}
 ```
 
+<!--
+La diferencia simétrica es el 'XOR': están en uno o en otro, pero no en ambos. También podemos preguntar si uno incluye al otro.
+-->
 ---
 
 ## Sets Eliminan Duplicados
@@ -847,6 +982,9 @@ sin_duplicados = list(set(lista))
 print(sin_duplicados)  # [1, 2, 3, 4, 5]
 ```
 
+<!--
+Y sí, también tienen comprehensions. Se ven igual que las de diccionarios pero sin los dos puntos.
+-->
 ---
 
 ## Agregar y Eliminar
@@ -872,6 +1010,9 @@ conjunto.discard(100)  # No da error
 elemento = conjunto.pop()
 ```
 
+<!--
+Bonus track: Strings Avanzados. Los strings son inmutables (como tuplas de caracteres), pero tienen métodos super poderosos. `find`, `startswith`, `count`...
+-->
 ---
 
 ## Operaciones de Conjuntos
@@ -894,6 +1035,9 @@ print(a - b)  # {1, 2}
 print(b - a)  # {4, 5}
 ```
 
+<!--
+Transformaciones: `upper`, `lower`, `strip`. Recuerden que devuelven COPIAS nuevas, no cambian el original.
+-->
 ---
 
 ## Más Operaciones de Conjuntos
@@ -913,6 +1057,9 @@ print(a.issubset(b))  # True
 print(b.issuperset(a))  # True
 ```
 
+<!--
+`strip` es vital para limpiar inputs de usuario, saca los espacios 'basura' de los costados.
+-->
 ---
 
 ## Set Comprehensions
@@ -929,12 +1076,18 @@ unicos_dobles = {x * 2 for x in numeros}
 print(unicos_dobles)  # {2, 4, 6, 8}
 ```
 
+<!--
+`split` rompe un string en una lista (por espacios o comas). `join` hace lo contrario: pega una lista de strings con un conector.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Strings Avanzados
 
+<!--
+F-strings. Ya las vimos, pero insisto: úsenlas. Son lo más legible y eficiente para formatear texto y números.
+-->
 ---
 
 ## Métodos de Búsqueda
@@ -958,6 +1111,9 @@ print(texto.startswith("Python"))  # True
 print(texto.endswith("genial"))  # True
 ```
 
+<!--
+Resumen general. Tengan esta tabla en la cabeza. ¿Necesito orden? Lista. ¿Clave-Valor? Dict. ¿Unicos? Set. ¿Inmutables? Tupla.
+-->
 ---
 
 ## Transformaciones
@@ -976,6 +1132,9 @@ frase = "hola mundo"
 print(frase.capitalize())  # "Hola mundo"
 ```
 
+<!--
+Guía rápida de decisión. Piensen en qué NECESITAN hacer con los datos, y la estructura correcta aparecerá sola.
+-->
 ---
 
 ## Strip: Eliminar Espacios
@@ -997,6 +1156,9 @@ email = "xxx@correo.comxxx"
 print(email.strip("x"))  # "@correo.com"
 ```
 
+<!--
+Más sobre el 'cuándo usar qué'. La performance importa. Buscar en un set/dict es O(1) (instantáneo). En lista es O(n) (tengo que recorrerla).
+-->
 ---
 
 ## Split y Join
@@ -1018,6 +1180,9 @@ frase = " ".join(palabras)
 print(frase)  # "Python es genial"
 ```
 
+<!--
+Las comprehensions son una herramienta poderosa, úsenlas para escribir código más limpio y 'Pythonic'.
+-->
 ---
 
 ## F-strings: Formateo Avanzado
@@ -1041,23 +1206,54 @@ precio = 1234.56
 print(f"Precio: ${precio:,.2f}")  # "Precio: $1,234.56"
 ```
 
+<!--
+Convertir entre tipos es muy común. `list(set(lista))` es un clásico. `tuple(lista)` para protegerla.
+-->
 ---
 
 <!-- _class: lead -->
 
 # Resumen
 
+<!--
+Estos son los verbos que van a usar el 90% del tiempo. Apréndanselos bien.
+-->
 ---
 
 ## Comparación de Estructuras
 
 | Estructura | Sintaxis | Ordenada | Mutable | Duplicados | Uso Principal |
-|------------|----------|----------|---------|------------|---------------|
+|
+---
+---
+---
+---|
+---
+---
+----|
+---
+---
+----|
+---
+---
+---|
+---
+---
+---
+---|
+---
+---
+---
+---
+---|
 | **Lista** | `[]` | ✅ | ✅ | ✅ | Secuencias ordenadas |
 | **Tupla** | `()` | ✅ | ❌ | ✅ | Datos inmutables |
 | **Dict** | `{}` | ✅* | ✅ | Claves ❌ | Mapeo clave-valor |
 | **Set** | `{}` | ❌ | ✅ | ❌ | Elementos únicos |
 
+<!--
+Errores clásicos. Modificar lo inmutable, índices fuera de rango, claves que no existen. Son los golpes con los que se aprende.
+-->
 ---
 
 ## ¿Cuándo usar cada estructura?
@@ -1072,6 +1268,9 @@ print(f"Precio: ${precio:,.2f}")  # "Precio: $1,234.56"
 - Coordenadas, configuración
 - Retornar múltiples valores
 
+<!--
+¡Eso es todo! Las estructuras de datos son los cimientos de sus programas. Practiquen mucho, combínenlas y experimenten. ¡A codear!
+-->
 ---
 
 ## ¿Cuándo usar cada estructura? (cont.)
@@ -1086,6 +1285,9 @@ print(f"Precio: ${precio:,.2f}")  # "Precio: $1,234.56"
 - Operaciones matemáticas de conjuntos
 - Verificar pertenencia rápidamente
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Comprehensions
@@ -1110,6 +1312,9 @@ print(f"Precio: ${precio:,.2f}")  # "Precio: $1,234.56"
 [x for x in range(20) if x % 2 == 0]
 ```
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Conversiones entre Estructuras
@@ -1129,6 +1334,9 @@ dict_items = list(diccionario.items())
 nuevo_dict = dict(lista_tuplas)
 ```
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Métodos Más Usados
@@ -1141,6 +1349,9 @@ nuevo_dict = dict(lista_tuplas)
 
 **Sets:** `add()`, `remove()`, `discard()`, `union()`, `intersection()`, `difference()`
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 ## Errores Comunes
@@ -1152,6 +1363,9 @@ nuevo_dict = dict(lista_tuplas)
 ❌ Confundir `{}` vacío (es dict, no set)
 ❌ Olvidar coma en tupla de un elemento: `(42,)`
 
+<!--
+NO MORE NOTES
+-->
 ---
 
 <!-- _paginate: false -->
