@@ -4,10 +4,6 @@ short_title: 0x0000h - Estilo
 subtitle: Pautas para la organización y prolijidad del código en Python basadas en PEP 8 y buenas prácticas.
 ---
 
-## Falta simplificar esto...
-
-Hay una montaña de cosas acá que son de avanzadas a muy avanzadas :-P
-
 ## Introducción
 
 Este documento establece un conjunto de reglas de estilo para Python, pensadas como la condensación de años de experiencia programando y enseñando a programar. Estas están diseñadas para que tu código sea más claro, legible y menos propenso a errores. Se encuentran alineadas con las mejores prácticas de la comunidad Python, especialmente:
@@ -81,7 +77,7 @@ Estamos abiertos a debatir todas las reglas. Para ello, solo tenés que abrir un
 En Python, la indentación forzada ya promueve la claridad. Aprovechá esto escribiendo código que "respira" y es fácil de seguir visualmente.
 
 :::{tip} PEP 20
-"Si la implementación es difícil de explicar, es una mala idea. Si la implementación es fácil de explicar, puede ser una buena idea."
+> "Si la implementación es difícil de explicar, es una mala idea. Si la implementación es fácil de explicar, puede ser una buena idea."
 :::
 
 ---
@@ -121,7 +117,7 @@ segundos_por_dia = 86400
 lista_estudiantes = []
 ```
 
-#### Nombres Cortos: Cuándo Son Aceptables
+#### Nombres Cortos: _cuándo son aceptables_
 
 Bajo ciertas condiciones, los nombres cortos son aceptables y hasta preferibles:
 
@@ -133,7 +129,7 @@ Bajo ciertas condiciones, los nombres cortos son aceptables y hasta preferibles:
 ```python
 # ✓ Aceptable: contexto matemático claro
 for i in range(10):
-    resultado = i **2
+    resultado = i ** 2
 
 # ✓ Aceptable: comprensión simple
 cuadrados = [x**2 for x in range(10)]
@@ -168,13 +164,6 @@ for estudiante in estudiantes:
 **Excepciones idiomáticas en Python:**
 
 ```python
-# ✓ Aceptable: desempaquetado simple y claro
-x, y = 10, 20
-nombre, edad = obtener_datos_usuario()
-
-# ✓ Aceptable: swap pythonic
-a, b = b, a
-
 # ✓ Aceptable: desempaquetado de funciones que retornan múltiples valores
 ancho, alto = obtener_dimensiones()
 
@@ -187,7 +176,7 @@ a, b, c = x, y, z = calcular(), procesar(), validar()
 (0x0003h)=
 ### Regla `0x0003h`: Siempre inicializar variables con valores explícitos
 
-**Principio:**En Python, las variables no existen hasta que se les asigna un valor. Es importante inicializar contadores, acumuladores y variables de control con valores explícitos antes de usarlos.
+**Principio:** En Python, las variables no existen hasta que se les asigna un valor. Es importante inicializar contadores, acumuladores y variables de control con valores explícitos antes de usarlos.
 
 ```python
 # ❌ Incorrecto: variable no inicializada
@@ -226,22 +215,6 @@ es_valido = True
 resultado = None
 archivo = None
 ```
-
-:::{warning} Evitar valores mutables como argumentos por defecto
-```python
-# ❌ ERROR COMÚN: lista mutable como default
-def agregar_elemento(elemento, lista=[]):
-    lista.append(elemento)
-    return lista
-
-# ✓ Correcto: usar None y crear nueva lista
-def agregar_elemento(elemento, lista=None):
-    if lista is None:
-        lista = []
-    lista.append(elemento)
-    return lista
-```
-:::
 
 ---
 
@@ -292,9 +265,6 @@ funcion(arg1=valor1, arg2=valor2)
 # ✓ Sin espacios en slicing
 lista[inicio:fin]
 lista[inicio:fin:paso]
-
-# ✓ Agrupar por precedencia (opcional pero válido)
-resultado = a*b + c*d  # Agrupa multiplicaciones sin espacios
 ```
 
 ---
@@ -302,7 +272,7 @@ resultado = a*b + c*d  # Agrupa multiplicaciones sin espacios
 (0x0005h)=
 ### Regla `0x0005h`: La indentación debe ser consistente (4 espacios)
 
-**Principio ({ref}`pep-8-ref`):**Python usa indentación para definir bloques de código. **Siempre usar 4 espacios**, nunca tabs.
+**Principio ({ref}`pep-8-ref`):** Python usa indentación para definir bloques de código. **Siempre usar 4 espacios**, nunca tabs.
 
 ```python
 # ✓ Correcto: 4 espacios por nivel de indentación
@@ -320,9 +290,9 @@ def calcular_promedio(numeros):
 
 **Reglas de indentación:**
 
-1. **4 espacios por nivel**(no 2, no 8, no tabs)
-2. **Consistencia total**en todo el archivo
-3. **Líneas continuadas:**Alinear con el delimitador de apertura o usar indentación colgante
+1. **4 espacios por nivel** (no 2, no 8, no tabs)
+2. **Consistencia total** en todo el archivo
+3. **Líneas continuadas:** Alinear con el delimitador de apertura o usar indentación colgante
 
 ```python
 # ✓ Opción 1: Alinear con delimitador
@@ -346,8 +316,8 @@ lista_valores = [
 ]
 ```
 
-:::{danger} Nunca mezclar tabs y espacios
-Python 3 no permite mezclar tabs y espacios. Configurá tu editor para convertir tabs en 4 espacios automáticamente.
+:::{danger} Nunca mezclar tabuladores y espacios
+Python no permite esta mezcla y esto provocará errores de sintaxis cuando suceda. Configurá tu editor para convertir tabuladores en 4 espacios automáticamente.
 :::
 
 ---
@@ -355,7 +325,7 @@ Python 3 no permite mezclar tabs y espacios. Configurá tu editor para convertir
 (0x0006h)=
 ### Regla `0x0006h`: Evitar `break` y `continue`; usar banderas de control
 
-**Principio:**Aunque Python permite `break` y `continue`, en este curso preferimos usar **banderas de control**(variables booleanas) para gestionar la terminación de loops. Esto produce código más predecible y estructurado.
+**Principio:** Aunque Python permite `break` y `continue`, en este curso preferimos usar **banderas de control**(variables booleanas) para gestionar la terminación de loops. Esto produce código más predecible y estructurado.
 
 ```python
 # ❌ Evitar (aunque Python lo permite)
@@ -398,7 +368,7 @@ Esta regla es específica de este curso para enseñar control de flujo estructur
 (0x0007h)=
 ### Regla `0x0007h`: Preferir `while` sobre `for` para loops condicionales
 
-**Principio:**Usar `while` cuando la condición de parada no es un simple recorrido de secuencia. El `for` de Python es idiomático para iterar sobre colecciones.
+**Principio:** Usar `while` cuando la condición de parada no es un simple recorrido de secuencia. El `for` de Python es ideal para recorrer colecciones.
 
 **Usar `while` cuando:**
 - No sabés cuántas iteraciones necesitarás
@@ -415,7 +385,7 @@ while numero != 0:
 ```
 
 **Usar `for` cuando:**
-- Iterás sobre una secuencia conocida (lista, range, string, etc.)
+- Iterás sobre una secuencia conocida (lista, `range`, `string`, etc.)
 - Sabés exactamente cuántas iteraciones necesitás
 
 ```python
@@ -450,7 +420,7 @@ for clave, valor in diccionario.items():
 (0x0008h)=
 ### Regla `0x0008h`: Cada función debe tener un único punto de retorno
 
-**Principio:**Limitar una función a un único `return` mejora la legibilidad y facilita el seguimiento del flujo de control.
+**Principio:** Limitar una función a un único `return` mejora la legibilidad y facilita el seguimiento del flujo de control.
 
 ```python
 # ❌ Evitar: múltiples returns
@@ -500,7 +470,7 @@ Usá tu criterio: si múltiples returns hacen el código **más claro**, pueden 
 (0x0009h)=
 ### Regla `0x0009h`: Las funciones no deben contener `print()` o `input()`, a menos que ese sea su propósito explícito
 
-**Principio:**Las funciones deben estar desacopladas de I/O para maximizar su reutilización y facilitar las pruebas.
+**Principio:** Las funciones deben estar desacopladas de la interacción con el usuario para maximizar su reutilización y facilitar las pruebas.
 
 ```python
 # ❌ Incorrecto: mezcla lógica con I/O
@@ -548,16 +518,16 @@ def solicitar_edad():
 ```
 
 **Ventajas del desacoplamiento:**
-1. **Reutilización:**La función puede usarse en diferentes contextos
-2. **Testing:**Fácil de probar sin interacción humana
-3. **Flexibilidad:**El caller decide cómo usar el resultado (print, guardar, enviar, etc.)
+1. **Reutilización:** La función puede usarse en diferentes contextos
+2. **Testing:** Fácil de probar sin interacción humana
+3. **Flexibilidad:** Quien llama a la función decide cómo usar el resultado (`print`, guardar, enviar, etc.)
 
 ---
 
 (0x000Ah)=
 ### Regla `0x000Ah`: Todas las funciones deben incluir docstrings
 
-**Principio ({ref}`pep-257-ref`):**Las funciones deben documentarse con docstrings que expliquen su propósito, parámetros, retorno y excepciones.
+**Principio ({ref}`pep-257-ref`):**Las funciones deben documentarse con docstrings que expliquen su propósito, parámetros, retorno y excepciones, o en terminos simples, qué hace, necesita para funcionar, que produce y que puede impedir su funcionamiento.
 
 **Formato recomendado (estilo Google/NumPy):**
 
@@ -592,13 +562,13 @@ def calcular_area_rectangulo(base, altura):
 
 **Elementos del docstring:**
 
-1. **Primera línea:**Resumen breve (una línea, termina con punto)
+1. **Primera línea:** Resumen breve (una línea, termina con punto)
 2. **Línea en blanco**
-3. **Descripción extendida:**(opcional) Explicación más detallada
-4. **Args:**Cada parámetro con tipo y descripción
-5. **Returns:**Qué retorna la función
-6. **Raises:**Qué excepciones puede lanzar
-7. **Examples:**(opcional) Ejemplos de uso
+3. **Descripción extendida:** (opcional) Explicación más detallada
+4. **`Args:`:** Cada parámetro con tipo y descripción
+5. **`Returns:`:** Qué retorna la función
+6. **`Raises:`:** Qué excepciones puede lanzar
+7. **`Examples:`:** (opcional) Ejemplos de uso
 
 **Docstrings mínimos para funciones simples:**
 
@@ -608,10 +578,62 @@ def sumar(a, b):
     return a + b
 ```
 
-:::{important} Cuándo documentar
-- **Siempre:**Funciones públicas (que serán usadas por otros)
-- **Recomendado:**Funciones complejas o con lógica no obvia
-- **Opcional:**Funciones privadas muy simples (pero consideralo)
+Y teniendo en cuenta que el código debe ser autoexplicativo (el "qué"). Los comentarios deben explicar el razonamiento (el "por qué").
+
+```python
+# ❌ Incorrecto: comentarios obvios
+i += 1  # Incrementa i en 1
+x = x * 2  # Multiplica x por 2
+lista.append(elemento)  # Agrega elemento a la lista
+
+# ✓ Correcto: comentarios explican intención
+i += 1  # Saltamos el encabezado para procesar solo datos
+
+# Factor de conversión específico del sensor modelo X200
+factor = 2.54
+
+# Duplicamos el valor porque el protocolo espera unidades en centímetros
+valor_cm = valor_pulgadas * factor
+
+# ✓ Los docstrings explican QUÉ hace la función
+def calcular_factorial(n):
+    """Calcula el factorial de n recursivamente. 
+    
+    Args:
+        n: Número entero no negativo
+        
+    Returns:
+        El factorial de n
+    """
+    # Caso base: necesario para detener la recursión
+    if n <= 1:
+        return 1
+    # Caso recursivo: n! = n * (n-1)!
+    return n * calcular_factorial(n - 1)
+
+# ✓ Comentarios para decisiones de diseño
+# Usamos búsqueda binaria en lugar de lineal porque
+# la lista está ordenada y puede contener millones de elementos
+resultado = busqueda_binaria(lista, objetivo)
+
+# Caché de resultados: mejora significativa de performance
+# para inputs repetidos en benchmark (50% más rápido)
+cache = {}
+```
+
+**Reglas para buenos comentarios:**
+1. Explicar decisiones de diseño
+2. Aclarar algoritmos complejos
+3. Advertir sobre casos especiales
+4. Referenciar documentación externa
+5. Explicar "TODO" y limitaciones conocidas
+
+:::{note} El esfuerzo de documentar
+
+Suele ser enorme, y es común que esto sea aún más laborioso que programar, pero los va a ayudar a construir las estructuras mentales para programar y entender que es lo que tienen que resolver y que es lo que programaron.
+
+Por lo que se lo recomendamos fuertemente.
+
 :::
 
 ---
@@ -619,7 +641,7 @@ def sumar(a, b):
 (0x000Bh)=
 ### Regla `0x000Bh`: Evitar variables globales; usar parámetros y retornos
 
-**Principio:**Las variables globales pueden ser modificadas desde cualquier parte del programa, causando efectos secundarios impredecibles.
+**Principio:** Las variables globales pueden ser modificadas desde cualquier parte del programa, causando efectos secundarios impredecibles.
 
 ```python
 # ❌ Incorrecto: variable global
@@ -687,7 +709,7 @@ Si necesitás compartir estado:
 (0x000Ch)=
 ### Regla `0x000Ch`: Cada función debe tener una única responsabilidad (SRP)
 
-**Principio (Single Responsibility Principle):**Una función debe hacer una cosa y hacerla bien. Si necesitás usar "y" para describir qué hace una función, probablemente hace demasiadas cosas.
+**Principio (Single Responsibility Principle):** Una función debe hacer una cosa y hacerla bien. Si necesitás usar "y" para describir qué hace una función, *probablemente* hace demasiadas cosas.
 
 ```python
 # ❌ Incorrecto: función con múltiples responsabilidades
@@ -747,17 +769,17 @@ def procesar_estudiante(nombre, notas):
 ```
 
 **Ventajas:**
-1. **Testeo:**Cada función se puede probar independientemente
-2. **Reutilización:**Funciones específicas son reutilizables
-3. **Mantenimiento:**Cambios localizados en una función
-4. **Comprensión:**Funciones simples son fáciles de entender
+1. **Testeo:** Cada función se puede probar independientemente
+2. **Reutilización:** Funciones específicas son reutilizables
+3. **Mantenimiento:** Cambios localizados en una función
+4. **Comprensión:** Funciones simples son fáciles de entender
 
 ---
 
 (0x000Dh)=
 ### Regla `0x000Dh`: Las condiciones complejas deben extraerse a variables booleanas descriptivas
 
-**Principio:**Las expresiones booleanas complejas deben descomponerse en variables con nombres descriptivos para mejorar la legibilidad.
+**Principio:** Las expresiones booleanas complejas deben descomponerse en variables con nombres descriptivos para mejorar la legibilidad.
 
 ```python
 # ❌ Difícil de leer
@@ -805,7 +827,7 @@ if puede_acceder(edad, tiene_dni, esta_inhabilitado, es_emancipado, tiene_autori
 (0x000Eh)=
 ### Regla `0x000Eh`: Usar constantes con nombres descriptivos en lugar de "números mágicos"
 
-**Principio:**Los números literales en el código (excepto 0, 1, -1 en contextos obvios) deben ser reemplazados por constantes con nombres descriptivos.
+**Principio:** Los números literales en el código (excepto 0, 1, -1 en contextos obvios) deben ser reemplazados por constantes con nombres descriptivos.
 
 ```python
 # ❌ Números mágicos
@@ -850,7 +872,7 @@ DIAS_POR_SEMANA = 7
 (0x000Fh)=
 ### Regla `0x000Fh`: Limitar las líneas de código a 79 caracteres ({ref}`pep-8-ref`)
 
-**Principio:**Las líneas no deben exceder 79 caracteres para facilitar la lectura y visualización en múltiples ventanas.
+**Principio:** Las líneas no deben exceder 79 caracteres para facilitar la lectura y visualización en múltiples ventanas.
 
 ```python
 # ❌ Línea demasiado larga
@@ -917,11 +939,13 @@ PEP 8 permite hasta 99 caracteres para comentarios y docstrings, pero recomienda
 (0x0010h)=
 ### Regla `0x0010h`: No comparar con `True`, `False` o `None` usando `==`
 
-**Principio:**Usar comparadores de identidad (`is`, `is not`) para `None`, `True`, `False`, y evaluar directamente valores booleanos.
+**Principio:** Usar comparadores de identidad (`is`, `is not`) para `None`, `True`, `False`, y evaluar directamente valores booleanos.
+
+A este principio, le podemos sumar una sugerencia sobre los nombres de variables lógicas booleanas, utilizar para pertenencia el prefijo `es_`, que hace de la lectura del condicional aún más fácil.
 
 ```python
 # ❌ Incorrecto
-if valor == True:
+if valido == True:
     hacer_algo()
 
 if resultado == None:
@@ -931,7 +955,7 @@ if bandera == False:
     continuar()
 
 # ✓ Correcto
-if valor:  # Evaluar directamente
+if es_valido:  # Evaluar directamente
     hacer_algo()
 
 if resultado is None:  # Usar 'is' para None
@@ -941,7 +965,7 @@ if not bandera:  # Negar con 'not'
     continuar()
 ```
 
-**Razón:**`is` compara identidad (mismo objeto en memoria), mientras `==` compara valor. Para singletons como `None`, `True`, `False`, siempre usar `is`.
+**Razón:** `is` compara identidad (mismo objeto en memoria), mientras `==` compara valor. Para singletons como `None`, `True`, `False`, siempre usar `is`.
 
 ```python
 # Comparaciones correctas
@@ -974,12 +998,10 @@ if nombre:  # True si nombre no está vacío
 
 ---
 
----
-
 (0x0011h)=
 ### Regla `0x0011h`: Mantener el alcance de las variables al mínimo posible
 
-**Principio:**Las variables deben declararse en el ámbito más pequeño posible donde sean necesarias. Esto reduce confusión, facilita el debugging y hace el código más predecible.
+**Principio:** Las variables deben declararse en el ámbito más pequeño posible donde sean necesarias. Esto reduce confusión, facilita el debugging y hace el código más predecible.
 
 ```python
 # ❌ Incorrecto: variable con alcance innecesariamente amplio
@@ -1018,7 +1040,7 @@ def procesar_datos():
 (0x0012h)=
 ### Regla `0x0012h`: Usar constantes o `None` para valores especiales
 
-**Principio:**Los valores de retorno especiales (como -1 para "no encontrado") deben ser constantes con nombres descriptivos, o mejor aún, usar `None` cuando sea apropiado.
+**Principio:** Los valores de retorno especiales (como -1 para "no encontrado") deben ser constantes con nombres descriptivos, o mejor aún, usar `None` cuando sea apropiado.
 
 ```python
 # ❌ Incorrecto: número mágico
@@ -1080,7 +1102,7 @@ else:
 (0x0013h)=
 ### Regla `0x0013h`: Validar siempre las entradas del usuario
 
-**Principio:**Nunca confiar en que el usuario ingresará datos válidos. Siempre validar tipo, rango y formato.
+**Principio:** Nunca confiar en que el usuario ingresará datos válidos. Siempre validar tipo, rango y formato.
 
 ```python
 # ❌ Incorrecto: sin validación (propenso a errores)
@@ -1128,88 +1150,9 @@ edad = solicitar_edad()
 ---
 
 (0x0014h)=
-### Regla `0x0014h`: Usar comprehensions solo cuando mejoren la legibilidad
+### Regla `0x0014h`: Estructurar programas con funciones
 
-**Principio:**Las list/dict comprehensions son poderosas y Pythonic, pero solo usarlas cuando hagan el código **más claro**, no más complejo.
-
-```python
-# ✓ Correcto: comprehensions simples y claras
-cuadrados = [x **2 for x in range(10)]
-pares = [x for x in numeros if x % 2 == 0]
-mayusculas = [nombre.upper() for nombre in nombres]
-
-# ✓ Correcto: dict comprehension
-longitudes = {nombre: len(nombre) for nombre in nombres}
-
-# ❌ Incorrecto: demasiado complejo (difícil de leer)
-resultado = [
-    x * 2 if x % 2 == 0 else x * 3
-    for x in range(100)
-    if x > 50 and x < 75
-    if x % 3 == 0 or x % 5 == 0
-]
-
-# ✓ Correcto: loop explícito para lógica compleja
-resultado = []
-for x in range(100):
-    # Filtro de rango
-    if x > 50 and x < 75:
-        # Filtro de divisibilidad
-        if x % 3 == 0 or x % 5 == 0:
-            # Transformación condicional
-            if x % 2 == 0:
-                resultado.append(x * 2)
-            else:
-                resultado.append(x * 3)
-```
-
-**Regla práctica:**Si tu comprehension necesita más de 79 caracteres o tiene más de 2 condiciones, probablemente sea mejor usar un loop explícito.
-
----
-
-(0x0015h)=
-### Regla `0x0015h`: Usar `with` para manejo de archivos
-
-**Principio:**El context manager `with` garantiza que los recursos (archivos, conexiones, etc.) se cierren correctamente, incluso si ocurren errores.
-
-```python
-# ❌ Incorrecto: manejo manual (riesgo de no cerrar)
-archivo = open('datos.txt', 'r')
-contenido = archivo.read()
-archivo.close()  # Se puede olvidar o no ejecutar si hay error
-
-# ✓ Correcto: with garantiza el cierre automático
-with open('datos.txt', 'r') as archivo:
-    contenido = archivo.read()
-# El archivo se cierra automáticamente aquí
-
-# ✓ Múltiples archivos
-with open('entrada.txt', 'r') as entrada, \
-     open('salida.txt', 'w') as salida:
-    for linea in entrada:
-        salida.write(linea.upper())
-
-# ✓ Escritura con with
-with open('datos.txt', 'w') as archivo:
-    archivo.write("Primera línea\n")
-    archivo.write("Segunda línea\n")
-```
-
-**Ventajas del `with`:**
-1. **Seguridad:**Garantiza cierre incluso si hay excepciones
-2. **Limpieza:**No necesitás recordar cerrar manualmente
-3. **Legibilidad:**El ámbito del recurso es explícito
-
-:::{tip} Context managers más allá de archivos
-El `with` funciona con cualquier "context manager". Más adelante verás otros usos como locks, conexiones a bases de datos, y transacciones.
-:::
-
----
-
-(0x0016h)=
-### Regla `0x0016h`: Estructurar programas con funciones
-
-**Principio:**Incluso en ejercicios simples, organizar el código en funciones mejora la claridad, testabilidad y reutilización.
+**Principio:** Incluso en ejercicios simples, organizar el código en funciones mejora la claridad, ayuda a probarlo y finalmente a su reutilización.
 
 ```python
 # ❌ Incorrecto: lógica suelta en programa principal
@@ -1283,10 +1226,10 @@ if __name__ == "__main__":
 
 ---
 
-(0x0017h)=
-### Regla `0x0017h`: Usar operador `in` para pertenencia
+(0x0015h)=
+### Regla `0x0015h`: Usar operador `in` para pertenencia
 
-**Principio:**Python tiene operadores poderosos para verificar pertenencia. Usarlos en lugar de loops manuales hace el código más Pythonic y eficiente.
+**Principio:** Python tiene operadores poderosos para verificar pertenencia. Usarlos en lugar de lazos manuales hace el código más facil de leer.
 
 ```python
 # ❌ Incorrecto: búsqueda manual
@@ -1330,10 +1273,10 @@ if objetivo not in lista_prohibidos:
 
 ---
 
-(0x0018h)=
-### Regla `0x0018h`: Usar `enumerate()` en lugar de `range(len())`
+(0x0016h)=
+### Regla `0x0016h`: Usar `enumerate()` en lugar de `range(len())`
 
-**Principio:**Cuando necesitás el índice y el elemento, `enumerate()` es más Pythonic y menos propenso a errores que usar `range(len())`.
+**Principio:** Cuando necesitás el índice y el elemento, `enumerate()` es más Pythonic y menos propenso a errores que usar `range(len())`.
 
 ```python
 nombres = ['Ana', 'Luis', 'Carlos']
@@ -1365,51 +1308,10 @@ for i, linea in enumerate(archivo):
 
 ---
 
-(0x0019h)=
-### Regla `0x0019h`: Usar `zip()` para iterar múltiples secuencias
+(0x0017h)=
+### Regla `0x0017h`: Usar f-strings para construir cadenas de texto
 
-**Principio:**Cuando necesitás iterar sobre múltiples listas en paralelo, `zip()` es la forma Pythonic de hacerlo.
-
-```python
-nombres = ['Ana', 'Luis', 'Carlos']
-edades = [25, 30, 28]
-ciudades = ['Buenos Aires', 'Córdoba', 'Rosario']
-
-# ❌ Incorrecto: índices manuales
-for i in range(len(nombres)):
-    print(f"{nombres[i]} tiene {edades[i]} años y vive en {ciudades[i]}")
-
-# ✓ Correcto: usar zip()
-for nombre, edad, ciudad in zip(nombres, edades, ciudades):
-    print(f"{nombre} tiene {edad} años y vive en {ciudad}")
-
-# ✓ Con enumerate si también necesitás el índice
-for i, (nombre, edad) in enumerate(zip(nombres, edades), start=1):
-    print(f"{i}. {nombre}: {edad} años")
-
-# ✓ zip trunca a la lista más corta
-lista1 = [1, 2, 3, 4, 5]
-lista2 = ['a', 'b', 'c']
-for num, letra in zip(lista1, lista2):
-    print(num, letra)
-# Solo imprime 3 pares
-```
-
-:::{tip} zip para crear diccionarios
-```python
-claves = ['nombre', 'edad', 'ciudad']
-valores = ['Ana', 25, 'Buenos Aires']
-diccionario = dict(zip(claves, valores))
-# {'nombre': 'Ana', 'edad': 25, 'ciudad': 'Buenos Aires'}
-```
-:::
-
----
-
-(0x001Ah)=
-### Regla `0x001Ah`: Usar f-strings para formateo (Python 3.6+)
-
-**Principio:**Las f-strings son la forma moderna, legible y eficiente de formatear strings en Python.
+**Principio:** Las f-strings son la forma moderna, legible y eficiente de formatear strings en Python.
 
 ```python
 nombre = "Ana"
@@ -1463,80 +1365,10 @@ numero_grande = 1000000
 print(f"{numero_grande:,}") # 1,000,000
 ```
 
----
+(0x0018h)=
+### Regla `0x0018h`: Acceso seguro a diccionarios con `get()`
 
-(0x001Bh)=
-### Regla `0x001Bh`: Type hints para documentación (opcional, progresivo)
-
-**Principio:**Los type hints mejoran la documentación del código y permiten detección temprana de errores. Se introducen progresivamente en el curso.
-
-```python
-# Sin type hints (principiantes - módulos 1-3)
-def sumar(a, b):
-    """Suma dos números."""
-    return a + b
-
-# ✓ Con type hints (intermedio - módulo 4+)
-def sumar(a: int, b: int) -> int:
-    """Suma dos números enteros. 
-    
-    Args:
-        a: Primer número
-        b: Segundo número
-        
-    Returns:
-        La suma de a y b
-    """
-    return a + b
-
-# ✓ Tipos más complejos (avanzado - módulos 5-6)
-from typing import List, Dict, Optional, Union
-
-def procesar_nombres(nombres: List[str]) -> Dict[str, int]:
-    """Cuenta la longitud de cada nombre. 
-    
-    Args:
-        nombres: Lista de nombres a procesar
-        
-    Returns:
-        Diccionario {nombre: longitud}
-    """
-    return {nombre: len(nombre) for nombre in nombres}
-
-def buscar_elemento(lista: List[int], elemento: int) -> Optional[int]:
-    """Busca un elemento en la lista. 
-    
-    Args:
-        lista: Lista donde buscar
-        elemento: Elemento a buscar
-        
-    Returns:
-        Índice del elemento o None si no se encuentra
-    """
-    for i, item in enumerate(lista):
-        if item == elemento:
-            return i
-    return None
-
-# ✓ Union types
-def convertir_a_entero(valor: Union[str, int, float]) -> int:
-    """Convierte un valor a entero."""
-    return int(valor)
-```
-
-:::{note} Type hints en este curso
-Los type hints se introducen **gradualmente**:
-- **Módulos 1-3:**Sin type hints (enfoque en lógica)
-- **Módulo 4:**Introducción básica (int, str, float, bool)
-- **Módulos 5-6:**Types complejos (List, Dict, Optional)
-:::
-
----
-
-(0x001Ch)=
-### Regla `0x001Ch`: Acceso seguro a diccionarios con `get()`
-
-**Principio:**Usar `dict.get()` en lugar de acceso directo previene errores `KeyError` y hace el código más robusto.
+**Principio:** Usar `dict.get()` en lugar de acceso directo previene errores `KeyError` y hace el código más robusto.
 
 ```python
 usuario = {'nombre': 'Ana', 'edad': 25}
@@ -1576,181 +1408,6 @@ ciudad = usuario.get('ciudad', 'Desconocida')
 
 ---
 
-(0x001Dh)=
-### Regla `0x001Dh`: Comentarios explican "por qué", no "qué"
-
-**Principio:**El código debe ser autoexplicativo (el "qué"). Los comentarios deben explicar el razonamiento (el "por qué").
-
-```python
-# ❌ Incorrecto: comentarios obvios
-i += 1  # Incrementa i en 1
-x = x * 2  # Multiplica x por 2
-lista.append(elemento)  # Agrega elemento a la lista
-
-# ✓ Correcto: comentarios explican intención
-i += 1  # Saltamos el encabezado para procesar solo datos
-
-# Factor de conversión específico del sensor modelo X200
-factor = 2.54
-
-# Duplicamos el valor porque el protocolo espera unidades en centímetros
-valor_cm = valor_pulgadas * factor
-
-# ✓ Los docstrings explican QUÉ hace la función
-def calcular_factorial(n):
-    """Calcula el factorial de n recursivamente. 
-    
-    Args:
-        n: Número entero no negativo
-        
-    Returns:
-        El factorial de n
-    """
-    # Caso base: necesario para detener la recursión
-    if n <= 1:
-        return 1
-    # Caso recursivo: n! = n * (n-1)!
-    return n * calcular_factorial(n - 1)
-
-# ✓ Comentarios para decisiones de diseño
-# Usamos búsqueda binaria en lugar de lineal porque
-# la lista está ordenada y puede contener millones de elementos
-resultado = busqueda_binaria(lista, objetivo)
-
-# Caché de resultados: mejora significativa de performance
-# para inputs repetidos en benchmark (50% más rápido)
-cache = {}
-```
-
-**Reglas para buenos comentarios:**
-1. Explicar decisiones de diseño
-2. Aclarar algoritmos complejos
-3. Advertir sobre casos especiales
-4. Referenciar documentación externa
-5. Explicar "TODO" y limitaciones conocidas
-
----
-
-(0x001Eh)=
-### Regla `0x001Eh`: Aprovechar métodos de string
-
-**Principio:**Python tiene métodos de string muy poderosos. Conocerlos y usarlos hace el código más limpio y eficiente.
-
-```python
-texto = "  Hola Mundo  "
-
-# ✓ Limpieza
-texto.strip()        # "Hola Mundo" (elimina espacios)
-texto.lstrip()       # "Hola Mundo  " (elimina izquierda)
-texto.rstrip()       # "  Hola Mundo" (elimina derecha)
-
-# ✓ Conversión de caso
-texto.lower()        # "  hola mundo  "
-texto.upper()        # "  HOLA MUNDO  "
-texto.title()        # "  Hola Mundo  "
-texto.capitalize()   # "  hola mundo  "
-
-# ✓ Búsqueda
-texto.startswith(" ")     # True
-texto.endswith("  ")      # True
-texto.find("Mundo")       # 8 (índice)
-"Mundo" in texto          # True (preferir esto)
-
-# ✓ Reemplazo
-texto.replace("o", "0")   # "  H0la Mund0  "
-texto.replace(" ", "")    # "HolaMundo"
-
-# ✓ División y unión (MUY IMPORTANTE)
-palabras = "Hola,Mundo,Python".split(",")  # ['Hola', 'Mundo', 'Python']
-palabras = texto.split()                    # ['Hola', 'Mundo']
-unido = "-".join(palabras)                  # 'Hola-Mundo'
-ruta = "/".join(['usr', 'local', 'bin'])   # 'usr/local/bin'
-
-# ✓ Validación (MUY ÚTIL)
-"123".isdigit()      # True
-"abc".isalpha()      # True
-"abc123".isalnum()   # True
-"   ".isspace()      # True
-"Hello".isupper()    # False
-"hello".islower()    # True
-
-# ✓ Relleno y alineación
-"42".zfill(5)        # "00042"
-"texto".center(10)   # "  texto   "
-"texto".ljust(10)    # "texto     "
-"texto".rjust(10)    # "     texto"
-
-# ✓ Ejemplo práctico: validación de DNI
-def validar_dni(dni_str):
-    """Valida formato de DNI argentino."""
-    dni_limpio = dni_str.replace(".", "").replace("-", "").strip()
-    return dni_limpio.isdigit() and 1000000 <= int(dni_limpio) <= 99999999
-```
-
----
-
-(0x001Fh)=
-### Regla `0x001Fh`: Nunca usar mutables como argumentos por defecto
-
-**Principio:**Los valores mutables (listas, diccionarios) como defaults se evalúan **una sola vez**cuando se define la función, causando bugs sutiles.
-
-```python
-# ❌ ERROR COMÚN: lista mutable como default
-def agregar_alumno(nombre, lista_alumnos=[]):
-    """INCORRECTO: lista_alumnos se comparte entre llamadas."""
-    lista_alumnos.append(nombre)
-    return lista_alumnos
-
-# Comportamiento inesperado:
-lista1 = agregar_alumno("Ana")     # ['Ana']
-lista2 = agregar_alumno("Luis")    # ['Ana', 'Luis'] - ¡Inesperado!
-lista3 = agregar_alumno("Carlos")  # ['Ana', 'Luis', 'Carlos']
-# ¡Todas las listas son el mismo objeto!
-
-# ✓ Correcto: usar None e inicializar dentro
-def agregar_alumno(nombre, lista_alumnos=None):
-    """Agrega un alumno a la lista."""
-    if lista_alumnos is None:
-        lista_alumnos = []  # Nueva lista cada vez
-    lista_alumnos.append(nombre)
-    return lista_alumnos
-
-# Ahora funciona correctamente:
-lista1 = agregar_alumno("Ana")     # ['Ana']
-lista2 = agregar_alumno("Luis")    # ['Luis']
-lista3 = agregar_alumno("Carlos")  # ['Carlos']
-
-# ✓ Similar para diccionarios
-def crear_config(opciones=None):
-    """Crea configuración con opciones personalizadas."""
-    if opciones is None:
-        opciones = {}
-    # Agregar opciones por defecto
-    opciones.setdefault('debug', False)
-    opciones.setdefault('timeout', 30)
-    return opciones
-```
-
-**¿Por qué pasa esto?**
-```python
-def funcion_problema(lista=[]):
-    pass
-
-# El [] se crea UNA VEZ cuando Python lee la definición
-# Todas las llamadas usan el mismo objeto lista
-```
-
-:::{danger} Otros mutables a evitar como defaults
-- Listas: `[]`
-- Diccionarios: `{}`
-- Sets: `set()`
-- Objetos custom mutables
-
-**Siempre usar `None` y crear dentro de la función.**
-:::
-
----
-
 ## Resumen de Convenciones PEP 8
 
 ### Nomenclatura
@@ -1770,28 +1427,6 @@ def funcion_problema(lista=[]):
 - **Longitud**: Máximo 79 caracteres
 - **Espacios**: Alrededor de operadores
 - **Imports**: Al inicio, ordenados
-
----
-
-## Herramientas
-
-### Black (Formateador)
-```bash
-pip install black
-black mi_script.py
-```
-
-### Flake8 (Linter)
-```bash
-pip install flake8
-flake8 mi_script.py
-```
-
-### MyPy (Type Checker)
-```bash
-pip install mypy
-mypy mi_script.py
-```
 
 ---
 
@@ -1839,4 +1474,3 @@ Los PEPs son la documentación oficial que define las mejores prácticas y está
 
 - [Black](https://black.readthedocs.io/): Formateador automático de código Python.
 - [Flake8](https://flake8.pycqa.org/): Herramienta de linting para verificar el cumplimiento de PEP 8.
-- [MyPy](https://mypy.readthedocs.io/): Verificador de tipos estáticos para Python.
