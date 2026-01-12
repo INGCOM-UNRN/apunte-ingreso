@@ -1,6 +1,6 @@
 ---
 title: Guía de uso de JupyterLab
-short_title: 0x0001h - JupyterLab
+short_title: 0x0000h - JupyterLab
 subtitle: Introducción práctica a JupyterLab para estudiantes principiantes
 ---
 

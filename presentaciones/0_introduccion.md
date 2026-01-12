@@ -17,7 +17,7 @@ size: 4:3
 Martín René Vilugrón - Ingeniería en Computación
 
 ---
-
+<!-- _header: '' -->
 <!-- _footer: '' -->
 
 ## ¡Hola! Mi nombre es Martín
@@ -25,33 +25,45 @@ Martín René Vilugrón - Ingeniería en Computación
 ![bg right 70%](https://placeholdit.com/1080x1920/dddddd/999999)
 
 ---
+<!-- _header: '' -->
+<!-- _footer: '' -->
 
 # <!-- fit --> Términos y condiciones
 
 ---
+<!-- _header: 'Términos y condiciones' -->
+<!-- _footer: '' -->
 
 # <!-- fit --> Pregunten
 
 { no se queden con las dudas }
 
 ---
+<!-- _header: '' -->
+<!-- _footer: '' -->
 
 # <!-- fit --> Lean el material
 
 { Del campus y apuntes }
 
 ---
+<!-- _header: '' -->
+<!-- _footer: '' -->
 
 # <!-- fit --> Practiquen
 
 { Las IA no necesitan ejercitarse y probablemente ya esté todo resuelto en internet }
 
 ---
+<!-- _header: '' -->
+<!-- _footer: '' -->
 
 # <!-- fit --> Recuerden 
 ## que no hay _tanto_ tiempo
 
 ---
+<!-- _header: '' -->
+<!-- _footer: '' -->
 <!-- _class: inverse -->
 
 # <!-- fit --> Vías de contacto
@@ -59,11 +71,14 @@ Martín René Vilugrón - Ingeniería en Computación
 Preguntas en clase + email + Discord
 
 ---
+<!-- _header: '' -->
+<!-- _footer: '' -->
 
 Contenido
 
 ---
-
+<!-- _header: '' -->
+<!-- _footer: '' -->
 <!-- _class: centered -->
 
 # <!-- fit --> header
@@ -71,6 +86,8 @@ Contenido
 contenido
 
 ---
+<!-- _header: '' -->
+<!-- _footer: '' -->
 
 # <!-- fit --> Recursos
 
@@ -83,26 +100,35 @@ contenido
 <!-- -->
 
 ---
+<!-- _header: '' -->
+<!-- _footer: '' -->
 
 
 <!-- -->
 
 ---
+<!-- _header: '' -->
+<!-- _footer: '' -->
 
 
 <!-- -->
 
 ---
-
-
-<!-- -->
-
----
-
+<!-- _header: '' -->
+<!-- _footer: '' -->
 
 <!-- -->
 
 ---
+<!-- _header: '' -->
+<!-- _footer: '' -->
+
+<!-- -->
+
+---
+<!-- _header: '' -->
+<!-- _footer: '' -->
+
 ## ¿Qué vamos a ver?
 
 * Variables y operadores

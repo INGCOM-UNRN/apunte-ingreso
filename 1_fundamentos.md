@@ -1,6 +1,6 @@
 ---
 title: Fundamentos de Programación en Python
-short_title: 1 - Fundamentos
+short_title: 1 - Instrucciones
 subtitle: Introducción a la programación, variables, tipos de datos y operadores.
 ---
 
@@ -116,7 +116,7 @@ print("¡Hola Mundo!")
 :::{admonition} ¡Felicitaciones!
 :class: tip
 
-Si ejecutaste ese código y viste `"¡Hola Mundo!"` en la pantalla, **ya sos un programador**. No importa si no entendés todo todavía: acabás de darle una instrucción a la computadora y ella la ejecutó. Eso es programar.
+Si ejecutaste ese código y viste `"¡Hola Mundo!"` en la pantalla, **ya sos un programador**. No importa si no entendés todo todavía: acabás de darle una instrucción a la computadora, que ejecutó, y eso, es programar.
 :::
 
 ### Anatomía de tu primer programa 
@@ -135,8 +135,8 @@ print("¡Hola Mundo!")
 ::::{grid-item}
 ```{mermaid}
 graph LR
-    A[print] --> B["( )"]
-    B --> C["'¡Hola Mundo!'"]
+    A["print("] --> B["'¡Hola Mundo!'"]
+    B --> C[")"]
     
     style A fill:#e3f2fd
     style B fill:#fff3e0
@@ -163,13 +163,12 @@ La función `print()` muestra texto en la pantalla. El texto entre comillas se l
 
 :::{tip} Ejecutando código Python
 Para ejecutar código Python:
-1. Guardá el código en un archivo con extensión `.py` (ejemplo: `hola.py`)
-2. Ejecutalo desde la terminal: `python hola.py`
-3. O usá el modo interactivo ejecutando simplemente `python` y escribiendo el código línea por línea
-4. **¡O probalo directamente aquí abajo!** Hacé clic en "run" para ejecutar el código
+1. Visita nuestro Jupyterlite en el cuaderno [bienvenida.ipynb](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=hola.ipynb)
+2. Hacé un click en la celda con el código del saludo y ejecutalo con ▶️ o con el atajo de teclado CTRL + Enter.
+3. Mirá el resultado
 :::
 
-**¡Probalo vos mismo!** Modificá el mensaje y hacé clic en "run":
+**¡Probalo vos mismo!** Modificá el mensaje y volvé a ejecutarlo:
 
 ```{code-cell} ipython3
 print("¡Hola Mundo!")

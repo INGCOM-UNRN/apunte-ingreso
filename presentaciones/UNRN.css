@@ -19,6 +19,11 @@ section {
   padding-left: 40px;
   padding-right: 40px;
   vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*text-align: center;*/
 }
 
 section footer{
@@ -109,6 +114,45 @@ section.lead h5 strong {
 }
 section.lead p {
   text-align: right;
+}
+
+/* <!-- _class: code --> */
+/* Estilo para diapositivas enfocadas en código */
+section.code {
+  background-color: #1b2437;
+  color: #fff;
+}
+
+section.code header {
+  background-color: #1b2437;
+  color: #eb2141;
+}
+
+section.code footer {
+  background-color: #1b2437;
+  color: #fff;
+}
+
+section.code h1, section.code h2, section.code h3 {
+  color: #fff;
+  text-align: center;
+}
+
+section.code pre {
+  background-color: #232a35;
+  border: 2px solid #eb2141;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  width: 90%;
+}
+
+section.code code {
+  background-color: transparent;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 30px;
+  line-height: 1.4;
+  color: #f8f8f2;
 }
 
 header {
