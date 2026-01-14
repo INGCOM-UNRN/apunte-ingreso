@@ -13,22 +13,19 @@ subtitle: Guía completa de métodos para str, list, dict, set y tuple en Python
 -- Tim Peters, The Zen of Python
 ```
 
-:::{admonition} Objetivos de Aprendizaje
-:class: tip
+Esta guía de referencia cubre los 5 tipos de datos fundamentales:
 
-Al finalizar este capítulo tendrás una **referencia rápida** de:
-- **Cadenas (`str`)**: Métodos para manipular texto
-- **Listas (`list`)**: Métodos para colecciones ordenadas mutables
-- **Diccionarios (`dict`)**: Métodos para mapeos clave-valor
-- **Sets (`set`)**: Métodos para conjuntos únicos
-- **Tuplas (`tuple`)**: Métodos para colecciones inmutables
+1. **`str` (Cadenas)**: Inmutables, para texto
+2. **`list` (Listas)**: Mutables, secuencias ordenadas
+3. **`dict` (Diccionarios)**: Mutables, mapeos clave-valor
+4. **`set` (Conjuntos)**: Mutables, colecciones únicas
+5. **`tuple` (Tuplas)**: Inmutables, secuencias fijas
 
-Esta guía es tu **manual de consulta rápida** para los tipos de datos más importantes de Python.
-:::
+Esta guía es tu manual de consulta rápida para los tipos de datos más importantes de Python.
 
 ## Introducción: La Biblioteca Estándar
 
-Python viene con una **biblioteca estándar** muy completa. Cada tipo de dato tiene métodos (funciones asociadas) que facilitan operaciones comunes.
+Python viene con una **biblioteca estándar** muy completa. Cada tipo de dato tiene métodos (funciones asociadas) que facilitan operaciones comunes. De hecho, lo que trataremos aquí es una parte mínima de todo lo que tiene disponible de forma _directa_. Python tiene un ecosistema de librerías que amplia aún más las capacidades del lenguaje, sin embargo, esto queda fuera del curso de ingreso por cuestiones de tiempo.
 
 ::::{grid} 1 1 2 2
 :gutter: 3
@@ -1880,7 +1877,7 @@ for i, valor in enumerate(["a", "b", "c"]):
 
 ### Cheat Sheet de Métodos Más Usados
 
-#### str
+#### `str`
 ```python
 texto.lower() / .upper()        # Cambiar capitalización
 texto.strip()                   # Eliminar espacios
@@ -1891,7 +1888,7 @@ texto.find(sub)                 # Buscar
 f"Hola {nombre}"                # f-strings (formato)
 ```
 
-#### list
+#### `list`
 ```python
 lista.append(x)                 # Agregar al final
 lista.extend(otra)              # Agregar múltiples
@@ -1902,7 +1899,7 @@ lista.sort()                    # Ordenar in-place
 lista.reverse()                 # Invertir in-place
 ```
 
-#### dict
+#### `dict`
 ```python
 d.get(key, default)             # Obtener valor seguro
 d.keys() / .values() / .items() # Vistas
@@ -1911,7 +1908,7 @@ d.pop(key)                      # Eliminar y retornar
 d.setdefault(key, default)      # Obtener o crear
 ```
 
-#### set
+#### `set`
 ```python
 s.add(x)                        # Agregar elemento
 s.remove(x) / .discard(x)       # Eliminar
@@ -1921,7 +1918,7 @@ s1 - s2                         # Diferencia
 s1 ^ s2                         # Diferencia simétrica
 ```
 
-#### tuple
+#### `tuple`
 ```python
 t.count(x)                      # Contar apariciones
 t.index(x)                      # Buscar índice
@@ -1929,16 +1926,6 @@ a, b, c = t                     # Desempaquetado
 ```
 
 ---
-
-## Resumen 
-
-Esta guía de referencia cubre los 5 tipos de datos fundamentales:
-
-1. **`str` (Cadenas)**: Inmutables, para texto
-2. **`list` (Listas)**: Mutables, secuencias ordenadas
-3. **`dict` (Diccionarios)**: Mutables, mapeos clave-valor
-4. **`set` (Conjuntos)**: Mutables, colecciones únicas
-5. **`tuple` (Tuplas)**: Inmutables, secuencias fijas
 
 ### Referencias
 
