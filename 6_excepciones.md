@@ -1,8 +1,10 @@
 ---
 title: Manejo de Excepciones
-short_title: 6 - Excepciones
+short_title: Excepciones
 subtitle: Aprende a manejar errores como un profesional
 ---
+
+Este tema no es fundamental para aprobar el curso de ingreso, está para ayudarlos a lograr el mejor código.
 
 (excepciones-capitulo)=
 #  Manejo de Excepciones
@@ -35,7 +37,7 @@ En programación es igual. Tu código puede enfrentar:
 -  Conexiones de red que fallan
 -  Memoria que se agota
 
-Las **excepciones**son la forma de Python de decir: "¡Oye, algo salió mal!" Y con `try-except` podemos decir: "No te preocupes, yo me encargo".
+Las **excepciones** son la forma de Python de decir: "¡Oye, algo salió mal!" Y con `try-except` podemos decir: "No te preocupes, yo me encargo".
 
 ::::{grid} 1 1 2 2
 :gutter: 2
@@ -80,9 +82,9 @@ Flujo de ejecución cuando usamos try-except
 **Excepción = Alarma de seguridad**
 
 Imagina que tu casa tiene una alarma de seguridad:
-1. **Try**= Intentar hacer algo (entrar a casa)
-2. **Excepción**= Alarma que se dispara si algo sale mal
-3. **Except**= Protocolo de qué hacer si suena la alarma
+1. **Try** = Intentar hacer algo (entrar a casa)
+2. **Excepción** = Alarma que se dispara si algo sale mal
+3. **Except** = Protocolo de qué hacer si suena la alarma
 
 ```{code-cell} ipython3
 # Veamos una excepción en acción
@@ -100,7 +102,7 @@ ZeroDivisionError: division by zero
 ¡Python nos está diciendo que algo imposible pasó!
 ```
 
-###  Excepciones vs Errores de Sintaxis
+###  Excepciones versus Errores de Sintaxis
 
 ::::{tab-set}
 
@@ -137,7 +139,7 @@ Python dice: "Entiendo, pero no puedo hacer eso".
 
 ###  Anatomía de una Excepción (el Traceback)
 
-Cuando ocurre una excepción, Python nos da un **traceback**(rastreo). Es como una pista de cómo llegamos al error:
+Cuando ocurre una excepción, Python nos da un **traceback** (rastreo). Es como una pista de cómo llegamos al error:
 
 ```{code-cell} ipython3
 def hacer_cafe():
@@ -931,141 +933,6 @@ except AppError:
 
 ---
 
-(manejo-archivos)=
-##  Manejo de Archivos: Context Managers
-
-El manejo de archivos es uno de los lugares más importantes para usar excepciones.
-
-```{figure} ./6_excepciones/manejo_archivos.svg
-:name: fig-manejo-archivos
-:align: center
-:width: 95%
-
-Comparación entre manejo riesgoso y seguro de archivos
-```
-
-### ❌ El Problema: Fugas de Recursos
-
-```{code-cell} ipython3
-# ❌ PELIGROSO: Si hay un error, el archivo queda abierto
-archivo = open("datos.txt", "r")
-contenido = archivo.read()
-procesar(contenido)  # ¿Y si esto falla?
-archivo.close()  # ¡Nunca llega aquí!
-```
-
-**Problemas:**
--  Fuga de memoria
-- Archivo bloqueado
-- Límite de archivos abiertos
--  Pérdida de datos
-
-### ✅ Solución 1: Try-Finally
-
-```{code-cell} ipython3
-archivo = None
-try:
-    archivo = open("datos.txt", "r")
-    contenido = archivo.read()
-    procesar(contenido)
-finally:
-    if archivo:
-        archivo.close()  # ✅ SIEMPRE se cierra
-```
-
-### Solución 2: Context Manager (with)
-
-```{code-cell} ipython3
-#  MEJOR: Automático y limpio
-with open("datos.txt", "r") as archivo:
-    contenido = archivo.read()
-    procesar(contenido)
-# ✅ El archivo se cierra automáticamente
-```
-
-### Ejemplo Completo: Lectura Segura
-
-```{code-cell} ipython3
-def leer_archivo_seguro(nombre_archivo):
-    """Lee un archivo con manejo completo de errores"""
-    try:
-        with open(nombre_archivo, 'r', encoding='utf-8') as archivo:
-            contenido = archivo.read()
-            lineas = contenido.split('\n')
-            
-            print(f"✅ Archivo leído: {len(lineas)} líneas")
-            return lineas
-            
-    except FileNotFoundError:
-        print(f"❌ El archivo '{nombre_archivo}' no existe")
-        print("Verifica la ruta y el nombre del archivo")
-        return None
-        
-    except PermissionError:
-        print(f"❌ Sin permisos para leer '{nombre_archivo}'")
-        print("Verifica los permisos del archivo")
-        return None
-        
-    except UnicodeDecodeError:
-        print(f"❌ Problema de codificación en '{nombre_archivo}'")
-        print("Intenta con otra codificación")
-        return None
-        
-    except Exception as e:
-        print(f"❌ Error inesperado: {e}")
-        return None
-
-# Uso
-lineas = leer_archivo_seguro("datos.txt")
-if lineas:
-    for i, linea in enumerate(lineas[:5], 1):
-        print(f"{i}. {linea}")
-```
-
-###  Escritura Segura de Archivos
-
-```{code-cell} ipython3
-def guardar_datos_seguro(nombre_archivo, datos):
-    """Guarda datos en un archivo de forma segura"""
-    try:
-        # Crear backup si el archivo ya existe
-        import os
-        if os.path.exists(nombre_archivo):
-            backup = nombre_archivo + ".backup"
-            print(f"Creando backup: {backup}")
-            with open(nombre_archivo, 'r') as original:
-                with open(backup, 'w') as respaldo:
-                    respaldo.write(original.read())
-        
-        # Guardar nuevos datos
-        with open(nombre_archivo, 'w', encoding='utf-8') as archivo:
-            if isinstance(datos, list):
-                archivo.write('\n'.join(map(str, datos)))
-            else:
-                archivo.write(str(datos))
-        
-        print(f"✅ Datos guardados en '{nombre_archivo}'")
-        return True
-        
-    except PermissionError:
-        print(f"❌ Sin permisos para escribir en '{nombre_archivo}'")
-        return False
-        
-    except OSError as e:
-        print(f"❌ Error del sistema: {e}")
-        return False
-        
-    except Exception as e:
-        print(f"❌ Error inesperado: {e}")
-        return False
-
-# Uso
-datos = ["línea 1", "línea 2", "línea 3"]
-guardar_datos_seguro("salida.txt", datos)
-```
-
----
-
 (debugging)=
 ##  Debugging: Encontrar y Arreglar Errores
 
@@ -1448,9 +1315,6 @@ Crea una calculadora que maneje todos los errores posibles.
 ### Ejercicio 2: Validador de Formulario
 Implementa un validador completo para un formulario de registro.
 
-### Ejercicio 3: Procesador de Archivos
-Crea un programa que procese archivos CSV con manejo robusto de errores.
-
 ---
 
 ##  Referencias
@@ -1619,22 +1483,3 @@ Re-lanzar
   Capturar una excepción, hacer algo (ej: logging), y lanzarla de nuevo con `raise` (sin argumentos) para que suba por la pila. Permite manejo multinivel.
 ```
 
-:::{tip} Referencias cruzadas
-Este glosario complementa los glosarios de capítulos anteriores. Los términos están vinculados para facilitar la navegación entre conceptos relacionados.
-:::
-
-:::{admonition} Glosarios relacionados
-:class: seealso
-
-- {ref}`glosario-fundamentos` - Variables, tipos, operadores
-- {ref}`glosario-control-flujo` - Condicionales, bucles, patrones
-- {ref}`glosario-estructuras` - Listas, diccionarios, sets
-- {ref}`glosario-funciones` - def, return, scope, parámetros
-- {ref}`glosario-modulos` - import, archivos, módulos
-
-Juntos forman una **referencia completa** de terminología Python.
-:::
-
----
-
-**Fin del Capítulo 6 - Manejo de Excepciones**
