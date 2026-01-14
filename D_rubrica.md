@@ -22,7 +22,7 @@ La rúbrica se fundamenta en los siguientes principios:
 4. **Buenas prácticas:** Adherencia a las reglas de estilo establecidas (ver {ref}`0x0000h`)
 
 :::{warning} Sobre el Uso de Herramientas Externas
-El uso de **herramientas de generación automática de código** (IA, Copilot, ChatGPT, etc.) para resolver ejercicios del exámen está **prohibido** y constituye una falta grave. Las entregas sospechosas de ser generadas automáticamente serán evaluadas con nivel 0 y reportadas.
+El uso de **herramientas de generación automática de código** (IA, Copilot, ChatGPT, etc.) para resolver ejercicios del *exámen* está **prohibido** y constituye una falta grave. Las entregas sospechosas de ser generadas automáticamente serán evaluadas con nivel 0 y reportadas.
 
 Sin embargo, podés usar estas herramientas para:
 - Entender conceptos teóricos
