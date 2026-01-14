@@ -71,6 +71,10 @@ Guía práctica de JupyterLab, el entorno de desarrollo interactivo utilizado en
 
 Sistema detallado de evaluación por niveles (0 a 10) para entregas de código práctico. Define criterios transparentes que balancean corrección funcional (40%), legibilidad (30%), diseño (20%) y apropiación de herramientas (10%). Incluye ejemplos concretos de código para cada nivel, penalizaciones por uso de características avanzadas no enseñadas, y checklist de autoevaluación. Fundamental para entender qué se espera en cada entrega y cómo mejorar sistemáticamente.
 
+## ¿Cómo instalo Python?
+
+Para el curso de ingreso, no es necesario instalar nada, solo tenés que visitar nuestro [JupyterLab](https://ingcom-unrn.github.io/jupyterlite/lab/index.html) que tiene todo listo para empezar a programar desde el navegador. También podés consultar la guía de uso en el [Apéndice E: JupyterLab](./E_jupyterlab.md).
+
 ## ¿Necesitas Ayuda?
 
 ¡No te quedes con dudas! Programar es un desafío y preguntar es parte fundamental del aprendizaje.
