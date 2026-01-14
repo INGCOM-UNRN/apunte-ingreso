@@ -1,6 +1,6 @@
 ---
 title: Rúbrica de Evaluación de Prácticas
-short_title: D - Rúbrica
+short_title: 0x0003h - Rúbrica
 subtitle: Sistema de evaluación por niveles para entregas de código en Python
 ---
 
