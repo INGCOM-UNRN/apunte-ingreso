@@ -163,7 +163,7 @@ función encontrar_maximo(lista):
 Antes de programar, asegurate de:
 1. **Verificar el plan con ejemplos** simples manualmente
 2. **Identificar casos límite** que puedan fallar
-3. **Estimar la complejidad** del algoritmo (tiempo y espacio)
+3. **Estimar la complejidad** del algoritmo (tiempo y memoria)
 :::
 
 ---
@@ -682,7 +682,7 @@ cuadrados = [n**2 for n in range(1, 6)]
 
 Aplicá el método de Pólya a estos problemas. Para cada uno, documentá las cuatro fases.
 
-```exercise
+```{exercise}
 :label: ejercicio-polya-1
 
 Escribir una función que determine si un número entero es primo.
@@ -697,8 +697,8 @@ Escribir una función que determine si un número entero es primo.
 - `es_primo(1)` → `False` (por definición)
 ```
 
-```solution
-:for: ejercicio-polya-1
+````{solution} ejercicio-polya-1
+:class: dropdown
 
 **Fase 1: Comprender**
 - Un número primo solo es divisible por 1 y por sí mismo
@@ -742,11 +742,10 @@ def es_primo(n):
 
 **Fase 4: Examinar**
 - Tests: 2, 3, 17 (primos) y 1, 4, 15 (no primos)
-- Complejidad: O(√n)
 - Optimización: evita pares después del 2
-```
+````
 
-```exercise
+```{exercise}
 :label: ejercicio-polya-2
 
 Escribir una función que encuentre todos los elementos comunes entre dos listas.
@@ -758,8 +757,8 @@ Escribir una función que encuentre todos los elementos comunes entre dos listas
 - `elementos_comunes([1, 2, 3, 4], [3, 4, 5, 6])` → `[3, 4]`
 ```
 
-```solution
-:for: ejercicio-polya-2
+````{solution} ejercicio-polya-2
+:class: dropdown
 
 **Implementación usando conjuntos (más eficiente):**
 ```python
@@ -785,9 +784,9 @@ def elementos_comunes(lista1, lista2):
 - Tiempo: O(n + m) donde n, m son tamaños de las listas
 - Espacio: O(n + m) para los conjuntos
 - Alternativa: dos lazos anidados O(n·m) menos eficiente
-```
+````
 
-```exercise
+```{exercise}
 :label: ejercicio-polya-3
 
 Implementar una función que calcule el factorial de un número usando iteración.
@@ -800,8 +799,8 @@ Implementar una función que calcule el factorial de un número usando iteració
 - 1! = 1
 ```
 
-```solution
-:for: ejercicio-polya-3
+````{solution} ejercicio-polya-3
+:class: dropdown
 
 ```python
 def factorial(n):
@@ -833,7 +832,7 @@ def factorial(n):
 - `factorial(0)` → 1
 - `factorial(5)` → 120
 - `factorial(-1)` → ValueError
-```
+````
 
 ---
 
