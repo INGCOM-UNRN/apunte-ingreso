@@ -1,6 +1,6 @@
 ---
 title: Manejo de Excepciones
-short_title: Excepciones
+short_title: 0x0002h - Excepciones
 subtitle: Aprende a manejar errores como un profesional
 ---
 

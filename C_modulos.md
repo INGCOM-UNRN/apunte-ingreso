@@ -1,6 +1,6 @@
 ---
 title: Referencia de la Biblioteca
-short_title: 5 - Referencia
+short_title: 0x0003h - Referencia
 subtitle: Guía completa de métodos para str, list, dict, set y tuple en Python.
 ---
 

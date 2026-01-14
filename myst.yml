@@ -29,11 +29,12 @@ project:
     - file: 3_estructuras.md
     - file: 4_funciones.md
     - file: 5_modulos.md
-    - file: 6_excepciones.md
-    - file: A_jupyterlab.md
-    - file: B_fstrings.md
+    
+    - file: A_fstrings.md
+    - file: B_excepciones.md
     - file: C_estilo.md
-    - file: D_rubrica.md
+    - file: D_jupyterlab.md
+    - file: E_rubrica.md
     
 site:
   template: book-theme

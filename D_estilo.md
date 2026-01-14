@@ -1,6 +1,6 @@
 ---
 title: Cuestiones de estilo
-short_title: 0x0002h - Estilo
+short_title: 0x0004h - Estilo
 subtitle: Pautas para la organización y prolijidad del código en Python basadas en PEP 8 y buenas prácticas.
 ---
 
