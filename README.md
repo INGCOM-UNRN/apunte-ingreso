@@ -2,12 +2,13 @@
 
 Bienvenidos a este apunte creado para el Curso de Ingreso a la carrera de Ingeniería en Computación. Este material introduce la programación desde cero utilizando Python como lenguaje de enseñanza.
 
-## Si no han programado antes
-
-Les recomendamos que lean el apunte [Capítulo 0: Como pensar](./0_como_pensar.md)
-En el que se trata la estrategia planteada por Polya para encarar problemas que pueden ser resueltos por algoritmos.
-
 ## Contenido del material (y curso)
+
+### [Capítulo 0: Método de Pólya](./0_como_pensar.md)
+
+Guía sistemática para abordar problemas de programación basada en el método del matemático George Pólya. Presenta un marco de cuatro etapas (comprender, planificar, ejecutar y examinar) que estructura el pensamiento algorítmico y reduce errores conceptuales. Especialmente recomendado para quienes se inician en programación, ya que proporciona una metodología clara de resolución de problemas aplicable a cualquier desafío computacional.
+
+Les recomendamos que lean este capítulo para ayudarlos a los problemas algorítmicos, pero las técnicas aplican también a matemática.
 
 ### [Capítulo 1: Fundamentos de Programación](./1_fundamentos.md) 
 
@@ -42,14 +43,43 @@ En el que se trata la estrategia planteada por Polya para encarar problemas que 
 - Recursión (visualización del stack)
 - Documentación (docstrings completos)
 
+## Material Adicional
+
+Estos apéndices complementan el material principal del curso con profundizaciones y herramientas prácticas. Aunque no son estrictamente necesarios para aprobar, proporcionan conocimientos valiosos que mejorarán significativamente la calidad del código y la comprensión de buenas prácticas profesionales.
+
+### [Apéndice A: F-Strings](./A_fstrings.md)
+
+Guía completa sobre f-strings (formatted string literals), la forma moderna y elegante de trabajar con texto en Python desde la versión 3.6. Cubre desde sintaxis básica hasta formateo avanzado de números, alineación de texto, y expresiones complejas dentro de cadenas. Este apéndice enseña a crear mensajes claros y bien formateados, reemplazando técnicas antiguas de concatenación y `.format()` con una sintaxis más legible y eficiente.
+
+### [Apéndice B: Excepciones](./B_excepciones.md)
+
+Introducción al manejo profesional de errores en Python mediante excepciones. Explica cómo anticipar, capturar y gestionar errores de forma controlada usando bloques `try-except-finally`, mejorando la robustez y confiabilidad de los programas. Aunque no es fundamental para aprobar el curso de ingreso, dominar excepciones permite crear código más resiliente que maneja situaciones inesperadas sin fallar abruptamente.
+
+### [Apéndice C: Módulos y Biblioteca Estándar](./C_modulos.md)
+
+Referencia completa de los métodos más importantes para los cinco tipos de datos fundamentales en Python: strings (`str`), listas (`list`), diccionarios (`dict`), conjuntos (`set`) y tuplas (`tuple`). Funciona como manual de consulta rápida para operaciones comunes, explicando características como mutabilidad, métodos disponibles y casos de uso típicos. Esencial para escribir código idiomático aprovechando las herramientas integradas del lenguaje.
+
+### [Apéndice D: Cuestiones de Estilo](./D_estilo.md)
+
+Recopilación exhaustiva de reglas de estilo basadas en PEP 8 y buenas prácticas de la comunidad Python. Establece convenciones para nomenclatura, espaciado, estructura de código y documentación que hacen el código más legible y mantenible. Cada regla está numerada (formato 0x0000h) para facilitar referencias cruzadas y feedback. Aunque no se evalúan explícitamente en exámenes, aplicar estas reglas mejora significativamente la calidad profesional del código.
+
+### [Apéndice E: JupyterLab](./E_jupyterlab.md)
+
+Guía práctica de JupyterLab, el entorno de desarrollo interactivo utilizado en el curso para ejecutar código Python en el navegador. Explica conceptos básicos como celdas de código, ejecución interactiva, atajos de teclado y gestión de cuadernos (notebooks). Especialmente útil para estudiantes que nunca usaron entornos interactivos, proporciona las herramientas necesarias para aprovechar al máximo los ejercicios prácticos del curso.
+
+### [Apéndice F: Rúbrica de Evaluación](./F_rubrica.md)
+
+Sistema detallado de evaluación por niveles (0 a 10) para entregas de código práctico. Define criterios transparentes que balancean corrección funcional (40%), legibilidad (30%), diseño (20%) y apropiación de herramientas (10%). Incluye ejemplos concretos de código para cada nivel, penalizaciones por uso de características avanzadas no enseñadas, y checklist de autoevaluación. Fundamental para entender qué se espera en cada entrega y cómo mejorar sistemáticamente.
+
 ## ¿Necesitas Ayuda?
 
 ¡No te quedes con dudas! Programar es un desafío y preguntar es parte fundamental del aprendizaje.
 
 ### Recursos Internos
-- [`GUIA_USO_ESTUDIANTE.md`](./GUIA_USO_ESTUDIANTE.md) - FAQs y métodos de estudio
 - Revisa las secciones "Errores Comunes" en cada capítulo
 - Lee todas las cajas de tips y advertencias
+
+¡Preguntá!
 
 ### Canales de Consulta
 - **En las Clases:** Pregunta directamente a docentes y ayudantes
@@ -62,8 +92,6 @@ En el que se trata la estrategia planteada por Polya para encarar problemas que 
 4. **Contá qué intentaste:** Qué soluciones probaste
 
 **¡Preguntar bien es una habilidad profesional para desarrollar!** ¡Y todas las preguntas son válidas!.
-
----
 
 ## Consejos de Estudio
 
@@ -81,8 +109,6 @@ En el que se trata la estrategia planteada por Polya para encarar problemas que 
 - 📋 Copiar código sin entenderlo
 - ⏩ Ir muy rápido sin practicar
 - 😰 Frustrarse con los errores (son normales)
-
----
 
 ## 🎊 ¡Éxitos!
 
