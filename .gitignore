@@ -5,3 +5,4 @@ _build
 manual_*
 .jupyter*
 .ipynb_checkpoints
+*.html
