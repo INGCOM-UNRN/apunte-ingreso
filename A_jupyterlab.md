@@ -21,6 +21,12 @@ En este curso, vas a usar una versión especial de JupyterLab llamada **JupyterL
 - ✅ **Visual**: Perfecto para aprender y experimentar
 :::
 
+:::{warning} Acceso a los archivos
+
+Por como está armado este entorno de programación, nosotros no tenemos acceso de ningún tipo a los cambios que hagan en los cuadernos, por lo que es necesario que si quieren compartirlos o guardalos, lo hagan por fuera de la herramienta.
+
+:::
+
 ---
 
 ## Accediendo a JupyterLab
