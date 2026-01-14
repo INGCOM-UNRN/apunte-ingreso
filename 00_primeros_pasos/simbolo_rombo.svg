@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 60,5 L 110,40 L 60,75 L 10,40 Z" fill="#fff9c4" stroke="#f57c00" stroke-width="2"/>
+  <text x="60" y="38" font-family="Arial" font-size="10" fill="#e65100" text-anchor="middle" font-weight="bold">¿edad</text>
+  <text x="60" y="50" font-family="Arial" font-size="10" fill="#e65100" text-anchor="middle" font-weight="bold">&gt;= 18?</text>
+</svg>

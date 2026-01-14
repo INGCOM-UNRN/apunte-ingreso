@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="100" height="40" rx="3" fill="#c8e6c9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="60" y="28" font-family="Arial" font-size="11" fill="#1b5e20" text-anchor="middle" font-weight="bold">suma =</text>
+  <text x="60" y="42" font-family="Arial" font-size="11" fill="#1b5e20" text-anchor="middle" font-weight="bold">a + b</text>
+</svg>

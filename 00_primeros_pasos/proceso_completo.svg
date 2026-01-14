@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="650" viewBox="0 0 800 650" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .step-box { stroke-width: 2.5; }
+      .step1 { fill: #e3f2fd; stroke: #1976d2; }
+      .step2 { fill: #fff9c4; stroke: #f57c00; }
+      .step3 { fill: #f3e5f5; stroke: #7b1fa2; }
+      .step4 { fill: #c8e6c9; stroke: #2e7d32; }
+      .title-text { font-family: 'Arial', sans-serif; font-size: 20px; font-weight: bold; fill: #0d47a1; text-anchor: middle; }
+      .step-title { font-family: 'Arial', sans-serif; font-size: 15px; font-weight: bold; text-anchor: middle; }
+      .step-desc { font-family: 'Arial', sans-serif; font-size: 11px; text-anchor: middle; }
+      .number { font-family: 'Arial', sans-serif; font-size: 24px; font-weight: bold; fill: #fff; text-anchor: middle; }
+    </style>
+    <marker id="arrow-main" markerWidth="12" markerHeight="12" refX="11" refY="3" orient="auto">
+      <polygon points="0 0, 12 3, 0 6" fill="#424242"/>
+    </marker>
+  </defs>
+  
+  <!-- Título principal -->
+  <text x="400" y="35" class="title-text">Proceso Completo: De Problema a Código</text>
+  <text x="400" y="55" font-family="Arial" font-size="13" fill="#666" text-anchor="middle">
+    Sigue estos pasos en orden para diseñar y programar tu solución
+  </text>
+  
+  <!-- PASO 1: Entender el problema -->
+  <g transform="translate(80, 90)">
+    <circle cx="30" cy="60" r="25" fill="#1976d2"/>
+    <text x="30" y="70" class="number">1</text>
+    
+    <rect x="70" y="20" width="230" height="80" rx="10" class="step-box step1"/>
+    <text x="185" y="45" class="step-title" fill="#1565c0">ENTENDER EL PROBLEMA</text>
+    <line x1="85" y1="52" x2="285" y2="52" stroke="#1976d2" stroke-width="1" opacity="0.3"/>
+    <text x="185" y="65" class="step-desc" fill="#0d47a1">✓ Leer cuidadosamente</text>
+    <text x="185" y="80" class="step-desc" fill="#0d47a1">✓ Responder las 5 preguntas</text>
+    <text x="185" y="95" class="step-desc" fill="#0d47a1">✓ Identificar entrada/salida</text>
+  </g>
+  
+  <!-- Flecha -->
+  <line x1="400" y1="170" x2="400" y2="205" stroke="#424242" stroke-width="3" marker-end="url(#arrow-main)"/>
+  
+  <!-- PASO 2: Diseñar con Diagrama/Pseudocódigo -->
+  <g transform="translate(80, 210)">
+    <circle cx="30" cy="80" r="25" fill="#f57c00"/>
+    <text x="30" y="90" class="number">2</text>
+    
+    <rect x="70" y="20" width="560" height="120" rx="10" class="step-box step2"/>
+    <text x="350" y="50" class="step-title" fill="#e65100">DISEÑAR LA SOLUCIÓN</text>
+    <line x1="85" y1="57" x2="615" y2="57" stroke="#f57c00" stroke-width="1" opacity="0.3"/>
+    
+    <!-- Diagrama de flujo -->
+    <rect x="90" y="70" width="250" height="55" rx="5" fill="#fff" stroke="#f57c00" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="215" y="90" font-family="Arial" font-size="12" fill="#e65100" text-anchor="middle" font-weight="bold">
+      Opción A: Diagrama de Flujo
+    </text>
+    <text x="215" y="107" class="step-desc" fill="#666">
+      Dibujitos con símbolos (óvalo, rectángulo, rombo)
+    </text>
+    
+    <!-- O -->
+    <text x="350" y="105" font-family="Arial" font-size="14" fill="#666" text-anchor="middle" font-weight="bold">
+      O
+    </text>
+    
+    <!-- Pseudocódigo -->
+    <rect x="370" y="70" width="250" height="55" rx="5" fill="#fff" stroke="#f57c00" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="495" y="90" font-family="Arial" font-size="12" fill="#e65100" text-anchor="middle" font-weight="bold">
+      Opción B: Pseudocódigo
+    </text>
+    <text x="495" y="107" class="step-desc" fill="#666">
+      "Código falso" en español estructurado
+    </text>
+  </g>
+  
+  <!-- Flecha -->
+  <line x1="400" y1="350" x2="400" y2="385" stroke="#424242" stroke-width="3" marker-end="url(#arrow-main)"/>
+  
+  <!-- PASO 3: Prueba de escritorio -->
+  <g transform="translate(80, 390)">
+    <circle cx="30" cy="60" r="25" fill="#7b1fa2"/>
+    <text x="30" y="70" class="number">3</text>
+    
+    <rect x="70" y="20" width="560" height="80" rx="10" class="step-box step3"/>
+    <text x="350" y="45" class="step-title" fill="#6a1b9a">PRUEBA DE ESCRITORIO</text>
+    <line x1="85" y1="52" x2="615" y2="52" stroke="#7b1fa2" stroke-width="1" opacity="0.3"/>
+    <text x="350" y="70" class="step-desc" fill="#4a148c">✓ Ejecutar el algoritmo EN PAPEL con valores de ejemplo</text>
+    <text x="350" y="85" class="step-desc" fill="#4a148c">✓ Usar tabla de traza (columnas = variables, filas = pasos)</text>
+    
+    <!-- Decisión -->
+    <path d="M 350,95 L 400,110 L 350,125 L 300,110 Z" fill="#fff8e1" stroke="#f57c00" stroke-width="1.5"/>
+    <text x="350" y="114" font-family="Arial" font-size="10" fill="#e65100" text-anchor="middle" font-weight="bold">
+      ¿Funciona?
+    </text>
+    
+    <!-- Flecha NO (volver) -->
+    <path d="M 300,110 L 50,110 L 50,300 L 80,300" 
+          fill="none" stroke="#c62828" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrow-main)"/>
+    <text x="60" y="250" font-family="Arial" font-size="10" fill="#c62828" font-weight="bold" transform="rotate(-90, 60, 250)">
+      ← NO: Corregir diseño
+    </text>
+  </g>
+  
+  <!-- Flecha SÍ -->
+  <line x1="400" y1="505" x2="400" y2="540" stroke="#2e7d32" stroke-width="3" marker-end="url(#arrow-main)"/>
+  <text x="420" y="525" font-family="Arial" font-size="11" fill="#2e7d32" font-weight="bold">SÍ ✓</text>
+  
+  <!-- PASO 4: Programar en Python -->
+  <g transform="translate(80, 545)">
+    <circle cx="30" cy="50" r="25" fill="#2e7d32"/>
+    <text x="30" y="60" class="number">4</text>
+    
+    <rect x="70" y="20" width="560" height="65" rx="10" class="step-box step4"/>
+    <text x="350" y="45" class="step-title" fill="#1b5e20">PROGRAMAR EN PYTHON</text>
+    <line x1="85" y1="52" x2="615" y2="52" stroke="#2e7d32" stroke-width="1" opacity="0.3"/>
+    <text x="350" y="70" class="step-desc" fill="#1b5e20">✓ Traducir el pseudocódigo/diagrama a código Python</text>
+    <text x="350" y="85" class="step-desc" fill="#1b5e20">✓ Probar con los mismos casos de la prueba de escritorio</text>
+  </g>
+  
+  <!-- Recuadro final -->
+  <g opacity="0.9">
+    <rect x="680" y="90" width="110" height="520" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" rx="8"/>
+    <text x="735" y="120" font-family="Arial" font-size="11" fill="#1b5e20" text-anchor="middle" font-weight="bold">
+      TIEMPO
+    </text>
+    <text x="735" y="135" font-family="Arial" font-size="11" fill="#1b5e20" text-anchor="middle" font-weight="bold">
+      INVERTIDO
+    </text>
+    <line x1="690" y1="145" x2="780" y2="145" stroke="#2e7d32" stroke-width="1"/>
+    
+    <text x="735" y="180" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">Paso 1</text>
+    <text x="735" y="195" font-family="Arial" font-size="10" fill="#1976d2" text-anchor="middle" font-weight="bold">10 min</text>
+    
+    <text x="735" y="280" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">Paso 2</text>
+    <text x="735" y="295" font-family="Arial" font-size="10" fill="#f57c00" text-anchor="middle" font-weight="bold">20-30 min</text>
+    
+    <text x="735" y="440" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">Paso 3</text>
+    <text x="735" y="455" font-family="Arial" font-size="10" fill="#7b1fa2" text-anchor="middle" font-weight="bold">10-15 min</text>
+    
+    <text x="735" y="575" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">Paso 4</text>
+    <text x="735" y="590" font-family="Arial" font-size="10" fill="#2e7d32" text-anchor="middle" font-weight="bold">10 min</text>
+  </g>
+  
+  <!-- Nota al pie -->
+  <text x="400" y="635" font-family="Arial" font-size="11" fill="#666" text-anchor="middle">
+    ⚡ Este proceso te ahorra HORAS de depuración - invierte tiempo en diseño, no en buscar errores
+  </text>
+</svg>

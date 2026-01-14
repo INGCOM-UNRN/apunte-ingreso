@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="750" viewBox="0 0 400 750" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .process { fill: #c8e6c9; stroke: #2e7d32; stroke-width: 2; }
+      .text { font-family: 'Arial', sans-serif; font-size: 14px; fill: #0d47a1; text-anchor: middle; }
+      .process-text { font-family: 'Arial', sans-serif; font-size: 13px; fill: #1b5e20; text-anchor: middle; }
+      .title { font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; fill: #0d47a1; text-anchor: middle; }
+      .section-label { font-family: 'Arial', sans-serif; font-size: 11px; fill: #666; font-style: italic; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976d2"/>
+    </marker>
+  </defs>
+  
+  <!-- Título -->
+  <text x="200" y="30" class="title">Promedio de 3 Números</text>
+  
+  <!-- INICIO -->
+  <ellipse cx="200" cy="80" rx="60" ry="30" class="box"/>
+  <text x="200" y="88" class="text">INICIO</text>
+  
+  <!-- Flecha -->
+  <line x1="200" y1="110" x2="200" y2="135" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- ENTRADA DE DATOS -->
+  <text x="60" y="155" class="section-label">← ENTRADA</text>
+  
+  <!-- Leer num1 -->
+  <path d="M 140,160 L 260,160 L 250,200 L 130,200 Z" class="box"/>
+  <text x="195" y="185" class="text">Leer num1</text>
+  
+  <!-- Flecha -->
+  <line x1="195" y1="200" x2="195" y2="230" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Leer num2 -->
+  <path d="M 140,230 L 260,230 L 250,270 L 130,270 Z" class="box"/>
+  <text x="195" y="255" class="text">Leer num2</text>
+  
+  <!-- Flecha -->
+  <line x1="195" y1="270" x2="195" y2="300" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Leer num3 -->
+  <path d="M 140,300 L 260,300 L 250,340 L 130,340 Z" class="box"/>
+  <text x="195" y="325" class="text">Leer num3</text>
+  
+  <!-- Flecha -->
+  <line x1="195" y1="340" x2="195" y2="375" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- PROCESAMIENTO -->
+  <text x="60" y="395" class="section-label">← PROCESO</text>
+  
+  <!-- suma = num1 + num2 + num3 -->
+  <rect x="110" y="400" width="180" height="55" rx="5" class="process"/>
+  <text x="200" y="420" class="process-text" font-size="12">suma = num1</text>
+  <text x="200" y="437" class="process-text" font-size="12">+ num2</text>
+  <text x="200" y="450" class="process-text" font-size="12">+ num3</text>
+  
+  <!-- Flecha -->
+  <line x1="200" y1="455" x2="200" y2="495" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- promedio = suma / 3 -->
+  <rect x="120" y="495" width="160" height="45" rx="5" class="process"/>
+  <text x="200" y="515" class="process-text">promedio =</text>
+  <text x="200" y="532" class="process-text">suma / 3</text>
+  
+  <!-- Flecha -->
+  <line x1="200" y1="540" x2="200" y2="580" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- SALIDA -->
+  <text x="60" y="600" class="section-label">← SALIDA</text>
+  
+  <!-- Mostrar promedio -->
+  <path d="M 140,605 L 260,605 L 250,655 L 130,655 Z" class="box"/>
+  <text x="195" y="635" class="text">Mostrar promedio</text>
+  
+  <!-- Flecha -->
+  <line x1="195" y1="655" x2="195" y2="685" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- FIN -->
+  <ellipse cx="195" cy="715" rx="60" ry="30" class="box"/>
+  <text x="195" y="723" class="text">FIN</text>
+  
+  <!-- Ejemplo numérico -->
+  <g opacity="0.9">
+    <rect x="285" y="160" width="105" height="380" fill="#fff8e1" stroke="#f57f17" stroke-width="1" rx="5"/>
+    <text x="337" y="180" font-family="Arial" font-size="11" fill="#333" text-anchor="middle" font-weight="bold">
+      Ejemplo:
+    </text>
+    <text x="337" y="200" font-family="Courier New" font-size="10" fill="#444" text-anchor="middle">
+      num1 = 8
+    </text>
+    <line x1="295" y1="205" x2="380" y2="205" stroke="#ddd" stroke-width="1"/>
+    
+    <text x="337" y="270" font-family="Courier New" font-size="10" fill="#444" text-anchor="middle">
+      num2 = 10
+    </text>
+    <line x1="295" y1="275" x2="380" y2="275" stroke="#ddd" stroke-width="1"/>
+    
+    <text x="337" y="340" font-family="Courier New" font-size="10" fill="#444" text-anchor="middle">
+      num3 = 12
+    </text>
+    <line x1="295" y1="345" x2="380" y2="345" stroke="#ddd" stroke-width="1"/>
+    
+    <text x="337" y="425" font-family="Courier New" font-size="10" fill="#2e7d32" text-anchor="middle" font-weight="bold">
+      suma = 30
+    </text>
+    <text x="337" y="440" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">
+      (8+10+12)
+    </text>
+    <line x1="295" y1="447" x2="380" y2="447" stroke="#ddd" stroke-width="1"/>
+    
+    <text x="337" y="517" font-family="Courier New" font-size="10" fill="#2e7d32" text-anchor="middle" font-weight="bold">
+      promedio = 10
+    </text>
+    <text x="337" y="532" font-family="Arial" font-size="9" fill="#666" text-anchor="middle">
+      (30 / 3)
+    </text>
+  </g>
+  
+  <!-- Nota sobre organización -->
+  <g opacity="0.8">
+    <rect x="10" y="160" width="100" height="380" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1" rx="5"/>
+    <text x="60" y="285" font-family="Arial" font-size="11" fill="#4a148c" text-anchor="middle" font-weight="bold">
+      Estructura
+    </text>
+    <text x="60" y="300" font-family="Arial" font-size="11" fill="#4a148c" text-anchor="middle" font-weight="bold">
+      del
+    </text>
+    <text x="60" y="315" font-family="Arial" font-size="11" fill="#4a148c" text-anchor="middle" font-weight="bold">
+      Algoritmo
+    </text>
+    <line x1="20" y1="325" x2="100" y2="325" stroke="#9c27b0" stroke-width="1"/>
+    <text x="60" y="345" font-family="Arial" font-size="9" fill="#333" text-anchor="middle">
+      1. Entrada
+    </text>
+    <text x="60" y="360" font-family="Arial" font-size="9" fill="#333" text-anchor="middle">
+      (pedir datos)
+    </text>
+    <text x="60" y="385" font-family="Arial" font-size="9" fill="#333" text-anchor="middle">
+      2. Proceso
+    </text>
+    <text x="60" y="400" font-family="Arial" font-size="9" fill="#333" text-anchor="middle">
+      (calcular)
+    </text>
+    <text x="60" y="425" font-family="Arial" font-size="9" fill="#333" text-anchor="middle">
+      3. Salida
+    </text>
+    <text x="60" y="440" font-family="Arial" font-size="9" fill="#333" text-anchor="middle">
+      (mostrar)
+    </text>
+  </g>
+</svg>

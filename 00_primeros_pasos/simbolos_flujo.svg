@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .symbol-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .symbol-text { font-family: 'Arial', sans-serif; font-size: 14px; fill: #1565c0; text-anchor: middle; }
+      .title-text { font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold; fill: #0d47a1; text-anchor: middle; }
+      .label-text { font-family: 'Arial', sans-serif; font-size: 12px; fill: #424242; text-anchor: middle; }
+      .example-text { font-family: 'Courier New', monospace; font-size: 11px; fill: #37474f; text-anchor: middle; }
+    </style>
+  </defs>
+  
+  <!-- Título -->
+  <text x="400" y="30" class="title-text">Símbolos de Diagramas de Flujo</text>
+  
+  <!-- INICIO/FIN (Óvalo) -->
+  <g transform="translate(80, 80)">
+    <ellipse cx="60" cy="40" rx="50" ry="30" class="symbol-box"/>
+    <text x="60" y="45" class="symbol-text">INICIO</text>
+    <text x="60" y="100" class="label-text">Óvalo - Inicio/Fin</text>
+    <text x="60" y="120" class="example-text">Marca el comienzo</text>
+    <text x="60" y="135" class="example-text">y final del algoritmo</text>
+  </g>
+  
+  <!-- PROCESO (Rectángulo) -->
+  <g transform="translate(240, 80)">
+    <rect x="10" y="10" width="100" height="60" rx="5" class="symbol-box"/>
+    <text x="60" y="35" class="symbol-text">suma = a + b</text>
+    <text x="60" y="100" class="label-text">Rectángulo - Proceso</text>
+    <text x="60" y="120" class="example-text">Operaciones y</text>
+    <text x="60" y="135" class="example-text">asignaciones</text>
+  </g>
+  
+  <!-- ENTRADA/SALIDA (Paralelogramo) -->
+  <g transform="translate(400, 80)">
+    <path d="M 20,10 L 110,10 L 90,70 L 0,70 Z" class="symbol-box"/>
+    <text x="55" y="35" class="symbol-text">Leer numero</text>
+    <text x="55" y="45" class="symbol-text" font-size="12">Mostrar suma</text>
+    <text x="55" y="100" class="label-text">Paralelogramo</text>
+    <text x="55" y="120" class="example-text">Entrada/Salida</text>
+    <text x="55" y="135" class="example-text">de datos</text>
+  </g>
+  
+  <!-- DECISIÓN (Rombo) -->
+  <g transform="translate(560, 80)">
+    <path d="M 60,10 L 110,45 L 60,80 L 10,45 Z" class="symbol-box"/>
+    <text x="60" y="42" class="symbol-text" font-size="12">¿edad >= 18?</text>
+    <text x="60" y="100" class="label-text">Rombo - Decisión</text>
+    <text x="60" y="120" class="example-text">Pregunta Sí/No</text>
+    <text x="60" y="135" class="example-text">Divide el flujo</text>
+  </g>
+  
+  <!-- FLECHA (Conector) -->
+  <g transform="translate(80, 250)">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#1976d2"/>
+      </marker>
+    </defs>
+    <line x1="30" y1="20" x2="90" y2="20" stroke="#1976d2" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="60" y="60" class="label-text">Flecha - Flujo</text>
+    <text x="60" y="80" class="example-text">Indica la dirección</text>
+    <text x="60" y="95" class="example-text">del proceso</text>
+  </g>
+  
+  <!-- Ejemplo completo pequeño -->
+  <g transform="translate(280, 230)">
+    <text x="120" y="10" class="title-text" font-size="14">Ejemplo: Sumar 2 números</text>
+    
+    <!-- INICIO -->
+    <ellipse cx="120" cy="50" rx="40" ry="20" class="symbol-box"/>
+    <text x="120" y="55" class="symbol-text" font-size="11">INICIO</text>
+    
+    <!-- Flecha -->
+    <line x1="120" y1="70" x2="120" y2="90" stroke="#1976d2" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- Leer a -->
+    <path d="M 90,90 L 150,90 L 145,115 L 85,115 Z" class="symbol-box"/>
+    <text x="117" y="107" class="symbol-text" font-size="11">Leer a</text>
+    
+    <!-- Flecha -->
+    <line x1="120" y1="115" x2="120" y2="135" stroke="#1976d2" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- Leer b -->
+    <path d="M 90,135 L 150,135 L 145,160 L 85,160 Z" class="symbol-box"/>
+    <text x="117" y="152" class="symbol-text" font-size="11">Leer b</text>
+    
+    <!-- Flecha -->
+    <line x1="120" y1="160" x2="120" y2="180" stroke="#1976d2" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- suma = a + b -->
+    <rect x="80" y="180" width="80" height="30" rx="3" class="symbol-box"/>
+    <text x="120" y="200" class="symbol-text" font-size="11">suma = a + b</text>
+    
+    <!-- Flecha -->
+    <line x1="120" y1="210" x2="120" y2="230" stroke="#1976d2" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- Mostrar suma -->
+    <path d="M 80,230 L 160,230 L 155,255 L 75,255 Z" class="symbol-box"/>
+    <text x="117" y="247" class="symbol-text" font-size="11">Mostrar suma</text>
+    
+    <!-- Flecha -->
+    <line x1="120" y1="255" x2="120" y2="275" stroke="#1976d2" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- FIN -->
+    <ellipse cx="120" cy="295" rx="40" ry="20" class="symbol-box"/>
+    <text x="120" y="300" class="symbol-text" font-size="11">FIN</text>
+  </g>
+  
+  <!-- Nota al pie -->
+  <text x="400" y="480" class="example-text" font-size="10" fill="#666">
+    Los diagramas de flujo usan estos 5 símbolos básicos para representar cualquier algoritmo
+  </text>
+</svg>
