@@ -16,129 +16,8 @@ Al finalizar este capítulo serás capaz de:
 - Entender el scope (alcance) de las variables
 - Documentar funciones profesionalmente
 - Aplicar buenas prácticas en el diseño de funciones
-- Usar funciones lambda y recursivas
 - **Descomponer problemas complejos en funciones más simples**
 - **Aplicar principios de diseño funcional (SRP, DRY, abstracción)**
-:::
-
-## Mapa del Capítulo
-
-```{mermaid}
-%%{init: {'theme':'base', 'themeVariables': { 'fontSize':'14px'}}}%%
-graph TB
-    Start([Capítulo 4: Funciones])
-    
-    %% Sección 1: Introducción
-    Intro[Introducción]
-    Intro1[¿Qué es una Función?]
-    Intro2[¿Por qué Usar Funciones?]
-    
-    %% Sección 2: Definir y Llamar
-    Def[Definir y Llamar Funciones]
-    Def1[Tu Primera Función]
-    Def2[Anatomía de una Función]
-    Def3[Flujo de Ejecución]
-    
-    %% Sección 3: Parámetros
-    Param[Parámetros y Argumentos]
-    Param1[Recibir Información]
-    Param2[Múltiples Parámetros]
-    Param3[Posicionales vs Keyword]
-    
-    %% Sección 4: Return
-    Ret[Retornar Valores]
-    Ret1[print vs return]
-    Ret2[Return Múltiple]
-    Ret3[Salidas Tempranas]
-    
-    %% Sección 5: Scope
-    Scope[Scope de Variables]
-    Scope1[Variables Locales]
-    Scope2[Variables Globales]
-    Scope3[Shadowing]
-    
-    %% Sección 6: Avanzado
-    Adv[Conceptos Avanzados]
-    Adv1[Parámetros por Defecto]
-    Adv2[*args y **kwargs]
-    Adv3[Funciones Lambda]
-    Adv4[Recursión]
-    
-    %% Sección 7: Prácticas
-    Pract[Buenas Prácticas]
-    Pract1[Documentación]
-    Pract2[Diseño de Funciones]
-    Pract3[Errores Comunes]
-    
-    %% Sección 8: Descomposición
-    Decomp[Descomposición Funcional]
-    Decomp1[Dividir Problemas]
-    Decomp2[Casos de Estudio]
-    Decomp3[Estrategias]
-    
-    %% Sección 9: Final
-    Final[Cierre]
-    Final1[Ejercicios Prácticos]
-    Final2[Resumen]
-    Final3[Referencias]
-    
-    %% Conexiones principales
-    Start --> Intro
-    Intro --> Intro1 --> Intro2
-    
-    Intro2 --> Def
-    Def --> Def1 --> Def2 --> Def3
-    
-    Def3 --> Param
-    Param --> Param1 --> Param2 --> Param3
-    
-    Param3 --> Ret
-    Ret --> Ret1 --> Ret2 --> Ret3
-    
-    Ret3 --> Scope
-    Scope --> Scope1 --> Scope2 --> Scope3
-    
-    Scope3 --> Adv
-    Adv --> Adv1 --> Adv2 --> Adv3 --> Adv4
-    
-    Adv4 --> Pract
-    Pract --> Pract1 --> Pract2 --> Pract3
-    
-    Pract3 --> Decomp
-    Decomp --> Decomp1 --> Decomp2 --> Decomp3
-    
-    Decomp3 --> Final
-    Final --> Final1 --> Final2 --> Final3
-    
-    %% Estilos
-    classDef intro fill:#e1f5ff,stroke:#01579b,stroke-width:2px
-    classDef basico fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    classDef intermedio fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    classDef avanzado fill:#fce4ec,stroke:#880e4f,stroke-width:2px
-    classDef practica fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
-    classDef final fill:#fff9c4,stroke:#f57f17,stroke-width:2px
-    
-    class Start,Intro,Intro1,Intro2 intro
-    class Def,Def1,Def2,Def3,Param,Param1,Param2,Param3 basico
-    class Ret,Ret1,Ret2,Ret3,Scope,Scope1,Scope2,Scope3 intermedio
-    class Adv,Adv1,Adv2,Adv3,Adv4 avanzado
-    class Pract,Pract1,Pract2,Pract3 practica
-    class Final,Final1,Final2,Final3 final
-```
-
-:::{admonition} Cómo Usar Este Mapa
-:class: tip
-
-Este diagrama te muestra el recorrido completo del capítulo:
-
-- **Celeste**: Fundamentos y motivación
-- **Naranja**: Conceptos básicos (def, parámetros)
-- **Violeta**: Conceptos intermedios (return, scope)
-- **Rosa**: Temas avanzados (lambdas, recursión)
-- **Verde**: Buenas prácticas y profesionalismo
-- **Amarillo**: Práctica y consolidación
-
-Podés seguir el orden lineal o saltar a las secciones que más te interesen. Los conceptos básicos son fundamentales para entender los avanzados.
 :::
 
 ---
@@ -228,7 +107,6 @@ print(f"Promedio examen 3: {calcular_promedio([9, 9, 10])}")
 :::
 
 :::{grid-item-card} Avanzado
-- Funciones lambda
 - Recursión
 - Buenas prácticas
 - Patrones comunes
@@ -1433,39 +1311,10 @@ print(aplicar_operacion(5, 3, sumar))        # 8
 print(aplicar_operacion(5, 3, multiplicar))  # 15
 ```
 
-### Funciones Lambda (Anónimas)
-
-Las funciones lambda son funciones pequeñas de una línea:
-
-```{code-cell} ipython3
-# Función normal
-def cuadrado(x):
-    return x **2
-
-# Función lambda equivalente
-cuadrado_lambda = lambda x: x **2
-
-print(cuadrado(5))        # 25
-print(cuadrado_lambda(5)) # 25
-
-# Útil para operaciones simples
-numeros = [1, 2, 3, 4, 5]
-cuadrados = list(map(lambda x: x **2, numeros))
-print(cuadrados)  # [1, 4, 9, 16, 25]
-```
-
-:::{tip} Cuándo usar lambda
-Las lambdas son útiles para:
-- Funciones simples de una línea
-- Argumentos a funciones como `map()`, `filter()`, `sorted()`
-
-Para funciones más complejas, usá `def` con un nombre descriptivo.
-:::
-
 ---
 
 (recursion)=
-## Recursión (Opcional)
+## Recursión (Tema Opcional)
 
 Una función **recursiva** es una que se llama a sí misma.
 
@@ -3064,7 +2913,6 @@ def func(a, b, c, d, e, f):
 | Parámetro default | `def func(param=valor):` | `def saludar(nombre="Mundo"):` |
 | Args variables | `def func(*args):` | `def sumar(*nums): return sum(nums)` |
 | Kwargs variables | `def func(**kwargs):` | `def config(**opts):` |
-| Lambda | `lambda params: expresion` | `lambda x: x * 2` |
 | Docstring | `"""descripcion"""` | `"""Suma dos números."""` |
 | Scope local | Variable dentro de función | `def f(): x = 1` |
 | Scope global | Variable fuera de funciones | `X = 1` (constante) |
@@ -3113,7 +2961,6 @@ Completaste el capítulo de **Funciones**. Ahora sabés:
 ✅ Crear funciones con diferentes tipos de parámetros  
 ✅ Documentar funciones profesionalmente  
 ✅ Entender y aplicar scope correctamente  
-✅ Usar funciones lambda cuando son apropiadas  
 ✅ Aplicar buenas prácticas en diseño de funciones  
 ✅ Evitar errores comunes
 
@@ -3691,7 +3538,6 @@ En este capítulo aprendiste sobre funciones en Python:
 ✓ **Parámetros por defecto**: Valores opcionales y cuidados  
 ✓ **`*args` y `**kwargs`**: Número variable de argumentos  
 ✓ **Documentación**: Docstrings con formato apropiado  
-✓ **Funciones como objetos**: Primera clase, lambda  
 ✓ **Recursión**: Caso base y recursivo (opcional)  
 ✓ **Buenas prácticas**: Responsabilidad única, nombres, efectos secundarios  
 ✓ **Descomposición funcional**: Dividir problemas complejos en funciones simples  
