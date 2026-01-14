@@ -1088,107 +1088,6 @@ print(agregar_item(2))  # [2] ✓ Como esperamos
 
 ---
 
-(args-kwargs)=
-## Número Variable de Argumentos
-
-### `*args` - Argumentos Posicionales Variables
-
-El operador `*` permite recibir cualquier cantidad de argumentos posicionales:
-
-```{code-cell} ipython3
-def sumar_todos(*numeros):
-    """Suma cualquier cantidad de números.
-    
-    Args:
-        *numeros: Cantidad variable de números.
-    
-    Returns:
-        La suma de todos los números.
-    """
-    total = 0
-    for numero in numeros:
-        total += numero
-    return total
-
-print(sumar_todos(1, 2, 3))        # 6
-print(sumar_todos(1, 2, 3, 4, 5))  # 15
-print(sumar_todos(10))             # 10
-```
-
-Los `*args` se reciben como una tupla:
-
-```{code-cell} ipython3
-def mostrar_args(*args):
-    """Muestra los argumentos recibidos."""
-    print(f"Tipo: {type(args)}")
-    print(f"Contenido: {args}")
-
-mostrar_args(1, 2, 3)
-# Tipo: <class 'tuple'>
-# Contenido: (1, 2, 3)
-```
-
-### `**kwargs` - Argumentos con Nombre Variables
-
-El operador `**` permite recibir cualquier cantidad de argumentos con nombre:
-
-```{code-cell} ipython3
-def crear_perfil(nombre, **datos):
-    """Crea un perfil con datos adicionales.
-    
-    Args:
-        nombre: Nombre obligatorio.
-        **datos: Datos adicionales opcionales.
-    """
-    print(f"Nombre: {nombre}")
-    for clave, valor in datos.items():
-        print(f"{clave}: {valor}")
-
-crear_perfil("Ana", edad=20, ciudad="Buenos Aires", carrera="Ingeniería")
-# Nombre: Ana
-# edad: 20
-# ciudad: Buenos Aires
-# carrera: Ingeniería
-```
-
-Los `**kwargs` se reciben como un diccionario:
-
-```{code-cell} ipython3
-def mostrar_kwargs(**kwargs):
-    """Muestra los kwargs recibidos."""
-    print(f"Tipo: {type(kwargs)}")
-    print(f"Contenido: {kwargs}")
-
-mostrar_kwargs(a=1, b=2, c=3)
-# Tipo: <class 'dict'>
-# Contenido: {'a': 1, 'b': 2, 'c': 3}
-```
-
-### Combinando Parámetros
-
-El orden debe ser:
-1. Parámetros posicionales obligatorios
-2. `*args`
-3. Parámetros con nombre (con o sin default)
-4. `**kwargs`
-
-```{code-cell} ipython3
-def funcion_completa(a, b, *args, c=10, **kwargs):
-    """Ejemplo con todos los tipos de parámetros."""
-    print(f"a={a}, b={b}")
-    print(f"args={args}")
-    print(f"c={c}")
-    print(f"kwargs={kwargs}")
-
-funcion_completa(1, 2, 3, 4, 5, c=20, x=100, y=200)
-# a=1, b=2
-# args=(3, 4, 5)
-# c=20
-# kwargs={'x': 100, 'y': 200}
-```
-
----
-
 (documentacion-funciones)=
 ## Documentación de Funciones (Docstrings)
 
@@ -2912,7 +2811,6 @@ def func(a, b, c, d, e, f):
 | Función básica | `def nombre(params): return valor` | `def suma(a, b): return a + b` |
 | Parámetro default | `def func(param=valor):` | `def saludar(nombre="Mundo"):` |
 | Args variables | `def func(*args):` | `def sumar(*nums): return sum(nums)` |
-| Kwargs variables | `def func(**kwargs):` | `def config(**opts):` |
 | Docstring | `"""descripcion"""` | `"""Suma dos números."""` |
 | Scope local | Variable dentro de función | `def f(): x = 1` |
 | Scope global | Variable fuera de funciones | `X = 1` (constante) |
@@ -3536,8 +3434,7 @@ En este capítulo aprendiste sobre funciones en Python:
 ✓ **Retornar valores**: Simple, múltiple, retorno temprano  
 ✓ **Scope de variables**: Local, global, constantes  
 ✓ **Parámetros por defecto**: Valores opcionales y cuidados  
-✓ **`*args` y `**kwargs`**: Número variable de argumentos  
-✓ **Documentación**: Docstrings con formato apropiado  
+\✓ **Documentación**: Docstrings con formato apropiado  
 ✓ **Recursión**: Caso base y recursivo (opcional)  
 ✓ **Buenas prácticas**: Responsabilidad única, nombres, efectos secundarios  
 ✓ **Descomposición funcional**: Dividir problemas complejos en funciones simples  
