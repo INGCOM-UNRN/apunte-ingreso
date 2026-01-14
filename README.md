@@ -75,15 +75,17 @@ Sistema detallado de evaluación por niveles (0 a 10) para entregas de código p
 
 Para el curso de ingreso, no es necesario instalar nada, solo tenés que visitar nuestro [JupyterLab](https://ingcom-unrn.github.io/jupyterlite/lab/index.html) que tiene todo listo para empezar a programar desde el navegador. También podés consultar la guía de uso en el [Apéndice E: JupyterLab](./E_jupyterlab.md).
 
+Lo importante de usar esta herramienta, es que la misma puede funcionar en donde sea, incluyendo televisores inteligentes, telefonos y tablets, pero es fundamental contar con un teclado dedicado, ya que es necesario escribir el código.
+
+## Sobre Asistentes de Código e IA Generativa
+
+Estamos ante un cambio de paradigma en el desarrollo de software. No obstante, al igual que una calculadora no sustituye la comprensión aritmética, un LLM no reemplaza la lógica algorítmica. Deben dominar la programación para instruir a la IA con precisión técnica y evaluar críticamente el output recibido.
+
+Una advertencia fundamental: el "copy-paste" indiscriminado de consignas genera una ilusión de competencia. Si la IA resuelve el problema por ustedes sin su supervisión activa, quien practica es el modelo, mientras que su capacidad de resolución de problemas se atrofia.
+
 ## ¿Necesitas Ayuda?
 
 ¡No te quedes con dudas! Programar es un desafío y preguntar es parte fundamental del aprendizaje.
-
-### Recursos Internos
-- Revisa las secciones "Errores Comunes" en cada capítulo
-- Lee todas las cajas de tips y advertencias
-
-¡Preguntá!
 
 ### Canales de Consulta
 - **En las Clases:** Pregunta directamente a docentes y ayudantes
