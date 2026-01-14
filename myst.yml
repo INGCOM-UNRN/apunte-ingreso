@@ -17,7 +17,14 @@ project:
     - ingreso
     - tutorial
     - ingeniería
-  # authors: []
+  license: CC-BY-NC-SA-4.0
+  authors:
+    - name: Martín René Vilugrón
+      github: martinvilu
+      email: mrvilugron@unrn.edu.ar
+      youtube: profemrtin
+      affiliations:
+        - Universidad Nacional de Rio Negro - Sede Andina
   github: https://github.com/INGCOM-UNRN/apunte-ingreso
   toc:
     - file: README.md
