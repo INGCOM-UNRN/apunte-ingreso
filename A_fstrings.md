@@ -83,7 +83,7 @@ mensaje = f"Me llamo {nombre} y tengo {edad} años"
 
 
 :::{important} Regla de Oro
-**Siempre usá f-strings** para formatear cadenas en Python 3.6+. Es la forma recomendada por la comunidad Python y está documentada en {ref}`0x001Ah`.
+**Siempre usá f-strings** para formatear cadenas en Python 3.6+. Es la forma recomendada por la comunidad Python y está documentada en {ref}`0x0017h`.
 :::
 
 ---

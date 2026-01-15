@@ -10,7 +10,6 @@ Este tema no es fundamental para aprobar el curso de ingreso, está para ayudarl
 #  Manejo de Excepciones
 
 ::::{grid} 1 1 2 2
-:gutter: 3
 
 :::{grid-item-card} ¿Qué aprenderás?
 Dominarás el arte de manejar errores en Python para crear programas robustos y confiables.
@@ -40,7 +39,6 @@ En programación es igual. Tu código puede enfrentar:
 Las **excepciones** son la forma de Python de decir: "¡Oye, algo salió mal!" Y con `try-except` podemos decir: "No te preocupes, yo me encargo".
 
 ::::{grid} 1 1 2 2
-:gutter: 2
 
 :::{grid-item-card} Sin manejo de excepciones
 ```python
@@ -499,7 +497,6 @@ Flujo completo de Try-Except-Else-Finally
 ### Las 4 Cláusulas
 
 ::::{grid} 1 1 2 2
-:gutter: 3
 
 :::{grid-item-card} 🔵 try
 **Siempre se ejecuta primero**
@@ -596,7 +593,6 @@ Nota: `finally` siempre se ejecuta
 
 ```{list-table}
 :header-rows: 1
-:widths: 20 40 40
 
 * - Cláusula
   - ¿Cuándo?
@@ -1191,13 +1187,12 @@ except ValueError as e:
 
 ---
 
-(buenas-practicas)=
+(buenas-practicas-excepciones)=
 ##  Buenas Prácticas
 
 ### Reglas de Oro
 
 ::::{grid} 1 1 2 2
-:gutter: 3
 
 :::{grid-item-card} 1️⃣ Específico, no genérico
 ```python
@@ -1281,7 +1276,6 @@ def procesar(datos):
 ## Resumen del Capítulo
 
 ::::{grid} 1
-:gutter: 3
 
 :::{grid-item-card} Conceptos Clave
 - Las excepciones son eventos que interrumpen el flujo normal

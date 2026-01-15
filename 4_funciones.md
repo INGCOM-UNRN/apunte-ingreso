@@ -1848,7 +1848,6 @@ if __name__ == "__main__":
 Comparemos:
 
 ::::{grid} 1 1 2 2
-:gutter: 3
 
 :::{grid-item-card} ❌ Sin Descomposición
 ```python

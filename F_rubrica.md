@@ -55,7 +55,7 @@ Cada entrega se evalúa según cuatro dimensiones principales:
 - Nombres descriptivos ({ref}`0x0001h`)
 - Indentación consistente ({ref}`0x0005h`)
 - Espaciado apropiado ({ref}`0x0004h`)
-- Comentarios útiles ({ref}`0x001Dh`)
+- Comentarios útiles ({ref}`0x000Ah`)
 - Estructura clara
 
 ### 3. Diseño y Estructura (20%)
@@ -829,7 +829,7 @@ i = i + 1  # Incrementa i en 1
 i += 1  # Saltamos el encabezado para procesar solo datos
 ```
 
-Ver {ref}`0x001Dh` para guías sobre comentarios.
+Ver {ref}`0x000Ah` para guías sobre comentarios.
 
 ### ¿Qué pasa si entrego tarde?
 

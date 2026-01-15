@@ -70,10 +70,8 @@ mindmap
 ```
 
 ::::{grid} 1 1 2 2
-:gutter: 2
 
 :::{card} Objetivos de Aprendizaje
-:class-header: bg-primary text-white
 
 **Al finalizar este capítulo podrás:**
 
@@ -85,7 +83,6 @@ mindmap
 :::
 
 :::{card} Comparación Rápida
-:class-header: bg-success text-white
 
 | Estructura | Mutable | Ordenada | Indexable | Única |
 |------------|---------|----------|-----------|-------|
@@ -104,11 +101,8 @@ mindmap
 ### ⏱️ Tiempo Estimado
 
 ::::{grid} 1 1 3 3
-:gutter: 2
 
 :::{card}  Lectura
-:class-header: bg-info text-white
-:text-align: center
 
 **45-60 minutos**
 
@@ -116,8 +110,6 @@ Teoría y ejemplos
 :::
 
 :::{card} 💻 Práctica
-:class-header: bg-warning text-white
-:text-align: center
 
 **60-90 minutos**
 
@@ -125,8 +117,6 @@ Ejercicios guiados
 :::
 
 :::{card} Proyecto
-:class-header: bg-danger text-white
-:text-align: center
 
 **30-45 minutos**
 
@@ -175,7 +165,6 @@ Guía rápida para elegir la estructura de datos correcta según tus necesidades
 ### Analogía del Mundo Real 
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} Sin Estructuras
 **Guardar cosas sueltas:**
@@ -248,7 +237,6 @@ Al finalizar este capítulo, podrás:
 ### Ejemplos del Mundo Real
 
 :::::{grid} 1 1 2 2
-:gutter: 2
 
 ::::{grid-item-card} Lista
 **Lista de reproducción de Spotify**
@@ -440,7 +428,6 @@ ultimo = frutas[len(frutas) - 1]  # ✓ Funciona pero es más largo
 #### Comparación Visual
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} ✅ Índice Válido
 ```python
@@ -562,7 +549,6 @@ lista[2:5]  # Tamaño = 5 - 2 = 3 elementos ✓
 #### Ejemplos Prácticos de Slicing
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} Primeros y Últimos
 ```python
@@ -850,7 +836,6 @@ print("Después de extend:", frutas)
 ##### `append()` vs `extend()` vs `+` : ¿Cuál usar?
 
 :::::{grid} 1 1 3 3
-:gutter: 2
 
 ::::{grid-item-card} `append()`
 **Agrega 1 elemento**
@@ -1092,7 +1077,6 @@ print(f"¿Está vacía? {len(tareas) == 0}")
 ```
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} `clear()`
 ```python
@@ -1395,7 +1379,6 @@ print("Descendente (nueva):", desc)
 ```
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} `sort()`
 **Método de lista**
@@ -1455,7 +1438,6 @@ print("Original sin cambios:", letras)
 ```
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} `reverse()`
 **Método**
@@ -1662,7 +1644,6 @@ for i in range(len(frutas)):
 #### Comparación: Las 3 Formas
 
 :::::{grid} 1 1 3 3
-:gutter: 2
 
 ::::{grid-item-card} Solo Elementos
 ```python
@@ -1956,7 +1937,6 @@ if not encontrado:
 #### Ejemplos Prácticos
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} Tabla de Calificaciones
 ```python
@@ -2509,7 +2489,6 @@ except AttributeError:
 #### ¿Por qué Usar Tuplas? 5 Razones
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} 1️⃣ Datos Constantes
 **Cuando los datos NO deben cambiar:**
@@ -2841,7 +2820,6 @@ print(f"Edad: {edad}, País: {pais}")
 #### Casos Prácticos
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} División con Resto
 ```python

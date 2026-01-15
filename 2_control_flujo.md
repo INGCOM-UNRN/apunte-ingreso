@@ -49,7 +49,6 @@ graph TD
 Hasta ahora, tus programas han sido como seguir una receta paso a paso: haces **una cosa tras otra**, siempre en el mismo orden. Pero los programas reales necesitan ser **inteligentes**:
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} Sin Control de Flujo
 ```python
@@ -111,7 +110,6 @@ El control de flujo es lo que convierte una secuencia fija de instrucciones en u
 Todos estos usan control de flujo:
 
 :::::{grid} 1 1 2 2
-:gutter: 2
 
 ::::{grid-item-card} 🏧 Cajero Automático
 - **Decisión:** ¿El PIN es correcto?
@@ -214,7 +212,6 @@ print("Este mensaje se muestra siempre")
 #### Anatomía del `if`
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item}
 ```python
@@ -339,7 +336,6 @@ Usá `if-else` cuando:
 **Comparación visual:**
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} Solo `if`
 ```python
@@ -417,7 +413,6 @@ print(f"\nTu nota fue: {nota}")
 #### ¿Cómo Funciona?
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item}
 **Flujo de evaluación:**
@@ -457,7 +452,6 @@ El **orden importa muchísimo**. Python evalúa de arriba hacia abajo y ejecuta 
 
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} ✅ CORRECTO
 ```python
@@ -505,7 +499,6 @@ elif numero >= 90:
 #### Comparación: `if` múltiple vs `if`-`elif`-`else`
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} Múltiples `if` separados
 ```python
@@ -633,7 +626,6 @@ else:
 Muchas veces podés **simplificar** usando `and` en lugar de anidar:
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} ❌ Anidado (más complejo)
 ```python
@@ -873,7 +865,6 @@ flowchart TD
 Si la condición **nunca** se vuelve `False`, el bucle se ejecutará ** para siempre**:
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} Loop Infinito (¡Ooops!)
 ```python
@@ -1148,7 +1139,6 @@ Python **automáticamente** toma cada elemento de la lista, uno por uno, y ejecu
 ### Diferencia: `while` vs `for`
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} while (Mientras...)
 ```python

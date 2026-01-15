@@ -1109,7 +1109,7 @@ Este glosario complementa los glosarios de programación Python de los capítulo
 - {ref}`glosario-control-flujo` - Condicionales, bucles, patrones
 - {ref}`glosario-estructuras` - Listas, diccionarios, sets
 - {ref}`glosario-funciones` - def, return, scope, parámetros
-- {ref}`glosario-modulos` - import, archivos, módulos
+- {ref}`referencia-tipos` - import, archivos, módulos
 - {ref}`glosario-excepciones` - try-except, raise, manejo de errores
 
 **Este glosario complementa** la terminología de Python con conceptos específicos de entornos interactivos y notebooks.

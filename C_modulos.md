@@ -28,10 +28,8 @@ Esta guía es tu manual de consulta rápida para los tipos de datos más importa
 Python viene con una **biblioteca estándar** muy completa. Cada tipo de dato tiene métodos (funciones asociadas) que facilitan operaciones comunes. De hecho, lo que trataremos aquí es una parte mínima de todo lo que tiene disponible de forma _directa_. Python tiene un ecosistema de librerías que amplia aún más las capacidades del lenguaje, sin embargo, esto queda fuera del curso de ingreso por cuestiones de tiempo.
 
 ::::{grid} 1 1 2 2
-:gutter: 3
 
 :::{grid-item-card} 📚 Tipos Mutables
-:class-header: bg-primary text-white
 
 Pueden modificarse después de crearse:
 - **`list`** - Listas
@@ -40,7 +38,6 @@ Pueden modificarse después de crearse:
 :::
 
 :::{grid-item-card} 🔒 Tipos Inmutables
-:class-header: bg-info text-white
 
 No pueden modificarse una vez creados:
 - **`str`** - Cadenas

@@ -60,7 +60,6 @@ La computadora es como ese robot: increíblemente rápida y precisa, pero necesi
 Python es como el español de los lenguajes de programación: es claro, fácil de leer y lo entiende mucha gente (o mejor dicho, muchas computadoras). Compará estos dos ejemplos:
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} Otros lenguajes (más complicados)
 ```java
@@ -124,7 +123,6 @@ Si ejecutaste ese código y viste `"¡Hola Mundo!"` en la pantalla, **ya sos un 
 Diseccionemos ese programa línea por línea:
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item}
 ```python
@@ -896,7 +894,6 @@ A veces necesitás verificar **múltiples** cosas al mismo tiempo. Por ejemplo: 
 Son solo tres, pero muy poderosos:
 
 :::::{grid} 1 1 3 3
-:gutter: 2
 
 ::::{grid-item-card} `and` (Y)
 **Ambas** condiciones deben ser verdaderas
@@ -1402,7 +1399,6 @@ Incluso los programadores con años de experiencia cometen errores TODO el tiemp
 ### 1. Usar una variable sin inicializarla
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} ❌ Error común
 ```python
@@ -1438,7 +1434,6 @@ Primero le decimos a Python "existe una variable llamada `total` y vale 0", **de
 ### 2. Confundir `=` con `==` 
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} ❌ Error común
 ```python
@@ -1482,7 +1477,6 @@ graph TD
 ### 3. Olvidar convertir `input()` a número 
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} ❌ Error común
 ```python
@@ -1752,7 +1746,6 @@ mindmap
 ```
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} Variables
 Son "cajas" con nombres donde guardamos información.
