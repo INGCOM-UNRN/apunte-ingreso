@@ -1,6 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
-  <rect x="10" y="10" width="100" height="40" rx="3" fill="#c8e6c9" stroke="#2e7d32" stroke-width="2"/>
-  <text x="60" y="28" font-family="Arial" font-size="11" fill="#1b5e20" text-anchor="middle" font-weight="bold">suma =</text>
-  <text x="60" y="42" font-family="Arial" font-size="11" fill="#1b5e20" text-anchor="middle" font-weight="bold">a + b</text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 182.85714 60"
+   width="160"
+   height="60"
+   version="1.1"
+   id="svg2"
+   sodipodi:docname="simbolo_rectangulo.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4"
+     inkscape:cx="80.5"
+     inkscape:cy="41.125"
+     inkscape:window-width="1872"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2" />
+  <style
+     type="text/css"
+     id="style1">
+    @import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap');
+  </style>
+  <rect
+     x="16.219694"
+     y="10.219694"
+     width="150.41776"
+     height="39.560612"
+     rx="4.5125327"
+     fill="#c8e6c9"
+     stroke="#2e7d32"
+     stroke-width="2.43939"
+     id="rect1" />
+  <g
+     id="g2"
+     transform="matrix(1.3806168,0,0,1.3806168,8.5915607,-14.441367)">
+    <text
+       x="60.049889"
+       y="38.092339"
+       font-family="Chivo"
+       font-size="16.6277px"
+       fill="#1b5e20"
+       text-anchor="middle"
+       font-weight="bold"
+       id="text1"
+       style="text-align:center;text-anchor:middle;stroke-width:1.51161">suma = a + b</text>
+  </g>
 </svg>

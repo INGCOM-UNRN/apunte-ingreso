@@ -1,7 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="450" height="750" viewBox="0 0 450 750" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="450"
+   height="700"
+   viewBox="0 0 450 700"
+   version="1.1"
+   id="svg25"
+   sodipodi:docname="flujo_contador_1_a_5.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview25"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="201.52543"
+     inkscape:cy="256.32621"
+     inkscape:window-width="1872"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g34" />
+  <defs
+     id="defs2">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern56"
+       preserveAspectRatio="xMidYMid"
+       id="pattern42"
+       patternTransform="matrix(0.4697326,-0.74851834,0.4697326,0.74851834,146.21292,300.18989)" />
+    <style
+       id="style1">
       .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
       .decision { fill: #fff9c4; stroke: #f57c00; stroke-width: 2; }
       .text { font-family: 'Arial', sans-serif; font-size: 14px; fill: #0d47a1; text-anchor: middle; }
@@ -10,115 +48,528 @@
       .label { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: bold; }
       .loop-arrow { fill: none; stroke: #9c27b0; stroke-width: 2.5; }
     </style>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#1976d2"/>
+    <marker
+       id="arrow"
+       markerWidth="10"
+       markerHeight="6"
+       refX="9"
+       refY="3"
+       orient="auto"
+       viewBox="0 0 10 6"
+       preserveAspectRatio="xMidYMid">
+      <polygon
+         points="0,6 0,0 10,3 "
+         fill="#1976d2"
+         id="polygon1" />
     </marker>
-    <marker id="loop-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#9c27b0"/>
+    <marker
+       id="loop-arrow"
+       markerWidth="10"
+       markerHeight="10"
+       refX="9"
+       refY="3"
+       orient="auto">
+      <polygon
+         points="0,6 0,0 10,3 "
+         fill="#9c27b0"
+         id="polygon2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern53"
+       preserveAspectRatio="xMidYMid"
+       id="pattern57"
+       patternTransform="matrix(0.52870436,0.74838395,-0.52870436,0.74838395,16.807012,300.1899)" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips2_1"
+       preserveAspectRatio="xMidYMid"
+       id="pattern53"
+       patternTransform="matrix(0.89998531,0.89998531,-0.89998531,0.89998531,-0.42239244,222.925)"
+       x="0"
+       y="-4"
+       width="2.1" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="1.5"
+       height="1"
+       patternTransform="translate(0,0) scale(2,2)"
+       preserveAspectRatio="xMidYMid"
+       id="Strips2_1"
+       style="fill:#2c2678"
+       inkscape:stockid="Stripes 12 (2:1)"
+       inkscape:isstock="true"
+       inkscape:label="Stripes 12 (2:1)">
+      <rect
+   style="stroke:none"
+   x="0"
+   y="-0.5"
+   width="1"
+   height="2"
+   id="rect197" />
+
+    </pattern>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern53"
+       preserveAspectRatio="xMidYMid"
+       id="pattern56"
+       patternTransform="matrix(0.4697326,-0.74851834,0.4697326,0.74851834,-65.706217,300.1899)"
+       x="0"
+       y="-4"
+       width="2.1" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips2_1"
+       preserveAspectRatio="xMidYMid"
+       id="pattern3"
+       patternTransform="matrix(0.89998531,0.89998531,-0.89998531,0.89998531,-0.42239244,222.925)"
+       x="0"
+       y="-4"
+       width="2.1" />
+    <marker
+       style="overflow:visible"
+       id="Triangle-33"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-7" />
     </marker>
   </defs>
-  
   <!-- Título -->
-  <text x="225" y="30" class="title">Contar del 1 al 5 (con bucle)</text>
-  
   <!-- INICIO -->
-  <ellipse cx="225" cy="80" rx="60" ry="30" class="box"/>
-  <text x="225" y="88" class="text">INICIO</text>
-  
   <!-- Flecha -->
-  <line x1="225" y1="110" x2="225" y2="150" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
-  
   <!-- contador = 1 -->
-  <rect x="155" y="150" width="140" height="40" rx="5" class="box"/>
-  <text x="225" y="175" class="text">contador = 1</text>
-  
   <!-- Flecha -->
-  <line x1="225" y1="190" x2="225" y2="240" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
-  
   <!-- DECISIÓN: ¿contador <= 5? -->
-  <path d="M 225,240 L 335,310 L 225,380 L 115,310 Z" class="decision"/>
-  <text x="225" y="305" class="decision-text">¿contador</text>
-  <text x="225" y="323" class="decision-text">&lt;= 5?</text>
-  
   <!-- Rama SÍ (hacia abajo) -->
-  <line x1="225" y1="380" x2="225" y2="420" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="250" y="405" class="label" fill="#2e7d32">Sí</text>
-  
   <!-- Mostrar contador -->
-  <path d="M 175,420 L 275,420 L 265,465 L 165,465 Z" class="box"/>
-  <text x="220" y="447" class="text" font-size="13">Mostrar</text>
-  <text x="220" y="460" class="text" font-size="13">contador</text>
-  
   <!-- Flecha -->
-  <line x1="220" y1="465" x2="220" y2="505" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
-  
   <!-- contador = contador + 1 -->
-  <rect x="145" y="505" width="150" height="45" rx="5" class="box"/>
-  <text x="220" y="525" class="text" font-size="12">contador =</text>
-  <text x="220" y="542" class="text" font-size="12">contador + 1</text>
-  
   <!-- Flecha de retorno (bucle) -->
-  <path d="M 145,527 L 80,527 L 80,310 L 115,310" 
-        class="loop-arrow" 
-        marker-end="url(#loop-arrow)"/>
-  
   <!-- Etiqueta del bucle -->
-  <text x="50" y="320" font-family="Arial" font-size="11" fill="#9c27b0" font-weight="bold">
-    ↑ BUCLE
-  </text>
-  <text x="50" y="335" font-family="Arial" font-size="10" fill="#9c27b0">
-    Vuelve a
-  </text>
-  <text x="50" y="348" font-family="Arial" font-size="10" fill="#9c27b0">
-    preguntar
-  </text>
-  
   <!-- Rama NO (hacia la derecha) -->
-  <line x1="335" y1="310" x2="380" y2="310" stroke="#c62828" stroke-width="2"/>
-  <text x="360" y="305" class="label" fill="#c62828">No</text>
-  
   <!-- Flecha que baja y va al FIN -->
-  <line x1="380" y1="310" x2="380" y2="620" stroke="#c62828" stroke-width="2"/>
-  <line x1="380" y1="620" x2="280" y2="620" stroke="#c62828" stroke-width="2" marker-end="url(#arrow)"/>
-  
   <!-- FIN -->
-  <ellipse cx="225" cy="655" rx="60" ry="30" class="box"/>
-  <text x="225" y="663" class="text">FIN</text>
-  
   <!-- Cuadro de ejecución de ejemplo -->
-  <g opacity="0.9">
-    <rect x="270" y="430" width="160" height="110" fill="#f5f5f5" stroke="#666" stroke-width="1" rx="5"/>
-    <text x="350" y="450" font-family="Arial" font-size="11" fill="#333" text-anchor="middle" font-weight="bold">
-      Ejecución:
-    </text>
-    <text x="280" y="470" font-family="Courier New" font-size="10" fill="#444">
-      1ª vuelta: contador=1
-    </text>
-    <text x="280" y="485" font-family="Courier New" font-size="10" fill="#444">
-      2ª vuelta: contador=2
-    </text>
-    <text x="280" y="500" font-family="Courier New" font-size="10" fill="#444">
-      3ª vuelta: contador=3
-    </text>
-    <text x="280" y="515" font-family="Courier New" font-size="10" fill="#444">
-      4ª vuelta: contador=4
-    </text>
-    <text x="280" y="530" font-family="Courier New" font-size="10" fill="#444">
-      5ª vuelta: contador=5
-    </text>
-  </g>
-  
   <!-- Nota importante -->
-  <g opacity="0.8">
-    <rect x="15" y="580" width="190" height="65" fill="#ffebee" stroke="#c62828" stroke-width="1" rx="5"/>
-    <text x="110" y="600" font-family="Arial" font-size="11" fill="#c62828" text-anchor="middle" font-weight="bold">
-      ¡IMPORTANTE!
-    </text>
-    <text x="110" y="617" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">
-      Sin "contador + 1"
-    </text>
-    <text x="110" y="632" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">
-      sería un bucle INFINITO
-    </text>
+  <g
+     id="g33"
+     transform="translate(4.534547,-360.27817)">
+    <rect
+       x="142.1568"
+       y="864.48694"
+       width="273.58865"
+       height="93.596123"
+       fill="#ffebee"
+       stroke="#c62828"
+       stroke-width="1.43994"
+       rx="7.1997013"
+       id="rect22"
+       style="opacity:0.8;stroke-width:3.44;stroke-dasharray:none" />
+    <text
+       x="278.97852"
+       y="895.30597"
+       font-family="Arial"
+       font-size="15.8393px"
+       fill="#c62828"
+       text-anchor="middle"
+       font-weight="bold"
+       id="text23"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:23.6546px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;opacity:0.8;fill:#dd0f0f;fill-opacity:1;stroke-width:2.15042">¡IMPORTANTE!</text>
+    <text
+       x="278.98065"
+       y="922.68018"
+       font-family="Arial"
+       font-size="14.3994px"
+       fill="#333333"
+       text-anchor="middle"
+       id="text24"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.506px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:0.8;fill:#000000;stroke-width:1.7506;text-anchor:middle">Sin &quot;<tspan
+   style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:17.506px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+   id="tspan48">contador + 1</tspan>&quot;</text>
+    <text
+       x="278.98065"
+       y="944.65405"
+       font-family="Arial"
+       font-size="14.3994px"
+       fill="#333333"
+       text-anchor="middle"
+       id="text25"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.506px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;opacity:0.8;fill:#000000;stroke-width:1.7506">sería un bucle INFINITO</text>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;font-size:34.3032px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#0d47a1;stroke-width:0.351814;stroke-linejoin:bevel;stroke-miterlimit:4.4"
+     x="225.08574"
+     y="65.816612"
+     id="text30-7"><tspan
+       sodipodi:role="line"
+       id="tspan30"
+       x="225.08574"
+       y="65.816612"
+       style="font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;font-size:34.3032px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.351814">Contar de 1 al 5</tspan></text>
+  <g
+     id="g34"
+     transform="translate(-19.298405,-17.29437)">
+    <g
+       id="g3"
+       transform="translate(68.440872,51.990168)">
+      <ellipse
+         cx="105.81818"
+         cy="94.585571"
+         rx="43.75"
+         ry="19.25"
+         fill="#e3f2fd"
+         stroke="#1976d2"
+         stroke-width="1.75"
+         id="ellipse1-2"
+         style="stroke-width:3;stroke-dasharray:none" />
+      <text
+         x="105.78152"
+         y="99.616241"
+         font-family="Chivo"
+         font-size="11.375px"
+         fill="#0d47a1"
+         text-anchor="middle"
+         font-weight="bold"
+         id="text1-9"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.875">INICIO</text>
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.63936;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+         d="m 105.81818,113.87126 v 24.18639"
+         id="path37"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <path
+       d="m 175.45317,269.00338 71.73197,31.86648 -71.73197,31.86648 -71.73197,-31.86648 z"
+       fill="#fff9c4"
+       stroke="#f57c00"
+       stroke-width="1.96893"
+       id="path1-6"
+       style="stroke-width:3;stroke-dasharray:none" />
+    <text
+       x="175.84375"
+       y="298.78009"
+       font-family="Chivo"
+       font-size="13.898px"
+       fill="#e65100"
+       text-anchor="middle"
+       font-weight="bold"
+       id="text1-8"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:2;stroke-dasharray:none">¿contador</text>
+    <text
+       x="175.49719"
+       y="313.37302"
+       font-family="Chivo"
+       font-size="13.898px"
+       fill="#e65100"
+       text-anchor="middle"
+       font-weight="bold"
+       id="text2-7"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:2;stroke-dasharray:none">&lt;= 5?</text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.63936;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="m 261.49354,300.86986 v 24.18639"
+       id="path43"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 103.7212,300.86986 H 89.412792"
+       id="path45" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 261.49354,300.86986 h -14.3084"
+       id="path46" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+       x="253.80811"
+       y="296.8699"
+       id="text66"><tspan
+         sodipodi:role="line"
+         id="tspan66"
+         x="253.80811"
+         y="296.8699">Si</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+       x="99.721199"
+       y="295.8699"
+       id="text67"><tspan
+         sodipodi:role="line"
+         id="tspan67"
+         x="99.721199"
+         y="295.8699">No</tspan></text>
+    <path
+       d="m 203.56124,332.37774 h 146.6538 l -32.58973,59.91663 H 170.9715 Z"
+       class="symbol-box"
+       id="path35"
+       style="fill:#e3f2fd;stroke:#1976d2;stroke-width:3;stroke-dasharray:none" />
+    <text
+       x="256.59326"
+       y="358.20004"
+       class="symbol-text"
+       id="text37"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Chivo, sans-serif;-inkscape-font-specification:'Chivo, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#1565c0"><tspan
+         sodipodi:role="line"
+         id="tspan36"
+         x="256.59326"
+         y="358.20004">MOSTRAR</tspan><tspan
+         sodipodi:role="line"
+         id="tspan37"
+         x="256.59326"
+         y="374.86667">contador</tspan></text>
+    <g
+       id="g4"
+       transform="translate(-16.405378,-241.52737)">
+      <ellipse
+         cx="105.81818"
+         cy="750.89563"
+         rx="43.75"
+         ry="19.25"
+         fill="#e3f2fd"
+         stroke="#1976d2"
+         stroke-width="1.75"
+         id="ellipse48"
+         style="fill:#fde3e3;fill-opacity:1;stroke:#d21919;stroke-width:3;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         x="105.78152"
+         y="755.92633"
+         font-family="Chivo"
+         font-size="11.375px"
+         fill="#0d47a1"
+         text-anchor="middle"
+         font-weight="bold"
+         id="text49"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a10d0d;fill-opacity:1;stroke:none;stroke-width:0.875">FIN</text>
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.63936;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+         d="m 105.81817,700.63778 v 24.18639"
+         id="path49"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1.639;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 260.48151,487.91511 H 393.29324"
+       id="path39"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g1"
+       transform="translate(47.713822,1.95082)">
+      <rect
+         x="53.911293"
+         y="195.41849"
+         width="147.75475"
+         height="38.860229"
+         rx="4.4326425"
+         fill="#c8e6c9"
+         stroke="#2e7d32"
+         stroke-width="2.43939"
+         id="rect1"
+         style="stroke-width:3;stroke-dasharray:none" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#1b5e20;fill-opacity:1;stroke-width:1.99999;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none"
+         x="127.89133"
+         y="220.05527"
+         id="text31-9"><tspan
+           sodipodi:role="line"
+           id="tspan31"
+           style="fill:#1b5e20;fill-opacity:1;stroke-width:1.99999"
+           x="127.89133"
+           y="220.05527">contador ⟸ 1</tspan></text>
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.63936;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-33)"
+         d="m 127.78866,235.40333 v 24.18639"
+         id="path39-8"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <rect
+       x="186.60413"
+       y="423.74387"
+       width="147.75475"
+       height="38.860229"
+       rx="4.4326425"
+       fill="#c8e6c9"
+       stroke="#2e7d32"
+       stroke-width="2.43939"
+       id="rect25"
+       style="stroke-width:3;stroke-dasharray:none" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#1b5e20;fill-opacity:1;stroke-width:1.99999;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none"
+       x="260.58417"
+       y="439.21396"
+       id="text26"><tspan
+         sodipodi:role="line"
+         id="tspan25"
+         style="fill:#1b5e20;fill-opacity:1;stroke-width:1.99999"
+         x="260.58417"
+         y="439.21396">contador ⟸</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#1b5e20;fill-opacity:1;stroke-width:1.99999"
+         x="260.58417"
+         y="457.54733"
+         id="tspan27">contador + 1</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.639;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 260.48151,463.72872 v 24.18639"
+       id="path26"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.63936;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-33)"
+       d="m 260.48152,392.29437 v 24.18639"
+       id="path27"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1.639;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 393.29324,487.91511 v -235.59"
+       id="path28"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1.639;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 184.31372,252.32511 H 393.29324"
+       id="path29"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.63936;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-33)"
+       d="M 208.50011,252.32511 H 184.31372"
+       id="path30"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1.639;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 89.412792,471.2036 V 300.86986"
+       id="path31"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     id="g48"
+     transform="matrix(1.182482,0,0,1.182482,-43.083162,-124.6412)">
+    <rect
+       style="opacity:0.461547;mix-blend-mode:lighten;fill:url(#pattern57);fill-opacity:1;stroke:none;stroke-width:0.931994;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect52"
+       width="111.50567"
+       height="13.503097"
+       x="170.95943"
+       y="650.78467" />
+    <path
+       id="path55"
+       style="opacity:0.561475;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.938514;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       d="m 408.11371,657.53622 -25.91663,-6.90863 v 13.81726 z"
+       sodipodi:nodetypes="cccc" />
+    <rect
+       style="opacity:0.540981;mix-blend-mode:lighten;fill:url(#pattern56);fill-opacity:1;stroke:none;stroke-width:0.878401;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect56"
+       width="99.050522"
+       height="13.503097"
+       x="71.227425"
+       y="650.78467" />
+    <rect
+       style="opacity:0.461547;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:1.07967;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect57"
+       width="99.050537"
+       height="13.503116"
+       x="71.227425"
+       y="650.78467" />
+    <path
+       id="path57"
+       style="opacity:0.561475;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.938514;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       d="m 45.310802,657.53624 25.916627,6.90863 v -13.81726 z"
+       sodipodi:nodetypes="cccc" />
+    <rect
+       style="opacity:0.461547;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1.14904;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect58"
+       width="112.18714"
+       height="13.503116"
+       x="170.27795"
+       y="650.78467" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.36291;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       d="M 170.95942,669.73713 V 645.33531"
+       id="path51" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.36291;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       d="M 71.227429,657.53622 H 382.19708"
+       id="path50"
+       sodipodi:nodetypes="cc" />
+    <rect
+       style="opacity:0.540981;mix-blend-mode:lighten;fill:url(#pattern42);fill-opacity:1;stroke:none;stroke-width:0.878401;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect42"
+       width="99.050522"
+       height="13.503097"
+       x="283.14655"
+       y="650.78467" />
+    <rect
+       style="opacity:0.461547;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:1.07967;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect43"
+       width="99.050537"
+       height="13.503116"
+       x="283.14655"
+       y="650.78467" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.36291;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       d="M 283.14655,669.73713 V 645.33531"
+       id="path42" />
+    <g
+       id="g47">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:11.78px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.36291;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         x="167.18982"
+         y="680.60321"
+         id="text55"><tspan
+           sodipodi:role="line"
+           id="tspan55"
+           x="167.18982"
+           y="680.60321"
+           style="stroke-width:1.36291">1</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:11.78px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.36291;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         x="279.37695"
+         y="680.60321"
+         id="text43"><tspan
+           sodipodi:role="line"
+           id="tspan43"
+           x="279.37695"
+           y="680.60321"
+           style="stroke-width:1.36291">5</tspan></text>
+    </g>
+    <path
+       style="opacity:1;fill:#d40000;fill-opacity:1;stroke:#000000;stroke-width:1.74;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-33)"
+       d="m 183.66512,676.56268 h 80.75"
+       id="path44" />
   </g>
 </svg>

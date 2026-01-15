@@ -1,6 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 20,10 L 110,10 L 100,50 L 10,50 Z" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
-  <text x="60" y="28" font-family="Arial" font-size="11" fill="#0d47a1" text-anchor="middle" font-weight="bold">Leer</text>
-  <text x="60" y="42" font-family="Arial" font-size="11" fill="#0d47a1" text-anchor="middle" font-weight="bold">numero</text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="120"
+   height="60"
+   viewBox="0 0 60 30"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="simbolo_paralelogramo.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="3.9166666"
+     inkscape:cx="45.19149"
+     inkscape:cy="47.106384"
+     inkscape:window-width="1872"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <svg
+     viewBox="0 0 400 50"
+     width="350"
+     height="50"
+     version="1.1"
+     id="svg2"
+     transform="matrix(0.875,0,0,0.875,0,3.125)">
+    <style
+       type="text/css"
+       id="style1">
+    @import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap');
+  </style>
+    <path
+       d="M 11.048757,0.62999321 H 63.33191 L 57.522667,26.512864 H 5.2395184 Z"
+       fill="#e3f2fd"
+       stroke="#1976d2"
+       stroke-width="1.22622"
+       id="path1" />
+    <g
+       id="g3"
+       transform="matrix(1.4439285,0,0,1.4439285,-39.614178,-73.139382)">
+      <g
+         id="g1"
+         transform="matrix(0.74297747,0,0,0.74297747,2.5692612,38.031253)">
+        <text
+           x="65.145348"
+           y="28.142708"
+           font-family="Chivo"
+           font-size="11px"
+           fill="#0d47a1"
+           text-anchor="middle"
+           font-weight="bold"
+           id="text1"
+           style="text-align:center;text-anchor:middle">Leer</text>
+        <text
+           x="65.294601"
+           y="38.570354"
+           font-family="Chivo"
+           font-size="11px"
+           fill="#0d47a1"
+           text-anchor="middle"
+           font-weight="bold"
+           id="text2"
+           style="text-align:center;text-anchor:middle">numero</text>
+      </g>
+    </g>
+  </svg>
 </svg>

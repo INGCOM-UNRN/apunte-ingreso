@@ -1,7 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="550" height="600" viewBox="0 0 550 600" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="600"
+   height="700"
+   viewBox="0 0 600 700"
+   version="1.1"
+   id="svg31"
+   sodipodi:docname="flujo_mayor_edad.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview31"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="292.0351"
+     inkscape:cy="557.5537"
+     inkscape:window-width="1872"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg31" />
+  <defs
+     id="defs1">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern53"
+       preserveAspectRatio="xMidYMid"
+       id="pattern57"
+       patternTransform="matrix(0.89998531,0.89998531,-0.89998531,0.89998531,37.69632,88.49562)" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern53"
+       preserveAspectRatio="xMidYMid"
+       id="pattern56"
+       patternTransform="matrix(0.90014693,-0.90014693,0.90014693,0.90014693,-152.11385,88.49562)"
+       x="0"
+       y="-4"
+       width="2.1" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Strips2_1"
+       preserveAspectRatio="xMidYMid"
+       id="pattern53"
+       patternTransform="matrix(0.89998531,0.89998531,-0.89998531,0.89998531,-0.42239244,222.925)"
+       x="0"
+       y="-4"
+       width="2.1" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="1.5"
+       height="1"
+       patternTransform="translate(0,0) scale(2,2)"
+       preserveAspectRatio="xMidYMid"
+       id="Strips2_1"
+       style="fill:#2c2678"
+       inkscape:stockid="Stripes 12 (2:1)"
+       inkscape:isstock="true"
+       inkscape:label="Stripes 12 (2:1)">
+      <rect
+   style="stroke:none"
+   x="0"
+   y="-0.5"
+   width="1"
+   height="2"
+   id="rect197" />
+
+    </pattern>
+    <style
+       id="style1">
       .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
       .decision { fill: #fff9c4; stroke: #f57c00; stroke-width: 2; }
       .output-si { fill: #c8e6c9; stroke: #2e7d32; stroke-width: 2; }
@@ -11,115 +88,526 @@
       .title { font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; fill: #0d47a1; text-anchor: middle; }
       .label { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: bold; }
     </style>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#1976d2"/>
+    <marker
+       id="arrow"
+       markerWidth="10"
+       markerHeight="10"
+       refX="9"
+       refY="3"
+       orient="auto">
+      <polygon
+         points="0,6 0,0 10,3 "
+         fill="#1976d2"
+         id="polygon1" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle-3"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-3" />
     </marker>
   </defs>
-  
   <!-- Título -->
-  <text x="275" y="30" class="title">¿Mayor de Edad?</text>
-  <text x="275" y="50" font-family="Arial" font-size="12" fill="#666" text-anchor="middle">
-    (Ejemplo clásico de decisión binaria)
-  </text>
-  
   <!-- INICIO -->
-  <ellipse cx="275" cy="100" rx="60" ry="30" class="box"/>
-  <text x="275" y="108" class="text">INICIO</text>
-  
   <!-- Flecha -->
-  <line x1="275" y1="130" x2="275" y2="170" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
-  
   <!-- Leer edad -->
-  <path d="M 215,170 L 335,170 L 325,220 L 205,220 Z" class="box"/>
-  <text x="270" y="200" class="text">Leer edad</text>
-  
   <!-- Flecha -->
-  <line x1="270" y1="220" x2="270" y2="270" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
-  
   <!-- DECISIÓN: ¿edad >= 18? -->
-  <path d="M 275,270 L 385,340 L 275,410 L 165,340 Z" class="decision"/>
-  <text x="275" y="335" class="decision-text">¿edad</text>
-  <text x="275" y="353" class="decision-text">&gt;= 18?</text>
-  
   <!-- Rama SÍ (izquierda) - Mayor de edad -->
-  <line x1="165" y1="340" x2="100" y2="340" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <text x="127" y="330" class="label" fill="#2e7d32">Sí</text>
-  <text x="127" y="345" font-family="Arial" font-size="10" fill="#2e7d32">(Verdadero)</text>
-  
-  <path d="M 30,340 L 150,340 L 140,395 L 20,395 Z" class="output-si"/>
-  <text x="85" y="360" class="text" font-size="13" fill="#1b5e20">Mostrar</text>
-  <text x="85" y="377" class="text" font-size="13" fill="#1b5e20">"Sos mayor"</text>
-  <text x="85" y="390" class="text" font-size="13" fill="#1b5e20">"de edad"</text>
-  
   <!-- Rama NO (derecha) - Menor de edad -->
-  <line x1="385" y1="340" x2="450" y2="340" stroke="#c62828" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <text x="423" y="330" class="label" fill="#c62828">No</text>
-  <text x="423" y="345" font-family="Arial" font-size="10" fill="#c62828">(Falso)</text>
-  
-  <path d="M 400,340 L 520,340 L 510,395 L 390,395 Z" class="output-no"/>
-  <text x="455" y="360" class="text" font-size="13" fill="#b71c1c">Mostrar</text>
-  <text x="455" y="377" class="text" font-size="13" fill="#b71c1c">"Sos menor"</text>
-  <text x="455" y="390" class="text" font-size="13" fill="#b71c1c">"de edad"</text>
-  
   <!-- Flechas convergentes hacia abajo -->
-  <line x1="85" y1="395" x2="85" y2="460" stroke="#1976d2" stroke-width="2"/>
-  <line x1="455" y1="395" x2="455" y2="460" stroke="#1976d2" stroke-width="2"/>
-  
   <!-- Flechas horizontales que se juntan -->
-  <line x1="85" y1="460" x2="225" y2="460" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="455" y1="460" x2="325" y2="460" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
-  
   <!-- Flecha al FIN -->
-  <line x1="275" y1="460" x2="275" y2="500" stroke="#1976d2" stroke-width="2" marker-end="url(#arrow)"/>
-  
   <!-- FIN -->
-  <ellipse cx="275" cy="535" rx="60" ry="30" class="box"/>
-  <text x="275" y="543" class="text">FIN</text>
-  
   <!-- Ejemplos de prueba -->
-  <g opacity="0.9">
-    <rect x="15" y="80" width="130" height="90" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1" rx="5" stroke-dasharray="3,3"/>
-    <text x="80" y="100" font-family="Arial" font-size="11" fill="#1b5e20" text-anchor="middle" font-weight="bold">
-      Ejemplo 1:
-    </text>
-    <text x="80" y="117" font-family="Courier New" font-size="10" fill="#333" text-anchor="middle">
-      edad = 20
-    </text>
-    <text x="80" y="133" font-family="Arial" font-size="9" fill="#2e7d32" text-anchor="middle">
-      20 &gt;= 18 → SÍ
-    </text>
-    <text x="80" y="148" font-family="Arial" font-size="9" fill="#2e7d32" text-anchor="middle">
-      Muestra "Mayor"
-    </text>
+  <g
+     opacity="0.9"
+     id="g24"
+     transform="translate(-149.35534,-130.01219)">
+    <g
+       id="g46"
+       transform="translate(361.72613,20.368393)">
+      <rect
+         x="194.14034"
+         y="221.64035"
+         width="166.48888"
+         height="115.26153"
+         fill="#e8f5e9"
+         stroke="#2e7d32"
+         stroke-width="1.28068"
+         rx="6.4034181"
+         stroke-dasharray="3, 3"
+         id="rect20"
+         style="fill:#ffffff;stroke:#000000;stroke-opacity:1" />
+      <text
+         x="277.16992"
+         y="242.61615"
+         font-family="Arial"
+         font-size="19.2058px"
+         fill="#1b5e20"
+         text-anchor="middle"
+         font-weight="bold"
+         id="text21"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.74598">Ejemplo 1:</text>
+      <text
+         x="277.16992"
+         y="272.29785"
+         font-family="'Courier New'"
+         font-size="17.4598px"
+         fill="#333333"
+         text-anchor="middle"
+         id="text22"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.74598">edad = 20</text>
+      <text
+         x="277.16992"
+         y="300.23355"
+         font-family="Arial"
+         font-size="15.7139px"
+         fill="#2e7d32"
+         text-anchor="middle"
+         id="text23"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.74598">20 &gt;= 18 → SÍ</text>
+      <text
+         x="277.16992"
+         y="326.42328"
+         font-family="Arial"
+         font-size="15.7139px"
+         fill="#2e7d32"
+         text-anchor="middle"
+         id="text24"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.74598">Muestra &quot;Mayor&quot;</text>
+    </g>
+    <g
+       id="g45"
+       transform="translate(-367.51112,14.849243)">
+      <rect
+         x="563.86646"
+         y="227.1595"
+         width="166.48888"
+         height="115.26153"
+         fill="#e8f5e9"
+         stroke="#2e7d32"
+         stroke-width="1.28068"
+         rx="6.4034181"
+         stroke-dasharray="3, 3"
+         id="rect42"
+         style="fill:#ffffff;stroke:#000000;stroke-opacity:1" />
+      <text
+         x="646.89606"
+         y="248.1353"
+         font-family="Arial"
+         font-size="19.2058px"
+         fill="#1b5e20"
+         text-anchor="middle"
+         font-weight="bold"
+         id="text42"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.74598">Ejemplo 1:</text>
+      <text
+         x="646.89606"
+         y="277.81699"
+         font-family="'Courier New'"
+         font-size="17.4598px"
+         fill="#333333"
+         text-anchor="middle"
+         id="text43"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.74598">edad = 15</text>
+      <text
+         x="646.89606"
+         y="305.75269"
+         font-family="Arial"
+         font-size="15.7139px"
+         fill="#2e7d32"
+         text-anchor="middle"
+         id="text44"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.74598">15 &gt;= 18 → NO</text>
+      <text
+         x="646.89606"
+         y="331.94241"
+         font-family="Arial"
+         font-size="15.7139px"
+         fill="#2e7d32"
+         text-anchor="middle"
+         id="text45"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.74598">Muestra &quot;Mayor&quot;</text>
+    </g>
   </g>
-  
-  <g opacity="0.9">
-    <rect x="405" y="80" width="130" height="90" fill="#ffebee" stroke="#c62828" stroke-width="1" rx="5" stroke-dasharray="3,3"/>
-    <text x="470" y="100" font-family="Arial" font-size="11" fill="#b71c1c" text-anchor="middle" font-weight="bold">
-      Ejemplo 2:
-    </text>
-    <text x="470" y="117" font-family="Courier New" font-size="10" fill="#333" text-anchor="middle">
-      edad = 15
-    </text>
-    <text x="470" y="133" font-family="Arial" font-size="9" fill="#c62828" text-anchor="middle">
-      15 &gt;= 18 → NO
-    </text>
-    <text x="470" y="148" font-family="Arial" font-size="9" fill="#c62828" text-anchor="middle">
-      Muestra "Menor"
-    </text>
-  </g>
-  
   <!-- Nota sobre decisiones -->
-  <g opacity="0.8">
-    <rect x="160" y="470" width="230" height="60" fill="#fff8e1" stroke="#f57c00" stroke-width="1" rx="5"/>
-    <text x="275" y="490" font-family="Arial" font-size="11" fill="#e65100" text-anchor="middle" font-weight="bold">
-      Las decisiones dividen el camino
-    </text>
-    <text x="275" y="507" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">
-      Solo se ejecuta UNA de las dos ramas
-    </text>
-    <text x="275" y="522" font-family="Arial" font-size="10" fill="#333" text-anchor="middle">
-      (depende de si la condición es Verdadera o Falsa)
-    </text>
+  <g
+     opacity="0.8"
+     id="g31"
+     transform="matrix(1.3709413,0,0,1.3709413,-105.13648,-77.06724)">
+    <g
+       id="g41">
+      <rect
+         x="144.75032"
+         y="469.63657"
+         width="301.53339"
+         height="60.863461"
+         fill="#fff8e1"
+         stroke="#f57c00"
+         stroke-width="1.15321"
+         rx="6.5550742"
+         id="rect28" />
+      <text
+         x="295.28024"
+         y="489.94003"
+         font-family="Arial"
+         font-size="11px"
+         fill="#e65100"
+         text-anchor="middle"
+         font-weight="bold"
+         id="text29"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.3286px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:1.58019">Las decisiones dividen el camino</text>
+      <text
+         x="295.517"
+         y="507"
+         font-family="Arial"
+         font-size="10px"
+         fill="#333333"
+         text-anchor="middle"
+         id="text30"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3333px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#333333">Solo se ejecuta <tspan
+   style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:10.3333px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+   id="tspan40">UNA</tspan> de las dos ramas</text>
+      <text
+         x="295.54285"
+         y="522"
+         font-family="Arial"
+         font-size="10px"
+         fill="#333333"
+         text-anchor="middle"
+         id="text31"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.3333px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">(depende de si la condición es Verdadera o Falsa)</text>
+    </g>
   </g>
+  <text
+     xml:space="preserve"
+     style="font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;font-size:34.3032px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#0d47a1;stroke-width:0.351814;stroke-linejoin:bevel;stroke-miterlimit:4.4"
+     x="300.22293"
+     y="62.69828"
+     id="text30-7"><tspan
+       sodipodi:role="line"
+       id="tspan30"
+       x="300.22293"
+       y="62.69828"
+       style="font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;font-size:34.3032px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.351814">¿Mayor de edad?</tspan></text>
+  <g
+     id="g40"
+     transform="translate(-411.08581,101.71118)">
+    <g
+       id="g3"
+       transform="translate(618.33772,-86.15962)">
+      <ellipse
+         cx="105.81818"
+         cy="94.585571"
+         rx="43.75"
+         ry="19.25"
+         fill="#e3f2fd"
+         stroke="#1976d2"
+         stroke-width="1.75"
+         id="ellipse1-2"
+         style="stroke-width:3;stroke-dasharray:none" />
+      <text
+         x="105.78152"
+         y="99.616241"
+         font-family="Chivo"
+         font-size="11.375px"
+         fill="#0d47a1"
+         text-anchor="middle"
+         font-weight="bold"
+         id="text1-9"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.875">INICIO</text>
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.63936;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+         d="m 105.81818,113.87126 v 24.18639"
+         id="path37"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       id="g5"
+       transform="translate(596.29715,-307.83557)">
+      <path
+         d="m 127.78867,460.00944 71.73197,31.86648 -71.73197,31.86648 -71.731969,-31.86648 z"
+         fill="#fff9c4"
+         stroke="#f57c00"
+         stroke-width="1.96893"
+         id="path1-6"
+         style="stroke-width:3;stroke-dasharray:none" />
+      <text
+         x="128.17926"
+         y="489.78613"
+         font-family="Chivo"
+         font-size="13.898px"
+         fill="#e65100"
+         text-anchor="middle"
+         font-weight="bold"
+         id="text1-8"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:2;stroke-dasharray:none">¿edad</text>
+      <text
+         x="127.83268"
+         y="504.37906"
+         font-family="Chivo"
+         font-size="13.898px"
+         fill="#e65100"
+         text-anchor="middle"
+         font-weight="bold"
+         id="text2-7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:2;stroke-dasharray:none">&gt;= 18?</text>
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.63936;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+         d="m 213.82904,491.87592 v 24.18639"
+         id="path43"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.63936;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+         d="m 41.748292,491.87592 v 24.18639"
+         id="path44"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 56.056701,491.87592 H 41.748292"
+         id="path45" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 213.82904,491.87592 h -14.3084"
+         id="path46" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+         x="206.1436"
+         y="487.87595"
+         id="text66"><tspan
+           sodipodi:role="line"
+           id="tspan66"
+           x="206.1436"
+           y="487.87595">Si</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+         x="52.056702"
+         y="486.87595"
+         id="text67"><tspan
+           sodipodi:role="line"
+           id="tspan67"
+           x="52.056702"
+           y="486.87595">No</tspan></text>
+    </g>
+    <g
+       id="g2"
+       transform="translate(618.16755,-257.60841)">
+      <path
+         d="M 59.220626,316.82793 H 179.0429 l -26.62717,60.30313 H 32.593455 Z"
+         class="symbol-box"
+         id="path9"
+         style="fill:#e3f2fd;stroke:#1976d2;stroke-width:3;stroke-dasharray:none" />
+      <text
+         x="105.6055"
+         y="351.93686"
+         class="symbol-text"
+         id="text10-8"
+         style="font-size:14.6667px;font-family:Chivo, sans-serif;text-anchor:middle;fill:#1565c0">LEER edad<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Sans;-inkscape-font-specification:'Sans, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700"
+   id="tspan75" /></text>
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.63936;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-3)"
+         d="m 105.81817,378.13305 v 24.18639"
+         id="path41"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <path
+       d="m 555.91368,215.54823 h 146.6538 l -32.58973,59.91663 H 523.32394 Z"
+       class="symbol-box"
+       id="path31"
+       style="fill:#e3f2fd;stroke:#1976d2;stroke-width:3;stroke-dasharray:none" />
+    <text
+       x="608.94574"
+       y="241.37053"
+       class="symbol-text"
+       id="text32"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Chivo, sans-serif;-inkscape-font-specification:'Chivo, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#1565c0"><tspan
+         sodipodi:role="line"
+         id="tspan34"
+         x="608.94574"
+         y="241.37053">MOSTRAR</tspan><tspan
+         sodipodi:role="line"
+         id="tspan35"
+         x="608.94574"
+         y="258.03714">&quot;Sos menor de edad&quot;</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.639;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       d="m 596.65084,275.46486 v 24.18639"
+       id="path32"
+       sodipodi:nodetypes="cc" />
+    <path
+       d="m 752.19389,215.54823 h 146.6538 l -32.58973,59.91663 H 719.60415 Z"
+       class="symbol-box"
+       id="path35"
+       style="fill:#e3f2fd;stroke:#1976d2;stroke-width:3;stroke-dasharray:none" />
+    <text
+       x="805.22589"
+       y="241.37053"
+       class="symbol-text"
+       id="text37"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Chivo, sans-serif;-inkscape-font-specification:'Chivo, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#1565c0"><tspan
+         sodipodi:role="line"
+         id="tspan36"
+         x="805.22589"
+         y="241.37053">MOSTRAR</tspan><tspan
+         sodipodi:role="line"
+         id="tspan37"
+         x="805.22589"
+         y="258.03714">&quot;Sos mayor de edad&quot;</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.639;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 792.93105,275.46486 v 24.18639"
+       id="path38"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g39">
+      <g
+         id="g4"
+         transform="translate(588.97277,-400.98653)">
+        <ellipse
+           cx="105.81818"
+           cy="750.89563"
+           rx="43.75"
+           ry="19.25"
+           fill="#e3f2fd"
+           stroke="#1976d2"
+           stroke-width="1.75"
+           id="ellipse48"
+           style="fill:#fde3e3;fill-opacity:1;stroke:#d21919;stroke-width:3;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           x="105.78152"
+           y="755.92633"
+           font-family="Chivo"
+           font-size="11.375px"
+           fill="#0d47a1"
+           text-anchor="middle"
+           font-weight="bold"
+           id="text49"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Chivo;-inkscape-font-specification:'Chivo, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#a10d0d;fill-opacity:1;stroke:none;stroke-width:0.875">FIN</text>
+        <path
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.63936;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+           d="m 105.81817,700.63778 v 24.18639"
+           id="path49"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:1.639;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 596.65084,299.65125 H 792.93105"
+         id="path39"
+         sodipodi:nodetypes="cc" />
+    </g>
+  </g>
+  <rect
+     style="opacity:0.461547;mix-blend-mode:lighten;fill:url(#pattern57);fill-opacity:1;stroke:none;stroke-width:1.33346;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     id="rect52"
+     width="189.81017"
+     height="16.238441"
+     x="300.10178"
+     y="510.11096" />
+  <path
+     id="path55"
+     style="opacity:0.561475;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.12863;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     d="m 520.87499,518.2302 -31.1666,-8.30812 v 16.61624 z"
+     sodipodi:nodetypes="cccc" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.1663px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.639;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     x="291.36871"
+     y="545.57062"
+     id="text55"><tspan
+       sodipodi:role="line"
+       id="tspan55"
+       x="291.36871"
+       y="545.57062">18</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:13.3333px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.639;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     x="320.58795"
+     y="502.24438"
+     id="text56"><tspan
+       sodipodi:role="line"
+       id="tspan56"
+       x="320.58795"
+       y="502.24438"
+       style="font-size:13.3333px">Si - &quot;Sos mayor de edad&quot;</tspan></text>
+  <rect
+     style="opacity:0.540981;mix-blend-mode:lighten;fill:url(#pattern56);fill-opacity:1;stroke:none;stroke-width:1.33346;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     id="rect56"
+     width="189.81017"
+     height="16.238441"
+     x="110.29161"
+     y="510.11096" />
+  <rect
+     style="opacity:0.461547;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:1.639;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     id="rect57"
+     width="189.81017"
+     height="16.238464"
+     x="110.29161"
+     y="510.11096" />
+  <path
+     id="path57"
+     style="opacity:0.561475;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.12863;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     d="m 79.125008,518.2302 31.166602,8.30812 v -16.61624 z"
+     sodipodi:nodetypes="cccc" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:13.3333px;line-height:normal;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.639;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     x="118.0023"
+     y="503.42438"
+     id="text57"><tspan
+       sodipodi:role="line"
+       id="tspan57"
+       x="118.0023"
+       y="503.42438">No - &quot;Sos menor de edad&quot;</tspan></text>
+  <rect
+     style="opacity:0.461547;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1.639;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     id="rect58"
+     width="189.81017"
+     height="16.238464"
+     x="300.10178"
+     y="510.11096" />
+  <path
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.639;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     d="M 300.10177,532.90264 V 503.55771"
+     id="path51" />
+  <path
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.639;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     d="M 110.29161,518.23018 H 489.91194"
+     id="path50"
+     sodipodi:nodetypes="cc" />
 </svg>

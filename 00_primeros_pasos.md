@@ -72,7 +72,6 @@ Programar es igual:
 ### Ejemplo: Receta vs Algoritmo
 
 :::::{grid} 1 1 2 2
-:gutter: 3
 
 ::::{grid-item-card} Receta de Panqueques 🥞
 **Ingredientes (Entrada):**
@@ -222,9 +221,9 @@ Esta guía es una aplicación directa del {ref}`método de Pólya <polya-compren
 ::::{admonition} Conceptos Clave
 :class: tip
 
-**TL;DR:** Los diagramas de flujo son **dibujitos** con formas especiales que representan cada paso de tu algoritmo.
+**TL;DR:** Los diagramas de flujo son **dibujos** con formas que representan cada paso de tu algoritmo.
 
-**Analogía:** Es como el mapa del tesoro o las instrucciones de IKEA: en vez de leer mucho texto, seguís flechitas y formas.
+**Analogía:** Es como el mapa del tesoro o las instrucciones para armar un mueble: en vez de leer texto, seguís las flechas y formas.
 
 **Vocabulario:**
 1. **Símbolo:** Cada forma geométrica (óvalo, rectángulo, etc.)
@@ -234,34 +233,45 @@ Esta guía es una aplicación directa del {ref}`método de Pólya <polya-compren
 
 ### Los Símbolos Básicos
 
-Hay 5 símbolos que vas a usar el 95% del tiempo:
+Estos son los símbolos fundamentales:
 
 ```{figure} 00_primeros_pasos/simbolos_flujo.svg
 :label: fig-simbolos-flujo
 :align: center
 :width: 95%
 
-Símbolos estándar de diagramas de flujo con ejemplo de suma integrado
+Símbolos estándar de diagramas de flujo
 ```
 
 **Resumen de símbolos:**
 
-| Símbolo | Visual | Significado | Ejemplo |
-|:--------|:-------|:------------|:--------|
-| **Óvalo** | ![Óvalo](00_primeros_pasos/simbolo_ovalo.svg) | INICIO y FIN del algoritmo | `INICIO`, `FIN` |
-| **Rectángulo** | ![Rectángulo](00_primeros_pasos/simbolo_rectangulo.svg) | Proceso o acción | `suma = a + b` |
-| **Paralelogramo** | ![Paralelogramo](00_primeros_pasos/simbolo_paralelogramo.svg) | Entrada o Salida | `Leer numero`, `Mostrar resultado` |
-| **Rombo** | ![Rombo](00_primeros_pasos/simbolo_rombo.svg) | Decisión (Sí/No) | `¿edad >= 18?` |
-| **Flecha** | ![Flecha](00_primeros_pasos/simbolo_flecha.svg) | Dirección del flujo | Conecta los símbolos |
+| Símbolo | Significado | Pseudocódigo |
+|:--------|:------------|:--------|
+| **Óvalo** |  Comienzo | `INICIO` |
+| **Rectángulo** | Proceso | `suma ⟸ a + b` |
+| **Paralelogramo** | Entrada o Salida | `LEER numero`, `MOSTRAR numero` |
+| **Rombo** | Decisión (Sí/No) | `SI ¿edad >= 18?: ... SINO ... FINSI`|
+| **Rombo** | Lazo | `MIENTRAS ¿edad >= 18? ... FIN MIENTRAS`|
+| **Óvalo** | Fin | `FIN` |
 
-### Reglas de Oro para Diagramas
+Al guardar un valor, o resultado de expresión, utilizaremos `⟸` para distinguirlo del uso en las comparaciones.
 
-1. **Siempre empezar con INICIO**
-2. **Siempre terminar con FIN**
+:::{important} Guardaespacio y delimitadores
+
+1. Guardaespacio (`...`): Los puntos suspensivos actúan como un placeholder o guardaespacio a los "Símbolos del lazo". Indican la existencia de un bloque de instrucciones arbitrario. (Los `...` no son parte del pseudocódigo, simplemente una llamada a que _puede ir ahí_)
+
+2. Delimitadores de Alcance (`FIN`, `SINO`): En pseudocódigo lineal, cláusulas como `FIN SI` o `FIN MIENTRAS` son obligatorias para definir el alcance (scope) léxico de la estructura. A diferencia de los diagramas de flujo (donde las flechas indican el cierre) o lenguajes como Python (que usan indentación), estos delimitadores evitan la ambigüedad sintáctica, especialmente al anidar múltiples estructuras de decisión o iteración. 
+
+:::
+
+### Reglas de Diagramas
+
+1. **Siempre se empieza con INICIO**
+2. **Siempre se termina con FIN**
 3. **Las flechas muestran el orden**
 4. **Los rombos tienen 2 salidas: Sí y No**
 5. **Escribir claro dentro de cada símbolo**
-6. **No cruzar flechas (si podés evitarlo)**
+6. **No cruzar flechas**
 
 ### Ejemplo 1: Sumar Dos Números
 
@@ -275,14 +285,15 @@ Símbolos estándar de diagramas de flujo con ejemplo de suma integrado
 Diagrama de flujo completo para sumar dos números con anotaciones explicativas
 ```
 
-**Explicación paso a paso:**
+**Explicación paso a paso:** (Qué también es el pseudocódigo)
 
-1. **INICIO:** Arrancamos acá
-2. **Leer numero1:** Le pedimos al usuario el primer número
-3. **Leer numero2:** Le pedimos el segundo número
-4. **suma = numero1 + numero2:** Hacemos la cuenta
-5. **Mostrar suma:** Le mostramos el resultado al usuario
-6. **FIN:** Terminó el programa
+1. `INICIO` ➠ Arrancamos acá
+2. `Leer numero1` ➠ Le pedimos al usuario el primer número
+3. `Leer numero2` Le pedimos el segundo número
+4. `suma = numero1 + numero2` ➠ Hacemos la cuenta
+5. `MOSTRAR suma` ➠ Le mostramos el resultado al usuario
+6. `FIN` ➠ Terminó el programa
+
 
 ### Ejemplo 2: ¿Es Mayor de Edad?
 
@@ -298,21 +309,27 @@ Diagrama de decisión: mayor o menor de edad con dos ejemplos de prueba
 
 **Explicación paso a paso:**
 
-1. **INICIO:** Arrancamos
-2. **Leer edad:** Pedimos la edad
-3. **¿edad >= 18?:** **DECISIÓN** - Acá el camino se divide
-   - Si la respuesta es **Sí** (edad es 18 o más): va a "Sos mayor"
-   - Si la respuesta es **No** (edad es menos de 18): va a "Sos menor"
-4. **Mostrar mensaje:** Según el camino, muestra el mensaje correspondiente
-5. **FIN:** Los dos caminos se juntan y termina
+1. `INICIO` ➠ Arrancamos
+2. `LEER edad` ➠ Pedimos la edad
+3. `SI ¿edad >= 18?:` **DECISIÓN** ➠ Acá el camino se divide
+  - **4 Si** `MOSTRAR "Sos mayor de edad"` ➠ cuando la respuesta es `Sí` (edad es 18 o más)
+  - `SINO` ➠ pasamos a las instrucciones cuando la condición es falsa.
+  - **4 No** `"MOSTRAR Sos menor de edad"` ➠ cuando la respuesta es `No` (edad es menos de 18)
+  - `FIN_SI` ➠ finalizamos el bloque de instrucciones del `SI`
+5. `FIN` ➠ Los dos caminos se juntan y termina
 
-::::{admonition} Tip Importante
+Es importante destacar, que como la respuesta depende del valor de `edad`, el resultado va a ser único, en función de si cumple o no la condición lógica del rombo.
+
+::::{admonition} Tip
 :class: tip
 
 En un rombo (decisión), **siempre** hay DOS caminos de salida. Si tu pregunta tiene más de dos respuestas, necesitás más rombos.
 
 Ejemplo: ¿El semáforo está en rojo, amarillo o verde?
-- Necesitás 2 rombos: primero preguntar "¿es rojo?", si no, "¿es amarillo?", si no, "es verde"
+- Necesitás 2 rombos: primero preguntar "¿es rojo?", si no, "¿es amarillo?", si no, "es verde".
+
+_Vamos a ver ejemplos más adelante de esto._
+
 ::::
 
 ### Ejemplo 3: Contar del 1 al 5
@@ -324,30 +341,29 @@ Ejemplo: ¿El semáforo está en rojo, amarillo o verde?
 :align: center
 :width: 75%
 
-Diagrama con bucle MIENTRAS: contador del 1 al 5 con flecha de retorno
+Diagrama con lazo MIENTRAS: contador del 1 al 5 con flecha de retorno
 ```
 
 **Explicación paso a paso:**
 
-1. **contador = 1:** Empezamos a contar desde 1
-2. **¿contador <= 5?:** Preguntamos: "¿El contador es 5 o menos?"
-   - **Sí:** Mostramos el número y sumamos 1
-   - **No:** Salimos del ciclo y terminamos
-3. **Mostrar contador:** Imprimimos el número actual
-4. **contador = contador + 1:** Le sumamos 1 al contador
-5. **Volver arriba:** La flecha vuelve a la pregunta
-6. **FIN:** Cuando el contador llega a 6, sale y termina
+1. `INICIO` ➠ Arrancamos
+1. `contador ⟸ 1` ➠ Empezamos a contar desde 1
+2. `MIENTRAS ¿contador <= 5?` ➠ Preguntamos: "¿El contador es 5 o menos?"
+     - 2.1. `MOSTRAR contador` ➠ Imprimimos el número actual
+     - 2.2. `contador = contador + 1` ➠ Le sumamos 1 al contador
+     - 2.3. `FIN_MIENTRAS` ➠ Volvemos al condicional
+3. `FIN` 
 
 ::::{admonition} ¡Atención!
 :class: warning
 
-Este es un **lazo** o **bucle**. Es cuando una parte del diagrama se repite. La flecha hace un "loop" (vuelta) para volver atrás.
+Este es un **lazo** o **bucle**. Es cuando una parte del diagrama se repite. La flecha hace una para volver al condicional.
 
 **¿Cómo sé que no va a ser infinito?**
-- Porque el contador aumenta en cada vuelta
-- Eventualmente contador será 6
-- En ese momento, la pregunta "¿contador <= 5?" será **No**
-- Y sale del bucle
+- Porque el `contador` aumenta en cada vuelta
+- _Eventualmente_ `contador` será 6
+- En ese momento, la pregunta "`¿contador <= 5?`" será **No**
+- Y sale del lazo
 ::::
 
 ---
@@ -363,8 +379,8 @@ Este es un **lazo** o **bucle**. Es cuando una parte del diagrama se repite. La 
 
 **Vocabulario:**
 1. **Pseudocódigo:** "Código falso" - se parece a código pero está en español
-2. **Palabra clave:** Palabras especiales que usamos (LEER, SI, MIENTRAS)
-3. **Indentación:** Espacios al inicio de una línea para mostrar que está "dentro" de algo
+2. **Palabra clave:** Palabras especiales que usamos (`LEER`, `SI`, `MIENTRAS`)
+3. **Indentación:** Espacios al inicio de una línea para mostrar explicitamente a que instruccion pertenece.
 ::::
 
 ### ¿Por Qué Usar Pseudocódigo?
@@ -378,61 +394,58 @@ Este es un **lazo** o **bucle**. Es cuando una parte del diagrama se repite. La 
 
 ### Las Palabras Clave que Vamos a Usar
 
+Además de las instrucciones traducidas de forma 'directa' de los diagramas de flujo, agregaremos algunas más.
+
 | Palabra | Significado | Ejemplo |
 |:--------|:------------|:--------|
-| `ALGORITMO` | Nombre del algoritmo | `ALGORITMO CalcularPromedio` |
-| `INICIO` | Comienza el algoritmo | `INICIO` |
+| `INICIO` | Comienza el algoritmo | `INICIO NombreDelAlgoritmo` |
 | `FIN` | Termina el algoritmo | `FIN` |
 | `LEER` | Pedir entrada del usuario | `LEER edad` |
 | `MOSTRAR` | Mostrar algo en pantalla | `MOSTRAR "Hola"` |
-| `←` o `=` | Asignar un valor | `suma ← a + b` |
-| `SI ... ENTONCES` | Condición | `SI edad >= 18 ENTONCES` |
-| `SINO` | Alternativa | `SINO` |
+| `⟸` | Asignar un valor | `suma ⟸ a + b` |
+| `SI ... :` | Condición | `SI edad >= 18 ENTONCES` |
+| `SINO` | Camino NO del `SI` | `SINO` |
 | `FIN_SI` | Fin de condición | `FIN_SI` |
+| `#` | Comentario | `# Esto es un comentario` |
+
+Y vamos a usar tres tipos de lazos que veremos a continuación.
+
+| Palabra | Significado | Ejemplo |
+|:--------|:------------|:--------|
 | `MIENTRAS` | Lazo mientras | `MIENTRAS contador <= 5` |
-| `HACER` | Contenido del lazo | `HACER` |
 | `FIN_MIENTRAS` | Fin del lazo | `FIN_MIENTRAS` |
 | `PARA` | Lazo para | `PARA i DESDE 1 HASTA 10` |
 | `FIN_PARA` | Fin del lazo para | `FIN_PARA` |
-| `//` | Comentario | `// Esto es un comentario` |
 
 ### Plantilla Básica
 
 ```
-ALGORITMO NombreDelAlgoritmo
-    INICIO
-        // Acá van los pasos
-    FIN
-FIN_ALGORITMO
+INICIO NombreDelAlgoritmo
+    # Acá van los pasos
+FIN
 ```
 
 ### Ejemplo 1: Sumar Dos Números
 
 ```
-ALGORITMO SumarDosNumeros
-    INICIO
-        // Variables que voy a usar
-        numero1, numero2, suma: Entero
-        
-        // Pedir los números
-        MOSTRAR "Ingrese el primer número:"
-        LEER numero1
-        
-        MOSTRAR "Ingrese el segundo número:"
-        LEER numero2
-        
-        // Hacer la suma
-        suma ← numero1 + numero2
-        
-        // Mostrar el resultado
-        MOSTRAR "La suma es:", suma
-    FIN
-FIN_ALGORITMO
+INICIO SumarDosNumeros
+    # Pedir los números
+    MOSTRAR "Ingrese el primer número:"
+    LEER numero1
+    
+    MOSTRAR "Ingrese el segundo número:"
+    LEER numero2
+    
+    # Hacer la suma
+    suma ⟸ numero1 + numero2
+    
+    # Mostrar el resultado
+    MOSTRAR "La suma es:", suma
+FIN
 ```
 
 **Leelo en voz alta como si fuera español:**
 - "Algoritmo para sumar dos números"
-- "Inicio"
 - "Mostrar 'Ingrese el primer número'"
 - "Leer numero1"
 - Y así...
@@ -440,23 +453,18 @@ FIN_ALGORITMO
 ### Ejemplo 2: Mayor de Edad
 
 ```
-ALGORITMO MayorDeEdad
-    INICIO
-        // Variable
-        edad: Entero
-        
-        // Pedir edad
-        MOSTRAR "Ingrese su edad:"
-        LEER edad
-        
-        // Verificar
-        SI edad >= 18 ENTONCES
-            MOSTRAR "Sos mayor de edad"
-        SINO
-            MOSTRAR "Sos menor de edad"
-        FIN_SI
-    FIN
-FIN_ALGORITMO
+INICIO MayorDeEdad
+    # Pedir edad
+    MOSTRAR "Ingrese su edad:"
+    LEER edad
+    
+    # Verificar
+    SI edad >= 18 ENTONCES
+        MOSTRAR "Sos mayor de edad"
+    SINO
+        MOSTRAR "Sos menor de edad"
+    FIN_SI
+FIN
 ```
 
 **Fijate:**
@@ -468,29 +476,24 @@ FIN_ALGORITMO
 ### Ejemplo 3: Contar del 1 al 5
 
 ```
-ALGORITMO ContarHastaCinco
-    INICIO
-        // Variable contador
-        contador: Entero
-        
-        // Empezar desde 1
-        contador ← 1
-        
-        // Repetir mientras sea menor o igual a 5
-        MIENTRAS contador <= 5 HACER
-            MOSTRAR contador
-            contador ← contador + 1
-        FIN_MIENTRAS
-        
-        MOSTRAR "¡Terminé de contar!"
-    FIN
-FIN_ALGORITMO
+INICIO ContarHastaCinco
+    # Empezar desde 1
+    contador ⟸ 1
+    
+    # Repetir mientras sea menor o igual a 5
+    MIENTRAS contador <= 5 HACER
+        MOSTRAR contador
+        contador ⟸ contador + 1
+    FIN_MIENTRAS
+    
+    MOSTRAR "¡Terminé de contar!"
+FIN
 ```
 
 **Notá:**
-- `MIENTRAS ... HACER` es un bucle
+- `MIENTRAS ... HACER` es un lazo
 - Todo lo que está dentro (indentado) se repite
-- `contador ← contador + 1` es super importante (si no, el bucle sería infinito)
+- `contador ⟸ contador + 1` es muy importante, ya que si no, el lazo sería infinito, contador debe 'dirigirse' hacia el valor del condicional.
 - Cierra con `FIN_MIENTRAS`
 
 ### Ejemplo 4: Promedio de 3 Números
@@ -506,30 +509,25 @@ Algoritmo completo con estructura Entrada-Proceso-Salida claramente separada
 **Pseudocódigo correspondiente:**
 
 ```
-ALGORITMO CalcularPromedio
-    INICIO
-        // Variables
-        num1, num2, num3: Real
-        suma, promedio: Real
-        
-        // Entrada de datos
-        MOSTRAR "Ingrese el primer número:"
-        LEER num1
-        
-        MOSTRAR "Ingrese el segundo número:"
-        LEER num2
-        
-        MOSTRAR "Ingrese el tercer número:"
-        LEER num3
-        
-        // Procesamiento
-        suma ← num1 + num2 + num3
-        promedio ← suma / 3
-        
-        // Salida
-        MOSTRAR "El promedio es:", promedio
-    FIN
-FIN_ALGORITMO
+INICIO CalcularPromedio
+    suma = 0
+    # Entrada de datos
+    MOSTRAR "Ingrese el primer número:"
+    LEER num1
+    
+    MOSTRAR "Ingrese el segundo número:"
+    LEER num2
+    
+    MOSTRAR "Ingrese el tercer número:"
+    LEER num3
+    
+    # Procesamiento
+    suma ⟸ num1 + num2 + num3
+    promedio ⟸ suma / 3
+    
+    # Salida
+    MOSTRAR "El promedio es:", promedio
+FIN
 ```
 
 ::::{admonition} Tip de Organización
@@ -540,7 +538,7 @@ Fijate que organizamos el pseudocódigo en 3 secciones:
 2. **Procesamiento:** Los cálculos y operaciones
 3. **Salida:** Lo que mostramos
 
-Esto hace que sea MUY fácil de leer y entender.
+Esto hace que sea mucho mas fácil de leer y entender.
 ::::
 
 ---
@@ -626,8 +624,8 @@ Elegir números que:
 ```
 LEER num1
 LEER num2
-suma ← num1 + num2
-promedio ← suma / 2
+suma ⟸ num1 + num2
+promedio ⟸ suma / 2
 MOSTRAR promedio
 ```
 
@@ -639,8 +637,8 @@ MOSTRAR promedio
 |:-----|:------|:-----|:-----|:-----|:---------|:-------|
 | 1 | LEER num1 | 8 | - | - | - | - |
 | 2 | LEER num2 | 8 | 12 | - | - | - |
-| 3 | suma ← num1 + num2 | 8 | 12 | 20 | - | - |
-| 4 | promedio ← suma / 2 | 8 | 12 | 20 | 10 | - |
+| 3 | suma ⟸ num1 + num2 | 8 | 12 | 20 | - | - |
+| 4 | promedio ⟸ suma / 2 | 8 | 12 | 20 | 10 | - |
 | 5 | MOSTRAR promedio | 8 | 12 | 20 | 10 | "El promedio es: 10" |
 
 **Verificación:**
@@ -708,11 +706,11 @@ El operador `%` (módulo) te da el **resto** de una división:
 **Pseudocódigo:**
 
 ```
-suma ← 0
-i ← 1
+suma ⟸ 0
+i ⟸ 1
 MIENTRAS i <= 5 HACER
-    suma ← suma + i
-    i ← i + 1
+    suma ⟸ suma + i
+    i ⟸ i + 1
 FIN_MIENTRAS
 MOSTRAR suma
 ```
@@ -753,156 +751,12 @@ Fijate que en cada vuelta del lazo:
 1. Sumamos el valor actual de `i` a `suma`
 2. Aumentamos `i` en 1
 
-Si nos olvidamos de `i ← i + 1`, el lazo sería **infinito** porque `i` siempre sería 1.
+Si nos olvidamos de `i ⟸ i + 1`, el lazo sería **infinito** porque `i` siempre sería 1.
 ::::
 
 ---
 
-## 6. De Pseudocódigo a Python
-
-Una vez que tenés el pseudocódigo y lo probaste con pruebas de escritorio, traducirlo a Python es FÁCIL.
-
-::::{admonition} Tabla de Traducción
-:class: tip
-
-| Pseudocódigo | Python |
-|:-------------|:-------|
-| `LEER variable` | `variable = input()` o `int(input())` |
-| `MOSTRAR "texto"` | `print("texto")` |
-| `MOSTRAR variable` | `print(variable)` |
-| `variable ← expresión` | `variable = expresión` |
-| `SI condición ENTONCES` | `if condición:` |
-| `SINO` | `else:` |
-| `FIN_SI` | (nada, se indica con indentación) |
-| `MIENTRAS condición HACER` | `while condición:` |
-| `FIN_MIENTRAS` | (nada, se indica con indentación) |
-| `PARA i DESDE 1 HASTA n` | `for i in range(1, n+1):` |
-| `FIN_PARA` | (nada, se indica con indentación) |
-| `// comentario` | `# comentario` |
-::::
-
-### Ejemplo 1: Promedio de 2 Números
-
-**Pseudocódigo:**
-```
-ALGORITMO PromedioDoS
-    LEER num1
-    LEER num2
-    suma ← num1 + num2
-    promedio ← suma / 2
-    MOSTRAR promedio
-FIN_ALGORITMO
-```
-
-**Python:**
-```python
-# Promedio de 2 números
-num1 = float(input("Ingrese el primer número: "))
-num2 = float(input("Ingrese el segundo número: "))
-suma = num1 + num2
-promedio = suma / 2
-print(f"El promedio es: {promedio}")
-```
-
-**Detalles importantes:**
-- `float(input())` convierte el texto a número decimal
-- En Python usamos `=` para asignar (no `←`)
-- `print` puede combinar texto y variables con f-strings: `f"... {variable}"`
-
-### Ejemplo 2: Par o Impar
-
-**Pseudocódigo:**
-```
-LEER numero
-SI numero % 2 == 0 ENTONCES
-    MOSTRAR "Es par"
-SINO
-    MOSTRAR "Es impar"
-FIN_SI
-```
-
-**Python:**
-```python
-numero = int(input("Ingrese un número: "))
-
-if numero % 2 == 0:
-    print("Es par")
-else:
-    print("Es impar")
-```
-
-**Detalles importantes:**
-- Los dos puntos `:` son obligatorios después de `if` y `else`
-- La indentación (4 espacios) es obligatoria
-- No hay `FIN_SI` - Python usa la indentación para saber dónde termina
-
-### Ejemplo 3: Suma del 1 al 5
-
-**Pseudocódigo:**
-```
-suma ← 0
-i ← 1
-MIENTRAS i <= 5 HACER
-    suma ← suma + i
-    i ← i + 1
-FIN_MIENTRAS
-MOSTRAR suma
-```
-
-**Python:**
-```python
-suma = 0
-i = 1
-
-while i <= 5:
-    suma = suma + i
-    i = i + 1
-
-print(f"La suma es: {suma}")
-```
-
-**Detalles importantes:**
-- `while` necesita dos puntos `:`
-- Todo lo que está dentro del `while` va indentado
-- No olvidar `i = i + 1` (si no, bucle infinito!)
-
-### Ejemplo 4: Contar del 1 al 10 (versión mejorada)
-
-**Pseudocódigo:**
-```
-PARA i DESDE 1 HASTA 10 HACER
-    MOSTRAR i
-FIN_PARA
-```
-
-**Python:**
-```python
-for i in range(1, 11):
-    print(i)
-```
-
-**Detalles importantes:**
-- `range(1, 11)` genera números del 1 al 10 (no incluye el 11)
-- Por eso ponemos `n+1` en el límite superior
-- `for` es mucho más corto que `while` para este caso
-
-::::{admonition} ¿`while` o `for`?
-:class: tip
-
-**Usá `while` cuando:**
-- No sabés cuántas veces se va a repetir
-- La condición de salida es compleja
-- Ejemplo: "mientras el usuario no ingrese 0"
-
-**Usá `for` cuando:**
-- Sabés exactamente cuántas veces repetir
-- Querés recorrer una secuencia
-- Ejemplo: "del 1 al 10", "para cada elemento en una lista"
-::::
-
----
-
-## 7. Ejercicios Resueltos Paso a Paso
+## 6. Ejercicios Resueltos Paso a Paso
 
 Ahora vamos a resolver problemas completos, siguiendo TODOS los pasos que aprendimos.
 
@@ -938,11 +792,11 @@ Ahora vamos a resolver problemas completos, siguiendo TODOS los pasos que aprend
 ```
 ALGORITMO Calculadora
     INICIO
-        // Variables
+        # Variables
         num1, num2, resultado: Real
         operacion: Texto
         
-        // Entrada
+        # Entrada
         MOSTRAR "Ingrese el primer número:"
         LEER num1
         
@@ -952,16 +806,16 @@ ALGORITMO Calculadora
         MOSTRAR "Ingrese el segundo número:"
         LEER num2
         
-        // Procesamiento
+        # Procesamiento
         SI operacion == "+" ENTONCES
-            resultado ← num1 + num2
+            resultado ⟸ num1 + num2
         SINO SI operacion == "-" ENTONCES
-            resultado ← num1 - num2
+            resultado ⟸ num1 - num2
         SINO SI operacion == "*" ENTONCES
-            resultado ← num1 * num2
+            resultado ⟸ num1 * num2
         SINO SI operacion == "/" ENTONCES
             SI num2 != 0 ENTONCES
-                resultado ← num1 / num2
+                resultado ⟸ num1 / num2
             SINO
                 MOSTRAR "Error: No se puede dividir por cero"
                 FIN
@@ -971,7 +825,7 @@ ALGORITMO Calculadora
             FIN
         FIN_SI
         
-        // Salida
+        # Salida
         MOSTRAR "El resultado es:", resultado
     FIN
 FIN_ALGORITMO
@@ -1101,7 +955,7 @@ ALGORITMO TablaMultiplicar
         MOSTRAR "Tabla del", numero, ":"
         
         PARA i DESDE 1 HASTA 10 HACER
-            resultado ← numero * i
+            resultado ⟸ numero * i
             MOSTRAR numero, "x", i, "=", resultado
         FIN_PARA
     FIN
@@ -1151,13 +1005,13 @@ ALGORITMO SumaHastaCero
     INICIO
         numero, suma: Real
         
-        suma ← 0
+        suma ⟸ 0
         
         MOSTRAR "Ingrese un número (0 para terminar):"
         LEER numero
         
         MIENTRAS numero != 0 HACER
-            suma ← suma + numero
+            suma ⟸ suma + numero
             MOSTRAR "Ingrese otro número (0 para terminar):"
             LEER numero
         FIN_MIENTRAS
@@ -1216,9 +1070,9 @@ Hay ciertos "patrones" que aparecen una y otra vez en programación. Si los reco
 **Ejemplo:** Sumar números
 
 ```
-suma ← 0
+suma ⟸ 0
 PARA cada numero HACER
-    suma ← suma + numero
+    suma ⟸ suma + numero
 FIN_PARA
 ```
 
@@ -1233,10 +1087,10 @@ FIN_PARA
 **Ejemplo:** Contar cuántos números son positivos
 
 ```
-contador ← 0
+contador ⟸ 0
 PARA cada numero HACER
     SI numero > 0 ENTONCES
-        contador ← contador + 1
+        contador ⟸ contador + 1
     FIN_SI
 FIN_PARA
 ```
@@ -1252,10 +1106,10 @@ FIN_PARA
 **Ejemplo:** Encontrar el número más grande
 
 ```
-maximo ← primer_numero
+maximo ⟸ primer_numero
 PARA cada numero HACER
     SI numero > maximo ENTONCES
-        maximo ← numero
+        maximo ⟸ numero
     FIN_SI
 FIN_PARA
 ```
@@ -1271,10 +1125,10 @@ FIN_PARA
 **Ejemplo:** Ver si hay algún número negativo
 
 ```
-hay_negativo ← Falso
+hay_negativo ⟸ Falso
 PARA cada numero HACER
     SI numero < 0 ENTONCES
-        hay_negativo ← Verdadero
+        hay_negativo ⟸ Verdadero
     FIN_SI
 FIN_PARA
 
@@ -1303,7 +1157,7 @@ REPETIR
     FIN_SI
 HASTA QUE edad >= 1 Y edad <= 120
 
-// Acá ya tengo una edad válida
+# Acá ya tengo una edad válida
 ```
 
 **Clave:**
@@ -1329,7 +1183,7 @@ for i in range(1, 6):
     suma = suma + i
 ```
 
-### Error 2: Bucle Infinito
+### Error 2: Lazo Infinito
 
 **❌ Mal:**
 ```python
@@ -1337,7 +1191,7 @@ i = 1
 while i <= 10:
     print(i)
     # Me olvidé de i = i + 1
-    # El bucle es infinito!
+    # El lazo es infinito!
 ```
 
 **✅ Bien:**
@@ -1492,7 +1346,7 @@ Para cada ejercicio, hacé TODOS los pasos:
 
 **Ejercicio 3.4:** Generar los primeros N números de Fibonacci (0, 1, 1, 2, 3, 5, 8, 13, ...).
 
-**Ejercicio 3.5:** Hacer una calculadora que funcione en bucle: pide operaciones hasta que el usuario elija "salir".
+**Ejercicio 3.5:** Hacer una calculadora que funcione en lazo: pide operaciones hasta que el usuario elija "salir".
 
 ---
 
@@ -1531,8 +1385,8 @@ Con práctica, este proceso se vuelve natural y rápido. La inversión de tiempo
 ## Referencias y Recursos
 
 - Pólya, G. (1945). *How to Solve It*. Princeton University Press.
-- [Python Tutor](http://pythontutor.com/) - Visualizador de código
-- [Visualgo](https://visualgo.net/) - Visualización de algoritmos
+- [Python Tutor](http:#pythontutor.com/) - Visualizador de código
+- [Visualgo](https:#visualgo.net/) - Visualización de algoritmos
 - {ref}`Método de Pólya <polya-comprender>` - Capítulo 0 de este curso
 - {ref}`Fundamentos de Python <fundamentos>` - Capítulo 1
 - {ref}`Control de Flujo <control-flujo>` - Capítulo 2
