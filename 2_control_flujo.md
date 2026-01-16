@@ -2176,85 +2176,77 @@ El control de flujo **se domina practicando**.
 
 ```{glossary}
 Control de flujo
-  Capacidad de un programa para tomar decisiones y repetir acciones según condiciones. Permite que el código no solo ejecute instrucciones secuencialmente, sino que "piense" y se adapte.
+: Capacidad de un programa para tomar decisiones y repetir acciones según condiciones. Permite que el código no solo ejecute instrucciones secuencialmente, sino que "piense" y se adapte.
 
 Condicional
-Estructura condicional
-  Instrucción que ejecuta código diferente según si una condición es verdadera o falsa. Las principales son {term}`if`, {term}`if-else` y {term}`if-elif-else`.
+: Instrucción que ejecuta código diferente según si una condición es verdadera o falsa. Las principales son {term}`if`, {term}`if-else` y {term}`if-elif-else`.
 
 if
-  Estructura condicional básica que ejecuta un bloque de código solo si una condición es `True`. Sintaxis: `if condicion:`. Si la condición es `False`, el bloque se salta.
+: Estructura {term}`condicional` básica que ejecuta un bloque de código solo si una condición es `True`. Sintaxis: `if condicion:`. Si la condición es `False`, el bloque se salta.
 
 if-else
-  Estructura condicional con dos caminos: uno si la condición es `True` (bloque `if`) y otro si es `False` (bloque `else`). Siempre ejecuta exactamente uno de los dos bloques.
+: Estructura {term}`condicional` con dos caminos: uno si la condición es `True` (bloque `if`) y otro si es `False` (bloque `else`). Siempre ejecuta exactamente uno de los dos bloques.
 
 if-elif-else
-  Estructura condicional con múltiples opciones. Evalúa condiciones en orden y ejecuta el bloque del primer `True` encontrado. El `else` final es opcional y captura todos los casos no contemplados.
+: Estructura {term}`condicional` con múltiples opciones. Evalúa condiciones en orden y ejecuta el bloque del primer `True` encontrado. El `else` final es opcional y captura todos los casos no contemplados.
 
 Condición anidada
-  Estructura {term}`condicional` dentro de otra. Se usa para verificar múltiples condiciones en secuencia. Puede simplificarse usando {term}`operadores lógicos <operador lógico>`.
+: Estructura {term}`condicional` dentro de otra. Se usa para verificar múltiples condiciones en secuencia. Puede simplificarse usando {term}`operadores lógicos <operador lógico>`.
 
 Bloque
-Bloque de código
-  Conjunto de instrucciones agrupadas por indentación (4 espacios). En Python, la indentación define qué código pertenece a una estructura de control.
+: Conjunto de instrucciones agrupadas por indentación (4 espacios). En Python, la indentación define qué código pertenece a una estructura de control.
 
 Indentación
-  Espacios al inicio de una línea que definen la estructura del código. Python requiere indentación consistente (4 espacios es el estándar). Errores de indentación causan `IndentationError`.
+: Espacios al inicio de una línea que definen la estructura del código. Python requiere indentación consistente (4 espacios es el estándar). Errores de indentación causan `IndentationError`.
 
-Bucle
-Loop
 Lazo
-  Estructura que repite un bloque de código múltiples veces. Los dos tipos principales son {term}`while` y {term}`for`. También conocido como **loop** o **lazo**.
+: Estructura que repite un bloque de código múltiples veces. Los dos tipos principales son **while** y **for**. También conocido como **loop** o **lazo**.
 
 while
-  Bucle que repite código mientras una condición sea `True`. Se evalúa la condición antes de cada iteración. Si la condición nunca se vuelve `False`, resulta en un {term}`loop infinito`.
+: Tipo de {term}`lazo` que repite código mientras una condición sea `True`. Se evalúa la condición antes de cada iteración. Si la condición nunca se vuelve `False`, resulta en un {term}`lazo infinito`.
 
 for
-  Bucle que itera sobre una secuencia (lista, string, {term}`range`, etc.). Ejecuta el bloque una vez por cada elemento. No necesita contador manual como {term}`while`.
+: Tipo de {term}`lazo` que itera sobre una secuencia (lista, string, {term}`range()`, etc.). Ejecuta el bloque una vez por cada elemento. No necesita contador manual como {term}`while`.
 
 range()
-  Función que genera una secuencia de números. Formas: `range(n)` (0 a n-1), `range(inicio, fin)` (inicio a fin-1), `range(inicio, fin, paso)` (con incremento personalizado).
+: Función que genera una secuencia de números. Formas: `range(n)` (0 a n-1), `range(inicio, fin)` (inicio a fin-1), `range(inicio, fin, paso)` (con incremento personalizado).
 
 Iteración
-  Una ejecución del bloque de código dentro de un {term}`bucle`. "Primera iteración" es la primera vez, "segunda iteración" es la segunda, etc.
+: Una ejecución del bloque de código dentro de un {term}`lazo`. "Primera iteración" es la primera vez, "segunda iteración" es la segunda, etc.
 
 Variable de control
-  Variable que controla cuándo termina un {term}`bucle`. En `while`, se actualiza manualmente. En `for`, se actualiza automáticamente con cada elemento de la secuencia.
+: Variable que controla cuándo termina un . En `while`, se actualiza manualmente. En `for`, se actualiza automáticamente con cada elemento de la secuencia.
 
-Loop infinito
-Bucle infinito
-  {term}`Bucle` que nunca termina porque su condición siempre es `True`. Error común al olvidar actualizar la {term}`variable de control` en un {term}`while`.
+Lazo infinito
+: {term}`Lazo<lazo>` que nunca termina porque su condición siempre es `True`. Error común al olvidar actualizar la {term}`variable de control` en un {term}`while`.
 
 break
-  Palabra clave que **sale inmediatamente** de un bucle, sin importar la condición. Útil para terminar un bucle cuando se encuentra lo que se busca.
+: Palabra clave que **sale inmediatamente** de un bucle, sin importar la condición. Útil para terminar un bucle cuando se encuentra lo que se busca.
 
 continue
-  Palabra clave que **salta** el resto de la iteración actual y pasa a la siguiente. No sale del bucle, solo ignora el código restante de esa iteración.
+: Palabra clave que **salta** el resto de la iteración actual y pasa a la siguiente. No sale del bucle, solo ignora el código restante de esa iteración.
 
 pass
-  Palabra clave que no hace nada. Se usa como marcador de posición en bloques vacíos que serán completados después. Sintaxis válida que Python acepta sin error.
+: Palabra clave que no hace nada. Se usa como marcador de posición en bloques vacíos que serán completados después. Sintaxis válida que Python acepta sin error.
 
 Bandera
-Flag
-  Variable booleana usada para controlar el flujo de un programa. Se inicializa (ej: `encontrado = False`) y se cambia cuando ocurre un evento (ej: `encontrado = True`).
+: Variable booleana usada para controlar el flujo de un programa. Se inicializa (ej: `encontrado = False`) y se cambia cuando ocurre un evento (ej: `encontrado = True`). Se puede utilizar para substituir {term}`break` y {term}`continue`.
 
 Bucle anidado
-Loop anidado
-  {term}`Bucle` dentro de otro bucle. El bucle interno se ejecuta completamente por cada iteración del bucle externo. Útil para procesar estructuras bidimensionales.
+: {term}`Lazo` dentro de otro bucle. El bucle interno se ejecuta completamente por cada iteración del bucle externo. Útil para procesar estructuras bidimensionales.
 
 Acumulador
-  Patrón donde una variable suma valores en cada {term}`iteración` de un bucle. Se inicializa en 0 antes del bucle: `suma = 0`, luego se actualiza: `suma = suma + valor`.
+: Patrón donde una variable suma valores en cada {term}`iteración` de un bucle. Se inicializa en 0 antes del bucle: `suma = 0`, luego se actualiza: `suma = suma + valor`.
 
 Contador
-  Patrón donde una variable cuenta cuántas veces ocurre algo en un bucle. Se inicializa en 0: `contador = 0`, luego se incrementa: `contador = contador + 1` o `contador += 1`.
+: Patrón donde una variable cuenta cuántas veces ocurre algo en un bucle. Se inicializa en 0: `contador = 0`, luego se incrementa: `contador = contador + 1` o `contador += 1`.
 
 Operador lógico
-  Operador que combina o modifica expresiones booleanas. Los tres principales son `and` (ambos True), `or` (al menos uno True), `not` (invierte el valor).
+: Operador que combina o modifica expresiones booleanas. Los tres principales son `and` (ambos True), `or` (al menos uno True), `not` (invierte el valor).
 
 Cortocircuito
-Short-circuit
-  Optimización donde Python deja de evaluar una expresión con {term}`operadores lógicos <operador lógico>` cuando ya conoce el resultado. En `and`, si el primero es `False`, no evalúa el segundo.
+: Optimización donde Python deja de evaluar una expresión con {term}`operadores lógicos <operador lógico>` cuando ya conoce el resultado. En `and`, si el primero es `False`, no evalúa el segundo. (Conocido en inglés como "Short-circuit")
 
-else en bucles
-  Cláusula opcional en bucles que se ejecuta solo si el bucle termina **normalmente** (sin {term}`break`). Si se usa `break`, el `else` no se ejecuta.
+else en lazos
+: Cláusula opcional en {term}`lazos<lazo>` que se ejecuta solo si el bucle termina **normalmente** (sin **break**). Si se usa `break`, el `else` no se ejecuta.
 ```
