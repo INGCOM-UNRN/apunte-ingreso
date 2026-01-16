@@ -937,184 +937,130 @@ Cada programador experto comenzó exactamente donde estás vos ahora. Lo que los
 ---
 
 (glosario-jupyterlab)=
-## Glosario de Terminología 📖
+## Glosario
 
 Este glosario contiene los términos clave sobre JupyterLab y notebooks interactivos que se trataron en este capítulo.
 
-:::{admonition} 💡 Cómo usar este glosario
-:class: tip
-
-- **Consultalo cuando encuentres un término nuevo**
-- Los términos pueden referenciarse con {term}`término` en el texto
-- Incluye terminología de entornos interactivos y notebooks
-- **Ideal para cuando empieces a usar JupyterLab**
-:::
-
-```{glossary}
+:::{glossary}
 JupyterLab
-  Entorno de desarrollo interactivo basado en web que permite escribir y ejecutar código Python en {term}`notebooks <notebook>`. Interfaz moderna que combina código, texto, visualizaciones y resultados. Sucesor de Jupyter Notebook.
+:  Entorno de desarrollo interactivo basado en web que permite escribir y ejecutar código Python en {term}`notebooks <notebook>`. Interfaz moderna que combina código, texto, visualizaciones y resultados. Sucesor de Jupyter Notebook.
 
 Jupyter
-  Proyecto open source que desarrolla herramientas para computación interactiva. Incluye {term}`JupyterLab`, Jupyter Notebook y JupyterHub. Nombre viene de Julia, Python y R (lenguajes principales).
+:  Proyecto open source que desarrolla herramientas para computación interactiva. Incluye {term}`JupyterLab`, Jupyter Notebook y JupyterHub. Nombre viene de Julia, Python y R (lenguajes principales).
 
 JupyterLite
-  Versión de {term}`JupyterLab` que funciona completamente en el navegador sin servidor. No requiere instalación. Usa WebAssembly para ejecutar Python en el navegador. Ideal para educación.
+:  Versión de {term}`JupyterLab` que funciona completamente en el navegador sin servidor. No requiere instalación. Usa WebAssembly para ejecutar Python en el navegador. Ideal para educación.
 
 Notebook
-Cuaderno
-  Documento interactivo que combina {term}`celdas <celda>` de código ejecutable, texto explicativo (Markdown), y resultados/visualizaciones. Extensión `.ipynb` (IPython Notebook). También conocido como **cuaderno**.
+:  El cuaderno es un documento interactivo que combina {term}`celdas<cell>` de código ejecutable, texto explicativo (Markdown), y resultados/visualizaciones. Extensión `.ipynb` (IPython Notebook). También conocido como **cuaderno**.
 
-Celda
 Cell
-  Unidad básica de un {term}`notebook`. Puede ser de {term}`código` (ejecutable) o {term}`Markdown` (texto). Se ejecutan individualmente con Shift+Enter. También conocida como **cell** en inglés.
+:  La celda es la unidad básica de un {term}`notebook`. Puede ser de {term}`código<Code cell>` (ejecutable) o {term}`Markdown` (texto). Se ejecutan individualmente con Shift+Enter.
 
-Celda de código
 Code cell
-  {term}`Celda` que contiene código Python ejecutable. Al ejecutarla, muestra el resultado debajo. Identificable por `In [ ]:` a la izquierda. Puede tener múltiples líneas.
+:  La celda de código es un tipo de {term}`celda<cell>` que contiene código Python ejecutable. Al ejecutarla, muestra el resultado debajo. Identificable por `In [ ]:` a la izquierda. Puede tener múltiples líneas.
 
-Celda de Markdown
 Markdown cell
-  {term}`Celda` que contiene texto con formato usando {term}`Markdown`. Se renderiza como HTML al ejecutarla. Útil para explicaciones, títulos, listas. No ejecuta código.
+:  {term}`celda<cell>` que contiene texto con formato usando {term}`Markdown`. Se renderiza como HTML al ejecutarla. Útil para explicaciones, títulos, listas. No ejecuta código.
 
 Markdown
-  Lenguaje de marcado ligero para dar formato a texto. Usa símbolos simples: `#` para títulos, `**negrita**`, `*cursiva*`, `- lista`. Se convierte a HTML. Fácil de leer y escribir.
+:  Lenguaje de marcado ligero para dar formato a texto. Usa símbolos simples: `#` para títulos, `**negrita**`, `*cursiva*`, `- lista`. Se convierte a HTML. Fácil de leer y escribir.
 
 Kernel
-  Proceso que ejecuta el código en un {term}`notebook`. Mantiene el estado (variables, funciones definidas). Python tiene su propio kernel. Puede reiniciarse si hay problemas.
+:  Proceso que ejecuta el código en un {term}`notebook`. Mantiene el estado (variables, funciones definidas). Python tiene su propio kernel. Puede reiniciarse si hay problemas.
 
-Reiniciar kernel
 Restart kernel
-  Detener y volver a iniciar el {term}`kernel`, limpiando toda la memoria. Todas las variables y funciones se pierden. Útil cuando hay errores o para empezar de cero.
+:  Reiniciar el kernel es detener y volver a iniciar el {term}`kernel`, limpiando toda la memoria. Todas las variables y funciones se pierden. Útil cuando hay errores o para empezar de cero.
 
-Modo comando
 Command mode
-  Modo de {term}`notebook` para navegar y manipular celdas. Borde azul en la celda activa. Atajos: `A` (insertar arriba), `B` (insertar abajo), `DD` (borrar), `M` (Markdown), `Y` (código).
+:  Modo de {term}`notebook` para navegar y manipular celdas. Borde azul en la celda activa. Atajos: `A` (insertar arriba), `B` (insertar abajo), `DD` (borrar), `M` (Markdown), `Y` (código).
 
-Modo edición
 Edit mode
-  Modo de {term}`notebook` para editar contenido de una celda. Borde verde en la celda activa. Atajos normales de editor. Entrar: presionar `Enter`. Salir: presionar `Esc`.
+:  El **modo edición** en los {term}`notebook` se utiliza para editar contenido de una celda. Borde verde en la celda activa. Atajos normales de editor. Entrar: presionar `Enter`. Salir: presionar `Esc`.
 
-Ejecutar celda
 Run cell
-  Procesar el contenido de una {term}`celda`. En celdas de código, ejecuta el código y muestra resultado. En Markdown, renderiza el texto. Atajo: `Shift+Enter` (ejecuta y avanza).
+:  Procesar el contenido de una **celda**. En celdas de código, ejecuta el código y muestra resultado. En Markdown, renderiza el texto. Atajo: `Shift+Enter` (ejecuta y avanza).
 
 Output
-Salida
-  Resultado que aparece debajo de una {term}`celda de código` después de ejecutarla. Puede ser texto, números, gráficos, errores. Se guarda en el {term}`notebook`. También conocida como **salida**.
+:  La salida, es el resultado que aparece debajo de una {term}`celda de código<Code cell>` después de ejecutarla. Puede ser texto, números, gráficos, errores. Se guarda en el {term}`notebook`.
 
 In [ ]
-  Indicador a la izquierda de una {term}`celda de código`. Muestra número de ejecución. `In [ ]` = no ejecutada, `In [1]` = primera ejecución, `In [*]` = ejecutando.
+:  Indicador a la izquierda de una {term}`celda de código<Code cell>`. Muestra número de ejecución. `In [ ]` = no ejecutada, `In [1]` = primera ejecución, `In [*]` = ejecutando.
 
 Out[ ]
-  Indicador del {term}`output` de una celda. `Out[1]` corresponde a `In [1]`. No todas las celdas tienen output (ej: asignaciones). Solo aparece si hay valor de retorno.
+:  Indicador del {term}`output` de una celda. `Out[1]` corresponde a `In [1]`. No todas las celdas tienen output (ej: asignaciones). Solo aparece si hay valor de retorno.
 
-File Browser
 Explorador de archivos
-  Panel lateral izquierdo de {term}`JupyterLab` que muestra directorios y archivos. Permite navegar, crear, renombrar, eliminar archivos. Similar al explorador de Windows/Finder.
+:  Panel lateral izquierdo de {term}`JupyterLab` que muestra directorios y archivos. Permite navegar, crear, renombrar, eliminar archivos. Similar al explorador de Windows/Finder.
 
-Área de trabajo
-Workspace
 Main area
-  Zona central de {term}`JupyterLab` donde se abren {term}`notebooks <notebook>`, archivos, terminales. Puede tener múltiples pestañas. Arrastrar pestañas divide la pantalla.
+:  El área de trabajo, o workspace, es la zona central de {term}`JupyterLab` donde se abren {term}`notebooks <notebook>`, archivos, terminales. Puede tener múltiples pestañas. Arrastrar pestañas divide la pantalla.
 
 Launcher
-Lanzador
-  Pantalla inicial de {term}`JupyterLab` para crear nuevos {term}`notebooks <notebook>`, archivos, consolas, terminales. Aparece al abrir JupyterLab o cerrar todas las pestañas.
+
+:  El lanzador es la pantalla inicial de {term}`JupyterLab` para crear nuevos {term}`notebooks <notebook>`, archivos, consolas, terminales. Aparece al abrir JupyterLab o cerrar todas las pestañas.
 
 .ipynb
-  Extensión de archivos de {term}`notebook` Jupyter. Significa "IPython Notebook". Es un archivo JSON que guarda celdas, código, outputs y metadata. Formato estándar de Jupyter.
+: Extensión de archivos de {term}`notebook` Jupyter. Significa "IPython Notebook". Es un archivo JSON que guarda celdas, código, outputs y metadata. Formato estándar de Jupyter.
 
 IPython
-  Shell interactivo mejorado de Python. Base del {term}`kernel` de Jupyter. Agrega funcionalidades: autocompletado, magic commands, historial. "Interactive Python".
+: Shell interactivo mejorado de Python. Base del {term}`kernel` de Jupyter. Agrega funcionalidades: autocompletado, magic commands, historial. "Interactive Python".
 
 Magic Command
-Comando mágico
-  Comandos especiales de {term}`IPython` que empiezan con `%` (línea) o `%%` (celda). Ejemplos: `%timeit`, `%matplotlib inline`, `%%bash`. Funciones útiles pre-construidas.
+:  Los **comandos mágicos** son instrucciones especiales de {term}`IPython` que empiezan con `%` (línea) o `%%` (celda). Ejemplos: `%timeit`, `%matplotlib inline`, `%%bash`. Funciones útiles pre-construidas.
 
 Autocompletado
-Autocomplete
-  Funcionalidad que sugiere completar código mientras escribís. Presionar `Tab` muestra opciones. Ahorra tiempo y evita errores de tipeo. Funciona con variables, funciones, métodos.
+:  Funcionalidad que sugiere completar código mientras escribís. Presionar `Tab` muestra opciones. Ahorra tiempo y evita errores de tipeo. Funciona con variables, funciones, métodos.
 
 Introspección
-  Examinar propiedades de un objeto en Python. En Jupyter: `objeto?` muestra documentación, `objeto??` muestra código fuente. `Tab` después de `objeto.` muestra métodos/atributos.
+:  Examinar propiedades de un objeto en Python. En Jupyter: `objeto?` muestra documentación, `objeto??` muestra código fuente. `Tab` después de `objeto.` muestra métodos/atributos.
 
 Shift+Enter
-  Atajo de teclado principal en {term}`notebooks <notebook>`. Ejecuta la {term}`celda` actual y avanza a la siguiente (o crea una nueva). El más usado en Jupyter.
+:  Atajo de teclado principal en {term}`notebooks <notebook>`. Ejecuta la {term}`cell` actual y avanza a la siguiente (o crea una nueva). El más usado en Jupyter.
 
 Ctrl+Enter
-  Atajo para ejecutar {term}`celda` actual SIN avanzar a la siguiente. Útil cuando querés ejecutar la misma celda múltiples veces seguidas.
+:  Atajo para ejecutar {term}`cell` actual SIN avanzar a la siguiente. Útil cuando querés ejecutar la misma celda múltiples veces seguidas.
 
 Alt+Enter
-  Atajo para ejecutar {term}`celda` actual e insertar una nueva celda vacía debajo. Útil para flujo de trabajo rápido al crear notebooks nuevos.
+:  Atajo para ejecutar {term}`cell` actual e insertar una nueva celda vacía debajo. Útil para flujo de trabajo rápido al crear notebooks nuevos.
 
 Checkpoint
-Punto de guardado
-  Copia de seguridad automática del {term}`notebook` en cierto momento. JupyterLab guarda periódicamente. Puede revertir a checkpoints anteriores desde menú File.
+:  El punto de guardado es una copia de seguridad automática del {term}`notebooks <notebook>` en cierto momento. JupyterLab guarda periódicamente. Puede revertir a checkpoints anteriores desde menú File.
 
-Exportar notebook
 Export
-  Convertir un {term}`notebook` a otros formatos. Opciones: HTML, PDF, Python (.py), Markdown, LaTeX. Útil para compartir o crear documentos estáticos.
+:  Convertir un {term}`notebook** a otros formatos. Opciones: HTML, PDF, Python (.py), Markdown, LaTeX. Útil para compartir o crear documentos estáticos.
 
-Variable inspector
-  Herramienta (extensión) que muestra todas las variables activas en el {term}`kernel` con sus valores y tipos. Útil para debugging. No siempre está disponible en todas las instalaciones.
+Inspector
+:  Herramienta (extensión) que muestra todas las variables activas en el {term}`kernel` con sus valores y tipos. Útil para debugging. No siempre está disponible en todas las instalaciones.
 
 Terminal
-  Consola de sistema operativo integrada en {term}`JupyterLab`. Permite ejecutar comandos shell (bash, cmd). Útil para instalar paquetes, git, operaciones de archivos.
+:  Consola de sistema operativo integrada en {term}`JupyterLab`. Permite ejecutar comandos shell (bash, cmd). Útil para instalar paquetes, git, operaciones de archivos.
 
-Console
 Consola
-  Shell interactivo de Python integrado en {term}`JupyterLab`. Similar a ejecutar `python` en terminal. Útil para pruebas rápidas sin crear {term}`notebook`. También conocida como **consola**.
+:  Shell interactivo de Python integrado en {term}`JupyterLab`. Similar a ejecutar `python` en terminal. Útil para pruebas rápidas sin crear {term}`notebook`. También conocida como **consola**.
 
-Tab
 Pestaña
-  Documento abierto en el {term}`área de trabajo` de JupyterLab. Puede ser {term}`notebook`, archivo, terminal, consola. Múltiples tabs permiten trabajar con varios archivos simultáneamente.
+:  Documento abierto en el {term}`área de trabajo<Main area>` de JupyterLab. Puede ser {term}`notebook`, archivo, terminal, consola. Múltiples tabs permiten trabajar con varios archivos simultáneamente.
 
 Widget interactivo
-Interactive widget
-  Elemento de interfaz gráfica en {term}`notebook` (botones, sliders, dropdowns). Permite interacción sin editar código. Requiere biblioteca `ipywidgets`. Útil para visualizaciones dinámicas.
+:  Elemento de interfaz gráfica en {term}`notebook` (botones, sliders, dropdowns). Permite interacción sin editar código. Requiere biblioteca `ipywidgets`. Útil para visualizaciones dinámicas.
 
-Extensión
 Extension
-  Plugin que agrega funcionalidades a {term}`JupyterLab`. Ejemplos: temas, linters, debuggers, variable inspectors. Se instalan con `pip` o desde el navegador de extensiones.
+:  Plugin que agrega funcionalidades a {term}`JupyterLab`. Ejemplos: temas, linters, debuggers, variable inspectors. Se instalan con `pip` o desde el navegador de extensiones.
 
-Kernel ocupado
 Kernel busy
-  Estado del {term}`kernel` cuando está ejecutando código. Indicador en esquina superior derecha (círculo lleno). No se pueden ejecutar otras celdas hasta que termine.
+:  Estado del {term}`kernel` cuando está ejecutando código. Indicador en esquina superior derecha (círculo lleno). No se pueden ejecutar otras celdas hasta que termine.
 
-Kernel inactivo
 Kernel idle
-  Estado del {term}`kernel` cuando no está ejecutando nada. Indicador en esquina superior derecha (círculo vacío). Listo para ejecutar código.
+:  Estado del {term}`kernel` cuando no está ejecutando nada. Indicador en esquina superior derecha (círculo vacío). Listo para ejecutar código.
 
 Debugger
-Depurador
-  Herramienta para encontrar errores ejecutando código paso a paso. JupyterLab tiene debugger visual integrado. Permite inspeccionar variables, establecer breakpoints, ver stack.
+:  El depurador es una herramienta para encontrar errores ejecutando código paso a paso. JupyterLab tiene debugger visual integrado. Permite inspeccionar variables, establecer breakpoints, ver stack.
 
 Breakpoint
-Punto de interrupción
-  Marcador en código donde el {term}`debugger` pausará la ejecución. Permite inspeccionar estado del programa en ese punto. Se establece en el margen izquierdo de la celda.
+:  Marcador en código donde el {term}`Debugger` pausará la ejecución. Permite inspeccionar estado del programa en ese punto. Se establece en el margen izquierdo de la celda.
 
 Linter
-  Herramienta que analiza código en busca de errores de estilo y posibles bugs sin ejecutarlo. Ejemplo: flake8, pylint. Algunas extensiones integran linters en JupyterLab.
-```
-
-:::{tip} Referencias cruzadas
-Este glosario complementa los glosarios de programación Python de los capítulos anteriores, enfocándose en la herramienta JupyterLab.
+:  Herramienta que analiza código en busca de errores de estilo y posibles bugs sin ejecutarlo. Ejemplo: flake8, pylint. Algunas extensiones integran linters en JupyterLab.
 :::
 
-:::{admonition} Glosarios relacionados
-:class: seealso
-
-**Glosarios de Python:**
-- {ref}`glosario-fundamentos` - Variables, tipos, operadores
-- {ref}`glosario-control-flujo` - Condicionales, bucles, patrones
-- {ref}`glosario-estructuras` - Listas, diccionarios, sets
-- {ref}`glosario-funciones` - def, return, scope, parámetros
-- {ref}`referencia-tipos` - import, archivos, módulos
-- {ref}`glosario-excepciones` - try-except, raise, manejo de errores
-
-**Este glosario complementa** la terminología de Python con conceptos específicos de entornos interactivos y notebooks.
-:::
-
----
-
-**Fin del Capítulo 7 - Guía de JupyterLab**
