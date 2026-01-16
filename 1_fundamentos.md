@@ -36,7 +36,7 @@ graph TD
 
 **Lo que vas a aprender:**
 - Cómo crear y usar variables para guardar información
-- Los 4 tipos de datos básicos: números, texto y booleanos
+- Los 4 {term}`tipos de datos <Tipo de dato>` básicos: números, texto y booleanos
 - Operadores para hacer cálculos y comparaciones
 - Cómo interactuar con el usuario
 - Errores comunes y cómo evitarlos
@@ -82,7 +82,7 @@ print("¡Hola Mundo!")
 ¿Ves la diferencia? Python te permite concentrarte en **qué** querés hacer, no en detalles técnicos complicados.
 
 ::::{important} ¿Por qué estos conceptos son importantes?
-Los fundamentos que vas a aprender en este capítulo son **universales** en programación. Son como aprender a sumar, restar y multiplicar: una vez que los sabés, podés aplicarlos en cualquier contexto. Lo mismo pasa con variables, tipos de datos y operadores: los vas a usar en **cualquier** lenguaje de programación que aprendas en el futuro.
+Los fundamentos que vas a aprender en este capítulo son **universales** en programación. Son como aprender a sumar, restar y multiplicar: una vez que los sabés, podés aplicarlos en cualquier contexto. Lo mismo pasa con variables, {term}`tipos de datos <Tipo de dato>` y operadores: los vas a usar en **cualquier** lenguaje de programación que aprendas en el futuro.
 
 ```{mermaid}
 graph LR
@@ -149,7 +149,7 @@ graph LR
 - **`"¡Hola Mundo!"`** es el texto (string) que queremos mostrar
 
 :::{note} Nota sobre las comillas
-El texto **siempre** va entre comillas (`"..."` o `'...'`). Sin comillas, Python pensaría que es el nombre de una variable.
+El texto **siempre** va entre comillas (`"..."` o `'...'`). Sin comillas, Python pensaría que es el nombre de una {term}`variable`.
 
 ```python
 print("Hola")  # ✓ Correcto: muestra "Hola"
@@ -157,7 +157,7 @@ print(Hola)    # ✗ Error: busca una variable llamada "Hola"
 ```
 :::
 
-La función `print()` muestra texto en la pantalla. El texto entre comillas se llama **cadena de texto** o **string**.
+La función {term}`print()` muestra texto en la pantalla. El texto entre comillas se llama **cadena de texto** o **string**.
 
 :::{tip} Ejecutando código Python
 Para ejecutar código Python:
@@ -180,7 +180,7 @@ print("Esta es mi primera línea de código en Python")
 
 ### ¿Qué es una variable? 
 
-Imaginate que tenés muchas cajas para guardar cosas. Cada caja tiene una **etiqueta** con un nombre (como "juguetes", "libros", "ropa") y **adentro** guardás algo específico. Una **variable** en programación es exactamente eso: una caja con un nombre donde guardás información.
+Imaginate que tenés muchas cajas para guardar cosas. Cada caja tiene una **etiqueta** con un nombre (como "juguetes", "libros", "ropa") y **adentro** guardás algo específico. Una {term}`variable` en programación es exactamente eso: una caja con un nombre donde guardás información.
 
 ![Variables como cajas](./1_fundamentos/variable_caja.svg)
 
@@ -198,11 +198,11 @@ peso_mochila = 5
 ```
 ::::
 
-La diferencia es que en la computadora podés tener un montón de estas "cajas" al mismo tiempo, y Python te ayuda a organizarlas.
+La diferencia es que en la computadora podés tener un montón de estas "cajas" ({term}`variables <Variable>`) al mismo tiempo, y Python te ayuda a organizarlas.
 
 ### Crear una Variable
 
-En Python, crear una variable es muy simple: elegís un nombre y le asignás un valor usando el símbolo `=`:
+En Python, crear una {term}`variable` es muy simple: elegís un nombre y le asignás un valor usando el {term}`operador de asignación <Asignación>` `=`:
 
 ```{code-cell} ipython3
 edad = 18
@@ -229,7 +229,7 @@ print(f"¿Es estudiante?: {es_estudiante}")
 
 :::{note} Nomenclatura de variables 
 
-Según la {ref}`0x0001h`, los nombres de variables deben ser descriptivos, cuando hay pocas cajas es relativamente fácil seguir que hacen en el programa, pero esto ser claro los va a ayudar a leer de forma más directa sus programas. Y por, otro lado, en Python, se usa `snake_case`: palabras en minúscula separadas por guiones bajos.
+Según la {ref}`0x0001h`, los nombres de variables deben ser descriptivos, cuando hay pocas cajas es relativamente fácil seguir que hacen en el programa, pero esto ser claro los va a ayudar a leer de forma más directa sus programas. Y por, otro lado, en Python, se usa {term}`snake_case`: palabras en minúscula separadas por guiones bajos.
 
 **Nombres apropiados:**
 - `edad_usuario`
@@ -248,7 +248,7 @@ Según la {ref}`0x0001h`, los nombres de variables deben ser descriptivos, cuand
 2. Pueden contener letras, números y guiones bajos
 3. No pueden contener espacios ni caracteres especiales
 4. Son sensibles a mayúsculas y minúsculas (`edad` ≠ `Edad`)
-5. No pueden ser palabras reservadas de Python (`if`, `for`, `while`, etc.)
+5. No pueden ser {term}`palabras reservadas <Palabra reservada>` de Python (`if`, `for`, `while`, etc.)
 
 ```python
 # Válido
@@ -264,7 +264,7 @@ _valor_privado = 100
 
 ### Reasignación de Variables
 
-Podés cambiar el valor de una variable en cualquier momento:
+Podés cambiar el valor de una {term}`variable` en cualquier momento:
 
 ```{code-cell} ipython3
 contador = 0
@@ -298,7 +298,7 @@ print(f"Después de duplicar: {contador}")
 ```
 
 :::{important} Inicialización de Variables
-Según la {ref}`0x0003h`, siempre debés inicializar las variables antes de usarlas. Python te dará un error si intentás usar una variable que no existe:
+Según la {ref}`0x0003h`, siempre debés inicializar las {term}`variables <Variable>` antes de usarlas. Python te dará un error si intentás usar una {term}`variable` que no existe:
 
 ```python
 # Incorrecto
@@ -576,7 +576,7 @@ print(f"¿Está lloviendo? {esta_lloviendo}")
 
 ### Verificar el Tipo de una Variable
 
-Usá la función `type()` para conocer el tipo de una variable:
+Usá la función `type()` para conocer el tipo de una {term}`variable`:
 
 ```{code-cell} ipython3
 edad = 25
@@ -592,7 +592,7 @@ activo = True
 print(type(activo))  # Salida: <class 'bool'>
 ```
 
-**Experimentá con tipos de datos:**
+**Experimentá con {term}`tipos de datos <Tipo de dato>`:**
 
 ```{code-cell} ipython3
 # Diferentes tipos de datos
@@ -630,11 +630,11 @@ print(f"10 / 2 = {resultado_division}, tipo: {type(resultado_division)}")
 
 ### ¿Qué son los operadores? 
 
-Los **operadores** son símbolos que le dicen a Python qué operación matemática querés hacer. Es como los botones de una calculadora: cada uno hace algo diferente (sumar, restar, multiplicar, etc.).
+Los {term}`operadores <Operador>` son símbolos que le dicen a Python qué operación matemática querés hacer. Es como los botones de una calculadora: cada uno hace algo diferente (sumar, restar, multiplicar, etc.).
 
 ![Operadores Aritméticos en Python](./1_fundamentos/operadores_aritmeticos.svg)
 
-Python tiene los operadores que ya conocés de matemática, ¡y algunos extras muy útiles!
+Python tiene los {term}`operadores <Operador>` que ya conocés de matemática, ¡y algunos extras muy útiles!
 
 ### Operadores básicos
 
@@ -1148,7 +1148,7 @@ Los f-strings (Python 3.6+) son la forma más legible y Pythonic de formatear st
 
 ### Entrada: `input()`
 
-La función `input()` lee texto desde el teclado. **Siempre retorna un string**.
+La función {term}`input()` lee texto desde el teclado. **Siempre retorna un string**.
 
 ```{code-cell} ipython3
 # Leer texto
