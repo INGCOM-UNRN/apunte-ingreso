@@ -27,13 +27,13 @@ Al finalizar este capítulo serás capaz de:
 ::::{grid} 1 1 2 2
 
 :::{grid-item-card} Piénsalo Así
-Imaginate que tenés una **máquina mágica** que hace algo específico. Le ponés ingredientes (los **argumentos**), la máquina hace su trabajo, y te devuelve un resultado.
+Imaginate que tenés una **máquina mágica** que hace algo específico. Le ponés ingredientes (Los {term}`argumentos <Argumento>`), la máquina hace su trabajo, y te devuelve un resultado.
 
-Por ejemplo: una licuadora es como una función. Le das frutas (argumentos), apretás el botón (llamás a la función), y te devuelve un licuado (valor de retorno).
+Por ejemplo: una licuadora es como una función. Le das frutas (argumentos), apretás el botón (llamás a la función), y te devuelve un licuado ({term}`valor de retorno`).
 :::
 
 :::{grid-item-card} En Programación
-Una **función** es un bloque de código que:
+Una {term}`función` es un bloque de código que:
 1. Tiene un **nombre** para identificarla
 2. Puede recibir **datos de entrada** (parámetros)
 3. Realiza una **tarea específica**
@@ -100,14 +100,14 @@ print(f"Promedio examen 3: {calcular_promedio([9, 9, 10])}")
 :::
 
 :::{grid-item-card} Intermedio
-- Scope de variables
-- Parámetros por defecto
+- {term}`scope` de variables
+- {term}`parámetros por defecto <Parámetro por defecto>`
 - Documentación (docstrings)
 - Funciones como objetos
 :::
 
 :::{grid-item-card} Avanzado
-- Recursión
+- {term}`recursión`
 - Buenas prácticas
 - Patrones comunes
 :::
@@ -120,7 +120,7 @@ print(f"Promedio examen 3: {calcular_promedio([9, 9, 10])}")
 
 ### Tu Primera Función 
 
-Empecemos con lo más simple. Para crear una función, usamos la palabra mágica `def` (de "definir"):
+Empecemos con lo más simple. Para crear una {term}`función`, usamos la palabra mágica `def` (de "definir"):
 
 ```{code-cell} ipython3
 def saludar():
@@ -132,7 +132,7 @@ def saludar():
 
 :::{admonition} ¿Por qué no imprime nada?
 :class: note
-Porque **definir**una función es como escribir una receta en un libro de cocina. La receta existe, pero no se cocina automáticamente. Para que funcione, tenés que **llamarla**:
+Porque **definir**una {term}`función` es como escribir una receta en un libro de cocina. La receta existe, pero no se cocina automáticamente. Para que funcione, tenés que **llamarla**:
 
 ```{code-cell} ipython3
 def saludar():
@@ -146,7 +146,7 @@ saludar()  # Esto ejecuta el código dentro de la función
 
 ### Anatomía de una Función
 
-Veamos de qué partes está hecha una función:
+Veamos de qué partes está hecha una {term}`función`:
 
 ```{figure} ./4_funciones/funcion_basica.svg
 :name: fig-funcion-basica
@@ -161,9 +161,9 @@ Componentes de una función en Python
 
 :::{grid-item-card} Componentes Esenciales
 **1. Palabra clave `def`**
-Indica que vas a definir una función
+Indica que vas a definir una {term}`función`
 
-**2. Nombre de la función**
+**2. Nombre de la {term}`función`**
 Usa `snake_case`: todo minúsculas con guiones bajos
 
 **3. Paréntesis `()`**
@@ -174,7 +174,7 @@ Marcan el inicio del bloque de código
 :::
 
 :::{grid-item-card} Componentes Opcionales
-**5. Docstring**
+**5. {term}`docstring`**
 Texto entre `"""` que explica qué hace la función
 
 **6. Cuerpo**
@@ -282,7 +282,7 @@ dibujar_separador()
 
 ### Funciones que Reciben Información
 
-Las funciones son más útiles cuando pueden trabajar con diferentes datos. Es como una licuadora: podés ponerle diferentes frutas cada vez.
+las {term}`funciones <Función>` son más útiles cuando pueden trabajar con diferentes datos. Es como una licuadora: podés ponerle diferentes frutas cada vez.
 
 ```{code-cell} ipython3
 def saludar_persona(nombre):
@@ -336,7 +336,7 @@ presentar_persona("Bruno", 22, "Córdoba")
 Diferentes formas de pasar argumentos a una función
 ```
 
-### Tipo 1: Argumentos Posicionales
+### Tipo 1: {term}`argumentos posicionales <Argumento posicional>`
 
 Los argumentos se pasan **en orden**. La posición importa:
 
@@ -367,7 +367,7 @@ describir_mascota("perro", 5, "Firulais")
 ```
 :::
 
-### Tipo 2: Argumentos con Nombre (Keyword Arguments)
+### Tipo 2: {term}`argumentos con nombre <Argumento con nombre>` (Keyword Arguments)
 
 Podés especificar qué argumento va a qué parámetro usando su nombre:
 
@@ -507,7 +507,7 @@ print(total)
 :::
 ::::
 
-:::{important} Regla de Oro
+:::{important} Reglas de funciones y retornos
 Según la {ref}`0x0009h`:  
 **Las funciones NO deben contener `print()` a menos que ese sea su propósito específico.**
 
@@ -761,13 +761,13 @@ else:
 
 ### ¿Qué es el Scope?
 
-El **scope**(alcance) es como el "territorio" donde vive una variable. Determina **dónde podés usar**una variable en tu código.
+El {term}`scope`(alcance) es como el "territorio" donde vive una variable. Determina **dónde podés usar** una variable en tu código.
 
 :::{admonition} 🏠 Pensalo Como Casas
 :class: tip
 Imaginate que cada función es una casa:
-- Las variables **dentro**de la casa son **privadas**(locales) - solo existen ahí
-- Las variables **fuera**de las casas son **públicas**(globales) - todos pueden verlas
+- Las variables **dentro** de la casa son **privadas**(locales) - solo existen ahí
+- Las variables **fuera** de las casas son **públicas**(globales) - todos pueden verlas
 - Desde adentro de la casa podés ver afuera, pero desde afuera NO podés ver adentro
 :::
 
@@ -916,7 +916,7 @@ def calcular_precio_final(precio_base, es_premium):
     Returns:
         El precio final con descuento aplicado
     """
-    # Scope LOCAL de esta función
+    # scope local de esta función
     descuento = 0  # Variable local
     precio_final = precio_base  # Variable local
     
@@ -1091,7 +1091,7 @@ print(agregar_item(2))  # [2] ✓ Como esperamos
 (documentacion-funciones)=
 ## Documentación de Funciones (Docstrings)
 
-Según la {ref}`0x000Ah`, todas las funciones deben tener un docstring.
+Según la {ref}`0x000Ah`, todas las funciones deben tener un {term}`docstring`.
 
 ### Formato de Docstrings
 
@@ -1126,7 +1126,7 @@ def calcular_promedio(numeros):
 **Componentes de un buen docstring:**
 1. **Resumen de una línea**: Qué hace la función
 2. **Descripción detallada**(opcional): Más contexto si es necesario
-3. **Args**: Lista de parámetros y su descripción
+3. *{term}`*args`**: Lista de parámetros y su descripción
 4. **Returns**: Qué retorna y su tipo
 5. **Raises**(opcional): Excepciones que puede lanzar
 6. **Example**(opcional): Ejemplos de uso
@@ -1256,7 +1256,7 @@ factorial(5)
 
 ### Componentes de Recursión
 
-Toda función recursiva necesita:
+Toda función {term}`recursiva <Recursión>` necesita:
 1. **Caso base**: Condición de parada
 2. **Caso recursivo**: Llamada a sí misma con problema más pequeño
 
@@ -1576,7 +1576,7 @@ crear_cuenta(
 ---
 
 (descomposicion-funcional)=
-## Descomposición Funcional: Dividir para Conquistar
+## {term}`descomposición funcional`: Dividir para Conquistar
 
 :::{admonition} ¿Qué es la Descomposición Funcional?
 :class: tip
@@ -2706,10 +2706,9 @@ def nombre_funcion(parametros):
 - Posicionales
 - Con nombre (keyword)
 - Por defecto
-- `*args` y `**kwargs`
 :::
 
-:::{grid-item-card} Return
+:::{grid-item-card} `return`
 - Retorna valores
 - Termina ejecución
 - Puede retornar múltiples valores (tupla)
@@ -2726,11 +2725,11 @@ def nombre_funcion(parametros):
 :::{grid-item-card} Scope
 - Variables locales vs globales
 - LEGB: Local, Enclosing, Global, Built-in
-- Evitar `global`
-- Usar parámetros y returns
+- Evitar {term}`global`
+- Usar parámetros y `return`s
 :::
 
-:::{grid-item-card} Funciones Lambda
+:::{grid-item-card} {term}`funciones lambda <Función lambda>`
 - Funciones anónimas
 - Una sola expresión
 - Útiles con map/filter
