@@ -272,12 +272,27 @@ Al guardar un valor, o resultado de expresión, utilizaremos `⟸` para distingu
 
 **Problema:** Pedir dos números, sumarlos y mostrar el resultado.
 
-```{figure} 00_primeros_pasos/flujo_suma_dos_numeros.svg
-:label: fig-flujo-suma-dos-numeros
-:align: center
-:width: 70%
-
-Diagrama de flujo completo para sumar dos números con anotaciones explicativas
+```{mermaid}
+flowchart TD
+    Start([INICIO])
+    Input1[/Leer numero1/]
+    Input2[/Leer numero2/]
+    Process[suma = numero1 + numero2]
+    Output[/MOSTRAR suma/]
+    End([FIN])
+    
+    Start --> Input1
+    Input1 --> Input2
+    Input2 --> Process
+    Process --> Output
+    Output --> End
+    
+    style Start fill:#90EE90
+    style End fill:#FFB6C1
+    style Input1 fill:#87CEEB
+    style Input2 fill:#87CEEB
+    style Output fill:#87CEEB
+    style Process fill:#FFE4B5
 ```
 
 **Explicación paso a paso:** (Qué también es el pseudocódigo)
@@ -294,12 +309,28 @@ Diagrama de flujo completo para sumar dos números con anotaciones explicativas
 
 **Problema:** Preguntar la edad y decir si es mayor o menor de edad.
 
-```{figure} 00_primeros_pasos/flujo_mayor_edad.svg
-:label: fig-flujo-mayor-edad
-:align: center
-:width: 85%
-
-Diagrama de decisión: mayor o menor de edad con dos ejemplos de prueba
+```{mermaid}
+flowchart TD
+    Start([INICIO])
+    Input[/LEER edad/]
+    Decision{edad >= 18?}
+    OutputYes[/MOSTRAR<br/>Sos mayor de edad/]
+    OutputNo[/MOSTRAR<br/>Sos menor de edad/]
+    End([FIN])
+    
+    Start --> Input
+    Input --> Decision
+    Decision -->|Sí| OutputYes
+    Decision -->|No| OutputNo
+    OutputYes --> End
+    OutputNo --> End
+    
+    style Start fill:#90EE90
+    style End fill:#FFB6C1
+    style Input fill:#87CEEB
+    style Decision fill:#FFD700
+    style OutputYes fill:#87CEEB
+    style OutputNo fill:#87CEEB
 ```
 
 **Explicación paso a paso:**
@@ -330,12 +361,28 @@ _Vamos a ver ejemplos más adelante de esto._
 
 **Problema:** Mostrar los números del 1 al 5.
 
-```{figure} 00_primeros_pasos/flujo_contador_1_a_5.svg
-:label: fig-flujo-contador-1-5
-:align: center
-:width: 75%
-
-Diagrama con lazo MIENTRAS: contador del 1 al 5 con flecha de retorno
+```{mermaid}
+flowchart TD
+    Start([INICIO])
+    Init[contador = 1]
+    Condition{contador <= 5?}
+    Output[/MOSTRAR contador/]
+    Increment[contador = contador + 1]
+    End([FIN])
+    
+    Start --> Init
+    Init --> Condition
+    Condition -->|Sí| Output
+    Output --> Increment
+    Increment --> Condition
+    Condition -->|No| End
+    
+    style Start fill:#90EE90
+    style End fill:#FFB6C1
+    style Init fill:#FFE4B5
+    style Condition fill:#FFD700
+    style Output fill:#87CEEB
+    style Increment fill:#FFE4B5
 ```
 
 **Explicación paso a paso:**
@@ -490,12 +537,46 @@ FIN
 
 ### Ejemplo 4: Promedio de 3 Números
 
-```{figure} 00_primeros_pasos/flujo_promedio_3_numeros.svg
-:label: fig-flujo-promedio-3-numeros
-:align: center
-:width: 70%
-
-Algoritmo completo con estructura Entrada-Proceso-Salida claramente separada
+```{mermaid}
+flowchart TD
+    Start([INICIO])
+    
+    subgraph Entrada [📥 ENTRADA DE DATOS]
+        Input1[/LEER num1/]
+        Input2[/LEER num2/]
+        Input3[/LEER num3/]
+    end
+    
+    subgraph Proceso [⚙️ PROCESAMIENTO]
+        Calc1[suma = num1 + num2 + num3]
+        Calc2[promedio = suma / 3]
+    end
+    
+    subgraph Salida [📤 SALIDA]
+        Output[/MOSTRAR promedio/]
+    end
+    
+    End([FIN])
+    
+    Start --> Input1
+    Input1 --> Input2
+    Input2 --> Input3
+    Input3 --> Calc1
+    Calc1 --> Calc2
+    Calc2 --> Output
+    Output --> End
+    
+    style Start fill:#90EE90
+    style End fill:#FFB6C1
+    style Input1 fill:#87CEEB
+    style Input2 fill:#87CEEB
+    style Input3 fill:#87CEEB
+    style Calc1 fill:#FFE4B5
+    style Calc2 fill:#FFE4B5
+    style Output fill:#87CEEB
+    style Entrada fill:#E6F3FF
+    style Proceso fill:#FFF9E6
+    style Salida fill:#F0FFF0
 ```
 
 **Pseudocódigo correspondiente:**
@@ -637,12 +718,28 @@ MOSTRAR promedio
 
 ### Ejemplo con Decisión: Par o Impar
 
-```{figure} 00_primeros_pasos/flujo_par_impar.svg
-:label: fig-flujo-par-impar
-:align: center
-:width: 80%
-
-Decisión binaria: determinar si un número es par o impar usando el operador módulo
+```{mermaid}
+flowchart TD
+    Start([INICIO])
+    Input[/LEER numero/]
+    Decision{numero % 2 == 0?}
+    OutputPar[/MOSTRAR<br/>Es par/]
+    OutputImpar[/MOSTRAR<br/>Es impar/]
+    End([FIN])
+    
+    Start --> Input
+    Input --> Decision
+    Decision -->|Sí<br/>resto = 0| OutputPar
+    Decision -->|No<br/>resto = 1| OutputImpar
+    OutputPar --> End
+    OutputImpar --> End
+    
+    style Start fill:#90EE90
+    style End fill:#FFB6C1
+    style Input fill:#87CEEB
+    style Decision fill:#FFD700
+    style OutputPar fill:#87CEEB
+    style OutputImpar fill:#87CEEB
 ```
 
 **Pseudocódigo:**
