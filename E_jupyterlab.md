@@ -1031,7 +1031,7 @@ Export
 :  Convertir un {term}`notebook** a otros formatos. Opciones: HTML, PDF, Python (.py), Markdown, LaTeX. Útil para compartir o crear documentos estáticos.
 
 Inspector
-:  Herramienta (extensión) que muestra todas las variables activas en el {term}`kernel` con sus valores y tipos. Útil para debugging. No siempre está disponible en todas las instalaciones.
+:  Herramienta (extensión) que muestra todas las variables activas en el {term}`kernel` con sus valores y tipos. Útil para {term}`debugging`. No siempre está disponible en todas las instalaciones.
 
 Terminal
 :  Consola de sistema operativo integrada en {term}`JupyterLab`. Permite ejecutar comandos shell (bash, cmd). Útil para instalar paquetes, git, operaciones de archivos.
