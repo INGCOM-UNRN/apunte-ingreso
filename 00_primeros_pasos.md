@@ -26,8 +26,7 @@ En este capítulo vas a aprender:
 
 ## ¿Por qué esta guía es TAN importante?
 
-::::{admonition} La verdad incómoda
-:class: warning
+::::{warning} La verdad incómoda
 
 **Problema común:** Muchos estudiantes abren Python y empiezan a escribir código directamente.
 
@@ -54,8 +53,7 @@ Programar es igual:
 
 ## 1. ¿Qué es un Algoritmo?
 
-::::{admonition} Conceptos Clave
-:class: tip
+::::{tip} Conceptos Clave
 
 **TL;DR:** Un algoritmo es una **receta** que tiene pasos claros y ordenados para resolver un problema.
 
@@ -127,8 +125,7 @@ Un algoritmo debe ser:
    - ❌ "Servir la sopa, calentar el agua, cortar verduras"
    - ✅ "Cortar verduras, calentar el agua, servir la sopa"
 
-::::{admonition} Quiz Rápido
-:class: note
+::::{note} Quiz Rápido
 
 ¿Cuál es un buen algoritmo para hacer un sándwich?
 
@@ -162,8 +159,7 @@ Antes de diseñar cualquier algoritmo, respondé estas 5 preguntas. **No te salt
 Las 5 Preguntas Mágicas para analizar cualquier problema algorítmico
 ```
 
-::::{admonition} Las 5 Preguntas Mágicas
-:class: tip
+::::{tip} Las 5 Preguntas Mágicas
 
 1. **¿Qué datos necesito?** (Entrada)
 2. **¿Qué resultado quiero?** (Salida)
@@ -218,8 +214,7 @@ Esta guía es una aplicación directa del {ref}`método de Pólya <polya-compren
 
 ## 3. Herramientas para Diseñar: Diagramas de Flujo
 
-::::{admonition} Conceptos Clave
-:class: tip
+::::{tip} Conceptos Clave
 
 **TL;DR:** Los diagramas de flujo son **dibujos** con formas que representan cada paso de tu algoritmo.
 
@@ -320,8 +315,7 @@ Diagrama de decisión: mayor o menor de edad con dos ejemplos de prueba
 
 Es importante destacar, que como la respuesta depende del valor de `edad`, el resultado va a ser único, en función de si cumple o no la condición lógica del rombo.
 
-::::{admonition} Tip
-:class: tip
+::::{tip} Tip
 
 En un rombo (decisión), **siempre** hay DOS caminos de salida. Si tu pregunta tiene más de dos respuestas, necesitás más rombos.
 
@@ -354,8 +348,7 @@ Diagrama con lazo MIENTRAS: contador del 1 al 5 con flecha de retorno
      - 2.3. `FIN_MIENTRAS` ➠ Volvemos al condicional
 3. `FIN` 
 
-::::{admonition} ¡Atención!
-:class: warning
+::::{warning} ¡Atención!
 
 Este es un **lazo** o **bucle**. Es cuando una parte del diagrama se repite. La flecha hace una para volver al condicional.
 
@@ -370,8 +363,7 @@ Este es un **lazo** o **bucle**. Es cuando una parte del diagrama se repite. La 
 
 ## 4. Herramientas para Diseñar: Pseudocódigo
 
-::::{admonition} Conceptos Clave
-:class: tip
+::::{tip} Conceptos Clave
 
 **TL;DR:** El pseudocódigo es escribir tu algoritmo en "español estructurado" - no es código real, pero se parece.
 
@@ -530,8 +522,7 @@ INICIO CalcularPromedio
 FIN
 ```
 
-::::{admonition} Tip de Organización
-:class: tip
+::::{tip} Tip de Organización
 
 Fijate que organizamos el pseudocódigo en 3 secciones:
 1. **Entrada de datos:** Todo lo que pedimos al usuario
@@ -546,8 +537,7 @@ Esto hace que sea mucho mas fácil de leer y entender.
 (pruebas-escritorio)=
 ## 5. Pruebas de Escritorio: Verificar que Funciona
 
-::::{admonition} Conceptos Clave
-:class: tip
+::::{tip} Conceptos Clave
 
 **TL;DR:** Las pruebas de escritorio son "ejecutar" tu algoritmo **en papel** para verificar que funciona ANTES de programar.
 
@@ -570,8 +560,7 @@ Esto hace que sea mucho mas fácil de leer y entender.
 4. **Ganar confianza** - sabés que va a funcionar
 5. **Practicar** el pensamiento algorítmico
 
-::::{admonition} Historia Real
-:class: note
+::::{note} Historia Real
 
 **Estudiante A:** No hace pruebas de escritorio
 - Escribe 50 líneas de código Python
@@ -688,8 +677,7 @@ FIN_SI
 - 7 es impar ✅
 - **¡Funciona para ambos casos!**
 
-::::{admonition} Recordatorio del Operador %
-:class: note
+::::{note} Recordatorio del Operador %
 
 El operador `%` (módulo) te da el **resto** de una división:
 - `6 % 2 = 0` (6 dividido 2 es 3, resto 0)
@@ -744,8 +732,7 @@ MOSTRAR suma
 - El lazo se ejecutó 5 veces ✅
 - **¡Funciona!**
 
-::::{admonition} Observación Importante
-:class: warning
+::::{warning} Observación Importante
 
 Fijate que en cada vuelta del lazo:
 1. Sumamos el valor actual de `i` a `suma`
@@ -1258,8 +1245,7 @@ if edad >= 18:
 Proceso completo de 4 pasos: de problema a código con tiempos estimados
 ```
 
-::::{admonition} El Proceso Completo
-:class: tip
+::::{tip} El Proceso Completo
 
 **Cuando te dan un problema, seguí estos pasos:**
 
@@ -1295,8 +1281,7 @@ Recordá que esta guía es una aplicación del {ref}`método de Pólya <polya-co
 
 ## 11. Ejercicios para Practicar
 
-::::{admonition} Instrucciones
-:class: note
+::::{note} Instrucciones
 
 Para cada ejercicio, hacé TODOS los pasos:
 1. Responder las 5 preguntas
@@ -1352,8 +1337,7 @@ Para cada ejercicio, hacé TODOS los pasos:
 
 ## 12. Conclusión
 
-::::{admonition} Lo Más Importante
-:class: important
+::::{important} Lo Más Importante
 
 **Pensar ANTES de programar** es la habilidad más valiosa que podés desarrollar.
 
