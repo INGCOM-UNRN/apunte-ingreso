@@ -212,7 +212,7 @@ Al finalizar este capítulo, podrás:
 1. **Listas** → Guardar cosas que cambian (lista de compras)
 2. **Tuplas** → Guardar cosas fijas (coordenadas GPS)
 3. **Diccionarios** → Guardar info con etiquetas (perfil de usuario)
-4. **Sets** → Guardar elementos únicos (sin repetidos)
+4. **Sets** → Guardar elementos únicos ({term}`unicidad`) (sin repetidos)
 5. **Strings avanzados** → Manipular texto como un profesional
 
 **Bonus:**Comprensiones de listas (código más elegante)
@@ -290,7 +290,7 @@ tags = {"python", "tutorial", "datos"}
 
 Una **lista** es como una **fila de cajitas** donde podés guardar cosas. Características:
 -  **Ordenada:** Cada cosa tiene su posición (0, 1, 2...)
-- **Mutable:** Podés cambiar, agregar o quitar elementos
+- **{term}`mutable`:** Podés cambiar, agregar o quitar elementos
 - **Versátil:** Puede contener cualquier tipo de dato
 - **Duplicados:** Puede tener elementos repetidos
 
@@ -531,7 +531,7 @@ print("Invertido [::-1]:", numeros[::-1])  # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 ```
 
 :::{tip} Regla del Fin No Incluido
-El índice final **NO se incluye** en el slice:
+El {term}`índice` final **NO se incluye** en el slice:
 
 ```python
 lista[2:5]  # Incluye: 2, 3, 4  (NO incluye 5)
@@ -681,7 +681,7 @@ print("Bien [5:2:-1]:", numeros[5:2:-1])  # [5, 4, 3]
 
 **Tupla Python = Texto en piedra:**
 - Una vez escrito, **NO podés cambiar**
-- Es **inmutable** (lo veremos más adelante)
+- Es **{term}`inmutable`** (lo veremos más adelante)
 
 ```python
 # Mutable (lista) - ✓ Podés cambiar
@@ -941,7 +941,7 @@ print("insert(1000, 70):", numeros)  # Se agrega al final
 - **insert(0, x)** → Inserta al **principio**
 - **insert(n, x)** → Inserta **antes**de la posición n
 - **insert(len(lista), x)** → Inserta al **final**(= append)
-- **insert(999, x)** → Si índice > tamaño, inserta al final
+- **insert(999, x)** → Si {term}`índice` > tamaño, inserta al final
 :::
 
 ---
@@ -956,7 +956,7 @@ Hay 4 formas de sacar a alguien de la fila:
 1. **remove("nombre")** → Buscás por nombre y lo sacás (primera coincidencia)
 2. **pop()** → Sacás el último de la fila
 3. **pop(n)** → Sacás al que está en posición n
-4. **del lista[n]** → Eliminás sin recibir el elemento
+4. **del lista[n]** → Eliminás sin recibir el {term}`elemento`
 5. **clear()** → Echás a TODOS (vacías la fila)
 ::::
 
@@ -973,7 +973,7 @@ frutas.remove("🍌 banana")
 print("Después de remove:", frutas)  # Solo elimina la primera banana
 ```
 
-:::{danger} 🚨 Error si el valor no existe
+:::{danger} 🚨 Error si el {term}`valor<Value>` no existe
 
 ```{code-cell} ipython3
 # ❌ Si el valor no existe, da error
@@ -1024,7 +1024,7 @@ print(f"Quedan: {pila_libros}")
 | `pop()` | Posición (último) | ✅ Sí | `IndexError` si vacía |
 | `pop(n)` | Posición n | ✅ Sí | `IndexError` si índice inválido |
 
-**Usa `pop()`**cuando necesitás el elemento eliminado (ej: pila, cola)  
+**Usa `pop()`**cuando necesitás el {term}`elemento` eliminado (ej: pila, cola)  
 **Usa `remove()`**cuando solo querés eliminar algo específico
 :::
 
@@ -1052,13 +1052,13 @@ print("Después de del [::2]:", numeros)  # [1, 3, 5, 7, 9]
 
 :::{note} `del` vs `pop()`
 **`del`:**
-- No retorna el elemento
+- No retorna el {term}`elemento`
 - Puede eliminar slices completos
 - Es una **declaración**(statement), no un método
 
 **`pop()`:**
-- Retorna el elemento eliminado
-- Solo elimina un elemento a la vez
+- Retorna el {term}`elemento` eliminado
+- Solo elimina un {term}`elemento` a la vez
 - Es un **método** de lista
 :::
 
@@ -1617,7 +1617,7 @@ for i, fruta in enumerate(frutas, start=1):
 **Cuándo usar:**
 - Necesitás saber la posición
 - Querés numerar elementos
-- Necesitás el índice para algo más
+- Necesitás el {term}`índice` para algo más
 
 ---
 
@@ -1712,7 +1712,7 @@ for i, tarea in enumerate(tareas, start=1):
 ::::{admonition} Analogía: Estante con Cajas
 :class: tip
 
-Una **lista anidada** es como un estante con cajas, donde cada caja tiene cosas adentro:
+Una **lista {term}`anidada <Anidado>`** es como un estante con cajas, donde cada caja tiene cosas adentro:
 
 ```python
 estante = [
@@ -2265,7 +2265,7 @@ lista_b[0] = 999   # lista_a también cambió a [999, 2, 3]
 
 ### ¿Qué es una Tupla?
 
-Una **tupla** es como una lista, pero **inmutable**(no se puede cambiar después de crear). 
+Una **tupla** es como una lista, pero **{term}`inmutable`**(no se puede cambiar después de crear). 
 
 ::::{admonition} Analogía: Lista vs Tupla
 :class: tip
@@ -2602,7 +2602,7 @@ print(f"Segundo 3 está en posición {segunda_pos}")
 
 ### Desempaquetado (Unpacking): El Super Poder de las Tuplas 🎁
 
-El **desempaquetado**(unpacking) es una característica poderosa que permite extraer los elementos de una tupla en variables individuales.
+El {term}`desempaquetado`(unpacking) es una característica poderosa que permite extraer los elementos de una tupla en variables individuales.
 
 ::::{admonition} Analogía: Desempacar una Caja
 :class: tip
@@ -2911,7 +2911,7 @@ print(lista)  # [4, 5, 6]
 (diccionarios)=
 ## Diccionarios
 
-Un **diccionario** es una colección de pares **clave-valor**. Cada clave es única y se usa para acceder a su valor asociado. Es como un diccionario real: buscás una palabra (clave) y encontrás su definición (valor).
+Un **diccionario** es una {term}`colección` de {term}`pares clave-valor<Par key-value>`. Cada clave es única y se usa para acceder a su valor asociado. Es como un diccionario real: buscás una palabra ({term}`key`) y encontrás su definición ({term}`value`).
 
 ### Crear Diccionarios
 
@@ -2920,7 +2920,7 @@ Un **diccionario** es una colección de pares **clave-valor**. Cada clave es ún
 vacio = {}
 tambien_vacio = dict()
 
-# Con pares clave-valor
+# Con pares clave-valor 
 estudiante = {
     "nombre": "Ana",
     "edad": 20,
@@ -2936,8 +2936,7 @@ datos = {
 ```
 
 :::{important} Claves de diccionarios
-Las claves deben ser **inmutables**: strings, números, tuplas.
-No pueden ser listas o diccionarios.
+Las claves deben ser {term}`inmutables<Inmutable>` como strings, números, tuplas. Las listas u otros dicionarios no pueden ser llave.
 
 ```{code-cell} ipython3
 # ✓ Válido
@@ -2974,7 +2973,7 @@ print(nota)  # 0
 ```
 
 :::{tip} Usar `get()` en lugar de `[]`
-Es preferible usar `get()` cuando no estás seguro si la clave existe:
+Es preferible usar `get()` cuando no estás seguro si la {term}`clave <Key>` existe:
 
 ```{code-cell} ipython3
 # ❌ Puede dar error
@@ -3148,7 +3147,7 @@ print(contador)
 (sets)=
 ## Sets (Conjuntos)
 
-Un **set** es una colección **no ordenada** de elementos **únicos**. Es útil para eliminar duplicados y realizar operaciones matemáticas de conjuntos.
+Un **set** es una {term}`colección` **no ordenada** de elementos **únicos**. Es útil para eliminar duplicados y realizar operaciones matemáticas de conjuntos.
 
 ### Crear Sets
 
@@ -3436,7 +3435,7 @@ Las **comprensiones** son una forma concisa y Pythonic de crear estructuras de d
 
 ### List Comprehensions
 
-Las **list comprehensions**te permiten crear listas en una sola línea de código, de manera más elegante y legible que con loops tradicionales.
+Las **{term}`list comprehension <Comprehension>`s**te permiten crear listas en una sola línea de código, de manera más elegante y legible que con loops tradicionales.
 
 ```{figure} ./3_estructuras/comprension_listas.svg
 :name: fig-comprension-listas
@@ -3834,7 +3833,7 @@ Este tipo de pregunta te ayuda a **profundizar tu comprensión** más allá de l
 En este capítulo aprendiste sobre estructuras de datos en Python:
 
 ✓ **Listas**: Colecciones ordenadas y modificables
-  - Acceso, modificación, slicing  
+  - Acceso, modificación, {term}`slicing`  
   - Métodos: `append`, `insert`, `remove`, `pop`, `sort`, etc.  
   - Listas anidadas (matrices)  
 
