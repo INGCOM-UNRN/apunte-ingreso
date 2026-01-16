@@ -1,6 +1,6 @@
 ---
 title: Método de Resolución de Problemas de Pólya
-short_title: 0 - El método Pólya
+short_title: 5 - El método Pólya
 subtitle: Estrategia sistemática para resolver problemas computacionales y algorítmicos
 ---
 

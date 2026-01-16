@@ -1,6 +1,6 @@
 ---
 title: Primeros Pasos - Cómo Plantear Algoritmos
-short_title: 00 - Primeros Pasos
+short_title: 0 - Primeros Pasos
 subtitle: Guía práctica paso a paso para diseñar soluciones antes de programar
 ---
 
@@ -285,7 +285,7 @@ flowchart TD
     Input1 --> Input2
     Input2 --> Process
     Process --> Output
-    Output --> End
+    Output ---> End
     
     style Start fill:#90EE90
     style End fill:#FFB6C1
@@ -323,7 +323,7 @@ flowchart TD
     Decision -->|Sí| OutputYes
     Decision -->|No| OutputNo
     OutputYes --> End
-    OutputNo --> End
+    OutputNo ---> End
     
     style Start fill:#90EE90
     style End fill:#FFB6C1
@@ -375,7 +375,7 @@ flowchart TD
     Condition -->|Sí| Output
     Output --> Increment
     Increment --> Condition
-    Condition -->|No| End
+    Condition ---->|No| End
     
     style Start fill:#90EE90
     style End fill:#FFB6C1
@@ -564,7 +564,7 @@ flowchart TD
     Input3 --> Calc1
     Calc1 --> Calc2
     Calc2 --> Output
-    Output --> End
+    Output ---> End
     
     style Start fill:#90EE90
     style End fill:#FFB6C1
@@ -732,7 +732,7 @@ flowchart TD
     Decision -->|Sí<br/>resto = 0| OutputPar
     Decision -->|No<br/>resto = 1| OutputImpar
     OutputPar --> End
-    OutputImpar --> End
+    OutputImpar ---> End
     
     style Start fill:#90EE90
     style End fill:#FFB6C1
