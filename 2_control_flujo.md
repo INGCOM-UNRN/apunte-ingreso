@@ -94,10 +94,10 @@ graph LR
     style E fill:#ffcdd2
 ```
 
-Eso es **control de flujo**: tu programa "mira" la situación y **decide** qué hacer, como vos decidís según el color del semáforo.
+Eso es **{term}`control de flujo`**: tu programa "mira" la situación y **decide** qué hacer, como vos decidís según el color del semáforo.
 
 :::{important} ¿Por qué es tan importante?
-El control de flujo es lo que convierte una secuencia fija de instrucciones en un programa que puede:
+El {term}`control de flujo` es lo que convierte una secuencia fija de instrucciones en un programa que puede:
 
 - **Tomar decisiones** basadas en datos
 - **Evitar repetir código** (no copies y pegues 100 veces)
@@ -107,7 +107,7 @@ El control de flujo es lo que convierte una secuencia fija de instrucciones en u
 
 ### Ejemplos del Mundo Real
 
-Todos estos usan control de flujo:
+Todos estos usan {term}`control de flujo`:
 
 :::::{grid} 1 1 2 2
 
@@ -234,7 +234,7 @@ print("Fin")
 
 :::{important} Indentación: ¡La Clave en Python!
 
-Python es **especial**: usa **espacios** para definir bloques de código (no llaves `{}` como otros lenguajes).
+Python es **especial**: usa **espacios** para definir {term}`bloques <Bloque>` de código (no llaves `{}` como otros lenguajes).
 
 ![Indentación](./2_control_flujo/indentacion.svg)
 
@@ -521,7 +521,7 @@ Persona
 
 **Se ejecutan TODAS las que sean `True`**
 
-Como son tres estructuras condicionales separadas, obtenemos tres resultados diferentes.
+Como son tres estructura{s} {term}`condicional{es} <Condicional>` separadas, obtenemos tres resultados diferentes.
 
 ::::
 
@@ -638,7 +638,7 @@ else:
     print("Muy joven")
 ```
 
-**Con dos niveles de indentación, es más difícil de leer.**
+**Con dos niveles de {term}`indentación`, es más difícil de leer.**
 ::::
 
 ::::{grid-item-card} ✅ Con `and` (más simple)
@@ -651,7 +651,7 @@ else:
     print("Muy joven")
 ```
 
-**Pero con solo un nivel de indentación, es más directo**
+**Pero con solo un nivel de {term}`indentación`, es más directo**
 ::::
 
 :::::
@@ -920,9 +920,9 @@ print(f"La suma de 1 a 10 es: {suma}")
 
 :::{tip} Patrón Acumulador
 **Estructura:**
-1. Inicializar acumulador en 0
-2. En cada vuelta, sumar al acumulador
-3. Al final, el acumulador tiene el total
+1. Inicializar {term}`acumulador` en 0
+2. En cada vuelta, sumar al {term}`acumulador`
+3. Al final, el {term}`acumulador` tiene el total
 
 **Usos:**Sumar números, contar elementos, promedios
 :::
@@ -1083,7 +1083,7 @@ if not entrada_valida:
 3. **Debugging:** Podés inspeccionar el estado de las banderas
 4. **Testeo:** Las banderas facilitan las pruebas unitarias
 
-:::{tip} Cuándo usar break
+:::{tip} Cuándo usar {term}`break`
 Si bien preferimos banderas, `break` es aceptable en Python para casos simples de búsqueda:
 
 ```{code-cell} ipython3
@@ -1131,7 +1131,7 @@ for producto in lista_compras:
 ✓ Comprar: queso
 ```
 
-Python **automáticamente** toma cada elemento de la lista, uno por uno, y ejecuta el código para cada uno. ¡No necesitás contador ni incremento manual!
+Python **automáticamente** toma cada elemento de la lista, uno por uno, y ejecuta el código para cada uno. ¡No necesitás {term}`contador` ni incremento manual!
 ::::
 
 ---
@@ -1140,7 +1140,7 @@ Python **automáticamente** toma cada elemento de la lista, uno por uno, y ejecu
 
 :::::{grid} 1 1 2 2
 
-::::{grid-item-card} while (Mientras...)
+::::{grid-item-card} {term}`while` (Mientras...)
 ```python
 # Usar cuando NO sabés
 # cuántas veces repetir
@@ -1156,7 +1156,7 @@ while contraseña != "abc123":
 - Validaciones
 ::::
 
-::::{grid-item-card} for (Para cada...)
+::::{grid-item-card} {term}`for` (Para cada...)
 ```python
 # Usar cuando SÍ sabés
 # cuántas veces repetir
@@ -1178,7 +1178,7 @@ for fruta in frutas:
 
 ### Iterando sobre un Rango
 
-La función `range()` genera una secuencia de números:
+La función {term}`range()` genera una secuencia de números:
 
 ```{code-cell} ipython3
 # Contar del 0 al 4
@@ -1186,7 +1186,7 @@ for i in range(5):
     print(f"Número: {i}")
 ```
 
-**La función `range()`:**
+**La función {term}`range()`:**
 
 ```{code-cell} ipython3
 # range(stop) - desde 0 hasta stop-1
@@ -1373,7 +1373,7 @@ print(f"La suma es: {suma}")
 (loops-anidados)=
 ## Loops Anidados
 
-Podés colocar loops dentro de otros loops. Cada iteración del loop externo ejecuta completamente el loop interno.
+Podés colocar loops dentro de otros loops. Cada {term}`iteración` del loop externo ejecuta completamente el loop interno.
 
 ### Ejemplo: Tabla de Multiplicar Completa
 
@@ -1830,7 +1830,7 @@ Opción: 4
 ## Uso Ético y Efectivo de la IA en Control de Flujo
 
 :::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
-Aprender control de flujo es aprender a **pensar algorítmicamente**. La IA puede ayudarte a refinar tu lógica, pero no puede desarrollar esta habilidad por vos. **Vos debés ser quien diseñe la solución.**
+Aprender {term}`control de flujo` es aprender a **pensar algorítmicamente**. La IA puede ayudarte a refinar tu lógica, pero no puede desarrollar esta habilidad por vos. **Vos debés ser quien diseñe la solución.**
 :::
 
 ### Buenas Prácticas para Control de Flujo
@@ -1839,7 +1839,7 @@ Aprender control de flujo es aprender a **pensar algorítmicamente**. La IA pued
 
 - *"Genera cinco ejercicios sobre condicionales `if-elif-else` que involucren validación de rangos de números"*
 - *"Crea ejercicios de loops `while` que requieran el uso de banderas de control"*
-- *"Dame problemas de práctica sobre loops `for` con `range()` de diferente complejidad"*
+- *"Dame problemas de práctica sobre loops `for` con {term}`range()`` de diferente complejidad"*
 
 #### Obtener Pistas sobre Lógica
 
@@ -1862,7 +1862,7 @@ Si tu condición no funciona correctamente:
 #### Explorar Alternativas
 
 - *"Resolví este problema con un `while`. ¿Podrías mostrarme cómo se vería con un `for`?"*
-- *"¿Cuál es la diferencia práctica entre usar un `for` con `range()` y un `while` con contador manual?"*
+- *"¿Cuál es la diferencia práctica entre usar un `for` con {term}`range()` y un `while` con contador manual?"*
 
 ### Ejemplos Específicos de este Módulo
 
@@ -1880,7 +1880,7 @@ if numero > 1 and numero < 100:
 ¿Está correcto o debería usar >= y <=?"
 ```
 
-**Situación 2**: Loop con acumulador
+**Situación 2**: Loop con {term}`acumulador`
 
 ❌ **Incorrecto**:
 ```
@@ -1903,7 +1903,7 @@ El diseño del algoritmo (decidir qué condiciones usar, cómo estructurar el lo
 
 ### Ejercicio de Reflexión
 
-Antes de pedir ayuda a la IA sobre un ejercicio de control de flujo, preguntate:
+Antes de pedir ayuda a la IA sobre un ejercicio de {term}`control de flujo`, preguntate:
 
 1. ¿Cuál es la condición que quiero verificar?
 2. ¿Qué debe pasar si es verdadera? ¿Y si es falsa?
@@ -1980,7 +1980,7 @@ Antes de avanzar al **Capítulo 3: Listas**, asegurate de poder hacer todo esto 
 :class: tip
 
 **Sintaxis básica:**
-- [ ] Escribir un `if` simple correctamente (con `:` y indentación)
+- [ ] Escribir un `if` simple correctamente (con `:` y {term}`indentación`)
 - [ ] Usar `if-else` para dos alternativas
 - [ ] Usar `if-elif-else` para múltiples opciones
 - [ ] Anidar condicionales cuando sea necesario
@@ -1996,7 +1996,7 @@ Antes de avanzar al **Capítulo 3: Listas**, asegurate de poder hacer todo esto 
 - [ ] Tomar decisiones basadas en múltiples condiciones
 ::::
 
-::::{admonition} Bucles while - Repetición con condición
+::::{admonition} Bucles {term}`while` - Repetición con condición
 :class: tip
 
 **Sintaxis y control:**
@@ -2006,8 +2006,8 @@ Antes de avanzar al **Capítulo 3: Listas**, asegurate de poder hacer todo esto 
 - [ ] Evitar loops infinitos
 
 **Patrones comunes:**
-- [ ] Implementar un contador (incrementar/decrementar)
-- [ ] Implementar un acumulador (sumar valores)
+- [ ] Implementar un {term}`contador` (incrementar/decrementar)
+- [ ] Implementar un {term}`acumulador` (sumar valores)
 - [ ] Validar entrada hasta que sea correcta
 - [ ] Crear un menú que se repita hasta "salir"
 
@@ -2016,10 +2016,10 @@ Antes de avanzar al **Capítulo 3: Listas**, asegurate de poder hacer todo esto 
 - [ ] Salir del bucle cuando se cumple una condición
 ::::
 
-::::{admonition} Bucles for - Iteración sobre secuencias
+::::{admonition} Bucles {term}`for` - Iteración sobre secuencias
 :class: tip
 
-**Con range():**
+**Con {term}`range()`:**
 - [ ] Usar `range(n)` para iterar de 0 a n-1
 - [ ] Usar `range(inicio, fin)` para rangos específicos
 - [ ] Usar `range(inicio, fin, paso)` con incrementos personalizados
@@ -2036,16 +2036,16 @@ Antes de avanzar al **Capítulo 3: Listas**, asegurate de poder hacer todo esto 
 - [ ] Contar elementos que cumplen una condición
 ::::
 
-::::{admonition} Control de bucles - break y continue
+::::{admonition} Control de bucles - {term}`break` y continue
 :class: tip
 
-**break:**
+**{term}`break`:**
 - [ ] Salir de un bucle antes de que termine naturalmente
 - [ ] Usar con banderas para búsquedas
 - [ ] Entender que solo sale del bucle más interno
 
-**continue:**
-- [ ] Saltar a la siguiente iteración
+**{term}`continue`:**
+- [ ] Saltar a la siguiente {term}`iteración`
 - [ ] Filtrar elementos sin procesar
 
 **Aplicación:**
@@ -2059,7 +2059,7 @@ Antes de avanzar al **Capítulo 3: Listas**, asegurate de poder hacer todo esto 
 
 **Estructura:**
 - [ ] Escribir un bucle dentro de otro correctamente
-- [ ] Entender que el interno se ejecuta completamente por cada iteración del externo
+- [ ] Entender que el interno se ejecuta completamente por cada {term}`iteración` del externo
 - [ ] Usar variables de control con nombres claros (`fila`, `columna`, etc.)
 
 **Aplicación:**
@@ -2107,8 +2107,8 @@ Si podés resolverlos, ¡estás listo para el Capítulo 3: Listas! 🚀
 | **if-elif-else**| 3+ opciones | Notas A/B/C/D | Solo ejecuta uno |
 | **while**| No sabés cuántas veces | Login, menú | Hasta que condición cambie |
 | **for**| Sabés la secuencia | Procesar lista | Una vez por elemento |
-| **break**| Salir ya | Encontraste algo | Sale del bucle |
-| **continue**| Saltar esta vez | Ignorar elemento | Pasa al siguiente |
+| **{term}`break`**| Salir ya | Encontraste algo | Sale del bucle |
+| **{term}`continue`**| Saltar esta vez | Ignorar elemento | Pasa al siguiente |
 
 ---
 
@@ -2153,10 +2153,10 @@ graph LR
 - 🔍 Acceder y modificar elementos
 - ➕ Agregar y eliminar elementos
 - 🔄 Iterar sobre listas con `for`
-- 🎯 Combinar listas con control de flujo para resolver problemas reales
+- 🎯 Combinar listas con {term}`control de flujo` para resolver problemas reales
 
 :::{tip} 💪 La Práctica Hace al Maestro
-El control de flujo **se domina practicando**. 
+El {term}`control de flujo` **se domina practicando**. 
 
 **Tu plan de acción:**
 1. ✍️ Hacé todos los ejercicios del capítulo
@@ -2248,5 +2248,5 @@ Cortocircuito
 : Optimización donde Python deja de evaluar una expresión con {term}`operadores lógicos <operador lógico>` cuando ya conoce el resultado. En `and`, si el primero es `False`, no evalúa el segundo. (Conocido en inglés como "Short-circuit")
 
 else en lazos
-: Cláusula opcional en {term}`lazos<lazo>` que se ejecuta solo si el bucle termina **normalmente** (sin **break**). Si se usa `break`, el `else` no se ejecuta.
+: Cláusula opcional en {term}`lazos<lazo>` que se ejecuta solo si el bucle termina **normalmente** (sin {term}`break`). Si se usa `break`, el `else` no se ejecuta.
 ```
