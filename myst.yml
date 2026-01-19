@@ -42,11 +42,20 @@ project:
     - file: D_estilo.md
     - file: E_jupyterlab.md
     - file: F_rubrica.md
-    - file: enunciados/programacion.md
-    - file: enunciados/debugging/ejercicios_debugging.md
+    - title: Ejercicios
+      children:
+      - file: enunciados/gimnasio.md
+      - file: enunciados/parsons_pseudo.md
+      - file: enunciados/escritorio_pseudo.md
+      - file: enunciados/programacion.md
+      - file: enunciados/parsons_python.md
+      - file: enunciados/debugging_python.md
+      - file: enunciados/escritorio_python.md
+    - title: JupyterLab iCOM UNRN
+      url: https://ingcom-unrn.github.io/jupyterlite/lab/index.html
+    - title: Campus Bimodal
+      url: https://campusbimodal.unrn.edu.ar/
             
-#            - file: en
-
     
 site:
   template: book-theme
