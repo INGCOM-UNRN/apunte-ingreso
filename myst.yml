@@ -42,11 +42,9 @@ project:
     - file: D_estilo.md
     - file: E_jupyterlab.md
     - file: F_rubrica.md
-    - title: Ejercicios
-          file: enunciados/readme.md
-          children:
-            - file: enunciados/programacion.md
-            - file: enunciados/debugging/ejercicios_debugging.md
+    - file: enunciados/programacion.md
+    - file: enunciados/debugging/ejercicios_debugging.md
+            
 #            - file: en
 
     
