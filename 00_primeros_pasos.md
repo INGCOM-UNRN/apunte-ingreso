@@ -111,7 +111,7 @@ Un algoritmo debe ser:
 
 1. **Preciso:** Cada paso debe ser super claro
    - ❌ "Mezclar"
-   - ✅ "Mezclar con batidora durante 2 minutos"
+   - ✅ "Mezclar con batidora eléctrica durante 2 minutos u 8 minutos con batidora manual"
 
 2. **Finito:** Debe terminar en algún momento
    - ❌ "Seguí cocinando"
