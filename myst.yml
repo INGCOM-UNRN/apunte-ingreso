@@ -24,12 +24,13 @@ project:
       email: mrvilugron@unrn.edu.ar
       youtube: profemrtin
       affiliations:
-        - Universidad Nacional de Rio Negro - Sede Andina
+        - id: unrn
+          institution: Universidad Nacional de Rio Negro - Sede Andina
+          ror: 048zgak80
   github: https://github.com/INGCOM-UNRN/apunte-ingreso
   toc:
     - file: README.md
     - file: 00_primeros_pasos.md
-
     - file: 1_fundamentos.md
     - file: 2_control_flujo.md
     - file: 3_estructuras.md
@@ -41,6 +42,13 @@ project:
     - file: D_estilo.md
     - file: E_jupyterlab.md
     - file: F_rubrica.md
+    - title: Ejercicios
+          file: enunciados/readme.md
+          children:
+            - file: enunciados/programacion.md
+            - file: enunciados/debugging/ejercicios_debugging.md
+#            - file: en
+
     
 site:
   template: book-theme
