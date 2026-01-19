@@ -4,13 +4,16 @@ Bienvenidos a este apunte creado para el Curso de Ingreso a la carrera de Ingeni
 
 ## Contenido del material (y curso)
 
-### [Capítulo 0: Método de Pólya](./0_como_pensar.md)
+### [Capítulo 0: Introducción a la Programación](./00_primeros_pasos.md)
 
-Guía sistemática para abordar problemas de programación basada en el método del matemático George Pólya. Presenta un marco de cuatro etapas (comprender, planificar, ejecutar y examinar) que estructura el pensamiento algorítmico y reduce errores conceptuales. Especialmente recomendado para quienes se inician en programación, ya que proporciona una metodología clara de resolución de problemas aplicable a cualquier desafío computacional.
+- Concepto de algoritmo (secuencia de pasos precisos)
+- Las 5 preguntas mágicas (método sistemático de análisis)
+- Diagramas de flujo (símbolos estándar, reglas de construcción)
+- Pseudocódigo (sintaxis estructurada con delimitadores explícitos)
+- Pruebas de escritorio (validación manual con casos de prueba)
+- Traducción a Python (del diseño a la implementación)
 
-Les recomendamos que lean este capítulo para ayudarlos a los problemas algorítmicos, pero las técnicas aplican también a matemática.
-
-### [Capítulo 1: Fundamentos de Programación](./1_fundamentos.md) 
+### [Capítulo 1: Fundamentos de Python](./1_fundamentos.md) 
 
 - Variables y nombres
 - Tipos de datos (`int`, `float`, `str`, `bool`) con conversiones
@@ -42,6 +45,17 @@ Les recomendamos que lean este capítulo para ayudarlos a los problemas algorít
 - Scope (local y global) con diagramas
 - Recursión (visualización del stack)
 - Documentación (docstrings completos)
+
+### [Capítulo 5: Método de Pólya](./0_como_pensar.md)
+
+Guía sistemática para abordar problemas de programación basada en el método del matemático George Pólya. Presenta un marco de cuatro etapas (comprender, planificar, ejecutar y examinar) que estructura el pensamiento algorítmico y reduce errores conceptuales. Especialmente recomendado para quienes se inician en programación, ya que proporciona una metodología clara de resolución de problemas aplicable a cualquier desafío computacional.
+
+Les recomendamos que lean este capítulo para ayudarlos a los problemas algorítmicos, pero las técnicas aplican también a matemática.
+
+## Ejercicios
+
+Siendo que la programación se aprende y desarrolla practicando, hemos creado un muy amplio repositorio de ejercicios, pueden acceder al [Gimnasio](./enunciados/gimnasio.md) para ver con que pueden desarrollar sus habilidades de programación.
+
 
 ## Material Adicional
 
