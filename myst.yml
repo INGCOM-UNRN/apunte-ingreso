@@ -61,5 +61,5 @@ site:
   template: book-theme
   options:
     logo: logo.png
-    # favicon: favicon.ico # Podés agregar un favicon aquí si lo tenés
+    favicon: favicon.ico
 
