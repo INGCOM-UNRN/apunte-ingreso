@@ -7,7 +7,7 @@ Bienvenido a nuestro centro de alto rendimiento. Hemos equipado este gimnasio co
 Como diría el gran [Serafo Dengra](https://www.youtube.com/watch?v=Tfm2lSbowNY):
 > **¡Musculá! ¡Never pony!** 🐴🚫
 
-## 📂 Estructura del Entrenamiento
+## Estructura del Entrenamiento
 
 Hemos dividido el gimnasio en zonas para trabajar distintos grupos musculares:
 
@@ -24,9 +24,9 @@ Ejercicios fundamentales para entrar en calor. Acá encontrarás retos de lógic
 Aquí están las mancuernas pesadas. En esta sección están los ejercicios con Python en un entorno de programación.
 La guía de uso de esta zona de entrenamiento está en [Manual de usuario JupyterLab](../E_jupyterlab.md)
 
-Estos ejercicios son similares a los de la parte de algoritmos y tambien estan pensados para ser resueltos en papel, o por lo menos, sin que el compilador nos ayude de entrada.
+Estos ejercicios son similares a los de la parte de algoritmos y también están pensados para ser resueltos en papel, o por lo menos, sin que el compilador nos ayude de entrada.
 
-1. [Enunciados Parsons (python)](./parsons_python.md)
+1. [Enunciados Parsons (Python)](./parsons_python.md)
 2. [Debugging Python](./debugging_python.md)
 3. [Pruebas de Escritorio](./escritorio_python.md)
 
@@ -36,10 +36,5 @@ Estos ejercicios están agrupados por el apunte que cubren de Python
 2. [Control de flujo](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=2_control_flujo.ipynb)
 3. [Estructuras de datos](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=3_estructuras.ipynb)
 4. [Funciones](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=4_funciones.ipynb)
-
-
-### 3. Zona aeróbica
-
-Por este lado, encontrarán código en Python para leer y analizar para detectar errores, de forma que puedan "entrenar la vista" y poder desarrollar de forma más eficiente.
 
 
