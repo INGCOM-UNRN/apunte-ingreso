@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
   <defs>
     <style>
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap');
       .titulo { font-family: 'Lato', sans-serif; font-size: 22px; font-weight: bold; fill: #1565c0; }
       .codigo { font-family: 'Google Sans Code', monospace; font-size: 14px; fill: #212121; }
       .comentario { font-family: 'Lato', sans-serif; font-size: 12px; fill: #666; }

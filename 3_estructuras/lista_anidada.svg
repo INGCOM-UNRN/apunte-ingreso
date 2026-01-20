@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
   <defs>
     <style>
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap');
       .title { font: bold 24px 'Segoe UI', Arial, sans-serif; fill: #2c3e50; }
       .subtitle { font: bold 18px 'Segoe UI', Arial, sans-serif; fill: #34495e; }
       .text { font: 14px 'Consolas', monospace; fill: #2c3e50; }

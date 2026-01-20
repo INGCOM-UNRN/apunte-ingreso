@@ -39,6 +39,7 @@
        id="rect7" />
     <style
        id="style1">
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap');
       .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
       .text { font-family: 'Lato', sans-serif; font-size: 14px; fill: #0d47a1; text-anchor: middle; }
       .title { font-family: 'Lato', sans-serif; font-size: 18px; font-weight: bold; fill: #0d47a1; text-anchor: middle; }

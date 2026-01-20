@@ -3,6 +3,7 @@
   <!-- Definiciones de estilos -->
   <defs>
     <style>
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap');
       .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 3; }
       .box-kernel { fill: #fff3e0; stroke: #f57c00; stroke-width: 3; }
       .box-user { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 3; }

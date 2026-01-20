@@ -3,6 +3,7 @@
   <!-- Definiciones de estilos -->
   <defs>
     <style>
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap');
       .area-menu { fill: #37474f; stroke: #263238; stroke-width: 2; }
       .area-sidebar { fill: #455a64; stroke: #263238; stroke-width: 2; }
       .area-trabajo { fill: #eceff1; stroke: #263238; stroke-width: 2; }
