@@ -4,8 +4,8 @@ project:
   id: 8d0e6d11-6a89-4a3e-84ef-75c014d3e33f
   title: Apunte de Ingreso - Ingeniería en Computación
   description: Material didáctico para el curso de ingreso a Ingeniería en Computación. Introducción a la programación con Python desde cero.
-#  jupyter:
-#    lite: true
+  jupyter:
+    lite: true
 #  thebe:
 #    binder:
 #      url: https://mybinder.org
@@ -42,6 +42,7 @@ project:
     - file: D_estilo.md
     - file: E_jupyterlab.md
     - file: F_rubrica.md
+    - file: Z_ia.md
     - title: Ejercicios
       children:
       - file: enunciados/gimnasio.md
