@@ -7,8 +7,8 @@ subtitle: Introducción a la programación, variables, tipos de datos y operador
 (fundamentos)=
 # Fundamentos de Programación en Python
 
-::::{admonition} Mapa del Capítulo
-:class: tip dropdown
+::::{tip} Mapa del Capítulo
+:class: dropdown
 
 Este capítulo es tu introducción al mundo de la programación. Vas a aprender los conceptos básicos que usarás **todos los días** como programador.
 
@@ -112,8 +112,7 @@ Desde 1972, **todos** los programadores del mundo empiezan con el mismo programa
 print("¡Hola Mundo!")
 ```
 
-:::{admonition} ¡Felicitaciones!
-:class: tip
+:::{tip} ¡Felicitaciones!
 
 Si ejecutaste ese código y viste `"¡Hola Mundo!"` en la pantalla, **ya sos un programador**. No importa si no entendés todo todavía: acabás de darle una instrucción a la computadora, que ejecutó, y eso, es programar.
 :::
@@ -184,8 +183,7 @@ Imaginate que tenés muchas cajas para guardar cosas. Cada caja tiene una **etiq
 
 ![Variables como cajas](./1_fundamentos/variable_caja.svg)
 
-::::{admonition} Analogía del mundo real
-:class: tip
+::::{tip} Analogía del mundo real
 
 Pensá en tu mochila escolar:
 - **Variable**: `peso_mochila`
@@ -403,7 +401,7 @@ En Python (y en casi todos los lenguajes de programación), los decimales se esc
 precio = 99.99
 
 # ✗ Incorrecto
-precio = 99,99  # ¡Esto crea algo diferente!
+precio = 99,99  # ¡Esto crea algo diferente! Es código Python válido
 ```
 :::
 
@@ -425,7 +423,7 @@ Los números de punto flotante pueden tener pequeños errores de redondeo:
 resultado = 0.1 + 0.2
 print(resultado)  # Salida: 0.30000000000000004
 ```
-Para comparaciones de flotantes, no uses `==`. Esto se verá más adelante en la carrera y está relacionado con el hecho de que los decimales son infinitos entre cualquier par de ellos mientras que la memoria de la computadora no lo es.
+Para comparaciones de números decimales, no uses `==`. Esto se verá más adelante en la carrera y está relacionado con el hecho de que los decimales son infinitos entre cualquier par de ellos mientras que la memoria de la computadora no lo es.
 :::
 
 ### Cadenas de Texto (`str`) 
@@ -679,7 +677,7 @@ print(f"7 * 6 = {7 * 6}")
 print(f"15 / 3 = {15 / 3}")
 print(f"17 // 5 = {17 // 5} (división entera)")
 print(f"17 % 5 = {17 % 5} (módulo/resto)")
-print(f"2 **3 = {2 ** 3} (potencia)")
+print(f"2 ** 3 = {2 ** 3} (potencia)")
 
 # Ejemplo práctico: cálculo de área
 base = 5
@@ -711,8 +709,9 @@ Python sigue el orden matemático estándar que aprendiste en la escuela (PEMDAS
 :::{important} La regla PEMDAS
 1. **P**aréntesis → Primero lo que está entre `( )`
 2. **E**xponenciación → Después las potencias `**`
-3. **M**ultiplicación / **D**ivisión → Luego `*`, `/`, `//`, `%` (de izquierda a derecha)
-4. **S**uma / Resta → Por último `+`, `-` (de izquierda a derecha)
+3. **M**ultiplicación → `*`
+4. **D**ivisión → Luego , `/`, `//`, `%` (de izquierda a derecha)
+4. **AS**dición / Resta → Por último `+`, `-` (de izquierda a derecha)
 :::
 
 ```{code-cell} ipython3
@@ -780,7 +779,7 @@ print(f"Área del círculo: {area}")
 ---
 
 (operadores-comparacion)=
-## Operadores de Comparación
+## Operadores Relacionales
 
 ### Comparando valores 
 
@@ -788,7 +787,7 @@ Los **operadores de comparación** comparan dos valores y te dicen si algo es ve
 
 Estos operadores **siempre** devuelven un valor booleano: `True` o `False`.
 
-![Operadores de Comparación](./1_fundamentos/operadores_comparacion.svg)
+![Operadores Relacionales](./1_fundamentos/operadores_comparacion.svg)
 
 :::{tip} Pensalo así
 Cada comparación es una **pregunta** que Python responde con verdadero o falso:
@@ -859,7 +858,7 @@ es_mayor = edad == 18  # True
 ```
 :::
 
-### Comparando Strings
+### Comparando Cadenas
 
 Los strings se comparan lexicográficamente (orden del diccionario):
 
@@ -1090,7 +1089,10 @@ edad = 20
 print("Nombre:", nombre, "Edad:", edad)
 ```
 
-**F-strings (formateo moderno):**
+#### Construyendo cadenas con F-strings:
+
+Los f-strings son la forma recomendada para la construcción de mensajes y cadenas de texto, es al mismo tiempo la más simple y poderosa. Tanto que amerita su propio apunte, disponible en la [Guía f-strings](./A_fstrings.md)
+
 
 ```{code-cell} ipython3
 nombre = "Carlos"
@@ -1138,12 +1140,12 @@ print(f"Mi nombre tiene {len(nombre)} letras")
 
 # Alineación y formato
 for i in range(1, 6):
-    cuadrado = i **2
+    cuadrado = i ** 2
     print(f"{i:2d} al cuadrado es {cuadrado:3d}")
 ```
 
-:::{tip} F-strings son preferibles
-Los f-strings (Python 3.6+) son la forma más legible y Pythonic de formatear strings. Preferílos sobre `%` o `.format()`.
+:::{tip} Usá f-strings antes que las alternativas
+Los f-strings, disponibles a partir de Python 3.6 son la forma más simple y legible de construir cadenas. Preferílos sobre concatenaciones, `%` o `.format()`.
 :::
 
 ### Entrada: `input()`
@@ -1158,7 +1160,7 @@ print(f"Hola, {nombre}!")
 
 **Conversión de tipos:**
 
-Como `input()` siempre retorna un string, debés convertir explícitamente a otros tipos:
+Como `input()` siempre retorna un string, debés convertir explícitamente a otros tipos, formalmente esta operación se llama {term}`cast`, y veremos algunos de sus detalles más adelante.
 
 ```{code-cell} ipython3
 # Leer un número entero
@@ -1228,7 +1230,7 @@ Vas a aprender sobre `if` en el próximo capítulo, pero ¡intentalo si te anim�
 
 ### Cambiando de un tipo a otro 
 
-A veces tenés información en un tipo, pero necesitás usarla como otro. Por ejemplo: el usuario ingresa su edad como texto (`"18"`), pero vos necesitás un número (`18`) para hacer cálculos. Ahí es donde entra la **conversión de tipos** (o *casting*).
+A veces tenés información en un tipo, pero necesitás usarla como otro. Por ejemplo: el usuario ingresa su edad como texto (`"18"`), pero vos necesitás un número (`18`) para hacer cálculos. Ahí es donde entra la **conversión de tipos** (o {term}`cast`).
 
 ![Conversión de Tipos](./1_fundamentos/conversion_tipos.svg)
 
@@ -1387,8 +1389,7 @@ print(f"bool([]): {bool([])}")
 (errores-comunes)=
 ## Errores Comunes
 
-:::{admonition} ¡No te asustes con los errores!
-:class: tip
+:::{tip} ¡No te asustes con los errores!
 
 Los errores son **normales** y **buenos** (sí, leíste bien). Son la forma que tiene Python de decirte: "Hey, acá hay algo que no entendí". 
 
@@ -1406,13 +1407,14 @@ print(total)  # NameError: name 'total' is not defined
 ```
 
 **¿Por qué falla?**
-Python no sabe qué es `total`. Es como si le preguntaras a alguien "¿cuánto vale X?" sin haberle dicho antes qué es X.
+Python no sabe qué es `total`. Es como si le preguntaras a alguien "¿cuánto vale X?", sin haberle dicho antes qué es X.
 
-```{danger}
+:::{danger}
 **Error que verás:**
 ```
 NameError: name 'total' is not defined
 ```
+:::
 ::::
 
 ::::{grid-item-card} ✅ Solución
@@ -1425,7 +1427,7 @@ print(total)  # Ahora sí podemos usarla
 Primero le decimos a Python "existe una variable llamada `total` y vale 0", **después** la usamos.
 
 :::{tip}
-**Regla de oro:**Siempre inicializá tus variables antes de usarlas.
+**Regla de oro:** Siempre inicializá tus variables antes de usarlas.
 :::
 ::::
 
@@ -1784,8 +1786,7 @@ print(f"Hola {nombre}")
 
 :::::
 
-:::{admonition} Checklist de lo aprendido:
-:class: tip
+:::{tip} Checklist de lo aprendido:
 
 Marcá lo que ya dominás:
 
