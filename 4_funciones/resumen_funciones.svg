@@ -4,7 +4,7 @@
       .title { font-family: Arial, sans-serif; font-size: 28px; font-weight: bold; fill: #2c3e50; }
       .section-title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #34495e; }
       .concept { font-family: Arial, sans-serif; font-size: 14px; fill: #2c3e50; }
-      .code { font-family: 'Courier New', monospace; font-size: 12px; fill: #27ae60; }
+      .code { font-family: 'Google Sans Code', monospace; font-size: 12px; fill: #27ae60; }
       .box { fill: #ecf0f1; stroke: #3498db; stroke-width: 2; rx: 8; }
       .box-definition { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2; rx: 8; }
       .box-params { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }

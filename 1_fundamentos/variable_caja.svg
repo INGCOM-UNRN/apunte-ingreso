@@ -2,11 +2,12 @@
   <!-- Definiciones de estilos -->
   <defs>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap');
       .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 3; }
-      .label { fill: #1976d2; font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; }
-      .value { fill: #d32f2f; font-family: 'Courier New', monospace; font-size: 24px; font-weight: bold; }
+      .label { fill: #1976d2; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: bold; }
+      .value { fill: #d32f2f; font-family: 'Google Sans Code', monospace; font-size: 24px; font-weight: bold; }
       .arrow { stroke: #424242; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
-      .text { fill: #424242; font-family: 'Arial', sans-serif; font-size: 16px; }
+      .text { fill: #424242; font-family: 'Lato', sans-serif; font-size: 16px; }
     </style>
     <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <polygon points="0 0, 10 3, 0 6" fill="#424242" />

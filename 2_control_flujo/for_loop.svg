@@ -7,8 +7,8 @@
       .iteracion { fill: #bbdefb; stroke: #1565c0; stroke-width: 2; }
       .flecha { stroke: #424242; stroke-width: 2; fill: none; marker-end: url(#arrowfor); }
       .flecha-loop { stroke: #7b1fa2; stroke-width: 3; fill: none; marker-end: url(#arrow-for-loop); stroke-dasharray: 5, 5; }
-      .texto { font-family: 'Arial', sans-serif; font-size: 14px; fill: #212121; text-anchor: middle; }
-      .titulo { font-family: 'Arial', sans-serif; font-size: 20px; font-weight: bold; fill: #1565c0; }
+      .texto { font-family: 'Lato', sans-serif; font-size: 14px; fill: #212121; text-anchor: middle; }
+      .titulo { font-family: 'Lato', sans-serif; font-size: 20px; font-weight: bold; fill: #1565c0; }
     </style>
     <marker id="arrowfor" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <polygon points="0 0, 10 3, 0 6" fill="#424242"/>
@@ -68,20 +68,20 @@
   <!-- Ejemplo de código -->
   <g transform="translate(30, 300)">
     <rect fill="#f5f5f5" stroke="#ccc" width="200" height="145" rx="3"/>
-    <text x="10" y="20" style="font-family: 'Courier New'; font-size: 11px; fill: #666;">
+    <text x="10" y="20" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #666;">
       frutas = ["manzana",
     </text>
-    <text x="10" y="36" style="font-family: 'Courier New'; font-size: 11px; fill: #666;">
+    <text x="10" y="36" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #666;">
                "banana",
     </text>
-    <text x="10" y="52" style="font-family: 'Courier New'; font-size: 11px; fill: #666;">
+    <text x="10" y="52" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #666;">
                "naranja"]
     </text>
     
-    <text x="10" y="75" style="font-family: 'Courier New'; font-size: 11px; fill: #7b1fa2; font-weight: bold;">
+    <text x="10" y="75" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #7b1fa2; font-weight: bold;">
       for fruta in frutas:
     </text>
-    <text x="20" y="93" style="font-family: 'Courier New'; font-size: 11px; fill: #1565c0;">
+    <text x="20" y="93" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #1565c0;">
       print(fruta)
     </text>
     
@@ -90,7 +90,7 @@
     <text x="10" y="122" style="font-family: Arial; font-size: 10px; fill: #666; font-style: italic;">
       Salida:
     </text>
-    <text x="10" y="137" style="font-family: 'Courier New'; font-size="9px; fill: #2e7d32;">
+    <text x="10" y="137" style="font-family: 'Google Sans Code'; font-size=9px; fill: #2e7d32;">
       manzana, banana, naranja
     </text>
   </g>
@@ -102,10 +102,10 @@
       Con range()
     </text>
     
-    <text x="10" y="42" style="font-family: 'Courier New'; font-size: 11px; fill: #7b1fa2; font-weight: bold;">
+    <text x="10" y="42" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #7b1fa2; font-weight: bold;">
       for i in range(5):
     </text>
-    <text x="20" y="60" style="font-family: 'Courier New'; font-size: 11px; fill: #1565c0;">
+    <text x="20" y="60" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #1565c0;">
       print(i)
     </text>
     
@@ -115,10 +115,10 @@
     
     <line x1="10" y1="95" x2="190" y2="95" stroke="#a5d6a7"/>
     
-    <text x="10" y="113" style="font-family: 'Courier New'; font-size: 11px; fill: #7b1fa2; font-weight: bold;">
+    <text x="10" y="113" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #7b1fa2; font-weight: bold;">
       for i in range(1, 6):
     </text>
-    <text x="20" y="131" style="font-family: 'Courier New'; font-size: 11px; fill: #1565c0;">
+    <text x="20" y="131" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #1565c0;">
       print(i)
     </text>
     

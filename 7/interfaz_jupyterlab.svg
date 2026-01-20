@@ -7,12 +7,12 @@
       .area-sidebar { fill: #455a64; stroke: #263238; stroke-width: 2; }
       .area-trabajo { fill: #eceff1; stroke: #263238; stroke-width: 2; }
       .area-status { fill: #546e7a; stroke: #263238; stroke-width: 2; }
-      .label-area { fill: white; font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; }
-      .label-num { fill: #ff6f00; font-family: 'Arial', sans-serif; font-size: 32px; font-weight: bold; }
-      .menu-item { fill: #cfd8dc; font-family: 'Arial', sans-serif; font-size: 12px; }
+      .label-area { fill: white; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: bold; }
+      .label-num { fill: #ff6f00; font-family: 'Lato', sans-serif; font-size: 32px; font-weight: bold; }
+      .menu-item { fill: #cfd8dc; font-family: 'Lato', sans-serif; font-size: 12px; }
       .folder-icon { fill: #ffa726; }
       .file-icon { fill: #42a5f5; }
-      .notebook-content { fill: #263238; font-family: 'Courier New', monospace; font-size: 11px; }
+      .notebook-content { fill: #263238; font-family: 'Google Sans Code', monospace; font-size: 11px; }
       .cell-code { fill: #fff3e0; stroke: #ff6f00; stroke-width: 1; }
       .cell-output { fill: #e8f5e9; stroke: #4caf50; stroke-width: 1; }
     </style>

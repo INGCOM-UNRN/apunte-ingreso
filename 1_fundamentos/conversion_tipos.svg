@@ -1,93 +1,369 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500">
-  <defs>
-    <style>
-      .titulo { font-family: 'Arial', sans-serif; font-size: 24px; font-weight: bold; fill: #1565c0; }
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 700 500"
+   version="1.1"
+   id="svg35"
+   sodipodi:docname="conversion_tipos.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview35"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.79714283"
+     inkscape:cx="293.5484"
+     inkscape:cy="430.91399"
+     inkscape:window-width="1872"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg35" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .titulo { font-family: 'Lato', sans-serif; font-size: 24px; font-weight: bold; fill: #1565c0; }
       .conversion-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
-      .funcion { font-family: 'Courier New', monospace; font-size: 20px; font-weight: bold; fill: #0d47a1; }
-      .descripcion { font-family: 'Arial', sans-serif; font-size: 14px; fill: #424242; }
-      .ejemplo-antes { font-family: 'Courier New', monospace; font-size: 13px; fill: #c62828; }
-      .ejemplo-despues { font-family: 'Courier New', monospace; font-size: 13px; fill: #2e7d32; font-weight: bold; }
+.funcion { 
+    font-weight:bold;
+    font-size:20px;
+    font-family:'Google Sans Code', monospace;
+    fill:#0d47a1;
+}
+.descripcion { 
+    font-size:14px;
+    font-family:'Lato', sans-serif;
+    fill:#424242;
+}
+.ejemplo-antes { 
+    font-size:13px;
+    font-family:'Google Sans Code', monospace;
+    fill:#c62828;
+}
+.ejemplo-despues { 
+    font-weight:bold;
+    font-size:13px;
+    font-family:'Google Sans Code', monospace;
+    fill:#2e7d32;
+}
       .flecha { stroke: #1976d2; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    @import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap');
     </style>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#1976d2"/>
+    <marker
+       id="arrow"
+       markerWidth="10"
+       markerHeight="10"
+       refX="9"
+       refY="3"
+       orient="auto">
+      <polygon
+         points="0 0, 10 3, 0 6"
+         fill="#1976d2"
+         id="polygon1" />
     </marker>
   </defs>
-  
-  <text x="350" y="35" text-anchor="middle" class="titulo">Conversión de Tipos (Casting)</text>
-  
+  <text
+     x="349.99255"
+     y="43.998066"
+     text-anchor="middle"
+     class="titulo"
+     id="text1"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.9192px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#1565c0;stroke-width:1.4133">Conversión de Tipos (Casting)</text>
   <!-- int() -->
-  <g transform="translate(50, 70)">
-    <rect class="conversion-box" width="280" height="150"/>
-    <text x="140" y="35" text-anchor="middle" class="funcion">int()</text>
-    <text x="140" y="60" text-anchor="middle" class="descripcion">Convierte a entero</text>
-    <line x1="20" y1="70" x2="260" y2="70" stroke="#1976d2" stroke-width="1"/>
-    
-    <text x="30" y="95" class="ejemplo-antes">int("42")</text>
-    <text x="140" y="95" text-anchor="middle" class="descripcion">→</text>
-    <text x="180" y="95" class="ejemplo-despues">42</text>
-    
-    <text x="30" y="120" class="ejemplo-antes">int(3.9)</text>
-    <text x="140" y="120" text-anchor="middle" class="descripcion">→</text>
-    <text x="180" y="120" class="ejemplo-despues">3</text>
-  </g>
-  
   <!-- float() -->
-  <g transform="translate(370, 70)">
-    <rect class="conversion-box" width="280" height="150"/>
-    <text x="140" y="35" text-anchor="middle" class="funcion">float()</text>
-    <text x="140" y="60" text-anchor="middle" class="descripcion">Convierte a flotante</text>
-    <line x1="20" y1="70" x2="260" y2="70" stroke="#1976d2" stroke-width="1"/>
-    
-    <text x="30" y="95" class="ejemplo-antes">float("3.14")</text>
-    <text x="140" y="95" text-anchor="middle" class="descripcion">→</text>
-    <text x="180" y="95" class="ejemplo-despues">3.14</text>
-    
-    <text x="30" y="120" class="ejemplo-antes">float(5)</text>
-    <text x="140" y="120" text-anchor="middle" class="descripcion">→</text>
-    <text x="180" y="120" class="ejemplo-despues">5.0</text>
-  </g>
-  
   <!-- str() -->
-  <g transform="translate(50, 250)">
-    <rect class="conversion-box" width="280" height="150"/>
-    <text x="140" y="35" text-anchor="middle" class="funcion">str()</text>
-    <text x="140" y="60" text-anchor="middle" class="descripcion">Convierte a cadena</text>
-    <line x1="20" y1="70" x2="260" y2="70" stroke="#1976d2" stroke-width="1"/>
-    
-    <text x="30" y="95" class="ejemplo-antes">str(42)</text>
-    <text x="140" y="95" text-anchor="middle" class="descripcion">→</text>
-    <text x="180" y="95" class="ejemplo-despues">"42"</text>
-    
-    <text x="30" y="120" class="ejemplo-antes">str(3.14)</text>
-    <text x="140" y="120" text-anchor="middle" class="descripcion">→</text>
-    <text x="180" y="120" class="ejemplo-despues">"3.14"</text>
-  </g>
-  
   <!-- bool() -->
-  <g transform="translate(370, 250)">
-    <rect class="conversion-box" width="280" height="150"/>
-    <text x="140" y="35" text-anchor="middle" class="funcion">bool()</text>
-    <text x="140" y="60" text-anchor="middle" class="descripcion">Convierte a booleano</text>
-    <line x1="20" y1="70" x2="260" y2="70" stroke="#1976d2" stroke-width="1"/>
-    
-    <text x="30" y="95" class="ejemplo-antes">bool(1)</text>
-    <text x="140" y="95" text-anchor="middle" class="descripcion">→</text>
-    <text x="180" y="95" class="ejemplo-despues">True</text>
-    
-    <text x="30" y="120" class="ejemplo-antes">bool(0)</text>
-    <text x="140" y="120" text-anchor="middle" class="descripcion">→</text>
-    <text x="180" y="120" class="ejemplo-despues">False</text>
+  <g
+     id="g9"
+     transform="translate(-10.000005)">
+    <g
+       id="g5"
+       transform="matrix(1.142156,0,0,1.142156,-28.010061,-22.500455)">
+      <rect
+         class="conversion-box"
+         width="266.53391"
+         height="142.78603"
+         id="rect1"
+         x="64.427948"
+         y="77.935371" />
+      <text
+         x="190"
+         y="105"
+         text-anchor="middle"
+         class="funcion"
+         id="text2">int()</text>
+      <text
+         x="190"
+         y="130"
+         text-anchor="middle"
+         class="descripcion"
+         id="text3">Convierte a entero</text>
+      <line
+         x1="70"
+         y1="140"
+         x2="310"
+         y2="140"
+         stroke="#1976d2"
+         stroke-width="1"
+         id="line3" />
+      <g
+         id="g4">
+        <text
+           x="80"
+           y="165"
+           class="ejemplo-antes"
+           id="text4">int(&quot;42&quot;)</text>
+        <text
+           x="190"
+           y="165"
+           text-anchor="middle"
+           class="descripcion"
+           id="text5">→</text>
+        <text
+           x="230"
+           y="165"
+           class="ejemplo-despues"
+           id="text6">42</text>
+        <text
+           x="80"
+           y="190"
+           class="ejemplo-antes"
+           id="text7">int(3.9)</text>
+        <text
+           x="190"
+           y="190"
+           text-anchor="middle"
+           class="descripcion"
+           id="text8">→</text>
+        <text
+           x="230"
+           y="190"
+           class="ejemplo-despues"
+           id="text9">3</text>
+      </g>
+    </g>
+    <g
+       id="g8"
+       transform="matrix(1.142156,0,0,1.142156,-51.499129,-22.500455)">
+      <rect
+         class="conversion-box"
+         width="266.53391"
+         height="142.78603"
+         id="rect9"
+         x="369.03815"
+         y="77.935371" />
+      <text
+         x="510"
+         y="105"
+         text-anchor="middle"
+         class="funcion"
+         id="text10">float()</text>
+      <text
+         x="510"
+         y="130"
+         text-anchor="middle"
+         class="descripcion"
+         id="text11">Convierte a flotante</text>
+      <line
+         x1="390"
+         y1="140"
+         x2="630"
+         y2="140"
+         stroke="#1976d2"
+         stroke-width="1"
+         id="line11" />
+      <text
+         x="400"
+         y="165"
+         class="ejemplo-antes"
+         id="text12">float(&quot;3.14&quot;)</text>
+      <text
+         x="510"
+         y="165"
+         text-anchor="middle"
+         class="descripcion"
+         id="text13">→</text>
+      <text
+         x="550"
+         y="165"
+         class="ejemplo-despues"
+         id="text14">3.14</text>
+      <text
+         x="400"
+         y="190"
+         class="ejemplo-antes"
+         id="text15">float(5)</text>
+      <text
+         x="510"
+         y="190"
+         text-anchor="middle"
+         class="descripcion"
+         id="text16">→</text>
+      <text
+         x="550"
+         y="190"
+         class="ejemplo-despues"
+         id="text17">5.0</text>
+    </g>
+    <g
+       id="g6"
+       transform="matrix(1.142156,0,0,1.142156,-28.010061,-35.117239)">
+      <rect
+         class="conversion-box"
+         width="266.53391"
+         height="142.78603"
+         id="rect17"
+         x="64.427948"
+         y="249.27861" />
+      <text
+         x="190"
+         y="285"
+         text-anchor="middle"
+         class="funcion"
+         id="text18">str()</text>
+      <text
+         x="190"
+         y="310"
+         text-anchor="middle"
+         class="descripcion"
+         id="text19">Convierte a cadena</text>
+      <line
+         x1="70"
+         y1="320"
+         x2="310"
+         y2="320"
+         stroke="#1976d2"
+         stroke-width="1"
+         id="line19" />
+      <text
+         x="80"
+         y="345"
+         class="ejemplo-antes"
+         id="text20">str(42)</text>
+      <text
+         x="190"
+         y="345"
+         text-anchor="middle"
+         class="descripcion"
+         id="text21">→</text>
+      <text
+         x="230"
+         y="345"
+         class="ejemplo-despues"
+         id="text22">&quot;42&quot;</text>
+      <text
+         x="80"
+         y="370"
+         class="ejemplo-antes"
+         id="text23">str(3.14)</text>
+      <text
+         x="190"
+         y="370"
+         text-anchor="middle"
+         class="descripcion"
+         id="text24">→</text>
+      <text
+         x="230"
+         y="370"
+         class="ejemplo-despues"
+         id="text25">&quot;3.14&quot;</text>
+    </g>
+    <g
+       id="g7"
+       transform="matrix(1.142156,0,0,1.142156,-51.499129,-35.117239)">
+      <rect
+         class="conversion-box"
+         width="266.53391"
+         height="142.78603"
+         id="rect25"
+         x="369.03815"
+         y="249.27861" />
+      <text
+         x="510"
+         y="285"
+         text-anchor="middle"
+         class="funcion"
+         id="text26">bool()</text>
+      <text
+         x="510"
+         y="310"
+         text-anchor="middle"
+         class="descripcion"
+         id="text27">Convierte a booleano</text>
+      <line
+         x1="390"
+         y1="320"
+         x2="630"
+         y2="320"
+         stroke="#1976d2"
+         stroke-width="1"
+         id="line27" />
+      <text
+         x="400"
+         y="345"
+         class="ejemplo-antes"
+         id="text28">bool(1)</text>
+      <text
+         x="510"
+         y="345"
+         text-anchor="middle"
+         class="descripcion"
+         id="text29">→</text>
+      <text
+         x="550"
+         y="345"
+         class="ejemplo-despues"
+         id="text30">True</text>
+      <text
+         x="400"
+         y="370"
+         class="ejemplo-antes"
+         id="text31">bool(0)</text>
+      <text
+         x="510"
+         y="370"
+         text-anchor="middle"
+         class="descripcion"
+         id="text32">→</text>
+      <text
+         x="550"
+         y="370"
+         class="ejemplo-despues"
+         id="text33">False</text>
+    </g>
   </g>
-  
   <!-- Nota importante -->
-  <g transform="translate(50, 430)">
-    <rect fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="5" width="600" height="50"/>
-    <text x="300" y="23" text-anchor="middle" style="font-family: Arial; font-size: 14px; fill: #e65100; font-weight: bold;">
-      ⚠️ Importante:
-    </text>
-    <text x="300" y="40" text-anchor="middle" style="font-family: Arial; font-size: 13px; fill: #424242;">
-      input() siempre retorna un string. Debés convertirlo si necesitás un número.
-    </text>
-  </g>
+  <rect
+     fill="#fff3e0"
+     stroke="#f57c00"
+     stroke-width="2"
+     rx="5"
+     width="600"
+     height="50"
+     id="rect33"
+     x="50"
+     y="430" />
+  <text
+     x="350.22571"
+     y="451.98148"
+     text-anchor="middle"
+     style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:19.6272px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#e65100;stroke-width:1.40194"
+     id="text34">Importante:</text>
+  <text
+     x="349.89099"
+     y="471.59857"
+     text-anchor="middle"
+     style="font-size:14.9495px;font-family:Arial;text-anchor:middle;fill:#000000;fill-opacity:1;stroke-width:1.14996"
+     id="text35"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.9495px;font-family:'Google Sans Code', monospace;-inkscape-font-specification:'Google Sans Code, monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:1.14996"
+   id="tspan1">input()</tspan> siempre retorna un string. Debés convertirlo si necesitás un número.</text>
 </svg>

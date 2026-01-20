@@ -6,8 +6,8 @@
       .proceso { fill: #bbdefb; stroke: #1565c0; stroke-width: 2; }
       .flecha { stroke: #424242; stroke-width: 2; fill: none; marker-end: url(#arrowwhile); }
       .flecha-loop { stroke: #d32f2f; stroke-width: 3; fill: none; marker-end: url(#arrow-loop); stroke-dasharray: 5, 5; }
-      .texto { font-family: 'Arial', sans-serif; font-size: 14px; fill: #212121; text-anchor: middle; }
-      .titulo { font-family: 'Arial', sans-serif; font-size: 20px; font-weight: bold; fill: #1565c0; }
+      .texto { font-family: 'Lato', sans-serif; font-size: 14px; fill: #212121; text-anchor: middle; }
+      .titulo { font-family: 'Lato', sans-serif; font-size: 20px; font-weight: bold; fill: #1565c0; }
     </style>
     <marker id="arrowwhile" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <polygon points="0 0, 10 3, 0 6" fill="#424242"/>
@@ -32,7 +32,7 @@
   <!-- Decisión -->
   <path class="flecha" d="M 325 175 L 325 210"/>
   <path class="decision" d="M 325 210 L 425 260 L 325 310 L 225 260 Z"/>
-  <text x="325" y="252" class="texto" font-weight="bold">contador < 5</text>
+  <text x="325" y="252" class="texto" font-weight="bold">contador &lt; 5</text>
   <text x="325" y="270" class="texto" font-size="12">¿?</text>
   
   <!-- Rama True (derecha) - Cuerpo del loop -->
@@ -63,16 +63,16 @@
   <!-- Ejemplo de código -->
   <g transform="translate(30, 200)">
     <rect fill="#f5f5f5" stroke="#ccc" width="180" height="120" rx="3"/>
-    <text x="10" y="20" style="font-family: 'Courier New'; font-size: 11px; fill: #666;">
+    <text x="10" y="20" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #666;">
       contador = 0
     </text>
-    <text x="10" y="40" style="font-family: 'Courier New'; font-size: 11px; fill: #d32f2f; font-weight: bold;">
-      while contador < 5:
+    <text x="10" y="40" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #d32f2f; font-weight: bold;">
+      while contador &lt; 5:
     </text>
-    <text x="20" y="60" style="font-family: 'Courier New'; font-size: 11px; fill: #1565c0;">
+    <text x="20" y="60" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #1565c0;">
       print(contador)
     </text>
-    <text x="20" y="78" style="font-family: 'Courier New'; font-size: 11px; fill: #1565c0;">
+    <text x="20" y="78" style="font-family: 'Google Sans Code'; font-size: 11px; fill: #1565c0;">
       contador += 1
     </text>
     
@@ -96,7 +96,7 @@
     <text x="10" y="70" style="font-family: Arial; font-size: 10px; fill: #424242;">
       termina (loop infinito).
     </text>
-    <text x="10" y="90" style="font-family: 'Courier New'; font-size: 9px; fill: #d32f2f;">
+    <text x="10" y="90" style="font-family: 'Google Sans Code'; font-size: 9px; fill: #d32f2f;">
       while True: # ¡Error!
     </text>
   </g>

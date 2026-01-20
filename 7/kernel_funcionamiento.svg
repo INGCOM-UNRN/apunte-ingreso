@@ -7,10 +7,10 @@
       .box-kernel { fill: #fff3e0; stroke: #f57c00; stroke-width: 3; }
       .box-user { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 3; }
       .box-result { fill: #e8f5e9; stroke: #388e3c; stroke-width: 3; }
-      .label { fill: #263238; font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold; }
-      .label-big { fill: #263238; font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; }
-      .text { fill: #424242; font-family: 'Arial', sans-serif; font-size: 13px; }
-      .code { fill: #263238; font-family: 'Courier New', monospace; font-size: 13px; }
+      .label { fill: #263238; font-family: 'Lato', sans-serif; font-size: 16px; font-weight: bold; }
+      .label-big { fill: #263238; font-family: 'Lato', sans-serif; font-size: 18px; font-weight: bold; }
+      .text { fill: #424242; font-family: 'Lato', sans-serif; font-size: 13px; }
+      .code { fill: #263238; font-family: 'Google Sans Code', monospace; font-size: 13px; }
       .arrow { stroke: #1976d2; stroke-width: 3; fill: none; marker-end: url(#arrowhead-blue); }
       .arrow-back { stroke: #388e3c; stroke-width: 3; fill: none; marker-end: url(#arrowhead-green); }
     </style>

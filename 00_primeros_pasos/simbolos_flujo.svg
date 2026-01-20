@@ -53,7 +53,7 @@
       .symbol-text { font-family: 'Chivo', sans-serif; font-size: 14px; fill: #1565c0; text-anchor: middle; }
       .title-text { font-family: 'Chivo', sans-serif; font-size: 16px; font-weight: bold; fill: #0d47a1; text-anchor: middle; }
       .label-text { font-family: 'Chivo', sans-serif; font-size: 12px; fill: #424242; text-anchor: middle; }
-      .example-text { font-family: 'Courier New', monospace; font-size: 11px; fill: #37474f; text-anchor: middle; }
+      .example-text { font-family: 'Google Sans Code', monospace; font-size: 11px; fill: #37474f; text-anchor: middle; }
     </style><defs
        id="defs18"><marker
          id="arrowhead"

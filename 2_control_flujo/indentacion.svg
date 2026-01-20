@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
   <defs>
     <style>
-      .titulo { font-family: 'Arial', sans-serif; font-size: 22px; font-weight: bold; fill: #1565c0; }
-      .codigo { font-family: 'Courier New', monospace; font-size: 14px; fill: #212121; }
-      .comentario { font-family: 'Arial', sans-serif; font-size: 12px; fill: #666; }
+      .titulo { font-family: 'Lato', sans-serif; font-size: 22px; font-weight: bold; fill: #1565c0; }
+      .codigo { font-family: 'Google Sans Code', monospace; font-size: 14px; fill: #212121; }
+      .comentario { font-family: 'Lato', sans-serif; font-size: 12px; fill: #666; }
       .correcto { fill: #c8e6c9; stroke: #2e7d32; }
       .incorrecto { fill: #ffcdd2; stroke: #c62828; }
       .espacios { fill: #bbdefb; opacity: 0.3; }
@@ -81,7 +81,7 @@
     <text x="15" y="50" class="codigo">if tiene_dinero:</text>
     
     <rect class="espacios" x="15" y="55" width="40" height="15"/>
-    <text x="55" y="67" class="codigo">if precio <= dinero:</text>
+    <text x="55" y="67" class="codigo">if precio &lt;= dinero:</text>
     
     <rect class="espacios" x="15" y="72" width="80" height="15"/>
     <text x="95" y="84" class="codigo">print("Comprar")</text>

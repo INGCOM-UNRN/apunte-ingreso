@@ -77,10 +77,10 @@
       .step2 { fill: #fff9c4; stroke: #f57c00; }
       .step3 { fill: #f3e5f5; stroke: #7b1fa2; }
       .step4 { fill: #c8e6c9; stroke: #2e7d32; }
-      .title-text { font-family: 'Arial', sans-serif; font-size: 20px; font-weight: bold; fill: #0d47a1; text-anchor: middle; }
-      .step-title { font-family: 'Arial', sans-serif; font-size: 15px; font-weight: bold; text-anchor: middle; }
-      .step-desc { font-family: 'Arial', sans-serif; font-size: 11px; text-anchor: middle; }
-      .number { font-family: 'Arial', sans-serif; font-size: 24px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .title-text { font-family: 'Lato', sans-serif; font-size: 20px; font-weight: bold; fill: #0d47a1; text-anchor: middle; }
+      .step-title { font-family: 'Lato', sans-serif; font-size: 15px; font-weight: bold; text-anchor: middle; }
+      .step-desc { font-family: 'Lato', sans-serif; font-size: 11px; text-anchor: middle; }
+      .number { font-family: 'Lato', sans-serif; font-size: 24px; font-weight: bold; fill: #fff; text-anchor: middle; }
     </style>
     <marker
        id="arrow-main"

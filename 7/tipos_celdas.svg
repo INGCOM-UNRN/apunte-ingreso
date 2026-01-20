@@ -6,11 +6,11 @@
       .cell-markdown { fill: #e3f2fd; stroke: #2196f3; stroke-width: 3; }
       .cell-code { fill: #fff3e0; stroke: #ff6f00; stroke-width: 3; }
       .cell-output { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2; }
-      .label { fill: #263238; font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold; }
-      .label-small { fill: #546e7a; font-family: 'Arial', sans-serif; font-size: 13px; }
-      .code-text { fill: #263238; font-family: 'Courier New', monospace; font-size: 14px; }
-      .markdown-text { fill: #1565c0; font-family: 'Arial', sans-serif; font-size: 14px; }
-      .output-text { fill: #2e7d32; font-family: 'Courier New', monospace; font-size: 13px; }
+      .label { fill: #263238; font-family: 'Lato', sans-serif; font-size: 16px; font-weight: bold; }
+      .label-small { fill: #546e7a; font-family: 'Lato', sans-serif; font-size: 13px; }
+      .code-text { fill: #263238; font-family: 'Google Sans Code', monospace; font-size: 14px; }
+      .markdown-text { fill: #1565c0; font-family: 'Lato', sans-serif; font-size: 14px; }
+      .output-text { fill: #2e7d32; font-family: 'Google Sans Code', monospace; font-size: 13px; }
       .arrow { stroke: #546e7a; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
       .icon { fill: #ff6f00; }
     </style>

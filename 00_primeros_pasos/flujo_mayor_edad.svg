@@ -83,10 +83,10 @@
       .decision { fill: #fff9c4; stroke: #f57c00; stroke-width: 2; }
       .output-si { fill: #c8e6c9; stroke: #2e7d32; stroke-width: 2; }
       .output-no { fill: #ffcdd2; stroke: #c62828; stroke-width: 2; }
-      .text { font-family: 'Arial', sans-serif; font-size: 14px; fill: #0d47a1; text-anchor: middle; }
-      .decision-text { font-family: 'Arial', sans-serif; font-size: 13px; fill: #e65100; text-anchor: middle; }
-      .title { font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; fill: #0d47a1; text-anchor: middle; }
-      .label { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: bold; }
+      .text { font-family: 'Lato', sans-serif; font-size: 14px; fill: #0d47a1; text-anchor: middle; }
+      .decision-text { font-family: 'Lato', sans-serif; font-size: 13px; fill: #e65100; text-anchor: middle; }
+      .title { font-family: 'Lato', sans-serif; font-size: 18px; font-weight: bold; fill: #0d47a1; text-anchor: middle; }
+      .label { font-family: 'Lato', sans-serif; font-size: 12px; font-weight: bold; }
     </style>
     <marker
        id="arrow"
@@ -184,7 +184,7 @@
       <text
          x="277.16992"
          y="272.29785"
-         font-family="'Courier New'"
+         font-family="'Google Sans Code'"
          font-size="17.4598px"
          fill="#333333"
          text-anchor="middle"
@@ -237,7 +237,7 @@
       <text
          x="646.89606"
          y="277.81699"
-         font-family="'Courier New'"
+         font-family="'Google Sans Code'"
          font-size="17.4598px"
          fill="#333333"
          text-anchor="middle"
