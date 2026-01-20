@@ -3,14 +3,8 @@ version: 1
 project:
   id: 8d0e6d11-6a89-4a3e-84ef-75c014d3e33f
   title: Apunte de Ingreso - Ingeniería en Computación
+  subtitle: Programación, python y matemática.
   description: Material didáctico para el curso de ingreso a Ingeniería en Computación. Introducción a la programación con Python desde cero.
-  jupyter:
-    lite: true
-#  thebe:
-#    binder:
-#      url: https://mybinder.org
-#      repo: jupyter/notebook
-#      ref: main
   keywords: 
     - python
     - programación
