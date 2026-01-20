@@ -198,6 +198,7 @@ peso_mochila = 5
 
 La diferencia es que en la computadora podés tener un montón de estas "cajas" ({term}`variables <Variable>`) al mismo tiempo, y Python te ayuda a organizarlas.
 
+(creacion-variables)=
 ### Crear una Variable
 
 En Python, crear una {term}`variable` es muy simple: elegís un nombre y le asignás un valor usando el {term}`operador de asignación <Asignación>` `=`:
@@ -1188,8 +1189,32 @@ edad = int(input("Edad: "))  # Si escribe "veinte" → ValueError
 ### Ejemplo Completo: Tu Primer Programa Interactivo 🎮
 
 Ahora que conocés entrada, salida y procesamiento, veamos cómo se juntan en un programa completo:
-
-![Flujo de un programa](./1_fundamentos/flujo_programa.svg)
+```{mermaid}
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#bbdefb','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','lineColor':'#424242','secondaryColor':'#fff9c4','tertiaryColor':'#c8e6c9','tertiaryBorderColor':'#2e7d32','secondaryBorderColor':'#f57f17'}}}%%
+flowchart TD
+    Start([INICIO])
+    Input1[/input: Nombre/]
+    Input2[/input: Edad/]
+    Process1[edad = int edad<br/>conversión a entero]
+    Process2[años_restantes =<br/>100 - edad]
+    Output[/print: resultado/]
+    End([FIN])
+    
+    Start --> Input1
+    Input1 --> Input2
+    Input2 --> Process1
+    Process1 --> Process2
+    Process2 --> Output
+    Output --> End
+    
+    style Start fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style End fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style Input1 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Input2 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Output fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Process1 fill:#bbdefb,stroke:#1565c0,stroke-width:2px
+    style Process2 fill:#bbdefb,stroke:#1565c0,stroke-width:2px
+```
 
 Todo programa sigue tres pasos simples:
 1. **Entrada**: Recibir información
@@ -1407,7 +1432,7 @@ print(total)  # NameError: name 'total' is not defined
 ```
 
 **¿Por qué falla?**
-Python no sabe qué es `total`. Es como si le preguntaras a alguien "¿cuánto vale X?", sin haberle dicho antes qué es X.
+Python no sabe qué es `total`. Es como si le preguntaras a alguien "¿cuánto vale X?", sin haberle dicho antes qué es X. ({ref}`creacion-variables`)
 
 :::{danger}
 **Error que verás:**
@@ -1443,11 +1468,10 @@ if edad = 18:  # SyntaxError
     print("Mayor de edad")
 ```
 
-**¿Por qué falla?**
+**¿Por qué falla?** ¡Nos falt ó uno!
 `=` es para **asignar** (guardar un valor)  
 `==` es para **comparar** (verificar si son iguales)
 
-Los confundiste al revés.
 ::::
 
 ::::{grid-item-card} ✅ Solución
@@ -1463,19 +1487,6 @@ if edad == 18:  # Comparación ✓
 
 :::::
 
-```{mermaid}
-graph TD
-    A[¿Qué querés hacer?] --> B{Guardar un valor}
-    A --> C{Comparar valores}
-    B --> D[Usá =<br/>edad = 18]
-    C --> E[Usá ==<br/>if edad == 18]
-    
-    style B fill:#fff3e0
-    style C fill:#e3f2fd
-    style D fill:#ffe0b2
-    style E fill:#bbdefb
-```
-
 ### 3. Olvidar convertir `input()` a número 
 
 :::::{grid} 1 1 2 2
@@ -1487,7 +1498,7 @@ numero = input("Ingrese un número: ")
 # numero = "5"  (¡es texto!)
 
 resultado = numero * 2
-print(resultado)  # Muestra: 55 😱
+print(resultado)  # Muestra: 55 (WTF)
 ```
 
 **¿Por qué pasa esto?**
@@ -1496,6 +1507,7 @@ print(resultado)  # Muestra: 55 😱
 ::::
 
 ::::{grid-item-card} ✅ Solución
+Hacer la {ref}`conversion-tipos`
 ```python
 numero = input("Ingrese un número: ")
 numero = int(numero)  # Convertir a int
@@ -1505,19 +1517,13 @@ resultado = numero * 2
 print(resultado)  # Muestra: 10 ✓
 ```
 
-**O en una sola línea:**
+**O todo junto:**
 ```python
 numero = int(input("Ingrese un número: "))
 ```
 ::::
 
 :::::
-
-:::{danger} 🚨 Cuidado
-Este es **EL ERROR MÁS COMÚN** de los principiantes. 
-
-**Recordá:**`input()` devuelve **string**, SIEMPRE. Si necesitás hacer matemática, convertí con `int()` o `float()`.
-:::
 
 ### 4. División por cero
 
@@ -1535,25 +1541,27 @@ else:
 ```
 
 ### 5. Errores de indentación
+Un editor de texto se encarga de resolverlo, peeero...
 
 ```{code-cell} ipython3
 # ❌ Incorrecto (mezcla de espacios y tabs, o indentación inconsistente)
-# Python es muy estricto con la indentación
+# Python es muy estricto con la indentación, nos dará un IndentationError
 
 # ✓ Correcto: siempre 4 espacios por nivel
 def saludar():
     nombre = "Ana"
     print(f"Hola {nombre}")
 ```
+Siempre se puede escapar algún espacio.
 
 ---
 
 (buenas-practicas)=
 ## Buenas Prácticas
 
-:::{important} Principios fundamentales
-Estas buenas prácticas están basadas en las reglas de estilo documentadas en el capítulo {ref}`0x0000h`.
-:::
+Las buenas prácticas son años de experiencia condensados y listos para ayudarlos a programar mejor, resumidos en una frase y aunque no les tomaremos explícitamente en el examen que es cada una de las reglas, seguirlas les ayudará mucho a programar.
+
+Son tan importantes que tienen su propia guía y explicaciones, en [Cuestiones de estilo](./D_estilo.md), acá están las más importantes (y relevantes a lo que estamos viendo acá)
 
 ### 1. Nombres Descriptivos
 
@@ -1569,9 +1577,13 @@ edad = 25
 altura_metros = 1.75
 ```
 
+El código debe ser evidente a simple vista con respecto a lo que tiene que hacer. Históricamente, los nombres de las variables no podían tener más de ocho caracteres, y uno tenía que ser muy creativo.
+
+Pero ojo, sin tirar todo por la borda, que la variable `variable_que_usamos_para_la_altura_en_metros` es igual de mal que usar `x`.
+
 ### 2. Inicializar Variables
 
-Según {ref}`0x0003h`, inicializá siempre las variables:
+Según {ref}`0x0003h`, inicializá siempre las variables.
 
 ```{code-cell} ipython3
 # ✓ Correcto
@@ -1579,6 +1591,8 @@ contador = 0
 suma_total = 0
 lista_nombres = []
 ```
+
+Esto en parte porque las variables se crean al ser inicializada y porque en algunos casos, nos podemos encontrar con que las mismas contienen algo que no esperamos.
 
 ### 3. Espaciado en Operadores
 
@@ -1592,6 +1606,8 @@ resultado=base*altura+10
 resultado = base * altura + 10
 ```
 
+Esto es simplemente para hacer de la lectura del código más fácil, en especial cuando el profe tiene que revisar cientos de entregas una atrás de otra :-D.
+
 ### 4. Comentarios Útiles
 
 Los comentarios deben explicar **por qué**, no **qué**:
@@ -1601,10 +1617,16 @@ Los comentarios deben explicar **por qué**, no **qué**:
 edad = 18  # Asigna 18 a edad
 
 # ✓ Comentario útil
-edad = 18  # Edad mínima para votar en Argentina
+edad = 16  # Edad mínima para votar en Argentina
 ```
 
-### 5. Usar Constantes para Valores Fijos
+Esto para que no gasten energía en cosas como, "de qué color es el caballo blanco de San Martín". Sin embargo. Para evitar situaciones del tipo
+
+### 5. Usar variables para valores fijos
+
+Estos valores, que no cambian, en el medio de una operación compleja, se transforman en "números mágicos" y hacen que uno no termine de entender para que estaban ahí en primer lugar.
+
+La convención para estos números, es que estén en `MAYUSCULAS` para distinguirlos de las variables.
 
 ```{code-cell} ipython3
 # ✓ Constantes en MAYÚSCULAS
@@ -1618,104 +1640,9 @@ precio_con_iva = precio_sin_iva * (1 + TASA_IVA)
 
 ---
 
-(uso-ia-fundamentos)=
-## Uso Ético y Efectivo de la IA en Fundamentos
+## Ejercicios
 
-:::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
-El objetivo de este curso es que **vos** aprendas a programar. La IA puede ser una herramienta poderosa para complementar tu aprendizaje, pero nunca debe reemplazar tu esfuerzo intelectual. **Vos sos, y debés ser siempre, el protagonista de tu aprendizaje.**
-:::
-
-### Buenas prácticas para esta parte del curso de ingreso
-
-En el contexto de variables, tipos de datos y operaciones básicas, podés usar la IA de estas formas productivas:
-
-#### Generar Ejercicios Adicionales
-
-Si comprendiste cómo funcionan las variables y querés practicar más:
-
-- *"Genera cinco ejercicios sobre conversión de tipos en Python que involucren `int()`, `float()` y `str()`"*
-- *"Crea ejercicios de práctica sobre operadores aritméticos con números enteros y flotantes"*
-- *"Dame ejemplos de uso de `input()` con validación básica"*
-
-#### Obtener Pistas (No Soluciones)
-
-Si estás atascado en un ejercicio:
-
-- *"Estoy trabajando en un ejercicio de promedio de tres números. Ya tengo las tres variables con los valores, ¿cuál sería el siguiente paso lógico?"*
-- *"No entiendo por qué mi variable edad da error al sumarle 1. La inicialicé con `input()`. ¿Qué podría estar faltando?"*
-- *"¿Cómo puedo formatear la salida de `print()` para que muestre solo 2 decimales?"*
-
-#### Refactorizar y Mejorar tu Código
-
-Una vez que hayas resuelto un ejercicio:
-
-- *"Escribí este código para calcular el área de un rectángulo. ¿Sigue las buenas prácticas de PEP 8?"*
-- *"¿Los nombres de mis variables son suficientemente descriptivos?"*
-- *"¿Hay alguna forma más 'Pythonica' de intercambiar dos variables?"*
-
-#### Aclarar Conceptos
-
-Si un tema te resulta confuso:
-
-- *"Explicame la diferencia entre `int` y `float` con ejemplos cotidianos"*
-- *"¿Por qué necesito convertir el resultado de `input()` a `int` antes de hacer operaciones matemáticas?"*
-- *"Dame un resumen de los operadores de comparación en Python con ejemplos"*
-
-#### Debugging de Errores
-
-Si encuentras un mensaje de error que no entendés:
-
-- *"Tengo este error: `TypeError: can only concatenate str (not 'int') to str`. ¿Qué significa?"*
-- *"Mi programa dice `NameError: name 'resultado' is not defined`. ¿Qué debo hacer?"*
-
-### Malas Prácticas que Debes Evitar
-
-:::{danger} No muy sabio, copiar soluciones directamente
-**Nunca hagas esto:**
-- Copiar el enunciado del ejercicio y pedir: *"Dame el código completo para esto"*
-- Pedir que la IA escriba el programa por vos
-- Usar código que no entendés "para salir del paso"
-
-**Consecuencias:**
-- No desarrollarás las habilidades de resolución de problemas
-- Te encontrarás perdido en módulos siguientes
-- No aprenderás a pensar algorítmicamente
-- Estarás haciendo trampa contigo mismo
-
-**El objetivo no es "entregar el ejercicio", sino "aprender a resolverlo".**
-:::
-
-### Ejemplo de Uso Correcto de IA en este Módulo
-
-**Situación**: Estás trabajando en el Ejercicio 1.5 (calculadora de IMC) y no entendés cómo calcular la potencia.
-
-**Uso Incorrecto**:
-```
-Prompt: "Dame el código completo del ejercicio 1.5 de IMC"
-```
-
-**Uso Correcto**:
-```
-Prompt: "Estoy calculando el IMC. Tengo el peso y la altura, 
-pero no recuerdo cómo elevar la altura al cuadrado en Python. 
-¿Cuál es el operador?"
-```
-
-**Respuesta apropiada de la IA**: "Para elevar al cuadrado en Python, usás el operador `**`. Por ejemplo: `altura ** 2`"
-
-Ahora **vos** entendés el operador y podés completar tu solución.
-
-:::{tip} Progresión en el uso de IA
-A medida que avances en el curso, tu forma de interactuar con la IA debería evolucionar:
-
-- **Módulo 1-2**: Preguntas sobre sintaxis básica y clarificación de errores
-- **Módulo 3-4**: Refactorización de código y mejora de estilo
-- **Módulo 5-6**: Exploración de alternativas de diseño y patrones
-
-La IA es más útil cuando **ya sabés lo que estás haciendo** y querés pulir o explorar.
-:::
-
----
+Ya estás listo para encarar los ejercicios del cuaderno [Fundamentos](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=1_fundamentos.ipynb) y empezar a visitar el [Gimnasio](./enunciados/gimnasio.md) y empezar a muscular.
 
 ## Resumen Visual 
 
