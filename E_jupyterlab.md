@@ -23,7 +23,7 @@ En este curso, vas a usar una versión especial de JupyterLab llamada **JupyterL
 
 :::{warning} Acceso a los archivos
 
-Por como está armado este entorno de programación, nosotros no tenemos acceso de ningún tipo a los cambios que hagan en los cuadernos, por lo que es necesario que si quieren compartirlos o guardalos, lo hagan por fuera de la herramienta. Esto también significa que ustedes deben de descargar los cuadernos y hacerles backup, ya que, esta información está en su computadora.
+Por como está armado este entorno de programación, nosotros no tenemos acceso de ningún tipo a los cambios que hagan en los cuadernos, por lo que es necesario que, si quieren compartirlos o guardarlos, lo hagan por fuera de la herramienta. Esto también significa que ustedes deben descargar los cuadernos y hacerles backup, ya que esta información está en su computadora.
 
 :::
 
