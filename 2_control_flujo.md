@@ -1096,11 +1096,6 @@ Este patrón es **muy común** en programación:
 
 ---
 
-## Manipulación de lazos
-
-TODO: explicar detalladamente que es `break` y `continue` de forma que vaya al tema siguiente de banderas de control. y tambien, mejorar la parte de lazos anidados (con referencias cruzadas desde aquí) para el comportamiento de estas instrucciones en esa situacion.
-
-
 (banderas-control)=
 ## Banderas de Control
 
@@ -1462,10 +1457,180 @@ print(f"La suma es: {suma}")
 
 ---
 
+(manipulacion-lazos)=
+## Manipulación de lazos
+
+Python proporciona dos instrucciones para alterar el flujo de ejecución dentro de los lazos: `break` y `continue`. Aunque son útiles, según la {ref}`0x0006h`, debemos preferir las {ref}`banderas de control <banderas-control>` para mantener la claridad del código.
+
+### La instrucción `break`
+
+La instrucción `break` **termina inmediatamente** el lazo en el que se encuentra, saltando a la primera instrucción después del lazo.
+
+```{code-cell} ipython3
+"""Búsqueda usando break."""
+
+numeros = [10, 25, 30, 45, 50]
+objetivo = 30
+
+for i in range(len(numeros)):
+    if numeros[i] == objetivo:
+        print(f"Encontrado en posición {i}")
+        break  # Termina el lazo
+    print(f"Revisando posición {i}: {numeros[i]}")
+else:
+    # Este bloque se ejecuta solo si NO se usó break
+    print("No se encontró el número")
+
+# Salida:
+# Revisando posición 0: 10
+# Revisando posición 1: 25
+# Encontrado en posición 2
+```
+
+:::{note}
+El `else` de un lazo `for` o `while` se ejecuta solo si el lazo **termina normalmente**, es decir, sin usar `break`.
+:::
+
+### La instrucción `continue`
+
+La instrucción `continue` **salta el resto de la iteración actual** y continúa con la siguiente iteración del lazo.
+
+```{code-cell} ipython3
+"""Procesar solo números impares usando continue."""
+
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for numero in numeros:
+    if numero % 2 == 0:
+        continue  # Salta números pares
+    
+    # Solo procesa números impares
+    cuadrado = numero * numero
+    print(f"{numero}² = {cuadrado}")
+
+# Salida:
+# 1² = 1
+# 3² = 9
+# 5² = 25
+# 7² = 49
+# 9² = 81
+```
+
+### Comparación: `break` vs `continue`
+
+```{code-cell} ipython3
+"""Demostración de break vs continue."""
+
+print("Ejemplo con break:")
+for i in range(5):
+    if i == 3:
+        break  # Termina el lazo completamente
+    print(f"Valor: {i}")
+
+print("\nEjemplo con continue:")
+for i in range(5):
+    if i == 3:
+        continue  # Salta solo esta iteración
+    print(f"Valor: {i}")
+
+# Salida con break:
+# Valor: 0
+# Valor: 1
+# Valor: 2
+
+# Salida con continue:
+# Valor: 0
+# Valor: 1
+# Valor: 2
+# Valor: 4
+```
+
+### `break` y `continue` en lazos anidados
+
+:::{important}
+Tanto `break` como `continue` **solo afectan al lazo más interno** donde se encuentran. Para controlar lazos externos, necesitamos usar {ref}`banderas de control <banderas-control>`.
+:::
+
+```{code-cell} ipython3
+"""break solo termina el lazo interno."""
+
+for i in range(3):
+    print(f"Lazo externo: i = {i}")
+    for j in range(3):
+        if j == 1:
+            break  # Solo termina el lazo interno
+        print(f"  Lazo interno: j = {j}")
+
+# Salida:
+# Lazo externo: i = 0
+#   Lazo interno: j = 0
+# Lazo externo: i = 1
+#   Lazo interno: j = 0
+# Lazo externo: i = 2
+#   Lazo interno: j = 0
+```
+
+Para terminar ambos lazos, necesitamos una {term}`bandera`:
+
+```{code-cell} ipython3
+"""Terminar lazos anidados con bandera."""
+
+terminar = False
+
+for i in range(3):
+    print(f"Lazo externo: i = {i}")
+    for j in range(3):
+        if i == 1 and j == 1:
+            terminar = True
+            break  # Termina lazo interno
+        print(f"  Lazo interno: j = {j}")
+    
+    if terminar:
+        break  # Termina lazo externo
+
+print("Terminado")
+
+# Salida:
+# Lazo externo: i = 0
+#   Lazo interno: j = 0
+#   Lazo interno: j = 1
+#   Lazo interno: j = 2
+# Lazo externo: i = 1
+#   Lazo interno: j = 0
+# Terminado
+```
+
+Más ejemplos sobre {ref}`lazos anidados <lazos-anidados>` y su comportamiento con estas instrucciones.
+
+### ¿Cuándo usar `break` y `continue`?
+
+:::{tip} Preferencia por claridad
+Según la {ref}`0x0006h`, es preferible usar {ref}`banderas de control <banderas-control>` en lugar de `break` y `continue` cuando el flujo es complejo, porque hace el código más fácil de entender y mantener.
+:::
+
+**Casos apropiados para `break`:**
+- Búsquedas simples donde querés terminar al encontrar algo
+- Validación de entrada donde querés salir tras validar
+
+**Casos apropiados para `continue`:**
+- Filtrar elementos sin anidar condiciones
+- Saltar casos especiales al inicio de la iteración
+
+**Preferir banderas cuando:**
+- El lazo tiene múltiples condiciones de salida
+- Necesitás controlar lazos anidados
+- La lógica es compleja y requiere claridad
+
+
+
 (lazos-anidados)=
 ## Lazos Anidados
 
 Podés colocar lazos dentro de otros lazos. Cada {term}`iteración` del lazo externo ejecuta completamente el lazo interno.
+
+:::{note}
+Cuando usás `break` o `continue` en lazos anidados, estas instrucciones **solo afectan al lazo más interno**. Para controlar ambos lazos, necesitás usar banderas. Ver más detalles en la sección {ref}`Manipulación de lazos <manipulacion-lazos>`.
+:::
 
 ### Ejemplo: Tabla de Multiplicar Completa
 
