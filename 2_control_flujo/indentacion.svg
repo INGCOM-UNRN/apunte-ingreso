@@ -1,107 +1,720 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
-  <defs>
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap');
-      .titulo { font-family: 'Lato', sans-serif; font-size: 22px; font-weight: bold; fill: #1565c0; }
-      .codigo { font-family: 'Google Sans Code', monospace; font-size: 14px; fill: #212121; }
-      .comentario { font-family: 'Lato', sans-serif; font-size: 12px; fill: #666; }
-      .correcto { fill: #c8e6c9; stroke: #2e7d32; }
-      .incorrecto { fill: #ffcdd2; stroke: #c62828; }
-      .espacios { fill: #bbdefb; opacity: 0.3; }
-      .flecha { stroke: #1565c0; stroke-width: 2; fill: none; marker-end: url(#arrow-indent); }
-    </style>
-    <marker id="arrow-indent" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#1565c0"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 600 460"
+   version="1.1"
+   id="svg26"
+   sodipodi:docname="indentacion.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   width="600"
+   height="460"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview26"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="266.57926"
+     inkscape:cy="183.49421"
+     inkscape:window-width="1872"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg26" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">1,900&amp;display=swap');1,700;1,400;1,300;1,100;0,900;0,700;0,400;0,300;1,300..800&amp;family=Lato:ital,wght@0,100;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;.titulo { font-family: 'Lato', sans-serif; font-size: 22px; font-weight: bold; fill: #1565c0; }
+.codigo { font-family: 'Google Sans Code', monospace; font-size: 14px; fill: #212121; }
+.comentario { font-family: 'Lato', sans-serif; font-size: 12px; fill: #666; }
+.correcto { fill: #c8e6c9; stroke: #2e7d32; }
+.incorrecto { fill: #ffcdd2; stroke: #c62828; }
+.espacios { fill: #bbdefb; opacity: 0.3; }
+.flecha { stroke: #1565c0; stroke-width: 2; fill: none; marker-end: url(#arrow-indent); }
+</style>
+    <marker
+       id="arrow-indent"
+       markerWidth="10"
+       markerHeight="10"
+       refX="9"
+       refY="3"
+       orient="auto">
+      <polygon
+         points="0,0 10,3 0,6 "
+         fill="#1565c0"
+         id="polygon1" />
     </marker>
   </defs>
-  
-  <text x="300" y="30" text-anchor="middle" class="titulo">Indentación en Python</text>
-  <text x="300" y="50" text-anchor="middle" class="comentario">
-    Python usa espacios para definir bloques de código
-  </text>
-  
+  <text
+     x="299.89435"
+     y="35.840565"
+     text-anchor="middle"
+     class="titulo"
+     id="text1"
+     style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:26.4112px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:2.20093">Indentación en Python</text>
+  <text
+     x="299.96555"
+     y="58.502605"
+     text-anchor="middle"
+     class="comentario"
+     id="text2"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.7807px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:1.14839">Como Python usa espacios para definir bloques de código</text>
   <!-- Ejemplo Correcto -->
-  <g transform="translate(50, 80)">
-    <rect class="correcto" width="240" height="140" rx="5" stroke-width="2"/>
-    <text x="120" y="25" text-anchor="middle" style="font-family: Arial; font-size: 14px; fill: #1b5e20; font-weight: bold;">
-      ✓ CORRECTO
-    </text>
-    
-    <text x="15" y="55" class="codigo">if edad >= 18:</text>
-    
-    <!-- Espacios visualizados -->
-    <rect class="espacios" x="15" y="65" width="10" height="15"/>
-    <rect class="espacios" x="25" y="65" width="10" height="15"/>
-    <rect class="espacios" x="35" y="65" width="10" height="15"/>
-    <rect class="espacios" x="45" y="65" width="10" height="15"/>
-    <text x="55" y="77" class="codigo">print("Mayor")</text>
-    
-    <rect class="espacios" x="15" y="90" width="10" height="15"/>
-    <rect class="espacios" x="25" y="90" width="10" height="15"/>
-    <rect class="espacios" x="35" y="90" width="10" height="15"/>
-    <rect class="espacios" x="45" y="90" width="10" height="15"/>
-    <text x="55" y="102" class="codigo">print("Votar")</text>
-    
-    <text x="15" y="127" class="codigo">print("Fin")</text>
-    
-    <!-- Flecha indicando espacios -->
-    <path class="flecha" d="M 30 115 L 30 135"/>
-    <text x="120" y="153" text-anchor="middle" class="comentario" fill="#2e7d32">
-      4 espacios = 1 nivel de indentación
-    </text>
-  </g>
-  
   <!-- Ejemplo Incorrecto -->
-  <g transform="translate(310, 80)">
-    <rect class="incorrecto" width="240" height="140" rx="5" stroke-width="2"/>
-    <text x="120" y="25" text-anchor="middle" style="font-family: Arial; font-size: 14px; fill: #b71c1c; font-weight: bold;">
-      ✗ INCORRECTO
-    </text>
-    
-    <text x="15" y="55" class="codigo">if edad >= 18:</text>
-    <text x="15" y="77" class="codigo">print("Mayor")</text>
-    <text x="15" y="102" class="codigo">print("Votar")</text>
-    <text x="15" y="127" class="codigo">print("Fin")</text>
-    
-    <!-- Cruz indicando error -->
-    <line x1="200" y1="70" x2="220" y2="90" stroke="#c62828" stroke-width="3"/>
-    <line x1="220" y1="70" x2="200" y2="90" stroke="#c62828" stroke-width="3"/>
-    
-    <text x="120" y="153" text-anchor="middle" class="comentario" fill="#c62828">
-      ¡Error! Falta indentación
-    </text>
-  </g>
-  
   <!-- Ejemplo Anidado -->
-  <g transform="translate(50, 260)">
-    <rect fill="#f5f5f5" stroke="#1565c0" width="500" height="110" rx="5" stroke-width="2"/>
-    <text x="250" y="25" text-anchor="middle" style="font-family: Arial; font-size: 14px; fill: #1565c0; font-weight: bold;">
-      Bloques Anidados (varios niveles)
-    </text>
-    
-    <text x="15" y="50" class="codigo">if tiene_dinero:</text>
-    
-    <rect class="espacios" x="15" y="55" width="40" height="15"/>
-    <text x="55" y="67" class="codigo">if precio &lt;= dinero:</text>
-    
-    <rect class="espacios" x="15" y="72" width="80" height="15"/>
-    <text x="95" y="84" class="codigo">print("Comprar")</text>
-    
-    <rect class="espacios" x="15" y="89" width="40" height="15"/>
-    <text x="55" y="101" class="codigo">print("Transacción OK")</text>
-    
-    <!-- Indicadores de nivel -->
-    <line x1="10" y1="55" x2="10" y2="105" stroke="#1565c0" stroke-width="2"/>
-    <line x1="8" y1="55" x2="12" y2="55" stroke="#1565c0" stroke-width="2"/>
-    <text x="250" y="125" text-anchor="middle" class="comentario" fill="#1565c0">
-      Nivel 0 → Nivel 1 (4 espacios) → Nivel 2 (8 espacios)
-    </text>
-  </g>
-  
+  <rect
+     fill="#f5f5f5"
+     stroke="#1565c0"
+     width="554.31567"
+     height="98.608467"
+     rx="5.5431561"
+     stroke-width="1.99382"
+     id="rect19"
+     x="22.842163"
+     y="301.39154" />
+  <text
+     x="299.76779"
+     y="282.85043"
+     text-anchor="middle"
+     style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:17.2008px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#1565c0;stroke-width:1.22863"
+     id="text20">Bloques Anidados (varios niveles)</text>
   <!-- Regla importante -->
-  <g transform="translate(50, 385)">
-    <text x="0" y="0" style="font-family: Arial; font-size: 13px; fill: #d32f2f; font-weight: bold;">
-      ⚠️ Regla de oro: Siempre usar 4 espacios. NO mezclar espacios y tabs.
-    </text>
+  <text
+     x="300.2829"
+     y="435.44388"
+     style="font-weight:900;font-size:17.2946px;font-family:Chivo;text-align:center;text-anchor:middle;fill:#d32f2f;stroke-width:1.33035;-inkscape-font-specification:'Chivo, Heavy';font-style:normal;font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+     id="text26">Siempre usá 4 espacios (PEP8) y NO mezclar espacios y tabs.</text>
+  <g
+     id="g69"
+     transform="translate(0,16)">
+    <g
+       id="g27"
+       transform="translate(11.5,3.5)">
+      <rect
+         class="espacios"
+         x="53.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect4-3"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="63.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect5-7"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="73.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect6-9"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="83.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect7-7"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    </g>
+    <text
+       x="65"
+       y="310"
+       class="codigo"
+       id="text21"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">if tiene_guita:</text>
+    <rect
+       class="espacios"
+       x="65"
+       y="315"
+       width="40"
+       height="15"
+       id="rect21" />
+    <text
+       x="109"
+       y="327"
+       class="codigo"
+       id="text22"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">if precio &lt;= guita:</text>
+    <rect
+       class="espacios"
+       x="65"
+       y="332"
+       width="80"
+       height="15"
+       id="rect22" />
+    <text
+       x="149"
+       y="344"
+       class="codigo"
+       id="text23"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">print(&quot;Comprar&quot;)</text>
+    <rect
+       class="espacios"
+       x="65"
+       y="349"
+       width="40"
+       height="15"
+       id="rect23" />
+    <text
+       x="109"
+       y="361"
+       class="codigo"
+       id="text24"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">print(&quot;Transacción OK&quot;)</text>
+    <g
+       id="g30"
+       transform="translate(11.5,20.5)">
+      <rect
+         class="espacios"
+         x="53.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect27"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="63.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect28"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="73.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect29"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="83.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect30"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    </g>
+    <g
+       id="g34"
+       transform="translate(11.5,37.5)">
+      <rect
+         class="espacios"
+         x="53.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect31"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="63.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect32"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="73.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect33"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="83.5"
+         y="311.5"
+         width="10"
+         height="15"
+         id="rect34"
+         style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    </g>
+    <g
+       id="g35"
+       style="fill:#399094;fill-opacity:1">
+      <rect
+         class="espacios"
+         x="105"
+         y="332"
+         width="10"
+         height="15"
+         id="rect4-0"
+         style="fill:#399094;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="115"
+         y="332"
+         width="10"
+         height="15"
+         id="rect5-6"
+         style="fill:#399094;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="125"
+         y="332"
+         width="10"
+         height="15"
+         id="rect6-0"
+         style="fill:#399094;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         class="espacios"
+         x="135"
+         y="332"
+         width="10"
+         height="15"
+         id="rect7-8"
+         style="fill:#399094;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     id="g54"
+     transform="translate(-5.2754974)">
+    <g
+       id="g52">
+      <rect
+         class="correcto"
+         width="180"
+         height="140"
+         rx="3.7499998"
+         stroke-width="1.73206"
+         id="rect2"
+         x="27.726135"
+         y="80" />
+      <text
+         x="117.38259"
+         y="101"
+         text-anchor="middle"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#1b5e20"
+         id="text3">✓ CORRECTO</text>
+      <g
+         id="g46"
+         transform="translate(-1.3673339)">
+        <text
+           x="48.029438"
+           y="131"
+           class="codigo"
+           id="text4"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">if edad &gt;= 16:</text>
+        <g
+           id="g26"
+           transform="translate(-16.970563,4)">
+          <rect
+             class="espacios"
+             x="65"
+             y="137"
+             width="10"
+             height="15"
+             id="rect4"
+             style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+          <rect
+             class="espacios"
+             x="75"
+             y="137"
+             width="10"
+             height="15"
+             id="rect5"
+             style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+          <rect
+             class="espacios"
+             x="85"
+             y="137"
+             width="10"
+             height="15"
+             id="rect6"
+             style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+          <rect
+             class="espacios"
+             x="95"
+             y="137"
+             width="10"
+             height="15"
+             id="rect7"
+             style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+        </g>
+        <text
+           x="92.029434"
+           y="153"
+           class="codigo"
+           id="text7"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">print(&quot;Mayor&quot;)</text>
+        <rect
+           class="espacios"
+           x="48.029438"
+           y="166"
+           width="10"
+           height="15"
+           id="rect8"
+           style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+        <rect
+           class="espacios"
+           x="58.029438"
+           y="166"
+           width="10"
+           height="15"
+           id="rect9"
+           style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+        <rect
+           class="espacios"
+           x="68.029434"
+           y="166"
+           width="10"
+           height="15"
+           id="rect10"
+           style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+        <rect
+           class="espacios"
+           x="78.029434"
+           y="166"
+           width="10"
+           height="15"
+           id="rect11"
+           style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+        <text
+           x="92.029434"
+           y="178"
+           class="codigo"
+           id="text11"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">print(&quot;Votar&quot;)</text>
+        <text
+           x="48.029438"
+           y="203"
+           class="codigo"
+           id="text12"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">print(&quot;Fin&quot;)</text>
+      </g>
+      <text
+         x="118.08614"
+         y="233"
+         text-anchor="middle"
+         class="comentario"
+         fill="#2e7d32"
+         id="text13"
+         style="text-align:center;text-anchor:middle"><tspan
+           sodipodi:role="line"
+           id="tspan46"
+           x="118.08614"
+           y="233">4 espacios</tspan><tspan
+           sodipodi:role="line"
+           id="tspan47"
+           x="118.08615"
+           y="249.61168">es 1 nivel de indentación</tspan></text>
+    </g>
+    <g
+       id="g53">
+      <rect
+         class="incorrecto"
+         width="180"
+         height="140"
+         rx="3.7499998"
+         stroke-width="1.73205"
+         id="rect13"
+         x="215.2755"
+         y="80" />
+      <text
+         x="304.59015"
+         y="101"
+         text-anchor="middle"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#b71c1c"
+         id="text14">✗ INCORRECTO</text>
+      <g
+         id="g45"
+         transform="translate(6.8729858)">
+        <text
+           x="248.63248"
+           y="131"
+           class="codigo"
+           id="text15"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">if edad &gt;= 16:</text>
+        <text
+           x="248.63248"
+           y="153"
+           class="codigo"
+           id="text16"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">print(&quot;Mayor&quot;)</text>
+        <text
+           x="248.63248"
+           y="178"
+           class="codigo"
+           id="text17"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">print(&quot;Votar&quot;)</text>
+        <text
+           x="248.63248"
+           y="203"
+           class="codigo"
+           id="text18"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">print(&quot;Fin&quot;)</text>
+      </g>
+      <text
+         x="305.3295"
+         y="233"
+         text-anchor="middle"
+         class="comentario"
+         fill="#c62828"
+         id="text19"
+         style="text-align:center;text-anchor:middle"><tspan
+           sodipodi:role="line"
+           id="tspan48"
+           x="305.3295"
+           y="233">¡Error!</tspan><tspan
+           sodipodi:role="line"
+           id="tspan49"
+           x="305.3295"
+           y="249.61168">Falta indentación</tspan></text>
+    </g>
+    <g
+       id="g51">
+      <rect
+         class="incorrecto"
+         width="180"
+         height="140"
+         rx="3.7499998"
+         stroke-width="1.73205"
+         id="rect35"
+         x="402.82486"
+         y="80" />
+      <text
+         x="492.13953"
+         y="101"
+         text-anchor="middle"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#b71c1c"
+         id="text35">✗ INCORRECTO</text>
+      <text
+         x="492.87885"
+         y="233"
+         text-anchor="middle"
+         class="comentario"
+         fill="#c62828"
+         id="text36"
+         style="text-align:center;text-anchor:middle"><tspan
+           sodipodi:role="line"
+           id="tspan50"
+           x="492.87885"
+           y="233">¡Error!</tspan><tspan
+           sodipodi:role="line"
+           id="tspan51"
+           x="492.87885"
+           y="249.61168">Incorrectamente agrupado</tspan></text>
+      <text
+         x="421.76083"
+         y="131"
+         class="codigo"
+         id="text37"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">if edad &gt;= 16:</text>
+      <g
+         id="g40"
+         transform="translate(356.76084,4)">
+        <rect
+           class="espacios"
+           x="65"
+           y="137"
+           width="10"
+           height="15"
+           id="rect37"
+           style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+        <rect
+           class="espacios"
+           x="75"
+           y="137"
+           width="10"
+           height="15"
+           id="rect38"
+           style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+        <rect
+           class="espacios"
+           x="85"
+           y="137"
+           width="10"
+           height="15"
+           id="rect39"
+           style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+        <rect
+           class="espacios"
+           x="95"
+           y="137"
+           width="10"
+           height="15"
+           id="rect40"
+           style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      </g>
+      <text
+         x="465.7608"
+         y="153"
+         class="codigo"
+         id="text40"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">print(&quot;Mayor&quot;)</text>
+      <text
+         x="421.76083"
+         y="178"
+         class="codigo"
+         id="text44"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">print(&quot;Votar&quot;)</text>
+      <text
+         x="421.76083"
+         y="203"
+         class="codigo"
+         id="text45"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">print(&quot;Fin&quot;)</text>
+    </g>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.2558px;line-height:normal;font-family:Lato;-inkscape-font-specification:'Lato, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#399094;fill-opacity:1;stroke:none;stroke-width:3.95541;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-opacity:1"
+     x="364.83316"
+     y="333.74478"
+     id="text55"><tspan
+       sodipodi:role="line"
+       id="tspan55"
+       x="364.83316"
+       y="333.74478"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.2558px;font-family:Lato;-inkscape-font-specification:'Lato, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:3.95541">Nivel 0</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.2558px;line-height:normal;font-family:Lato;-inkscape-font-specification:'Lato, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#399094;fill-opacity:1;stroke:none;stroke-width:3.95541;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-opacity:1"
+     x="423.12689"
+     y="354.32513"
+     id="text56"><tspan
+       sodipodi:role="line"
+       id="tspan56"
+       x="423.12689"
+       y="354.32513"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.2558px;font-family:Lato;-inkscape-font-specification:'Lato, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:3.95541">Nivel 1</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.2558px;line-height:normal;font-family:Lato;-inkscape-font-specification:'Lato, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#399094;fill-opacity:1;stroke:none;stroke-width:3.95541;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-opacity:1"
+     x="480.67215"
+     y="374.8963"
+     id="text57"><tspan
+       sodipodi:role="line"
+       id="tspan57"
+       x="480.67215"
+       y="374.8963"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.2558px;font-family:Lato;-inkscape-font-specification:'Lato, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:3.95541">Nivel 2</tspan></text>
+  <g
+     id="g60"
+     transform="matrix(1.398435,0,0,1.398435,289.93194,-78.306232)">
+    <rect
+       class="espacios"
+       x="53.5"
+       y="311.5"
+       width="10"
+       height="15"
+       id="rect57"
+       style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <rect
+       class="espacios"
+       x="63.5"
+       y="311.5"
+       width="10"
+       height="15"
+       id="rect58"
+       style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <rect
+       class="espacios"
+       x="73.5"
+       y="311.5"
+       width="10"
+       height="15"
+       id="rect59"
+       style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <rect
+       class="espacios"
+       x="83.5"
+       y="311.5"
+       width="10"
+       height="15"
+       id="rect60"
+       style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+  </g>
+  <g
+     id="g64"
+     style="fill:#399094;fill-opacity:1"
+     transform="matrix(1.398435,0,0,1.398435,273.84993,-106.97416)">
+    <rect
+       class="espacios"
+       x="105"
+       y="332"
+       width="10"
+       height="15"
+       id="rect61"
+       style="fill:#399094;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <rect
+       class="espacios"
+       x="115"
+       y="332"
+       width="10"
+       height="15"
+       id="rect62"
+       style="fill:#399094;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <rect
+       class="espacios"
+       x="125"
+       y="332"
+       width="10"
+       height="15"
+       id="rect63"
+       style="fill:#399094;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <rect
+       class="espacios"
+       x="135"
+       y="332"
+       width="10"
+       height="15"
+       id="rect64"
+       style="fill:#399094;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+  </g>
+  <g
+     id="g68"
+     transform="matrix(1.398435,0,0,1.398435,289.93194,-99.282764)">
+    <rect
+       class="espacios"
+       x="53.5"
+       y="311.5"
+       width="10"
+       height="15"
+       id="rect65"
+       style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <rect
+       class="espacios"
+       x="63.5"
+       y="311.5"
+       width="10"
+       height="15"
+       id="rect66"
+       style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <rect
+       class="espacios"
+       x="73.5"
+       y="311.5"
+       width="10"
+       height="15"
+       id="rect67"
+       style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+    <rect
+       class="espacios"
+       x="83.5"
+       y="311.5"
+       width="10"
+       height="15"
+       id="rect68"
+       style="fill:#4a9439;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
   </g>
 </svg>
