@@ -932,6 +932,7 @@ Si la condición **nunca** se vuelve `False`, el bucle se ejecutará ** para sie
 :::::{grid} 1 1 2 2
 
 ::::{grid-item-card} Lazo Infinito (¡Ooops!)
+
 ```python
 contador = 1
 while contador <= 5:
@@ -969,7 +970,14 @@ while contador <= 5:
 
 ### Patrones Comunes con `while`
 
+Los patrones son fragmentos de código con formas comunes en las que se le dá uso a esta estructura. 
+
+(while-acumulador)=
 #### Patrón 1: Acumulador (Sumar números)
+
+Este patrón utiliza una variable externa al lazo, denominada *acumulador*, cuya función es guardar el estado de una operación aritmética a completar de forma progresiva.
+
+Para su uso, es necesaria una inicialización explícita, habitualmente en el elemento neutro (0 para sumas, 1 para multiplicaciones) y durante cada vuelta del lazo, se efectúa una asignación que va actualizando el valor del acumulador agregando el dato de la posición actual.
 
 ```{code-cell} ipython3
 # Calcular la suma de los primeros 10 números
@@ -989,10 +997,37 @@ print(f"La suma de 1 a 10 es: {suma}")
 2. En cada vuelta, sumar al {term}`acumulador`
 3. Al final, el {term}`acumulador` tiene el total
 
-**Usos:**Sumar números, contar elementos, promedios
+**Usos:** Sumar números, contar elementos, promedios
 :::
 
-#### Patrón 2: Contador Regresivo
+
+(while-contador)=
+#### Patrón 2: Contador clásico y reverso
+
+Este patrón utiliza una variable de control, denominada contador, cuya finalidad es registrar la cantidad de ocurrencias o el número de vueltas del lazo ejecutadas.
+
+Un lazo contador puede ser ascendente, con una condición que sea como tope, pero también puede ser descendente, que podemos utilizar cuando estamos buscando una cantidad de elementos y no nos interesa la posición en la que se encuentra.
+
+```{code-cell} ipython3
+print("Contandor ascendente:")
+TOPE = 5
+posicion = 1
+
+while posicion < TOPE:
+    faltantes = TOPE - posicion
+    print(f" {posicion} / {faltantes}...")
+    posicion = posicion + 1
+
+print("Listo! ")
+```
+
+:::{note} Sobre `TOPE`
+
+Aunque no es realmente necesario usar una variable en mayúsculas para el valor 'límite' a buscar, su uso facilita la lectura del código al evitar los llamados {term}`números mágicos`.
+
+Aparte, si tenemos que cambiarlo, es mucho más fácil de esta forma y también podemos calcular 'cuantos faltan'.
+:::
+
 
 ```{code-cell} ipython3
 print("Cuenta regresiva para despegue:")
@@ -1005,7 +1040,29 @@ while numero > 0:
 print("   ¡DESPEGUE! ")
 ```
 
-#### Patrón 3: Validación con Repetición
+(while-compuesto)=
+#### Patrón 3: Validación con Repetición (Condiciones compuestas)
+
+Este patrón se asegura de que ejecutemos una acción mientras que una condición se cumpla, lo importante acá, es que esta no necesariamente trata sobre las veces en las que se recorre.
+
+En este ejemplo, podemos ver como el lazo puede ser controlado por una expresión booleana arbitraria, que también es la base para [](#banderas-de-control). Este no es un ejemplo que podamos aplicar de forma directa, ya que el programa se quedará en un lazó con una condición demasiado específica para salir; la contraseña correcta.
+
+```{code-cell} ipython3
+# Pedir contraseña hasta que sea correcta
+PASSWORD_CORRECTA = "python123"
+
+contraseña = input("Ingrese la contraseña: ")
+
+# Este lazo se lee:
+# Mientras no des la contraseña correcta 
+while contraseña != PASSWORD_CORRECTA:
+    print(f"❌ Contraseña incorrecta.")
+    contraseña = input("Ingrese la contraseña: ")
+
+print("✅ ¡Acceso concedido!")
+```
+
+Para evitar el problema descrito más arriba, se agrega un 'termino' lógico a la condición, combinándolo con un lazo [](#while-contador), podemos limitar la cantidad de veces que se ejecuta el lazo.
 
 ```{code-cell} ipython3
 # Pedir contraseña hasta que sea correcta
@@ -1016,6 +1073,8 @@ MAX_INTENTOS = 3
 contraseña = input("Ingrese la contraseña: ")
 intentos = intentos + 1
 
+# Este lazo se lee:
+# Mientras no des la contraseña correcta y te queden intentos:
 while contraseña != PASSWORD_CORRECTA and intentos < MAX_INTENTOS:
     print(f"❌ Contraseña incorrecta. Te quedan {MAX_INTENTOS - intentos} intentos.")
     contraseña = input("Ingrese la contraseña: ")
@@ -1035,70 +1094,19 @@ Este patrón es **muy común** en programación:
 - Juegos (seguir jugando mientras...)
 :::
 
-#### Patrón 4: Menú Interactivo
-
-```{code-cell} ipython3
-print("=== CALCULADORA SIMPLE ===")
-continuar = "s"
-
-while continuar.lower() == "s":
-    a = float(input("\nPrimer número: "))
-    operacion = input("Operación (+, -, *, /): ")
-    b = float(input("Segundo número: "))
-    
-    if operacion == "+":
-        print(f"Resultado: {a + b}")
-    elif operacion == "-":
-        print(f"Resultado: {a - b}")
-    elif operacion == "*":
-        print(f"Resultado: {a * b}")
-    elif operacion == "/" and b != 0:
-        print(f"Resultado: {a / b}")
-    else:
-        print("Operación inválida")
-    
-    continuar = input("\n¿Otra operación? (s/n): ")
-
-print("¡Hasta luego! 👋")
-```
-
-### Lazos con Condiciones Complejas
-
-Podés usar operadores lógicos en la condición:
-
-```python
-"""Juego de adivinanza con límite de intentos."""
-
-NUMERO_SECRETO = 42
-MAX_INTENTOS = 5
-
-intentos = 0
-adivinado = False
-
-while intentos < MAX_INTENTOS and not adivinado:
-    intento = int(input("Adiviná el número (1-100): "))
-    intentos = intentos + 1
-    
-    if intento == NUMERO_SECRETO:
-        adivinado = True
-        print(f"¡Correcto! Lo adivinaste en {intentos} intentos")
-    elif intento < NUMERO_SECRETO:
-        print("Muy bajo. Intentá de nuevo.")
-    else:
-        print("Muy alto. Intentá de nuevo.")
-
-if not adivinado:
-    print(f"Se acabaron los intentos. El número era {NUMERO_SECRETO}")
-```
-
 ---
+
+## Manipulación de lazos
+
+TODO: explicar detalladamente que es `break` y `continue` de forma que vaya al tema siguiente de banderas de control. y tambien, mejorar la parte de lazos anidados (con referencias cruzadas desde aquí) para el comportamiento de estas instrucciones en esa situacion.
+
 
 (banderas-control)=
 ## Banderas de Control
 
 Según la {ref}`0x0006h`, en lugar de usar `break` y `continue` para lazos complejos, es preferible usar **banderas** (variables booleanas) para controlar el flujo.
 
-### Patrón de Bandera Simple
+### Patrón 4: Bandera Simple
 
 ```{code-cell} ipython3
 """Búsqueda con bandera de control."""
@@ -1118,7 +1126,7 @@ if not encontrado:
     print("No se encontró el número")
 ```
 
-### Múltiples Banderas
+### Patrón 5: Múltiples Banderas
 
 ```python
 """Validación de entrada con múltiples condiciones."""
