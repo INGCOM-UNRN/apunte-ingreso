@@ -879,7 +879,7 @@ else:
 ---
 
 (while-lazos)=
-## Lazos con `while`
+## Lazos indefinidos - `while`: Mientras que...
 
 Un **lazo**(bucle o lazo) permite ejecutar un bloque de código repetidamente. El lazo `while` continúa ejecutándose mientras una condición sea verdadera.
 
@@ -968,9 +968,13 @@ while contador <= 5:
 
 ````
 
-### Patrones Comunes con `while`
+### Patrones de lazos `while`
 
-Los patrones son fragmentos de código con formas comunes en las que se le dá uso a esta estructura. 
+Los patrones son fragmentos de código con formas comunes en las que se le dá uso a esta estructura. Estos mismos patrones también se aplican a lazos `for`, como veremos más adelante en la sección {ref}`patrones-comunes`.
+
+:::{important} Patrones universales
+Estos patrones son **independientes del tipo de lazo**. Lo que importa es la lógica del patrón, no si usás `while` o `for`. Aprendé a reconocer el patrón y luego elegí el lazo más apropiado para tu problema.
+:::
 
 (while-acumulador)=
 #### Patrón 1: Acumulador (Sumar números)
@@ -1045,7 +1049,7 @@ print("   ¡DESPEGUE! ")
 
 Este patrón se asegura de que ejecutemos una acción mientras que una condición se cumpla, lo importante acá, es que esta no necesariamente trata sobre las veces en las que se recorre.
 
-En este ejemplo, podemos ver como el lazo puede ser controlado por una expresión booleana arbitraria, que también es la base para [](#banderas-de-control). Este no es un ejemplo que podamos aplicar de forma directa, ya que el programa se quedará en un lazó con una condición demasiado específica para salir; la contraseña correcta.
+En este ejemplo, podemos ver como el lazo puede ser controlado por una expresión booleana arbitraria, que también es la base para {ref}`banderas de control <banderas-control>`. Este no es un ejemplo que podamos aplicar de forma directa, ya que el programa se quedará en un lazó con una condición demasiado específica para salir; la contraseña correcta.
 
 ```{code-cell} ipython3
 # Pedir contraseña hasta que sea correcta
@@ -1168,7 +1172,7 @@ Para lógica más compleja, usá banderas.
 ---
 
 (for-lazos)=
-## Lazos con `for`: Para Cada Elemento... 
+## Lazos definidos - `for`: Para Cada Elemento... 
 
 Detalle importante, lo que está entre `[]` son **listas**, que veremos en profundidad en el próximo capítulo.
 Por ahora, entendé que es simplemente un conjunto ordenado de valores.
@@ -1218,12 +1222,18 @@ for producto in lista_compras:
 ✓ Comprar: queso
 ```
 
-Python **automáticamente** toma cada elemento de la lista, uno por uno, y ejecuta el código para cada uno. ¡No necesitás {term}`contador` ni incremento manual!
+Python **automáticamente** toma cada elemento de la lista, uno por uno, y ejecuta el código para cada uno. ¡No necesitás {term}`contador` ni incremento manual! Esta es la razón por la cual se los llama "definidos", podemos saber la cantidad de vueltas del lazo antes de empezar.
 ::::
+
+:::{note} Cláusula `else` en lazos `for`
+Al igual que con los lazos `while`, los lazos `for` también pueden tener una cláusula `else` que se ejecuta cuando el lazo termina normalmente (sin ser interrumpido por un `break`). Para más detalles sobre esta funcionalidad, consultá la sección sobre [control de flujo avanzado](#control-flujo-avanzado).
+:::
 
 ---
 
 ### Diferencia: `while` vs `for`
+
+La elección entre `while` y `for` depende de si conocés de antemano cuántas veces necesitás repetir el código. El lazo `while` es ideal cuando la cantidad de iteraciones depende de una condición que puede cambiar durante la ejecución, mientras que `for` es perfecto cuando iterás sobre una secuencia conocida o un rango definido de valores.
 
 :::::{grid} 1 1 2 2
 
@@ -1265,7 +1275,7 @@ for fruta in frutas:
 
 ### Iterando sobre un Rango
 
-La función {term}`range()` genera una secuencia de números:
+La función {term}`range()` genera una secuencia de números que podemos usar en lazos `for`. Es especialmente útil cuando necesitamos repetir una acción un número específico de veces o cuando queremos iterar con índices numéricos.
 
 ```{code-cell} ipython3
 # Contar del 0 al 4
@@ -1273,7 +1283,7 @@ for i in range(5):
     print(f"Número: {i}")
 ```
 
-**La función {term}`range()`:**
+**La función {term}`range()`** acepta hasta tres argumentos que determinan la secuencia generada: inicio (opcional), fin (obligatorio) y paso (opcional). Veamos las diferentes formas de usarla:
 
 ```{code-cell} ipython3
 # range(stop) - desde 0 hasta stop-1
@@ -1312,6 +1322,8 @@ for letra in mensaje:
 
 ### Iterando sobre Listas
 
+Los lazos `for` son particularmente elegantes cuando trabajamos con {term}`listas<lista>` y otras estructuras de datos secuenciales. En lugar de usar índices manualmente, podemos iterar directamente sobre los elementos. Para profundizar en las listas y otras estructuras de datos, consultá el [capítulo sobre estructuras de datos](./3_estructuras.md).
+
 ```{code-cell} ipython3
 frutas = ["manzana", "banana", "naranja"]
 
@@ -1337,7 +1349,7 @@ for nombre in nombres:
 
 ### Usando `enumerate()` cuando necesitás índices
 
-Si necesitás tanto el índice como el elemento, usá `enumerate()`:
+A veces necesitamos acceder tanto al elemento como a su posición en la secuencia. La función `enumerate()` facilita esta tarea, devolviendo pares de (índice, elemento) sin necesidad de mantener un contador manual. Esto resulta más claro y menos propenso a errores que usar `range(len(lista))`.
 
 ```{code-cell} ipython3
 colores = ["rojo", "verde", "azul"]
@@ -1400,9 +1412,14 @@ print(f"La suma es: {suma}")
 (while-vs-for)=
 ## `while` vs `for`: ¿Cuándo usar cada uno?
 
+La decisión entre `while` y `for` es fundamental para escribir código claro y mantenible. Aunque ambos permiten repetir código, cada uno está optimizado para diferentes situaciones. Entender cuándo usar cada uno mejora significativamente la legibilidad y reduce errores comunes como los lazos infinitos.
+
 ### Usar `while` cuando:
 
 1. **No conocés de antemano cuántas iteraciones necesitás**
+   
+   Este es el caso típico del [patrón de validación de entrada](#patron-validacion-entrada), donde seguimos pidiendo datos hasta que el usuario ingrese algo válido:
+   
    ```python
    # Esperar entrada válida
    edad = -1
@@ -1411,6 +1428,9 @@ print(f"La suma es: {suma}")
    ```
 
 2. **La condición de parada es compleja**
+   
+   Cuando múltiples condiciones determinan si continuar, `while` expresa esto naturalmente. Este patrón aparece frecuentemente en combinación con [banderas de control](#banderas-control):
+   
    ```{code-cell} ipython3
    intentos = 0
    exito = False
@@ -1421,6 +1441,9 @@ print(f"La suma es: {suma}")
    ```
 
 3. **El lazo puede no ejecutarse ninguna vez**
+   
+   Cuando la condición inicial podría ser falsa desde el principio, `while` deja esto explícito en la estructura del código:
+   
    ```{code-cell} ipython3
    while hay_mas_datos():
        procesar_datos()
@@ -1429,18 +1452,27 @@ print(f"La suma es: {suma}")
 ### Usar `for` cuando:
 
 1. **Iterás sobre una secuencia conocida**
+   
+   Los lazos `for` son la forma pythonic de procesar colecciones. Para más detalles sobre colecciones, consultá el [capítulo sobre estructuras](./3_estructuras.md):
+   
    ```{code-cell} ipython3
    for nombre in lista_nombres:
        print(nombre)
    ```
 
 2. **Conocés exactamente cuántas iteraciones necesitás**
+   
+   Este es el caso del [patrón de contador](#patron-contador), donde repetimos una acción un número fijo de veces:
+   
    ```{code-cell} ipython3
    for i in range(10):
        print(i)
    ```
 
 3. **Necesitás procesar cada elemento de una colección**
+   
+   El patrón más común y elegante en Python, relacionado con el [patrón de procesamiento de secuencias](#patron-procesamiento-secuencia):
+   
    ```{code-cell} ipython3
    for estudiante in estudiantes:
        calcular_promedio(estudiante)
@@ -1722,128 +1754,11 @@ Lazos anidados pueden hacer que tu código sea lento. Un lazo dentro de otro mul
 Usá lazos anidados solo cuando sea necesario.
 :::
 
----
-
-(patrones-comunes)=
-## Patrones Comunes de Programación
-
-### Patrón 1: Acumulador
-
-Sumar o acumular valores:
-
-```{code-cell} ipython3
-# Suma de números del 1 al 100
-suma = 0
-for i in range(1, 101):
-    suma = suma + i
-print(f"Suma: {suma}")
-```
-
-### Patrón 2: Contador
-
-Contar cuántas veces ocurre algo:
-
-```{code-cell} ipython3
-# Contar números pares en una lista
-numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-contador_pares = 0
-
-for numero in numeros:
-    if numero % 2 == 0:
-        contador_pares = contador_pares + 1
-
-print(f"Hay {contador_pares} números pares")
-```
-
-### Patrón 3: Búsqueda
-
-Encontrar un elemento:
-
-```{code-cell} ipython3
-# Buscar un nombre en una lista
-nombres = ["Ana", "Bruno", "Carlos", "Diana"]
-buscar = "Carlos"
-encontrado = False
-
-for nombre in nombres:
-    if nombre == buscar:
-        encontrado = True
-
-if encontrado:
-    print(f"{buscar} está en la lista")
-else:
-    print(f"{buscar} no está en la lista")
-```
-
-### Patrón 4: Máximo/Mínimo
-
-Encontrar el valor máximo o mínimo:
-
-```{code-cell} ipython3
-# Encontrar el número mayor
-numeros = [45, 23, 67, 12, 89, 34]
-maximo = numeros[0]
-
-for numero in numeros:
-    if numero > maximo:
-        maximo = numero
-
-print(f"El máximo es: {maximo}")
-```
-
-### Patrón 5: Validación de Entrada
-
-Repetir hasta obtener entrada válida:
-
-```python
-# Validar entrada numérica positiva
-numero_valido = False
-
-while not numero_valido:
-    try:
-        numero = float(input("Ingrese un número positivo: "))
-        if numero > 0:
-            numero_valido = True
-            print(f"Número válido: {numero}")
-        else:
-            print("El número debe ser positivo")
-    except ValueError:
-        print("Debe ingresar un número")
-```
-
-### Patrón 6: Menú de Opciones
-
-```python
-"""Menú interactivo."""
-
-continuar = True
-
-while continuar:
-    print("\n=== MENÚ ===")
-    print("1. Opción A")
-    print("2. Opción B")
-    print("3. Opción C")
-    print("4. Salir")
-    
-    opcion = input("Seleccione una opción (1-4): ")
-    
-    if opcion == "1":
-        print("Ejecutando opción A...")
-    elif opcion == "2":
-        print("Ejecutando opción B...")
-    elif opcion == "3":
-        print("Ejecutando opción C...")
-    elif opcion == "4":
-        continuar = False
-        print("¡Hasta luego!")
-    else:
-        print("Opción inválida")
-```
 
 ---
 
 (errores-comunes-control)=
-## Errores Comunes
+## Consejos para errores (y problemas) comunes
 
 ### 1. Olvidar la indentación
 
@@ -1997,88 +1912,6 @@ if edad >= 18 and cuenta_activa and not suspendido:
     permitir_acceso()
 ```
 
----
-
-(ejercicio-2-11)=
-### Ejercicio 2.11: Validación de Contraseña
-
-Escribí un programa que valide una contraseña según estos criterios:
-- Longitud mínima: 8 caracteres
-- Debe contener al menos una letra mayúscula
-- Debe contener al menos una letra minúscula
-- Debe contener al menos un dígito
-
-**Entrada:**
-- Contraseña (string)
-
-**Salida:**
-- Si la contraseña es válida o no
-- Lista de criterios que no cumple
-
-**Ejemplo:**
-```
-Ingrese una contraseña: hola123
-
-Contraseña inválida. Problemas:
-- Debe tener al menos 8 caracteres
-- Debe contener al menos una mayúscula
-```
-
-:::{tip}
-Usá los métodos de strings:
-- `str.isupper()` - verifica si es mayúscula
-- `str.islower()` - verifica si es minúscula
-- `str.isdigit()` - verifica si es dígito
-- `len(str)` - longitud del string
-:::
-
----
-
-(ejercicio-2-12)=
-### Ejercicio 2.12: Cajero Automático (Menú)
-
-Simulá un cajero automático con las siguientes opciones:
-1. Consultar saldo
-2. Depositar dinero
-3. Retirar dinero
-4. Salir
-
-**Reglas:**
-- Saldo inicial: $10,000
-- No se puede retirar más del saldo disponible
-- Los depósitos y retiros deben ser montos positivos
-
-**Entrada:**
-- Opción del menú
-- Montos según la operación
-
-**Salida:**
-- Menú interactivo
-- Confirmación de operaciones
-- Saldo actualizado
-
-**Ejemplo:**
-```
-=== CAJERO AUTOMÁTICO ===
-1. Consultar Saldo
-2. Depositar
-3. Retirar
-4. Salir
-
-Opción: 1
-Saldo actual: $10000.00
-
-Opción: 2
-Monto a depositar: $500
-Depósito exitoso. Nuevo saldo: $10500.00
-
-Opción: 3
-Monto a retirar: $2000
-Retiro exitoso. Nuevo saldo: $8500.00
-
-Opción: 4
-¡Gracias por usar nuestro cajero!
-```
 
 
 ---
@@ -2229,125 +2062,6 @@ mindmap
 
 ---
 
-### Checklist de Dominio ✓
-
-Antes de avanzar al **Capítulo 3: Listas**, asegurate de poder hacer todo esto **sin ayuda**:
-
-::::{tip} Condicionales - Decisiones
-
-**Sintaxis básica:**
-- [ ] Escribir un `if` simple correctamente (con `:` y {term}`indentación`)
-- [ ] Usar `if-else` para dos alternativas
-- [ ] Usar `if-elif-else` para múltiples opciones
-- [ ] Anidar condicionales cuando sea necesario
-
-**Operadores:**
-- [ ] Usar correctamente `==`, `!=`, `<`, `>`, `<=`, `>=`
-- [ ] Combinar condiciones con `and`, `or`, `not`
-- [ ] Entender precedencia de operadores lógicos
-
-**Aplicación:**
-- [ ] Validar entrada del usuario
-- [ ] Clasificar valores en rangos
-- [ ] Tomar decisiones basadas en múltiples condiciones
-::::
-
-::::{tip} Bucles {term}`while` - Repetición con condición
-
-**Sintaxis y control:**
-- [ ] Escribir un `while` que termine correctamente
-- [ ] Inicializar variables antes del bucle
-- [ ] Actualizar la variable de control dentro del bucle
-- [ ] Evitar lazos infinitos
-
-**Patrones comunes:**
-- [ ] Implementar un {term}`contador` (incrementar/decrementar)
-- [ ] Implementar un {term}`acumulador` (sumar valores)
-- [ ] Validar entrada hasta que sea correcta
-- [ ] Crear un menú que se repita hasta "salir"
-
-**Con banderas:**
-- [ ] Usar variables booleanas para controlar el flujo
-- [ ] Salir del bucle cuando se cumple una condición
-::::
-
-::::{tip} Bucles {term}`for` - Iteración sobre secuencias
-
-**Con {term}`range()`:**
-- [ ] Usar `range(n)` para iterar de 0 a n-1
-- [ ] Usar `range(inicio, fin)` para rangos específicos
-- [ ] Usar `range(inicio, fin, paso)` con incrementos personalizados
-- [ ] Entender que el fin NO se incluye
-
-**Con strings:**
-- [ ] Iterar sobre cada carácter de un string
-- [ ] Contar caracteres específicos
-- [ ] Buscar un carácter en un string
-
-**Aplicación:**
-- [ ] Sumar números en un rango
-- [ ] Generar tablas de multiplicar
-- [ ] Contar elementos que cumplen una condición
-::::
-
-::::{tip} Control de bucles - {term}`break` y continue
-
-**{term}`break`:**
-- [ ] Salir de un bucle antes de que termine naturalmente
-- [ ] Usar con banderas para búsquedas
-- [ ] Entender que solo sale del bucle más interno
-
-**{term}`continue`:**
-- [ ] Saltar a la siguiente {term}`iteración`
-- [ ] Filtrar elementos sin procesar
-
-**Aplicación:**
-- [ ] Buscar el primer elemento que cumple una condición
-- [ ] Procesar solo algunos elementos de una secuencia
-- [ ] Implementar validación con reintentos
-::::
-
-::::{tip} Bucles anidados
-
-**Estructura:**
-- [ ] Escribir un bucle dentro de otro correctamente
-- [ ] Entender que el interno se ejecuta completamente por cada {term}`iteración` del externo
-- [ ] Usar variables de control con nombres claros (`fila`, `columna`, etc.)
-
-**Aplicación:**
-- [ ] Generar patrones con caracteres (triángulos, rectángulos)
-- [ ] Crear tablas de multiplicar múltiples
-- [ ] Implementar validaciones de múltiples niveles
-::::
-
-::::{tip} Buenas prácticas
-
-**Código limpio:**
-- [ ] Indentar con 4 espacios consistentemente
-- [ ] Usar nombres descriptivos para variables y banderas
-- [ ] Evitar condicionales demasiado anidadas
-- [ ] Simplificar condiciones complejas
-
-**Errores comunes a evitar:**
-- [ ] No confundir `=` (asignación) con `==` (comparación)
-- [ ] Siempre actualizar variables de control en while
-- [ ] No modificar la variable de control dentro de for
-- [ ] Inicializar acumuladores y contadores antes del bucle
-::::
-
-:::{important} ¿Cuándo estás listo?
-Cuando puedas marcar **TODAS** estas casillas sin mirar el apunte ni buscar ayuda.
-
-**Test final:** Intentá resolver estos problemas sin ayuda:
-1. Sistema de menú con validación
-2. Buscar un número primo en un rango
-3. Calcular factorial de un número
-4. Dibujar un triángulo de asteriscos
-
-Si podés resolverlos, ¡estás listo para el Capítulo 3: Listas! 🚀
-:::
-
----
 
 ### Tabla de Referencia Rápida
 
@@ -2369,23 +2083,6 @@ Si podés resolverlos, ¡estás listo para el Capítulo 3: Listas! 🚀
 1. **Condicionales**→ Tu programa **decide** qué hacer
 2. **Bucles**→ Tu programa **repite** sin copiar código
 3. **Control**→ Tu programa **responde** a situaciones diferentes
-
-```{mermaid}
-graph LR
-    A[Programa<br/>Secuencial] -->|+ Control| B[Programa<br/>Inteligente]
-    
-    B --> C[✓ Toma decisiones]
-    B --> D[✓ Repite tareas]
-    B --> E[✓ Valida datos]
-    B --> F[✓ Responde al usuario]
-    
-    style A fill:#ffcdd2
-    style B fill:#c8e6c9
-    style C fill:#e3f2fd
-    style D fill:#e3f2fd
-    style E fill:#e3f2fd
-    style F fill:#e3f2fd
-```
 :::
 
 ---
@@ -2416,7 +2113,7 @@ El {term}`control de flujo` **se domina practicando**.
 4.  Debuggeá errores (aprendés mucho así)
 5. Combiná condicionales y bucles creativamente
 
-**Recordá:**Cada programador empezó donde estás vos ahora. ¡Seguí adelante!
+**Recordá:** Cada programador empezó donde estás vos ahora. ¡Seguí adelante!
 :::
 
 
@@ -2494,6 +2191,9 @@ Contador
 
 Operador lógico
 : Operador que combina o modifica expresiones booleanas. Los tres principales son `and` (ambos True), `or` (al menos uno True), `not` (invierte el valor).
+
+Números mágicos
+: Valores literales numéricos en el código sin explicación de su significado. Dificultan la lectura y el mantenimiento. Ejemplo: `if edad >= 18` (¿por qué 18?). Mejor usar constantes descriptivas: `EDAD_MINIMA = 18`.
 
 Cortocircuito
 : Optimización donde Python deja de evaluar una expresión con {term}`operadores lógicos <operador lógico>` cuando ya conoce el resultado. En `and`, si el primero es `False`, no evalúa el segundo. (Conocido en inglés como "Short-circuit")
