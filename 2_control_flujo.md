@@ -44,7 +44,7 @@ graph TD
 
 ## Introducción y Motivación
 
-### ¿Qué es el Control de Flujo?
+### ¿Qué es el Control de Flujo? 
 
 Hasta ahora, tus programas han sido como seguir una receta paso a paso: hacés **una cosa tras otra**, siempre en el mismo orden. Pero los programas reales necesitan ser **inteligentes**:
 
@@ -164,7 +164,7 @@ mindmap
 
 ---
 
-(condicionales)=
+(condicionales)= 
 ## Estructuras Condicionales
 
 ### ¿Qué son las Condicionales? 
@@ -700,7 +700,6 @@ else:
 ```
 
 Cuando solo necesitamos dos salidas, no es necesario utilizar un segundo `if`.
-
 ::::
 
 ::::{grid-item-card} Con `and` (más simple)
@@ -712,7 +711,6 @@ else:
 ```
 
 Al unificar las dos condiciones, simplificamos el código a un único nivel de {term}`indentación`.
-
 ::::
 
 :::::
@@ -800,7 +798,7 @@ if nombre != "":
 
 ---
 
-(ejemplos-condicionales)=
+(ejemplos-condicionales)= 
 ## Ejemplos Prácticos con Condicionales
 
 A continuación, unos ejemplos de uso de condicionales `if-elif` para clasificación.
@@ -877,7 +875,7 @@ else:
 
 ---
 
-(while-lazos)=
+(while-lazos)= 
 ## Lazos indefinidos - `while`: Mientras que...
 
 Un **lazo** (también llamado bucle) permite ejecutar un bloque de código repetidamente. El lazo `while` continúa ejecutándose mientras una condición sea verdadera.
@@ -1004,7 +1002,7 @@ print(f"La suma de 1 a 10 es: {suma}")
 :::
 
 
-(while-contador)=
+(while-contador)= 
 #### Patrón 2: Contador clásico y reverso
 
 Este patrón utiliza una variable de control, denominada {term}`contador`, para registrar la cantidad de vueltas ejecutadas.
@@ -1043,7 +1041,7 @@ while numero > 0:
 print("   ¡DESPEGUE! ")
 ```
 
-(while-compuesto)=
+(while-compuesto)= 
 #### Patrón 3: Validación con Repetición (Condiciones compuestas)
 
 Este patrón asegura que ejecutemos una acción mientras una condición se cumpla (o no se cumpla).
@@ -1103,9 +1101,49 @@ Este patrón es **muy común** en programación:
 
 ## Cadenas como secuencias de caracteres
 
-TODO: Agregar explicación para su uso en while y for, sobre el uso de [] en cadenas. sin hablar de slicing, y menciona que este tema se trata en apunte siguiente.
+Hasta ahora hemos usado cadenas de texto ({term}`string`) simplemente como "bloques" de información para mostrar mensajes. Sin embargo, en Python, una cadena es en realidad una **secuencia ordenada de caracteres**.
 
-(banderas-control)=
+Esto significa que:
+1. Cada caracter tiene una posición única.
+2. Podemos acceder a cada caracter individualmente.
+3. Podemos recorrer la cadena caracter por caracter.
+
+### Acceso por índice
+
+Al igual que un edificio tiene pisos numerados, una cadena tiene caracteres numerados llamados **índices**.
+
+:::{danger} Importante
+En programación, **siempre** empezamos a contar desde el **0**.
+- El primer caracter está en la posición 0.
+- El segundo caracter está en la posición 1.
+- Y así sucesivamente...
+:::
+
+```python
+palabra = "Python"
+# P  y  t  h  o  n
+# 0  1  2  3  4  5
+
+print(palabra[0])  # Imprime 'P'
+print(palabra[2])  # Imprime 't'
+```
+
+Podemos usar esto dentro de un lazo `while` para recorrer una cadena:
+
+```{code-cell} ipython3
+mensaje = "Hola"
+indice = 0
+largo = len(mensaje)  # len() nos dice cuántos caracteres tiene
+
+while indice < largo:
+    letra = mensaje[indice]
+    print(f"En la posición {indice} está la letra: {letra}")
+    indice = indice + 1
+```
+
+Aunque esto funciona, Python nos ofrece una herramienta mucho más elegante y directa para hacer esto: el lazo `for`.
+
+(banderas-control)= 
 ## Banderas de Control
 
 Según la regla de estilo {ref}`0x0006h`, en lugar de usar `break` y `continue` para lazos complejos, es preferible usar **banderas** (variables booleanas) para controlar el flujo.
@@ -1730,7 +1768,7 @@ while i < 5:
 
 ---
 
-(buenas-practicas-control)=
+(buenas-practicas-control)= 
 ## Buenas Prácticas
 
 ### 1. Nombres Descriptivos para Banderas
@@ -1949,7 +1987,7 @@ El {term}`control de flujo` **se domina practicando**.
 
 ---
 
-(glosario-control-flujo)=
+(glosario-control-flujo)= 
 ## Glosario 
 
 ```{glossary}
