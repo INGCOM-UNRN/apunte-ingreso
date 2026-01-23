@@ -3393,31 +3393,6 @@ frase = " ".join(palabras)
 print(frase)  # "Python es genial"
 ```
 
-### Format Strings
-
-Los f-strings (disponibles desde Python 3.6) son la forma más moderna y legible de formatear strings en Python. Te permiten insertar variables y expresiones directamente en el texto, con control preciso sobre el formato de números, alineación y más. Son más rápidos y claros que los métodos antiguos de formateo.
-
-```{code-cell} ipython3
-nombre = "Ana"
-edad = 20
-
-# F-strings (Python 3.6+) - Recomendado
-mensaje = f"Me llamo {nombre} y tengo {edad} años"
-print(mensaje)
-
-# Expresiones en f-strings
-x = 10
-y = 20
-print(f"La suma de {x} y {y} es {x + y}")
-
-# Formato de números
-pi = 3.14159
-print(f"Pi: {pi:.2f}")  # Pi: 3.14
-
-precio = 1234.56
-print(f"Precio: ${precio:,.2f}")  # Precio: $1,234.56
-```
-
 ### Strings Multilínea
 
 Python permite crear strings que abarcan múltiples líneas usando triple comillas (""" o '''). Esto es útil para documentación, mensajes largos, o cualquier texto que deba mantener formato con saltos de línea. Las comillas triples preservan los saltos de línea y espacios exactamente como los escribís.
