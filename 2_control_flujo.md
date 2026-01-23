@@ -44,7 +44,7 @@ graph TD
 
 ## Introducción y Motivación
 
-### ¿Qué es el Control de Flujo? 
+### ¿Qué es el Control de Flujo?
 
 Hasta ahora, tus programas han sido como seguir una receta paso a paso: hacés **una cosa tras otra**, siempre en el mismo orden. Pero los programas reales necesitan ser **inteligentes**:
 
@@ -164,7 +164,7 @@ mindmap
 
 ---
 
-(condicionales)= 
+(condicionales)=
 ## Estructuras Condicionales
 
 ### ¿Qué son las Condicionales? 
@@ -798,7 +798,7 @@ if nombre != "":
 
 ---
 
-(ejemplos-condicionales)= 
+(ejemplos-condicionales)=
 ## Ejemplos Prácticos con Condicionales
 
 A continuación, unos ejemplos de uso de condicionales `if-elif` para clasificación.
@@ -875,7 +875,7 @@ else:
 
 ---
 
-(while-lazos)= 
+(while-lazos)=
 ## Lazos indefinidos - `while`: Mientras que...
 
 Un **lazo** (también llamado bucle) permite ejecutar un bloque de código repetidamente. El lazo `while` continúa ejecutándose mientras una condición sea verdadera.
@@ -1002,7 +1002,7 @@ print(f"La suma de 1 a 10 es: {suma}")
 :::
 
 
-(while-contador)= 
+(while-contador)=
 #### Patrón 2: Contador clásico y reverso
 
 Este patrón utiliza una variable de control, denominada {term}`contador`, para registrar la cantidad de vueltas ejecutadas.
@@ -1041,7 +1041,7 @@ while numero > 0:
 print("   ¡DESPEGUE! ")
 ```
 
-(while-compuesto)= 
+(while-compuesto)=
 #### Patrón 3: Validación con Repetición (Condiciones compuestas)
 
 Este patrón asegura que ejecutemos una acción mientras una condición se cumpla (o no se cumpla).
@@ -1143,7 +1143,7 @@ while indice < largo:
 
 Aunque esto funciona, Python nos ofrece una herramienta mucho más elegante y directa para hacer esto: el lazo `for`.
 
-(banderas-control)= 
+(banderas-control)=
 ## Banderas de Control
 
 Según la regla de estilo {ref}`0x0006h`, en lugar de usar `break` y `continue` para lazos complejos, es preferible usar **banderas** (variables booleanas) para controlar el flujo.
@@ -1198,22 +1198,6 @@ if not entrada_valida:
 3. **Debugging:** Podés inspeccionar el estado de las banderas.
 4. **Testeo:** Las banderas facilitan las pruebas unitarias.
 
-:::{tip} Cuándo usar {term}`break`
-Si bien preferimos banderas, `break` es aceptable en Python para casos simples de búsqueda lineal donde no hay lógica compleja adicional:
-
-```{code-cell} ipython3
-# Aceptable para búsquedas simples
-texto = "Hola Mundo"
-objetivo = "M"
-
-for caracter in texto:
-    if caracter == objetivo:
-        print("Encontrado")
-        break
-```
-
-Para lógica más compleja, usá banderas.
-:::
 
 ---
 
@@ -1768,7 +1752,7 @@ while i < 5:
 
 ---
 
-(buenas-practicas-control)= 
+(buenas-practicas-control)=
 ## Buenas Prácticas
 
 ### 1. Nombres Descriptivos para Banderas
@@ -1987,7 +1971,7 @@ El {term}`control de flujo` **se domina practicando**.
 
 ---
 
-(glosario-control-flujo)= 
+(glosario-control-flujo)=
 ## Glosario 
 
 ```{glossary}
