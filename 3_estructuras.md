@@ -57,7 +57,7 @@ mindmap
       Métodos de acceso
       Iteración avanzada
       Diccionarios anidados
-    **Conjuntos (Sets)**
+    **Conjuntos**
       Unicidad de elementos
       Operaciones de conjuntos
       Frozen sets
@@ -328,6 +328,8 @@ print(f"El arcoíris tiene {len(colores_arcoiris)} colores")
 ```
 
 ### Acceso a Elementos: Los Índices 
+
+Cuando tratamos el acceso de los elementos de una cadena en el apunte anterior, lo mencionamos de la forma más simple, Python admite que los índices tengan valores, que al principio, no son intuitivos, pero son muy potentes.
 
 #### La Regla del Índice 0
 
