@@ -287,7 +287,7 @@ mi_lista = []
 otra_vacia = list()  # Alternativa
 
 # 2️⃣ Lista con elementos (lo más común)
-numero s = [1, 2, 3, 4, 5]
+numeros = [1, 2, 3, 4, 5]
 frutas = ["manzana", "banana", "naranja"]
 precios = [10.5, 20.0, 15.75]
 
@@ -538,7 +538,7 @@ medio = numeros[1:-1]
 numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 # Solo pares (empieza en 0, salta de 2)
-pare s = numeros[::2]
+pares = numeros[::2]
 # [0, 2, 4, 6, 8]
 
 # Solo impares (empieza en 1, salta de 2)
@@ -2701,7 +2701,7 @@ a = 5
 b = 10
 print(f"Antes: a={a}, b={b}")
 
-a, b = b, a  #  Magia! 
+a, b = b, a  # ✨ ¡Intercambio elegante!
 print(f"Después (Pythonic): a={a}, b={b}")
 ```
 
@@ -3420,7 +3420,7 @@ cuadrados = [i **2 for i in range(10)]
 print(cuadrados)  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 # Con condición
-pare s = [i for i in range(20) if i % 2 == 0]
+pares = [i for i in range(20) if i % 2 == 0]
 print(pares)  # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 
 # Transformación con condición
@@ -3459,7 +3459,7 @@ print(invertido)  # {1: 'a', 2: 'b', 3: 'c'}
 
 # Con condición
 numeros = {"a": 1, "b": 2, "c": 3, "d": 4}
-pare s = {k: v for k, v in numeros.items() if v % 2 == 0}
+pares = {k: v for k, v in numeros.items() if v % 2 == 0}
 print(pares)  # {'b': 2, 'd': 4}
 ```
 
