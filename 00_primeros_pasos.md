@@ -1276,6 +1276,8 @@ HASTA QUE edad >= 1 Y edad <= 120
 
 ### Error 1: Olvidar Inicializar
 
+Este es probablemente el error más común para principiantes. Las variables deben existir antes de usarlas. Si intentás usar una variable que no fue creada (inicializada), Python no sabe qué hacer con ella y lanza un error. Es especialmente crítico con acumuladores y contadores, que deben empezar en 0 antes del lazo.
+
 **❌ Mal:**
 ```python
 for i in range(1, 6):
@@ -1290,6 +1292,8 @@ for i in range(1, 6):
 ```
 
 ### Error 2: Lazo Infinito
+
+Un lazo infinito ocurre cuando la condición de salida nunca se vuelve falsa. Esto bloquea tu programa para siempre, consumiendo recursos innecesariamente. El error típico es olvidar actualizar la variable de control del lazo. Siempre asegurate de que la condición eventualmente se vuelva falsa.
 
 **❌ Mal:**
 ```python
@@ -1310,6 +1314,8 @@ while i <= 10:
 
 ### Error 3: Confundir `=` con `==`
 
+Este es un error de sintaxis clásico. El símbolo `=` es para asignación (darle un valor a una variable), mientras que `==` es para comparación (verificar si dos valores son iguales). En condiciones como `if` o `while`, siempre necesitás `==` para comparar. Confundirlos causa errores de sintaxis o peor, comportamiento inesperado.
+
 **❌ Mal:**
 ```python
 if edad = 18:  # ERROR de sintaxis
@@ -1323,6 +1329,8 @@ if edad == 18:  # Comparación
 ```
 
 ### Error 4: Olvidar Convertir `input()`
+
+La función `input()` siempre retorna texto (string), incluso si el usuario ingresa números. Si querés hacer operaciones matemáticas, debés convertir explícitamente a número con `int()` o `float()`. Si no lo hacés, operaciones como `*` duplican el texto en lugar de multiplicar, causando resultados inesperados y difíciles de detectar.
 
 **❌ Mal:**
 ```python
@@ -1339,6 +1347,8 @@ doble = numero * 2
 ```
 
 ### Error 5: Mala Indentación
+
+Python usa la indentación (espacios al inicio de la línea) para determinar qué código pertenece a qué bloque. No es solo estilo: es parte de la sintaxis. Todo el código dentro de un `if`, `while`, o `for` debe estar indentado con el mismo número de espacios (generalmente 4). Una indentación incorrecta causa errores de sintaxis o comportamiento incorrecto del programa.
 
 **❌ Mal:**
 ```python
