@@ -2938,7 +2938,7 @@ En este capítulo aprendiste sobre funciones en Python:
 ✓ **Retornar valores**: Simple, múltiple, retorno temprano  
 ✓ **Scope de variables**: Local, global, constantes  
 ✓ **Parámetros por defecto**: Valores opcionales y cuidados  
-\✓ **Documentación**: Docstrings con formato apropiado  
+✓ **Documentación**: Docstrings con formato apropiado  
 ✓ **Recursión**: Caso base y recursivo (opcional)  
 ✓ **Buenas prácticas**: Responsabilidad única, nombres, efectos secundarios  
 ✓ **Descomposición funcional**: Dividir problemas complejos en funciones simples  
@@ -2957,7 +2957,90 @@ Un programa bien diseñado está compuesto de muchas funciones pequeñas, cada u
 Pensá en funciones como "bloques de construcción" que combinás para crear programas más grandes. La **descomposición funcional** es la habilidad más importante que desarrollarás como programador: dividir un problema complejo en subproblemas simples, donde cada función tiene una responsabilidad única y clara.
 :::
 
-En el próximo capítulo, aprenderás sobre modularización avanzada: cómo organizar funciones en módulos y paquetes, y cómo trabajar con archivos para persistir datos.
+
+## Cierre
+
+¡Felicitaciones! Completaste el capítulo de **Funciones**, uno de los pilares fundamentales de la programación en Python. Las funciones son el corazón de la programación modular y te permiten escribir código limpio, reutilizable y mantenible.
+
+### ¿Qué sigue?
+
+Este capítulo forma parte de los **contenidos principales** del curso. Para profundizar tu comprensión y ver aplicaciones prácticas de lo aprendido, explorá los siguientes materiales opcionales:
+
+::::{grid} 1 1 2 2
+
+:::{grid-item-card} 📝 A - F-strings Avanzados
+:link: A_fstrings
+:link-type: ref
+
+Formateo de texto profesional para tus funciones y salidas.
+**Complementa:** Documentación y presentación de resultados
+:::
+
+:::{grid-item-card} ⚠️ B - Manejo de Excepciones
+:link: B_excepciones
+:link-type: ref
+
+Cómo hacer tus funciones más robustas manejando errores.
+**Complementa:** Validación de parámetros y casos borde
+:::
+
+:::{grid-item-card} 📦 C - Módulos y Biblioteca Estándar
+:link: C_modulos
+:link-type: ref
+
+Organizar funciones en módulos y usar funciones de la biblioteca estándar.
+**Complementa:** Reutilización y organización de código
+:::
+
+:::{grid-item-card} 🎨 D - Guía de Estilo
+:link: D_estilo
+:link-type: ref
+
+Convenciones de estilo para escribir funciones profesionales.
+**Complementa:** Buenas prácticas y código limpio
+:::
+
+:::{grid-item-card} 📓 E - JupyterLab
+:link: E_jupyterlab
+:link-type: ref
+
+Entorno interactivo para experimentar con funciones.
+**Complementa:** Práctica y exploración de código
+:::
+
+:::{grid-item-card} 🤖 Z - IA en Programación
+:link: Z_ia
+:link-type: ref
+
+Uso ético de IA para aprender sobre funciones.
+**Complementa:** Aprendizaje y resolución de problemas
+:::
+
+::::
+
+### Próximos pasos en tu aprendizaje
+
+1. **Practicá regularmente**: Resolvé los ejercicios propuestos
+2. **Refactorizá código**: Tomá programas anteriores y organizalos en funciones
+3. **Leé código de otros**: Explorá proyectos open source
+4. **Experimentá**: Probá diferentes patrones y estilos
+5. **Revisá conceptos**: Volvé a este capítulo cuando tengas dudas
+
+### Recordá los principios clave
+
+:::{important} Diseño de funciones efectivas
+
+- **Una responsabilidad por función** (SRP)
+- **Nombres descriptivos y claros**
+- **Documentación completa con docstrings**
+- **Retornar valores, no imprimir**
+- **Evitar efectos secundarios**
+- **Funciones pequeñas y enfocadas**
+
+Estos principios te acompañarán durante toda tu carrera como programador.
+:::
+
+¡Y con esto, completaste los apuntes principales de Python del ingreso! Ahora tenés las herramientas fundamentales para escribir programas bien estructurados y mantenibles.
 
 ---
 
