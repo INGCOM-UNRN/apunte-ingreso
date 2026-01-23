@@ -76,7 +76,6 @@ mindmap
 
 ✅ Elegir la estructura correcta para cada problema.
 ✅ Manipular colecciones de datos eficientemente.
-✅ Usar comprensiones (*comprehensions*) para código más limpio.
 ✅ Aplicar operaciones avanzadas sobre estructuras.
 ✅ Combinar estructuras para datos complejos.
 :::
@@ -3442,96 +3441,6 @@ def funcion():
 
 ---
 
-(comprensiones)= 
-## Comprensiones
-
-Las **comprensiones** son una forma concisa y Pythonic de crear estructuras de datos.
-
-### List Comprehensions
-
-Las **{term}`list comprehension <Comprehension>`s** te permiten crear listas en una sola línea de código, de manera más elegante y legible que con loops tradicionales.
-
-```{figure} ./3_estructuras/comprension_listas.svg
-:name: fig-comprension-listas
-:align: center
-:width: 95%
-
-Anatomía y ejemplos de list comprehensions: la forma Pythonic de crear listas
-```
-
-```{code-cell} ipython3
-# Forma tradicional
-cuadrados = []
-for i in range(10):
-    cuadrados.append(i **2)
-
-# Con list comprehension
-cuadrados = [i **2 for i in range(10)]
-print(cuadrados)  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
-
-# Con condición
-pares = [i for i in range(20) if i % 2 == 0]
-print(pares)  # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
-
-# Transformación con condición
-numeros = [1, 2, 3, 4, 5]
-dobles_pares = [n * 2 for n in numeros if n % 2 == 0]
-print(dobles_pares)  # [4, 8]
-```
-
-:::{tip} ¿Cuándo usar comprensiones
-Las comprensiones son más legibles para operaciones simples:
-
-```{code-cell} ipython3
-# ✓ Claro y conciso
-cuadrados = [x**2 for x in range(10)]
-
-# ❌ Demasiado complejo para comprensión
-resultado = [
-    procesar(x) if validar(x) and condicion_compleja(x) else default(x)
-    for x in datos if filtro1(x) and filtro2(x)
-]
-# Mejor con loop tradicional si es muy complejo
-```
-:::
-
-### Dictionary Comprehensions
-
-Al igual que las list comprehensions, podés crear diccionarios de forma concisa usando dictionary comprehensions. La sintaxis es similar pero produce pares clave-valor. Son útiles para transformar diccionarios existentes, filtrar entradas, o crear diccionarios desde otras estructuras de datos.
-
-```{code-cell} ipython3
-# Crear diccionario de cuadrados
-cuadrados = {x: x**2 for x in range(5)}
-print(cuadrados)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
-
-# Invertir diccionario
-original = {"a": 1, "b": 2, "c": 3}
-invertido = {v: k for k, v in original.items()}
-print(invertido)  # {1: 'a', 2: 'b', 3: 'c'}
-
-# Con condición
-numeros = {"a": 1, "b": 2, "c": 3, "d": 4}
-pares = {k: v for k, v in numeros.items() if v % 2 == 0}
-print(pares)  # {'b': 2, 'd': 4}
-```
-
-### Set Comprehensions
-
-Las set comprehensions crean sets de forma concisa, similar a las list comprehensions pero usando llaves en lugar de corchetes. Automáticamente eliminan duplicados, lo que las hace útiles para obtener valores únicos con transformaciones aplicadas.
-
-```{code-cell} ipython3
-# Set de cuadrados
-cuadrados = {x**2 for x in range(-5, 6)}
-print(cuadrados)  # {0, 1, 4, 9, 16, 25} - sin duplicados
-
-# Eliminar duplicados con transformación
-numeros = [1, 2, 2, 3, 3, 3, 4]
-unicos_dobles = {x * 2 for x in numeros}
-print(unicos_dobles)  # {2, 4, 6, 8}
-```
-
----
-
 (operaciones-comunes)=
 ## Operaciones Comunes entre Estructuras
 
@@ -3602,7 +3511,7 @@ for nombre, edad in zip(nombres, edades):
 
 ### 1. Modificar lista mientras se itera
 
-Modificar una lista mientras la estás iterando es un error clásico que puede causar comportamiento inesperado. Cuando eliminás elementos durante la iteración, los índices cambian y el loop puede saltear elementos o lanzar errores. La solución es crear una nueva lista con los elementos que querés mantener, usando una list comprehension o `filter()`.
+Modificar una lista mientras la estás iterando es un error clásico que puede causar comportamiento inesperado. Cuando eliminás elementos durante la iteración, los índices cambian y el loop puede saltear elementos o lanzar errores. La solución es crear una nueva lista con los elementos que querés mantener usando `filter()`.
 
 ```python
 # ❌ Incorrecto
@@ -3702,22 +3611,7 @@ estudiante = {"nombre": "Ana", "edad": 20}
 tareas = ["estudiar", "practicar", "descansar"]
 ```
 
-### 2. Usar Comprensiones para Operaciones Simples
-
-Las list comprehensions son una forma concisa y Pythonic de crear listas. Son más legibles y a menudo más rápidas que loops tradicionales para operaciones simples. Sin embargo, si la lógica es compleja (con múltiples condiciones o transformaciones complicadas), un loop tradicional puede ser más claro.
-
-```{code-cell} ipython3
-# ✓ Claro y conciso
-pares = [x for x in range(20) if x % 2 == 0]
-
-# En lugar de
-pares = []
-for x in range(20):
-    if x % 2 == 0:
-        pares.append(x)
-```
-
-### 3. Usar `in` para Verificar Pertenencia
+### 2. Usar `in` para Verificar Pertenencia
 
 El operador `in` es la forma idiomática en Python de verificar si un elemento está en una colección. Es mucho más legible que escribir un loop manual. Además, para sets y diccionarios, `in` es extremadamente eficiente (O(1) en promedio).
 
@@ -3733,7 +3627,7 @@ for lenguaje in lenguajes:
         encontrado = True
 ```
 
-### 4. Usar Métodos Apropiados
+### 3. Usar Métodos Apropiados
 
 Elegir el método correcto no solo hace tu código más eficiente, sino también más expresivo. Por ejemplo, `append()` comunica claramente que estás agregando un elemento, mientras que `extend()` indica que estás agregando múltiples. Usar el método correcto hace que tu intención sea obvia para otros programadores (y para vos mismo en el futuro).
 
@@ -3748,7 +3642,7 @@ lista.extend([6, 7, 8])
 # lista.append([6, 7, 8])  # Agrega la lista como un elemento
 ```
 
-### 5. Nombrar Estructuras Descriptivamente
+### 4. Nombrar Estructuras Descriptivamente
 
 Los nombres de variables deben describir qué contienen, no su tipo. Nombres como `lista1` o `dict2` no comunican nada útil. En cambio, nombres como `estudiantes_aprobados` o `precio_por_producto` hacen que el código sea autoexplicativo. Esto es especialmente importante en Python donde no hay declaraciones de tipo explícitas.
 
@@ -3761,111 +3655,6 @@ precio_por_producto = {"manzana": 2.5, "banana": 1.8}
 lista1 = ["Ana", "Bruno"]
 dict2 = {"manzana": 2.5, "banana": 1.8}
 ```
-
----
-
-(uso-ia-estructuras-datos)= 
-## Uso Ético y Efectivo de la IA en Estructuras de Datos
-
-:::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
-Dominar estructuras de datos es fundamental para la programación. La IA puede ayudarte a explorar diferentes formas de resolver problemas, pero **vos debés entender cómo funcionan las estructuras** antes de usarlas.
-:::
-
-### Buenas Prácticas para Estructuras de Datos
-
-#### Generar Ejercicios Adicionales
-
-- "Genera ejercicios sobre manipulación de listas en Python que incluyan `append`, `remove` y `búsqueda`"
-- "Crea problemas de práctica sobre diccionarios con diferentes tipos de claves y valores"
-- "Dame ejercicios que requieran decidir entre usar lista, tupla, diccionario o conjunto"
-
-#### Obtener Pistas sobre Manipulación
-
-- "Tengo una lista de nombres y quiero eliminar los duplicados. ¿Qué estructura de datos de Python me ayudaría?"
-- "Necesito almacenar pares clave-valor de alumnos y sus notas. Tengo una lista de tuplas: `[('Ana', 8), ('Luis', 9)]`. ¿Hay una estructura mejor para esto?"
-- "¿Cómo puedo verificar si un elemento existe en una lista sin recorrerla manualmente con un `for`?"
-
-#### Refactorizar Código
-
-- "Estoy usando múltiples variables para almacenar datos relacionados: `nombre1, nombre2, nombre3...`. ¿Cómo debería refactorizar esto?"
-- "Tengo este código que busca en una lista con un loop. ¿Hay una forma más Pythonic de hacerlo?"
-
-#### Debugging de Operaciones
-
-- "Obtengo `IndexError: list index out of range`. ¿Qué significa y cómo lo prevengo?"
-- "Modifiqué una tupla y Python dice que no puedo. ¿Por qué?"
-- "Mi lista no se ordena correctamente con `sort()`. ¿Qué estoy haciendo mal?"
-
-#### Explorar Métodos y Técnicas
-
-- "¿Cuáles son los métodos más útiles de listas en Python?"
-- "¿Cuándo debería usar una list comprehension y cuándo un loop `for` normal?"
-- "¿Cuál es la diferencia entre `list.sort()` y `sorted(list)`?"
-
-### Ejemplos Específicos de este Módulo
-
-**Situación 1**: Elección de estructura
-
-❌ **Incorrecto**:
-```
-Prompt: "Tengo que almacenar nombres de alumnos sin repetidos. Dame el código."
-```
-
-✅ **Correcto**:
-```
-Prompt: "Necesito almacenar nombres sin repetidos. Estoy considerando 
-usar una lista o un set. ¿Cuál sería más apropiado y por qué?"
-```
-
-**Situación 2**: Slicing
-
-❌ **Incorrecto**:
-```
-Prompt: "¿Cómo obtengo los primeros 3 elementos de una lista?"
-```
-
-✅ **Correcto**:
-```
-Prompt: "Estoy usando `lista[0:3]` para obtener los primeros 3 elementos. 
-¿Es correcto o debería ser `lista[0:2]`? Tengo confusión con el índice final."
-```
-
-### Comprensión vs Memorización
-
-:::{tip} Enfoque correcto
-No intentes memorizar todos los métodos de cada estructura. En su lugar:
-
-1. **Entiende** qué hace cada estructura y cuándo usarla.
-2. **Practica** las operaciones básicas (agregar, eliminar, buscar).
-3. **Consulta** la documentación (o la IA) para operaciones específicas.
-
-La IA es excelente para recordarte sintaxis, pero **vos** debés saber QUÉ operación necesitás.
-:::
-
-### Errores Comunes en este Módulo
-
-:::{warning} No pidas código sin entender la estructura
-Antes de pedir código que use listas o diccionarios, asegurate de entender:
-
-- ¿Por qué esta estructura es apropiada?
-- ¿Cómo se accede a los elementos?
-- ¿Es mutable o inmutable?
-- ¿Permite duplicados?
-- ¿Está ordenada?
-
-Si no podés responder estas preguntas, **leé el apunte primero**.
-:::
-
-### Uso Avanzado: Comparar Enfoques
-
-Una vez que hayas resuelto un ejercicio, podés usar la IA para explorar:
-
-```
-Prompt: "Resolví este problema usando dos listas paralelas para nombres y edades.
-¿Hay alguna ventaja en usar un diccionario en su lugar? ¿O una lista de tuplas?"
-```
-
-Este tipo de pregunta te ayuda a **profundizar tu comprensión** más allá de lo básico.
 
 ---
 
@@ -3895,9 +3684,6 @@ En este capítulo aprendiste sobre estructuras de datos en Python:
   - Verificaciones de pertenencia.
 
 ✓ **Strings avanzados**: Métodos de búsqueda, transformación, validación.
-
-✓ **Comprensiones**: Forma concisa de crear estructuras.
-  - `List`, `dict` y `set` comprehensions.
 
 Las estructuras de datos son fundamentales para organizar y manipular información de forma eficiente. Elegir la estructura apropiada para cada problema es clave para escribir código claro y eficiente.
 
