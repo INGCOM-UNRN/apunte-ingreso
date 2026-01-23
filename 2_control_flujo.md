@@ -976,9 +976,14 @@ Estos patrones son **independientes del tipo de lazo**. Lo que importa es la ló
 (while-acumulador)= 
 #### Patrón 1: Acumulador (Sumar números)
 
-Este patrón utiliza una variable externa al lazo, denominada *acumulador*, que guarda el estado de una operación aritmética (como una suma) de forma progresiva.
+Este patrón se utiliza cuando necesitás **acumular** un resultado a través de múltiples iteraciones. La clave es tener una variable externa que guarda el "total" hasta el momento.
 
-Es necesaria una inicialización explícita, habitualmente en el elemento neutro (0 para sumas, 1 para multiplicaciones). Durante cada vuelta del lazo, se actualiza el acumulador agregando el nuevo dato.
+Por ejemplo, si querés calcular la suma total de una serie de números, necesitás una variable (el acumulador) que empiece en cero y vaya sumando cada nuevo número que procesás.
+
+**Cómo funciona:**
+1.  **Inicialización:** Creás una variable acumuladora con un valor neutro (0 para suma, 1 para multiplicación, "" para cadenas).
+2.  **Proceso:** En cada vuelta del lazo, actualizás el acumulador agregándole el valor actual.
+3.  **Resultado:** Al finalizar el lazo, la variable contiene el resultado total.
 
 ```{code-cell} ipython3
 # Calcular la suma de los primeros 10 números
@@ -1002,12 +1007,16 @@ print(f"La suma de 1 a 10 es: {suma}")
 :::
 
 
-(while-contador)=
+(while-contador)= 
 #### Patrón 2: Contador clásico y reverso
 
-Este patrón utiliza una variable de control, denominada {term}`contador`, para registrar la cantidad de vueltas ejecutadas.
+A veces no querés sumar los valores en sí, sino simplemente saber **cuántas veces** ocurre algo o en qué paso estás. Para esto sirve el patrón contador.
 
-Un lazo contador puede ser ascendente (cuenta hacia arriba hasta un tope) o descendente (cuenta hacia atrás, útil cuando no nos interesa el índice sino la cantidad restante).
+Este patrón utiliza una variable de control que se incrementa (o decrementa) en cada iteración. Es fundamental para controlar lazos `while` que deben ejecutarse un número específico de veces.
+
+**Tipos:**
+*   **Ascendente:** Empieza en un valor bajo y sube hasta un límite. Útil para recorrer índices o contar pasos.
+*   **Descendente:** Empieza en un valor alto y baja hasta cero. Útil para cuentas regresivas o cuando necesitás procesar algo en orden inverso.
 
 ```{code-cell} ipython3
 print("Contador ascendente:")
@@ -1041,14 +1050,14 @@ while numero > 0:
 print("   ¡DESPEGUE! ")
 ```
 
-(while-compuesto)=
+(while-compuesto)= 
 #### Patrón 3: Validación con Repetición (Condiciones compuestas)
 
-Este patrón asegura que ejecutemos una acción mientras una condición se cumpla (o no se cumpla).
+Este es uno de los usos más potentes del `while`: **garantizar que un dato sea válido**.
 
-Aquí, el lazo puede ser controlado por una expresión booleana arbitraria. Esto es la base para las {ref}`banderas de control <banderas-control>`.
+A diferencia de un `if` que solo chequea una vez, el `while` chequea **mientras** el dato sea incorrecto. Esto obliga al programa a detenerse y pedir el dato nuevamente hasta que el usuario ingrese algo válido o se cumpla una condición de salida (como agotar intentos).
 
-**Ejemplo simple (pero potencialmente infinito):**
+**Lógica:** "Mientras el dato sea inválido, volvé a pedirlo".
 
 ```{code-cell} ipython3
 # Pedir contraseña hasta que sea correcta
@@ -1065,7 +1074,7 @@ while contraseña != PASSWORD_CORRECTA:
 print("✅ ¡Acceso concedido!")
 ```
 
-Para evitar quedarnos atrapados si el usuario no sabe la contraseña, agregamos un límite de intentos combinando condiciones lógicas:
+Para evitar quedarnos atrapados en un lazo infinito si el usuario no sabe la contraseña, podemos combinar condiciones lógicas (usando `and`). Así, el lazo continúa solo si la contraseña es incorrecta **Y** todavía quedan intentos disponibles.
 
 ```{code-cell} ipython3
 # Pedir contraseña hasta que sea correcta O se acaben los intentos
@@ -1143,12 +1152,18 @@ while indice < largo:
 
 Aunque esto funciona, Python nos ofrece una herramienta mucho más elegante y directa para hacer esto: el lazo `for`.
 
-(banderas-control)=
+(banderas-control)= 
 ## Banderas de Control
 
-Según la regla de estilo {ref}`0x0006h`, en lugar de usar `break` y `continue` para lazos complejos, es preferible usar **banderas** (variables booleanas) para controlar el flujo.
+A veces, la condición para detener un lazo no es simple (como llegar a un número) sino que depende de que ocurra un evento específico (encontrar un dato, que el usuario cancele, que ocurra un error).
+
+El patrón de **bandera** (flag) utiliza una variable booleana (True/False) para señalar si ese evento ha ocurrido. El lazo continúa ejecutándose mientras la bandera esté en un estado (ej: `no_encontrado`) y se detiene cuando cambia.
+
+Según la regla de estilo {ref}`0x0006h`, en lugar de usar `break` y `continue` para salir abruptamente de lazos complejos, es preferible usar **banderas**. Esto hace que la lógica de salida sea explícita en la condición del `while`, facilitando la lectura.
 
 ### Patrón 4: Bandera Simple
+
+En este ejemplo, usamos la bandera `encontrado` para controlar el lazo. Inicialmente es `False`. Si encontramos el objetivo, la cambiamos a `True`, lo que hará que el `while` termine limpiamente en la próxima evaluación.
 
 ```{code-cell} ipython3
 """Búsqueda con bandera de control."""
@@ -1169,6 +1184,10 @@ if not encontrado:
 ```
 
 ### Patrón 5: Múltiples Banderas
+
+Las banderas brillan cuando tenés múltiples razones para detenerte. En lugar de tener `break` esparcidos por todo el código, combinás las condiciones en el encabezado del `while`.
+
+Aquí el lazo continúa solo si: la entrada NO es válida **Y** los intentos son menores al máximo.
 
 ```python
 """Validación de entrada con múltiples condiciones."""
