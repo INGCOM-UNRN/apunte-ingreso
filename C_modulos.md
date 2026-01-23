@@ -61,6 +61,8 @@ Las cadenas son **inmutables**. Todos los métodos retornan **nuevas cadenas** s
 
 ### Mapa de Métodos de Cadenas
 
+Este diagrama organiza los métodos de strings en categorías funcionales, facilitando su comprensión y búsqueda. Los métodos están agrupados según su propósito principal: búsqueda de subcadenas, verificación de contenido, transformación de texto, división y unión de cadenas, y formateo. Esta organización te ayuda a elegir rápidamente el método apropiado para cada tarea.
+
 ```{mermaid}
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#e3f2fd','primaryTextColor':'#1565c0','primaryBorderColor':'#1976d2','lineColor':'#42a5f5','secondaryColor':'#f3e5f5','tertiaryColor':'#fff'}}}%%
 graph TB
@@ -600,6 +602,8 @@ Las listas son **mutables**. Muchos métodos modifican la lista **en el lugar** 
 
 ### Mapa de Métodos de Listas
 
+Este diagrama muestra los métodos de listas organizados por su función principal. A diferencia de los strings, las listas son mutables, por lo que muchos métodos modifican la lista directamente en lugar de retornar una nueva. Entender esta diferencia es crucial para evitar errores comunes. Los métodos están agrupados en: agregar elementos, eliminar elementos, buscar valores, ordenar, y copiar.
+
 ```{mermaid}
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#e8f5e9','primaryTextColor':'#2e7d32','primaryBorderColor':'#43a047','lineColor':'#66bb6a','secondaryColor':'#fff3e0','tertiaryColor':'#fff'}}}%%
 graph TB
@@ -1091,6 +1095,8 @@ Los diccionarios son **mutables** y almacenan pares clave-valor. Desde Python 3.
 
 ### Mapa de Métodos de Diccionarios
 
+Este diagrama organiza los métodos de diccionarios según su propósito. Los diccionarios son estructuras clave-valor que permiten acceso rápido a datos mediante claves únicas. Los métodos se agrupan en: acceso seguro a valores, modificación de entradas, eliminación de elementos, y operaciones de creación/copia. Comprender estos métodos es esencial para trabajar eficientemente con datos estructurados.
+
 ```{mermaid}
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#fce4ec','primaryTextColor':'#c2185b','primaryBorderColor':'#d81b60','lineColor':'#f06292','secondaryColor':'#f3e5f5','tertiaryColor':'#fff'}}}%%
 graph TB
@@ -1345,6 +1351,8 @@ Los sets son **mutables**, pero sus elementos deben ser **inmutables** (hashable
 
 ### Mapa de Métodos de Sets
 
+Este diagrama organiza los métodos de sets según su funcionalidad. Los sets son colecciones no ordenadas de elementos únicos, ideales para operaciones matemáticas de conjuntos y eliminación de duplicados. Los métodos se clasifican en: agregar elementos, eliminar elementos, operaciones de conjuntos (unión, intersección, diferencia), y verificaciones de relaciones entre conjuntos (subconjunto, superconjunto).
+
 ```{mermaid}
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#fff3e0','primaryTextColor':'#e65100','primaryBorderColor':'#f57c00','lineColor':'#ff9800','secondaryColor':'#fce4ec','tertiaryColor':'#fff'}}}%%
 graph TB
@@ -1581,6 +1589,8 @@ print(numeros.index(20, 2))    # 3  ← Desde índice 2
 
 ### Operaciones con Tuplas
 
+Aunque las tuplas son inmutables (no se pueden modificar después de creadas), soportan varias operaciones que crean nuevas tuplas o retornan información sobre sus elementos. Estas operaciones incluyen concatenación (unir tuplas), repetición, slicing (extraer partes), verificación de pertenencia, y funciones agregadas como longitud, máximo y mínimo. Son similares a las operaciones de listas, pero siempre crean nuevas tuplas en lugar de modificar la existente.
+
 ```{code-cell} ipython3
 # Concatenación
 a = (1, 2, 3)
@@ -1602,6 +1612,8 @@ print(len(a), max(a), min(a))  # 3 3 1
 
 ### Desempaquetado de Tuplas
 
+El desempaquetado es una característica poderosa de Python que permite extraer los valores de una tupla en variables separadas de forma elegante. Esto es especialmente útil para funciones que retornan múltiples valores, intercambiar variables sin variable temporal, o trabajar con datos estructurados. Python también soporta desempaquetado extendido con `*`, que captura múltiples valores en una lista.
+
 ```{code-cell} ipython3
 # Desempaquetado básico
 coordenadas = (10, 20)
@@ -1622,6 +1634,8 @@ print(f"a={a}, b={b}")  # a=10, b=5
 ```
 
 ### namedtuple - Tuplas con Nombres
+
+Las `namedtuple` del módulo `collections` combinan la eficiencia de las tuplas con la legibilidad del acceso por nombre. Son especialmente útiles para estructuras de datos simples donde no necesitás una clase completa pero querés más claridad que índices numéricos. Se comportan como tuplas regulares (inmutables, pueden usarse como claves de diccionario) pero permiten acceder a sus campos por nombre, haciendo el código mucho más autoexplicativo.
 
 ```{code-cell} ipython3
 from collections import namedtuple
@@ -1750,6 +1764,8 @@ ubicaciones = {
 ```
 
 ### Conversión entre Tipos
+
+Python facilita la conversión entre diferentes tipos de colecciones mediante funciones constructoras. Estas conversiones son útiles cuando necesitás las características específicas de un tipo: por ejemplo, convertir a `set` para eliminar duplicados, a `list` para ordenar, o a `tuple` para hacerlo inmutable. Cada conversión tiene sus reglas: algunas preservan orden, otras eliminan duplicados, y algunas requieren estructuras específicas como pares clave-valor para diccionarios.
 
 ```{code-cell} ipython3
 # A lista
