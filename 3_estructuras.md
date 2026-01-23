@@ -35,7 +35,9 @@ estudiantes = ["Ana", "Bruno", "Carlos", "Diana"]  # ¡Y podés agregar más!
 
 ---
 
-### Mapa del Capítulo 
+### Mapa del Capítulo
+
+Este diagrama mental muestra la organización completa del capítulo. Cada estructura de datos tiene características y usos específicos que exploraremos en detalle. Te ayudará a navegar y entender cómo se relacionan los diferentes conceptos.
 
 ```{mermaid}
 mindmap
@@ -280,6 +282,8 @@ compras = ["pan", "leche", "huevos", "queso"]
 ---
 
 ### Crear Listas: Tres Formas
+
+Existen varias formas de crear listas en Python, cada una apropiada para diferentes situaciones. Podés crear listas vacías que llenarás después, listas con elementos iniciales, o incluso listas que contengan diferentes tipos de datos mezclados. La sintaxis básica usa corchetes `[]` para definir los elementos de la lista.
 
 ```{code-cell} ipython3
 # 1️⃣ Lista vacía (para ir agregando después)
@@ -1509,6 +1513,8 @@ print("Copia profunda:", copia_profunda)   # [[777, 2], [3, 4]]
 
 ### Longitud y Operaciones Básicas
 
+Python proporciona funciones integradas (built-in) que trabajan con cualquier tipo de colección, incluyendo listas. Estas funciones te permiten obtener información básica sobre la lista (como su longitud), realizar cálculos matemáticos (suma, mínimo, máximo), o verificar condiciones sobre todos los elementos.
+
 ```{code-cell} ipython3
 frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja"]
 
@@ -2278,6 +2284,8 @@ dvd[0] = "Otra canción"  # ✗ ERROR
 
 ### Crear Tuplas: 4 Formas
 
+Python ofrece múltiples formas de crear tuplas, cada una con su propósito. Podés usar paréntesis explícitos, aprovechar el empaquetado automático de Python, o incluso crear tuplas de un solo elemento (con cuidado especial en la sintaxis). La flexibilidad de Python permite elegir la sintaxis más clara para cada situación.
+
 ```{code-cell} ipython3
 # 1️⃣ Con paréntesis (forma común)
 coordenadas = (10, 20)
@@ -2320,6 +2328,8 @@ print(f"Tipo: {type(tupla)}, valor: {tupla}")    # <class 'tuple'>
 
 ### Crear Tuplas con `tuple()`
 
+La función `tuple()` es útil cuando necesitás convertir otros tipos de iterables (listas, strings, ranges) en tuplas. Esto es común cuando una función requiere específicamente una tupla, o cuando querés "congelar" una lista para evitar modificaciones accidentales. La conversión es directa: cada elemento del iterable se convierte en un elemento de la tupla.
+
 ```{code-cell} ipython3
 # Convertir lista a tupla
 lista = [1, 2, 3, 4, 5]
@@ -2340,6 +2350,8 @@ print(f"Tupla de 0 a 4: {tupla_nums}")
 ---
 
 ### Acceso a Elementos: Igual que Listas
+
+Las tuplas se comportan exactamente como las listas en cuanto al acceso de elementos: usan índices que empiezan en 0, soportan índices negativos, y permiten slicing. La única diferencia es que no podés modificar los elementos. Todas las operaciones de lectura funcionan igual.
 
 ```{code-cell} ipython3
 punto_3d = (10, 20, 30)
@@ -2859,6 +2871,8 @@ print(numeros.index(5))  # 2
 
 ### Convertir entre Listas y Tuplas
 
+A menudo necesitás convertir entre listas y tuplas dependiendo de tus necesidades: si necesitás mutabilidad (lista) o inmutabilidad (tupla). Python hace esto trivial con las funciones `list()` y `tuple()`. La conversión preserva el orden de los elementos.
+
 ```{code-cell} ipython3
 # Lista a tupla
 lista = [1, 2, 3]
@@ -2879,6 +2893,8 @@ print(lista)  # [4, 5, 6]
 Un **diccionario** es una {term}`colección` de {term}`pares clave-valor<Par key-value>`. Cada clave es única y se usa para acceder a su valor asociado. Es como un diccionario real: buscás una palabra ({term}`key`) y encontrás su definición ({term}`value`).
 
 ### Crear Diccionarios
+
+Los diccionarios se crean usando llaves `{}` con pares clave-valor separados por dos puntos. A diferencia de las listas que usan índices numéricos, los diccionarios usan claves personalizadas (generalmente strings) para acceder a los valores. Esto los hace ideales para datos estructurados donde cada campo tiene un nombre significativo.
 
 ```{code-cell} ipython3
 # Diccionario vacío
@@ -2913,6 +2929,8 @@ d = {"nombre": "Ana", 1: "uno", (1,2): "tupla"}
 :::
 
 ### Acceso a Valores
+
+Para acceder a valores en un diccionario, usás la clave entre corchetes o el método `get()`. El método `get()` es más seguro porque no lanza un error si la clave no existe; en su lugar, retorna `None` o un valor por defecto que especifiques. Esto es especialmente útil cuando trabajás con datos que pueden estar incompletos.
 
 ```{code-cell} ipython3
 estudiante = {
@@ -2950,6 +2968,8 @@ valor = diccionario.get(clave, valor_por_defecto)
 :::
 
 ### Modificar Diccionarios
+
+Los diccionarios son mutables, lo que significa que podés cambiar sus valores, agregar nuevos pares clave-valor, o eliminar entradas existentes. A diferencia de las listas que se modifican por índice, los diccionarios se modifican por clave. Esto los hace extremadamente flexibles para representar datos que cambian con el tiempo.
 
 ```{code-cell} ipython3
 estudiante = {"nombre": "Ana", "edad": 20}
@@ -3014,6 +3034,8 @@ print(estudiante)  # {}
 
 ### Verificar Existencia de Claves
 
+Antes de acceder a un valor en un diccionario, es común verificar si la clave existe para evitar errores. Python proporciona el operador `in` para esta tarea, que retorna `True` si la clave existe y `False` en caso contrario. Esto es más eficiente y legible que intentar acceder y capturar una excepción.
+
 ```{code-cell} ipython3
 estudiante = {"nombre": "Ana", "edad": 20}
 
@@ -3026,6 +3048,8 @@ if "nota" not in estudiante:
 ```
 
 ### Iterar sobre Diccionarios
+
+Los diccionarios permiten múltiples formas de iteración dependiendo de lo que necesitás: solo claves, solo valores, o ambos. Python 3.7+ mantiene el orden de inserción, lo que hace que la iteración sea predecible. La forma más común y recomendada es usar `.items()` para acceder a pares clave-valor simultáneamente.
 
 ```{code-cell} ipython3
 estudiante = {
@@ -3053,6 +3077,8 @@ for clave, valor in estudiante.items():
 
 ### Diccionarios Anidados
 
+Los diccionarios pueden contener otros diccionarios como valores, creando estructuras de datos complejas y jerárquicas. Esto es útil para representar datos relacionados de forma organizada, como información de múltiples estudiantes, configuraciones de aplicaciones, o respuestas de APIs. El acceso a datos anidados se hace encadenando corchetes.
+
 ```{code-cell} ipython3
 # Diccionario de diccionarios
 curso = {
@@ -3077,6 +3103,8 @@ print(primera_nota)  # 8
 ```
 
 ### Ejemplo Práctico: Contador de Palabras
+
+Un caso de uso común de diccionarios es contar frecuencias de elementos. En este ejemplo, usamos un diccionario para contar cuántas veces aparece cada palabra en un texto. El patrón es simple: si la palabra ya existe como clave, incrementamos su valor; si no, la agregamos con valor 1.
 
 ```{code-cell} ipython3
 """Cuenta cuántas veces aparece cada palabra en un texto."""
@@ -3116,6 +3144,8 @@ Un **set** es una {term}`colección` **no ordenada** de elementos **únicos**. E
 
 ### Crear Sets
 
+Los sets se crean usando llaves `{}` con elementos separados por comas, o con la función `set()` pasando cualquier iterable. Es importante recordar que para crear un set vacío debés usar `set()`, ya que `{}` crea un diccionario vacío. Los sets automáticamente eliminan duplicados al crearlos.
+
 ```{code-cell} ipython3
 # Con llaves
 numeros = {1, 2, 3, 4, 5}
@@ -3143,6 +3173,8 @@ No podés acceder por índice: `numeros[0]` causará un error.
 
 ### Operaciones Básicas
 
+Los sets tienen operaciones para agregar y eliminar elementos, pero con comportamientos únicos debido a su naturaleza de colección sin duplicados. Al agregar un elemento que ya existe, no pasa nada (no hay error). Python ofrece varios métodos para eliminar elementos, cada uno con diferentes comportamientos ante elementos inexistentes.
+
 ```{code-cell} ipython3
 # Agregar elementos
 colores = {"rojo", "verde"}
@@ -3167,6 +3199,8 @@ print(elemento)
 ```
 
 ### Operaciones de Conjuntos
+
+Los sets implementan operaciones matemáticas de teoría de conjuntos. Podés calcular uniones (elementos en cualquiera de los conjuntos), intersecciones (elementos en ambos), diferencias (elementos en uno pero no en el otro), y diferencias simétricas (elementos en uno u otro, pero no en ambos). Estas operaciones son muy eficientes y útiles para análisis de datos.
 
 ```{code-cell} ipython3
 a = {1, 2, 3, 4, 5}
@@ -3209,6 +3243,8 @@ flowchart LR
 
 ### Métodos de Verificación
 
+Los sets tienen métodos especiales para verificar relaciones entre conjuntos. Podés determinar si un set es subconjunto de otro (todos sus elementos están contenidos), superconjunto (contiene todos los elementos del otro), o si dos sets son disjuntos (no tienen elementos en común). Estas operaciones son fundamentales en lógica y análisis de datos.
+
 ```{code-cell} ipython3
 a = {1, 2, 3}
 b = {1, 2, 3, 4, 5}
@@ -3228,6 +3264,8 @@ print(x.isdisjoint(y))   # True
 ```
 
 ### Uso Práctico: Eliminar Duplicados
+
+Uno de los usos más comunes de los sets es eliminar elementos duplicados de una lista. Como los sets solo mantienen elementos únicos, convertir una lista a set y luego de vuelta a lista es una forma rápida y eficiente de eliminar duplicados. Sin embargo, esto no preserva el orden original en versiones anteriores a Python 3.7.
 
 ```{code-cell} ipython3
 # Eliminar duplicados de una lista
@@ -3255,6 +3293,8 @@ Catálogo completo de métodos de strings organizados por categoría
 
 ### Métodos de Búsqueda
 
+Los strings en Python tienen métodos especializados para buscar y verificar contenido. Estos métodos te permiten encontrar la posición de subcadenas, contar ocurrencias, o verificar si un string comienza o termina con cierto patrón. Son fundamentales para el procesamiento y análisis de texto.
+
 ```{code-cell} ipython3
 texto = "Python es un lenguaje de programación"
 
@@ -3280,6 +3320,8 @@ if texto.endswith("ción"):
 
 ### Métodos de Transformación
 
+Los strings tienen métodos que te permiten transformar su contenido de diversas formas. Podés convertir entre mayúsculas y minúsculas, capitalizar palabras, o incluso invertir el caso de cada letra. Estos métodos son especialmente útiles para normalizar texto antes de compararlo o procesarlo.
+
 ```{code-cell} ipython3
 texto = "Python es Genial"
 
@@ -3300,6 +3342,8 @@ print(texto.swapcase())  # "pYTHON ES gENIAL"
 ```
 
 ### Métodos de Validación
+
+Estos métodos permiten verificar el contenido de un string sin modificarlo. Son útiles para validar entrada del usuario, verificar formatos de datos, o clasificar texto. Cada método retorna `True` o `False` dependiendo de si el string cumple con cierta condición.
 
 ```{code-cell} ipython3
 # isalpha() - solo letras
@@ -3324,6 +3368,8 @@ print("python".islower())      # True
 ```
 
 ### Métodos de Formato
+
+Los métodos de formato te permiten limpiar, modificar y procesar strings de formas complejas. Podés eliminar espacios innecesarios, reemplazar partes del texto, dividir strings en listas de palabras, o unir listas de strings en un solo texto. Estos métodos son esenciales para el procesamiento de texto.
 
 ```{code-cell} ipython3
 # strip() - elimina espacios al inicio y final
@@ -3350,6 +3396,8 @@ print(frase)  # "Python es genial"
 
 ### Format Strings
 
+Los f-strings (disponibles desde Python 3.6) son la forma más moderna y legible de formatear strings en Python. Te permiten insertar variables y expresiones directamente en el texto, con control preciso sobre el formato de números, alineación y más. Son más rápidos y claros que los métodos antiguos de formateo.
+
 ```{code-cell} ipython3
 nombre = "Ana"
 edad = 20
@@ -3372,6 +3420,8 @@ print(f"Precio: ${precio:,.2f}")  # Precio: $1,234.56
 ```
 
 ### Strings Multilínea
+
+Python permite crear strings que abarcan múltiples líneas usando triple comillas (""" o '''). Esto es útil para documentación, mensajes largos, o cualquier texto que deba mantener formato con saltos de línea. Las comillas triples preservan los saltos de línea y espacios exactamente como los escribís.
 
 ```{code-cell} ipython3
 # Con triple comillas
@@ -3447,6 +3497,8 @@ resultado = [
 
 ### Dictionary Comprehensions
 
+Al igual que las list comprehensions, podés crear diccionarios de forma concisa usando dictionary comprehensions. La sintaxis es similar pero produce pares clave-valor. Son útiles para transformar diccionarios existentes, filtrar entradas, o crear diccionarios desde otras estructuras de datos.
+
 ```{code-cell} ipython3
 # Crear diccionario de cuadrados
 cuadrados = {x: x**2 for x in range(5)}
@@ -3465,6 +3517,8 @@ print(pares)  # {'b': 2, 'd': 4}
 
 ### Set Comprehensions
 
+Las set comprehensions crean sets de forma concisa, similar a las list comprehensions pero usando llaves en lugar de corchetes. Automáticamente eliminan duplicados, lo que las hace útiles para obtener valores únicos con transformaciones aplicadas.
+
 ```{code-cell} ipython3
 # Set de cuadrados
 cuadrados = {x**2 for x in range(-5, 6)}
@@ -3481,7 +3535,11 @@ print(unicos_dobles)  # {2, 4, 6, 8}
 (operaciones-comunes)=
 ## Operaciones Comunes entre Estructuras
 
+Python facilita la conversión entre diferentes estructuras de datos, permitiéndote elegir la más apropiada para cada tarea y convertir cuando sea necesario. También proporciona funciones integradas que funcionan con cualquier tipo de colección, haciendo el código más versátil.
+
 ### Conversiones
+
+Es común necesitar convertir entre diferentes tipos de estructuras de datos. Python hace esto simple con funciones constructoras como `list()`, `tuple()`, `set()`, y `dict()`. Cada conversión tiene sus propias reglas y efectos sobre los datos (por ejemplo, convertir a set elimina duplicados).
 
 ```{code-cell} ipython3
 # Lista ⟷ Tupla
@@ -3502,6 +3560,8 @@ pares = list(d.items())     # [('a', 1), ('b', 2), ('c', 3)]
 ```
 
 ### Funciones Built-in Útiles
+
+Python proporciona un conjunto de funciones integradas que trabajan con cualquier tipo de iterable (listas, tuplas, sets, etc.). Estas funciones realizan operaciones comunes como obtener la longitud, calcular sumas, encontrar valores extremos, o transformar colecciones. Son eficientes y optimizadas en C, por lo que son más rápidas que implementar estas operaciones manualmente.
 
 ```{code-cell} ipython3
 numeros = [3, 1, 4, 1, 5, 9, 2, 6]
@@ -3542,6 +3602,8 @@ for nombre, edad in zip(nombres, edades):
 
 ### 1. Modificar lista mientras se itera
 
+Modificar una lista mientras la estás iterando es un error clásico que puede causar comportamiento inesperado. Cuando eliminás elementos durante la iteración, los índices cambian y el loop puede saltear elementos o lanzar errores. La solución es crear una nueva lista con los elementos que querés mantener, usando una list comprehension o `filter()`.
+
 ```python
 # ❌ Incorrecto
 numeros = [1, 2, 3, 4, 5]
@@ -3555,6 +3617,8 @@ impares = [n for n in numeros if n % 2 != 0]
 ```
 
 ### 2. Confundir métodos que modifican vs que retornan
+
+Algunos métodos de listas modifican la lista en su lugar y retornan `None` (como `sort()`, `reverse()`, `append()`), mientras que otros retornan una nueva estructura sin modificar la original (como `sorted()`, `reversed()`). Confundir estos dos comportamientos es un error común. Siempre verificá la documentación para saber si un método modifica in-place o retorna un nuevo valor.
 
 ```python
 # ❌ sort() modifica, no retorna
@@ -3572,6 +3636,8 @@ ordenados = sorted(numeros)  # Retorna nueva lista
 
 ### 3. Olvidar que sets no tienen orden
 
+Los sets son colecciones no ordenadas, por lo que no podés acceder a elementos por índice como lo harías con listas. Si necesitás orden y acceso por índice, usá una lista. Si necesitás tanto las ventajas de un set (unicidad, operaciones rápidas) como acceso ocasional por índice, convertí temporalmente a lista.
+
 ```python
 # ❌ Incorrecto
 conjunto = {3, 1, 4, 1, 5}
@@ -3584,6 +3650,8 @@ primero = lista[0]
 
 ### 4. Usar lista como clave de diccionario
 
+Solo los tipos inmutables (hashable) pueden ser claves de diccionario. Las listas son mutables y no se pueden usar como claves. Si necesitás usar una secuencia como clave, convertila a tupla primero. Esto es porque las claves de diccionario deben tener un hash consistente, y los objetos mutables pueden cambiar y alterar su hash.
+
 ```python
 # ❌ Incorrecto
 # d = {[1, 2]: "valor"}  # TypeError: unhashable type
@@ -3593,6 +3661,8 @@ d = {(1, 2): "valor"}
 ```
 
 ### 5. Copia superficial vs profunda
+
+Cuando copiás una lista que contiene otras listas (u otros objetos mutables), una copia superficial (`copy()` o `[:]`) solo copia la lista externa. Las listas internas siguen siendo las mismas en memoria, por lo que modificarlas afecta tanto a la copia como al original. Para listas anidadas, necesitás una copia profunda con `copy.deepcopy()`.
 
 ```{code-cell} ipython3
 # Copia superficial - problemas con listas anidadas
@@ -3616,6 +3686,8 @@ print(original)  # [[1, 2], [3, 4]] - no afectó al original
 
 ### 1. Elegir la Estructura Apropiada
 
+La elección de la estructura de datos correcta es fundamental para código eficiente y legible. Sets para elementos únicos, listas para colecciones ordenadas modificables, tuplas para datos constantes, y diccionarios para datos con etiquetas. Esta decisión afecta tanto el rendimiento como la claridad del código.
+
 ```{code-cell} ipython3
 # Para datos únicos sin orden → Set
 colores_unicos = {"rojo", "verde", "azul"}
@@ -3632,6 +3704,8 @@ tareas = ["estudiar", "practicar", "descansar"]
 
 ### 2. Usar Comprensiones para Operaciones Simples
 
+Las list comprehensions son una forma concisa y Pythonic de crear listas. Son más legibles y a menudo más rápidas que loops tradicionales para operaciones simples. Sin embargo, si la lógica es compleja (con múltiples condiciones o transformaciones complicadas), un loop tradicional puede ser más claro.
+
 ```{code-cell} ipython3
 # ✓ Claro y conciso
 pares = [x for x in range(20) if x % 2 == 0]
@@ -3644,6 +3718,8 @@ for x in range(20):
 ```
 
 ### 3. Usar `in` para Verificar Pertenencia
+
+El operador `in` es la forma idiomática en Python de verificar si un elemento está en una colección. Es mucho más legible que escribir un loop manual. Además, para sets y diccionarios, `in` es extremadamente eficiente (O(1) en promedio).
 
 ```{code-cell} ipython3
 # ✓ Pythonic
@@ -3659,6 +3735,8 @@ for lenguaje in lenguajes:
 
 ### 4. Usar Métodos Apropiados
 
+Elegir el método correcto no solo hace tu código más eficiente, sino también más expresivo. Por ejemplo, `append()` comunica claramente que estás agregando un elemento, mientras que `extend()` indica que estás agregando múltiples. Usar el método correcto hace que tu intención sea obvia para otros programadores (y para vos mismo en el futuro).
+
 ```{code-cell} ipython3
 # Para agregar un elemento → append()
 lista.append(5)
@@ -3671,6 +3749,8 @@ lista.extend([6, 7, 8])
 ```
 
 ### 5. Nombrar Estructuras Descriptivamente
+
+Los nombres de variables deben describir qué contienen, no su tipo. Nombres como `lista1` o `dict2` no comunican nada útil. En cambio, nombres como `estudiantes_aprobados` o `precio_por_producto` hacen que el código sea autoexplicativo. Esto es especialmente importante en Python donde no hay declaraciones de tipo explícitas.
 
 ```{code-cell} ipython3
 # ✓ Descriptivo
