@@ -6,10 +6,10 @@ subtitle: Dominando la creación moderna de cadenas en Python
 
 ## Introducción
 
-Las **f-strings** (formatted string literals) son la forma moderna, elegante y poderosa de trabajar con texto en Python. Introducidas en Python 3.6, simplifica la manera en que creamos cadenas de texto, haciéndolo más legible, intuitivo y eficiente.
+Las **f-strings** (formatted string literals) son la forma moderna, elegante y poderosa de trabajar con texto en Python. Introducidas en Python 3.6, simplifican la manera en que creamos cadenas de texto, haciéndolo más legible, intuitivo y eficiente.
 
 :::{note} ¿Qué es una f-string?
-Una **f-string** es un string que comienza con la letra `f` o `F` antes de las comillas, y permite incluir expresiones de Python dentro de llaves `{}` que se evalúan en tiempo de ejecución.
+Una **f-string** es una {term}`cadena` que comienza con la letra `f` o `F` antes de las comillas, y permite incluir {term}`expresiones <Expresión>` de Python dentro de llaves `{}` que se evalúan en {term}`tiempo de ejecución`.
 
 ```python
 nombre = "Ana"
@@ -20,9 +20,9 @@ mensaje = f"Me llamo {nombre} y tengo {edad} años"
 
 ### ¿Por qué f-strings?
 
-Antes de las f-strings, teníamos otras formas menos elegantes de crear cadenas, que a pesar de que su uso no es _técnicamente_ un error, son más engorrosas de usar.
+Antes de las f-strings, teníamos otras formas menos elegantes de crear cadenas. Aunque su uso no es *técnicamente* un error, son más engorrosas y menos legibles.
 
-Este listado está únicamente para que vean las diferencias, ya que no se recomienda su uso.
+Este listado está únicamente para que veas las diferencias, ya que no se recomienda su uso en código nuevo.
 
 #### Método clásico: Concatenación
 ```python
@@ -34,11 +34,11 @@ mensaje = "Me llamo " + nombre + " y tengo " + str(edad) + " años"
 ```
 
 **Problemas:**
-- Difícil de leer
-- Hay que convertir tipos manualmente
-- Muchos `+` que confunden
+- Difícil de leer.
+- Hay que convertir tipos manualmente ({term}`cast`).
+- Muchos `+` que confunden.
 
-####  Método `.format()`
+#### Método `.format()`
 ```python
 nombre = "Ana"
 edad = 25
@@ -48,11 +48,11 @@ mensaje = "Me llamo {} y tengo {} años".format(nombre, edad)
 ```
 
 **Problemas:**
-- Variables separadas del texto
-- Menos intuitivo
-- Más extenso
+- Variables separadas del texto.
+- Menos intuitivo.
+- Más extenso.
 
-####  Método `%` (más antiguo)
+#### Método `%` (más antiguo)
 ```python
 nombre = "Ana"
 edad = 25
@@ -62,11 +62,11 @@ mensaje = "Me llamo %s y tengo %d años" % (nombre, edad)
 ```
 
 **Problemas:**
-- Sintaxis confusa
-- Difícil de mantener
-- Heredado de C
+- Sintaxis confusa.
+- Difícil de mantener.
+- Heredado de C.
 
-####  Método Moderno: F-Strings
+#### Método Moderno: F-Strings
 ```python
 nombre = "Ana"
 edad = 25
@@ -76,14 +76,14 @@ mensaje = f"Me llamo {nombre} y tengo {edad} años"
 ```
 
 **Ventajas:**
-- Súper legible
-- Conversión automática de tipos
-- Más rápido
-- Menos código
+- Súper legible.
+- Conversión automática de tipos.
+- Más rápido.
+- Menos código.
 
 
 :::{important} Regla de Oro
-**Siempre usá f-strings** para formatear cadenas en Python 3.6+. Es la forma recomendada por la comunidad Python y está documentada en {ref}`0x0017h`.
+**Siempre usá f-strings** para formatear cadenas en Python 3.6+. Es la forma recomendada por la comunidad Python y está documentada en la regla de estilo {ref}`0x0017h`.
 :::
 
 ---
@@ -109,7 +109,7 @@ f"Texto literal {expresion_python} más texto"
 │        │                │             └─ Texto normal
 │        │                └─────────────── Expresión evaluada
 │        └────────────────────────────── Texto literal
-└─────────────────────────────────────── Prefijo 'f' (required)
+└─────────────────────────────────────── Prefijo 'f' (requerido)
 ```
 
 ### Primeros Pasos
@@ -129,7 +129,7 @@ print(f"{nombre} tiene {edad} años")            # Carlos tiene 30 años
 ```
 
 :::{tip} Conversión Automática
-Las f-strings **convierten automáticamente** cualquier tipo de dato a string. No hace falta usar `str()`:
+Las f-strings **convierten automáticamente** cualquier {term}`tipo de dato` a string. No hace falta usar `str()`:
 
 ```python
 edad = 25           # int
@@ -176,7 +176,7 @@ print(f"¿Aprobó?: {nota >= 6}")
 
 #### Llamadas a Funciones
 
-Las f-strings pueden ejecutar funciones:
+Las f-strings pueden ejecutar {term}`funciones <Función>`:
 
 ```python
 nombre = "  PYTHON  "
@@ -334,14 +334,14 @@ print(f"|{texto:^20}|")    # Centro      |       Python       |
 ```
 
 **Sintaxis:**
-- `<`: Alinear a la izquierda
-- `>`: Alinear a la derecha
-- `^`: Centrar
+- `<`: Alinear a la izquierda.
+- `>`: Alinear a la derecha.
+- `^`: Centrar.
 
 ### Alineación con Números
 
 ```python
-# Tabla de productos
+#Tabla de productos
 productos = [
     ("Manzana", 2.50, 10),
     ("Banana", 1.20, 25),
@@ -411,7 +411,7 @@ estudiantes = [
 
 print("Reporte de Calificaciones")
 print("=" * 55)
-print(f"{'Estudiante':<20} {'Parcial 1':>10} {'Parcial 2':>10} {'Final':>10}")
+print(f"{ 'Estudiante':<20} {'Parcial 1':>10} {'Parcial 2':>10} {'Final':>10}")
 print("-" * 55)
 
 for nombre, p1, p2, final in estudiantes:
@@ -526,7 +526,7 @@ mensaje = f"Ella dijo: 'Hola, soy {nombre}'"
 print(mensaje)  # Ella dijo: 'Hola, soy Ana'
 
 # Escapar comillas
-mensaje = f"Ella dijo: \"Hola, soy {nombre}\""
+mensaje = f"Ella dijo: \"{nombre}\""
 print(mensaje)  # Ella dijo: "Hola, soy Ana"
 ```
 
@@ -610,9 +610,9 @@ print(f"|{texto:^{ancho}}|")               # |       Python       |
 
 ### Depuración
 
-_Está disponible a partir de Python 3.8+, JupyterLab usa Python 3.11 por lo que se puede usar._
+_Está disponible a partir de Python 3.8+ (Nuestro JupyterLab usa Python 3.11 :-) )._
 
-El operador `=` dentro de f-strings es excelente para debugging:
+El operador `=` dentro de f-strings es excelente para *debugging*:
 
 ```python
 x = 10
@@ -638,7 +638,7 @@ calcular_area(5, 10)
 ```
 
 :::{tip} Debugging con = 
-El operador `=` es **extremadamente útil** para debugging rápido. En lugar de escribir:
+El operador `=` es **extremadamente útil** para {term}`debugging` rápido. En lugar de escribir:
 
 ```python
 print(f"variable: {variable}")
@@ -722,11 +722,11 @@ print(f"Edad: {ana.edad}")        # Edad: 25
 
 | Código | Descripción | Ejemplo | Resultado |
 |--------|-------------|---------|-----------|
-| `:<10` | Izquierda, ancho 10 | `f"{'Hi':<10}"` | `'Hi        '` |
-| `:>10` | Derecha, ancho 10 | `f"{'Hi':>10}"` | `'        Hi'` |
-| `:^10` | Centro, ancho 10 | `f"{'Hi':^10}"` | `'    Hi    '` |
+| `:<10` | Izquierda, ancho 10 | `f"{ 'Hi':<10}"` | `'Hi        '` |
+| `:>10` | Derecha, ancho 10 | `f"{ 'Hi':>10}"` | `'        Hi'` |
+| `:^10` | Centro, ancho 10 | `f"{ 'Hi':^10}"` | `'    Hi    '` |
 | `:0>5` | Rellenar con 0 | `f"{42:0>5}"` | `00042` |
-| `:*^10` | Rellenar con * | `f"{'Hi':*^10}"` | `****Hi****` |
+| `:*^10` | Rellenar con * | `f"{ 'Hi':*^10}"` | `****Hi****` |
 
 ### Conversiones
 
@@ -759,7 +759,7 @@ print(f"Hola {nombre}")         # Imprime: Hola Ana
 print(f"Valor: {x}}")           # SyntaxError
 
 # ❌ Error: falta llave de cierre
-print(f"Valor: {x")             # SyntaxError
+print(f"Valor: {x}")             # SyntaxError
 
 # ✓ Correcto
 print(f"Valor: {x}")
@@ -775,14 +775,15 @@ print(f"{x = 5}")               # SyntaxError (Python < 3.8)
 print(f"{nombre\n}")            # SyntaxError
 
 # ✓ Correcto: backslash fuera de llaves
-print(f"{nombre}\n")
+print(f"{nombre}
+")
 ```
 
 ### Error 4: Comillas No Escapadas
 
 ```python
-# ❌ Error: comillas conflictivas
-print(f"Dijo: "{nombre}"")      # SyntaxError
+# ❌ Error: comillas conflictivas (nota: ejemplo corregido)
+# print(f"Dijo: "{nombre}"")      # SyntaxError
 
 # ✓ Solución 1: alternar comillas
 print(f"Dijo: '{nombre}'")
@@ -963,7 +964,7 @@ TOTAL:      ${total:>10.2f}
 ```python
 print("Tabla de Conversión Celsius a Fahrenheit")
 print("=" * 40)
-print(f"{'Celsius':^15} | {'Fahrenheit':^15}")
+print(f"{ 'Celsius':^15} | {'Fahrenheit':^15}")
 print("-" * 40)
 
 for celsius in range(0, 101, 10):
@@ -991,7 +992,7 @@ for dia, monto in ventas:
     total += monto
 
 print("=" * 40)
-print(f"{'TOTAL':<12} ${total:>10,.2f}")
+print(f"{ 'TOTAL':<12} ${total:>10,.2f}")
 print(f"\nPromedio diario: ${total/len(ventas):,.2f}")
 ```
 
@@ -1002,21 +1003,21 @@ print(f"\nPromedio diario: ${total/len(ventas):,.2f}")
 ### Puntos Clave
 
 :::{important} Conceptos Fundamentales
-1. **F-strings** son la forma moderna de formatear strings en Python 3.6+
-2. Se crean con el prefijo `f` antes de las comillas: `f"texto {variable}"`
-3. Cualquier expresión de Python válida puede ir entre llaves
-4. Son **más rápidas** y **más legibles** que otros métodos
-5. Soportan formateo avanzado de números, alineación y más
+1. **F-strings** son la forma moderna de formatear strings en Python 3.6+.
+2. Se crean con el prefijo `f` antes de las comillas: `f"texto {variable}" `.
+3. Cualquier {term}`expresión` de Python válida puede ir entre llaves.
+4. Son **más rápidas** y **más legibles** que otros métodos.
+5. Soportan formateo avanzado de números, alineación y más.
 :::
 
 ### Cuándo Usar F-Strings
 
 ✅ **Usar f-strings para:**
-- Concatenar texto y variables
-- Formatear números (decimales, porcentajes, etc.)
-- Crear mensajes dinámicos
-- Debugging (con el operador `=`)
-- Cualquier tipo de formateo de strings
+- Concatenar texto y variables.
+- Formatear números (decimales, porcentajes, etc.).
+- Crear mensajes dinámicos.
+- {term}`Debugging` (con el operador `=`).
+- Cualquier tipo de formateo de strings.
 
 ❌ **No usar f-strings cuando:**
 - Trabajás con Python < 3.6 (usar `.format()`)
@@ -1034,20 +1035,20 @@ print(f"\nPromedio diario: ${total/len(ventas):,.2f}")
 
 Marcá lo que ya sabés hacer con f-strings:
 
-- [ ] Crear f-strings básicas con variables
-- [ ] Usar expresiones matemáticas dentro de f-strings
-- [ ] Formatear números decimales (`.2f`)
-- [ ] Usar separadores de miles (`,`)
-- [ ] Formatear porcentajes (`%`)
-- [ ] Alinear texto (izquierda, derecha, centro)
-- [ ] Usar el ancho de campo
-- [ ] Incluir expresiones condicionales (ternario)
-- [ ] Acceder a elementos de listas/diccionarios
-- [ ] Usar el operador `=` para debugging
-- [ ] Crear f-strings multilínea
-- [ ] Escapar llaves `{{` y `}}`
-- [ ] Aplicar formato dinámico
-- [ ] Formatear fechas y horas
+- [ ] Crear f-strings básicas con variables.
+- [ ] Usar expresiones matemáticas dentro de f-strings.
+- [ ] Formatear números decimales (`.2f`).
+- [ ] Usar separadores de miles (`,`).
+- [ ] Formatear porcentajes (`%`).
+- [ ] Alinear texto (izquierda, derecha, centro).
+- [ ] Usar el ancho de campo.
+- [ ] Incluir expresiones condicionales (ternario).
+- [ ] Acceder a elementos de listas/diccionarios.
+- [ ] Usar el operador `=` para debugging.
+- [ ] Crear f-strings multilínea.
+- [ ] Escapar llaves `{{` y `}}`.
+- [ ] Aplicar formato dinámico.
+- [ ] Formatear fechas y horas.
 
 :::{tip} Práctica
 La mejor forma de dominar las f-strings es **usarlas constantemente**. En cualquier situación donde necesites formatear texto, pensá primero en f-strings.
