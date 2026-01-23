@@ -32,19 +32,19 @@ graph TD
     style H fill:#c8e6c9
 ```
 
-**⏱️ Tiempo estimado:** 4-6 horas (incluye lectura, práctica y ejercicios)
+** Tiempo estimado:** 4-6 horas (incluye lectura, práctica y ejercicios)
 
 **Lo que vas a aprender:**
-- Cómo crear y usar variables para guardar información
-- Los 4 {term}`tipos de datos <Tipo de dato>` básicos: números, texto y booleanos
-- Operadores para hacer cálculos y comparaciones
-- Cómo interactuar con el usuario
-- Errores comunes y cómo evitarlos
+- Cómo crear y usar variables para guardar información.
+- Los 4 {term}`tipos de datos <Tipo de dato>` básicos: números, texto y booleanos.
+- Operadores para hacer cálculos y comparaciones.
+- Cómo interactuar con el usuario.
+- Errores comunes y cómo evitarlos.
 
 **Al final de este capítulo podrás:**
-- Escribir programas simples que pidan datos y muestren resultados
-- Hacer cálculos matemáticos en Python
-- Entender mensajes de error y corregirlos
+- Escribir programas simples que pidan datos y muestren resultados.
+- Hacer cálculos matemáticos en Python.
+- Entender mensajes de error y corregirlos.
 ::::
 
 ## Introducción y Motivación
@@ -143,9 +143,9 @@ graph LR
 
 :::::
 
-- **`print`** es una **función** (un comando que hace algo)
-- **`(...)`** los paréntesis indican que es una función
-- **`"¡Hola Mundo!"`** es el texto (string) que queremos mostrar
+- **`print`** es una **función** (un comando que hace algo).
+- **`(...)`** los paréntesis indican que es una función.
+- **`"¡Hola Mundo!"`** es el texto (string) que queremos mostrar.
 
 :::{note} Nota sobre las comillas
 El texto **siempre** va entre comillas (`"..."` o `'...'`). Sin comillas, Python pensaría que es el nombre de una {term}`variable`.
@@ -160,9 +160,9 @@ La función {term}`print()` muestra texto en la pantalla. El texto entre comilla
 
 :::{tip} Ejecutando código Python
 Para ejecutar código Python:
-1. Visita nuestro Jupyterlite en el cuaderno [bienvenida.ipynb](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=hola.ipynb)
-2. Hacé un click en la celda con el código del saludo y ejecutalo con ▶️ o con el atajo de teclado CTRL + Enter.
-3. Mirá el resultado
+1. Visitá nuestro Jupyterlite en el cuaderno [bienvenida.ipynb](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=hola.ipynb).
+2. Hacé clic en la celda con el código del saludo y ejecutalo con ▶️ o con el atajo de teclado CTRL + Enter.
+3. Mirá el resultado.
 :::
 
 **¡Probalo vos mismo!** Modificá el mensaje y volvé a ejecutarlo:
@@ -228,7 +228,7 @@ print(f"¿Es estudiante?: {es_estudiante}")
 
 :::{note} Nomenclatura de variables 
 
-Según la {ref}`0x0001h`, los nombres de variables deben ser descriptivos, cuando hay pocas cajas es relativamente fácil seguir que hacen en el programa, pero esto ser claro los va a ayudar a leer de forma más directa sus programas. Y por, otro lado, en Python, se usa {term}`snake_case`: palabras en minúscula separadas por guiones bajos.
+Según la regla {ref}`0x0001h`, los nombres de variables deben ser descriptivos. Cuando hay pocas cajas es relativamente fácil seguir qué hacen en el programa, pero ser claro te ayudará a leer tu código de forma más directa. Además, en Python se usa {term}`snake_case`: palabras en minúscula separadas por guiones bajos.
 
 **Nombres apropiados:**
 - `edad_usuario`
@@ -243,11 +243,11 @@ Según la {ref}`0x0001h`, los nombres de variables deben ser descriptivos, cuand
 
 ### Reglas para nombres de variables
 
-1. Deben comenzar con una letra y pueden comenzar con guión bajo (`_`)
-2. Pueden contener letras, números y guiones bajos
-3. No pueden contener espacios ni caracteres especiales
-4. Son sensibles a mayúsculas y minúsculas (`edad` ≠ `Edad`)
-5. No pueden ser {term}`palabras reservadas <Palabra reservada>` de Python (`if`, `for`, `while`, etc.)
+1. Deben comenzar con una letra y pueden comenzar con guion bajo (`_`).
+2. Pueden contener letras, números y guiones bajos.
+3. No pueden contener espacios ni caracteres especiales.
+4. Son sensibles a mayúsculas y minúsculas (`edad` ≠ `Edad`).
+5. No pueden ser {term}`palabras reservadas <Palabra reservada>` de Python (`if`, `for`, `while`, etc.).
 
 ```python
 # Válido
@@ -297,7 +297,7 @@ print(f"Después de duplicar: {contador}")
 ```
 
 :::{important} Inicialización de Variables
-Según la {ref}`0x0003h`, siempre debés inicializar las {term}`variables <Variable>` antes de usarlas. Python te dará un error si intentás usar una {term}`variable` que no existe:
+Según la regla {ref}`0x0003h`, siempre debés inicializar las {term}`variables <Variable>` antes de usarlas. Python te dará un error si intentás usar una {term}`variable` que no existe:
 
 ```python
 # Incorrecto
@@ -318,7 +318,7 @@ print(resultado)  # Salida: 0
 
 Así como en el mundo real usamos diferentes tipos de información (números para contar, palabras para hablar, respuestas de sí/no para decidir), Python necesita saber **qué tipo** de información estás guardando en cada variable. No es lo mismo sumar números (`5 + 3 = 8`) que unir palabras (`"Hola" + "Mundo" = "HolaMundo"`).
 
-Python tiene cuatro tipos básicos que son como los "bloques de construcción" de cualquier programa:
+Python tiene cuatro tipos básicos que son los "bloques de construcción" de cualquier programa:
 
 ![Tipos de datos en Python](./1_fundamentos/tipos_datos.svg)
 
@@ -352,9 +352,9 @@ poblacion = 1000000
 
 :::{tip} ¿Cuándo usar `int`?
 Usá enteros cuando:
-- Contás cosas que no se pueden dividir (personas, autos, libros)
-- Trabajás con años, días, edades
-- No necesitás precisión decimal
+- Contás cosas que no se pueden dividir (personas, autos, libros).
+- Trabajás con años, días, edades.
+- No necesitás precisión decimal.
 :::
 
 ```{code-cell} ipython3
@@ -371,7 +371,7 @@ print(f"Población: {poblacion:,} habitantes")
 
 ### Números de Punto Flotante (`float`) 
 
-Los **flotantes** son números con decimales. Reciben el nombre de "punto flotante" por la forma en la que se guardan las partes enteras y decimales en memoria. Los detalles de esto tienen que ver con que entre dos números decimales hay infinitos números decimales, mientras que la memoria de la computadora es limitada, sin embargo, lo veremos durante la cursada de la carrera, ya que tiene algunos efectos interesantes.
+Los **flotantes** son números con decimales. Reciben el nombre de "punto flotante" por la forma en la que se guardan las partes enteras y decimales en memoria.
 
 ::::{grid} 1 1 2 2
 
@@ -402,7 +402,7 @@ En Python (y en casi todos los lenguajes de programación), los decimales se esc
 precio = 99.99
 
 # ✗ Incorrecto
-precio = 99,99  # ¡Esto crea algo diferente! Es código Python válido
+precio = 99,99  # ¡Esto crea algo diferente (una tupla)!
 ```
 :::
 
@@ -424,12 +424,12 @@ Los números de punto flotante pueden tener pequeños errores de redondeo:
 resultado = 0.1 + 0.2
 print(resultado)  # Salida: 0.30000000000000004
 ```
-Para comparaciones de números decimales, no uses `==`. Esto se verá más adelante en la carrera y está relacionado con el hecho de que los decimales son infinitos entre cualquier par de ellos mientras que la memoria de la computadora no lo es.
+Para comparaciones de números decimales, no uses `==` directamente. Esto se verá más adelante en la carrera.
 :::
 
 ### Cadenas de Texto (`str`) 
 
-Las **cadenas**(o *strings* en inglés) son simplemente **texto**: palabras, frases, letras. Se llaman "cadenas" porque son como una cadena de caracteres (letras) unidos uno tras otro.
+Las **cadenas** (o *strings* en inglés) son simplemente **texto**: palabras, frases, letras. Se llaman "cadenas" porque son como una cadena de caracteres (letras) unidos uno tras otro.
 
 ::::{grid} 1 1 2 2
 
@@ -465,7 +465,7 @@ nombre2 = 'Pedro'    # Con comillas simples
 La única diferencia es cuando querés incluir comillas **dentro** del texto:
 ```python
 mensaje1 = "Ella dijo: 'Hola'"   # Simples dentro de dobles ✓
-mensaje2 = 'Él dijo: "Hola"'     # Dobles dentro de simples ✓
+mensaje2 = 'El dijo: "Hola"'     # Dobles dentro de simples ✓
 ```
 :::
 
@@ -688,7 +688,7 @@ print(f"\nÁrea de triángulo (base={base}, altura={altura}): {area}")
 ```
 
 :::{note} Espaciado en Operadores
-Siguiendo la {ref}`0x0004h`, siempre debés colocar un espacio antes y después de cada operador binario:
+Siguiendo la regla {ref}`0x0004h`, siempre debés colocar un espacio antes y después de cada operador binario:
 
 ```python
 # Incorrecto
@@ -701,18 +701,18 @@ resultado = 10 + 5 * 2
 
 ### Orden de Precedencia
 
-Cuando tenés varias operaciones en una misma expresión, Python necesita saber **en qué orden** hacerlas. Imaginate que tenés que resolver: `2 + 3 × 4`. ¿Hacés primero la suma o la multiplicación? 
+Cuando tenés varias operaciones en una misma expresión, Python necesita saber **en qué orden** hacerlas. Imaginá que tenés que resolver: `2 + 3 × 4`. ¿Hacés primero la suma o la multiplicación? 
 
 Python sigue el orden matemático estándar que aprendiste en la escuela (PEMDAS):
 
 ![Orden de Precedencia](./1_fundamentos/precedencia_operadores.svg)
 
 :::{important} La regla PEMDAS
-1. **P**aréntesis → Primero lo que está entre `( )`
-2. **E**xponenciación → Después las potencias `**`
-3. **M**ultiplicación → `*`
-4. **D**ivisión → Luego , `/`, `//`, `%` (de izquierda a derecha)
-4. **AS**dición / Resta → Por último `+`, `-` (de izquierda a derecha)
+1. **P**aréntesis → Primero lo que está entre `( )`.
+2. **E**xponenciación → Después las potencias `**`.
+3. **M**ultiplicación → `*`.
+4. **D**ivisión → Luego `/`, `//`, `%` (de izquierda a derecha).
+5. **AS** → Adición y Sustracción: Por último `+`, `-` (de izquierda a derecha).
 :::
 
 ```{code-cell} ipython3
@@ -755,7 +755,7 @@ total = (precio * cantidad) + (descuento * 0.1)
 |----------|-----------|---------|-----------|------------------|
 | `//` | División entera | `17 // 5` | `3` | Descarta decimales |
 | `%` | Módulo (resto) | `17 % 5` | `2` | Da el resto de la división |
-| `**` | Potenciación | `2 **3` | `8` | Eleva a una potencia |
+| `**` | Potenciación | `2 ** 3` | `8` | Eleva a una potencia |
 :::
 
 :::{tab-item} Ejemplos Prácticos
@@ -770,7 +770,7 @@ print(11 % 2)   # 1 (es impar, resto 1)
 
 # Potenciación: para áreas y volúmenes
 radio = 5
-area = 3.14159 * radio **2  # π × r²
+area = 3.14159 * radio ** 2  # π × r²
 print(f"Área del círculo: {area}")
 ```
 :::
@@ -902,7 +902,7 @@ Son solo tres, pero muy poderosos:
 edad >= 18 and tiene_licencia
 ```
 
-Solo es `True` si **las dos**son `True`
+Solo es `True` si **las dos** son `True`.
 ::::
 
 ::::{grid-item-card} `or` (O)
@@ -912,7 +912,7 @@ Solo es `True` si **las dos**son `True`
 es_finde or es_feriado
 ```
 
-Es `True` si **alguna** (o ambas) es `True`
+Es `True` si **alguna** (o ambas) es `True`.
 ::::
 
 ::::{grid-item-card} `not` (NO)
@@ -922,7 +922,7 @@ Invierte el valor
 not esta_lloviendo
 ```
 
-Convierte `True` en `False` y viceversa
+Convierte `True` en `False` y viceversa.
 ::::
 
 :::::
@@ -1024,7 +1024,7 @@ print(puede_aplicar)  # Salida: True
 ```
 
 :::{tip} Claridad en Condiciones Complejas
-Según la {ref}`0x000Dh`, las condiciones complejas deben simplificarse:
+Según la regla {ref}`0x000Dh`, las condiciones complejas deben simplificarse:
 
 ```{code-cell} ipython3
 # Menos claro
@@ -1090,10 +1090,9 @@ edad = 20
 print("Nombre:", nombre, "Edad:", edad)
 ```
 
-#### Construyendo cadenas con F-strings:
+#### Construyendo cadenas con F-strings
 
-Los f-strings son la forma recomendada para la construcción de mensajes y cadenas de texto, es al mismo tiempo la más simple y poderosa. Tanto que amerita su propio apunte, disponible en la [Guía f-strings](./A_fstrings.md)
-
+Los f-strings son la forma recomendada para construir mensajes y cadenas de texto. Son simples y poderosos. Tanto que tienen su propio apunte: [Guía f-strings](./A_fstrings.md).
 
 ```{code-cell} ipython3
 nombre = "Carlos"
@@ -1146,7 +1145,7 @@ for i in range(1, 6):
 ```
 
 :::{tip} Usá f-strings antes que las alternativas
-Los f-strings, disponibles a partir de Python 3.6 son la forma más simple y legible de construir cadenas. Preferílos sobre concatenaciones, `%` o `.format()`.
+Los f-strings, disponibles a partir de Python 3.6, son la forma más simple y legible de construir cadenas. Preferilos sobre concatenaciones, `%` o `.format()`.
 :::
 
 ### Entrada: `input()`
@@ -1161,7 +1160,7 @@ print(f"Hola, {nombre}!")
 
 **Conversión de tipos:**
 
-Como `input()` siempre retorna un string, debés convertir explícitamente a otros tipos, formalmente esta operación se llama {term}`cast`, y veremos algunos de sus detalles más adelante.
+Como `input()` siempre retorna un string, debés convertir explícitamente a otros tipos. Esta operación se llama **conversión de tipos** (o {term}`cast`).
 
 ```{code-cell} ipython3
 # Leer un número entero
@@ -1186,9 +1185,10 @@ edad = int(input("Edad: "))  # Si escribe "veinte" → ValueError
 ```
 :::
 
-### Ejemplo Completo: Tu Primer Programa Interactivo 🎮
+### Ejemplo Completo: Tu Primer Programa Interactivo
 
 Ahora que conocés entrada, salida y procesamiento, veamos cómo se juntan en un programa completo:
+
 ```{mermaid}
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#bbdefb','primaryTextColor':'#212121','primaryBorderColor':'#1565c0','lineColor':'#424242','secondaryColor':'#fff9c4','tertiaryColor':'#c8e6c9','tertiaryBorderColor':'#2e7d32','secondaryBorderColor':'#f57f17'}}}%%
 flowchart TD
@@ -1217,9 +1217,9 @@ flowchart TD
 ```
 
 Todo programa sigue tres pasos simples:
-1. **Entrada**: Recibir información
-2. **Procesamiento**: Hacer cálculos/operaciones
-3. **Salida**: Mostrar resultados
+1. **Entrada**: Recibir información.
+2. **Procesamiento**: Hacer cálculos/operaciones.
+3. **Salida**: Mostrar resultados.
 
 ```{code-cell} ipython3
 # Programa que calcula el área de un rectángulo
@@ -1357,57 +1357,18 @@ print(type(resultado))  # <class 'float'>
 
 # Operaciones con strings requieren conversión explícita
 edad = 25
-# print("Tengo " + edad + " años")  # ❌ TypeError
+# print("Tengo " + edad + " años")  # ✗ TypeError
 print("Tengo " + str(edad) + " años")  # ✓ Correcto
 ```
 
 ### Tabla de Funciones de Conversión
 
 | Función | Convierte a | Ejemplo |
-|---------|-------------|---------|
+|----------|-------------|---------|
 | `int()` | Entero | `int("42")` → `42` |
 | `float()` | Flotante | `float("3.14")` → `3.14` |
 | `str()` | String | `str(42)` → `"42"` |
 | `bool()` | Booleano | `bool(1)` → `True` |
-
-**Practicá conversiones de tipos:**
-
-```{code-cell} ipython3
-# Conversión de tipos (casting)
-print("=== CONVERSIÓN DE TIPOS ===")
-
-# String a número
-numero_str = "42"
-numero_int = int(numero_str)
-print(f"String '42' a int: {numero_int}, tipo: {type(numero_int)}")
-
-precio_str = "19.99"
-precio_float = float(precio_str)
-print(f"String '19.99' a float: {precio_float}, tipo: {type(precio_float)}")
-
-# Número a string
-edad = 25
-edad_str = str(edad)
-print(f"Int 25 a string: '{edad_str}', tipo: {type(edad_str)}")
-
-# Float a int (trunca decimales)
-altura = 1.85
-altura_int = int(altura)
-print(f"\nFloat 1.85 a int: {altura_int} (se truncan decimales)")
-
-# Conversiones implícitas
-resultado = 5 + 3.5  # int + float = float
-print(f"\n5 (int) + 3.5 (float) = {resultado}, tipo: {type(resultado)}")
-
-# Valores "truthy" y "falsy"
-print("\n=== CONVERSIÓN A BOOLEANO ===")
-print(f"bool(1): {bool(1)}")
-print(f"bool(0): {bool(0)}")
-print(f"bool('hola'): {bool('hola')}")
-print(f"bool(''): {bool('')}")
-print(f"bool([1, 2, 3]): {bool([1, 2, 3])}")
-print(f"bool([]): {bool([])}")
-```
 
 ---
 
@@ -1468,7 +1429,7 @@ if edad = 18:  # SyntaxError
     print("Mayor de edad")
 ```
 
-**¿Por qué falla?** ¡Nos falt ó uno!
+**¿Por qué falla?** ¡Nos faltó uno!
 `=` es para **asignar** (guardar un valor)  
 `==` es para **comparar** (verificar si son iguales)
 
@@ -1481,8 +1442,8 @@ if edad == 18:  # Comparación ✓
 ```
 
 **Memotécnica:**
-- `=` → un solo igual → **guardar**(asignar)
-- `==` → doble igual → **preguntar**"¿son iguales?"
+- `=` → un solo igual → **guardar** (asignar).
+- `==` → doble igual → **preguntar** "¿son iguales?".
 ::::
 
 :::::
@@ -1559,16 +1520,16 @@ Siempre se puede escapar algún espacio.
 (buenas-practicas)=
 ## Buenas Prácticas
 
-Las buenas prácticas son años de experiencia condensados y listos para ayudarlos a programar mejor, resumidos en una frase y aunque no les tomaremos explícitamente en el examen que es cada una de las reglas, seguirlas les ayudará mucho a programar.
+Las buenas prácticas son años de experiencia condensados. Aunque no las evaluaremos explícitamente en el examen, seguirlas te ayudará mucho.
 
-Son tan importantes que tienen su propia guía y explicaciones, en [Cuestiones de estilo](./D_estilo.md), acá están las más importantes (y relevantes a lo que estamos viendo acá)
+Están detalladas en [Cuestiones de estilo](./D_estilo.md), pero acá están las más importantes:
 
 ### 1. Nombres Descriptivos
 
-Según {ref}`0x0001h`, usá nombres que describan claramente el propósito:
+Según la regla {ref}`0x0001h`, usá nombres que describan claramente el propósito:
 
 ```{code-cell} ipython3
-# ❌ Poco descriptivo
+# ✗ Poco descriptivo
 x = 25
 y = 1.75
 
@@ -1583,7 +1544,7 @@ Pero ojo, sin tirar todo por la borda, que la variable `variable_que_usamos_para
 
 ### 2. Inicializar Variables
 
-Según {ref}`0x0003h`, inicializá siempre las variables.
+Según la regla {ref}`0x0003h`, inicializá siempre las variables.
 
 ```{code-cell} ipython3
 # ✓ Correcto
@@ -1596,10 +1557,10 @@ Esto en parte porque las variables se crean al ser inicializada y porque en algu
 
 ### 3. Espaciado en Operadores
 
-Según {ref}`0x0004h`, usá espacios alrededor de operadores:
+Según la regla {ref}`0x0004h`, usá espacios alrededor de operadores:
 
 ```{code-cell} ipython3
-# ❌ Difícil de leer
+# ✗ Difícil de leer
 resultado=base*altura+10
 
 # ✓ Fácil de leer
@@ -1613,20 +1574,16 @@ Esto es simplemente para hacer de la lectura del código más fácil, en especia
 Los comentarios deben explicar **por qué**, no **qué**:
 
 ```{code-cell} ipython3
-# ❌ Comentario obvio
+# Comentario obvio
 edad = 18  # Asigna 18 a edad
 
 # ✓ Comentario útil
 edad = 16  # Edad mínima para votar en Argentina
 ```
 
-Esto para que no gasten energía en cosas como, "de qué color es el caballo blanco de San Martín". Sin embargo. Para evitar situaciones del tipo
-
 ### 5. Usar variables para valores fijos
 
-Estos valores, que no cambian, en el medio de una operación compleja, se transforman en "números mágicos" y hacen que uno no termine de entender para que estaban ahí en primer lugar.
-
-La convención para estos números, es que estén en `MAYUSCULAS` para distinguirlos de las variables.
+Los valores fijos en el medio de una operación compleja se llaman "números mágicos" y dificultan la lectura. La convención es usar `MAYÚSCULAS`.
 
 ```{code-cell} ipython3
 # ✓ Constantes en MAYÚSCULAS
@@ -1642,7 +1599,7 @@ precio_con_iva = precio_sin_iva * (1 + TASA_IVA)
 
 ## Ejercicios
 
-Ya estás listo para encarar los ejercicios del cuaderno [Fundamentos](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=1_fundamentos.ipynb) y empezar a visitar el [Gimnasio](./enunciados/gimnasio.md) y empezar a muscular.
+Ya estás listo para encarar los ejercicios del cuaderno [Fundamentos](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=1_fundamentos.ipynb) y empezar a visitar el [Gimnasio](./enunciados/gimnasio.md).
 
 ## Resumen Visual 
 
@@ -1720,10 +1677,10 @@ Marcá lo que ya dominás:
 - [ ] Crear y usar variables con nombres descriptivos
 - [ ] Distinguir entre `int`, `float`, `str` y `bool`
 - [ ] Usar operadores aritméticos (+, -, *, /, //, %, **)
-- [ ] Comparar valores con ==\, \!=, >, <, >=, <=
+- [ ] Comparar valores con ==, !=, >, <, >=, <=
 - [ ] Combinar condiciones con and, or, not
 - [ ] Leer entrada del usuario con `input()`
-- [ ] Mostrar salida con `print()` y f\-strings
+- [ ] Mostrar salida con `print()` y f-strings
 - [ ] Convertir entre tipos con `int()`, `float()`, `str()`
 - [ ] Identificar y corregir errores comunes
 
@@ -1735,7 +1692,7 @@ Si marcaste todo, ¡estás listo para el próximo capítulo!
 
 ### ¿Qué sigue? 
 
-Estos fundamentos son como los ladrillos de una casa: **todo** lo que construyas de ahora en adelante se apoya en ellos. En el próximo capítulo vas a aprender algo muy importante: **cómo hacer que tu programa tome decisiones** usando `if`, `elif` y `else`.
+Estos fundamentos son los ladrillos de una casa: **todo** lo que construyas se apoya en ellos. En el próximo capítulo aprenderás **cómo hacer que tu programa tome decisiones** usando `if`, `elif` y `else`.
 
 ```{mermaid}
 graph LR
@@ -1749,14 +1706,14 @@ graph LR
     style D fill:#f3e5f5,stroke:#7b1fa2
 ```
 
-:::{important} 💪 Practica, practica, practica
+:::{important} Practica, practica, practica
 
 **La programación NO se aprende leyendo, se aprende HACIENDO.**
 
 No pases al siguiente capítulo hasta que puedas:
-1. Resolver **todos** los ejercicios sin mirar las soluciones
-2. Explicarle a alguien más (o a un patito de goma 🦆) qué es una variable
-3. Escribir un programa simple de entrada → procesamiento → salida sin ayuda
+1. Resolver **todos** los ejercicios sin mirar las soluciones.
+2. Explicarle a alguien más qué es una variable.
+3. Escribir un programa simple de entrada → procesamiento → salida sin ayuda.
 
 **Recordá:** Los mejores programadores del mundo no llegaron ahí por ser genios, sino por **practicar constantemente**. Cada error que cometas hoy es una lección que no olvidarás mañana.
 
@@ -1772,75 +1729,74 @@ No pases al siguiente capítulo hasta que puedas:
 
 ```{glossary}
 Variable
-: Espacio en memoria con un nombre que almacena un valor. Ejemplo: `edad = 25` crea una variable llamada `edad` que guarda el número 25. Las variables pueden cambiar de valor durante la ejecución del programa.
+: Espacio en memoria con un nombre que almacena un valor. Ejemplo: `edad = 25`. Las variables pueden cambiar de valor durante la ejecución del programa.
 
 Tipo de dato
 : Categoría que define qué clase de información puede almacenar una {term}`variable` y qué operaciones se pueden hacer con ella. Los tipos básicos son {term}`int<Entero>`, {term}`float<Flotante>`, {term}`str<Cadena>` y {term}`bool<Booleano>`.
 
 Entero
-: El {term}`Tipo de dato` `int` se utiliza para números enteros (sin decimales). Ejemplos: `42`, `-17`, `0`. También conocido como **entero** o **integer** en inglés.
+: El {term}`Tipo de dato` `int` se utiliza para números enteros (sin decimales). Ejemplos: `42`, `-17`, `0`.
 
 Flotante
-: El {term}`Tipo de dato` `float` se utiliza para números con decimales (punto flotante). Ejemplos: `3.14`, `-0.5`, `2.0`. También conocido como **flotante** o **float** en inglés.
+: El {term}`Tipo de dato` `float` se utiliza para números con decimales. Ejemplos: `3.14`, `-0.5`, `2.0`.
 
 Cadena
-: El {term}`Tipo de dato` `str` se utiliza para texto. Se escribe entre comillas simples o dobles. Ejemplos: `"Hola"`, `'Python'`, `"123"`. También conocido como **string**, **cadena** o **cadena de caracteres**.
+: El {term}`Tipo de dato` `str` se utiliza para texto. Se escribe entre comillas simples o dobles. Ejemplos: `"Hola"`, `'Python'`.
 
 Booleano
-: El {term}`Tipo de dato` bool se utiliza para condiciones lógicas que solo puede ser `True` (verdadero) o `False`. También conocido como **booleano** o **boolean** en inglés.
+: El {term}`Tipo de dato` `bool` que representa valores de verdad: `True` (verdadero) o `False` (falso).
 
 Operador
 : Símbolo que realiza una operación sobre uno o más valores. Ejemplos: `+` (suma), `-` (resta), `==` (igual a), `and` (y lógico).
 
 Expresión
-: Combinación de valores, variables y {term}`operadores <operador>` que Python puede evaluar para producir un resultado. Ejemplos: `2 + 3`, `edad >= 18`, `nombre + " García"`.
+: Combinación de valores, variables y {term}`operadores <operador>` que Python puede evaluar para producir un resultado. Ejemplos: `2 + 3`, `edad >= 18`.
 
 Asignación
-: Acción de guardar un valor en una {term}`variable` usando el operador `=`. Ejemplo: `x = 10` asigna el valor 10 a la variable x. **No confundir** con comparación de igualdad `==`.
+: Acción de guardar un valor en una {term}`variable` usando el operador `=`. Ejemplo: `x = 10`.
 
 Literal
-: Valor escrito directamente en el código. Ejemplos: `42` (literal entero), `3.14` (literal flotante), `"texto"` (literal string), `True` (literal booleano).
+: Valor escrito directamente en el código. Ejemplos: `42`, `3.14`, `"texto"`, `True`.
 
 Comentario
-: Texto en el código que Python ignora, usado para explicar el código. Se escribe con `#`. Ejemplo: `# Esto es un comentario`.
+: Texto en el código que Python ignora, usado para explicar. Se escribe con `#`.
 
 input()
-: Función que pide datos al usuario. Siempre devuelve una {term}`Cadena`. Ejemplo: `nombre = input("Tu nombre: ")` muestra el mensaje y guarda lo que escribe el usuario.
+: Función que pide datos al usuario. Siempre devuelve una {term}`Cadena`.
 
 print()
-: Función que muestra información en la pantalla. Ejemplo: `print("Hola")` muestra el texto Hola. Puede mostrar múltiples valores separados por comas.
+: Función que muestra información en la pantalla. Puede mostrar múltiples valores separados por comas.
 
 f-string
-: {term}`Cadena` que permite insertar valores de variables usando `f"..."` y llaves `{}`. Ejemplo: `f"Hola {nombre}"` inserta el valor de la variable nombre en el string.
+: {term}`Cadena` que permite insertar valores de variables usando `f"..."` y llaves `{}`. Ejemplo: `f"Hola {nombre}"`.
 
 Cast
-
-: Es la conversión del {term}`tipo de dato` de una variable a otro.Funciones: `int()` convierte a entero, `float()` a flotante, `str()` a string, `bool()` a booleano.
+: Conversión explícita del {term}`tipo de dato` de una variable a otro. Funciones: `int()`, `float()`, `str()`, `bool()`.
 
 Concatenación
-: Unir dos o más {term}`Cadena` usando el operador `+`. Ejemplo: `"Hola" + " " + "Mundo"` resulta en `"Hola Mundo"`.
+: Unir dos o más {term}`cadenas <Cadena>` usando el operador `+`.
 
 Precedencia
-: Orden en que Python evalúa los **operadores** en una **expresión**. Similar a la matemática: primero `**`, luego `* / // %`, luego `+ -`. Usá paréntesis `()` para cambiar el orden.
+: Orden en que Python evalúa los {term}`operadores <Operador>` en una {term}`expresión`.
 
 Palabra reservada
-: Palabra especial del lenguaje que tiene un significado fijo y no puede usarse como nombre de **variable**. Ejemplos: `if`, `for`, `while`, `True`, `False`, `and`, `or`, `not`. Tambien conocido en Inglés como "Keyword"
+: Palabra especial del lenguaje que tiene un significado fijo y no puede usarse como nombre de {term}`variable` (ej. `if`, `for`).
 
 snake_case
-: Convención para nombres de variables donde las palabras se separan con guiones bajos y todo en minúsculas. Ejemplos: `nombre_completo`, `edad_actual`, `precio_final`. Es la convención estándar en Python.
+: Convención de nombres donde las palabras se separan con guiones bajos y todo va en minúsculas (ej. `nombre_completo`).
 
 Sintaxis
-: Conjunto de reglas formales que definen la estructura y combinación válida de símbolos, palabras reservadas y expresiones dentro del lenguaje de programación. El incumplimiento de estas reglas estructurales impide que el programa se ejecute, generando una excepción de tipo {term}`SyntaxError`.
+: Reglas formales que definen la estructura válida del código. Un error de sintaxis impide la ejecución.
 
 Semántica
-: Aspecto del lenguaje que define el significado, la lógica y el comportamiento de las instrucciones durante el {term}`tiempo de ejecución` (o 'runtime'). A diferencia de la {term}`sintaxis`, que valida la estructura gramatical, la semántica se ocupa de la coherencia de las operaciones. Un bloque de código puede ser sintácticamente perfecto pero semánticamente inválido si, por ejemplo, intenta operar con tipos de datos incompatibles o acceder a variables fuera de su ámbito (scope), derivando usualmente en excepciones dinámicas como TypeError o errores lógicos.
+: Significado y lógica de las instrucciones. Un error semántico permite que el programa corra pero haga algo incorrecto.
 
 Inmutabilidad de strings
-: Propiedad de los **strings** en Python que no permite modificar caracteres individuales una vez creados. Para "modificar" un string hay que crear uno nuevo.
+: Propiedad de los strings que impide modificarlos una vez creados; para cambiarlos hay que crear uno nuevo.
 
 Truthy y Falsy
-: Valores que Python evalúa como verdadero (truthy) o falso (falsy) en contextos booleanos. **Falsy:** `0`, `0.0`, `""` (string vacío), `None`, `False`. **Truthy:** todo lo demás.
+: Valores que Python evalúa como verdaderos o falsos en contextos booleanos (ej. `0` es Falsy, `1` es Truthy).
 
 Tiempo de ejecución
-: Momento en el que el programa esta corriendo. Los errores que emergen en esta etapa ({term}`excepciones<excepción>`) suelen depender del estado del programa y los datos procesados, diferenciándose de los errores de {term}`sintaxis` detectados al momento de iniciar la ejecución.
+: Momento en el que el programa está corriendo.
 ```
