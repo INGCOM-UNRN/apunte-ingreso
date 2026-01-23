@@ -1410,57 +1410,11 @@ Recordá que esta guía es una aplicación del {ref}`método de Pólya <polya-co
 
 ## 11. Ejercicios para Practicar
 
-::::{note} Instrucciones
+Para poner en práctica todo lo aprendido, hemos preparado una colección completa de ejercicios organizados por nivel de dificultad y con distintos niveles de ayuda (desde diagramas completos hasta solo enunciados).
 
-Para cada ejercicio, hacé TODOS los pasos:
-1. Responder las 5 preguntas.
-2. Escribir pseudocódigo.
-3. Hacer prueba de escritorio (al menos 2 casos).
-4. Escribir código Python.
-5. Probar con los mismos casos.
+👉 **[Ir a los Ejercicios de Programación](../enunciados/programacion.md)**
 
-**No te saltes pasos.** Es la única forma de aprender.
-::::
-
-### Nivel 1: Básico
-
-**Ejercicio 1.1:** Leer dos números y mostrar cuál es el mayor.
-
-**Ejercicio 1.2:** Leer un número y mostrar si es múltiplo de 5.
-
-**Ejercicio 1.3:** Calcular el área de un círculo dado su radio. (Área = π × radio²).
-
-**Ejercicio 1.4:** Convertir una temperatura de Celsius a Fahrenheit. (F = C × 9/5 + 32).
-
-**Ejercicio 1.5:** Leer 3 números y mostrar su suma y su promedio.
-
-### Nivel 2: Intermedio
-
-**Ejercicio 2.1:** Leer una calificación (0-10) y mostrar:
-- "Excelente" si es 9 o 10.
-- "Bueno" si es 7 u 8.
-- "Regular" si es 5 o 6.
-- "Insuficiente" si es menos de 5.
-
-**Ejercicio 2.2:** Mostrar los números del 1 al 20, pero solo los pares.
-
-**Ejercicio 2.3:** Leer números hasta que el usuario ingrese un negativo. Mostrar cuántos números positivos ingresó.
-
-**Ejercicio 2.4:** Hacer un programa que pida un número y muestre su factorial (factorial de 5 = 5×4×3×2×1 = 120).
-
-**Ejercicio 2.5:** Leer 10 números y decir cuántos son pares y cuántos impares.
-
-### Nivel 3: Avanzado
-
-**Ejercicio 3.1:** Juego de adivinar un número: El programa "piensa" un número del 1 al 100, el usuario tiene 7 intentos para adivinarlo. Después de cada intento, el programa dice "más alto" o "más bajo".
-
-**Ejercicio 3.2:** Calcular el promedio de N calificaciones (N lo elige el usuario) y mostrar cuántas están por encima del promedio.
-
-**Ejercicio 3.3:** Determinar si un número es primo (solo divisible por 1 y por sí mismo).
-
-**Ejercicio 3.4:** Generar los primeros N números de Fibonacci (0, 1, 1, 2, 3, 5, 8, 13, ...).
-
-**Ejercicio 3.5:** Hacer una calculadora que funcione en lazo: pide operaciones hasta que el usuario elija "salir".
+Allí encontrarás ejercicios clásicos como sumas, promedios, tablas de multiplicar, factoriales, series de Fibonacci y más. ¡Te recomendamos hacerlos todos!
 
 ---
 
