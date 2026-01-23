@@ -458,6 +458,8 @@ Y vamos a usar tres tipos de lazos que veremos a continuación.
 
 ### Plantilla Básica
 
+Todo algoritmo en pseudocódigo sigue una estructura estándar. Comienza con `INICIO` seguido del nombre del algoritmo, contiene los pasos a seguir en el medio, y termina con `FIN`. Esta estructura clara ayuda a organizar el pensamiento y facilita la traducción posterior a código real de cualquier lenguaje de programación.
+
 ```
 INICIO NombreDelAlgoritmo
     # Acá van los pasos
@@ -465,6 +467,8 @@ FIN
 ```
 
 ### Ejemplo 1: Sumar Dos Números
+
+Este es el ejemplo más simple de un algoritmo: sumar dos números ingresados por el usuario. Ilustra los conceptos básicos de entrada (LEER), procesamiento (operación aritmética con ⟸), y salida (MOSTRAR). Es el "Hola Mundo" de los algoritmos: simple pero completo.
 
 ```
 INICIO SumarDosNumeros
@@ -491,6 +495,8 @@ FIN
 
 ### Ejemplo 2: Mayor de Edad
 
+Este ejemplo introduce el concepto de decisión con la estructura `SI-ENTONCES-SINO`. El algoritmo toma una decisión basándose en una condición (edad >= 18) y ejecuta diferentes acciones según el resultado. Es fundamental para entender cómo los programas pueden tomar diferentes caminos según los datos.
+
 ```
 INICIO MayorDeEdad
     # Pedir edad
@@ -514,6 +520,8 @@ FIN
 
 ### Ejemplo 3: Contar del 1 al 5
 
+Este ejemplo muestra cómo repetir acciones con la estructura `MIENTRAS`. Los lazos o bucles son esenciales en programación: permiten repetir un bloque de código mientras se cumpla una condición. Observá cómo el contador se incrementa en cada iteración, y cómo eventualmente la condición se vuelve falsa para terminar el lazo.
+
 ```
 INICIO ContarHastaCinco
     # Empezar desde 1
@@ -536,6 +544,8 @@ FIN
 - Cierra con `FIN_MIENTRAS`.
 
 ### Ejemplo 4: Promedio de 3 Números
+
+Este ejemplo combina múltiples conceptos: entrada de datos (leer tres números), procesamiento (sumar y dividir), y salida (mostrar el resultado). El diagrama de flujo que lo acompaña ilustra visualmente cómo se ejecuta el algoritmo paso a paso, mostrando las cajas de entrada, proceso y salida. Es un ejemplo completo de un algoritmo práctico.
 
 ```{mermaid}
 flowchart TD
@@ -717,6 +727,8 @@ MOSTRAR promedio
 - **¡Funciona!**
 
 ### Ejemplo con Decisión: Par o Impar
+
+Este ejemplo combina el uso del operador módulo (%) con una estructura de decisión. El operador módulo retorna el resto de una división, y es fundamental para determinar si un número es par o impar. El diagrama de flujo muestra claramente cómo la decisión divide el flujo del algoritmo en dos caminos posibles, uno para cada resultado.
 
 ```{mermaid}
 flowchart TD
@@ -1149,6 +1161,8 @@ Hay ciertos "patrones" que aparecen una y otra vez en programación. Si los reco
 
 ### Patrón 1: El Acumulador
 
+El acumulador es uno de los patrones más fundamentales en programación. Consiste en una variable que va "acumulando" o "juntando" valores a medida que se procesan datos. Es especialmente útil para calcular sumas, productos, o cualquier operación que necesite combinar múltiples valores en uno solo. El concepto clave es mantener un total parcial que se actualiza en cada iteración.
+
 **¿Qué es?** Una variable que va "juntando" valores.
 
 **Ejemplo:** Sumar números
@@ -1165,6 +1179,8 @@ FIN_PARA
 - En cada vuelta, sumar (o multiplicar) y guardar el resultado.
 
 ### Patrón 2: El Contador
+
+El contador es otro patrón esencial que aparece constantemente en programación. A diferencia del acumulador que suma valores, el contador simplemente cuenta cuántas veces ocurre algo. Es útil para estadísticas, validaciones, o cualquier situación donde necesitás saber "cuántos" elementos cumplen cierta condición. La clave es incrementar en 1 cada vez que se cumple la condición.
 
 **¿Qué es?** Una variable que cuenta cuántas veces pasa algo.
 
@@ -1185,6 +1201,8 @@ FIN_PARA
 
 ### Patrón 3: Buscar el Máximo (o Mínimo)
 
+Encontrar el valor máximo o mínimo en un conjunto de datos es un problema clásico en programación. Este patrón mantiene el "mejor" valor encontrado hasta el momento y lo compara con cada nuevo valor. Si se encuentra uno mejor, se reemplaza. Es fundamental para ordenamiento, búsquedas, y optimización. El truco está en empezar con el primer valor como candidato inicial.
+
 **¿Qué es?** Encontrar el número más grande (o más chico).
 
 **Ejemplo:** Encontrar el número más grande.
@@ -1203,6 +1221,8 @@ FIN_PARA
 - Si encontrás uno más grande, reemplazarlo.
 
 ### Patrón 4: La Bandera (Flag)
+
+La bandera o flag es una variable booleana (Verdadero/Falso) que "recuerda" si algo ocurrió durante el procesamiento. Es útil cuando necesitás verificar la presencia de algo sin importar cuántas veces ocurra. Una vez que la bandera se activa (cambia a Verdadero), permanece así. Este patrón es común en validaciones, búsquedas, y control de flujo.
 
 **¿Qué es?** Una variable que "recuerda" si algo pasó.
 
@@ -1227,6 +1247,8 @@ FIN_SI
 - Al final, chequear el valor.
 
 ### Patrón 5: Validación de Entrada
+
+La validación de entrada es crucial para crear programas robustos. Este patrón usa un lazo que se repite hasta que el usuario ingrese un dato válido. Es esencial para prevenir errores y garantizar que el programa reciba datos dentro del rango esperado. Combina lazos con condiciones para crear una experiencia de usuario más amigable y programas más confiables.
 
 **¿Qué es?** Seguir pidiendo un dato hasta que sea válido.
 
