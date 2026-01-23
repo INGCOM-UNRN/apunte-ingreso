@@ -51,8 +51,7 @@ Para lograr una comprensión profunda del problema, es necesario responder siste
 
 #### Ejemplo Práctico: Cálculo de Promedio
 
-```{admonition} Problema
-:class: note
+```{note} Problema
 Escribir un programa que calcule el promedio de calificaciones de un estudiante.
 ```
 
@@ -117,8 +116,7 @@ Una vez comprendido el problema, la siguiente etapa consiste en elaborar un plan
 
 #### Ejemplo: Búsqueda del Máximo
 
-```{admonition} Problema
-:class: note
+```{note} Problema
 Encontrar el mayor elemento en una lista de números.
 ```
 
@@ -397,8 +395,7 @@ La fase de revisión no es solo verificación mecánica. Es una oportunidad para
 
 Ahora aplicaremos el método de Pólya completo a un problema más elaborado.
 
-```{admonition} Problema: Validador de Contraseñas
-:class: note
+```{note} Problema: Validador de Contraseñas
 Escribir una función que valide si una contraseña cumple los siguientes requisitos:
 - Longitud mínima de 8 caracteres.
 - Al menos una letra mayúscula.
@@ -649,8 +646,8 @@ def contar_pares(numeros):
 
 Resolver primero una versión simplificada.
 
-```{admonition} Ejemplo
-:class: tip
+```{tip} Ejemplo
+
 **Problema original:** Ordenar una lista de diccionarios por múltiples criterios.
 
 **Simplificación progresiva:**
@@ -857,8 +854,8 @@ El método de Pólya se complementa perfectamente con las reglas de estilo del c
 - Responsabilidad única ({ref}`0x000Ch`).
 - Documentación apropiada ({ref}`0x000Ah`).
 
-:::{admonition} Reflexión Final
-:class: important
+:::{important} Reflexión Final
+
 El método de Pólya no es una receta rígida, sino una guía flexible que debe adaptarse a cada problema y contexto. Con la práctica, estas etapas se internalizan y se vuelven parte natural del proceso de pensamiento del programador.
 
 La maestría en programación no consiste en memorizar sintaxis, sino en desarrollar la capacidad de descomponer problemas complejos en soluciones elegantes y correctas. El método de Pólya es una herramienta poderosa en ese camino.
