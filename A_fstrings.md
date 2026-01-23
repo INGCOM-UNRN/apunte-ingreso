@@ -1,6 +1,6 @@
 ---
 title: Guía Completa de F-Strings en Python
-short_title: 0x0001h - F-Strings
+short_title: A - F-Strings
 subtitle: Dominando la creación moderna de cadenas en Python
 ---
 

@@ -37,7 +37,7 @@ project:
     - file: E_jupyterlab.md
     - file: F_rubrica.md
     - file: Z_ia.md
-    - title: Ejercicios
+    - title: Gimnasio de ejercicios
       children:
       - file: enunciados/gimnasio.md
       - file: enunciados/parsons_pseudo.md

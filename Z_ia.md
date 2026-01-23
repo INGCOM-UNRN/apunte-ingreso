@@ -1,5 +1,5 @@
 ---
-title: 0x001A - La guIA de la IA
+title: Z - La guIA de la IA
 description: Guía para aprovechar la IA como herramienta de aprendizaje efectiva
 ---
 

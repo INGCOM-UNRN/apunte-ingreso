@@ -1,6 +1,6 @@
 ---
 title: Guía de uso de JupyterLab
-short_title: 0x0005h - JupyterLab
+short_title: E - JupyterLab
 subtitle: Introducción práctica a JupyterLab para estudiantes principiantes
 ---
 
