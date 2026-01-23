@@ -188,6 +188,8 @@ Devuelve un valor (lo veremos más adelante).
 
 ### Ejemplo Paso a Paso
 
+Veamos un ejemplo completo desde la definición hasta el uso de una función. Este ejemplo muestra cómo definir una función simple sin parámetros que imprime un mensaje decorado, y luego cómo llamarla para ejecutar su código.
+
 ```python
 # Paso 1: Definir la función
 def mostrar_bienvenida():
@@ -256,6 +258,8 @@ print("Fin del programa")
 :::
 
 ### Ejercicio Práctico: Jugá con Funciones
+
+Ahora que entendés los conceptos básicos, es momento de practicar. Este ejercicio te permite combinar múltiples funciones para crear un programa más complejo. Experimentá modificando los valores, agregando nuevas funciones, o cambiando el orden de las llamadas para ver cómo afecta el resultado.
 
 ```python
 def dibujar_separador():
@@ -437,6 +441,8 @@ registrar_usuario(nombre="Ana", "ana@mail.com", 20)
 :::
 
 ### Ejemplo Práctico: Calculadora
+
+Veamos un ejemplo que combina todo lo aprendido: múltiples parámetros, cálculos internos, y retorno de valores. Esta función calcula tanto el área como el perímetro de un rectángulo, demostrando cómo una función puede hacer múltiples cálculos y retornar varios resultados a la vez.
 
 ```python
 def calcular_rectangulo(base, altura):
@@ -717,6 +723,8 @@ procesar_usuario("Ana")
 
 ### Ejercicio Práctico: Calculadora
 
+Construyamos una calculadora completa que demuestra el uso de `return` en diferentes situaciones. Esta función evalúa la operación solicitada y retorna el resultado apropiado, o `None` en casos de error. Observá cómo el uso de `return` permite que el código que llama a la función pueda usar el resultado para tomar decisiones.
+
 ```python
 def calculadora(operacion, a, b):
     """Calculadora simple que retorna el resultado.
@@ -899,6 +907,8 @@ print(f"Precio con IVA: ${calcular_precio_con_iva(100)}")
 :::
 
 ### Ejemplo Completo: Scope en Acción
+
+Este ejemplo integra todos los conceptos de scope (alcance) vistos anteriormente. Muestra una función que interactúa tanto con variables locales como con constantes globales, demostrando las mejores prácticas: las variables locales para cálculos internos, y las constantes globales para valores que no cambian. Observá cómo las variables locales solo existen dentro de la función y no son accesibles desde afuera.
 
 ```python
 # Scope GLOBAL
@@ -1094,6 +1104,8 @@ Según la {ref}`0x000Ah`, todas las funciones deben tener un {term}`docstring`.
 
 ### Formato de Docstrings
 
+Los docstrings son comentarios especiales que documentan qué hace una función, qué parámetros recibe, qué retorna, y qué errores puede producir. Son fundamentales para que otros programadores (y vos en el futuro) entiendan cómo usar la función sin tener que leer todo su código. Python tiene convenciones específicas para escribir buenos docstrings.
+
 ```python
 def calcular_promedio(numeros):
     """Calcula el promedio de una lista de números.
@@ -1146,6 +1158,8 @@ def cuadrado(x):
 
 ### Acceder a Docstrings
 
+Python almacena los docstrings en el atributo especial `__doc__` de la función. Esto permite que otros programas (y la función `help()`) puedan mostrar la documentación automáticamente. Es una de las características que hace que Python sea "autodocumentado": el código lleva su propia documentación integrada.
+
 ```python
 def suma(a, b):
     """Retorna la suma de a y b."""
@@ -1168,6 +1182,8 @@ En Python, las funciones son **objetos de primera clase**: pueden asignarse a va
 
 ### Asignar Funciones a Variables
 
+Una de las características más poderosas de Python es que las funciones son objetos como cualquier otro. Podés asignar una función a una variable, y esa variable se comportará exactamente como la función original. Esto es útil para crear alias de funciones o para almacenar funciones en estructuras de datos.
+
 ```python
 def saludar(nombre):
     """Saluda a una persona."""
@@ -1181,6 +1197,8 @@ print(mi_funcion("Ana"))  # ¡Hola, Ana!
 ```
 
 ### Pasar Funciones como Argumentos
+
+Una función puede recibir otra función como parámetro, lo que permite crear código muy flexible y reutilizable. Este patrón es común en programación funcional y permite que una función modifique su comportamiento basándose en la función que recibe. Es la base de muchas características avanzadas de Python como `map()`, `filter()`, y `sorted()` con funciones personalizadas.
 
 ```python
 def aplicar_operacion(a, b, operacion):
@@ -1217,6 +1235,8 @@ print(aplicar_operacion(5, 3, multiplicar))  # 15
 Una función **recursiva** es una que se llama a sí misma.
 
 ### Ejemplo: Factorial
+
+El factorial es un ejemplo clásico de recursión. Una función recursiva se define en términos de sí misma: el factorial de n es n multiplicado por el factorial de n-1. Toda función recursiva necesita un caso base (que detiene la recursión) y un caso recursivo (que sigue llamándose a sí misma). Sin el caso base, la función entraría en un loop infinito.
 
 ```python
 def factorial(n):
@@ -1340,6 +1360,8 @@ print(texto)
 
 ### 2. Nombres Descriptivos
 
+Los nombres de funciones y parámetros deben comunicar claramente su propósito. Un nombre descriptivo hace que el código sea autoexplicativo, eliminando la necesidad de comentarios adicionales. Usá verbos para funciones (calculan, obtienen, verifican) y sustantivos descriptivos para parámetros. Evitá abreviaturas crípticas o nombres de una sola letra excepto en contextos muy específicos como índices de loops.
+
 ```python
 # ❌ Nombres poco claros
 def calc(x, y):
@@ -1416,6 +1438,8 @@ def procesar_inscripcion(datos):
 
 ### 6. Retornar, No Imprimir
 
+Las funciones deben retornar valores, no imprimirlos. Imprimir dentro de una función mezcla la lógica de cálculo con la presentación, haciendo la función menos reutilizable. Si una función imprime directamente, no podés usar su resultado en cálculos posteriores, guardarlo en un archivo, o mostrarlo de forma diferente. Separar la lógica de la presentación es un principio fundamental del buen diseño de software.
+
 ```python
 # ❌ Imprime en lugar de retornar
 def calcular_total(items):
@@ -1446,6 +1470,8 @@ print(f"Total: ${total}")
 
 ### 1. Olvidar el Return
 
+Uno de los errores más frecuentes es olvidar la sentencia `return`, especialmente cuando venís de lenguajes donde las funciones pueden "devolver" valores automáticamente. En Python, si una función no tiene `return`, retorna `None` implícitamente. Esto causa que tu función calcule algo pero no lo devuelva, haciendo imposible usar ese resultado.
+
 ```python
 # ❌ Olvidó return
 def sumar(a, b):
@@ -1464,6 +1490,8 @@ print(total)  # 8
 
 ### 2. Confundir Parámetros y Argumentos
 
+Los parámetros son las variables que defines en la función, mientras que los argumentos son los valores concretos que pasás cuando la llamás. Un error común es pasar una cantidad incorrecta de argumentos o en el orden equivocado. Python te avisará con un `TypeError` si la cantidad no coincide, pero el orden incorrecto puede causar resultados erróneos sin error explícito.
+
 ```python
 # ❌ Cantidad incorrecta de argumentos
 def saludar(nombre, edad):
@@ -1479,6 +1507,8 @@ saludar("Ana", 20)
 ```
 
 ### 3. Modificar Argumentos Mutables
+
+Cuando pasás un objeto mutable (como una lista o diccionario) a una función y lo modificás dentro, estás modificando el objeto original, no una copia. Esto puede causar efectos secundarios inesperados que son difíciles de rastrear. La solución es crear una nueva estructura de datos en lugar de modificar la que recibiste, o documentar explícitamente que la función modifica el argumento.
 
 ```python
 # ❌ Efecto secundario inesperado
@@ -1504,6 +1534,8 @@ print(duplicada)  # [2, 4, 6]
 
 ### 4. No Documentar Funciones
 
+Según las reglas de estilo del curso, toda función debe tener un docstring. Sin documentación, otros programadores (incluido vos en el futuro) tienen que leer todo el código para entender qué hace la función. Un buen docstring explica qué hace la función, qué parámetros recibe, qué retorna, y cualquier comportamiento especial o excepciones que pueda lanzar.
+
 ```python
 # ❌ Sin documentación
 def calc(x, y, z):
@@ -1525,6 +1557,8 @@ def calcular_costo_total(precio_unitario, cantidad, envio):
 ```
 
 ### 5. Valor por Defecto Mutable
+
+Este es uno de los errores más sutiles y peligrosos en Python. Los valores por defecto se evalúan una sola vez cuando se define la función, no cada vez que se llama. Si usás un objeto mutable (lista, diccionario) como valor por defecto, ese mismo objeto será compartido entre todas las llamadas a la función, causando comportamiento inesperado y bugs muy difíciles de encontrar.
 
 ```python
 # ❌ PELIGRO: Lista mutable como default
@@ -1557,6 +1591,8 @@ Los valores por defecto se evalúan **UNA SOLA VEZ** cuando se define la funció
 :::
 
 ### 6. No Usar Parámetros con Nombre
+
+Cuando una función tiene múltiples parámetros booleanos o del mismo tipo, pasar argumentos posicionalmente hace el código difícil de leer. No queda claro qué significa cada valor. Usar argumentos con nombre (keyword arguments) hace el código autoexplicativo y previene errores de orden. Es especialmente importante para parámetros opcionales o booleanos.
 
 ```python
 # ❌ Difícil de entender
@@ -2739,6 +2775,8 @@ def nombre_funcion(parametros):
 
 ### Checklist de Buenas Prácticas
 
+Este checklist resume todas las buenas prácticas vistas en el capítulo. Usalo como guía cuando escribas funciones nuevas o cuando revises código existente. Cumplir con estos puntos garantiza funciones de calidad, fáciles de entender, mantener y testear. No es necesario que memorices todo, pero sí que entiendas por qué cada punto es importante.
+
 ```{tip} ✅ Funciones de Calidad
 
 - [ ] **Nombre descriptivo** que indica qué hace
@@ -2754,6 +2792,8 @@ def nombre_funcion(parametros):
 ```
 
 ### Errores a Evitar
+
+Esta sección resume visualmente los errores más comunes al trabajar con funciones. Son problemas que verás frecuentemente en código de principiantes (¡y a veces en código de expertos también!). Aprender a reconocerlos y evitarlos desde el principio te ahorrará horas de debugging. Cada error tiene su correspondiente sección detallada en el capítulo donde se explica por qué es problemático y cómo corregirlo.
 
 ::::{grid} 1 1 2 3
 
@@ -2814,6 +2854,8 @@ def func(a, b, c, d, e, f):
 
 ### Para Seguir Practicando
 
+Aprender sobre funciones no termina con la teoría. La mejor forma de dominarlas es practicando constantemente. Empezá con ejercicios simples y gradualmente pasá a problemas más complejos. Refactorizar código existente es una excelente manera de aprender: tomá programas que escribiste antes y organizalos usando funciones. Leer código de otros también es invaluable para ver diferentes estilos y técnicas.
+
 ```{tip} Próximos Pasos
 
 1. **Practicar**con los ejercicios propuestos
@@ -2867,6 +2909,8 @@ Completaste el capítulo de **Funciones**. Ahora sabés:
 :::
 
 ### 5. Variables Globales sin Declarar
+
+Aunque Python permite modificar variables globales usando la palabra clave `global`, esto es considerado una mala práctica. Las variables globales crean dependencias ocultas, hacen el código difícil de testear, y pueden causar bugs sutiles cuando múltiples funciones las modifican. La solución es pasar valores como parámetros y retornar los nuevos valores, manteniendo las funciones puras y predecibles.
 
 ```python
 contador = 0
