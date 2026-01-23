@@ -1,10 +1,10 @@
----
-title: Referencia de la Biblioteca
-short_title: 0x0003h - Referencia
+--- 
+title: Referencia de Tipos de Datos en Python
+short_title: C - Referencia Tipos
 subtitle: Guía completa de métodos para str, list, dict, set y tuple en Python.
 ---
 
-(referencia-tipos)=
+(referencia-tipos)= 
 # Referencia de Tipos de Datos en Python
 
 ```{epigraph}
@@ -13,49 +13,48 @@ subtitle: Guía completa de métodos para str, list, dict, set y tuple en Python
 -- Tim Peters, The Zen of Python
 ```
 
-Esta guía de referencia cubre los 5 tipos de datos fundamentales:
+Esta guía de referencia cubre los 5 tipos de datos fundamentales que ya hemos visto en acción, profundizando en sus métodos:
 
-1. **`str` (Cadenas)**: Inmutables, para texto
-2. **`list` (Listas)**: Mutables, secuencias ordenadas
-3. **`dict` (Diccionarios)**: Mutables, mapeos clave-valor
-4. **`set` (Conjuntos)**: Mutables, colecciones únicas
-5. **`tuple` (Tuplas)**: Inmutables, secuencias fijas
+1. **`str` (Cadenas)**: Inmutables, para texto.
+2. **`list` (Listas)**: Mutables, secuencias ordenadas.
+3. **`dict` (Diccionarios)**: Mutables, mapeos clave-valor.
+4. **`set` (Conjuntos)**: Mutables, colecciones únicas.
+5. **`tuple` (Tuplas)**: Inmutables, secuencias fijas.
 
-Esta guía es tu manual de consulta rápida para los tipos de datos más importantes de Python.
+Esta guía es tu manual de consulta rápida. Para entender cómo funcionan las {term}`funciones <Función>` y métodos que veremos aquí, asegurate de haber leído el capítulo {ref}`4 - Funciones <funciones>`.
 
 ## Introducción: La Biblioteca Estándar
 
-Python viene con una **biblioteca estándar** muy completa. Cada tipo de dato tiene métodos (funciones asociadas) que facilitan operaciones comunes. De hecho, lo que trataremos aquí es una parte mínima de todo lo que tiene disponible de forma _directa_. Python tiene un ecosistema de librerías que amplia aún más las capacidades del lenguaje, sin embargo, esto queda fuera del curso de ingreso por cuestiones de tiempo.
+Python viene con una **biblioteca estándar** muy completa. Cada tipo de dato tiene métodos ({term}`funciones <Función>` asociadas al objeto) que facilitan operaciones comunes.
 
 ::::{grid} 1 1 2 2
 
 :::{grid-item-card} 📚 Tipos Mutables
 
 Pueden modificarse después de crearse:
-- **`list`** - Listas
-- **`dict`** - Diccionarios  
-- **`set`** - Conjuntos
+- **`list`** - Listas.
+- **`dict`** - Diccionarios.
+- **`set`** - Conjuntos.
 :::
 
 :::{grid-item-card} 🔒 Tipos Inmutables
 
 No pueden modificarse una vez creados:
-- **`str`** - Cadenas
-- **`tuple`** - Tuplas
-- **`frozenset`** - Conjuntos inmutables
+- **`str`** - Cadenas.
+- **`tuple`** - Tuplas.
+- **`frozenset`** - Conjuntos inmutables.
 :::
 
 ::::
 
 :::{important} Convención de Nomenclatura
-Los métodos que **modifican** el objeto (mutables) no retornan nada o retornan `None`.
+Los métodos que **modifican** el objeto (mutables) generalmente no retornan nada (`None`).
 Los métodos que **no modifican** el objeto (inmutables) retornan un **nuevo objeto**.
 :::
 
-
 ---
 
-(referencia-str)=
+(referencia-str)= 
 ## Cadenas (str) - Manipulación de Texto
 
 Las cadenas son **inmutables**. Todos los métodos retornan **nuevas cadenas** sin modificar la original.
@@ -110,9 +109,9 @@ print(texto.find("n", 5))      # 11 (busca desde índice 5)
 ```
 
 **Usos comunes:**
-- Verificar si un substring existe
-- Encontrar posición de un patrón
-- Buscar en segmentos específicos
+- Verificar si un substring existe.
+- Encontrar posición de un patrón.
+- Buscar en segmentos específicos.
 
 ```{code-cell} ipython3
 # Ejemplo práctico: validar extensión de archivo
@@ -137,8 +136,8 @@ except ValueError:
 ```
 
 :::{tip} find() vs index()
-- Usá **`find()`** cuando no estés seguro si el substring existe → retorna `-1`
-- Usá **`index()`** cuando sepas que existe → más expresivo, lanza error si falla
+- Usá **`find()`** cuando no estés seguro si el substring existe → retorna `-1`.
+- Usá **`index()`** cuando sepas que existe → más expresivo, lanza error si falla.
 :::
 
 #### `str.count(sub, start=0, end=len)` → int
@@ -174,9 +173,9 @@ print(texto.startswith("gato", 3))      # True (desde índice 3)
 ```
 
 **Casos de uso:**
-- Validar formatos de archivo
-- Filtrar elementos por prefijo
-- Parsear comandos
+- Validar formatos de archivo.
+- Filtrar elementos por prefijo.
+- Parsear comandos.
 
 ```{code-cell} ipython3
 # Filtrar archivos Python
@@ -240,7 +239,7 @@ print("Hola".islower())        # False
 ```{code-cell} ipython3
 # Validación de entrada
 def validar_codigo(codigo):
-    """Valida que el código sea alfanumérico de 6 caracteres"""
+    """Valida que el código sea alfanumérico de 6 caracteres."""
     if len(codigo) != 6:
         return False, "Debe tener 6 caracteres"
     if not codigo.isalnum():
@@ -276,8 +275,8 @@ if usuario.lower() == "ana":
 ```
 
 **Diferencias:**
-- `capitalize()`: Solo la **primera letra** de la cadena en mayúscula
-- `title()`: Primera letra de **cada palabra** en mayúscula
+- `capitalize()`: Solo la **primera letra** de la cadena en mayúscula.
+- `title()`: Primera letra de **cada palabra** en mayúscula.
 
 #### `str.strip()` / `str.lstrip()` / `str.rstrip()`
 
@@ -285,9 +284,9 @@ Elimina caracteres del principio y/o final.
 
 ```{code-cell} ipython3
 texto = "   hola mundo   "
-print(f"'{texto.strip()}'")     # 'hola mundo'
-print(f"'{texto.lstrip()}'")    # 'hola mundo   '
-print(f"'{texto.rstrip()}'")    # '   hola mundo'
+print(f'\' {texto.strip()}\'' )     # 'hola mundo'
+print(f'\' {texto.lstrip()}\'' )    # 'hola mundo   '
+print(f'\' {texto.rstrip()}\'' )    # '   hola mundo'
 
 # Eliminar caracteres específicos
 url = "https://www.ejemplo.com/"
@@ -296,12 +295,12 @@ print(url.rstrip("/"))          # "https://www.ejemplo.com"
 
 # Limpiar entrada de usuario
 entrada = "  Ana  \n"
-print(f"'{entrada.strip()}'")   # 'Ana'
+print(f'\' {entrada.strip()}\'' )   # 'Ana'
 ```
 
 **Parámetro `chars`:**
-- Si es `None` (default): elimina espacios, tabs, newlines
-- Si se especifica: elimina cualquier combinación de esos caracteres
+- Si es `None` (default): elimina espacios, tabs, newlines.
+- Si se especifica: elimina cualquier combinación de esos caracteres.
 
 ```{code-cell} ipython3
 # Eliminar múltiples caracteres
@@ -364,8 +363,8 @@ print(f"{nombre} tiene {edad} años")
 ```
 
 **Parámetro `sep`:**
-- Si es `None`: divide por **cualquier** espacio en blanco (espacios, tabs, newlines) y elimina vacíos
-- Si se especifica: divide **exactamente** por ese separador
+- Si es `None`: divide por **cualquier** espacio en blanco (espacios, tabs, newlines) y elimina vacíos.
+- Si se especifica: divide **exactamente** por ese separador.
 
 ```{code-cell} ipython3
 # Diferencia con sep=None vs sep=" "
@@ -482,7 +481,7 @@ print("{:<10} | {:^10} | {:>10}".format("Izq", "Centro", "Der"))
 
 #### f-strings (Python 3.6+)
 
-La forma **más moderna y recomendada** de formatear cadenas.
+La forma **más moderna y recomendada** de formatear cadenas. Se explica en detalle en el apunte de f-strings.
 
 ```{code-cell} ipython3
 nombre = "Ana"
@@ -594,7 +593,7 @@ texto = texto.upper()  # Ahora texto es "HOLA"
 
 ---
 
-(referencia-list)=
+(referencia-list)= 
 ## Listas (list) - Colecciones Mutables
 
 Las listas son **mutables**. Muchos métodos modifican la lista **en el lugar** (in-place) y retornan `None`.
@@ -705,8 +704,8 @@ print(lista2)  # [1, 2, 3, 4, 5, 6]  ← Lista plana
 ```
 
 :::{tip} Cuándo usar cada uno
-- `append(x)`: Cuando querés agregar un **solo** elemento (incluso si es una lista)
-- `extend(iter)`: Cuando querés agregar **múltiples** elementos
+- `append(x)`: Cuando querés agregar un **solo** elemento (incluso si es una lista).
+- `extend(iter)`: Cuando querés agregar **múltiples** elementos.
 :::
 
 #### `list.insert(i, x)` → None
@@ -866,25 +865,6 @@ print(numeros.index(20, 2))    # 3 (desde índice 2)
 print(numeros.index(20, 2, 4)) # 3 (entre índices 2 y 4)
 ```
 
-```{code-cell} ipython3
-# Encontrar todas las posiciones
-numeros = [1, 2, 3, 2, 4, 2, 5]
-posiciones = []
-inicio = 0
-while True:
-    try:
-        pos = numeros.index(2, inicio)
-        posiciones.append(pos)
-        inicio = pos + 1
-    except ValueError:
-        break
-print(f"El 2 está en: {posiciones}")  # [1, 3, 5]
-
-# Alternativa con enumerate (más Pythonic)
-posiciones = [i for i, x in enumerate(numeros) if x == 2]
-print(posiciones)  # [1, 3, 5]
-```
-
 #### `list.count(x)` → int
 
 Cuenta cuántas veces aparece `x` en la lista.
@@ -977,8 +957,8 @@ print(f"Nueva: {ordenados}")     # [1, 3, 4]
 ```
 
 :::{tip} Cuándo usar cada uno
-- `list.sort()`: Cuando querés modificar la lista original
-- `sorted()`: Cuando necesitás mantener la original + crear una nueva ordenada
+- `list.sort()`: Cuando querés modificar la lista original.
+- `sorted()`: Cuando necesitás mantener la original + crear una nueva ordenada.
 :::
 
 #### `list.reverse()` → None
@@ -1098,15 +1078,13 @@ lista.append(4)  # lista se modifica
 :::
 
 
-
-
 ---
 
 
 
 ---
 
-(referencia-dict)=
+(referencia-dict)= 
 ## Diccionarios (dict) - Mapeos Clave-Valor
 
 Los diccionarios son **mutables** y almacenan pares clave-valor. Desde Python 3.7+, mantienen el orden de inserción.
@@ -1155,14 +1133,14 @@ print(persona.get("ciudad", "Desconocida"))  # "Desconocida"
 # Comparar con acceso directo
 print(persona["nombre"])                  # "Ana"
 try:
-    print(persona["ciudad"])              # KeyError!
+    print(persona["ciudad"])
 except KeyError:
     print("Clave no existe")
 ```
 
 **Cuándo usar:**
-- `dict[key]`: Cuando **sabes** que la clave existe (falla rápido)
-- `dict.get(key)`: Cuando **no estás seguro** (evita errores)
+- `dict[key]`: Cuando **sabes** que la clave existe (falla rápido).
+- `dict.get(key)`: Cuando **no estás seguro** (evita errores).
 
 ```{code-cell} ipython3
 # Patrón común: valores por defecto en configuración
@@ -1175,7 +1153,7 @@ print(f"Servidor: {host}:{puerto}")  # "localhost:8080"
 
 #### `dict.keys()` / `dict.values()` / `dict.items()`
 
-Retornan **vistas** dinámicas de claves, valores y pares (clave, valor).
+Retornan **vistas** dinámicas de claves, valores y pares (clave, valor). Estas vistas se actualizan si el diccionario cambia.
 
 ```{code-cell} ipython3
 persona = {"nombre": "Ana", "edad": 25, "ciudad": "Bariloche"}
@@ -1360,7 +1338,7 @@ d = {k: [] for k in ["a", "b"]}
 
 ---
 
-(referencia-set)=
+(referencia-set)= 
 ## Sets (set) - Conjuntos
 
 Los sets son **mutables**, pero sus elementos deben ser **inmutables** (hashables). No permiten duplicados ni orden.
@@ -1444,8 +1422,8 @@ frutas.discard("pera")     # No hace nada (no hay error)
 ```
 
 :::{tip} remove() vs discard()
-- `remove()`: Usa cuando **sabes** que existe
-- `discard()`: Usa cuando **no estás seguro**
+- `remove()`: Usa cuando **sabes** que existe.
+- `discard()`: Usa cuando **no estás seguro**.
 :::
 
 #### `set.pop()` → elem
@@ -1564,7 +1542,7 @@ print(a.isdisjoint(c))  # False ← Comparten el 3
 | | `discard(elem)` | | Eliminar (sin error) |
 | | `pop()` | | Eliminar arbitrario |
 | | `clear()` | | Eliminar todo |
-| **Unión** | `union(*others)` | `\|` | A ∪ B |
+| **Unión** | `union(*others)` | `|` | A ∪ B |
 | **Intersección** | `intersection(*others)` | `&` | A ∩ B |
 | **Diferencia** | `difference(*others)` | `-` | A - B |
 | **Diff. Simétrica** | `symmetric_difference(other)` | `^` | A △ B |
@@ -1574,7 +1552,7 @@ print(a.isdisjoint(c))  # False ← Comparten el 3
 
 ---
 
-(referencia-tuple)=
+(referencia-tuple)= 
 ## Tuplas (tuple) - Secuencias Inmutables
 
 Las tuplas son **inmutables**. Solo tienen 2 métodos propios.
@@ -1692,10 +1670,10 @@ print(p[0], p[1])  # 10 20
 ### Cuándo Usar Cada Tipo
 
 #### Usa `str` cuando:
-✅ Trabajás con texto  
-✅ Necesitás inmutabilidad  
-✅ Vas a usar como clave de diccionario  
-✅ Procesás datos de entrada/salida
+✅ Trabajás con texto.
+✅ Necesitás inmutabilidad.
+✅ Vas a usar como clave de diccionario.
+✅ Procesás datos de entrada/salida.
 
 ```{code-cell} ipython3
 # Ejemplos de uso
@@ -1705,10 +1683,10 @@ mensaje = f"Hola {nombre}, tu email es {email}"
 ```
 
 #### Usa `list` cuando:
-✅ Necesitás secuencia ordenada  
-✅ Vas a modificar elementos  
-✅ El orden importa  
-✅ Pueden haber duplicados
+✅ Necesitás secuencia ordenada.
+✅ Vas a modificar elementos.
+✅ El orden importa.
+✅ Pueden haber duplicados.
 
 ```{code-cell} ipython3
 # Ejemplos de uso
@@ -1718,10 +1696,10 @@ tareas.append("estudiar")  # Mutable
 ```
 
 #### Usa `dict` cuando:
-✅ Necesitás mapeo clave-valor  
-✅ Acceso rápido por clave (O(1))  
-✅ Datos estructurados  
-✅ Configuraciones o metadatos
+✅ Necesitás mapeo clave-valor.
+✅ Acceso rápido por clave (O(1)).
+✅ Datos estructurados.
+✅ Configuraciones o metadatos.
 
 ```{code-cell} ipython3
 # Ejemplos de uso
@@ -1731,10 +1709,10 @@ contador = {"manzanas": 5, "bananas": 3}
 ```
 
 #### Usa `set` cuando:
-✅ Necesitás elementos únicos  
-✅ Operaciones de conjuntos (unión, intersección)  
-✅ El orden no importa  
-✅ Verificar pertenencia rápida (O(1))
+✅ Necesitás elementos únicos.
+✅ Operaciones de conjuntos (unión, intersección).
+✅ El orden no importa.
+✅ Verificar pertenencia rápida (O(1)).
 
 ```{code-cell} ipython3
 # Ejemplos de uso
@@ -1747,10 +1725,10 @@ unicos = list(set(numeros))  # [1, 2, 3]
 ```
 
 #### Usa `tuple` cuando:
-✅ Secuencia inmutable  
-✅ Retornar múltiples valores  
-✅ Usarla como clave de diccionario  
-✅ Datos que no deben cambiar
+✅ Secuencia inmutable.
+✅ Retornar múltiples valores.
+✅ Usarla como clave de diccionario.
+✅ Datos que no deben cambiar.
 
 ```{code-cell} ipython3
 # Ejemplos de uso
@@ -1802,8 +1780,8 @@ dict(zip(['a', 'b'], [1, 2]))  # {'a': 1, 'b': 2}
 
 ```{code-cell} ipython3
 # in / not in
-elemento in coleccion    # True/False
-elemento not in coleccion
+# elemento in coleccion    # True/False
+# elemento not in coleccion
 
 # Ejemplos
 print(2 in [1, 2, 3])           # True
@@ -1814,7 +1792,7 @@ print("x" in "texto")           # True
 #### Longitud (todos los tipos)
 
 ```{code-cell} ipython3
-len(coleccion)  # Número de elementos
+# len(coleccion)  # Número de elementos
 
 print(len("Python"))        # 6
 print(len([1, 2, 3]))       # 3
@@ -1825,6 +1803,9 @@ print(len({1, 2, 3}))       # 3
 #### Iteración (todos los tipos)
 
 ```{code-cell} ipython3
+coleccion = [1, 2, 3]
+diccionario = {"a": 1}
+
 # str, list, tuple, set
 for item in coleccion:
     print(item)
@@ -1843,6 +1824,8 @@ for clave, valor in diccionario.items():
 ```
 
 ### Funciones Built-in Útiles
+
+Para más detalles sobre {term}`funciones <Función>`, consultá el capítulo {ref}`4 - Funciones <funciones>`.
 
 ```{code-cell} ipython3
 # Funciones de agregación (numéricas)
@@ -1929,3 +1912,5 @@ a, b, c = t                     # Desempaquetado
 - **Documentación oficial:** [Python Built-in Types](https://docs.python.org/3/library/stdtypes.html)
 - **Tutorial:** [Python Data Structures](https://docs.python.org/3/tutorial/datastructures.html)
 - **PEP 8:** [Style Guide](https://pep8.org/)
+
+```
