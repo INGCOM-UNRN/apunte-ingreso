@@ -7,17 +7,17 @@ subtitle: Definición, parámetros, scope, documentación y buenas prácticas.
 (funciones)=
 # Funciones
 
-:::{admonition} Objetivos de Aprendizaje
-:class: tip
+:::{tip} Objetivos de Aprendizaje
+
 Al finalizar este capítulo serás capaz de:
-- Definir y llamar funciones para reutilizar código
-- Trabajar con diferentes tipos de parámetros y argumentos
-- Retornar valores y usarlos en tu programa
-- Entender el scope (alcance) de las variables
-- Documentar funciones profesionalmente
-- Aplicar buenas prácticas en el diseño de funciones
-- **Descomponer problemas complejos en funciones más simples**
-- **Aplicar principios de diseño funcional (SRP, DRY, abstracción)**
+- Definir y llamar funciones para reutilizar código.
+- Trabajar con diferentes tipos de parámetros y argumentos.
+- Retornar valores y usarlos en tu programa.
+- Entender el scope (alcance) de las variables.
+- Documentar funciones profesionalmente.
+- Aplicar buenas prácticas en el diseño de funciones.
+- **Descomponer problemas complejos en funciones más simples.**
+- **Aplicar principios de diseño funcional (SRP, DRY, abstracción).**
 :::
 
 ---
@@ -26,19 +26,19 @@ Al finalizar este capítulo serás capaz de:
 
 ::::{grid} 1 1 2 2
 
-:::{grid-item-card} Piénsalo Así
-Imaginate que tenés una **máquina mágica** que hace algo específico. Le ponés ingredientes (Los {term}`argumentos <Argumento>`), la máquina hace su trabajo, y te devuelve un resultado.
+:::{grid-item-card} Analogía: La Máquina Mágica
+Imaginate que tenés una **máquina mágica** que hace algo específico. Le ponés ingredientes (los {term}`argumentos <Argumento>`), la máquina hace su trabajo, y te devuelve un resultado.
 
 Por ejemplo: una licuadora es como una función. Le das frutas (argumentos), apretás el botón (llamás a la función), y te devuelve un licuado ({term}`valor de retorno`).
 :::
 
 :::{grid-item-card} En Programación
 Una {term}`función` es un bloque de código que:
-1. Tiene un **nombre** para identificarla
-2. Puede recibir **datos de entrada** (parámetros)
-3. Realiza una **tarea específica**
-4. Puede **devolver un resultado**
-5. Se puede **reutilizar** todas las veces que quieras
+1. Tiene un **nombre** para identificarla.
+2. Puede recibir **datos de entrada** (parámetros).
+3. Realiza una **tarea específica**.
+4. Puede **devolver un resultado**.
+5. Se puede **reutilizar** todas las veces que quieras.
 :::
 ::::
 
@@ -46,7 +46,7 @@ Una {term}`función` es un bloque de código que:
 
 Sin funciones, tu código se vería así:
 
-```{code-cell} ipython3
+```python
 # Calcular promedio del primer examen
 suma1 = 7 + 8 + 9
 cantidad1 = 3
@@ -68,9 +68,11 @@ print(f"Promedio examen 3: {promedio3}")
 
 Con funciones, es mucho más simple:
 
-```{code-cell} ipython3
+```python
 def calcular_promedio(notas):
     """Calcula el promedio de una lista de notas."""
+    if not notas:
+        return 0
     return sum(notas) / len(notas)
 
 # Ahora solo llamamos a la función
@@ -79,13 +81,13 @@ print(f"Promedio examen 2: {calcular_promedio([6, 7, 8])}")
 print(f"Promedio examen 3: {calcular_promedio([9, 9, 10])}")
 ```
 
-:::{important}  Ventajas de las Funciones
-- **Reutilización**: Escribís el código una sola vez
-- **Organización**: Código más limpio y fácil de leer
-- **Mantenimiento**: Si hay que cambiar algo, lo hacés en un solo lugar
-- **Menos errores**: Código probado y reutilizado es más confiable
-- **Colaboración**: Varios programadores pueden trabajar en diferentes funciones
-- **Modularidad**: Dividís problemas grandes en piezas pequeñas
+:::{important} Ventajas de las Funciones
+- **Reutilización**: Escribís el código una sola vez.
+- **Organización**: Código más limpio y fácil de leer.
+- **Mantenimiento**: Si hay que cambiar algo, lo hacés en un solo lugar.
+- **Menos errores**: Código probado y reutilizado es más confiable.
+- **Colaboración**: Varios programadores pueden trabajar en diferentes funciones.
+- **Modularidad**: Dividís problemas grandes en piezas pequeñas.
 :::
 
 ### En este Capítulo Aprenderás
@@ -93,23 +95,23 @@ print(f"Promedio examen 3: {calcular_promedio([9, 9, 10])}")
 ::::{grid} 1 1 2 3
 
 :::{grid-item-card} Básico
-- Definir funciones
-- Llamar funciones
-- Parámetros y argumentos
-- Retornar valores
+- Definir funciones.
+- Llamar funciones.
+- Parámetros y argumentos.
+- Retornar valores.
 :::
 
 :::{grid-item-card} Intermedio
-- {term}`scope` de variables
-- {term}`parámetros por defecto <Parámetro por defecto>`
-- Documentación (docstrings)
-- Funciones como objetos
+- {term}`Scope` de variables.
+- {term}`Parámetros por defecto <Parámetro por defecto>`.
+- Documentación (docstrings).
+- Funciones como objetos.
 :::
 
 :::{grid-item-card} Avanzado
-- {term}`recursión`
-- Buenas prácticas
-- Patrones comunes
+- {term}`Recursión`.
+- Buenas prácticas.
+- Patrones comunes.
 :::
 ::::
 
@@ -122,7 +124,7 @@ print(f"Promedio examen 3: {calcular_promedio([9, 9, 10])}")
 
 Empecemos con lo más simple. Para crear una {term}`función`, usamos la palabra mágica `def` (de "definir"):
 
-```{code-cell} ipython3
+```python
 def saludar():
     """Imprime un saludo amigable."""
     print("¡Hola! Bienvenido/a a Python")
@@ -130,11 +132,10 @@ def saludar():
 
 ¡Felicitaciones! Acabás de crear tu primera función. Pero... ¿por qué no pasa nada?
 
-:::{admonition} ¿Por qué no imprime nada?
-:class: note
-Porque **definir**una {term}`función` es como escribir una receta en un libro de cocina. La receta existe, pero no se cocina automáticamente. Para que funcione, tenés que **llamarla**:
+:::{note} ¿Por qué no imprime nada?
+Porque **definir** una {term}`función` es como escribir una receta en un libro de cocina. La receta existe, pero no se cocina automáticamente. Para que funcione, tenés que **llamarla**:
 
-```{code-cell} ipython3
+```python
 def saludar():
     """Imprime un saludo amigable."""
     print("¡Hola! Bienvenido/a a Python")
@@ -161,33 +162,33 @@ Componentes de una función en Python
 
 :::{grid-item-card} Componentes Esenciales
 **1. Palabra clave `def`**
-Indica que vas a definir una {term}`función`
+Indica que vas a definir una {term}`función`.
 
 **2. Nombre de la {term}`función`**
-Usa `snake_case`: todo minúsculas con guiones bajos
+Usa `snake_case`: todo minúsculas con guiones bajos.
 
 **3. Paréntesis `()`**
-Contienen los parámetros (si los hay)
+Contienen los parámetros (si los hay).
 
 **4. Dos puntos `:`**
-Marcan el inicio del bloque de código
+Marcan el inicio del bloque de código.
 :::
 
 :::{grid-item-card} Componentes Opcionales
 **5. {term}`docstring`**
-Texto entre `"""` que explica qué hace la función
+Texto entre `"""` que explica qué hace la función.
 
 **6. Cuerpo**
-Código indentado que se ejecuta cuando llamás a la función
+Código indentado que se ejecuta cuando llamás a la función.
 
 **7. Return**
-Devuelve un valor (lo veremos más adelante)
+Devuelve un valor (lo veremos más adelante).
 :::
 ::::
 
 ### Ejemplo Paso a Paso
 
-```{code-cell} ipython3
+```python
 # Paso 1: Definir la función
 def mostrar_bienvenida():
     """Muestra un mensaje de bienvenida decorado."""
@@ -203,7 +204,7 @@ mostrar_bienvenida()
 :::{tip} Podés Llamarla Múltiples Veces
 Una vez que definiste la función, podés usarla todas las veces que quieras:
 
-```{code-cell} ipython3
+```python
 def aplaudir():
     """Muestra un aplauso."""
     print("¡Bien hecho!")
@@ -230,7 +231,7 @@ Cuando llamás a una función, el programa "salta" al código de la función, lo
 Cómo fluye la ejecución cuando llamás a una función
 ```
 
-```{code-cell} ipython3
+```python
 def contar_hasta_tres():
     """Cuenta del 1 al 3."""
     print("  → Estoy dentro de la función")
@@ -246,18 +247,17 @@ print("Volví del la función")
 print("Fin del programa")
 ```
 
-:::{admonition} Observá el Flujo
-:class: important
-1. El programa ejecuta línea por línea
-2. Cuando llega a `contar_hasta_tres()`, **salta**a la función
-3. Ejecuta todo el código dentro de la función
-4. Cuando termina, **vuelve**justo después de donde fue llamada
-5. Continúa con el resto del programa
+:::{important} Observá el Flujo
+1. El programa ejecuta línea por línea.
+2. Cuando llega a `contar_hasta_tres()`, **salta** a la función.
+3. Ejecuta todo el código dentro de la función.
+4. Cuando termina, **vuelve** justo después de donde fue llamada.
+5. Continúa con el resto del programa.
 :::
 
 ### Ejercicio Práctico: Jugá con Funciones
 
-```{code-cell} ipython3
+```python
 def dibujar_separador():
     """Dibuja una línea decorativa."""
     print("=" * 40)
@@ -282,9 +282,9 @@ dibujar_separador()
 
 ### Funciones que Reciben Información
 
-las {term}`funciones <Función>` son más útiles cuando pueden trabajar con diferentes datos. Es como una licuadora: podés ponerle diferentes frutas cada vez.
+Las {term}`funciones <Función>` son más útiles cuando pueden trabajar con diferentes datos. Es como una licuadora: podés ponerle diferentes frutas cada vez.
 
-```{code-cell} ipython3
+```python
 def saludar_persona(nombre):
     """Saluda a una persona por su nombre."""
     print(f"¡Hola, {nombre}! ¿Cómo estás?")
@@ -295,16 +295,15 @@ saludar_persona("Bruno")
 saludar_persona("Carlos")
 ```
 
-:::{admonition} Vocabulario Importante
-:class: note
+:::{note} Vocabulario Importante
 
-**Parámetro**= La "casilla" donde va a entrar el dato (en la definición)
+**Parámetro** = La "casilla" donde va a entrar el dato (en la definición).
 ```python
 def saludar(nombre):  # ← "nombre" es el PARÁMETRO
     print(f"Hola, {nombre}")
 ```
 
-**Argumento**= El dato real que le pasás (en la llamada)
+**Argumento** = El dato real que le pasás (en la llamada).
 ```python
 saludar("Ana")  # ← "Ana" es el ARGUMENTO
 ```
@@ -316,7 +315,7 @@ saludar("Ana")  # ← "Ana" es el ARGUMENTO
 
 Una función puede recibir varios datos a la vez:
 
-```{code-cell} ipython3
+```python
 def presentar_persona(nombre, edad, ciudad):
     """Presenta a una persona con todos sus datos."""
     print(f"Te presento a {nombre}")
@@ -336,11 +335,11 @@ presentar_persona("Bruno", 22, "Córdoba")
 Diferentes formas de pasar argumentos a una función
 ```
 
-### Tipo 1: {term}`argumentos posicionales <Argumento posicional>`
+### Tipo 1: {term}`Argumentos Posicionales <Argumento posicional>`
 
 Los argumentos se pasan **en orden**. La posición importa:
 
-```{code-cell} ipython3
+```python
 def restar(a, b):
     """Resta b de a."""
     resultado = a - b
@@ -352,7 +351,7 @@ restar(3, 10)   # 3 - 10 = -7  ← ¡Orden diferente, resultado diferente!
 ```
 
 :::{warning} ¡El Orden Importa!
-```{code-cell} ipython3
+```python
 def describir_mascota(nombre, tipo, edad):
     """Describe una mascota."""
     print(f"{nombre} es un {tipo} de {edad} años")
@@ -367,11 +366,11 @@ describir_mascota("perro", 5, "Firulais")
 ```
 :::
 
-### Tipo 2: {term}`argumentos con nombre <Argumento con nombre>` (Keyword Arguments)
+### Tipo 2: {term}`Argumentos con Nombre <Argumento con nombre>` (Keyword Arguments)
 
 Podés especificar qué argumento va a qué parámetro usando su nombre:
 
-```{code-cell} ipython3
+```python
 def hacer_pizza(tamaño, ingrediente, extra_queso):
     """Prepara una pizza personalizada."""
     print(f"Pizza {tamaño}")
@@ -386,11 +385,11 @@ hacer_pizza(ingrediente="hongos", tamaño="chica", extra_queso=True)
 
 :::{tip} ¿Cuándo Usar Keyword Arguments?
 Son especialmente útiles cuando:
-- ✓ Hay muchos parámetros
-- ✓ Algunos tienen valores por defecto
-- ✓ Querés que el código sea más legible
+- ✓ Hay muchos parámetros.
+- ✓ Algunos tienen valores por defecto.
+- ✓ Querés que el código sea más legible.
 
-```{code-cell} ipython3
+```python
 # Difícil de entender
 conectar("localhost", 8080, True, False, 30, "utf-8")
 
@@ -410,7 +409,7 @@ conectar(
 
 Podés combinar ambos estilos, pero los posicionales **siempre van primero**:
 
-```{code-cell} ipython3
+```python
 def registrar_usuario(nombre, email, edad, premium=False, notificaciones=True):
     """Registra un nuevo usuario."""
     print(f"Usuario: {nombre}")
@@ -439,7 +438,7 @@ registrar_usuario(nombre="Ana", "ana@mail.com", 20)
 
 ### Ejemplo Práctico: Calculadora
 
-```{code-cell} ipython3
+```python
 def calcular_rectangulo(base, altura):
     """Calcula área y perímetro de un rectángulo.
     
@@ -484,9 +483,9 @@ print(total)
 # Muestra: None ← ¡No retorna nada!
 ```
 
-❌ No podés usar el resultado  
-❌ Solo sirve para ver en pantalla  
-❌ Se pierde el valor
+❌ No podés usar el resultado.  
+❌ Solo sirve para ver en pantalla.  
+❌ Se pierde el valor.
 :::
 
 :::{grid-item-card} return - Devuelve el Valor
@@ -501,9 +500,9 @@ print(total)
 # Muestra: 8
 ```
 
-✓ Podés usar el resultado  
-✓ Guardás el valor en una variable  
-✓ Podés hacer operaciones con él
+✓ Podés usar el resultado.  
+✓ Guardás el valor en una variable.  
+✓ Podés hacer operaciones con él.
 :::
 ::::
 
@@ -520,10 +519,10 @@ Según la {ref}`0x0009h`:
 ### La Palabra Mágica: `return`
 
 `return` hace dos cosas importantes:
-1. **Devuelve**un valor al código que llamó a la función
-2. **Termina**la ejecución de la función inmediatamente
+1. **Devuelve** un valor al código que llamó a la función.
+2. **Termina** la ejecución de la función inmediatamente.
 
-```{code-cell} ipython3
+```python
 def sumar(a, b):
     """Suma dos números y retorna el resultado."""
     resultado = a + b
@@ -542,7 +541,7 @@ print(f"El doble es: {sumar(5, 3) * 2}")  # El doble es: 16
 
 Miremos el mismo problema resuelto de dos formas:
 
-```{code-cell} ipython3
+```python
 # ❌ MAL: Usando print (no es reutilizable)
 def calcular_area_mala(base, altura):
     """Calcula el área pero solo la imprime."""
@@ -576,15 +575,15 @@ print(f"Total: {total}")
 
 Podés tener varios `return` en una función. Cuando se ejecuta uno, la función termina:
 
-```{code-cell} ipython3
+```python
 def clasificar_nota(nota):
     """Clasifica una nota en Aprobado/Desaprobado.
     
     Args:
-        nota: Nota numérica del 0 al 10
+        nota: Nota numérica del 0 al 10.
         
     Returns:
-        Clasificación de la nota
+        Clasificación de la nota.
     """
     # Validación temprana (early return)
     if nota < 0 or nota > 10:
@@ -605,7 +604,7 @@ print(clasificar_nota(11))   # ❌ Nota inválida
 :::{tip} Early Return (Retorno Temprano)
 Según la {ref}`0x0008h`, es un patrón idiomático en Python validar primero y salir temprano:
 
-```{code-cell} ipython3
+```python
 def dividir_seguro(a, b):
     """Divide dos números de forma segura."""
     # ✓ BIEN: Validar y salir temprano
@@ -628,15 +627,15 @@ def dividir_anidado(a, b):
 
 Python te permite retornar varios valores a la vez usando tuplas:
 
-```{code-cell} ipython3
+```python
 def analizar_texto(texto):
     """Analiza un texto y retorna varias estadísticas.
     
     Args:
-        texto: El texto a analizar
+        texto: El texto a analizar.
         
     Returns:
-        Una tupla con (cantidad_caracteres, cantidad_palabras, primera_palabra)
+        Una tupla con (cantidad_caracteres, cantidad_palabras, primera_palabra).
     """
     caracteres = len(texto)
     palabras = len(texto.split())
@@ -653,12 +652,12 @@ print(f"Palabras: {cant_palabras}")
 print(f"Primera palabra: {primera_palabra}")
 ```
 
-```{code-cell} ipython3
+```python
 def calcular_rectangulo(base, altura):
     """Calcula área y perímetro de un rectángulo.
     
     Returns:
-        Tupla con (area, perimetro)
+        Tupla con (area, perimetro).
     """
     area = base * altura
     perimetro = 2 * (base + altura)
@@ -678,7 +677,7 @@ print(f"Área: {resultado[0]}, Perímetro: {resultado[1]}")
 
 Si una función no tiene `return`, o tiene `return` sin valor, automáticamente retorna `None`:
 
-```{code-cell} ipython3
+```python
 def funcion_sin_return():
     """Esta función no retorna nada explícitamente."""
     x = 10
@@ -698,9 +697,9 @@ print(f"Resultado 2: {resultado2}")  # None
 ```
 
 :::{note} ¿Cuándo Usar `return` sin Valor?
-Es útil para **salir temprano**de una función sin retornar nada:
+Es útil para **salir temprano** de una función sin retornar nada:
 
-```{code-cell} ipython3
+```python
 def procesar_usuario(usuario):
     """Procesa un usuario si es válido."""
     if usuario is None:
@@ -718,7 +717,7 @@ procesar_usuario("Ana")
 
 ### Ejercicio Práctico: Calculadora
 
-```{code-cell} ipython3
+```python
 def calculadora(operacion, a, b):
     """Calculadora simple que retorna el resultado.
     
@@ -761,14 +760,14 @@ else:
 
 ### ¿Qué es el Scope?
 
-El {term}`scope`(alcance) es como el "territorio" donde vive una variable. Determina **dónde podés usar** una variable en tu código.
+El {term}`scope` (alcance) es como el "territorio" donde vive una variable. Determina **dónde podés usar** una variable en tu código.
 
-:::{admonition} 🏠 Pensalo Como Casas
-:class: tip
+:::{tip} 🏠 Pensalo Como Casas
+
 Imaginate que cada función es una casa:
-- Las variables **dentro** de la casa son **privadas**(locales) - solo existen ahí
-- Las variables **fuera** de las casas son **públicas**(globales) - todos pueden verlas
-- Desde adentro de la casa podés ver afuera, pero desde afuera NO podés ver adentro
+- Las variables **dentro** de la casa son **privadas** (locales) - solo existen ahí.
+- Las variables **fuera** de las casas son **públicas** (globales) - todos pueden verlas.
+- Desde adentro de la casa podés ver afuera, pero desde afuera NO podés ver adentro.
 :::
 
 ```{figure} ./4_funciones/scope.svg
@@ -782,9 +781,9 @@ Visualización del alcance (scope) de las variables
 
 ### Variables Locales: Las que Viven Dentro
 
-Las variables creadas **dentro de una función**son **locales**- solo existen dentro de esa función:
+Las variables creadas **dentro de una función** son **locales** - solo existen dentro de esa función:
 
-```{code-cell} ipython3
+```python
 def calcular_promedio():
     """Calcula el promedio de tres notas."""
     nota1 = 8  # ← Variable LOCAL
@@ -800,13 +799,13 @@ print(f"Promedio: {resultado}")  # ✓ Funciona
 ```
 
 :::{important} 📍 Características de Variables Locales
-1. **Nacen**cuando se ejecuta la función
-2. **Mueren**cuando la función termina
-3. **No se ven**desde afuera de la función
-4. Cada llamada a la función crea variables nuevas
+1. **Nacen** cuando se ejecuta la función.
+2. **Mueren** cuando la función termina.
+3. **No se ven** desde afuera de la función.
+4. Cada llamada a la función crea variables nuevas.
 :::
 
-```{code-cell} ipython3
+```python
 def contar():
     """Cada llamada tiene su propia variable local."""
     contador = 0  # ← Nueva variable cada vez
@@ -823,7 +822,7 @@ contar()  # Contador: 1
 
 Las variables definidas **fuera de todas las funciones** son **globales**:
 
-```{code-cell} ipython3
+```python
 # Variable global (fuera de funciones)
 mensaje = "¡Hola desde el scope global!"
 contador_global = 0
@@ -840,7 +839,7 @@ print(mensaje)  # ✓ También se puede usar acá
 :::{warning} Leer Sí, Modificar NO
 Las funciones pueden **leer** variables globales, pero NO deberían **modificarlas**:
 
-```{code-cell} ipython3
+```python
 puntos = 100  # Variable global
 
 def sumar_puntos_mal():
@@ -865,14 +864,14 @@ print(f"Puntos: {puntos}")  # 110
 :::
 
 Según la {ref}`0x000Bh`, **evitá usar `global`**. En su lugar:
-- Pasá los datos como parámetros
-- Retorná los resultados
+- Pasá los datos como parámetros.
+- Retorná los resultados.
 
 ### Constantes Globales: La Excepción
 
-Las **constantes**(valores que no cambian) globales **sí son aceptables**. Se escriben en MAYÚSCULAS:
+Las **constantes** (valores que no cambian) globales **sí son aceptables**. Se escriben en MAYÚSCULAS:
 
-```{code-cell} ipython3
+```python
 # ✓ Constantes globales (SOLO LECTURA)
 PI = 3.14159
 GRAVEDAD = 9.81
@@ -893,15 +892,15 @@ print(f"Precio con IVA: ${calcular_precio_con_iva(100)}")
 ```
 
 :::{tip} Reglas para Constantes
-- Escribilas en `MAYUSCULAS_CON_GUIONES`
-- Ponelas al principio del archivo
-- NUNCA las modifiques (de ahí el nombre "constantes")
-- Está bien leerlas desde funciones
+- Escribilas en `MAYUSCULAS_CON_GUIONES`.
+- Ponelas al principio del archivo.
+- NUNCA las modifiques (de ahí el nombre "constantes").
+- Está bien leerlas desde funciones.
 :::
 
 ### Ejemplo Completo: Scope en Acción
 
-```{code-cell} ipython3
+```python
 # Scope GLOBAL
 DESCUENTO_PREMIUM = 0.20  # Constante global
 nombre_tienda = "PyShop"  # Variable global (no se recomienda modificar)
@@ -910,13 +909,13 @@ def calcular_precio_final(precio_base, es_premium):
     """Calcula el precio final aplicando descuentos si corresponde.
     
     Args:
-        precio_base: Precio sin descuento
-        es_premium: Si el cliente es premium
+        precio_base: Precio sin descuento.
+        es_premium: Si el cliente es premium.
         
     Returns:
-        El precio final con descuento aplicado
+        El precio final con descuento aplicado.
     """
-    # scope local de esta función
+    # Scope local de esta función
     descuento = 0  # Variable local
     precio_final = precio_base  # Variable local
     
@@ -945,7 +944,7 @@ total = calcular_precio_final(100, True)
 
 Si una variable local tiene el mismo nombre que una global, la local "oculta" a la global:
 
-```{code-cell} ipython3
+```python
 x = "global"  # Variable global
 
 def funcion_con_shadow():
@@ -958,7 +957,7 @@ print(f"Fuera de la función: {x}")  # global ← No cambió
 ```
 
 :::{error} ❌ Error Común: Confundir Scope
-```{code-cell} ipython3
+```python
 total = 0  # Global
 
 def sumar_malo(numero):
@@ -983,21 +982,21 @@ print(f"Total: {total}")
 ::::{grid} 1 1 2 2
 
 :::{grid-item-card} ✓ HACÉ
-- Usar parámetros para pasar datos
-- Retornar resultados
-- Usar constantes globales (MAYÚSCULAS)
-- Mantener variables locales
+- Usar parámetros para pasar datos.
+- Retornar resultados.
+- Usar constantes globales (MAYÚSCULAS).
+- Mantener variables locales.
 :::
 
 :::{grid-item-card} ✗ NO HAGAS
-- Usar `global` para modificar variables
-- Depender de variables globales mutables
-- Nombres que ocultan variables globales importantes
-- Efectos secundarios en funciones
+- Usar `global` para modificar variables.
+- Depender de variables globales mutables.
+- Nombres que ocultan variables globales importantes.
+- Efectos secundarios en funciones.
 :::
 ::::
 
-```{code-cell} ipython3
+```python
 x = "global"  # Scope global
 
 def funcion_externa():
@@ -1023,7 +1022,7 @@ funcion_externa()
 
 Podés definir valores por defecto para parámetros:
 
-```{code-cell} ipython3
+```python
 def saludar(nombre, saludo="Hola"):
     """Saluda a una persona.
     
@@ -1046,7 +1045,7 @@ print(saludar("Ana", saludo="Buenas tardes"))  # Buenas tardes, Ana!
 
 ### Orden de Parámetros
 
-Los parámetros con valores por defecto deben ir **después**de los obligatorios:
+Los parámetros con valores por defecto deben ir **después** de los obligatorios:
 
 ```python
 # ✓ Correcto
@@ -1063,7 +1062,7 @@ def presentar(nombre, edad, ciudad="Buenos Aires"):
 :::{danger} No usar listas o diccionarios vacíos como default
 Los valores por defecto mutables se crean una sola vez:
 
-```{code-cell} ipython3
+```python
 # ❌ Problema común
 def agregar_item(item, lista=[]):
     lista.append(item)
@@ -1095,7 +1094,7 @@ Según la {ref}`0x000Ah`, todas las funciones deben tener un {term}`docstring`.
 
 ### Formato de Docstrings
 
-```{code-cell} ipython3
+```python
 def calcular_promedio(numeros):
     """Calcula el promedio de una lista de números.
     
@@ -1124,18 +1123,18 @@ def calcular_promedio(numeros):
 ```
 
 **Componentes de un buen docstring:**
-1. **Resumen de una línea**: Qué hace la función
-2. **Descripción detallada**(opcional): Más contexto si es necesario
-3. *{term}`*args`**: Lista de parámetros y su descripción
-4. **Returns**: Qué retorna y su tipo
-5. **Raises**(opcional): Excepciones que puede lanzar
-6. **Example**(opcional): Ejemplos de uso
+1. **Resumen de una línea**: Qué hace la función.
+2. **Descripción detallada** (opcional): Más contexto si es necesario.
+3. **Args**: Lista de parámetros y su descripción.
+4. **Returns**: Qué retorna y su tipo.
+5. **Raises** (opcional): Excepciones que puede lanzar.
+6. **Example** (opcional): Ejemplos de uso.
 
 ### Docstring de Una Línea
 
 Para funciones simples:
 
-```{code-cell} ipython3
+```python
 def es_par(numero):
     """Retorna True si el número es par."""
     return numero % 2 == 0
@@ -1147,7 +1146,7 @@ def cuadrado(x):
 
 ### Acceder a Docstrings
 
-```{code-cell} ipython3
+```python
 def suma(a, b):
     """Retorna la suma de a y b."""
     return a + b
@@ -1169,7 +1168,7 @@ En Python, las funciones son **objetos de primera clase**: pueden asignarse a va
 
 ### Asignar Funciones a Variables
 
-```{code-cell} ipython3
+```python
 def saludar(nombre):
     """Saluda a una persona."""
     return f"¡Hola, {nombre}!"
@@ -1183,7 +1182,7 @@ print(mi_funcion("Ana"))  # ¡Hola, Ana!
 
 ### Pasar Funciones como Argumentos
 
-```{code-cell} ipython3
+```python
 def aplicar_operacion(a, b, operacion):
     """Aplica una operación a dos números.
     
@@ -1219,7 +1218,7 @@ Una función **recursiva** es una que se llama a sí misma.
 
 ### Ejemplo: Factorial
 
-```{code-cell} ipython3
+```python
 def factorial(n):
     """Calcula el factorial de n recursivamente.
     
@@ -1257,10 +1256,10 @@ factorial(5)
 ### Componentes de Recursión
 
 Toda función {term}`recursiva <Recursión>` necesita:
-1. **Caso base**: Condición de parada
-2. **Caso recursivo**: Llamada a sí misma con problema más pequeño
+1. **Caso base**: Condición de parada.
+2. **Caso recursivo**: Llamada a sí misma con problema más pequeño.
 
-```{code-cell} ipython3
+```python
 def suma_recursiva(n):
     """Suma números de 1 a n recursivamente.
     
@@ -1284,7 +1283,7 @@ print(suma_recursiva(5))  # 15
 :::{warning} Cuidado con recursión infinita
 Sin caso base, la función se llamará infinitamente:
 
-```{code-cell} ipython3
+```python
 # ❌ Recursión infinita
 def mala_recursion(n):
     return mala_recursion(n - 1)  # No hay caso base!
@@ -1302,7 +1301,7 @@ def mala_recursion(n):
 
 Según la {ref}`0x000Ch`, cada función debe hacer una sola cosa:
 
-```{code-cell} ipython3
+```python
 # ❌ Hace demasiado
 def procesar_y_mostrar_datos(datos):
     """Procesa y muestra datos."""
@@ -1341,7 +1340,7 @@ print(texto)
 
 ### 2. Nombres Descriptivos
 
-```{code-cell} ipython3
+```python
 # ❌ Nombres poco claros
 def calc(x, y):
     return x / y
@@ -1356,7 +1355,7 @@ def calcular_promedio(suma_total, cantidad_elementos):
 
 Las funciones deben evitar modificar argumentos mutables:
 
-```{code-cell} ipython3
+```python
 # ❌ Modifica el argumento
 def agregar_iva_mal(precios):
     """Agrega IVA a lista de precios."""
@@ -1374,7 +1373,7 @@ def agregar_iva(precios):
 
 No uses demasiados parámetros:
 
-```{code-cell} ipython3
+```python
 # ❌ Demasiados parámetros
 def crear_usuario(nombre, apellido, edad, email, telefono, 
                   direccion, ciudad, codigo_postal, pais):
@@ -1396,7 +1395,7 @@ def crear_usuario(nombre, apellido, datos_contacto):
 
 Una función no debería tener más de ~20-30 líneas:
 
-```{code-cell} ipython3
+```python
 # ✓ Función pequeña y enfocada
 def es_email_valido(email):
     """Verifica si un email es válido."""
@@ -1417,7 +1416,7 @@ def procesar_inscripcion(datos):
 
 ### 6. Retornar, No Imprimir
 
-```{code-cell} ipython3
+```python
 # ❌ Imprime en lugar de retornar
 def calcular_total(items):
     total = sum(item['precio'] for item in items)
@@ -1447,7 +1446,7 @@ print(f"Total: ${total}")
 
 ### 1. Olvidar el Return
 
-```{code-cell} ipython3
+```python
 # ❌ Olvidó return
 def sumar(a, b):
     resultado = a + b  # No retorna nada
@@ -1465,12 +1464,15 @@ print(total)  # 8
 
 ### 2. Confundir Parámetros y Argumentos
 
-```{code-cell} ipython3
+```python
 # ❌ Cantidad incorrecta de argumentos
 def saludar(nombre, edad):
     print(f"Hola {nombre}, tienes {edad} años")
 
-saludar("Ana")  # TypeError: missing 1 required positional argument
+try:
+    saludar("Ana")
+except TypeError as e:
+    print(f"Error: {e}")
 
 # ✓ Argumentos correctos
 saludar("Ana", 20)
@@ -1478,7 +1480,7 @@ saludar("Ana", 20)
 
 ### 3. Modificar Argumentos Mutables
 
-```{code-cell} ipython3
+```python
 # ❌ Efecto secundario inesperado
 def duplicar_valores(lista):
     for i in range(len(lista)):
@@ -1502,7 +1504,7 @@ print(duplicada)  # [2, 4, 6]
 
 ### 4. No Documentar Funciones
 
-```{code-cell} ipython3
+```python
 # ❌ Sin documentación
 def calc(x, y, z):
     return x * y + z
@@ -1524,7 +1526,7 @@ def calcular_costo_total(precio_unitario, cantidad, envio):
 
 ### 5. Valor por Defecto Mutable
 
-```{code-cell} ipython3
+```python
 # ❌ PELIGRO: Lista mutable como default
 def agregar_tarea(tarea, lista=[]):
     """¡Lista compartida entre llamadas!"""
@@ -1551,14 +1553,14 @@ print(agregar_tarea("Descansar"))   # ['Descansar'] ✓
 ```
 
 :::{danger} 🚨 Error Sutil pero Crítico
-Los valores por defecto se evalúan **UNA SOLA VEZ**cuando se define la función. Si usás una lista o diccionario como default, ¡será compartido entre todas las llamadas!
+Los valores por defecto se evalúan **UNA SOLA VEZ** cuando se define la función. Si usás una lista o diccionario como default, ¡será compartido entre todas las llamadas!
 :::
 
 ### 6. No Usar Parámetros con Nombre
 
-```{code-cell} ipython3
+```python
 # ❌ Difícil de entender
-def crear_cuenta(True, "premium", 100, False):
+def crear_cuenta(activa, tipo, creditos, notificaciones):
     pass
 
 # ✓ Claro y explícito
@@ -1576,10 +1578,9 @@ crear_cuenta(
 ---
 
 (descomposicion-funcional)=
-## {term}`descomposición funcional`: Dividir para Conquistar
+## {term}`Descomposición Funcional`: Dividir para Conquistar
 
-:::{admonition} ¿Qué es la Descomposición Funcional?
-:class: tip
+:::{tip} ¿Qué es la Descomposición Funcional?
 
 La **descomposición funcional** es el proceso de dividir un problema complejo en subproblemas más pequeños y manejables, donde cada subproblema se resuelve con una función específica.
 
@@ -1606,9 +1607,9 @@ def sistema_biblioteca():
 **Problemas de este enfoque:**
 - 🐛 **Difícil de debuggear**: Si hay un error, ¿dónde está?
 - 🔍 **Difícil de entender**: ¿Qué hace exactamente?
-- ♻️ **No se puede reutilizar**: Todo está mezclado
-- 🧪 **No se puede testear**: No se puede probar cada parte
-- 👥 **Difícil trabajar en equipo**: Todos tocan el mismo código
+- ♻️ **No se puede reutilizar**: Todo está mezclado.
+- 🧪 **No se puede testear**: No se puede probar cada parte.
+- 👥 **Difícil trabajar en equipo**: Todos tocan el mismo código.
 
 ### Principios de Descomposición
 
@@ -1700,20 +1701,20 @@ Vamos a descomponer un problema real paso a paso.
 #### Problema: Sistema de Cálculo de Notas
 
 **Requerimientos:**
-- Pedir notas de 3 parciales
-- Calcular promedio
-- Determinar si aprobó (≥6)
-- Mostrar mensaje según resultado
-- Calcular nota necesaria en recuperatorio
+- Pedir notas de 3 parciales.
+- Calcular promedio.
+- Determinar si aprobó (≥6).
+- Mostrar mensaje según resultado.
+- Calcular nota necesaria en recuperatorio.
 
 #### Paso 1: Identificar las Tareas Principales
 
 Leé el problema y subrayá los **verbos de acción**:
-- **Pedir** notas
-- **Calcular** promedio
-- **Determinar** si aprobó
-- **Mostrar** mensaje
-- **Calcular** nota necesaria
+- **Pedir** notas.
+- **Calcular** promedio.
+- **Determinar** si aprobó.
+- **Mostrar** mensaje.
+- **Calcular** nota necesaria.
 
 Cada verbo es potencialmente una función.
 
@@ -1814,9 +1815,8 @@ def calcular_nota_recuperatorio(promedio_actual, nota_minima=6, peso_parciales=0
     Returns:
         float: Nota necesaria en el recuperatorio.
     """
-    # promedio_actual * peso_parciales + nota_recup * peso_recup >= nota_minima
-    # Despejamos nota_recup:
-    nota_necesaria = (nota_minima - promedio_actual * peso_parciales) / peso_recup
+    # Formula: promedio_actual * 0.6 + nota_recup * 0.4 = nota_minima
+    nota_necesaria = (nota_minima - (promedio_actual * peso_parciales)) / peso_recup
     return max(0, min(10, nota_necesaria))  # Entre 0 y 10
 
 
@@ -1861,9 +1861,9 @@ def sistema_notas():
 ```
 
 **Problemas:**
-- No se puede reutilizar `calcular_promedio`
-- No se puede testear `verificar_aprobacion` aisladamente
-- Cambiar la lógica de input rompe todo
+- No se puede reutilizar `calcular_promedio`.
+- No se puede testear `verificar_aprobacion` aisladamente.
+- Cambiar la lógica de input rompe todo.
 :::
 
 :::{grid-item-card} ✅ Con Descomposición
@@ -1878,10 +1878,10 @@ main()
 ```
 
 **Ventajas:**
-- ✅ Cada función se puede testear sola
-- ✅ `calcular_promedio` se reutiliza en otros programas
-- ✅ Cambiar input no afecta cálculos
-- ✅ Fácil de entender y mantener
+- ✅ Cada función se puede testear sola.
+- ✅ `calcular_promedio` se reutiliza en otros programas.
+- ✅ Cambiar input no afecta cálculos.
+- ✅ Fácil de entender y mantener.
 :::
 
 ::::
@@ -1934,12 +1934,12 @@ def calcular_total(valores):
 Vamos a descomponer un programa que valida contraseñas.
 
 **Requerimientos:**
-- Longitud mínima de 8 caracteres
-- Al menos una mayúscula
-- Al menos una minúscula
-- Al menos un número
-- Al menos un carácter especial
-- Dar feedback específico de qué falta
+- Longitud mínima de 8 caracteres.
+- Al menos una mayúscula.
+- Al menos una minúscula.
+- Al menos un número.
+- Al menos un carácter especial.
+- Dar feedback específico de qué falta.
 
 #### Solución Sin Descomponer (Monolítica)
 
@@ -2739,8 +2739,7 @@ def nombre_funcion(parametros):
 
 ### Checklist de Buenas Prácticas
 
-```{admonition} ✅ Funciones de Calidad
-:class: tip
+```{tip} ✅ Funciones de Calidad
 
 - [ ] **Nombre descriptivo** que indica qué hace
 - [ ] **Una sola responsabilidad**(principio SRP)
@@ -2815,8 +2814,7 @@ def func(a, b, c, d, e, f):
 
 ### Para Seguir Practicando
 
-```{admonition} Próximos Pasos
-:class: tip
+```{tip} Próximos Pasos
 
 1. **Practicar**con los ejercicios propuestos
 2. **Refactorizar**código existente en funciones
@@ -2849,8 +2847,7 @@ def func(a, b, c, d, e, f):
 
 ---
 
-:::{admonition} ¡Felicitaciones!
-:class: success
+:::{success} ¡Felicitaciones!
 
 Completaste el capítulo de **Funciones**. Ahora sabés:
 
@@ -2871,7 +2868,7 @@ Completaste el capítulo de **Funciones**. Ahora sabés:
 
 ### 5. Variables Globales sin Declarar
 
-```{code-cell} ipython3
+```python
 contador = 0
 
 # ❌ Error: intenta modificar sin 'global'
@@ -2885,422 +2882,6 @@ def incrementar(valor):
 contador = 0
 contador = incrementar(contador)
 ```
-
----
-
-(ejercicios-funciones)=
-## Ejercicios
-
-(ejercicio-4-1)=
-### Ejercicio 4.1: Calculadora Modular
-
-Creá una calculadora usando funciones separadas para cada operación.
-
-**Requerimientos:**
-- Funciones: `sumar()`, `restar()`, `multiplicar()`, `dividir()`
-- Cada función debe tener docstring
-- `dividir()` debe manejar división por cero (retornar None)
-- Función `main()` que muestre menú y use las operaciones
-
-**Ejemplo:**
-```
-=== CALCULADORA ===
-1. Sumar
-2. Restar
-3. Multiplicar
-4. Dividir
-5. Salir
-
-Opción: 1
-Primer número: 10
-Segundo número: 5
-Resultado: 15.0
-```
-
----
-
-(ejercicio-4-2)=
-### Ejercicio 4.2: Validación de Datos
-
-Escribí funciones para validar diferentes tipos de datos:
-
-**Funciones a implementar:**
-```{code-cell} ipython3
-def es_email_valido(email):
-    """Verifica si un email es válido (contiene @ y .)."""
-    pass
-
-def es_telefono_valido(telefono):
-    """Verifica si un teléfono tiene 10 dígitos."""
-    pass
-
-def es_edad_valida(edad):
-    """Verifica si edad está entre 0 y 120."""
-    pass
-
-def validar_formulario(email, telefono, edad):
-    """Retorna True si todos los datos son válidos."""
-    pass
-```
-
-**Ejemplo:**
-```{code-cell} ipython3
-print(es_email_valido("ana@example.com"))  # True
-print(es_email_valido("ana.com"))          # False
-print(es_telefono_valido("1234567890"))    # True
-print(es_edad_valida(25))                  # True
-```
-
----
-
-(ejercicio-4-3)=
-### Ejercicio 4.3: Análisis de Texto
-
-Creá funciones para analizar texto:
-
-**Funciones:**
-```{code-cell} ipython3
-def contar_palabras(texto):
-    """Retorna la cantidad de palabras."""
-    pass
-
-def contar_vocales(texto):
-    """Retorna la cantidad de vocales."""
-    pass
-
-def palabra_mas_larga(texto):
-    """Retorna la palabra más larga."""
-    pass
-
-def invertir_palabras(texto):
-    """Retorna el texto con palabras invertidas."""
-    pass
-```
-
-**Ejemplo:**
-```{code-cell} ipython3
-texto = "Python es un lenguaje poderoso"
-print(contar_palabras(texto))      # 5
-print(contar_vocales(texto))       # 11
-print(palabra_mas_larga(texto))    # "lenguaje"
-print(invertir_palabras(texto))    # "nohtyP se nu ejaugnel osoredop"
-```
-
----
-
-(ejercicio-4-4)=
-### Ejercicio 4.4: Conversión de Temperaturas
-
-Implementá funciones para convertir temperaturas entre Celsius, Fahrenheit y Kelvin.
-
-**Fórmulas:**
-$$
-F = C \times \frac{9}{5} + 32
-$$
-$$
-K = C + 273.15
-$$
-
-**Funciones:**
-```{code-cell} ipython3
-def celsius_a_fahrenheit(celsius):
-    pass
-
-def fahrenheit_a_celsius(fahrenheit):
-    pass
-
-def celsius_a_kelvin(celsius):
-    pass
-
-def kelvin_a_celsius(kelvin):
-    pass
-```
-
-:::{tip}
-Implementá solo conversiones desde/hacia Celsius, luego podés combinarlas para otras conversiones.
-:::
-
----
-
-(ejercicio-4-5)=
-### Ejercicio 4.5: Generador de Contraseñas
-
-Creá una función que genere contraseñas aleatorias.
-
-**Requerimientos:**
-```{code-cell} ipython3
-def generar_contraseña(longitud=8, incluir_numeros=True, 
-                       incluir_simbolos=True):
-    """Genera una contraseña aleatoria.
-    
-    Args:
-        longitud: Longitud de la contraseña (default: 8).
-        incluir_numeros: Si incluir números (default: True).
-        incluir_simbolos: Si incluir símbolos (default: True).
-    
-    Returns:
-        String con la contraseña generada.
-    """
-    pass
-```
-
-**Ejemplo:**
-```{code-cell} ipython3
-print(generar_contraseña())           # "aB3$xY9!"
-print(generar_contraseña(12))         # "aB3$xY9!mK2@"
-print(generar_contraseña(10, False))  # "aBxYmKpQ"
-```
-
-:::{tip}
-Usá `import random` y `random.choice()` para elegir caracteres aleatorios.
-:::
-
----
-
-(ejercicio-4-6)=
-### Ejercicio 4.6: Estadísticas de Lista
-
-Implementá funciones estadísticas sin usar funciones built-in:
-
-**Funciones:**
-```{code-cell} ipython3
-def calcular_promedio(numeros):
-    """Calcula el promedio."""
-    pass
-
-def encontrar_mediana(numeros):
-    """Encuentra la mediana (valor del medio)."""
-    pass
-
-def encontrar_moda(numeros):
-    """Encuentra el valor más frecuente."""
-    pass
-
-def calcular_rango(numeros):
-    """Calcula el rango (max - min)."""
-    pass
-```
-
-**Ejemplo:**
-```{code-cell} ipython3
-datos = [1, 2, 2, 3, 4, 5, 5, 5, 6]
-print(calcular_promedio(datos))  # 3.67
-print(encontrar_mediana(datos))  # 4
-print(encontrar_moda(datos))     # 5
-print(calcular_rango(datos))     # 5
-```
-
----
-
-(ejercicio-4-7)=
-### Ejercicio 4.7: Fibonacci con y sin Recursión
-
-Implementá la secuencia de Fibonacci de dos formas:
-
-**Versión Iterativa:**
-```{code-cell} ipython3
-def fibonacci_iterativo(n):
-    """Retorna el n-ésimo número de Fibonacci iterativamente."""
-    pass
-```
-
-**Versión Recursiva:**
-```{code-cell} ipython3
-def fibonacci_recursivo(n):
-    """Retorna el n-ésimo número de Fibonacci recursivamente."""
-    pass
-```
-
-**Ejemplo:**
-```{code-cell} ipython3
-for i in range(10):
-    print(fibonacci_iterativo(i), end=" ")
-# 0 1 1 2 3 5 8 13 21 34
-```
-
-:::{tip}
-La secuencia de Fibonacci: cada número es la suma de los dos anteriores.
-F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2)
-:::
-
----
-
-(ejercicio-4-8)=
-### Ejercicio 4.8: Juego de Piedra, Papel o Tijera
-
-Creá un juego usando funciones modulares.
-
-**Funciones sugeridas:**
-```{code-cell} ipython3
-def obtener_jugada_usuario():
-    """Solicita y valida jugada del usuario."""
-    pass
-
-def obtener_jugada_computadora():
-    """Genera jugada aleatoria para la computadora."""
-    pass
-
-def determinar_ganador(jugada_usuario, jugada_computadora):
-    """Determina quién ganó.
-    
-    Returns:
-        "usuario", "computadora" o "empate"
-    """
-    pass
-
-def mostrar_resultado(jugada_usuario, jugada_computadora, ganador):
-    """Muestra el resultado del juego."""
-    pass
-
-def jugar():
-    """Función principal del juego."""
-    pass
-```
-
----
-
-(ejercicio-4-9)=
-### Ejercicio 4.9: Sistema de Calificaciones
-
-Implementá un sistema para calcular calificaciones finales.
-
-**Funciones:**
-```{code-cell} ipython3
-def calcular_promedio_examenes(examenes):
-    """Calcula promedio de lista de exámenes."""
-    pass
-
-def calcular_nota_trabajos(trabajos, pesos):
-    """Calcula nota ponderada de trabajos."""
-    pass
-
-def calcular_nota_final(promedio_examenes, nota_trabajos, 
-                        participacion):
-    """Calcula nota final: 60% exámenes, 30% trabajos, 10% participación."""
-    pass
-
-def obtener_letra(nota):
-    """Convierte nota numérica a letra (A, B, C, D, F)."""
-    pass
-```
-
-**Ejemplo:**
-```{code-cell} ipython3
-examenes = [85, 90, 88]
-trabajos = [90, 85, 92]
-pesos = [0.3, 0.3, 0.4]
-participacion = 95
-
-prom_ex = calcular_promedio_examenes(examenes)
-nota_trab = calcular_nota_trabajos(trabajos, pesos)
-final = calcular_nota_final(prom_ex, nota_trab, participacion)
-letra = obtener_letra(final)
-
-print(f"Nota final: {final:.2f} ({letra})")
-```
-
----
-
-(ejercicio-4-10)=
-### Ejercicio 4.10: Conversor de Bases Numéricas
-
-Implementá funciones para convertir números entre diferentes bases.
-
-**Funciones:**
-```{code-cell} ipython3
-def decimal_a_binario(decimal):
-    """Convierte decimal a binario (como string)."""
-    pass
-
-def binario_a_decimal(binario):
-    """Convierte binario (string) a decimal."""
-    pass
-
-def decimal_a_hexadecimal(decimal):
-    """Convierte decimal a hexadecimal."""
-    pass
-```
-
-**Ejemplo:**
-```{code-cell} ipython3
-print(decimal_a_binario(10))      # "1010"
-print(binario_a_decimal("1010"))  # 10
-print(decimal_a_hexadecimal(255)) # "FF"
-```
-
-:::{tip}
-Para binario, usá divisiones sucesivas por 2 y guardá los restos.
-:::
-
----
-
-(ejercicio-4-11)=
-### Ejercicio 4.11: Manipulación de Matrices
-
-Creá funciones para trabajar con matrices (listas de listas).
-
-**Funciones:**
-```{code-cell} ipython3
-def crear_matriz(filas, columnas, valor_inicial=0):
-    """Crea matriz de filas×columnas con valor inicial."""
-    pass
-
-def sumar_matrices(matriz1, matriz2):
-    """Suma dos matrices elemento por elemento."""
-    pass
-
-def multiplicar_por_escalar(matriz, escalar):
-    """Multiplica matriz por un número."""
-    pass
-
-def transponer_matriz(matriz):
-    """Retorna la transpuesta de la matriz."""
-    pass
-```
-
----
-
-(ejercicio-4-12)=
-### Ejercicio 4.12: Sistema de Inventario
-
-Creá un sistema de inventario modular usando funciones.
-
-**Funciones sugeridas:**
-```{code-cell} ipython3
-def agregar_producto(inventario, nombre, precio, cantidad):
-    """Agrega o actualiza producto en inventario."""
-    pass
-
-def eliminar_producto(inventario, nombre):
-    """Elimina producto del inventario."""
-    pass
-
-def buscar_producto(inventario, nombre):
-    """Busca y retorna datos de un producto."""
-    pass
-
-def calcular_valor_total(inventario):
-    """Calcula valor total del inventario."""
-    pass
-
-def productos_con_stock_bajo(inventario, minimo=10):
-    """Retorna lista de productos con stock bajo."""
-    pass
-
-def generar_reporte(inventario):
-    """Genera reporte formateado del inventario."""
-    pass
-```
-
-**Estructura del inventario:**
-```{code-cell} ipython3
-inventario = {
-    "manzana": {"precio": 2.5, "cantidad": 100},
-    "banana": {"precio": 1.8, "cantidad": 5},
-    "naranja": {"precio": 3.0, "cantidad": 80}
-}
-```
-
 
 ---
 
