@@ -15,9 +15,9 @@ Este capítulo te enseña a hacer que tus programas **piensen** y **repitan** ac
 ```{mermaid}
 graph TD
     A[Introducción] --> B[Condicionales if/elif/else]
-    B --> C[Bucles while]
-    C --> D[Bucles for]
-    D --> E[Control de Bucles]
+    B --> C[Lazos while]
+    C --> D[Lazos for]
+    D --> E[Control de Lazos]
     E --> F[Patrones Comunes]
     
     style A fill:#e3f2fd
@@ -33,12 +33,12 @@ graph TD
 **Lo que vas a aprender:**
 - Cómo hacer que tu programa tome decisiones (`if`, `elif`, `else`)
 - Repetir acciones con `while` y `for`
-- Controlar bucles con `break` y `continue`
+- Controlar lazos con `break` y `continue`
 - Patrones comunes de programación
 
 **Al final podrás:**
 - Crear programas que reaccionan a diferentes situaciones
-- Evitar repetir código usando bucles
+- Evitar repetir código usando lazos
 - Construir menús interactivos y validaciones
 ::::
 
@@ -46,7 +46,7 @@ graph TD
 
 ### ¿Qué es el Control de Flujo?
 
-Hasta ahora, tus programas han sido como seguir una receta paso a paso: haces **una cosa tras otra**, siempre en el mismo orden. Pero los programas reales necesitan ser **inteligentes**:
+Hasta ahora, tus programas han sido como seguir una receta paso a paso: hacés **una cosa tras otra**, siempre en el mismo orden. Pero los programas reales necesitan ser **inteligentes**:
 
 :::::{grid} 1 1 2 2
 
@@ -99,10 +99,10 @@ Eso es **{term}`control de flujo`**: tu programa "mira" la situación y **decide
 :::{important} ¿Por qué es tan importante?
 El {term}`control de flujo` es lo que convierte una secuencia fija de instrucciones en un programa que puede:
 
-- **Tomar decisiones** basadas en datos
-- **Evitar repetir código** (no copies y pegues 100 veces)
-- **Crear programas interactivos** que responden al usuario
-- **Manejar diferentes escenarios** en el mismo programa
+- **Tomar decisiones** basadas en datos.
+- **Evitar repetir código** (no copies y pegues 100 veces).
+- **Crear programas interactivos** que responden al usuario.
+- **Manejar diferentes escenarios** en el mismo programa.
 :::
 
 ### Ejemplos del Mundo Real
@@ -113,25 +113,25 @@ Todos estos usan {term}`control de flujo`:
 
 ::::{grid-item-card} 🏧 Cajero Automático
 - **Decisión:** ¿El PIN es correcto?
-- **Repetición:** Permitir 3 intentos
-- **Menú:** Repetir hasta que elija "Salir"
+- **Repetición:** Permitir 3 intentos.
+- **Menú:** Repetir hasta que elija "Salir".
 ::::
 
 ::::{grid-item-card} 🎮 Videojuego
 - **Decisión:** ¿El jugador chocó?
-- **Repetición:** Lazo principal del juego
+- **Repetición:** Lazo principal del juego.
 - **Validación:** ¿Quedan vidas?
 ::::
 
 ::::{grid-item-card} 🌡️ Termostato
 - **Decisión:** ¿Temperatura baja?
-- **Repetición:** Revisar cada minuto
-- **Acción:** Encender/apagar calefacción
+- **Repetición:** Revisar cada minuto.
+- **Acción:** Encender/apagar calefacción.
 ::::
 
 ::::{grid-item-card} 📱 Aplicación de Mensajes
 - **Decisión:** ¿Hay conexión?
-- **Repetición:** Revisar nuevos mensajes
+- **Repetición:** Revisar nuevos mensajes.
 - **Validación:** ¿Mensaje válido?
 ::::
 
@@ -203,8 +203,8 @@ if edad >= 18:
 print("Que tengas buen día")  # Esto se ejecuta siempre
 ```
 
-- **Si** tenés 18+ → te deja pasar Y te saluda
-- **Si** tenés menos → solo te saluda
+- **Si** tenés 18+ → te deja pasar Y te saluda.
+- **Si** tenés menos → solo te saluda.
 
 El guardia **decide** basándose en tu edad. ¡Eso es una condicional!
 ::::
@@ -213,7 +213,7 @@ El guardia **decide** basándose en tu edad. ¡Eso es una condicional!
 
 ### La Estructura `if` Simple
 
-La forma más básica: "Si se cumple esto, hacé aquello"
+La forma más básica: "Si se cumple esto, hacé aquello".
 
 ```{code-cell} ipython3
 edad = 18
@@ -239,11 +239,11 @@ print("Fin")
 ::::
 
 ::::{grid-item}
-1. **`if`** → palabra clave
-2. **`edad >= 18`** → condición (True/False)
-3. **`:`** → dos puntos (obligatorio)
-4. **Indentación** → define el bloque
-5. **Sin indentar** → fuera del if
+1. **`if`** → palabra clave.
+2. **`edad >= 18`** → condición (True/False).
+3. **`:`** → dos puntos (obligatorio).
+4. **Indentación** → define el bloque.
+5. **Sin indentar** → fuera del if.
 ::::
 
 :::::
@@ -260,11 +260,11 @@ Esto significa que:
 ![Indentación](./2_control_flujo/indentacion.svg)
 
 **Reglas:**
-- ✅ Usá **4 espacios** por nivel
-- ✅ Sé **consistente**(siempre 4)
+- ✅ Usá **4 espacios** por nivel.
+- ✅ Sé **consistente** (siempre 4).
 - ✅ Revisá que las instrucciones que deben ir juntas en el bloque, _lo están_.
-- ❌ NO mezcles espacios con tabuladores (esto no es un problema en el JupyterLab)
-- ❌ NO olvidar los dos puntos `:`
+- ❌ NO mezcles espacios con tabuladores (esto no es un problema en el JupyterLab).
+- ❌ NO olvidar los dos puntos `: `.
 
 ```python
 # ✓ CORRECTO
@@ -282,7 +282,7 @@ if edad >= 18:
     print("Malo")  # 4 espacios - ¡No funciona!
 ```
 
-> Aunque los editores de texto para programar tienen nos ayudan con este tema, es importante para que no nos encontremos con sorpresas al copiar y pegar, o si por alguna razón no tenemos acceso a un editor de textos apropiado.
+> Aunque los editores de texto para programar nos ayudan con este tema, es importante para que no nos encontremos con sorpresas al copiar y pegar, o si por alguna razón no tenemos acceso a un editor de textos apropiado.
 
 :::
 
@@ -366,15 +366,15 @@ print("Gracias por consultar")
 
 :::{note} ¿Cuándo usar `if-else`?
 Usá `if-else` cuando:
-- Hay **exactamente 2 opciones** (blanco o negro, sí o no)
-- **Siempre** querés hacer algo (una cosa u otra)
-- Las opciones son **excluyentes** (no pueden pasar las dos)
+- Hay **exactamente 2 opciones** (blanco o negro, sí o no).
+- **Siempre** querés hacer algo (una cosa u otra).
+- Las opciones son **excluyentes** (no pueden pasar las dos).
 
 **Ejemplos:**
-- Aprobar/Reprobar un examen
-- Día/Noche
-- Par/Impar
-- Usuario logueado / No logueado
+- Aprobar/Reprobar un examen.
+- Día/Noche.
+- Par/Impar.
+- Usuario logueado / No logueado.
 :::
 
 **Comparación visual:**
@@ -516,7 +516,7 @@ print(f"\nTu nota fue: {nota}")
 
 :::::
 
-````{danger} Cuidado con el orden!
+````{danger} ¡Cuidado con el orden!
 El **orden es fundamental**. Python evalúa de arriba hacia abajo y ejecuta **solo la primera** condición verdadera:
 
 :::::{grid} 1 1 2 2
@@ -587,7 +587,6 @@ Persona
 **Se ejecutan TODAS las que sean `True`**
 
 Como son tres estructura{s} {term}`condicional{es} <Condicional>` separadas, obtenemos tres resultados diferentes.
-
 ::::
 
 ::::{grid-item-card} Con `if-elif-else`
@@ -646,9 +645,9 @@ A veces necesitás verificar **una cosa dentro de otra**, como muñecas rusas. E
 ::::{tip} Analogía: Seguridad del Banco
 
 Para entrar a la bóveda de un banco:
-1. **Primero** verifican tu ID
-2. **Si** tu ID es correcta, **entonces** verifican tu huella
-3. **Si** ambas son correctas → Acceso permitido
+1. **Primero** verifican tu ID.
+2. **Si** tu ID es correcta, **entonces** verifican tu huella.
+3. **Si** ambas son correctas → Acceso permitido.
 
 ```python
 id_correcta = True
@@ -687,7 +686,7 @@ else:
 
 #### Simplificación con Operadores Lógicos
 
-Es común que podamos **simplificar** usando `and` en lugar de anidar en aquellos casos en los que la cantidad de resultado sea reducida.
+Es común que podamos **simplificar** usando `and` en lugar de anidar cuando la cantidad de resultados posibles es reducida.
 
 :::::{grid} 1 1 2 2
 
@@ -700,7 +699,7 @@ else:
     print("No podes manejar")
 ```
 
-Cuando solo necesitamos dos salidas, no es necesario utilizar un segundo `if`
+Cuando solo necesitamos dos salidas, no es necesario utilizar un segundo `if`.
 
 ::::
 
@@ -721,16 +720,16 @@ Al unificar las dos condiciones, simplificamos el código a un único nivel de {
 :::{tip} ¿Cuándo anidar vs cuándo usar `and`?
 
 **Usá anidamiento cuando:**
-- Querés mostrar mensajes diferentes en ambas partes del condicional
-- La lógica de cada nivel es independiente
-- Necesitás hacer acciones diferentes en cada paso
+- Querés mostrar mensajes diferentes en ambas partes del condicional.
+- La lógica de cada nivel es independiente.
+- Necesitás hacer acciones diferentes en cada paso.
 
 **Usá `and` cuando:**
-- Todas las condiciones deben ser `True` al mismo tiempo
+- Todas las condiciones deben ser `True` al mismo tiempo.
 - Solo necesitas dos caminos en una condición múltiple.
-- Querés código más simple y legible
+- Querés código más simple y legible.
 
-**Regla general:** Si podés usar `and`, mejor, hará que el código sea más simple, y esto es mejor.
+**Regla general:** Si podés usar `and`, mejor; hará que el código sea más simple.
 :::
 
 **Ejemplo combinado:**
@@ -760,7 +759,7 @@ else:
 
 No lo hemos explorado en los ejemplos, pero los condicionales lógicos, ¡pueden ser realmente complicados!
 
-Por ejemplo
+Por ejemplo:
 ```python
 puede_acceder = (es_mayor or tiene_permiso) and tiene_dinero and en_bariloche
 # Puede entrar si: 
@@ -770,15 +769,15 @@ puede_acceder = (es_mayor or tiene_permiso) and tiene_dinero and en_bariloche
 #    - tiene que estar en Bariloche.
 ```
 
-Y tan complicado como sea necesario, pero la clave acá está en que **el resultado final** es un sí puede o no acceder. Este condicional no nos indicaría *la razón* por la cual entró o no.
+Y tan complicado como sea necesario, pero la clave acá está en que **el resultado final** es un "sí" o un "no". Este condicional no nos indicaría *la razón* por la cual entró o no, solo el resultado final.
 
 :::
 
 ### Valores "Truthy" y "Falsy"
 
 En Python, ciertos valores se consideran "falsos" en un contexto booleano:
-- `False`, `None`, `0`, `0.0`
-- [Secuencias](./3_estructuras.md) vacías: `""`, `[]`, `{}`, `()`
+- `False`, `None`, `0`, `0.0`.
+- [Secuencias](./3_estructuras.md) vacías: `""`, `[]`, `{}`, `()`.
 
 Todos los demás valores se consideran "verdaderos". Sin embargo, según las buenas prácticas, es preferible ser **explícito**:
 
@@ -801,8 +800,7 @@ if lista:  # Aceptable para listas
 
 ---
 
-(ejemplos-condicionales)=
-## Ejemplos Prácticos con Condicionales
+(ejemplos-condicionales)=## Ejemplos Prácticos con Condicionales
 
 A continuación, unos ejemplos de uso de condicionales `if-elif` para clasificación.
 
@@ -881,7 +879,7 @@ else:
 (while-lazos)=
 ## Lazos indefinidos - `while`: Mientras que...
 
-Un **lazo**(bucle o lazo) permite ejecutar un bloque de código repetidamente. El lazo `while` continúa ejecutándose mientras una condición sea verdadera.
+Un **lazo** (también llamado bucle) permite ejecutar un bloque de código repetidamente. El lazo `while` continúa ejecutándose mientras una condición sea verdadera.
 
 ### Sintaxis Básica
 
@@ -927,7 +925,7 @@ flowchart TD
 
 ````{danger} 🚨 ¡Cuidado con los Lazos Infinitos!
 
-Si la condición **nunca** se vuelve `False`, el bucle se ejecutará ** para siempre**:
+Si la condición **nunca** se vuelve `False`, el lazo se ejecutará **para siempre**:
 
 :::::{grid} 1 1 2 2
 
@@ -942,7 +940,7 @@ while contador <= 5:
 
 **Problema:** `contador` siempre vale 1  
 **Resultado:** Imprime "1" infinitamente 😱
-**Solución:** Utiliza el botón para detener la celda en Jupyter
+**Solución:** Utilizá el botón para detener la celda en Jupyter.
 ::::
 
 ::::{grid-item-card} ✅ Lazo Correcto
@@ -961,27 +959,26 @@ while contador <= 5:
 
 **Checklist anti-lazos-infinitos:**
 - [ ] ¿La condición puede volverse `False`?
-- [ ] ¿Modifico las variables de la condición dentro del bucle?
-- [ ] ¿Hay una forma de salir del bucle?
+- [ ] ¿Modifico las variables de la condición dentro del lazo?
+- [ ] ¿Hay una forma de salir del lazo?
 
-**Tip:** Si tu programa "se colgó", probablemente tenés un lazo infinito. Presiona **Ctrl+C** para detenerlo.
+**Tip:** Si tu programa "se colgó", probablemente tenés un lazo infinito. Presioná **Ctrl+C** para detenerlo.
 
 ````
 
 ### Patrones de lazos `while`
 
-Los patrones son fragmentos de código con formas comunes en las que se le dá uso a esta estructura. Estos mismos patrones también se aplican a lazos `for`, como veremos más adelante en la sección {ref}`patrones-comunes`.
+Los patrones son fragmentos de código con estructuras comunes. Estos mismos patrones también se aplican a lazos `for`, como veremos más adelante en la sección {ref}`patrones-comunes`.
 
 :::{important} Patrones universales
 Estos patrones son **independientes del tipo de lazo**. Lo que importa es la lógica del patrón, no si usás `while` o `for`. Aprendé a reconocer el patrón y luego elegí el lazo más apropiado para tu problema.
 :::
 
-(while-acumulador)=
-#### Patrón 1: Acumulador (Sumar números)
+(while-acumulador)=#### Patrón 1: Acumulador (Sumar números)
 
-Este patrón utiliza una variable externa al lazo, denominada *acumulador*, cuya función es guardar el estado de una operación aritmética a completar de forma progresiva.
+Este patrón utiliza una variable externa al lazo, denominada *acumulador*, que guarda el estado de una operación aritmética (como una suma) de forma progresiva.
 
-Para su uso, es necesaria una inicialización explícita, habitualmente en el elemento neutro (0 para sumas, 1 para multiplicaciones) y durante cada vuelta del lazo, se efectúa una asignación que va actualizando el valor del acumulador agregando el dato de la posición actual.
+Es necesaria una inicialización explícita, habitualmente en el elemento neutro (0 para sumas, 1 para multiplicaciones). Durante cada vuelta del lazo, se actualiza el acumulador agregando el nuevo dato.
 
 ```{code-cell} ipython3
 # Calcular la suma de los primeros 10 números
@@ -997,23 +994,23 @@ print(f"La suma de 1 a 10 es: {suma}")
 
 :::{tip} Patrón Acumulador
 **Estructura:**
-1. Inicializar {term}`acumulador` en 0
-2. En cada vuelta, sumar al {term}`acumulador`
-3. Al final, el {term}`acumulador` tiene el total
+1. Inicializar {term}`acumulador` en 0.
+2. En cada vuelta, sumar al {term}`acumulador`.
+3. Al final, el {term}`acumulador` tiene el total.
 
-**Usos:** Sumar números, contar elementos, promedios
+**Usos:** Sumar números, contar elementos, promedios.
 :::
 
 
 (while-contador)=
 #### Patrón 2: Contador clásico y reverso
 
-Este patrón utiliza una variable de control, denominada contador, cuya finalidad es registrar la cantidad de ocurrencias o el número de vueltas del lazo ejecutadas.
+Este patrón utiliza una variable de control, denominada {term}`contador`, para registrar la cantidad de vueltas ejecutadas.
 
-Un lazo contador puede ser ascendente, con una condición que sea como tope, pero también puede ser descendente, que podemos utilizar cuando estamos buscando una cantidad de elementos y no nos interesa la posición en la que se encuentra.
+Un lazo contador puede ser ascendente (cuenta hacia arriba hasta un tope) o descendente (cuenta hacia atrás, útil cuando no nos interesa el índice sino la cantidad restante).
 
 ```{code-cell} ipython3
-print("Contandor ascendente:")
+print("Contador ascendente:")
 TOPE = 5
 posicion = 1
 
@@ -1027,9 +1024,9 @@ print("Listo! ")
 
 :::{note} Sobre `TOPE`
 
-Aunque no es realmente necesario usar una variable en mayúsculas para el valor 'límite' a buscar, su uso facilita la lectura del código al evitar los llamados {term}`números mágicos`.
+Aunque no es estrictamente necesario usar una variable en mayúsculas para el valor límite, su uso facilita la lectura al evitar los llamados {term}`números mágicos`.
 
-Aparte, si tenemos que cambiarlo, es mucho más fácil de esta forma y también podemos calcular 'cuantos faltan'.
+Además, si tenemos que cambiar el límite, es mucho más fácil hacerlo en un solo lugar.
 :::
 
 
@@ -1047,18 +1044,20 @@ print("   ¡DESPEGUE! ")
 (while-compuesto)=
 #### Patrón 3: Validación con Repetición (Condiciones compuestas)
 
-Este patrón se asegura de que ejecutemos una acción mientras que una condición se cumpla, lo importante acá, es que esta no necesariamente trata sobre las veces en las que se recorre.
+Este patrón asegura que ejecutemos una acción mientras una condición se cumpla (o no se cumpla).
 
-En este ejemplo, podemos ver como el lazo puede ser controlado por una expresión booleana arbitraria, que también es la base para {ref}`banderas de control <banderas-control>`. Este no es un ejemplo que podamos aplicar de forma directa, ya que el programa se quedará en un lazó con una condición demasiado específica para salir; la contraseña correcta.
+Aquí, el lazo puede ser controlado por una expresión booleana arbitraria. Esto es la base para las {ref}`banderas de control <banderas-control>`.
+
+**Ejemplo simple (pero potencialmente infinito):**
 
 ```{code-cell} ipython3
 # Pedir contraseña hasta que sea correcta
 PASSWORD_CORRECTA = "python123"
 
+# Inicializamos con un valor incorrecto para entrar al lazo
 contraseña = input("Ingrese la contraseña: ")
 
-# Este lazo se lee:
-# Mientras no des la contraseña correcta 
+# Este lazo se lee: "Mientras la contraseña sea incorrecta..."
 while contraseña != PASSWORD_CORRECTA:
     print(f"❌ Contraseña incorrecta.")
     contraseña = input("Ingrese la contraseña: ")
@@ -1066,10 +1065,10 @@ while contraseña != PASSWORD_CORRECTA:
 print("✅ ¡Acceso concedido!")
 ```
 
-Para evitar el problema descrito más arriba, se agrega un 'termino' lógico a la condición, combinándolo con un lazo [](#while-contador), podemos limitar la cantidad de veces que se ejecuta el lazo.
+Para evitar quedarnos atrapados si el usuario no sabe la contraseña, agregamos un límite de intentos combinando condiciones lógicas:
 
 ```{code-cell} ipython3
-# Pedir contraseña hasta que sea correcta
+# Pedir contraseña hasta que sea correcta O se acaben los intentos
 PASSWORD_CORRECTA = "python123"
 intentos = 0
 MAX_INTENTOS = 3
@@ -1078,7 +1077,7 @@ contraseña = input("Ingrese la contraseña: ")
 intentos = intentos + 1
 
 # Este lazo se lee:
-# Mientras no des la contraseña correcta y te queden intentos:
+# "Mientras la contraseña sea incorrecta Y queden intentos..."
 while contraseña != PASSWORD_CORRECTA and intentos < MAX_INTENTOS:
     print(f"❌ Contraseña incorrecta. Te quedan {MAX_INTENTOS - intentos} intentos.")
     contraseña = input("Ingrese la contraseña: ")
@@ -1092,10 +1091,10 @@ else:
 
 :::{note} Patrón Validación
 Este patrón es **muy común** en programación:
-- Sistemas de login
-- Validación de datos
-- Menús interactivos
-- Juegos (seguir jugando mientras...)
+- Sistemas de login.
+- Validación de datos.
+- Menús interactivos.
+- Juegos (seguir jugando mientras...). 
 :::
 
 ---
@@ -1103,7 +1102,7 @@ Este patrón es **muy común** en programación:
 (banderas-control)=
 ## Banderas de Control
 
-Según la {ref}`0x0006h`, en lugar de usar `break` y `continue` para lazos complejos, es preferible usar **banderas** (variables booleanas) para controlar el flujo.
+Según la regla de estilo {ref}`0x0006h`, en lugar de usar `break` y `continue` para lazos complejos, es preferible usar **banderas** (variables booleanas) para controlar el flujo.
 
 ### Patrón 4: Bandera Simple
 
@@ -1150,13 +1149,13 @@ if not entrada_valida:
 
 ### Ventajas de las Banderas
 
-1. **Claridad:** El código es más fácil de entender
-2. **Mantenibilidad:** Es fácil agregar condiciones adicionales
-3. **Debugging:** Podés inspeccionar el estado de las banderas
-4. **Testeo:** Las banderas facilitan las pruebas unitarias
+1. **Claridad:** El código es más fácil de entender.
+2. **Mantenibilidad:** Es fácil agregar condiciones adicionales.
+3. **Debugging:** Podés inspeccionar el estado de las banderas.
+4. **Testeo:** Las banderas facilitan las pruebas unitarias.
 
 :::{tip} Cuándo usar {term}`break`
-Si bien preferimos banderas, `break` es aceptable en Python para casos simples de búsqueda:
+Si bien preferimos banderas, `break` es aceptable en Python para casos simples de búsqueda lineal donde no hay lógica compleja adicional:
 
 ```{code-cell} ipython3
 # Aceptable para búsquedas simples
@@ -1174,12 +1173,12 @@ Para lógica más compleja, usá banderas.
 (for-lazos)=
 ## Lazos definidos - `for`: Para Cada Elemento... 
 
-Detalle importante, lo que está entre `[]` son **listas**, que veremos en profundidad en el próximo capítulo.
+Un detalle importante: lo que está entre `[]` son **listas**, que veremos en profundidad en el próximo capítulo.
 Por ahora, entendé que es simplemente un conjunto ordenado de valores.
 
-### ¿Qué es un Bucle `for`?
+### ¿Qué es un Lazo `for`?
 
-El bucle `for` es para cuando querés hacer algo **con cada elemento** de una lista, palabra, o secuencia. Es como decir: "**Para cada** cosa en este grupo, hacé esto".
+El lazo `for` se usa cuando querés hacer algo **con cada elemento** de una lista, palabra o secuencia. Es como decir: "**Para cada** cosa en este grupo, hacé esto".
 
 ```{mermaid}
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#e3f2fd','primaryTextColor':'#1565c0','primaryBorderColor':'#1976d2','lineColor':'#1976d2','secondaryColor':'#fff3e0','tertiaryColor':'#f3e5f5','noteBkgColor':'#fff9c4','noteTextColor':'#333'}}}%%
@@ -1222,18 +1221,18 @@ for producto in lista_compras:
 ✓ Comprar: queso
 ```
 
-Python **automáticamente** toma cada elemento de la lista, uno por uno, y ejecuta el código para cada uno. ¡No necesitás {term}`contador` ni incremento manual! Esta es la razón por la cual se los llama "definidos", podemos saber la cantidad de vueltas del lazo antes de empezar.
+Python **automáticamente** toma cada elemento de la lista, uno por uno, y ejecuta el código para cada uno. ¡No necesitás {term}`contador` ni incremento manual! Por eso se llaman "definidos": podemos saber (o calcular) la cantidad de vueltas antes de empezar.
 ::::
 
 :::{note} Cláusula `else` en lazos `for`
-Al igual que con los lazos `while`, los lazos `for` también pueden tener una cláusula `else` que se ejecuta cuando el lazo termina normalmente (sin ser interrumpido por un `break`). Para más detalles sobre esta funcionalidad, consultá la sección sobre [control de flujo avanzado](#control-flujo-avanzado).
+Al igual que con los lazos `while`, los lazos `for` también pueden tener una cláusula `else` que se ejecuta cuando el lazo termina normalmente (sin ser interrumpido por un `break`).
 :::
 
 ---
 
 ### Diferencia: `while` vs `for`
 
-La elección entre `while` y `for` depende de si conocés de antemano cuántas veces necesitás repetir el código. El lazo `while` es ideal cuando la cantidad de iteraciones depende de una condición que puede cambiar durante la ejecución, mientras que `for` es perfecto cuando iterás sobre una secuencia conocida o un rango definido de valores.
+La elección entre `while` y `for` depende de si conocés de antemano cuántas veces necesitás repetir el código. El lazo `while` es ideal cuando la cantidad de iteraciones depende de una condición dinámica, mientras que `for` es perfecto para secuencias conocidas o rangos definidos.
 
 :::::{grid} 1 1 2 2
 
@@ -1248,9 +1247,9 @@ while contraseña != "abc123":
 ```
 
 **Cuándo usarlo:**
-- Login (hasta que acierte)
-- Menús (hasta que salga)
-- Validaciones
+- Login (hasta que acierte).
+- Menús (hasta que salga).
+- Validaciones.
 ::::
 
 ::::{grid-item-card} {term}`for` (Para cada...)
@@ -1264,9 +1263,9 @@ for fruta in frutas:
 ```
 
 **Cuándo usarlo:**
-- Recorrer listas
-- Repetir N veces
-- Procesar colecciones
+- Recorrer listas.
+- Repetir N veces.
+- Procesar colecciones.
 ::::
 
 :::::
@@ -1275,7 +1274,7 @@ for fruta in frutas:
 
 ### Iterando sobre un Rango
 
-La función {term}`range()` genera una secuencia de números que podemos usar en lazos `for`. Es especialmente útil cuando necesitamos repetir una acción un número específico de veces o cuando queremos iterar con índices numéricos.
+La función {term}`range()` genera una secuencia de números que podemos usar en lazos `for`. Es útil para repetir una acción un número específico de veces.
 
 ```{code-cell} ipython3
 # Contar del 0 al 4
@@ -1283,14 +1282,14 @@ for i in range(5):
     print(f"Número: {i}")
 ```
 
-**La función {term}`range()`** acepta hasta tres argumentos que determinan la secuencia generada: inicio (opcional), fin (obligatorio) y paso (opcional). Veamos las diferentes formas de usarla:
+**La función {term}`range()`** acepta tres argumentos: inicio (opcional), fin (obligatorio, **exclusivo**) y paso (opcional).
 
 ```{code-cell} ipython3
 # range(stop) - desde 0 hasta stop-1
 for i in range(5):
     print(i)  # 0, 1, 2, 3, 4
 
-# range(start, stop) - desde start hasta stop-1
+# range(start, stop) - desde start hasta stop-1 (el 'stop' NO se incluye)
 for i in range(2, 6):
     print(i)  # 2, 3, 4, 5
 
@@ -1305,24 +1304,18 @@ for i in range(5, 0, -1):
 
 ### Iterando sobre Strings
 
+Las cadenas de texto también son secuencias:
+
 ```{code-cell} ipython3
 mensaje = "Python"
 
 for letra in mensaje:
     print(letra)
-
-# Salida:
-# P
-# y
-# t
-# h
-# o
-# n
 ```
 
 ### Iterando sobre Listas
 
-Los lazos `for` son particularmente elegantes cuando trabajamos con {term}`listas<lista>` y otras estructuras de datos secuenciales. En lugar de usar índices manualmente, podemos iterar directamente sobre los elementos. Para profundizar en las listas y otras estructuras de datos, consultá el [capítulo sobre estructuras de datos](./3_estructuras.md).
+Los lazos `for` son particularmente elegantes con {term}`listas<lista>`. En lugar de usar índices, iteramos sobre los elementos directamente.
 
 ```{code-cell} ipython3
 frutas = ["manzana", "banana", "naranja"]
@@ -1332,16 +1325,16 @@ for fruta in frutas:
 ```
 
 :::{important} Estilo Pythonic
-Según la {ref}`0x0007h`, en Python es preferible iterar directamente sobre elementos en lugar de usar índices:
+Según la regla {ref}`0x0007h`, en Python es preferible iterar directamente sobre elementos en lugar de usar índices:
 
 ```{code-cell} ipython3
 nombres = ["Ana", "Bruno", "Carlos"]
 
-# ❌ Menos Pythonico
+# ❌ Menos Pythonico (estilo C/Java antiguo)
 for i in range(len(nombres)):
     print(nombres[i])
 
-# ✓ Pythonico
+# ✓ Pythonico (elegante y directo)
 for nombre in nombres:
     print(nombre)
 ```
@@ -1349,7 +1342,7 @@ for nombre in nombres:
 
 ### Usando `enumerate()` cuando necesitás índices
 
-A veces necesitamos acceder tanto al elemento como a su posición en la secuencia. La función `enumerate()` facilita esta tarea, devolviendo pares de (índice, elemento) sin necesidad de mantener un contador manual. Esto resulta más claro y menos propenso a errores que usar `range(len(lista))`.
+A veces necesitamos tanto el elemento como su posición. `enumerate()` nos da ambos, evitando contadores manuales.
 
 ```{code-cell} ipython3
 colores = ["rojo", "verde", "azul"]
@@ -1363,7 +1356,7 @@ for indice, color in enumerate(colores):
 # Color 2: azul
 ```
 
-**Empezar desde un índice diferente:**
+**Empezar desde un índice diferente (ej. para mostrar al usuario):**
 
 ```{code-cell} ipython3
 colores = ["rojo", "verde", "azul"]
@@ -1412,71 +1405,32 @@ print(f"La suma es: {suma}")
 (while-vs-for)=
 ## `while` vs `for`: ¿Cuándo usar cada uno?
 
-La decisión entre `while` y `for` es fundamental para escribir código claro y mantenible. Aunque ambos permiten repetir código, cada uno está optimizado para diferentes situaciones. Entender cuándo usar cada uno mejora significativamente la legibilidad y reduce errores comunes como los lazos infinitos.
+La decisión entre `while` y `for` es fundamental para escribir código claro.
 
 ### Usar `while` cuando:
 
-1. **No conocés de antemano cuántas iteraciones necesitás**
+1. **No conocés de antemano cuántas iteraciones necesitás.**
    
-   Este es el caso típico del [patrón de validación de entrada](#patron-validacion-entrada), donde seguimos pidiendo datos hasta que el usuario ingrese algo válido:
-   
-   ```python
-   # Esperar entrada válida
-   edad = -1
-   while edad < 0 or edad > 120:
-       edad = int(input("Edad (0-120): "))
-   ```
+   Ejemplo: [patrón de validación de entrada](#while-compuesto), donde seguimos pidiendo datos hasta que el usuario ingrese algo válido.
 
-2. **La condición de parada es compleja**
+2. **La condición de parada es compleja.**
    
-   Cuando múltiples condiciones determinan si continuar, `while` expresa esto naturalmente. Este patrón aparece frecuentemente en combinación con [banderas de control](#banderas-control):
-   
-   ```{code-cell} ipython3
-   intentos = 0
-   exito = False
-   MAX_INTENTOS = 5
-   
-   while intentos < MAX_INTENTOS and not exito:
-       # ... lógica ...
-   ```
+   Cuando múltiples condiciones determinan si continuar. (Ver [banderas de control](#banderas-control))
 
-3. **El lazo puede no ejecutarse ninguna vez**
+3. **El lazo puede no ejecutarse ninguna vez.**
    
-   Cuando la condición inicial podría ser falsa desde el principio, `while` deja esto explícito en la estructura del código:
-   
-   ```{code-cell} ipython3
-   while hay_mas_datos():
-       procesar_datos()
-   ```
+   Si la condición inicial es falsa, el bloque `while` se salta por completo.
 
 ### Usar `for` cuando:
 
-1. **Iterás sobre una secuencia conocida**
-   
-   Los lazos `for` son la forma pythonic de procesar colecciones. Para más detalles sobre colecciones, consultá el [capítulo sobre estructuras](./3_estructuras.md):
-   
-   ```{code-cell} ipython3
-   for nombre in lista_nombres:
-       print(nombre)
-   ```
+1. **Iterás sobre una secuencia conocida.**
+   Es la forma *{term}`pythonica`* de procesar colecciones.
 
-2. **Conocés exactamente cuántas iteraciones necesitás**
-   
-   Este es el caso del [patrón de contador](#patron-contador), donde repetimos una acción un número fijo de veces:
-   
-   ```{code-cell} ipython3
-   for i in range(10):
-       print(i)
-   ```
+2. **Conocés exactamente cuántas iteraciones necesitás.**
+   Usando `range()`. [Patrón de contador](#patron-contador)
+3. **Necesitás procesar cada elemento de una colección.**
 
-3. **Necesitás procesar cada elemento de una colección**
-   
-   El patrón más común y elegante en Python, relacionado con el [patrón de procesamiento de secuencias](#patron-procesamiento-secuencia):
-   
-   ```{code-cell} ipython3
-   for estudiante in estudiantes:
-       calcular_promedio(estudiante)
-   ```
+Relacionado con el [patrón de procesamiento de secuencias](#patron-procesamiento-secuencia):
 
 ### Tabla Comparativa
 
@@ -1489,14 +1443,13 @@ La decisión entre `while` y `for` es fundamental para escribir código claro y 
 
 ---
 
-(manipulacion-lazos)=
-## Manipulación de lazos
+(manipulacion-lazos)=## Manipulación de lazos
 
 Python proporciona dos instrucciones para alterar el flujo de ejecución dentro de los lazos: `break` y `continue`. Aunque son útiles, según la {ref}`0x0006h`, debemos preferir las {ref}`banderas de control <banderas-control>` para mantener la claridad del código.
 
 ### La instrucción `break`
 
-La instrucción `break` **termina inmediatamente** el lazo en el que se encuentra, saltando a la primera instrucción después del lazo.
+`break` **termina inmediatamente** el lazo, saltando a la primera instrucción después del mismo.
 
 ```{code-cell} ipython3
 """Búsqueda usando break."""
@@ -1507,7 +1460,7 @@ objetivo = 30
 for i in range(len(numeros)):
     if numeros[i] == objetivo:
         print(f"Encontrado en posición {i}")
-        break  # Termina el lazo
+        break  # Termina el lazo inmediatamente
     print(f"Revisando posición {i}: {numeros[i]}")
 else:
     # Este bloque se ejecuta solo si NO se usó break
@@ -1525,7 +1478,7 @@ El `else` de un lazo `for` o `while` se ejecuta solo si el lazo **termina normal
 
 ### La instrucción `continue`
 
-La instrucción `continue` **salta el resto de la iteración actual** y continúa con la siguiente iteración del lazo.
+`continue` **salta el resto de la iteración actual** y pasa a la siguiente vuelta del lazo.
 
 ```{code-cell} ipython3
 """Procesar solo números impares usando continue."""
@@ -1534,7 +1487,7 @@ numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 for numero in numeros:
     if numero % 2 == 0:
-        continue  # Salta números pares
+        continue  # Salta los números pares, no ejecuta lo de abajo
     
     # Solo procesa números impares
     cuadrado = numero * numero
@@ -1602,7 +1555,7 @@ for i in range(3):
 #   Lazo interno: j = 0
 ```
 
-Para terminar ambos lazos, necesitamos una {term}`bandera`:
+Para terminar ambos lazos, usamos una {term}`bandera`:
 
 ```{code-cell} ipython3
 """Terminar lazos anidados con bandera."""
@@ -1637,32 +1590,25 @@ Más ejemplos sobre {ref}`lazos anidados <lazos-anidados>` y su comportamiento c
 ### ¿Cuándo usar `break` y `continue`?
 
 :::{tip} Preferencia por claridad
-Según la {ref}`0x0006h`, es preferible usar {ref}`banderas de control <banderas-control>` en lugar de `break` y `continue` cuando el flujo es complejo, porque hace el código más fácil de entender y mantener.
+Según la regla {ref}`0x0006h`, es preferible usar {ref}`banderas de control <banderas-control>` en lugar de `break` y `continue` cuando el flujo es complejo, porque hace el código más fácil de entender y mantener.
 :::
 
 **Casos apropiados para `break`:**
-- Búsquedas simples donde querés terminar al encontrar algo
-- Validación de entrada donde querés salir tras validar
+- Búsquedas simples donde querés terminar al encontrar algo.
+- Validación de entrada donde querés salir tras validar.
 
 **Casos apropiados para `continue`:**
-- Filtrar elementos sin anidar condiciones
-- Saltar casos especiales al inicio de la iteración
+- Filtrar elementos ("saltar basura") sin anidar condiciones excesivamente.
 
 **Preferir banderas cuando:**
-- El lazo tiene múltiples condiciones de salida
-- Necesitás controlar lazos anidados
-- La lógica es compleja y requiere claridad
-
-
+- El lazo tiene múltiples condiciones de salida.
+- Necesitás controlar lazos anidados.
+- La lógica es compleja y requiere claridad.
 
 (lazos-anidados)=
 ## Lazos Anidados
 
 Podés colocar lazos dentro de otros lazos. Cada {term}`iteración` del lazo externo ejecuta completamente el lazo interno.
-
-:::{note}
-Cuando usás `break` o `continue` en lazos anidados, estas instrucciones **solo afectan al lazo más interno**. Para controlar ambos lazos, necesitás usar banderas. Ver más detalles en la sección {ref}`Manipulación de lazos <manipulacion-lazos>`.
-:::
 
 ### Ejemplo: Tabla de Multiplicar Completa
 
@@ -1698,10 +1644,12 @@ for fila in range(1, altura + 1):
 
 ### Ejemplo: Validación de Múltiples Credenciales
 
+Este ejemplo combina lazos anidados con banderas para un control de flujo robusto.
+
 ```{code-cell} ipython3
 """Verificar usuario y contraseña con múltiples intentos permitidos."""
 
-# Credenciales correctas (en un caso real, esto estaría en una base de datos)
+# Credenciales correctas (simuladas)
 usuario_valido = "admin"
 password_valida = "python123"
 
@@ -1746,14 +1694,13 @@ if not acceso_concedido:
 ```
 
 :::{warning} Cuidado con la complejidad
-Lazos anidados pueden hacer que tu código sea lento. Un lazo dentro de otro multiplica las iteraciones:
+Los lazos anidados multiplican las iteraciones:
 - Lazo externo: 100 iteraciones
 - Lazo interno: 100 iteraciones
 - Total: 100 × 100 = 10,000 iteraciones
 
-Usá lazos anidados solo cuando sea necesario.
+Usalos con precaución.
 :::
-
 
 ---
 
@@ -1822,13 +1769,13 @@ elif nota >= 60:
 ### 5. Modificar lista mientras se itera
 
 ```{code-cell} ipython3
-# ❌ Problemático
+# ❌ Problemático: modificar la lista que estamos recorriendo
 numeros = [1, 2, 3, 4, 5]
 for numero in numeros:
     if numero % 2 == 0:
-        numeros.remove(numero)  # Puede causar problemas
+        numeros.remove(numero)  # Puede causar saltos de índice y errores
 
-# ✓ Mejor - crear nueva lista
+# ✓ Mejor - crear una nueva lista
 numeros = [1, 2, 3, 4, 5]
 impares = []
 for numero in numeros:
@@ -1838,8 +1785,7 @@ for numero in numeros:
 
 ---
 
-(buenas-practicas-control)=
-## Buenas Prácticas
+(buenas-practicas-control)=## Buenas Prácticas
 
 ### 1. Nombres Descriptivos para Banderas
 
@@ -1860,7 +1806,7 @@ datos_validos = False
 if a > 18 and b == True and c != 0 and (d == "admin" or d == "superuser"):
     hacer_algo()
 
-# ✓ Más claro
+# ✓ Más claro: asignar condiciones a variables explicativas
 es_mayor_edad = a > 18
 esta_activo = b == True
 tiene_saldo = c != 0
@@ -1873,7 +1819,7 @@ if es_mayor_edad and esta_activo and tiene_saldo and es_administrador:
 ### 3. Evitar Anidación Excesiva
 
 ```{code-cell} ipython3
-# ❌ Muy anidado
+# ❌ Muy anidado (Spaghetti code)
 if condicion1:
     if condicion2:
         if condicion3:
@@ -1883,15 +1829,12 @@ if condicion1:
 # ✓ Utilizá condiciones combinadas
 if condicion1 and condicion2 and condicion3 and condicion4:
     hacer_algo()
-
-# En particular cuando la acción a hacer es única.
-# (No hay uso para los caminos 'else')    
 ```
 
 ### 4. Constantes para Valores Mágicos
 
 ```{code-cell} ipython3
-# ❌ "Números mágicos"
+# ❌ "Números mágicos" (18 y 65 aparecen de la nada)
 if edad >= 18 and edad <= 65:
     calcular_descuento()
 
@@ -1902,17 +1845,6 @@ EDAD_MAXIMA = 65
 if edad >= EDAD_MINIMA and edad <= EDAD_MAXIMA:
     calcular_descuento()
 ```
-
-### 5. Comentarios en Condiciones Complejas
-
-```{code-cell} ipython3
-# Verificar si el usuario puede acceder al sistema
-# Debe ser mayor de edad, tener cuenta activa y no estar suspendido
-if edad >= 18 and cuenta_activa and not suspendido:
-    permitir_acceso()
-```
-
-
 
 ---
 
@@ -1927,61 +1859,17 @@ Aprender {term}`control de flujo` es aprender a **pensar algorítmicamente**. La
 
 #### Generar Ejercicios Adicionales
 
-- *"Genera cinco ejercicios sobre condicionales `if-elif-else` que involucren validación de rangos de números"*
-- *"Crea ejercicios de lazos `while` que requieran el uso de banderas de control"*
-- *"Dame problemas de práctica sobre lazos `for` con {term}`range()`` de diferente complejidad"*
+- "Genera cinco ejercicios sobre condicionales `if-elif-else` que involucren validación de rangos de números".
+- "Crea ejercicios de lazos `while` que requieran el uso de banderas de control".
 
 #### Obtener Pistas sobre Lógica
 
-Si tu condición no funciona correctamente:
-
-- *"Tengo un programa que debe verificar si un número está entre 10 y 20. Mi condición es `if numero > 10 and numero < 20:` pero falla con 10 y 20. ¿Por qué?"*
-- *"Estoy escribiendo un lazo para pedir números hasta que el usuario ingrese 0, pero no sé cómo estructurarlo. ¿Cuál sería el esqueleto básico?"*
-- *"¿Cómo puedo salir de un lazo `while` cuando se cumpla cierta condición sin usar `break`?"*
+- "Tengo un programa que debe verificar si un número está entre 10 y 20. Mi condición es `if numero > 10 and numero < 20:` pero falla con 10 y 20. ¿Por qué?"
+- "Estoy escribiendo un lazo para pedir números hasta que el usuario ingrese 0, pero no sé cómo estructurarlo. ¿Cuál sería el esqueleto básico?"
 
 #### Refactorizar Condiciones Complejas
 
-- *"Esta condición es muy larga y difícil de leer: `if (edad >= 18 and tiene_dni and (es_estudiante or es_empleado)) or es_admin:`. ¿Cómo puedo mejorarla?"*
-- *"Tengo cuatro `if` anidados. ¿Hay una forma más clara de escribir esto?"*
-
-#### Debugging de Lógica
-
-- *"Mi lazo infinito no se detiene. Aquí está mi código: [código]. ¿Qué estoy haciendo mal?"*
-- *"Mi condición siempre evalúa `True` incluso cuando debería ser `False`. ¿Cuál podría ser el problema?"*
-
-#### Explorar Alternativas
-
-- *"Resolví este problema con un `while`. ¿Podrías mostrarme cómo se vería con un `for`?"*
-- *"¿Cuál es la diferencia práctica entre usar un `for` con {term}`range()` y un `while` con contador manual?"*
-
-### Ejemplos Específicos de este Módulo
-
-**Situación 1**: Validación de entrada
-
-❌ **Incorrecto**:
-```
-Prompt: "Dame el código para validar que un número esté entre 1 y 100"
-```
-
-✅ **Correcto**:
-```
-Prompt: "Estoy validando un número entre 1 y 100. Escribí esto:
-if numero > 1 and numero < 100:
-¿Está correcto o debería usar >= y <=?"
-```
-
-**Situación 2**: Lazo con {term}`acumulador`
-
-❌ **Incorrecto**:
-```
-Prompt: "Escribe un programa que sume números hasta que el usuario ingrese 0"
-```
-
-✅ **Correcto**:
-```
-Prompt: "Estoy sumando números en un lazo while. Inicialicé suma = 0 
-y tengo el lazo, pero no sé dónde hacer la suma. ¿Dentro o fuera del lazo?"
-```
+- "Esta condición es muy larga y difícil de leer: `if (edad >= 18 and tiene_dni and (es_estudiante or es_empleado)) or es_admin:`. ¿Cómo puedo mejorarla?"
 
 ### Errores Comunes en este Módulo
 
@@ -2001,9 +1889,6 @@ Antes de pedir ayuda a la IA sobre un ejercicio de {term}`control de flujo`, pre
 4. ¿Qué variables necesito para controlar el flujo?
 
 Si podés responder estas preguntas, **ya sabés cómo resolver el ejercicio**. La IA solo debería ayudarte con detalles de sintaxis o refinamiento.
-
----
-
 
 ---
 
