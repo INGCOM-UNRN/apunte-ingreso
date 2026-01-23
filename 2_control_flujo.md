@@ -301,7 +301,7 @@ if temperatura < 10:
     print("   Abrigate bien")
 
 if temperatura >= 10 and temperatura <= 30:
-    print(" Temperatura agradable")
+    print("Temperatura agradable")
     print("   Buen día para salir")
 
 print(f"Temperatura actual: {temperatura}°C")
@@ -782,25 +782,26 @@ En Python, ciertos valores se consideran "falsos" en un contexto booleano:
 Todos los demás valores se consideran "verdaderos". Sin embargo, según las buenas prácticas, es preferible ser **explícito**:
 
 ```{code-cell} ipython3
-lista = []
+nombre = ""
 
 # Menos claro (aunque funciona)
-if lista:
-    print("Tiene elementos")
+if nombre:
+    print("Tiene nombre")
 
 # ✓ Más claro y explícito
-if len(lista) > 0:
-    print("Tiene elementos")
+if len(nombre) > 0:
+    print("Tiene nombre")
 
 # O mejor aún
-if lista:  # Aceptable para listas
-    print("Tiene elementos")
+if nombre != "":
+    print("Tiene nombre")
 # Pero documentalo si no es obvio
 ```
 
 ---
 
-(ejemplos-condicionales)=## Ejemplos Prácticos con Condicionales
+(ejemplos-condicionales)=
+## Ejemplos Prácticos con Condicionales
 
 A continuación, unos ejemplos de uso de condicionales `if-elif` para clasificación.
 
@@ -974,7 +975,8 @@ Los patrones son fragmentos de código con estructuras comunes. Estos mismos pat
 Estos patrones son **independientes del tipo de lazo**. Lo que importa es la lógica del patrón, no si usás `while` o `for`. Aprendé a reconocer el patrón y luego elegí el lazo más apropiado para tu problema.
 :::
 
-(while-acumulador)=#### Patrón 1: Acumulador (Sumar números)
+(while-acumulador)= 
+#### Patrón 1: Acumulador (Sumar números)
 
 Este patrón utiliza una variable externa al lazo, denominada *acumulador*, que guarda el estado de una operación aritmética (como una suma) de forma progresiva.
 
@@ -1099,6 +1101,10 @@ Este patrón es **muy común** en programación:
 
 ---
 
+## Cadenas como secuencias de caracteres
+
+TODO: Agregar explicación para su uso en while y for, sobre el uso de [] en cadenas. sin hablar de slicing, y menciona que este tema se trata en apunte siguiente.
+
 (banderas-control)=
 ## Banderas de Control
 
@@ -1109,19 +1115,19 @@ Según la regla de estilo {ref}`0x0006h`, en lugar de usar `break` y `continue` 
 ```{code-cell} ipython3
 """Búsqueda con bandera de control."""
 
-numeros = [10, 25, 30, 45, 50]
-objetivo = 30
+texto = "Hola Mundo"
+objetivo = "M"
 encontrado = False
 i = 0
 
-while i < len(numeros) and not encontrado:
-    if numeros[i] == objetivo:
+while i < len(texto) and not encontrado:
+    if texto[i] == objetivo:
         encontrado = True
         print(f"Encontrado en posición {i}")
     i = i + 1
 
 if not encontrado:
-    print("No se encontró el número")
+    print("No se encontró el caracter")
 ```
 
 ### Patrón 5: Múltiples Banderas
@@ -1159,8 +1165,11 @@ Si bien preferimos banderas, `break` es aceptable en Python para casos simples d
 
 ```{code-cell} ipython3
 # Aceptable para búsquedas simples
-for elemento in lista:
-    if elemento == objetivo:
+texto = "Hola Mundo"
+objetivo = "M"
+
+for caracter in texto:
+    if caracter == objetivo:
         print("Encontrado")
         break
 ```
@@ -1170,23 +1179,18 @@ Para lógica más compleja, usá banderas.
 
 ---
 
-(for-lazos)=
-## Lazos definidos - `for`: Para Cada Elemento... 
+(for-lazos)= 
+## Lazos definidos - `for`: Para Cada Elemento...
 
-Un detalle importante: lo que está entre `[]` son **listas**, que veremos en profundidad en el próximo capítulo.
-Por ahora, entendé que es simplemente un conjunto ordenado de valores.
-
-### ¿Qué es un Lazo `for`?
-
-El lazo `for` se usa cuando querés hacer algo **con cada elemento** de una lista, palabra o secuencia. Es como decir: "**Para cada** cosa en este grupo, hacé esto".
+El lazo `for` se usa cuando querés hacer algo **con cada elemento** de una secuencia (como un texto o un rango de números). Es como decir: "**Para cada** cosa en este grupo, hacé esto".
 
 ```{mermaid}
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#e3f2fd','primaryTextColor':'#1565c0','primaryBorderColor':'#1976d2','lineColor':'#1976d2','secondaryColor':'#fff3e0','tertiaryColor':'#f3e5f5','noteBkgColor':'#fff9c4','noteTextColor':'#333'}}}%%
 flowchart TD
     inicio([Inicio])
-    iniciar[lista = pan, leche, huevos, queso]
+    iniciar[secuencia = 'Hola']
     bucle{¿Hay más<br/>elementos?}
-    procesar[producto = siguiente elemento<br/>print: Comprar producto]
+    procesar[caracter = siguiente elemento<br/>print: caracter]
     fin([Fin])
     
     inicio --> iniciar
@@ -1202,26 +1206,26 @@ flowchart TD
     style fin fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
 ```
 
-::::{tip} Analogía: Lista de Compras
+::::{tip} Analogía: Deletrear una Palabra
 
-Imaginate que tenés una lista de compras:
+Imaginate que tenés que deletrear una palabra letra por letra:
 
 ```python
-lista_compras = ["pan", "leche", "huevos", "queso"]
+palabra = "Hola"
 
-for producto in lista_compras:
-    print(f"✓ Comprar: {producto}")
+for letra in palabra:
+    print(f"Letra: {letra}")
 ```
 
 **Salida:**
 ```
-✓ Comprar: pan
-✓ Comprar: leche
-✓ Comprar: huevos
-✓ Comprar: queso
+Letra: H
+Letra: o
+Letra: l
+Letra: a
 ```
 
-Python **automáticamente** toma cada elemento de la lista, uno por uno, y ejecuta el código para cada uno. ¡No necesitás {term}`contador` ni incremento manual! Por eso se llaman "definidos": podemos saber (o calcular) la cantidad de vueltas antes de empezar.
+Python **automáticamente** toma cada caracter del texto, uno por uno, y ejecuta el código para cada uno. ¡No necesitás {term}`contador` ni incremento manual!
 ::::
 
 :::{note} Cláusula `else` en lazos `for`
@@ -1257,15 +1261,15 @@ while contraseña != "abc123":
 # Usar cuando SÍ sabés
 # cuántas veces repetir
 
-frutas = ["🍎", "🍌", "🍊"]
-for fruta in frutas:
-    print(fruta)
+palabra = "Python"
+for letra in palabra:
+    print(letra)
 ```
 
 **Cuándo usarlo:**
-- Recorrer listas.
-- Repetir N veces.
-- Procesar colecciones.
+- Recorrer textos.
+- Repetir N veces (con range).
+- Procesar secuencias de datos.
 ::::
 
 :::::
@@ -1304,39 +1308,29 @@ for i in range(5, 0, -1):
 
 ### Iterando sobre Strings
 
-Las cadenas de texto también son secuencias:
+Las cadenas de texto también son secuencias y son el ejemplo perfecto para empezar a iterar:
 
 ```{code-cell} ipython3
-mensaje = "Python"
+mensaje = "Python es genial"
 
 for letra in mensaje:
-    print(letra)
-```
-
-### Iterando sobre Listas
-
-Los lazos `for` son particularmente elegantes con {term}`listas<lista>`. En lugar de usar índices, iteramos sobre los elementos directamente.
-
-```{code-cell} ipython3
-frutas = ["manzana", "banana", "naranja"]
-
-for fruta in frutas:
-    print(f"Me gusta la {fruta}")
+    print(letra, end="-")
+# P-y-t-h-o-n- -e-s- -g-e-n-i-a-l-
 ```
 
 :::{important} Estilo Pythonic
 Según la regla {ref}`0x0007h`, en Python es preferible iterar directamente sobre elementos en lugar de usar índices:
 
 ```{code-cell} ipython3
-nombres = ["Ana", "Bruno", "Carlos"]
+palabra = "Programar"
 
 # ❌ Menos Pythonico (estilo C/Java antiguo)
-for i in range(len(nombres)):
-    print(nombres[i])
+for i in range(len(palabra)):
+    print(palabra[i])
 
 # ✓ Pythonico (elegante y directo)
-for nombre in nombres:
-    print(nombre)
+for letra in palabra:
+    print(letra)
 ```
 :::
 
@@ -1345,29 +1339,25 @@ for nombre in nombres:
 A veces necesitamos tanto el elemento como su posición. `enumerate()` nos da ambos, evitando contadores manuales.
 
 ```{code-cell} ipython3
-colores = ["rojo", "verde", "azul"]
+palabra = "Hola"
 
-for indice, color in enumerate(colores):
-    print(f"Color {indice}: {color}")
+for indice, letra in enumerate(palabra):
+    print(f"Posición {indice}: {letra}")
 
 # Salida:
-# Color 0: rojo
-# Color 1: verde
-# Color 2: azul
+# Posición 0: H
+# Posición 1: o
+# Posición 2: l
+# Posición 3: a
 ```
 
 **Empezar desde un índice diferente (ej. para mostrar al usuario):**
 
 ```{code-cell} ipython3
-colores = ["rojo", "verde", "azul"]
+palabra = "Python"
 
-for indice, color in enumerate(colores, start=1):
-    print(f"Color {indice}: {color}")
-
-# Salida:
-# Color 1: rojo
-# Color 2: verde
-# Color 3: azul
+for indice, letra in enumerate(palabra, start=1):
+    print(f"Letra {indice}: {letra}")
 ```
 
 ### Ejemplo: Tabla de Multiplicar
@@ -1385,24 +1375,25 @@ for i in range(1, 11):
     print(f"{numero} x {i:2d} = {resultado:3d}")
 ```
 
-### Ejemplo: Suma de Lista
+### Ejemplo: Contar Vocales
 
 ```{code-cell} ipython3
-"""Calcula la suma de una lista de números."""
+"""Cuenta las vocales en una frase."""
 
-numeros = [10, 20, 30, 40, 50]
-suma = 0
+frase = "Aprender a programar es divertido"
+vocales = "aeiouAEIOU"
+contador_vocales = 0
 
-for numero in numeros:
-    suma = suma + numero
+for letra in frase:
+    if letra in vocales:
+        contador_vocales += 1
 
-print(f"La suma es: {suma}")
-
+print(f"La frase tiene {contador_vocales} vocales.")
 ```
 
 ---
 
-(while-vs-for)=
+(while-vs-for)= 
 ## `while` vs `for`: ¿Cuándo usar cada uno?
 
 La decisión entre `while` y `for` es fundamental para escribir código claro.
@@ -1415,7 +1406,7 @@ La decisión entre `while` y `for` es fundamental para escribir código claro.
 
 2. **La condición de parada es compleja.**
    
-   Cuando múltiples condiciones determinan si continuar. (Ver [banderas de control](#banderas-control))
+   Cuando múltiples condiciones determinan si continuar.
 
 3. **El lazo puede no ejecutarse ninguna vez.**
    
@@ -1424,13 +1415,12 @@ La decisión entre `while` y `for` es fundamental para escribir código claro.
 ### Usar `for` cuando:
 
 1. **Iterás sobre una secuencia conocida.**
-   Es la forma *{term}`pythonica`* de procesar colecciones.
+   Como una cadena de texto o un rango de números. Es la forma *pythonic*.
 
 2. **Conocés exactamente cuántas iteraciones necesitás.**
-   Usando `range()`. [Patrón de contador](#patron-contador)
-3. **Necesitás procesar cada elemento de una colección.**
+   Usando `range()`.
 
-Relacionado con el [patrón de procesamiento de secuencias](#patron-procesamiento-secuencia):
+3. **Necesitás procesar cada elemento de una colección.**
 
 ### Tabla Comparativa
 
@@ -1438,38 +1428,34 @@ Relacionado con el [patrón de procesamiento de secuencias](#patron-procesamient
 |---------|---------|-------|
 | **Iteraciones**| Número desconocido | Número conocido o secuencia |
 | **Condición**| Puede ser compleja | Implícita (hasta terminar secuencia) |
-| **Uso típico**| Validaciones, menús | Procesar colecciones, rangos |
+| **Uso típico**| Validaciones, menús | Procesar textos, rangos |
 | **Riesgo**| Lazo infinito si no hay cuidado | Menor riesgo |
 
 ---
 
-(manipulacion-lazos)=## Manipulación de lazos
+(manipulacion-lazos)= 
+## Manipulación de lazos
 
-Python proporciona dos instrucciones para alterar el flujo de ejecución dentro de los lazos: `break` y `continue`. Aunque son útiles, según la {ref}`0x0006h`, debemos preferir las {ref}`banderas de control <banderas-control>` para mantener la claridad del código.
+Python proporciona instrucciones para alterar el flujo dentro de los lazos: `break` y `continue`.
 
 ### La instrucción `break`
 
 `break` **termina inmediatamente** el lazo, saltando a la primera instrucción después del mismo.
 
 ```{code-cell} ipython3
-"""Búsqueda usando break."""
+"""Búsqueda de un caracter usando break."""
 
-numeros = [10, 25, 30, 45, 50]
-objetivo = 30
+texto = "Hola Mundo"
+objetivo = "M"
 
-for i in range(len(numeros)):
-    if numeros[i] == objetivo:
+for i in range(len(texto)):
+    if texto[i] == objetivo:
         print(f"Encontrado en posición {i}")
         break  # Termina el lazo inmediatamente
-    print(f"Revisando posición {i}: {numeros[i]}")
+    print(f"Revisando posición {i}: {texto[i]}")
 else:
     # Este bloque se ejecuta solo si NO se usó break
-    print("No se encontró el número")
-
-# Salida:
-# Revisando posición 0: 10
-# Revisando posición 1: 25
-# Encontrado en posición 2
+    print("No se encontró el caracter")
 ```
 
 :::{note}
@@ -1481,24 +1467,19 @@ El `else` de un lazo `for` o `while` se ejecuta solo si el lazo **termina normal
 `continue` **salta el resto de la iteración actual** y pasa a la siguiente vuelta del lazo.
 
 ```{code-cell} ipython3
-"""Procesar solo números impares usando continue."""
+"""Imprimir solo consonantes usando continue."""
 
-numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+frase = "Hola Mundo"
+vocales = "aeiouAEIOU "  # Incluimos espacio para saltarlo también
 
-for numero in numeros:
-    if numero % 2 == 0:
-        continue  # Salta los números pares, no ejecuta lo de abajo
+print("Consonantes:", end=" ")
+for letra in frase:
+    if letra in vocales:
+        continue  # Salta vocales y espacios
     
-    # Solo procesa números impares
-    cuadrado = numero * numero
-    print(f"{numero}² = {cuadrado}")
-
-# Salida:
-# 1² = 1
-# 3² = 9
-# 5² = 25
-# 7² = 49
-# 9² = 81
+    # Solo procesa consonantes
+    print(letra, end="")
+# Salida: HlMnd
 ```
 
 ### Comparación: `break` vs `continue`
@@ -1506,28 +1487,17 @@ for numero in numeros:
 ```{code-cell} ipython3
 """Demostración de break vs continue."""
 
-print("Ejemplo con break:")
+print("Ejemplo con break (para en 3):")
 for i in range(5):
     if i == 3:
         break  # Termina el lazo completamente
     print(f"Valor: {i}")
 
-print("\nEjemplo con continue:")
+print("\nEjemplo con continue (salta el 3):")
 for i in range(5):
     if i == 3:
         continue  # Salta solo esta iteración
     print(f"Valor: {i}")
-
-# Salida con break:
-# Valor: 0
-# Valor: 1
-# Valor: 2
-
-# Salida con continue:
-# Valor: 0
-# Valor: 1
-# Valor: 2
-# Valor: 4
 ```
 
 ### `break` y `continue` en lazos anidados
@@ -1545,14 +1515,6 @@ for i in range(3):
         if j == 1:
             break  # Solo termina el lazo interno
         print(f"  Lazo interno: j = {j}")
-
-# Salida:
-# Lazo externo: i = 0
-#   Lazo interno: j = 0
-# Lazo externo: i = 1
-#   Lazo interno: j = 0
-# Lazo externo: i = 2
-#   Lazo interno: j = 0
 ```
 
 Para terminar ambos lazos, usamos una {term}`bandera`:
@@ -1574,18 +1536,7 @@ for i in range(3):
         break  # Termina lazo externo
 
 print("Terminado")
-
-# Salida:
-# Lazo externo: i = 0
-#   Lazo interno: j = 0
-#   Lazo interno: j = 1
-#   Lazo interno: j = 2
-# Lazo externo: i = 1
-#   Lazo interno: j = 0
-# Terminado
 ```
-
-Más ejemplos sobre {ref}`lazos anidados <lazos-anidados>` y su comportamiento con estas instrucciones.
 
 ### ¿Cuándo usar `break` y `continue`?
 
@@ -1605,7 +1556,7 @@ Según la regla {ref}`0x0006h`, es preferible usar {ref}`banderas de control <ba
 - Necesitás controlar lazos anidados.
 - La lógica es compleja y requiere claridad.
 
-(lazos-anidados)=
+(lazos-anidados)= 
 ## Lazos Anidados
 
 Podés colocar lazos dentro de otros lazos. Cada {term}`iteración` del lazo externo ejecuta completamente el lazo interno.
@@ -1633,13 +1584,6 @@ for fila in range(1, altura + 1):
     for columna in range(fila):
         print("*", end="")
     print()  # Nueva línea
-
-# Salida:
-# *
-# **
-# ***
-# ****
-# *****
 ```
 
 ### Ejemplo: Validación de Múltiples Credenciales
@@ -1704,7 +1648,7 @@ Usalos con precaución.
 
 ---
 
-(errores-comunes-control)=
+(errores-comunes-control)= 
 ## Consejos para errores (y problemas) comunes
 
 ### 1. Olvidar la indentación
@@ -1766,26 +1710,28 @@ elif nota >= 60:
     print("Bueno")
 ```
 
-### 5. Modificar lista mientras se itera
+### 5. Modificar la variable de control dentro del lazo `for`
 
 ```{code-cell} ipython3
-# ❌ Problemático: modificar la lista que estamos recorriendo
-numeros = [1, 2, 3, 4, 5]
-for numero in numeros:
-    if numero % 2 == 0:
-        numeros.remove(numero)  # Puede causar saltos de índice y errores
+# ❌ Confuso y propenso a errores
+for i in range(5):
+    print(i)
+    i = 10  # Esto NO afecta la siguiente iteración del for en Python como esperás
+            # En la siguiente vuelta, i tomará el siguiente valor del range
 
-# ✓ Mejor - crear una nueva lista
-numeros = [1, 2, 3, 4, 5]
-impares = []
-for numero in numeros:
-    if numero % 2 != 0:
-        impares.append(numero)
+# ✓ Correcto: Dejar que el for controle la variable o usar while si necesitás control manual
+i = 0
+while i < 5:
+    print(i)
+    if condicion_especial:
+        i = 10  # Acá sí afectás el flujo
+    i += 1
 ```
 
 ---
 
-(buenas-practicas-control)=## Buenas Prácticas
+(buenas-practicas-control)=
+## Buenas Prácticas
 
 ### 1. Nombres Descriptivos para Banderas
 
@@ -1848,7 +1794,7 @@ if edad >= EDAD_MINIMA and edad <= EDAD_MAXIMA:
 
 ---
 
-(uso-ia-control-flujo)=
+(uso-ia-control-flujo)= 
 ## Uso Ético y Efectivo de la IA en Control de Flujo
 
 :::{important} La IA: Tu Asistente de Aprendizaje, No Tu Reemplazo
@@ -1886,7 +1832,6 @@ Antes de pedir ayuda a la IA sobre un ejercicio de {term}`control de flujo`, pre
 1. ¿Cuál es la condición que quiero verificar?
 2. ¿Qué debe pasar si es verdadera? ¿Y si es falsa?
 3. ¿Necesito repetir algo? ¿Cuántas veces? ¿Hasta cuándo?
-4. ¿Qué variables necesito para controlar el flujo?
 
 Si podés responder estas preguntas, **ya sabés cómo resolver el ejercicio**. La IA solo debería ayudarte con detalles de sintaxis o refinamiento.
 
@@ -1898,7 +1843,7 @@ Si podés responder estas preguntas, **ya sabés cómo resolver el ejercicio**. 
 
 ```{mermaid}
 mindmap
-  root((Control de<br/>Flujo))
+  root((Control<br/>de Flujo))
     Condicionales
       if simple
         Una decisión
