@@ -151,7 +151,7 @@ Un algoritmo debe ser:
 
 Antes de diseñar cualquier algoritmo, respondé estas 5 preguntas. **No te saltes este paso.**
 
-```{figure} 00_primeros_pasos/cinco_preguntas.svg
+```{figure} 0_primeros_pasos/cinco_preguntas.svg
 :label: fig-cinco-preguntas
 :align: center
 :width: 95%
@@ -230,7 +230,7 @@ Esta guía es una aplicación directa del {ref}`método de Pólya <polya-compren
 
 Estos son los símbolos fundamentales:
 
-```{figure} 00_primeros_pasos/simbolos_flujo.svg
+```{figure} 0_primeros_pasos/simbolos_flujo.svg
 :label: fig-simbolos-flujo
 :align: center
 :width: 95%
@@ -1372,7 +1372,7 @@ if edad >= 18:
 
 ## 10. Resumen y Consejos Finales
 
-```{figure} 00_primeros_pasos/proceso_completo.svg
+```{figure} 0_primeros_pasos/proceso_completo.svg
 :label: fig-proceso-completo
 :align: center
 :width: 95%

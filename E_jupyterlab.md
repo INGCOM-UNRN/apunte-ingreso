@@ -69,7 +69,7 @@ Una vez que cargue completamente, verás la interfaz principal de JupyterLab. Va
 
 La interfaz de JupyterLab se divide en varias áreas:
 
-```{figure} 7/interfaz_jupyterlab.svg
+```{figure} ./E_jupyterlab/interfaz_jupyterlab.svg
 :label: fig-interfaz-jupyterlab
 :align: center
 :width: 100%
@@ -165,7 +165,7 @@ Una vez abierto un notebook, verás que está compuesto por **celdas**. Cada cel
 
 ### Tipos de Celdas
 
-```{figure} 7/tipos_celdas.svg
+```{figure} ./E_jupyterlab/tipos_celdas.svg
 :label: fig-tipos-celdas
 :align: center
 :width: 90%
@@ -421,7 +421,7 @@ Pensá en el kernel como un intérprete de Python que está corriendo en segundo
 2. Lo ejecuta
 3. Te devuelve el resultado
 
-```{figure} 7/kernel_funcionamiento.svg
+```{figure} ./E_jupyterlab/kernel_funcionamiento.svg
 :label: fig-kernel
 :align: center
 :width: 80%

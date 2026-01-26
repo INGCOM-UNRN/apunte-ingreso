@@ -67,7 +67,7 @@ except ValueError:
 (que-son-excepciones)=
 ## ¿Qué es una Excepción?
 
-```{figure} ./6_excepciones/try_except_flujo.svg
+```{figure} ./B_excepciones/try_except_flujo.svg
 :name: fig-flujo-excepciones
 :align: center
 :width: 90%
@@ -179,7 +179,7 @@ ZeroDivisionError: division by zero         ← Tipo de error + mensaje
 
 Python tiene una familia de excepciones. Conocerlas es como conocer las señales de tránsito.
 
-```{figure} ./6_excepciones/jerarquia_excepciones.svg
+```{figure} ./B_excepciones/jerarquia_excepciones.svg
 :name: fig-jerarquia-excepciones
 :align: center
 :width: 95%
@@ -490,7 +490,7 @@ def calculadora_segura():
 
 Python ofrece 4 cláusulas para control total. Es como tener un plan A, B, C y D:
 
-```{figure} ./6_excepciones/try_except_else_finally.svg
+```{figure} ./B_excepciones/try_except_else_finally.svg
 :name: fig-try-except-else-finally
 :align: center
 :width: 95%
@@ -623,7 +623,7 @@ Nota: `finally` siempre se ejecuta.
 A veces VOS querés lanzar una excepción. Es como decir: "¡Alto! Esto no debería pasar".
 
 ```{figure}
-./6_excepciones/raise_excepcion.svg
+./B_excepciones/raise_excepcion.svg
 :name: fig-raise-excepcion
 :align: center
 :width: 90%

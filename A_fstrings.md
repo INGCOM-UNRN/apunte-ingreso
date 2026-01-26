@@ -94,7 +94,7 @@ mensaje = f"Me llamo {nombre} y tengo {edad} años"
 
 La anatomía de una f-string es simple:
 
-```{figure} 8/fstring_anatomia.svg
+```{figure} ./A_fstrings/fstring_anatomia.svg
 :label: fig-fstring-anatomia
 :align: center
 :width: 90%

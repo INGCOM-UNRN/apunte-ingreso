@@ -29,7 +29,7 @@ project:
     - file: 2_control_flujo.md
     - file: 3_estructuras.md
     - file: 4_funciones.md
-    - file: 0_como_pensar.md
+    - file: 5_como_pensar.md
     - file: A_fstrings.md
     - file: B_excepciones.md
     - file: C_modulos.md
@@ -46,6 +46,7 @@ project:
       - file: enunciados/parsons_python.md
       - file: enunciados/debugging_python.md
       - file: enunciados/escritorio_python.md
+    - file: index.md
     - title: JupyterLab iCOM UNRN
       url: https://ingcom-unrn.github.io/jupyterlite/lab/index.html
     - title: Campus Bimodal
