@@ -1,76 +1,937 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 800 500"
+   version="1.1"
+   id="svg29"
+   sodipodi:docname="slicing.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   width="800"
+   height="500"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs29" />
+  <sodipodi:namedview
+     id="namedview29"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1"
+     inkscape:cx="539.5"
+     inkscape:cy="431.5"
+     inkscape:window-width="1872"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg29" />
   <!-- Título -->
-  <text x="400" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#1565c0">
-    Slicing: lista[inicio:fin:paso]
-  </text>
-  
+  <text
+     x="401.84171"
+     y="33.15509"
+     font-size="24"
+     font-weight="bold"
+     text-anchor="middle"
+     fill="#1565c0"
+     id="text1"
+     style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:28.3339px;font-family:Chivo;-inkscape-font-specification:'Chivo, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#1565c0;stroke-width:1.18058">Slicing: <tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:28.3339px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+   id="tspan52">lista[inicio:fin:paso]</tspan></text>
   <!-- Lista original -->
-  <text x="50" y="70" font-size="16" font-weight="bold" fill="#333">Lista original:</text>
-  <g transform="translate(50, 80)">
-    <rect x="0" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
-    <text x="35" y="30" font-size="14" text-anchor="middle">0</text>
-    <text x="35" y="70" font-size="12" text-anchor="middle" fill="#666">idx 0</text>
-    
-    <rect x="70" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
-    <text x="105" y="30" font-size="14" text-anchor="middle">1</text>
-    <text x="105" y="70" font-size="12" text-anchor="middle" fill="#666">idx 1</text>
-    
-    <rect x="140" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
-    <text x="175" y="30" font-size="14" text-anchor="middle">2</text>
-    <text x="175" y="70" font-size="12" text-anchor="middle" fill="#666">idx 2</text>
-    
-    <rect x="210" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
-    <text x="245" y="30" font-size="14" text-anchor="middle">3</text>
-    <text x="245" y="70" font-size="12" text-anchor="middle" fill="#666">idx 3</text>
-    
-    <rect x="280" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
-    <text x="315" y="30" font-size="14" text-anchor="middle">4</text>
-    <text x="315" y="70" font-size="12" text-anchor="middle" fill="#666">idx 4</text>
-    
-    <rect x="350" y="0" width="70" height="50" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
-    <text x="385" y="30" font-size="14" text-anchor="middle">5</text>
-    <text x="385" y="70" font-size="12" text-anchor="middle" fill="#666">idx 5</text>
-  </g>
-  
   <!-- Ejemplo 1: lista[1:4] -->
-  <g transform="translate(50, 180)">
-    <text x="0" y="0" font-size="16" font-weight="bold" fill="#2e7d32">lista[1:4] →</text>
-    <text x="100" y="0" font-size="14" fill="#666">(desde 1 hasta 4, sin incluir 4)</text>
-    
-    <rect x="70" y="10" width="70" height="50" fill="#c8e6c9" stroke="#2e7d32" stroke-width="3"/>
-    <text x="105" y="40" font-size="14" text-anchor="middle" font-weight="bold">1</text>
-    
-    <rect x="140" y="10" width="70" height="50" fill="#c8e6c9" stroke="#2e7d32" stroke-width="3"/>
-    <text x="175" y="40" font-size="14" text-anchor="middle" font-weight="bold">2</text>
-    
-    <rect x="210" y="10" width="70" height="50" fill="#c8e6c9" stroke="#2e7d32" stroke-width="3"/>
-    <text x="245" y="40" font-size="14" text-anchor="middle" font-weight="bold">3</text>
-    
-    <text x="320" y="40" font-size="16" font-weight="bold" fill="#2e7d32">= [1, 2, 3]</text>
-  </g>
-  
   <!-- Ejemplo 2: lista[::2] -->
-  <g transform="translate(50, 270)">
-    <text x="0" y="0" font-size="16" font-weight="bold" fill="#f57f17">lista[::2] →</text>
-    <text x="100" y="0" font-size="14" fill="#666">(todos, de 2 en 2)</text>
-    
-    <rect x="0" y="10" width="70" height="50" fill="#fff9c4" stroke="#f57f17" stroke-width="3"/>
-    <text x="35" y="40" font-size="14" text-anchor="middle" font-weight="bold">0</text>
-    
-    <rect x="140" y="10" width="70" height="50" fill="#fff9c4" stroke="#f57f17" stroke-width="3"/>
-    <text x="175" y="40" font-size="14" text-anchor="middle" font-weight="bold">2</text>
-    
-    <rect x="280" y="10" width="70" height="50" fill="#fff9c4" stroke="#f57f17" stroke-width="3"/>
-    <text x="315" y="40" font-size="14" text-anchor="middle" font-weight="bold">4</text>
-    
-    <text x="390" y="40" font-size="16" font-weight="bold" fill="#f57f17">= [0, 2, 4]</text>
-  </g>
-  
   <!-- Ejemplo 3: lista[::-1] -->
-  <g transform="translate(50, 360)">
-    <text x="0" y="0" font-size="16" font-weight="bold" fill="#c62828">lista[::-1] →</text>
-    <text x="110" y="0" font-size="14" fill="#666">(todos, al revés)</text>
-    
-    <text x="0" y="30" font-size="16" font-weight="bold" fill="#c62828">= [5, 4, 3, 2, 1, 0]</text>
+  <text
+     x="53.438129"
+     y="83.037567"
+     font-size="16"
+     font-weight="bold"
+     fill="#333"
+     id="text2"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.6582px;font-family:Chivo;-inkscape-font-specification:'Chivo, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700;fill:#333333;stroke-width:1.47864">Lista original:</text>
+  <rect
+     x="56.225822"
+     y="94.569595"
+     width="64.148865"
+     height="64.148872"
+     fill="#e3f2fd"
+     stroke="#1565c0"
+     stroke-width="1.63503"
+     id="rect2"
+     style="stroke-width:2.16858;stroke-dasharray:none" />
+  <text
+     x="88.300255"
+     y="143.13277"
+     font-size="31.9907px"
+     text-anchor="middle"
+     id="text3"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">0</text>
+  <g
+     id="g77">
+    <rect
+       x="56.228893"
+       y="158.71848"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect29"
+       style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+    <text
+       x="88.078674"
+       y="178.02591"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text4"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 0</text>
+  </g>
+  <rect
+     x="125.49226"
+     y="94.569595"
+     width="64.148865"
+     height="64.148872"
+     fill="#e3f2fd"
+     stroke="#1565c0"
+     stroke-width="1.63503"
+     id="rect31"
+     style="stroke-width:2.16858;stroke-dasharray:none" />
+  <text
+     x="157.5667"
+     y="143.13277"
+     font-size="31.9907px"
+     text-anchor="middle"
+     id="text31"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">1</text>
+  <g
+     id="g78">
+    <rect
+       x="125.49533"
+       y="158.71848"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect30"
+       style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+    <text
+       x="157.34511"
+       y="178.02591"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text32"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 1</text>
+  </g>
+  <rect
+     x="194.75871"
+     y="94.569595"
+     width="64.148865"
+     height="64.148872"
+     fill="#e3f2fd"
+     stroke="#1565c0"
+     stroke-width="1.63503"
+     id="rect33"
+     style="stroke-width:2.16858;stroke-dasharray:none" />
+  <text
+     x="226.83313"
+     y="143.13277"
+     font-size="31.9907px"
+     text-anchor="middle"
+     id="text33"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">2</text>
+  <g
+     id="g79">
+    <rect
+       x="194.76176"
+       y="158.71848"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect32"
+       style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+    <text
+       x="226.61154"
+       y="178.02591"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text34"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 2</text>
+  </g>
+  <rect
+     x="264.02515"
+     y="94.569595"
+     width="64.148865"
+     height="64.148872"
+     fill="#e3f2fd"
+     stroke="#1565c0"
+     stroke-width="1.63503"
+     id="rect35"
+     style="stroke-width:2.16858;stroke-dasharray:none" />
+  <text
+     x="296.09958"
+     y="143.13277"
+     font-size="31.9907px"
+     text-anchor="middle"
+     id="text35"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">3</text>
+  <g
+     id="g80">
+    <rect
+       x="264.0282"
+       y="158.71848"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect34"
+       style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+    <text
+       x="295.87799"
+       y="178.02591"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text36"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 3</text>
+  </g>
+  <rect
+     x="333.2916"
+     y="94.569595"
+     width="64.148865"
+     height="64.148872"
+     fill="#e3f2fd"
+     stroke="#1565c0"
+     stroke-width="1.63503"
+     id="rect40"
+     style="stroke-width:2.16858;stroke-dasharray:none" />
+  <text
+     x="365.36603"
+     y="143.13277"
+     font-size="31.9907px"
+     text-anchor="middle"
+     id="text40"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">4</text>
+  <g
+     id="g81">
+    <rect
+       x="333.29465"
+       y="158.71848"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect39"
+       style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+    <text
+       x="365.14441"
+       y="178.02591"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text41"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 4</text>
+  </g>
+  <rect
+     x="402.55801"
+     y="94.569595"
+     width="64.148865"
+     height="64.148872"
+     fill="#e3f2fd"
+     stroke="#1565c0"
+     stroke-width="1.63503"
+     id="rect42"
+     style="stroke-width:2.16858;stroke-dasharray:none" />
+  <text
+     x="434.63245"
+     y="143.13277"
+     font-size="31.9907px"
+     text-anchor="middle"
+     id="text42"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">5</text>
+  <g
+     id="g82">
+    <rect
+       x="402.5611"
+       y="158.71848"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect41"
+       style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+    <text
+       x="434.41086"
+       y="178.02591"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text43"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 5</text>
+  </g>
+  <rect
+     x="471.82446"
+     y="94.569595"
+     width="64.148865"
+     height="64.148872"
+     fill="#e3f2fd"
+     stroke="#1565c0"
+     stroke-width="1.63503"
+     id="rect44"
+     style="stroke-width:2.16858;stroke-dasharray:none" />
+  <text
+     x="503.8989"
+     y="143.13277"
+     font-size="31.9907px"
+     text-anchor="middle"
+     id="text44"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">6</text>
+  <g
+     id="g83">
+    <rect
+       x="471.82751"
+       y="158.71848"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect43"
+       style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+    <text
+       x="503.67731"
+       y="178.02591"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text45"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 6</text>
+  </g>
+  <rect
+     x="541.09088"
+     y="94.569595"
+     width="64.148865"
+     height="64.148872"
+     fill="#e3f2fd"
+     stroke="#1565c0"
+     stroke-width="1.63503"
+     id="rect46"
+     style="stroke-width:2.16858;stroke-dasharray:none" />
+  <text
+     x="573.16534"
+     y="143.13277"
+     font-size="31.9907px"
+     text-anchor="middle"
+     id="text46"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">7</text>
+  <g
+     id="g84">
+    <rect
+       x="541.09393"
+       y="158.71848"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect45"
+       style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+    <text
+       x="572.94373"
+       y="178.02591"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text47"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 7</text>
+  </g>
+  <rect
+     x="610.35736"
+     y="94.569595"
+     width="64.148865"
+     height="64.148872"
+     fill="#e3f2fd"
+     stroke="#1565c0"
+     stroke-width="1.63503"
+     id="rect48"
+     style="stroke-width:2.16858;stroke-dasharray:none" />
+  <text
+     x="642.43176"
+     y="143.13277"
+     font-size="31.9907px"
+     text-anchor="middle"
+     id="text48"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">8</text>
+  <g
+     id="g85">
+    <rect
+       x="610.36041"
+       y="158.71848"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect47"
+       style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+    <text
+       x="642.21021"
+       y="178.02591"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text49"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 8</text>
+  </g>
+  <rect
+     x="679.62378"
+     y="94.569595"
+     width="64.148865"
+     height="64.148872"
+     fill="#e3f2fd"
+     stroke="#1565c0"
+     stroke-width="1.63503"
+     id="rect50"
+     style="stroke-width:2.16858;stroke-dasharray:none" />
+  <text
+     x="711.69818"
+     y="143.13277"
+     font-size="31.9907px"
+     text-anchor="middle"
+     id="text50"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">9</text>
+  <g
+     id="g86">
+    <rect
+       x="679.62683"
+       y="158.71848"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect49"
+       style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+    <text
+       x="711.47662"
+       y="178.02591"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text51"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 9</text>
+  </g>
+  <text
+     x="60.029121"
+     y="287.23154"
+     font-size="16"
+     font-weight="bold"
+     fill="#333"
+     id="text56"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.6582px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700;fill:#333333;stroke-width:1.47864">lista[1:4] =</text>
+  <text
+     x="60.029121"
+     y="428.0209"
+     font-size="16"
+     font-weight="bold"
+     fill="#333"
+     id="text63"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.6582px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700;fill:#333333;stroke-width:1.47864">lista[::2] =</text>
+  <g
+     id="g96">
+    <rect
+       x="264.02515"
+       y="221.61815"
+       width="64.148865"
+       height="64.148872"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="1.63503"
+       id="rect57"
+       style="fill:#c8e6c9;fill-opacity:1;stroke:#2e7d32;stroke-width:2.16858;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       x="264.0282"
+       y="285.76703"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect56"
+       style="fill:#2e7d32;fill-opacity:1;stroke:#2e7d32;stroke-width:2.17171;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       x="296.09958"
+       y="270.1813"
+       font-size="31.9907px"
+       text-anchor="middle"
+       id="text57"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">1</text>
+    <text
+       x="295.87799"
+       y="305.07446"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text58"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 0</text>
+    <g
+       id="g87"
+       transform="translate(138.53287,153.57556)">
+      <rect
+         x="125.49533"
+         y="158.71848"
+         width="64.14579"
+         height="24.355291"
+         fill="#e3f2fd"
+         stroke="#1565c0"
+         stroke-width="0.981615"
+         id="rect86"
+         style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+      <text
+         x="157.34511"
+         y="178.02591"
+         font-size="12px"
+         text-anchor="middle"
+         fill="#666666"
+         id="text86"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 1</text>
+    </g>
+  </g>
+  <g
+     id="g97">
+    <rect
+       x="333.2916"
+       y="221.61815"
+       width="64.148865"
+       height="64.148872"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="1.63503"
+       id="rect59"
+       style="fill:#c8e6c9;fill-opacity:1;stroke:#2e7d32;stroke-width:2.16858;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       x="333.29465"
+       y="285.76703"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect58"
+       style="fill:#2e7d32;fill-opacity:1;stroke:#2e7d32;stroke-width:2.17171;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       x="365.36603"
+       y="270.1813"
+       font-size="31.9907px"
+       text-anchor="middle"
+       id="text59"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">2</text>
+    <text
+       x="365.14444"
+       y="305.07446"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text60"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 1</text>
+    <g
+       id="g88"
+       transform="translate(138.53287,153.57556)">
+      <rect
+         x="194.76176"
+         y="158.71848"
+         width="64.14579"
+         height="24.355291"
+         fill="#e3f2fd"
+         stroke="#1565c0"
+         stroke-width="0.981615"
+         id="rect87"
+         style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+      <text
+         x="226.61154"
+         y="178.02591"
+         font-size="12px"
+         text-anchor="middle"
+         fill="#666666"
+         id="text87"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 2</text>
+    </g>
+  </g>
+  <g
+     id="g98">
+    <g
+       id="g95">
+      <rect
+         x="402.55801"
+         y="221.61815"
+         width="64.148865"
+         height="64.148872"
+         fill="#e3f2fd"
+         stroke="#1565c0"
+         stroke-width="1.63503"
+         id="rect61"
+         style="fill:#c8e6c9;fill-opacity:1;stroke:#2e7d32;stroke-width:2.16858;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <rect
+       x="402.5611"
+       y="285.76703"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect60"
+       style="fill:#2e7d32;fill-opacity:1;stroke:#2e7d32;stroke-width:2.17171;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       x="434.63245"
+       y="270.1813"
+       font-size="31.9907px"
+       text-anchor="middle"
+       id="text61"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">3</text>
+    <text
+       x="434.41086"
+       y="305.07446"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text62"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 2</text>
+    <g
+       id="g89"
+       transform="translate(138.53287,153.57556)">
+      <rect
+         x="264.0282"
+         y="158.71848"
+         width="64.14579"
+         height="24.355291"
+         fill="#e3f2fd"
+         stroke="#1565c0"
+         stroke-width="0.981615"
+         id="rect88"
+         style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+      <text
+         x="295.87799"
+         y="178.02591"
+         font-size="12px"
+         text-anchor="middle"
+         fill="#666666"
+         id="text88"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 3</text>
+    </g>
+  </g>
+  <g
+     id="g99">
+    <rect
+       x="264.02823"
+       y="426.5564"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect63"
+       style="fill:#f57f17;fill-opacity:1;stroke:#f57f17;stroke-width:2.17171;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       x="264.02515"
+       y="362.4075"
+       width="64.148865"
+       height="64.148872"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="1.63503"
+       id="rect64"
+       style="fill:#fff9c4;fill-opacity:1;stroke:#f57f17;stroke-width:2.16858;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       x="296.09958"
+       y="410.97067"
+       font-size="31.9907px"
+       text-anchor="middle"
+       id="text64"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">0</text>
+    <text
+       x="295.87799"
+       y="445.86383"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text65"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 0</text>
+    <g
+       id="g90"
+       transform="translate(207.79934,294.36493)">
+      <rect
+         x="56.228893"
+         y="158.71848"
+         width="64.14579"
+         height="24.355291"
+         fill="#e3f2fd"
+         stroke="#1565c0"
+         stroke-width="0.981615"
+         id="rect89"
+         style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+      <text
+         x="88.078674"
+         y="178.02591"
+         font-size="12px"
+         text-anchor="middle"
+         fill="#666666"
+         id="text89"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 0</text>
+    </g>
+  </g>
+  <g
+     id="g100">
+    <rect
+       x="333.29465"
+       y="426.5564"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect65"
+       style="fill:#f57f17;fill-opacity:1;stroke:#f57f17;stroke-width:2.17171;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       x="333.2916"
+       y="362.4075"
+       width="64.148865"
+       height="64.148872"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="1.63503"
+       id="rect66"
+       style="fill:#fff9c4;fill-opacity:1;stroke:#f57f17;stroke-width:2.16858;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       x="365.36603"
+       y="410.97067"
+       font-size="31.9907px"
+       text-anchor="middle"
+       id="text66"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">2</text>
+    <text
+       x="365.14444"
+       y="445.86383"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text67"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 1</text>
+    <g
+       id="g91"
+       transform="translate(138.53288,294.36493)">
+      <rect
+         x="194.76176"
+         y="158.71848"
+         width="64.14579"
+         height="24.355291"
+         fill="#e3f2fd"
+         stroke="#1565c0"
+         stroke-width="0.981615"
+         id="rect90"
+         style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+      <text
+         x="226.61154"
+         y="178.02591"
+         font-size="12px"
+         text-anchor="middle"
+         fill="#666666"
+         id="text90"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 2</text>
+    </g>
+  </g>
+  <g
+     id="g101">
+    <rect
+       x="402.5611"
+       y="426.5564"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect67"
+       style="fill:#f57f17;fill-opacity:1;stroke:#f57f17;stroke-width:2.17171;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       x="402.55801"
+       y="362.4075"
+       width="64.148865"
+       height="64.148872"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="1.63503"
+       id="rect68"
+       style="fill:#fff9c4;fill-opacity:1;stroke:#f57f17;stroke-width:2.16858;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       x="434.63245"
+       y="410.97067"
+       font-size="31.9907px"
+       text-anchor="middle"
+       id="text68"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">4</text>
+    <text
+       x="434.41086"
+       y="445.86383"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text69"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 2</text>
+    <g
+       id="g92"
+       transform="translate(69.266449,294.36493)">
+      <rect
+         x="333.29465"
+         y="158.71848"
+         width="64.14579"
+         height="24.355291"
+         fill="#e3f2fd"
+         stroke="#1565c0"
+         stroke-width="0.981615"
+         id="rect91"
+         style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+      <text
+         x="365.14441"
+         y="178.02591"
+         font-size="12px"
+         text-anchor="middle"
+         fill="#666666"
+         id="text91"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 4</text>
+    </g>
+  </g>
+  <g
+     id="g102">
+    <rect
+       x="471.82751"
+       y="426.5564"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect69"
+       style="fill:#f57f17;fill-opacity:1;stroke:#f57f17;stroke-width:2.17171;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       x="471.82446"
+       y="362.4075"
+       width="64.148865"
+       height="64.148872"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="1.63503"
+       id="rect70"
+       style="fill:#fff9c4;fill-opacity:1;stroke:#f57f17;stroke-width:2.16858;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       x="503.8989"
+       y="410.97067"
+       font-size="31.9907px"
+       text-anchor="middle"
+       id="text70"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">6</text>
+    <text
+       x="503.67731"
+       y="445.86383"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text71"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 3</text>
+    <g
+       id="g93"
+       transform="translate(0,294.36493)">
+      <rect
+         x="471.82751"
+         y="158.71848"
+         width="64.14579"
+         height="24.355291"
+         fill="#e3f2fd"
+         stroke="#1565c0"
+         stroke-width="0.981615"
+         id="rect92"
+         style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+      <text
+         x="503.67731"
+         y="178.02591"
+         font-size="12px"
+         text-anchor="middle"
+         fill="#666666"
+         id="text92"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 6</text>
+    </g>
+  </g>
+  <g
+     id="g103">
+    <rect
+       x="541.09393"
+       y="426.5564"
+       width="64.14579"
+       height="24.355291"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="0.981615"
+       id="rect71"
+       style="fill:#f57f17;fill-opacity:1;stroke:#f57f17;stroke-width:2.17171;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       x="541.09088"
+       y="362.4075"
+       width="64.148865"
+       height="64.148872"
+       fill="#e3f2fd"
+       stroke="#1565c0"
+       stroke-width="1.63503"
+       id="rect72"
+       style="fill:#fff9c4;fill-opacity:1;stroke:#f57f17;stroke-width:2.16858;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       x="573.16534"
+       y="410.97067"
+       font-size="31.9907px"
+       text-anchor="middle"
+       id="text72"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.4309px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;stroke-width:3.03078">8</text>
+    <text
+       x="572.94373"
+       y="445.86383"
+       font-size="12px"
+       text-anchor="middle"
+       fill="#666666"
+       id="text73"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 4</text>
+    <g
+       id="g94"
+       transform="translate(-69.266479,294.36493)">
+      <rect
+         x="610.36041"
+         y="158.71848"
+         width="64.14579"
+         height="24.355291"
+         fill="#e3f2fd"
+         stroke="#1565c0"
+         stroke-width="0.981615"
+         id="rect93"
+         style="fill:#1565c0;fill-opacity:1;stroke-width:2.17171;stroke-dasharray:none" />
+      <text
+         x="642.21021"
+         y="178.02591"
+         font-size="12px"
+         text-anchor="middle"
+         fill="#666666"
+         id="text93"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.4008px;font-family:Lato;-inkscape-font-specification:'Lato, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.61673">idx 8</text>
+    </g>
   </g>
 </svg>

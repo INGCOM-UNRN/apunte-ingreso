@@ -13,8 +13,7 @@ subtitle: Listas, tuplas, diccionarios, sets y strings avanzados en Python.
 
 Hasta ahora trabajaste con **una cosa a la vez**: un número, un texto, un booleano. Pero imaginate estos escenarios:
 
-::::{admonition} Problema Real
-:class: tip
+::::{tip} Problema Real
 
 **Sin estructuras de datos:**
 ```python
@@ -119,15 +118,6 @@ graph TD
     style F fill:#b3e5fc
 ```
 
-
-```{figure} ./3_estructuras/cuando_usar_que.svg
-:name: fig-cuando-usar-que
-:align: center
-:width: 100%
-
-Guía rápida para elegir la estructura de datos correcta según tus necesidades
-```
-
 ---
 
 ### Analogía del Mundo Real 
@@ -188,9 +178,7 @@ Al finalizar este capítulo, podrás usar:
 
 ### Comparación Visual: ¿Cuál Elegir?
 
-![Comparación de Estructuras](./3_estructuras/estructuras_comparacion.svg)
-
-:::{tip} Regla de Oro
+:::{tip} Re gla de Oro
 - **¿Cambia?** → Lista.
 - **¿No cambia?** → Tupla.
 - **¿Tiene etiquetas?** → Diccionario.
@@ -260,8 +248,7 @@ Una **lista** es como una **fila de cajitas** donde podés guardar cosas. Caract
 - **Versátil:** Puede contener cualquier tipo de dato.
 - **Duplicados:** Puede tener elementos repetidos.
 
-::::{admonition} Analogía: Lista de Compras
-:class: tip
+::::{tip} Analogía: Lista de Compras
 
 Una lista de Python es como tu lista del supermercado:
 
@@ -339,10 +326,9 @@ En Python, **¡contamos desde 0!** No desde 1.
 El **primer** elemento está en la posición **0**.
 :::
 
-::::{admonition} Analogía: Los Pisos del Edificio
-:class: tip
+::::{tip} Analogía: Los Pisos del Edificio
 
-En algunos países (como USA), los edificios se numeran así:
+En algunos países, los edificios se numeran así:
 - Planta Baja = Piso 0
 - Primer Piso = Piso 1
 - Segundo Piso = Piso 2
@@ -363,7 +349,7 @@ Para llegar al Lobby (planta baja), pedís `pisos[0]`.
 ![Índices de Lista](./3_estructuras/lista_indices.svg)
 
 ```{code-cell} ipython3
-frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja", "🍐 pera"]
+frutas = ["🍎", "🍌", "🍊", "🍐"]
 
 # Índices POSITIVOS (de izquierda a derecha)
 print(f"Primera fruta: {frutas[0]}")   # 🍎 manzana
@@ -455,8 +441,7 @@ else:
 
 **Slicing** (rebanado) es como cortar una torta: tomás un pedazo (sub-lista) de la lista original.
 
-::::{admonition} Analogía: Torta con 10 Rebanadas
-:class: tip
+::::{admtiponition} Analogía: Torta con 10 Rebanadas
 
 Imaginate una torta con 10 rebanadas numeradas del 0 al 9:
 
@@ -470,6 +455,8 @@ torta = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 - "Dame las últimas 2" → `torta[-2:]` = `[8, 9]`
 - "Dame de 2 en 2" → `torta[::2]` = `[0, 2, 4, 6, 8]`
 ::::
+
+El slicing crea una lista nueva con los elementos de la lista original en las posiciones que le indiquemos.
 
 ---
 
@@ -640,8 +627,7 @@ print("Bien [5:2:-1]:", numeros[5:2:-1])  # [5, 4, 3]
 
 #### ¿Qué Significa Mutable?
 
-::::{admonition} Analogía: Lista de Papel vs Piedra
-:class: tip
+::::{tip} Analogía: Lista de Papel vs Piedra
 
 **Lista Python = Lista de papel:**
 - Podés **tachar** cosas (eliminar).
@@ -669,16 +655,16 @@ coordenadas[0] = 15  # ✗ ERROR: no se puede
 #### Formas de Modificar
 
 ```{code-cell} ipython3
-frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja"]
+frutas = ["manzana", "banana", "naranja"]
 
 print("Original:", frutas)
 
 # 1️⃣ Modificar UN elemento por índice
-frutas[1] = "🍐 pera"
+frutas[1] = "pera"
 print("Después de [1]='pera':", frutas)
 
 # 2️⃣ Modificar VARIOS elementos con slice
-frutas[0:2] = ["🥝 kiwi", "🍇 uva"]
+frutas[0:2] = ["kiwi", "uva"]
 print("Después de [0:2]=['kiwi','uva']:", frutas)
 
 # 3️⃣ Reemplazar con diferente cantidad
@@ -757,24 +743,15 @@ print("Después de eliminar [3:6]:", numeros)  # [0, 1, 2, 6, 7, 8, 9]
 
 ---
 
-### Métodos de Listas: Tu Caja de Herramientas 🧰
+### Métodos de Listas: Tu Caja de Herramientas
 
-Las listas tienen **métodos integrados** (funciones especiales) que facilitan operaciones comunes.
-
-```{figure} ./3_estructuras/lista_metodos.svg
-:name: fig-lista-metodos
-:align: center
-:width: 90%
-
-Resumen visual de los métodos más importantes de listas en Python
-```
+Las listas tienen **métodos** (funciones integradas) que facilitan operaciones comunes.
 
 ---
 
-#### 📥 Agregar Elementos
+#### Agregar Elementos
 
-::::{admonition} Analogía: Agregar a una Fila
-:class: tip
+::::{tip} Analogía: Agregar a una Fila
 
 Imaginate una fila de personas esperando:
 
@@ -785,19 +762,19 @@ Imaginate una fila de personas esperando:
 
 ```{code-cell} ipython3
 # Lista inicial
-frutas = ["🍎 manzana", "🍌 banana"]
+frutas = ["manzana", "banana"]
 print("Inicial:", frutas)
 
 # 1️⃣ append(elemento) - agrega UN elemento al final
-frutas.append("🍊 naranja")
+frutas.append("naranja")
 print("Después de append:", frutas)
 
 # 2️⃣ insert(índice, elemento) - inserta en posición específica
-frutas.insert(1, "🍐 pera")  # Inserta en posición 1
+frutas.insert(1, "pera")  # Inserta en posición 1
 print("Después de insert(1):", frutas)
 
 # 3️⃣ extend(iterable) - agrega VARIOS elementos al final
-frutas.extend(["🥝 kiwi", "🍇 uva"])
+frutas.extend(["kiwi", "uva"])
 print("Después de extend:", frutas)
 ```
 
@@ -918,8 +895,7 @@ print("insert(1000, 70):", numeros)  # Se agrega al final
 
 #### Eliminar Elementos
 
-::::{admonition} Analogía: Sacar de la Fila
-:class: tip
+::::{tip} Analogía: Sacar de la Fila
 
 Hay 4 formas de sacar a alguien de la fila:
 
@@ -967,7 +943,7 @@ else:
 ##### `pop()`: Eliminar y Obtener el Elemento
 
 ```{code-cell} ipython3
-pila_libros = ["📕 libro1", "📗 libro2", "📘 libro3", "📙 libro4"]
+pila_libros = ["libro1", "libro2", "libro3", "libro4"]
 print("Pila inicial:", pila_libros)
 
 # 1️⃣ pop() sin argumentos - elimina y retorna el ÚLTIMO
@@ -1099,12 +1075,11 @@ graph TD
 
 #### Búsqueda y Conteo
 
-::::{admonition} Analogía: Buscar en la Biblioteca
-:class: tip
+::::{tip} Analogía: Buscar en la Biblioteca
 
-**count()** = ¿Cuántos libros de Harry Potter tenés?  
-**index()** = ¿En qué estante está Harry Potter?  
-**in** = ¿Tenés Harry Potter? (Sí/No).
+**`count()`** = ¿Cuántos libros de Harry Potter tenés?
+**`index()`** = ¿En qué estante está Harry Potter?
+**`in`** = ¿Tenés Harry Potter? (Sí/No).
 ::::
 
 ---
@@ -1204,23 +1179,23 @@ lista.index(valor, inicio, fin) # Busca en rango [inicio:fin)
 Esta palabra reservada nos indica si un valor se encuentra o no en la secuencia.
 
 ```{code-cell} ipython3
-colores = ["🔴 rojo", "🟢 verde", "🔵 azul"]
+colores = ["rojo", "verde", "azul"]
 
 # Operador 'in' - retorna True/False
-print("¿Está rojo?", "🔴 rojo" in colores)      # True
-print("¿Está amarillo?", "🟡 amarillo" in colores)  # False
+print("¿Está rojo?", "rojo" in colores)      # True
+print("¿Está amarillo?", "amarillo" in colores)  # False
 
 # Operador 'not in'
-print("¿No está amarillo?", "🟡 amarillo" not in colores)  # True
+print("¿No está amarillo?", "amarillo" not in colores)  # True
 ```
 
 **Uso práctico con `if`:**
 
 ```{code-cell} ipython3
-lista_compras = ["🥖 pan", "🥛 leche", "🥚 huevos"]
+lista_compras = ["pan", "leche", "huevos"]
 
 # Agregar solo si no existe
-nueva_compra = "🥖 pan"
+nueva_compra = "pan"
 if nueva_compra not in lista_compras:
     lista_compras.append(nueva_compra)
     print(f"✓ Agregado: {nueva_compra}")
@@ -1228,7 +1203,7 @@ else:
     print(f"Ya estaba: {nueva_compra}")
 
 # Eliminar solo si existe
-item_a_borrar = "🥛 leche"
+item_a_borrar = "leche"
 if item_a_borrar in lista_compras:
     lista_compras.remove(item_a_borrar)
     print(f"✓ Eliminado: {item_a_borrar}")
@@ -1258,8 +1233,7 @@ print(f"10 in lista: {10 in lista}")        # False
 
 #### Ordenamiento y Reversión
 
-::::{admonition} Analogía: Ordenar Cartas
-:class: tip
+::::{tip} Analogía: Ordenar Cartas
 
 **`sort()`** = Reordenar tu mano de cartas (modifica tu mano).  
 **`sorted()`** = Copiar las cartas y ordenar la copia (tu mano original no cambia).  
@@ -1542,8 +1516,7 @@ print(f"¿Todos True? {all(booleanos)}")   # False
 
 ### Iterar sobre Listas: Las 3 Formas
 
-::::{admonition} Analogía: Recorrer una Fila
-:class: tip
+::::{tip} Analogía: Recorrer una Fila
 
 Imaginate que tenés que saludar a cada persona en una fila:
 
@@ -1681,8 +1654,7 @@ for i, tarea in enumerate(tareas, start=1):
 
 ###  Listas Anidadas: Listas Dentro de Listas
 
-::::{admonition} Analogía: Estante con Cajas
-:class: tip
+::::{tip} Analogía: Estante con Cajas
 
 Una **lista {term}`anidada <Anidado>`** es como un estante con cajas, donde cada caja tiene cosas adentro:
 
@@ -1698,14 +1670,6 @@ Para sacar algo:
 1. Elegís la **caja** (primera dimensión): `estante[1]` → caja de verduras (`["🥕", "🥔", "🥦"]`).
 2. Elegís el **ítem** en la caja (segunda dimensión): `estante[1][0]` → 🥕.
 ::::
-
-```{figure} ./3_estructuras/lista_anidada.svg
-:name: fig-lista-anidada
-:align: center
-:width: 95%
-
-Visualización de listas anidadas: desde la analogía del estante hasta matrices numéricas
-```
 
 ---
 
@@ -2061,30 +2025,6 @@ graph TD
     style E3 fill:#e1bee7
 ```
 
----
-
-#### Complejidad Temporal (Big O)
-
-| Operación | Complejidad | Explicación |
-|-----------|-------------|-------------|
-| `lista[i]` | O(1) | Acceso directo por índice |
-| `lista.append(x)` | O(1) | Agregar al final |
-| `lista.insert(0, x)` | O(n) | Debe mover todos los elementos |
-| `lista.pop()` | O(1) | Eliminar último |
-| `lista.pop(0)` | O(n) | Eliminar primero, debe mover todos |
-| `lista.remove(x)` | O(n) | Debe buscar el elemento |
-| `x in lista` | O(n) | Debe buscar en toda la lista |
-| `lista.sort()` | O(n log n) | Algoritmo eficiente de ordenamiento |
-| `lista.reverse()` | O(n) | Recorre toda la lista |
-| `lista.copy()` | O(n) | Copia todos los elementos |
-
-:::{tip} Consejos de Rendimiento
-- **Agregar al final:** Usa `append()` (rápido).
-- **Agregar al principio:** Considera usar `collections.deque` si lo hacés frecuentemente.
-- **Eliminar del final:** Usa `pop()` (rápido).
-- **Eliminar del principio:** Considera `collections.deque`.
-- **Buscar elementos:** Si hacés muchas búsquedas, considera usar `set` o `dict`.
-:::
 
 ---
 
@@ -2102,8 +2042,7 @@ Visualización de cómo Python maneja referencias y memoria para tipos mutables 
 
 #### El Problema de las Referencias Compartidas
 
-::::{admonition} Analogía: Documento Compartido
-:class: warning
+::::{warning} Analogía: Documento Compartido
 
 Imaginate que vos y un amigo están editando el **mismo documento** de Google Docs (no una copia, el mismo archivo):
 
@@ -2117,7 +2056,7 @@ Esto es lo que pasa con listas cuando hacés `lista2 = lista1`:
 ```{code-cell} ipython3
 # CUIDADO: Esto NO crea una copia
 lista1 = [1, 2, 3]
-lista2 = lista1  # lista2 apunta al MISMO objeto que lista1
+lista2 = lista1  # lista2 apunta a la MISMA lista que lista1
 
 print("Antes de modificar:")
 print("lista1:", lista1)  # [1, 2, 3]
@@ -2239,8 +2178,7 @@ lista_b[0] = 999   # lista_a también cambió a [999, 2, 3]
 
 Una **tupla** es como una lista, pero **{term}`inmutable`** (no se puede cambiar después de crear).
 
-::::{admonition} Analogía: Lista vs Tupla
-:class: tip
+::::{tip} Analogía: Lista vs Tupla
 
 **Lista = Playlist de Spotify:**
 - Podés agregar canciones.
@@ -2268,8 +2206,6 @@ dvd[0] = "Otra canción"  # ✗ ERROR
 ---
 
 ### Comparación Visual: Lista vs Tupla
-
-![Lista vs Tupla](./3_estructuras/lista_vs_tupla.svg)
 
 | Característica | Lista `[]` | Tupla `()` |
 |----------------|------------|------------|
@@ -2394,8 +2330,7 @@ Lo que **NO funciona** son operaciones de **escritura**:
 
 ### Inmutabilidad: El Poder de "No Cambiar" 
 
-::::{admonition} Analogía: Tatuaje vs Sticker
-:class: tip
+::::{tip} Analogía: Tatuaje vs Sticker
 
 **Lista = Sticker:**
 - Podés pegar otro encima.
@@ -2582,8 +2517,7 @@ print(f"Segundo 3 está en posición {segunda_pos}")
 
 El {term}`desempaquetado` (unpacking) es una característica poderosa que permite extraer los elementos de una tupla en variables individuales.
 
-::::{admonition} Analogía: Desempacar una Caja
-:class: tip
+::::{tip} Analogía: Desempacar una Caja
 
 Imaginate que recibís una caja con 3 regalos:
 
@@ -2598,14 +2532,6 @@ regalo1, regalo2, regalo3 = caja
 # Ahora tenés 3 variables separadas
 ```
 ::::
-
-```{figure} ./3_estructuras/tupla_unpacking.svg
-:name: fig-tupla-unpacking
-:align: center
-:width: 90%
-
-Visualización del desempaquetado de tuplas: desde lo básico hasta casos avanzados
-```
 
 ---
 
@@ -2997,14 +2923,6 @@ print(estudiante)   # {"nombre": "Ana"}
 
 Los diccionarios en Python tienen métodos poderosos para acceder, modificar y consultar datos de forma segura y eficiente.
 
-```{figure} ./3_estructuras/dict_metodos.svg
-:name: fig-dict-metodos
-:align: center
-:width: 95%
-
-Métodos esenciales de diccionarios con ejemplos prácticos de uso
-```
-
 ```{code-cell} ipython3
 estudiante = {
     "nombre": "Ana",
@@ -3283,14 +3201,6 @@ print(sin_duplicados)  # [1, 2, 3, 4, 5]
 ## Strings Avanzados
 
 Ya viste strings en el capítulo de fundamentos. Ahora exploraremos métodos y operaciones más avanzadas.
-
-```{figure} ./3_estructuras/string_metodos.svg
-:name: fig-string-metodos
-:align: center
-:width: 95%
-
-Catálogo completo de métodos de strings organizados por categoría
-```
 
 ### Métodos de Búsqueda
 
