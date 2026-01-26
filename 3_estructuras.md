@@ -1,4 +1,4 @@
----
+--- 
 title: Estructuras de Datos
 short_title: 3 - Estructuras de Datos
 subtitle: Listas, tuplas, diccionarios, sets y strings avanzados en Python.
@@ -11,7 +11,7 @@ subtitle: Listas, tuplas, diccionarios, sets y strings avanzados en Python.
 
 ### ¿Por qué Necesitamos Estructuras de Datos?
 
-Hasta ahora trabajaste con **una cosa a la vez**: un número, un texto, un booleano. Pero imaginate estos escenarios:
+Hasta ahora trabajaste con **una cosa a la vez**: un número, un texto, un booleano. Pero en la vida real, los datos raramente vienen solos; vienen en grupos, listas o conjuntos. Imaginate tener que manejar la información de cientos de usuarios. Sin estructuras de datos, tendrías que crear cientos de variables individuales, lo cual sería inmanejable. Las estructuras de datos nos permiten organizar y manipular estos conjuntos de información de manera eficiente.
 
 ::::{tip} Problema Real
 
@@ -29,7 +29,7 @@ estudiante4 = "Diana"
 estudiantes = ["Ana", "Bruno", "Carlos", "Diana"]  # ¡Y podés agregar más!
 ```
 
-¿Ves la diferencia? En lugar de 1000 variables, tenés **1 lista**.
+¿Ves la diferencia? En lugar de 1000 variables sueltas, tenés **1 lista** ordenada que las contiene a todas.
 ::::
 
 ---
@@ -95,7 +95,6 @@ mindmap
 
 
 
-
 ```{mermaid}
 graph TD
     A[Estructuras<br/>de Datos] --> B[LISTAS]
@@ -121,6 +120,8 @@ graph TD
 ---
 
 ### Analogía del Mundo Real 
+
+Para entender mejor cómo funcionan las estructuras de datos, pensemos en cómo organizamos objetos físicos. La diferencia entre tener datos sueltos y tenerlos estructurados es como la diferencia entre llevar objetos en la mano o usar una mochila organizada.
 
 :::::{grid} 1 1 2 2
 
@@ -178,7 +179,9 @@ Al finalizar este capítulo, podrás usar:
 
 ### Comparación Visual: ¿Cuál Elegir?
 
-:::{tip} Re gla de Oro
+Elegir la estructura correcta es la decisión más importante que vas a tomar al diseñar tu programa. Esta regla de oro simplifica la elección basándose en las características principales de tus datos: si cambian o no, y cómo necesitás acceder a ellos.
+
+:::{tip} Regla de Oro
 - **¿Cambia?** → Lista.
 - **¿No cambia?** → Tupla.
 - **¿Tiene etiquetas?** → Diccionario.
@@ -239,12 +242,14 @@ tags = {"python", "tutorial", "datos"}
 
 ---
 
-(listas)=
+(listas)= 
 ## Listas: Tu Colección Ordenada 
 
 ### ¿Qué es una Lista?
 
-Una **lista** es como una **fila de cajitas** donde podés guardar cosas. Características:
+Una **lista** es la estructura de datos más versátil y utilizada en Python. Pensala como una **fila de cajitas** numeradas donde podés guardar cualquier tipo de objeto. Lo más importante de las listas es que son **ordenadas** (mantienen el orden en que ponés las cosas) y **mutables** (podés cambiarlas después de crearlas).
+
+Características principales:
 - **Ordenada:** Cada cosa tiene su posición (0, 1, 2...).
 - **{term}`mutable`:** Podés cambiar, agregar o quitar elementos.
 - **Versátil:** Puede contener cualquier tipo de dato.
@@ -289,12 +294,7 @@ print(f"Una lista puede tener {len(mixta)} tipos diferentes!")
 ```
 
 :::{note} Listas con Diferentes Tipos
-Python es **flexible**. Una lista puede contener:
-- Números: `[1, 2, 3]`.
-- Strings: `["a", "b", "c"]`.
-- Booleans: `[True, False, True]`.
-- Otras listas: `[[1, 2], [3, 4]]` (lista de listas).
-- Mezclados: `[1, "texto", True, 3.14]`.
+Python es **flexible**. Una lista puede contener números, strings, booleanos, e incluso otras listas (listas anidadas).
 
 **Tip:** En la práctica, generalmente usás un solo tipo por lista para que sea más fácil de procesar.
 :::
@@ -318,7 +318,7 @@ print(f"El arcoíris tiene {len(colores_arcoiris)} colores")
 
 ### Acceso a Elementos: Los Índices 
 
-Cuando tratamos el acceso de los elementos de una cadena en el apunte anterior, lo mencionamos de la forma más simple, Python admite que los índices tengan valores, que al principio, no son intuitivos, pero son muy potentes.
+Para trabajar con los elementos de una lista, necesitamos una forma de referirnos a cada uno de ellos. Python utiliza **índices**, que son números enteros que representan la posición de cada elemento.
 
 #### La Regla del Índice 0
 
@@ -348,6 +348,8 @@ Para llegar al Lobby (planta baja), pedís `pisos[0]`.
 
 #### Índices Positivos y Negativos
 
+Además de contar desde el principio (0, 1, 2...), Python tiene una característica muy útil: permite contar desde el final hacia atrás usando números negativos. El -1 es el último elemento, el -2 el penúltimo, y así sucesivamente.
+
 ![Índices de Lista](./3_estructuras/lista_indices.svg)
 
 ```{code-cell} ipython3
@@ -370,15 +372,7 @@ print(f"Primera (con -4): {frutas[-4]}") # 🍎 manzana
 
 :::{tip} ¿Cuándo usar índices negativos?
 **Índices positivos:** Cuando sabés la posición exacta desde el inicio.  
-**Índices negativos:** Cuando querés el último, penúltimo, etc. sin saber el tamaño.
-
-```python
-# Obtener el último elemento (sin saber el tamaño)
-ultimo = frutas[-1]  # ✓ Siempre funciona
-
-# vs (calculando)
-ultimo = frutas[len(frutas) - 1]  # ✓ Funciona pero es más largo
-```
+**Índices negativos:** Cuando querés el último, penúltimo, etc. sin saber el tamaño de la lista.
 :::
 
 ---
@@ -413,6 +407,8 @@ print(letras[-5])  # ❌ Error
 
 :::{danger} 🚨 Error Común: Índice Fuera de Rango
 
+Intentar acceder a un índice que no existe (por ejemplo, índice 5 en una lista de 2 elementos) causará un error `IndexError`. Siempre verificá el tamaño de la lista si no estás seguro.
+
 ```{code-cell} ipython3
 # Ejemplo de error
 frutas = ["🍎", "🍌"]
@@ -425,25 +421,15 @@ except IndexError as e:
     print(f"La lista solo tiene {len(frutas)} elementos")
     print(f"   Índices válidos: 0 a {len(frutas)-1}")
 ```
-
-**Cómo evitarlo:**
-```python
-# Verificar antes de acceder
-index = 5
-if index < len(frutas):
-    print(frutas[index])
-else:
-    print(f"Índice {index} no existe. La lista tiene {len(frutas)} elementos.")
-```
 :::
 
 ### Slicing: Cortar Rebanadas de la Lista 🍰
 
 #### ¿Qué es Slicing?
 
-**Slicing** (rebanado) es como cortar una torta: tomás un pedazo (sub-lista) de la lista original.
+A veces no querés un solo elemento, sino un grupo de ellos (un subconjunto). **Slicing** (rebanado) es la técnica para obtener una parte de la lista especificando dónde empezar y dónde terminar.
 
-::::{admtiponition} Analogía: Torta con 10 Rebanadas
+::::{tip} Analogía: Torta con 10 Rebanadas
 
 Imaginate una torta con 10 rebanadas numeradas del 0 al 9:
 
@@ -463,6 +449,8 @@ El slicing crea una lista nueva con los elementos de la lista original en las po
 ---
 
 #### Sintaxis: `lista[inicio:fin:paso]`
+
+La sintaxis completa de slicing tiene tres partes separadas por dos puntos: inicio, fin y paso. Todas son opcionales y tienen valores por defecto si se omiten.
 
 ![Slicing Explicado](./3_estructuras/slicing.svg)
 
@@ -490,22 +478,18 @@ print("Invertido [::-1]:", numeros[::-1])  # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 ```
 
 :::{tip} Regla del Fin No Incluido
-El {term}`índice` final **NO se incluye** en el slice:
+El {term}`índice` final **NO se incluye** en el slice. Esto es deliberado y matemático: `fin - inicio` te da exactamente la cantidad de elementos.
 
 ```python
-lista[2:5]  # Incluye: 2, 3, 4  (NO incluye 5)
-lista[:3]   # Incluye: 0, 1, 2  (NO incluye 3)
-```
-
-**¿Por qué?** Para que sea más fácil calcular el tamaño:
-```python
-lista[2:5]  # Tamaño = 5 - 2 = 3 elementos ✓
+lista[2:5]  # Tamaño = 5 - 2 = 3 elementos ✓ (índices 2, 3, 4)
 ```
 :::
 
 ---
 
 #### Ejemplos Prácticos de Slicing
+
+Veamos cómo usar slicing en situaciones reales comunes, como obtener los primeros elementos, filtrar pares, o invertir una lista.
 
 :::::{grid} 1 1 2 2
 
@@ -574,6 +558,8 @@ print(copia)     # [999, 2, 3, 4, 5]
 
 #### Slicing con Índices Negativos
 
+Podés combinar slicing con índices negativos para obtener partes relativas al final de la lista. Esto es muy útil cuando no sabés el largo exacto de la lista.
+
 ```{code-cell} ipython3
 letras = ['A', 'B', 'C', 'D', 'E', 'F']
 #         0    1    2    3    4    5     ← Índices positivos
@@ -593,6 +579,8 @@ print("[-4::2]:", letras[-4::2])  # ['C', 'E']
 ```
 
 :::{danger} 🚨 Error Común: Orden Invertido
+
+Si usás un inicio mayor que el fin con un paso positivo, obtendrás una lista vacía porque Python intenta ir hacia adelante y "se pasa" antes de empezar.
 
 ```{code-cell} ipython3
 numeros = [0, 1, 2, 3, 4, 5]
@@ -629,6 +617,8 @@ print("Bien [5:2:-1]:", numeros[5:2:-1])  # [5, 4, 3]
 
 #### ¿Qué Significa Mutable?
 
+La **mutabilidad** es la capacidad de un objeto de cambiar su estado o contenido después de haber sido creado. Las listas son mutables, lo que significa que podés alterar sus elementos sin crear una lista nueva.
+
 ::::{tip} Analogía: Lista de Papel vs Piedra
 
 **Lista Python = Lista de papel:**
@@ -655,6 +645,8 @@ coordenadas[0] = 15  # ✗ ERROR: no se puede
 ---
 
 #### Formas de Modificar
+
+Podés modificar elementos individuales accediendo por su índice, o modificar múltiples elementos a la vez usando slicing.
 
 ```{code-cell} ipython3
 frutas = ["manzana", "banana", "naranja"]
@@ -685,8 +677,8 @@ lista = [1, 2, 3, 4, 5]
 lista[2] = 99
 # [1, 2, 99, 4, 5]
 
-# Asignación con slice - REEMPLAZA un rango
-lista[2:4] = [88, 77, 66]  # Puede cambiar el tamaño
+# Asignación con slice - REEMPLAZA un rango (puede cambiar el tamaño)
+lista[2:4] = [88, 77, 66]
 # [1, 2, 88, 77, 66, 5]
 ```
 :::
@@ -694,6 +686,8 @@ lista[2:4] = [88, 77, 66]  # Puede cambiar el tamaño
 ---
 
 #### Modificar con Índices Negativos
+
+También podés usar índices negativos para modificar elementos contando desde el final.
 
 ```{code-cell} ipython3
 numeros = [10, 20, 30, 40, 50]
@@ -710,6 +704,8 @@ print("Últimos 2 modificados:", numeros)  # [10, 20, 30, 888, 777]
 ---
 
 #### Insertar en el Medio con Slice
+
+Un truco avanzado del slicing es usar un rango vacío para insertar elementos en cualquier posición sin borrar nada.
 
 ```{code-cell} ipython3
 # Truco: slice vacío para insertar sin eliminar
@@ -735,6 +731,8 @@ nums[2:2] = [3, 4]  # Inserta en posición 2
 
 #### Eliminar con Slice
 
+Del mismo modo, asignar una lista vacía a un slice elimina esos elementos.
+
 ```{code-cell} ipython3
 numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -747,11 +745,13 @@ print("Después de eliminar [3:6]:", numeros)  # [0, 1, 2, 6, 7, 8, 9]
 
 ### Métodos de Listas: Tu Caja de Herramientas
 
-Las listas tienen **métodos** (funciones integradas) que facilitan operaciones comunes.
+Las listas tienen **métodos** (funciones integradas) que facilitan operaciones comunes como agregar, quitar y ordenar.
 
 ---
 
 #### Agregar Elementos
+
+Para añadir elementos a una lista, Python ofrece tres métodos principales dependiendo de lo que necesites: `append` para uno solo, `insert` para una posición específica, y `extend` para agregar varios a la vez.
 
 ::::{tip} Analogía: Agregar a una Fila
 
@@ -783,6 +783,8 @@ print("Después de extend:", frutas)
 ---
 
 ##### `append()` vs `extend()` vs `+` : ¿Cuál usar?
+
+Es común confundirse entre estas opciones. La diferencia clave está en si agregan el elemento como un todo (`append`) o si agregan sus partes (`extend`), y si modifican la lista original o crean una nueva (`+`).
 
 :::::{grid} 1 1 3 3
 
@@ -865,6 +867,8 @@ print("c + [4,5]:", c)      # [1, 2, 3, 4, 5]
 
 ##### `insert()`: Insertar en Cualquier Posición
 
+`insert()` te permite colocar un elemento exactamente donde querés, desplazando los demás a la derecha.
+
 ```{code-cell} ipython3
 numeros = [10, 20, 40, 50]
 print("Original:", numeros)
@@ -897,6 +901,8 @@ print("insert(1000, 70):", numeros)  # Se agrega al final
 
 #### Eliminar Elementos
 
+Al igual que para agregar, existen múltiples formas de eliminar elementos según si conocés el valor, la posición, o si querés vaciar todo.
+
 ::::{tip} Analogía: Sacar de la Fila
 
 Hay 4 formas de sacar a alguien de la fila:
@@ -912,6 +918,8 @@ Hay 4 formas de sacar a alguien de la fila:
 
 ##### `remove()`: Eliminar por Valor
 
+Usá `remove()` cuando sabés **qué** querés eliminar pero no dónde está.
+
 ```{code-cell} ipython3
 frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja", "🍐 pera", "🍌 banana"]
 print("Original:", frutas)
@@ -922,6 +930,8 @@ print("Después de remove:", frutas)  # Solo elimina la primera banana
 ```
 
 :::{danger} 🚨 Error si el {term}`valor<Value>` no existe
+
+Si intentás remover algo que no está, Python lanza un error.
 
 ```{code-cell} ipython3
 # ❌ Si el valor no existe, da error
@@ -943,6 +953,8 @@ else:
 ---
 
 ##### `pop()`: Eliminar y Obtener el Elemento
+
+Usá `pop()` cuando querés sacar un elemento (generalmente el último) y **usarlo**.
 
 ```{code-cell} ipython3
 pila_libros = ["libro1", "libro2", "libro3", "libro4"]
@@ -980,6 +992,8 @@ print(f"Quedan: {pila_libros}")
 
 ##### del: Eliminar sin Retornar
 
+La sentencia `del` es una instrucción de Python (no un método de lista) que elimina objetos o partes de ellos. Es útil para eliminar rangos completos.
+
 ```{code-cell} ipython3
 numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 print("Original:", numeros)
@@ -1013,6 +1027,8 @@ print("Después de del [::2]:", numeros)  # [1, 3, 5, 7, 9]
 ---
 
 ##### `clear()`: Vaciar Completamente
+
+Cuando querés dejar la lista en blanco (como nueva) pero manteniendo la misma variable.
 
 ```{code-cell} ipython3
 tareas = ["tarea1", "tarea2", "tarea3"]
@@ -1077,6 +1093,8 @@ graph TD
 
 #### Búsqueda y Conteo
 
+Para encontrar elementos dentro de una lista o saber cuántas veces aparecen, usamos `index`, `count` y el operador `in`.
+
 ::::{tip} Analogía: Buscar en la Biblioteca
 
 **`count()`** = ¿Cuántos libros de Harry Potter tenés?
@@ -1116,6 +1134,8 @@ print(f"Votos por naranja: {votos.count('🍊 naranja')}")
 
 ##### `index()`: Encontrar la Primera Posición
 
+Retorna el índice donde se encuentra el elemento por primera vez.
+
 ```{code-cell} ipython3
 frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja", "🍐 pera", "🍌 banana"]
 print("Lista:", frutas)
@@ -1131,6 +1151,8 @@ print(f"Segunda banana está en posición: {segunda_banana}")  # 4
 ```
 
 :::{danger} 🚨 Error si no existe
+
+Si el elemento no está en la lista, `index()` falla con un error.
 
 ```{code-cell} ipython3
 # ❌ Si el elemento no existe, da error
@@ -1178,7 +1200,7 @@ lista.index(valor, inicio, fin) # Busca en rango [inicio:fin)
 
 ##### `in` / `not in`: Verificar Pertenencia
 
-Esta palabra reservada nos indica si un valor se encuentra o no en la secuencia.
+La forma más Pythonic de chequear si algo está en una lista es usar `in`. Retorna `True` o `False`.
 
 ```{code-cell} ipython3
 colores = ["rojo", "verde", "azul"]
@@ -1235,6 +1257,8 @@ print(f"10 in lista: {10 in lista}")        # False
 
 #### Ordenamiento y Reversión
 
+Python te permite ordenar listas de manera muy eficiente. Es importante distinguir entre métodos que ordenan la lista original y funciones que crean una nueva lista ordenada.
+
 ::::{tip} Analogía: Ordenar Cartas
 
 **`sort()`** = Reordenar tu mano de cartas (modifica tu mano).  
@@ -1245,6 +1269,8 @@ print(f"10 in lista: {10 in lista}")        # False
 ---
 
 ##### `sort()`: Ordenar In-Place
+
+Ordena la lista original. ¡Cuidado! Los datos originales cambian de posición.
 
 ```{code-cell} ipython3
 # Lista desordenada
@@ -1309,6 +1335,8 @@ print(numeros)    # [1, 2, 3] ← La lista cambió
 
 ##### `sorted()`: Crear Lista Ordenada Nueva
 
+Si querés una versión ordenada pero necesitás mantener la original intacta, usá `sorted()`.
+
 ```{code-cell} ipython3
 # Lista original
 original = [5, 2, 8, 1, 9, 3]
@@ -1367,6 +1395,8 @@ sorted("cab")    # ['a', 'b', 'c']
 ---
 
 ##### `reverse()`: Invertir el Orden
+
+Invierte el orden de los elementos tal cual están (el último pasa a ser el primero). No ordena, solo invierte.
 
 ```{code-cell} ipython3
 # Invertir lista
@@ -1428,6 +1458,8 @@ print(lista)  # [1, 2, 3]
 
 ##### `copy()`: Copiar una Lista
 
+Crear una copia de una lista no es tan simple como `lista2 = lista1`. Eso solo crea una referencia. Para duplicar los datos, necesitamos copiar explícitamente.
+
 ```{code-cell} ipython3
 # Problema: asignación simple NO copia
 original = [1, 2, 3]
@@ -1460,6 +1492,8 @@ print("Lista4:", lista4)  # [555, 2, 3]
 
 :::{danger} 🚨 Copia Superficial vs Profunda
 
+`copy()` hace una copia "superficial". Si la lista contiene otras listas dentro, esas sub-listas seguirán siendo compartidas. Para una copia total, se usa `deepcopy`.
+
 ```{code-cell} ipython3
 # Problema con listas anidadas
 original = [[1, 2], [3, 4]]
@@ -1468,7 +1502,7 @@ copia = original.copy()  # Copia superficial
 # Modificar la sub-lista
 copia[0][0] = 999
 
-print("Original:", original)  # [[999, 2], [3, 4]] ← ¡Cambió!
+print("Original:", original)  # [[999, 2], [3, 4]] ← ¡Se modificó!
 print("Copia:", copia)        # [[999, 2], [3, 4]]
 
 # Para listas anidadas, usar deepcopy
@@ -1481,7 +1515,7 @@ print("\nOriginal2:", original2)           # [[1, 2], [3, 4]] ← No cambió ✓
 print("Copia profunda:", copia_profunda)   # [[777, 2], [3, 4]]
 ```
 
-**Regla:**
+**Resumen:**
 - `copy()` o `[:]` → Copia superficial (OK para listas simples).
 - `copy.deepcopy()` → Copia profunda (necesaria para listas anidadas).
 :::
@@ -1518,6 +1552,8 @@ print(f"¿Todos True? {all(booleanos)}")   # False
 
 ### Iterar sobre Listas: Las 3 Formas
 
+Recorrer una lista es una de las tareas más comunes. Python ofrece varias formas, pero algunas son más recomendables que otras ("Pythonic").
+
 ::::{tip} Analogía: Recorrer una Fila
 
 Imaginate que tenés que saludar a cada persona en una fila:
@@ -1530,6 +1566,8 @@ Imaginate que tenés que saludar a cada persona en una fila:
 ---
 
 #### Forma 1: Iterar sobre elementos (Pythonic 🐍)
+
+Esta es la forma directa y preferida cuando no necesitás el índice.
 
 ```{code-cell} ipython3
 frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja"]
@@ -1548,6 +1586,8 @@ for fruta in frutas:
 ---
 
 #### Forma 2: Iterar con índice y elemento (`enumerate`)
+
+Usá `enumerate` cuando necesitás tanto el valor como su posición.
 
 ```{code-cell} ipython3
 frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja"]
@@ -1569,6 +1609,8 @@ for i, fruta in enumerate(frutas, start=1):
 ---
 
 #### Forma 3: Iterar con Índices (Estilo C/Java)
+
+Esta forma manual es común en otros lenguajes pero se considera poco elegante en Python.
 
 ```{code-cell} ipython3
 frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja"]
@@ -1760,7 +1802,7 @@ graph TD
 
 ### Referencias y Memoria: Entendiendo Cómo Python Guarda Datos
 
-Cuando trabajás con listas (y otros objetos mutables), es fundamental entender cómo Python maneja la memoria para evitar errores sutiles pero importantes.
+Cuando trabajás con listas (y otros objetos mutables), es fundamental entender cómo Python maneja la memoria para evitar errores sutiles pero importantes. En Python, las variables son como etiquetas que se pegan a los objetos, no cajas donde se guarda el objeto.
 
 ```{figure} ./3_estructuras/memoria_referencias.svg
 :name: fig-memoria-referencias
@@ -1771,6 +1813,8 @@ Visualización de cómo Python maneja referencias y memoria para tipos mutables 
 ```
 
 #### El Problema de las Referencias Compartidas
+
+Cuando asignás una lista a otra variable (`lista2 = lista1`), no estás copiando la lista, estás creando una nueva etiqueta para la misma lista en memoria.
 
 ::::{warning} Analogía: Documento Compartido
 
@@ -1805,6 +1849,8 @@ print("\n¿Son el mismo objeto?", lista1 is lista2)  # True
 
 #### Cómo Copiar Listas Correctamente
 
+Para evitar esto, tenés que crear explícitamente una copia. Esto crea un nuevo objeto en memoria independiente del original.
+
 ```{code-cell} ipython3
 # ✅ CORRECTO: Estas formas SÍ crean copias independientes
 
@@ -1830,15 +1876,17 @@ print("Copia3:", copia3)      # [777, 2, 3]
 
 #### Copias Superficiales vs Profundas
 
+Aun copiando la lista, si los elementos de adentro son a su vez mutables (como otras listas), esos elementos internos se siguen compartiendo. Esto se llama "copia superficial".
+
 :::{warning} Copia Superficial (Shallow Copy)
 Los métodos anteriores hacen **copias superficiales**: copian la lista, pero si la lista contiene otras listas, esas listas internas **sí se comparten**.
 
 ```{code-cell} ipython3
 # Problema con listas anidadas
 original = [[1, 2], [3, 4]]
-copia = original[:]  # Copia superficial
+copia = original.copy()  # Copia superficial
 
-# Modificamos una lista interna
+# Modificar una lista interna
 copia[0][0] = 999
 
 print("Original:", original)  # [[999, 2], [3, 4]] ← ¡Se modificó!
@@ -1861,6 +1909,8 @@ print("Copia profunda:", copia_profunda)  # [[999, 2], [3, 4]]
 :::
 
 #### Verificar si Dos Variables Comparten el Mismo Objeto
+
+Podés usar el operador `is` para verificar identidad (si son el mismo objeto) y `==` para igualdad (si tienen el mismo contenido).
 
 ```{code-cell} ipython3
 lista1 = [1, 2, 3]
@@ -1901,12 +1951,12 @@ lista_b[0] = 999   # lista_a también cambió a [999, 2, 3]
 
 ---
 
-(tuplas)=
+(tuplas)= 
 ## Tuplas: La Prima Inmutable de las Listas 
 
 ### ¿Qué es una Tupla?
 
-Una **tupla** es como una lista, pero **{term}`inmutable`** (no se puede cambiar después de crear).
+Una **tupla** es esencialmente una lista que no puede ser modificada. Una vez creada, sus elementos son fijos. Se utilizan para agrupar datos que conceptualmente pertenecen juntos y no deberían cambiar, como coordenadas geográficas, fechas, o registros de base de datos.
 
 ::::{tip} Analogía: Lista vs Tupla
 
@@ -1947,7 +1997,7 @@ dvd[0] = "Otra canción"  # ✗ ERROR
 | **Métodos**| Muchos (append, etc.) | Solo 2 (count, index) |
 | **Como clave de dict**| ❌ No | ✅ Sí |
 
----
+--- 
 
 ### Crear Tuplas: 4 Formas
 
@@ -1977,6 +2027,8 @@ print(f"Tupla vacía: {vacia}, longitud: {len(vacia)}")
 ```
 
 :::{danger} 🚨 Error Común: Tupla de 1 Elemento
+
+Es fácil confundir un paréntesis de agrupación matemática `(5)` con una tupla. La coma es lo que define a la tupla, no el paréntesis.
 
 ```{code-cell} ipython3
 # ❌ INCORRECTO - Es un entero, no tupla
@@ -2010,7 +2062,7 @@ tupla_letras = tuple(texto)
 print(f"Tupla de letras: {tupla_letras}")
 
 # Convertir range a tupla
-tupl a_nums = tuple(range(5))
+tupla_nums = tuple(range(5))
 print(f"Tupla de 0 a 4: {tupla_nums}")
 ```
 
@@ -2060,6 +2112,8 @@ Lo que **NO funciona** son operaciones de **escritura**:
 
 ### Inmutabilidad: El Poder de "No Cambiar" 
 
+La inmutabilidad de las tuplas es su característica definitoria y la fuente de muchas de sus ventajas.
+
 ::::{tip} Analogía: Tatuaje vs Sticker
 
 **Lista = Sticker:**
@@ -2099,6 +2153,8 @@ except TypeError as e:
 
 #### ¿Qué NO Podés Hacer con Tuplas?
 
+Debido a su inmutabilidad, muchas operaciones que funcionan en listas simplemente no existen o fallan en tuplas.
+
 ```{code-cell} ipython3
 mi_tupla = (10, 20, 30)
 
@@ -2130,6 +2186,8 @@ except AttributeError:
 --- 
 
 #### ¿Por qué Usar Tuplas? 5 Razones
+
+Si las tuplas no se pueden modificar, ¿para qué usarlas? La inmutabilidad trae consigo ventajas importantes:
 
 :::::{grid} 1 1 2 2
 
@@ -2219,11 +2277,13 @@ procesar_datos(configuracion)
 **Ventaja:** Seguridad en el código.
 ::::
 
+:::::
+
 ---
 
 ### Métodos de Tuplas: Solo 2
 
-Las tuplas tienen **solo 2 métodos** (vs 11 de las listas):
+Las tuplas tienen **solo 2 métodos** (vs 11 de las listas): `count` y `index`. Son métodos de solo lectura.
 
 ```{code-cell} ipython3
 numeros = (1, 3, 5, 3, 7, 3)
@@ -2245,7 +2305,7 @@ print(f"Segundo 3 está en posición {segunda_pos}")
 
 ### Desempaquetado (Unpacking): El Super Poder de las Tuplas 🎁
 
-El {term}`desempaquetado` (unpacking) es una característica poderosa que permite extraer los elementos de una tupla en variables individuales.
+El {term}`desempaquetado` (unpacking) es una característica poderosa que permite extraer los elementos de una tupla (o cualquier iterable) en variables individuales de forma concisa.
 
 ::::{tip} Analogía: Desempacar una Caja
 
@@ -2267,6 +2327,8 @@ regalo1, regalo2, regalo3 = caja
 
 #### Desempaquetado Básico
 
+La forma más común es asignar los elementos de la tupla a variables.
+
 ```{code-cell} ipython3
 # Ejemplo 1: Coordenadas
 punto = (10, 20)
@@ -2285,6 +2347,8 @@ print(f"{nombre} tiene {edad} años y es de {pais}")
 ```
 
 :::{warning} Cantidad de Variables Debe Coincidir
+
+El número de variables a la izquierda debe coincidir exactamente con el número de elementos en la tupla.
 
 ```{code-cell} ipython3
 tupla = (1, 2, 3)
@@ -2310,6 +2374,8 @@ print(f"✓ Correcto: a={a}, b={b}, c={c}")
 ---
 
 #### Desempaquetado con `*` (Rest Pattern)
+
+El asterisco `*` permite capturar múltiples elementos restantes en una lista.
 
 ```{code-cell} ipython3
 # El * captura "el resto" de los elementos
@@ -2352,6 +2418,8 @@ print(f"Promedio: {sum(notas) / len(notas):.1f}")
 
 #### Intercambio de Variables: El Truco Elegante
 
+El desempaquetado hace que intercambiar valores entre variables sea increíblemente simple y legible.
+
 ```{code-cell} ipython3
 # Forma tradicional (con variable temporal)
 a = 5
@@ -2389,6 +2457,8 @@ a, b = b, a
 
 #### Desempaquetado en Funciones
 
+Las funciones que retornan tuplas se benefician enormemente del desempaquetado.
+
 ```{code-cell} ipython3
 # Función que retorna tupla
 def obtener_datos_usuario():
@@ -2415,6 +2485,8 @@ print(f"x={x}, z={z}")  # Solo usamos x y z
 
 #### Desempaquetado en Loops
 
+Podés desempaquetar directamente dentro de un bucle `for`.
+
 ```{code-cell} ipython3
 # Lista de tuplas
 personas = [
@@ -2438,6 +2510,8 @@ for i, fruta in enumerate(frutas, start=1):
 ---
 
 #### Desempaquetado Anidado
+
+Si tenés tuplas (u otros iterables) anidados, podés desempaquetarlos de forma anidada.
 
 ```{code-cell} ipython3
 # Tupla con tuplas adentro
@@ -2494,7 +2568,7 @@ print(lista)
 linea = "Juan,Pérez,30,Argentina"
 
 # Desempaquetar datos
-datos = tuple(linea.split(","))
+datos = tuple(linea.split(','))
 nombre, apellido, edad, pais = datos
 print(f"{nombre} {apellido}")
 ```
@@ -2512,23 +2586,9 @@ print(f"{nombre} {apellido}")
 
 ---
 
-### Métodos de Tuplas
-
-Las tuplas tienen solo dos métodos:
-
-```{code-cell} ipython3
-numeros = (1, 3, 5, 3, 7, 3)
-
-# count() - cuenta ocurrencias
-print(numeros.count(3))  # 3
-
-# index() - encuentra posición
-print(numeros.index(5))  # 2
-```
-
 ### Convertir entre Listas y Tuplas
 
-A menudo necesitás convertir entre listas y tuplas dependiendo de tus necesidades: si necesitás mutabilidad (lista) o inmutabilidad (tupla). Python hace esto trivial con las funciones `list()` y `tuple()`. La conversión preserva el orden de los elementos.
+A menudo necesitás convertir entre listas y tuplas dependiendo de tus necesidades: si necesitás mutabilidad (lista) o inmutabilidad (tupla). Python hace esto simple con las funciones `list()` y `tuple()`. La conversión preserva el orden de los elementos.
 
 ```{code-cell} ipython3
 # Lista a tupla
@@ -2544,7 +2604,7 @@ print(lista)  # [4, 5, 6]
 
 ---
 
-(diccionarios)=
+(diccionarios)= 
 ## Diccionarios
 
 Un **diccionario** es una {term}`colección` de {term}`pares clave-valor<Par key-value>`. Cada clave es única y se usa para acceder a su valor asociado. Es como un diccionario real: buscás una palabra ({term}`key`) y encontrás su definición ({term}`value`).
@@ -2786,7 +2846,7 @@ print(contador)
 
 ---
 
-(sets)=
+(sets)= 
 ## Sets (Conjuntos)
 
 Un **set** es una {term}`colección` **no ordenada** de elementos **únicos**. Es útil para eliminar duplicados y realizar operaciones matemáticas de conjuntos.
@@ -2810,7 +2870,7 @@ no_set = {}     # Esto es un diccionario vacío
 ```
 
 :::{warning} Sets no tienen orden
-Los sets no mantienen orden de inserción:
+Los sets no mantienen orden de inserción: 
 
 ```{code-cell} ipython3
 numeros = {5, 1, 3, 2, 4}
@@ -2882,7 +2942,7 @@ print(dif_simetrica)  # {1, 2, 3, 6, 7, 8}
 
 ```{mermaid}
 flowchart LR
-    A[Conjunto A<br/>{1,2,3,4,5}] 
+    A[Conjunto A<br/>{1,2,3,4,5}]
     B[Conjunto B<br/>{4,5,6,7,8}]
     
     A -->|Unión| U["{1,2,3,4,5,6,7,8}"]
@@ -2927,7 +2987,7 @@ print(sin_duplicados)  # [1, 2, 3, 4, 5]
 
 ---
 
-(strings-avanzados)=
+(strings-avanzados)= 
 ## Strings Avanzados
 
 Ya viste strings en el capítulo de fundamentos. Ahora exploraremos métodos y operaciones más avanzadas.
@@ -3058,7 +3118,7 @@ def funcion():
 
 ---
 
-(operaciones-comunes)=
+(operaciones-comunes)= 
 ## Operaciones Comunes entre Estructuras
 
 Python facilita la conversión entre diferentes estructuras de datos, permitiéndote elegir la más apropiada para cada tarea y convertir cuando sea necesario. También proporciona funciones integradas que funcionan con cualquier tipo de colección, haciendo el código más versátil.
@@ -3123,7 +3183,7 @@ for nombre, edad in zip(nombres, edades):
 
 ---
 
-(errores-comunes-estructuras)=
+(errores-comunes-estructuras)= 
 ## Errores Comunes
 
 Trabajar con estructuras de datos implica enfrentar trampas comunes que todos los programadores encuentran al comenzar. Estos errores no son señal de falta de habilidad, sino oportunidades de aprendizaje. Entender por qué ocurren y cómo prevenirlos te ahorrará horas de debugging frustrante. Los errores más frecuentes involucran modificar estructuras durante iteración, confundir mutabilidad, y compartir referencias inadvertidamente.
@@ -3209,7 +3269,7 @@ print(original)  # [[1, 2], [3, 4]] - no afectó al original
 
 ---
 
-(buenas-practicas-estructuras)=
+(buenas-practicas-estructuras)= 
 ## Buenas Prácticas
 
 ### 1. Elegir la Estructura Apropiada
@@ -3315,12 +3375,12 @@ En el próximo capítulo, aprenderás sobre funciones, que te permitirán organi
 
 ---
 
-(glosario-estructuras)=
+(glosario-estructuras)= 
 ## Glosario
 
 ```{glossary}
 Colección
-:  Grupo de elementos almacenados juntos. Ejemplo: `[1, 2, 3]` es una {term}`colección` de tres números.
+:  Grupo de elementos almacenados juntos. Ejemplo: `[1, 2, 3]` es una {term}`colección` de tres números. 
 
 Elemento
 :  Cada ítem individual dentro de una {term}`colección`. En `["Ana", "Bruno"]`, `"Ana"` y `"Bruno"` son elementos.
@@ -3376,3 +3436,5 @@ Empaquetado
 Desempaquetado
 :  Extraer valores de una tupla a variables individuales. Ejemplo: `x, y = (10, 20)` desempaqueta los valores en `x=10, y=20`. También conocido como **unpacking** en inglés.
 ```
+
+---
