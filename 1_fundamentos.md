@@ -637,6 +637,8 @@ Python tiene los {term}`operadores <Operador>` que ya conocés de matemática, �
 
 ### Operadores básicos
 
+A continuación, veremos cómo realizar las cuatro operaciones básicas, además de la potenciación y dos operaciones muy útiles en programación: la división entera y el módulo (resto).
+
 ```{code-cell} ipython3
 # Suma
 resultado = 5 + 3
@@ -1013,6 +1015,8 @@ print(f"(edad >= 18 AND licencia AND seguro): {puede_conducir_legal}")
 
 ### Combinando Operadores Lógicos
 
+Podés combinar múltiples operadores lógicos en una sola expresión para evaluar condiciones más complejas. Python evaluará la expresión completa y determinará si el resultado final es verdadero o falso.
+
 ```{code-cell} ipython3
 edad = 25
 tiene_experiencia = True
@@ -1278,6 +1282,8 @@ Es como tener un traductor entre diferentes "idiomas" de datos.
 
 ### Funciones de Conversión
 
+Python ofrece funciones integradas con el mismo nombre que los tipos de datos (`int()`, `float()`, `str()`, `bool()`) para transformar valores de un tipo a otro.
+
 ```{code-cell} ipython3
 # String a int
 numero_str = "42"
@@ -1488,6 +1494,8 @@ numero = int(input("Ingrese un número: "))
 
 ### 4. División por cero
 
+Matemáticamente, dividir por cero es indefinido. En programación, intentar hacerlo provoca un error inmediato que detiene el programa (`ZeroDivisionError`). Siempre debés asegurarte de que el divisor no sea cero antes de dividir.
+
 ```{code-cell} ipython3
 # ❌ Error en ejecución
 resultado = 10 / 0  # ZeroDivisionError
@@ -1502,7 +1510,10 @@ else:
 ```
 
 ### 5. Errores de indentación
-Un editor de texto se encarga de resolverlo, peeero...
+
+Python utiliza la indentación (espacios al inicio de la línea) para definir bloques de código. Si la indentación es inconsistente o falta donde es necesaria, el programa no funcionará.
+
+Afortunadamente, un editor de texto especializado para programación se encargará de resolver la mayoría de los casos.
 
 ```{code-cell} ipython3
 # ❌ Incorrecto (mezcla de espacios y tabs, o indentación inconsistente)
