@@ -1144,7 +1144,7 @@ def calcular_promedio(numeros):
 
 ### Docstring de Una Línea
 
-Para funciones simples:
+Para funciones muy simples y directas, donde el propósito es obvio, un docstring de una sola línea es suficiente. Este debe ser una frase imperativa que describa el efecto de la función.
 
 ```python
 def es_par(numero):
