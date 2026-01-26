@@ -272,6 +272,8 @@ Al guardar un valor, o resultado de expresión, utilizaremos `⟸` para distingu
 
 **Problema:** Pedir dos números, sumarlos y mostrar el resultado.
 
+Este es un diagrama de flujo simple que sigue una secuencia lineal (sin decisiones ni lazos). Muestra claramente el flujo de entrada (leer números), proceso (sumar) y salida (mostrar resultado).
+
 ```{mermaid}
 flowchart TD
     Start([INICIO])
@@ -308,6 +310,8 @@ flowchart TD
 ### Ejemplo 2: ¿Es Mayor de Edad?
 
 **Problema:** Preguntar la edad y decir si es mayor o menor de edad.
+
+Aquí introducimos una **decisión**. El rombo evalúa una condición (¿edad >= 18?) y divide el flujo en dos caminos posibles: uno si la condición es verdadera ("Sí") y otro si es falsa ("No"). Solo se ejecuta uno de los dos caminos.
 
 ```{mermaid}
 flowchart TD
@@ -360,6 +364,8 @@ _Vamos a ver ejemplos más adelante de esto._
 ### Ejemplo 3: Contar del 1 al 5
 
 **Problema:** Mostrar los números del 1 al 5.
+
+Este diagrama muestra un **lazo** (o bucle). Observá cómo la flecha vuelve hacia atrás después de incrementar el contador, creando un ciclo que se repite hasta que la condición (`contador <= 5`) deja de cumplirse.
 
 ```{mermaid}
 flowchart TD
