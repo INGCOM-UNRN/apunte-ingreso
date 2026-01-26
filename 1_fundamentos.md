@@ -1782,6 +1782,9 @@ Precedencia
 Palabra reservada
 : Palabra especial del lenguaje que tiene un significado fijo y no puede usarse como nombre de {term}`variable` (ej. `if`, `for`).
 
+Pythonic
+: Estilo de programación que explota las características idiomáticas y la filosofía de diseño del lenguaje Python para producir código legible, conciso y eficiente.
+
 snake_case
 : Convención de nombres donde las palabras se separan con guiones bajos y todo va en minúsculas (ej. `nombre_completo`).
 
