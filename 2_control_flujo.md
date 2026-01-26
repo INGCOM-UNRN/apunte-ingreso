@@ -805,7 +805,14 @@ A continuación, unos ejemplos de uso de condicionales `if-elif` para clasificac
 
 ### Ejemplo 1: Calculadora de Descuento
 
+
+
+En este ejemplo, mostramos cómo aplicar diferentes niveles de descuento basándonos en el monto total de una compra. Usamos una estructura `if-elif-else` para verificar los rangos de precios, empezando por el monto más alto para asegurar que se aplique el mejor descuento posible.
+
+
+
 ```python
+
 """Programa que calcula descuento según el monto de compra."""
 
 DESCUENTO_BASICO = 0.05      # 5%
@@ -1403,6 +1410,8 @@ for indice, letra in enumerate(palabra, start=1):
 
 ### Ejemplo: Tabla de Multiplicar
 
+Este programa toma un número ingresado por el usuario y utiliza un lazo `for` junto con `range()` para generar su tabla de multiplicar del 1 al 10. Es un ejemplo clásico de cómo iterar una cantidad definida de veces para realizar cálculos repetitivos.
+
 ```python
 """Genera la tabla de multiplicar de un número."""
 
@@ -1417,6 +1426,8 @@ for i in range(1, 11):
 ```
 
 ### Ejemplo: Contar Vocales
+
+Aquí vemos cómo recorrer una cadena de texto caracter por caracter. Usamos un lazo `for` para examinar cada letra y un condicional `if` para verificar si es una vocal, incrementando un contador si la condición se cumple.
 
 ```{code-cell} ipython3
 """Cuenta las vocales en una frase."""
@@ -1604,6 +1615,8 @@ Podés colocar lazos dentro de otros lazos. Cada {term}`iteración` del lazo ext
 
 ### Ejemplo: Tabla de Multiplicar Completa
 
+Al anidar dos lazos `for`, podemos generar una tabla de multiplicar completa. El lazo externo controla qué número estamos multiplicando (del 1 al 5), mientras que el interno genera los multiplicadores (del 1 al 10) para cada uno de esos números.
+
 ```{code-cell} ipython3
 """Genera tablas de multiplicar del 1 al 5."""
 
@@ -1615,6 +1628,8 @@ for numero in range(1, 6):
 ```
 
 ### Ejemplo: Patrón de Asteriscos
+
+Los lazos anidados son ideales para trabajar con coordenadas o estructuras visuales 2D. En este caso, el lazo externo maneja las filas y el interno controla cuántos asteriscos se imprimen en cada fila, creando un patrón triangular.
 
 ```{code-cell} ipython3
 """Imprime un triángulo de asteriscos."""
@@ -1694,6 +1709,8 @@ Usalos con precaución.
 
 ### 1. Olvidar la indentación
 
+El error más frecuente al empezar con Python es olvidar los espacios al inicio de las líneas dentro de un bloque. Recordá que Python usa la indentación para saber qué código pertenece al `if` o al lazo.
+
 ```python
 # ❌ Error de sintaxis
 if edad >= 18:
@@ -1706,6 +1723,8 @@ if edad >= 18:
 
 ### 2. Usar `=` en lugar de `==`
 
+Es fácil confundir el operador de asignación (`=`) con el de comparación (`==`). Si usás un solo igual en una condición `if` o `while`, Python te dará un error de sintaxis porque estás intentando guardar un valor en lugar de comparar.
+
 ```python
 # ❌ Asignación en lugar de comparación
 if edad = 18:  # SyntaxError
@@ -1717,6 +1736,8 @@ if edad == 18:
 ```
 
 ### 3. Lazo infinito
+
+En los lazos `while`, es crucial asegurarse de que la condición eventualmente se vuelva falsa. Si olvidás actualizar la variable que controla el lazo (como un contador), el programa se quedará "colgado" ejecutando el mismo código eternamente.
 
 ```python
 # ❌ Lazo infinito
@@ -1733,6 +1754,8 @@ while contador < 10:
 ```
 
 ### 4. Condiciones incorrectas en rangos
+
+Cuando clasificamos valores en rangos (como notas o edades), el orden importa mucho. Si chequeamos rangos intermedios antes que los extremos, o si usamos operadores incorrectos, podemos dejar casos sin cubrir o clasificarlos mal. Siempre ordená de más específico a más general.
 
 ```python
 # ❌ Lógica incorrecta
@@ -1752,6 +1775,8 @@ elif nota >= 60:
 ```
 
 ### 5. Modificar la variable de control dentro del lazo `for`
+
+Intentar cambiar manualmente el valor de la variable iteradora (la `i` en `for i in...`) dentro del lazo suele ser mala idea en Python. El lazo `for` reasigna la variable automáticamente en cada vuelta, por lo que tus cambios manuales se perderán o crearán confusión.
 
 ```{code-cell} ipython3
 # ❌ Confuso y propenso a errores
@@ -1776,6 +1801,8 @@ while i < 5:
 
 ### 1. Nombres Descriptivos para Banderas
 
+Las variables booleanas (banderas) deben tener nombres que indiquen claramente qué estado representan, usualmente como una afirmación (ej. `es_valido`, `tiene_acceso`). Evitá nombres genéricos como `flag` o letras sueltas.
+
 ```{code-cell} ipython3
 # ❌ Poco claro
 flag = True
@@ -1787,6 +1814,8 @@ datos_validos = False
 ```
 
 ### 2. Condiciones Legibles
+
+Si tenés un `if` con muchas condiciones unidas por `and` u `or`, es difícil de leer y entender. Es mejor asignar esas condiciones a variables booleanas con nombres explicativos antes del `if`.
 
 ```{code-cell} ipython3
 # ❌ Difícil de leer
@@ -1805,6 +1834,8 @@ if es_mayor_edad and esta_activo and tiene_saldo and es_administrador:
 
 ### 3. Evitar Anidación Excesiva
 
+Tener muchos `if` dentro de otros `if` (código "flecha") hace que el programa sea difícil de seguir. A menudo podés simplificar combinando condiciones con `and` o usando "cláusulas de guarda" (retornar o usar `continue` temprano).
+
 ```{code-cell} ipython3
 # ❌ Muy anidado (Spaghetti code)
 if condicion1:
@@ -1819,6 +1850,8 @@ if condicion1 and condicion2 and condicion3 and condicion4:
 ```
 
 ### 4. Constantes para Valores Mágicos
+
+Evitá usar números sueltos en tus condiciones (como `18` o `65`) porque nadie sabrá qué significan si leen tu código después. Definí constantes con nombres claros en mayúsculas al principio de tu programa.
 
 ```{code-cell} ipython3
 # ❌ "Números mágicos" (18 y 65 aparecen de la nada)
