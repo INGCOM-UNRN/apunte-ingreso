@@ -21,8 +21,8 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="0.7733119"
-     inkscape:cx="535.35967"
-     inkscape:cy="534.7131"
+     inkscape:cx="375.01039"
+     inkscape:cy="472.64241"
      inkscape:window-width="1872"
      inkscape:window-height="1043"
      inkscape:window-x="0"
@@ -31,6 +31,25 @@
      inkscape:current-layer="svg36" />
   <defs
      id="defs3">
+    <marker
+       style="overflow:visible"
+       id="ConcaveTriangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path7" />
+    </marker>
     <style
        id="style1">500&amp;display=swap');700&amp;family=Roboto+Mono:wght@400;@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@700&amp;family=Lato:wght@400;.Light { fill: #ffffff; }
 .panel { fill: #f8f9fa; stroke: #dadce0; stroke-width: 2; rx: 12; }
@@ -551,4 +570,23 @@
          style="text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.18984">3</text>
     </g>
   </g>
+  <path
+     d="m 184.84232,465.28814 c 51.96153,-30 51.96153,-30 112.58331,-65"
+     stroke="#1a73e8"
+     stroke-width="2"
+     marker-end="url(#arrowHeadBlue)"
+     fill="none"
+     id="path47"
+     style="stroke:#7c8999;stroke-opacity:1;marker-end:url(#ConcaveTriangle);stroke-dasharray:2,2;stroke-dashoffset:0" />
+  <text
+     xml:space="preserve"
+     style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.7534px;line-height:normal;font-family:Lato;-inkscape-font-specification:'Lato, Bold Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-decoration-color:#000000;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:bevel;stroke-miterlimit:4.4;stroke-dasharray:2, 2;stroke-dashoffset:0;stroke-opacity:1"
+     x="-22.768452"
+     y="492.57285"
+     id="text48"
+     transform="rotate(-30)"><tspan
+       sodipodi:role="line"
+       id="tspan48"
+       x="-22.768452"
+       y="492.57285">b = a</tspan></text>
 </svg>

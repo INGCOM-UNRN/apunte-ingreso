@@ -24,7 +24,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="1"
      inkscape:cx="539.5"
-     inkscape:cy="431.5"
+     inkscape:cy="271.5"
      inkscape:window-width="1872"
      inkscape:window-height="1043"
      inkscape:window-x="0"
@@ -442,7 +442,7 @@
      font-weight="bold"
      fill="#333"
      id="text56"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.6582px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700;fill:#333333;stroke-width:1.47864">lista[1:4] =</text>
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.6582px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700;fill:#333333;stroke-width:1.47864">lista[1:4]</text>
   <text
      x="60.029121"
      y="428.0209"
@@ -450,7 +450,7 @@
      font-weight="bold"
      fill="#333"
      id="text63"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.6582px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700;fill:#333333;stroke-width:1.47864">lista[::2] =</text>
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.6582px;font-family:'Google Sans Code';-inkscape-font-specification:'Google Sans Code, @wght=700';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'wght' 700;fill:#333333;stroke-width:1.47864">lista[::2]</text>
   <g
      id="g96">
     <rect
