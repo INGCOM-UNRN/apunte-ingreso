@@ -3338,39 +3338,131 @@ dict2 = {"manzana": 2.5, "banana": 1.8}
 ---
 
 (resumen-estructuras)= 
-## Resumen
+## Resumen Visual
 
-En este capítulo aprendiste sobre estructuras de datos en Python:
+Repasemos las estructuras de datos que aprendiste con un mapa mental:
 
-✓ **Listas**: Colecciones ordenadas y modificables.
-  - Acceso, modificación, {term}`slicing`.
-  - Métodos: `append`, `insert`, `remove`, `pop`, `sort`, etc.
-  - Listas anidadas (matrices).
+```{mermaid}
+mindmap
+  root((Estructuras<br/>de Datos))
+    Listas
+      Ordenadas
+      Mutables
+      Indexables
+      Duplicados OK
+    Tuplas
+      Ordenadas
+      Inmutables
+      Indexables
+      Más rápidas
+    Diccionarios
+      Pares Clave-Valor
+      Claves únicas
+      Acceso por clave
+      Mutables
+    Sets
+      Elementos únicos
+      Sin orden
+      Operaciones de conjuntos
+      Mutables
+```
 
-✓ **Tuplas**: Colecciones ordenadas e inmutables.
-  - Cuándo usarlas.
-  - Desempaquetado.
-  - Retornar múltiples valores.
+:::::{grid} 1 1 2 2
 
-✓ **Diccionarios**: Pares clave-valor.
-  - Acceso seguro con `get()`.
-  - Métodos: `keys`, `values`, `items`, `update`.
-  - Diccionarios anidados.
+::::{grid-item-card} Listas `[]`
+Colecciones ordenadas y mutables.
+```python
+frutas = ["manzana", "banana"]
+frutas.append("pera")
+```
+::::
 
-✓ **Sets**: Colecciones de elementos únicos.
-  - Eliminar duplicados.
-  - Operaciones de conjuntos (unión, intersección, diferencia).
-  - Verificaciones de pertenencia.
+::::{grid-item-card} Tuplas `()`
+Colecciones ordenadas e inmutables.
+```python
+punto = (10, 20)
+# punto[0] = 5  # Error
+```
+::::
 
-✓ **Strings avanzados**: Métodos de búsqueda, transformación, validación.
+::::{grid-item-card} Diccionarios `{k:v}`
+Pares clave-valor. Búsqueda rápida.
+```python
+usuario = {"nombre": "Ana", "edad": 25}
+print(usuario["nombre"])
+```
+::::
 
-Las estructuras de datos son fundamentales para organizar y manipular información de forma eficiente. Elegir la estructura apropiada para cada problema es clave para escribir código claro y eficiente.
+::::{grid-item-card} Sets `{}`
+Elementos únicos y sin orden.
+```python
+unicos = {1, 2, 3, 3}
+# {1, 2, 3}
+```
+::::
 
-:::{important} Práctica con datos reales
-Las estructuras de datos cobran vida cuando trabajás con datos reales. Probá los ejercicios con diferentes conjuntos de datos y experimentá con las distintas estructuras para entender cuándo usar cada una.
+:::::
+
+### Tabla Comparativa Final
+
+| Característica | Lista | Tupla | Set | Diccionario |
+| :--- | :---: | :---: | :---: | :---: |
+| **Sintaxis** | `[]` | `()` | `{}` | `{k:v}` |
+| **Ordenado** | ✅ | ✅ | ❌ | ✅* |
+| **Mutable** | ✅ | ❌ | ✅ | ✅ |
+| **Duplicados** | ✅ | ✅ | ❌ | Claves ❌ |
+| **Acceso** | Índice | Índice | No | Clave |
+
+<small>* Desde Python 3.7+ los diccionarios mantienen orden de inserción.</small>
+
+:::{tip} Checklist de lo aprendido
+
+Marcá lo que ya dominás:
+
+- [ ] Crear y manipular **listas** (append, remove, slice).
+- [ ] Entender cuándo usar **tuplas** (inmutabilidad).
+- [ ] Usar **diccionarios** para datos estructurados (clave-valor).
+- [ ] Usar **sets** para eliminar duplicados y operaciones de conjuntos.
+- [ ] Aplicar métodos avanzados de **strings** (split, join, strip).
+- [ ] Elegir la estructura de datos adecuada para un problema.
+- [ ] Iterar correctamente sobre cada estructura.
+
+Si marcaste todo, ¡estás listo para el próximo capítulo!
+
 :::
 
-En el próximo capítulo, aprenderás sobre funciones, que te permitirán organizar y reutilizar tu código de forma modular.
+---
+
+### ¿Qué sigue?
+
+Ahora que sabés cómo guardar y organizar datos, el siguiente paso es aprender a **organizar tu código** en bloques reutilizables. En el próximo capítulo entraremos en el mundo de las **Funciones**.
+
+```{mermaid}
+graph LR
+    A[Capítulo 3<br/>Estructuras] --> B[Capítulo 4<br/>Funciones]
+    B --> C[Capítulo 5<br/>Módulos]
+    C --> D[Capítulo 6<br/>Manejo de Errores]
+    
+    style A fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style B fill:#fff9c4,stroke:#f57f17
+    style C fill:#e1f5fe,stroke:#0277bd
+    style D fill:#f3e5f5,stroke:#7b1fa2
+```
+
+:::{important} Practica, practica, practica
+
+**La programación NO se aprende leyendo, se aprende HACIENDO.**
+
+No pases al siguiente capítulo hasta que puedas:
+1. Resolver **todos** los ejercicios del cuaderno de práctica.
+2. Explicar la diferencia entre lista, tupla y set.
+3. Crear un programa que use un diccionario para contar palabras o elementos.
+
+**Recordá:** Los mejores programadores del mundo no llegaron ahí por ser genios, sino por **practicar constantemente**. Cada error que cometas hoy es una lección que no olvidarás mañana.
+
+¡Vamos Manaos!
+
+:::
 
 
 ---
