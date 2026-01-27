@@ -1467,14 +1467,6 @@ Salida
 Proceso
 : Conjunto de operaciones y cálculos que transforman las entradas en salidas.
 
-Lazo
-: Estructura de control que permite repetir un bloque de instrucciones múltiples veces (también llamado bucle o ciclo).
-
-Condición
-: Expresión lógica que se evalúa como Verdadera o Falsa y determina qué camino sigue el algoritmo en una estructura de decisión.
-
-Variable
-: Espacio de memoria con un nombre simbólico que se utiliza para almacenar un valor que puede cambiar durante la ejecución.
 
 Constante
 : Valor que no cambia durante la ejecución del algoritmo.

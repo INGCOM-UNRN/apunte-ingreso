@@ -30,7 +30,7 @@ El objetivo de usar IA en tu aprendizaje no es obtener respuestas rápidas, sino
 
 - **Explicar conceptos**: "Explicame qué es un {term}`algoritmo` usando ejemplos cotidianos"
 - **Revisar tu código**: "Revisá este código que escribí y explicame qué errores tiene"
-- **Generar ejemplos**: "Dame 3 ejemplos progresivamente más complejos de {term}`lazos` `while`"
+- **Generar ejemplos**: "Dame 3 ejemplos progresivamente más complejos de {term}`lazo` `while`"
 - **Debuggear con guía**: "Tengo este error [error], ¿qué pasos puedo seguir para encontrar el problema?"
 - **Explorar alternativas**: "¿De qué otras formas podría resolver este problema?"
 
@@ -216,7 +216,6 @@ Ahora quiero profundizar. ¿Podrías:
 ### Ciclo de Aprendizaje con IA
 
 ```{mermaid}
-:align: center
 
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#e3f2fd','primaryTextColor':'#000','primaryBorderColor':'#1976d2','lineColor':'#424242','secondaryColor':'#fff3e0','tertiaryColor':'#f3e5f5','noteTextColor':'#000','noteBkgColor':'#fff9c4','textColor':'#000','fontSize':'16px'}}}%%
 
