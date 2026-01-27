@@ -974,7 +974,7 @@ while contador <= 5:
 
 ### Patrones de lazos `while`
 
-Los patrones son fragmentos de código con estructuras comunes. Estos mismos patrones también se aplican a lazos `for`, como veremos más adelante en la sección {ref}`patrones-comunes`.
+Los patrones son fragmentos de código con estructuras comunes. Estos mismos patrones también se aplican a lazos `for`.
 
 :::{important} Patrones universales
 Estos patrones son **independientes del tipo de lazo**. Lo que importa es la lógica del patrón, no si usás `while` o `for`. Aprendé a reconocer el patrón y luego elegí el lazo más apropiado para tu problema.
@@ -1117,7 +1117,7 @@ Este patrón es **muy común** en programación:
 
 ## Cadenas como secuencias de caracteres
 
-Hasta ahora hemos usado cadenas de texto ({term}`string`) simplemente como “bloques” de información para mostrar mensajes. Sin embargo, en Python, una cadena es en realidad una **secuencia ordenada de caracteres**.
+Hasta ahora hemos usado cadenas de texto ({term}`Cadena`) simplemente como “bloques” de información para mostrar mensajes. Sin embargo, en Python, una cadena es en realidad una **secuencia ordenada de caracteres**.
 
 Esto significa que:
 1. Cada caracter tiene una posición única.
@@ -2171,41 +2171,8 @@ Cortocircuito
 else en lazos
 : Cláusula opcional en {term}`lazos<lazo>` que se ejecuta solo si el lazo termina **normalmente** (sin {term}`break`). Si se usa `break`, el `else` no se ejecuta.
 
-Control de flujo
-: Capacidad de un programa para decidir qué instrucciones ejecutar y en qué orden, basándose en condiciones y lazos.
-
-Condicional
-: Estructura que permite ejecutar un bloque de código solo si se cumple una condición determinada (`if`, `elif`, `else`).
-
-Bloque
-: Conjunto de instrucciones agrupadas que se ejecutan juntas. En Python, se definen mediante la {term}`indentación`.
-
-Indentación
-: Espacio en blanco al inicio de una línea de código. En Python, es obligatoria y define la estructura de {term}`bloques <Bloque>`.
-
 Bucle
 : También llamado lazo o ciclo. Estructura que permite repetir un bloque de código múltiples veces.
-
-Iteración
-: Cada una de las repeticiones de un {term}`lazo`.
-
-Contador
-: Variable utilizada para contar el número de veces que ocurre un evento o iteración.
-
-Acumulador
-: Variable utilizada para sumar o concatenar valores a lo largo de las iteraciones de un {term}`lazo`.
-
-Bandera
-: (Flag) Variable booleana que indica si ha ocurrido un evento o estado específico, utilizada para controlar el flujo (ej. detener un {term}`lazo`).
-
-Rango
-: Secuencia inmutable de números generada por la función `range()`, comúnmente usada en lazos `for`.
-
-Break
-: Instrucción que termina inmediatamente la ejecución de un {term}`lazo`, saltando a la primera línea después del mismo.
-
-Continue
-: Instrucción que salta el resto de la {term}`iteración` actual y pasa inmediatamente a la siguiente.
 
 Anidamiento
 : Práctica de colocar una estructura de control (como un `if` o un `while`) dentro de otra.
