@@ -2713,6 +2713,13 @@ Para profundizar en descomposición funcional:
 
 ---
 
+## Ejercicios
+
+
+En líneas generales, pueden transformar todo lo que han hecho antes en funciones, pero también tienen esta práctica dedicada: [Programación Python - Funciones](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=4_funciones.ipynb)
+
+---
+
 (resumen-funciones)=
 ## Resumen Visual
 

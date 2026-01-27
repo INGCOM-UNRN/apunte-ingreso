@@ -3338,6 +3338,13 @@ dict2 = {"manzana": 2.5, "banana": 1.8}
 
 ---
 
+## Ejercicios
+
+[Programación Python - Estructuras de datos](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=3_estructuras.ipynb)
+
+
+---
+
 (resumen-estructuras)= 
 ## Resumen Visual
 

@@ -1868,6 +1868,16 @@ if edad >= EDAD_MINIMA and edad <= EDAD_MAXIMA:
 
 ---
 
+## Ejercicios
+
+Estos ejercicios son similares a los de la parte de algoritmos y también están pensados para ser resueltos en papel, o por lo menos, sin que el compilador nos ayude de entrada.
+
+1. [Enunciados Parsons (Python)](./enunciados/parsons_python.md)
+2. [Debugging Python](./enunciados/debugging_python.md)
+3. [Pruebas de Escritorio](./enunciados/escritorio_python.md)
+4. [Programación Python - Control de flujo](https://ingcom-unrn.github.io/jupyterlite/lab/index.html?path=2_control_flujo.ipynb)
+
+---
 (uso-ia-control-flujo)= 
 ## Uso Ético y Efectivo de la IA en Control de Flujo
 

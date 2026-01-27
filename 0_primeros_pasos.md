@@ -1327,7 +1327,11 @@ Recordá que esta guía es una aplicación del {ref}`método de Pólya <polya-co
 
 Para poner en práctica todo lo aprendido, hemos preparado una colección completa de ejercicios organizados por nivel de dificultad y con distintos niveles de ayuda (desde diagramas completos hasta solo enunciados).
 
-👉 **[Ir a los Ejercicios de Programación](../enunciados/programacion.md)**
+
+1. [Enunciados Parsons](./enunciados/parsons_pseudo.md) (_líneas de código mezcladas_) para reforzar la programación.
+2. [Pruebas de Escritorio](./enunciados/escritorio_pseudo.md) para aprender a leer código y seguir su funcionamiento sin depender de la computadora
+3. [Enunciados de programación](./enunciados/programacion.md) para hacer diagramas de flujo y pseudocódigo.
+
 
 Allí encontrarás ejercicios clásicos como sumas, promedios, tablas de multiplicar, factoriales, series de Fibonacci y más. ¡Te recomendamos hacerlos todos!
 
