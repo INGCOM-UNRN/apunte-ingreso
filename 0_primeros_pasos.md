@@ -1346,19 +1346,140 @@ Allí encontrarás ejercicios clásicos como sumas, promedios, tablas de multipl
 **La programación no es tipear rápido, es PENSAR bien.**
 ::::
 
-### Próximos Pasos
+## 12. Resumen Visual
 
-Ahora que sabés plantear algoritmos, estás listo para:
+Repasemos los pasos fundamentales para plantear algoritmos:
 
-1. Profundizar en {ref}`Fundamentos de Python <fundamentos>`.
-2. Dominar el {ref}`Control de Flujo <control-flujo>`.
-3. Aplicar el {ref}`método de Pólya <polya-comprender>` a problemas más complejos.
+```{mermaid}
+mindmap
+  root((Algoritmos))
+    Análisis
+      Entrada
+      Salida
+      Proceso
+      Casos especiales
+    Diseño
+      Diagrama de Flujo
+        Visual
+        Símbolos estándar
+      Pseudocódigo
+        Texto estructurado
+        Palabras clave
+    Verificación
+      Prueba de Escritorio
+        Tabla de traza
+        Casos de prueba
+        Corrección temprana
+```
 
-### Mensaje Final
+:::::{grid} 1 1 2 2
 
-No te desanimes si al principio te resulta lento. **Todos los programadores profesionales** pasan por este proceso (algunos en papel, otros mentalmente, pero todos lo hacen).
+::::{grid-item-card} Análisis
+Entender el problema respondiendo las 5 preguntas mágicas.
+::::
 
-Con práctica, este proceso se vuelve natural y rápido. La inversión de tiempo ahora te ahorrará DÍAS de frustración después.
+::::{grid-item-card} Diseño Visual
+Usar diagramas de flujo para ver el camino lógico.
+::::
 
-**¡Éxito en tu camino como programador! 🚀**
+::::{grid-item-card} Pseudocódigo
+Escribir la lógica en "español estructurado".
+::::
+
+::::{grid-item-card} Verificación
+Probar en papel antes de escribir código.
+::::
+
+:::::
+
+:::{tip} Checklist de lo aprendido
+
+Marcá lo que ya dominás:
+
+- [ ] Identificar entradas, salidas y procesos de un problema.
+- [ ] Dibujar diagramas de flujo con los símbolos correctos.
+- [ ] Escribir pseudocódigo claro y estructurado.
+- [ ] Realizar una prueba de escritorio paso a paso.
+- [ ] Detectar errores lógicos antes de programar.
+- [ ] Traducir un algoritmo diseñado a código Python.
+
+Si marcaste todo, ¡estás listo para el próximo capítulo!
+
+:::
+
+---
+
+### ¿Qué sigue?
+
+Ahora que sabés cómo pensar y diseñar soluciones, es hora de aprender las herramientas básicas del lenguaje Python.
+
+```{mermaid}
+graph LR
+    A[Capítulo 0<br/>Algoritmos] --> B[Capítulo 1<br/>Fundamentos]
+    B --> C[Capítulo 2<br/>Control de Flujo]
+    C --> D[Capítulo 3<br/>Estructuras]
+    
+    style A fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style B fill:#fff9c4,stroke:#f57f17
+    style C fill:#e1f5fe,stroke:#0277bd
+    style D fill:#f3e5f5,stroke:#7b1fa2
+```
+
+:::{important} Practica, practica, practica
+
+**La programación NO se aprende leyendo, se aprende HACIENDO.**
+
+No pases al siguiente capítulo hasta que puedas:
+1. Resolver un problema simple en papel (diseño y prueba).
+2. Explicarle a alguien qué es un algoritmo.
+3. Entender por qué es importante planificar antes de programar.
+
+**Recordá:** Los mejores programadores del mundo no llegaron ahí por ser genios, sino por **practicar constantemente**. Cada error que cometas hoy es una lección que no olvidarás mañana.
+
+¡Vamos Manaos!
+
+:::
+
+---
+
+(glosario-primeros-pasos)=
+## Glosario
+
+```{glossary}
+Algoritmo
+: Secuencia finita de pasos precisos y ordenados para resolver un problema o realizar una tarea.
+
+Diagrama de flujo
+: Representación gráfica de un algoritmo usando símbolos estándar (óvalos, rectángulos, rombos) conectados por flechas.
+
+Pseudocódigo
+: Forma de escribir algoritmos utilizando un lenguaje cercano al humano (español estructurado) pero con la estructura de un lenguaje de programación.
+
+Prueba de escritorio
+: Técnica manual para verificar la lógica de un algoritmo siguiendo sus pasos con valores de prueba y registrando los cambios en las variables.
+
+Entrada
+: Datos o información que recibe un algoritmo para ser procesados.
+
+Salida
+: Resultados o información que produce un algoritmo después del procesamiento.
+
+Proceso
+: Conjunto de operaciones y cálculos que transforman las entradas en salidas.
+
+Lazo
+: Estructura de control que permite repetir un bloque de instrucciones múltiples veces (también llamado bucle o ciclo).
+
+Condición
+: Expresión lógica que se evalúa como Verdadera o Falsa y determina qué camino sigue el algoritmo en una estructura de decisión.
+
+Variable
+: Espacio de memoria con un nombre simbólico que se utiliza para almacenar un valor que puede cambiar durante la ejecución.
+
+Constante
+: Valor que no cambia durante la ejecución del algoritmo.
+
+Depuración
+: Proceso de identificar y corregir errores en un algoritmo o programa.
+```
 
