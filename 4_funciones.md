@@ -2714,333 +2714,120 @@ Para profundizar en descomposición funcional:
 ---
 
 (resumen-funciones)=
-##  Resumen del Capítulo
+## Resumen Visual
 
-```{figure} ./4_funciones/resumen_funciones.svg
-:name: fig-resumen-funciones
-:align: center
-:width: 90%
+Repasemos todo lo aprendido sobre funciones con un mapa mental:
 
-Mapa conceptual completo del capítulo de funciones
+```{mermaid}
+mindmap
+  root((Funciones))
+    Definición
+      def nombre
+      Parámetros
+      Docstrings
+      Cuerpo indentado
+    Parámetros
+      Posicionales
+      Keyword nombre=valor
+      Por defecto
+    Retorno
+      return valor
+      return a, b tupla
+      Sin return es None
+    Scope
+      Local
+      Global
+      Shadowing
+    Diseño
+      SRP Una cosa
+      DRY No repetir
+      Nombres claros
+      Sin side effects
 ```
 
-### Conceptos Clave
+:::::{grid} 1 1 2 2
 
-::::{grid} 1 1 2 2
-
-:::{grid-item-card} Definición
-**Sintaxis básica:**
+::::{grid-item-card} Definición
+Bloque de código reutilizable.
 ```python
-def nombre_funcion(parametros):
-    """Docstring"""
-    # código
-    return resultado
+def saludar(nombre):
+    return f"Hola {nombre}"
 ```
-:::
-
-:::{grid-item-card} 📥 Parámetros
-- Posicionales
-- Con nombre (keyword)
-- Por defecto
-:::
-
-:::{grid-item-card} `return`
-- Retorna valores
-- Termina ejecución
-- Puede retornar múltiples valores (tupla)
-- Sin `return` → `None`
-:::
-
-:::{grid-item-card} Documentación
-- Docstrings obligatorios
-- Formato estándar
-- Describe Args y Returns
-- Incluye ejemplos
-:::
-
-:::{grid-item-card} Scope
-- Variables locales vs globales
-- LEGB: Local, Enclosing, Global, Built-in
-- Evitar {term}`global`
-- Usar parámetros y `return`s
-:::
-
-:::{grid-item-card} {term}`funciones lambda <Función lambda>`
-- Funciones anónimas
-- Una sola expresión
-- Útiles con map/filter
-- No reemplazan funciones normales
-:::
 ::::
+
+::::{grid-item-card} Parámetros
+Datos de entrada flexibles.
+```python
+def func(a, b=10, c=None):
+    pass
+```
+::::
+
+::::{grid-item-card} Retorno
+Devolver resultados, no imprimir.
+```python
+def sumar(a, b):
+    return a + b
+```
+::::
+
+::::{grid-item-card} Scope
+Alcance de variables.
+```python
+x = 10  # Global
+def f():
+    y = 5  # Local
+```
+::::
+
+:::::
 
 ### Checklist de Buenas Prácticas
 
-Este checklist resume todas las buenas prácticas vistas en el capítulo. Usalo como guía cuando escribas funciones nuevas o cuando revises código existente. Cumplir con estos puntos garantiza funciones de calidad, fáciles de entender, mantener y testear. No es necesario que memorices todo, pero sí que entiendas por qué cada punto es importante.
+Marcá lo que ya aplicás en tus funciones:
 
-```{tip} ✅ Funciones de Calidad
+- [ ] **Nombre descriptivo:** Indica claramente qué hace (`calcular_promedio` vs `calc`).
+- [ ] **Responsabilidad Única (SRP):** Hace una sola cosa bien.
+- [ ] **Docstring:** Tiene documentación explicando qué hace, args y return.
+- [ ] **Return vs Print:** Retorna valores en lugar de imprimirlos (salvo funciones de UI).
+- [ ] **Sin Efectos Secundarios:** No modifica variables globales ni argumentos mutables inesperadamente.
+- [ ] **Tamaño:** Es breve y fácil de leer (aprox. 20-30 líneas).
+- [ ] **Parámetros:** Tiene una cantidad razonable de parámetros (máx 3-4).
 
-- [ ] **Nombre descriptivo** que indica qué hace
-- [ ] **Una sola responsabilidad**(principio SRP)
-- [ ] **Docstring completo**con Args y Returns
-- [ ] **Retorna valor**, no imprime (separar lógica de presentación)
-- [ ] **Parámetros claros**y no demasiados (máx 3-4)
-- [ ] **No modifica**argumentos mutables
-- [ ] **Evita variables globales**, usa parámetros
-- [ ] **Maneja casos borde**(lista vacía, None, etc.)
-- [ ] **Testeable**y fácil de probar
-- [ ] **Tamaño razonable**(~20-30 líneas máximo)
-```
-
-### Errores a Evitar
-
-Esta sección resume visualmente los errores más comunes al trabajar con funciones. Son problemas que verás frecuentemente en código de principiantes (¡y a veces en código de expertos también!). Aprender a reconocerlos y evitarlos desde el principio te ahorrará horas de debugging. Cada error tiene su correspondiente sección detallada en el capítulo donde se explica por qué es problemático y cómo corregirlo.
-
-::::{grid} 1 1 2 3
-
-:::{grid-item-card} ❌ Olvidar Return
-```python
-def sumar(a, b):
-    a + b  # Falta return!
-```
-:::
-
-:::{grid-item-card} ❌ Default Mutable
-```python
-def func(lista=[]):  # ¡Peligro!
-    lista.append(1)
-```
-:::
-
-:::{grid-item-card} ❌ Usar global
-```python
-def func():
-    global x  # Evitar
-    x = 10
-```
-:::
-
-:::{grid-item-card} ❌ Sin Docstring
-```python
-def calc(x, y, z):  # ¿Qué hace?
-    return x * y + z
-```
-:::
-
-:::{grid-item-card} ❌ Modificar Argumentos
-```python
-def func(lista):
-    lista.append(1)  # Side effect
-```
-:::
-
-:::{grid-item-card} ❌ Muchos Parámetros
-```python
-def func(a, b, c, d, e, f):
-    # Demasiados!
-```
-:::
-::::
-
-### Tabla de Referencia Rápida
-
-| Concepto | Sintaxis | Ejemplo |
-|----------|----------|---------|
-| Función básica | `def nombre(params): return valor` | `def suma(a, b): return a + b` |
-| Parámetro default | `def func(param=valor):` | `def saludar(nombre="Mundo"):` |
-| Args variables | `def func(*args):` | `def sumar(*nums): return sum(nums)` |
-| Docstring | `"""descripcion"""` | `"""Suma dos números."""` |
-| Scope local | Variable dentro de función | `def f(): x = 1` |
-| Scope global | Variable fuera de funciones | `X = 1` (constante) |
-
-### Para Seguir Practicando
-
-Aprender sobre funciones no termina con la teoría. La mejor forma de dominarlas es practicando constantemente. Empezá con ejercicios simples y gradualmente pasá a problemas más complejos. Refactorizar código existente es una excelente manera de aprender: tomá programas que escribiste antes y organizalos usando funciones. Leer código de otros también es invaluable para ver diferentes estilos y técnicas.
-
-```{tip} Próximos Pasos
-
-1. **Practicar**con los ejercicios propuestos
-2. **Refactorizar**código existente en funciones
-3. **Leer**código de proyectos open source
-4. **Escribir**funciones para problemas reales
-5. **Revisar**PEP 8 para estilo de funciones
-```
+Si marcaste todo, ¡estás escribiendo funciones de calidad profesional!
 
 ---
-
-(referencias-funciones)=
-## Referencias y Recursos
-
-### Documentación Oficial
-
-- [Python Functions Tutorial](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
-- [PEP 8 - Style Guide](https://www.python.org/dev/peps/pep-0008/)
-- [PEP 257 - Docstring Conventions](https://www.python.org/dev/peps/pep-0257/)
-
-### Recursos Adicionales
-
-- [Real Python - Defining Your Own Python Function](https://realpython.com/defining-your-own-python-function/)
-- [Clean Code by Robert C. Martin](https://www.oreilly.com/library/view/clean-code/9780136083238/) - Capítulo sobre funciones
-
-### Herramientas
-
-- **pylint**: Linter para verificar estilo
-- **black**: Formateador automático
-- **pydocstyle**: Verifica docstrings
-
----
-
-:::{success} ¡Felicitaciones!
-
-Completaste el capítulo de **Funciones**. Ahora sabés:
-
-✅ Crear funciones con diferentes tipos de parámetros  
-✅ Documentar funciones profesionalmente  
-✅ Entender y aplicar scope correctamente  
-✅ Aplicar buenas prácticas en diseño de funciones  
-✅ Evitar errores comunes
-
-**¡Seguí adelante con el próximo capítulo!**
-:::
-
-:::{tip}
-**¡Seguí con el próximo capítulo!**
-
-[Capítulo 5 - Módulos y Paquetes →](5_modulos.md)
-:::
-
-### 5. Variables Globales sin Declarar
-
-Aunque Python permite modificar variables globales usando la palabra clave `global`, esto es considerado una mala práctica. Las variables globales crean dependencias ocultas, hacen el código difícil de testear, y pueden causar bugs sutiles cuando múltiples funciones las modifican. La solución es pasar valores como parámetros y retornar los nuevos valores, manteniendo las funciones puras y predecibles.
-
-```python
-contador = 0
-
-# ❌ Error: intenta modificar sin 'global'
-def incrementar_mal():
-    contador += 1  # UnboundLocalError
-
-# ✓ Pero mejor: no usar global
-def incrementar(valor):
-    return valor + 1
-
-contador = 0
-contador = incrementar(contador)
-```
-
----
-
-## Resumen
-
-En este capítulo aprendiste sobre funciones en Python:
-
-✓ **Definir y llamar funciones**: Sintaxis básica y componentes  
-✓ **Parámetros y argumentos**: Posicionales, keyword, múltiples  
-✓ **Retornar valores**: Simple, múltiple, retorno temprano  
-✓ **Scope de variables**: Local, global, constantes  
-✓ **Parámetros por defecto**: Valores opcionales y cuidados  
-✓ **Documentación**: Docstrings con formato apropiado  
-✓ **Recursión**: Caso base y recursivo (opcional)  
-✓ **Buenas prácticas**: Responsabilidad única, nombres, efectos secundarios  
-✓ **Descomposición funcional**: Dividir problemas complejos en funciones simples  
-✓ **Principios de diseño**: SRP, DRY, abstracción y niveles de descomposición
-
-Las funciones son fundamentales para escribir código modular, reutilizable y mantenible. Te permiten dividir problemas complejos en partes más pequeñas y manejables, cada una con una responsabilidad clara.
-
-:::{important} La modularización es clave
-Un programa bien diseñado está compuesto de muchas funciones pequeñas, cada una haciendo una cosa bien. Esto facilita:
-- Entender el código
-- Testear cada parte por separado
-- Encontrar y corregir errores
-- Reutilizar código en diferentes contextos
-- Trabajar en equipo
-
-Pensá en funciones como "bloques de construcción" que combinás para crear programas más grandes. La **descomposición funcional** es la habilidad más importante que desarrollarás como programador: dividir un problema complejo en subproblemas simples, donde cada función tiene una responsabilidad única y clara.
-:::
-
-
-## Cierre
-
-¡Felicitaciones! Completaste el capítulo de **Funciones**, uno de los pilares fundamentales de la programación en Python. Las funciones son el corazón de la programación modular y te permiten escribir código limpio, reutilizable y mantenible.
 
 ### ¿Qué sigue?
 
-Este capítulo forma parte de los **contenidos principales** del curso. Para profundizar tu comprensión y ver aplicaciones prácticas de lo aprendido, explorá los siguientes materiales opcionales:
+Las funciones son el primer paso hacia la modularización. En el próximo capítulo veremos cómo organizar estas funciones en archivos separados y usar librerías externas.
 
-::::{grid} 1 1 2 2
+```{mermaid}
+graph LR
+    A[Capítulo 4<br/>Funciones] --> B[Capítulo 5<br/>Módulos]
+    B --> C[Capítulo 6<br/>Excepciones]
+    C --> D[Proyecto Final]
+    
+    style A fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style B fill:#fff9c4,stroke:#f57f17
+    style C fill:#e1f5fe,stroke:#0277bd
+    style D fill:#f3e5f5,stroke:#7b1fa2
+```
 
-:::{grid-item-card} 📝 A - F-strings Avanzados
-:link: A_fstrings
-:link-type: ref
+:::{important} Practica, practica, practica
 
-Formateo de texto profesional para tus funciones y salidas.
-**Complementa:** Documentación y presentación de resultados
+**La programación NO se aprende leyendo, se aprende HACIENDO.**
+
+No pases al siguiente capítulo hasta que puedas:
+1. Escribir una función que reciba parámetros y retorne un valor.
+2. Explicar la diferencia entre `print` y `return`.
+3. Entender por qué una variable definida dentro de una función no existe fuera.
+
+**Recordá:** Los mejores programadores del mundo no llegaron ahí por ser genios, sino por **practicar constantemente**. Cada error que cometas hoy es una lección que no olvidarás mañana.
+
+¡Vamos Manaos!
+
 :::
-
-:::{grid-item-card} ⚠️ B - Manejo de Excepciones
-:link: B_excepciones
-:link-type: ref
-
-Cómo hacer tus funciones más robustas manejando errores.
-**Complementa:** Validación de parámetros y casos borde
-:::
-
-:::{grid-item-card} 📦 C - Módulos y Biblioteca Estándar
-:link: C_modulos
-:link-type: ref
-
-Organizar funciones en módulos y usar funciones de la biblioteca estándar.
-**Complementa:** Reutilización y organización de código
-:::
-
-:::{grid-item-card} 🎨 D - Guía de Estilo
-:link: D_estilo
-:link-type: ref
-
-Convenciones de estilo para escribir funciones profesionales.
-**Complementa:** Buenas prácticas y código limpio
-:::
-
-:::{grid-item-card} 📓 E - JupyterLab
-:link: E_jupyterlab
-:link-type: ref
-
-Entorno interactivo para experimentar con funciones.
-**Complementa:** Práctica y exploración de código
-:::
-
-:::{grid-item-card} 🤖 Z - IA en Programación
-:link: Z_ia
-:link-type: ref
-
-Uso ético de IA para aprender sobre funciones.
-**Complementa:** Aprendizaje y resolución de problemas
-:::
-
-::::
-
-### Próximos pasos en tu aprendizaje
-
-1. **Practicá regularmente**: Resolvé los ejercicios propuestos
-2. **Refactorizá código**: Tomá programas anteriores y organizalos en funciones
-3. **Leé código de otros**: Explorá proyectos open source
-4. **Experimentá**: Probá diferentes patrones y estilos
-5. **Revisá conceptos**: Volvé a este capítulo cuando tengas dudas
-
-### Recordá los principios clave
-
-:::{important} Diseño de funciones efectivas
-
-- **Una responsabilidad por función** (SRP)
-- **Nombres descriptivos y claros**
-- **Documentación completa con docstrings**
-- **Retornar valores, no imprimir**
-- **Evitar efectos secundarios**
-- **Funciones pequeñas y enfocadas**
-
-Estos principios te acompañarán durante toda tu carrera como programador.
-:::
-
-¡Y con esto, completaste los apuntes principales de Python del ingreso! Ahora tenés las herramientas fundamentales para escribir programas bien estructurados y mantenibles.
 
 ---
 
@@ -3097,7 +2884,7 @@ Scope global
 : Variables definidas **fuera** de funciones, en el nivel principal del programa. Son accesibles desde cualquier parte del código, incluyendo dentro de funciones.
 
 global
-: Palabra clave para declarar que se usará una variable global dentro de una función. Permite **modificar** una variable de{term}`scope global`. Ejemplo: `global contador`. Usar con precaución.
+: Palabra clave para declarar que se usará una variable global dentro de una función. Permite **modificar** una variable de {term}`scope global`. Ejemplo: `global contador`. Usar con precaución.
 
 Shadowing
 : Cuando una variable de {term}`Scope local` tiene el mismo nombre que una {term}`Scope global`, "tapa" o "enmascara" la global dentro de la función. La función usa la local, no la global.
