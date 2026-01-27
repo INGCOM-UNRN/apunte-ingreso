@@ -46,7 +46,6 @@ project:
       - file: enunciados/parsons_python.md
       - file: enunciados/debugging_python.md
       - file: enunciados/escritorio_python.md
-    - file: index.md
     - title: JupyterLab iCOM UNRN
       url: https://ingcom-unrn.github.io/jupyterlite/lab/index.html
     - title: Campus Bimodal

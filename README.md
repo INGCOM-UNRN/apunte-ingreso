@@ -4,7 +4,7 @@ Bienvenidos a este apunte creado para el Curso de Ingreso a la carrera de Ingeni
 
 ## Contenido del material (y curso)
 
-### [Capítulo 0: Introducción a la Programación](./00_primeros_pasos.md)
+### [Capítulo 0: Introducción a la Programación](./0_primeros_pasos.md)
 
 - Concepto de algoritmo (secuencia de pasos precisos).
 - Las 5 preguntas mágicas (método sistemático de análisis).
@@ -24,18 +24,15 @@ Bienvenidos a este apunte creado para el Curso de Ingreso a la carrera de Ingeni
 ### [Capítulo 2: Control de Flujo](2_control_flujo.md)
 
 - Estructuras condicionales (`if`, `elif`, `else`) con diagramas.
-- Operador ternario (expresiones condicionales).
 - Lazos `while` y `for` con visualizaciones.
-- Control de lazos (`break`, `continue`, `pass`).
+- Manipulación de lazos (`break`, `continue`).
 
 ### [Capítulo 3: Estructuras de Datos](./3_estructuras.md)
 
-- Listas (crear, modificar, métodos, slicing avanzado).
+- Listas (crear, modificar, métodos, slicing).
 - Tuplas (inmutabilidad, unpacking múltiple).
-- Diccionarios (CRUD completo, métodos, comprensiones).
+- Diccionarios (Formas de uso y métodos).
 - Sets (operaciones matemáticas, álgebra de conjuntos).
-- Strings avanzados (métodos, formato, f-strings).
-- Estructuras anidadas (listas de diccionarios, etc.).
 
 ### [Capítulo 4: Funciones](./4_funciones.md)
 
@@ -46,7 +43,7 @@ Bienvenidos a este apunte creado para el Curso de Ingreso a la carrera de Ingeni
 - Recursión (visualización del stack).
 - Documentación (docstrings completos).
 
-### [Capítulo 5: Método de Pólya](./0_como_pensar.md)
+### [Capítulo 5: Método de Pólya](./5_como_pensar.md)
 
 Guía sistemática para abordar problemas de programación basada en el método del matemático George Pólya. Presenta un marco de cuatro etapas (comprender, planificar, ejecutar y examinar) que estructura el pensamiento algorítmico y reduce errores conceptuales. Especialmente recomendado para quienes se inician en programación, ya que proporciona una metodología clara de resolución de problemas aplicable a cualquier desafío computacional.
 
@@ -74,7 +71,7 @@ Referencia completa de los métodos más importantes para los cinco tipos de dat
 
 ### [Apéndice D: Cuestiones de Estilo](./D_estilo.md)
 
-Recopilación exhaustiva de reglas de estilo basadas en PEP 8 y buenas prácticas de la comunidad Python. Establece convenciones para nomenclatura, espaciado, estructura de código y documentación que hacen el código más legible y mantenible. Cada regla está numerada (formato 0x0000h) para facilitar referencias cruzadas y feedback. Aunque no se evalúan explícitamente en exámenes, aplicar estas reglas mejora significativamente la calidad profesional del código.
+Recopilación exhaustiva de reglas de estilo basadas en PEP 8 y buenas prácticas de la comunidad Python. Establece convenciones para nomenclatura, espaciado, estructura de código y documentación que hacen el código más legible y mantenible. Cada regla está numerada (con un número como 0x0000h) para facilitar el feedback y las preguntas. Aunque no se evalúan explícitamente en el exámen, aplicar estas reglas mejora significativamente la calidad profesional del código.
 
 ### [Apéndice E: JupyterLab](./E_jupyterlab.md)
 
@@ -92,19 +89,19 @@ Guía sobre el uso ético y efectivo de la Inteligencia Artificial en el aprendi
 
 Para el curso de ingreso no es necesario instalar nada, solo tenés que visitar nuestro [JupyterLab](https://ingcom-unrn.github.io/jupyterlite/lab/index.html) que tiene todo listo para empezar a programar desde el navegador. También podés consultar la guía de uso en el [Apéndice E: JupyterLab](./E_jupyterlab.md).
 
-Lo importante de usar esta herramienta es que funciona en cualquier dispositivo, incluyendo televisores inteligentes, teléfonos y tablets, aunque es fundamental contar con un teclado físico, ya que es necesario escribir mucho código.
+Lo importante de usar esta herramienta es que funciona en cualquier dispositivo, incluyendo televisores inteligentes, teléfonos y tablets, aunque es crucial contar con un teclado físico, ya que es necesario escribir mucho código.
 
 ## Sobre Asistentes de Código e IA Generativa
 
 Estamos ante un cambio de paradigma en el desarrollo de software. No obstante, al igual que una calculadora no sustituye la comprensión aritmética, un LLM no reemplaza la lógica algorítmica. Deben dominar la programación para instruir a la IA con precisión técnica y evaluar críticamente el output recibido.
 
-Una advertencia fundamental: el "copy-paste" indiscriminado de consignas genera una ilusión de competencia. Si la IA resuelve el problema por ustedes sin su supervisión activa, quien practica es el modelo, mientras que su capacidad de resolución de problemas se atrofia.
+Una advertencia: el “copy-paste” indiscriminado de consignas genera una ilusión de competencia. Si la IA resuelve el problema por ustedes sin su supervisión activa, quien practica es el modelo, mientras que su capacidad de resolución de problemas se atrofia.
 
 Para profundizar en este tema, consulten el [Apéndice Z: IA en Programación](./Z_ia.md).
 
 ## ¿Necesitás Ayuda?
 
-¡No te quedes con dudas! Programar es un desafío y preguntar es parte fundamental del aprendizaje.
+¡No te quedes con dudas! Programar es un desafío y preguntar es parte indispensable del aprendizaje.
 
 ### Canales de Consulta
 - **En las Clases:** Preguntá directamente a docentes y ayudantes.
@@ -120,27 +117,26 @@ Para profundizar en este tema, consulten el [Apéndice Z: IA en Programación](.
 
 ## Consejos de Estudio
 
-### HACER:
-- 💻 Escribir código **todos los días** (aunque sea un ratito).
-- 🐛 Cometer errores y **aprender de ellos**.
-- 🔄 Repetir conceptos difíciles.
-- 🤝 Explicar lo aprendido a alguien más.
-- 🛠️ Crear proyectos pequeños propios.
-- 📝 Tomar notas con tus propias palabras.
+- Escribir código **todos los días** (aunque sea un ratito).
+- Cometer errores y **aprender de ellos**.
+- Repetir conceptos difíciles.
+- Explicar lo aprendido a alguien más.
+- Crear proyectos pequeños propios.
+- Tomar notas con tus propias palabras.
+- Planificar antes de programar.
 
-### NO HACER:
-- 📖 Leer sin ejecutar código.
-- 🏃 Saltar capítulos o secciones.
-- 📋 Copiar código sin entenderlo.
-- ⏩ Ir muy rápido sin practicar.
-- 😰 Frustrarse con los errores (son normales).
+- ***NO*** Leer sin ejecutar código.
+- ***NO*** Saltar capítulos o secciones.
+- ***NO*** Copiar código sin entenderlo.
+- ***NO*** Ir muy rápido sin practicar.
+- ***NO*** Frustrarse con los errores (son normales).
 
-## 🎊 ¡Éxitos!
+## ¡Éxitos!
 
 **Recordá que:**
 
-💡 *"El código no se aprende leyendo, se aprende escribiendo"*
+*“El código no se aprende leyendo, se aprende escribiendo”*
 
-🚀 **La práctica constante es la clave del éxito**
+**La práctica constante es la clave del éxito**
 
-🤝 **Estamos acá para ayudarte**
+**Estamos acá para ayudarte**
