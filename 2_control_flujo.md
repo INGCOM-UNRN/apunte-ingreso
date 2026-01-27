@@ -885,7 +885,7 @@ else:
 (while-lazos)=
 ## Lazos indefinidos - `while`: Mientras que...
 
-Un **lazo** (también llamado bucle) permite ejecutar un bloque de código repetidamente. El lazo `while` continúa ejecutándose mientras una condición sea verdadera.
+Un **lazo** (también llamado lazo) permite ejecutar un bloque de código repetidamente. El lazo `while` continúa ejecutándose mientras una condición sea verdadera.
 
 ### Sintaxis Básica
 
@@ -1237,19 +1237,19 @@ El lazo `for` se usa cuando querés hacer algo **con cada elemento** de una secu
 flowchart TD
     inicio([Inicio])
     iniciar[secuencia = 'Hola']
-    bucle{¿Hay más<br/>elementos?}
+    lazo{¿Hay más<br/>elementos?}
     procesar[caracter = siguiente elemento<br/>print: caracter]
     fin([Fin])
     
     inicio --> iniciar
-    iniciar --> bucle
-    bucle -->|Sí| procesar
-    bucle -->|No| fin
-    procesar --> bucle
+    iniciar --> lazo
+    lazo -->|Sí| procesar
+    lazo -->|No| fin
+    procesar --> lazo
     
     style inicio fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
     style iniciar fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    style bucle fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style lazo fill:#fff3e0,stroke:#f57c00,stroke-width:2px
     style procesar fill:#c8e6c9,stroke:#388e3c,stroke-width:2px
     style fin fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
 ```
@@ -1911,9 +1911,9 @@ Si podés responder estas preguntas, **ya sabés cómo resolver el ejercicio**. 
 
 ---
 
-## Resumen Visual del Capítulo 
+## Resumen Visual
 
-### Mapa Mental Completo
+Antes de terminar, repasemos todo lo que aprendiste en este capítulo con un mapa visual:
 
 ```{mermaid}
 mindmap
@@ -1931,7 +1931,7 @@ mindmap
       Anidadas
         if dentro de if
         Simplificar con and/or
-    Bucles
+    Lazos
       while
         Mientras condición True
         Puede nunca ejecutarse
@@ -1945,7 +1945,7 @@ mindmap
         Cuidado con complejidad
     Control
       break
-        Sale del bucle
+        Sale del lazo
         Para búsquedas
       continue
         Salta esta vuelta
@@ -1964,8 +1964,43 @@ mindmap
         Lazo hasta salir
 ```
 
----
+:::::{grid} 1 1 2 2
 
+::::{grid-item-card} Condicionales
+Permiten que el programa tome decisiones.
+```python
+if edad >= 18:
+    print("Mayor")
+else:
+    print("Menor")
+```
+::::
+
+::::{grid-item-card} Lazo `while`
+Repite mientras una condición sea verdadera. Ideal cuando no sabés cuántas veces repetir.
+```python
+while contador < 10:
+    contador += 1
+```
+::::
+
+::::{grid-item-card} Lazo `for`
+Repite para cada elemento de una secuencia o rango. Ideal cuando sabés cuántas veces repetir.
+```python
+for i in range(5):
+    print(i)
+```
+::::
+
+::::{grid-item-card} Control
+Herramientas para modificar el flujo normal.
+```python
+break     # Salir
+continue  # Saltar
+```
+::::
+
+:::::
 
 ### Tabla de Referencia Rápida
 
@@ -1976,29 +2011,60 @@ mindmap
 | **if-elif-else**| 3+ opciones | Notas A/B/C/D | Solo ejecuta uno |
 | **while**| No sabés cuántas veces | Login, menú | Hasta que condición cambie |
 | **for**| Sabés la secuencia | Procesar lista | Una vez por elemento |
-| **{term}`break`**| Salir ya | Encontraste algo | Sale del bucle |
+| **{term}`break`**| Salir ya | Encontraste algo | Sale del lazo |
 | **{term}`continue`**| Saltar esta vez | Ignorar elemento | Pasa al siguiente |
 
----
+:::{tip} Checklist de lo aprendido
 
-### Lo Más Importante 
+Marcá lo que ya dominás:
 
-:::{important} Los 3 Conceptos Clave
-1. **Condicionales**→ Tu programa **decide** qué hacer
-2. **Bucles**→ Tu programa **repite** sin copiar código
-3. **Control**→ Tu programa **responde** a situaciones diferentes
+- [ ] Usar `if`, `elif` y `else` para tomar decisiones.
+- [ ] Escribir lazos `while` para repeticiones indefinidas.
+- [ ] Escribir lazos `for` para iterar sobre secuencias.
+- [ ] Utilizar `range()` para generar secuencias numéricas.
+- [ ] Controlar lazos con `break` y `continue` (o banderas).
+- [ ] Implementar patrones comunes: acumulador, contador, validación.
+- [ ] Evitar lazos infinitos y errores de indentación.
+
+Si marcaste todo, ¡estás listo para el próximo capítulo!
+
 :::
 
 ---
 
-### Próximos Pasos 
+### ¿Qué sigue?
 
-**¡Felicitaciones! Ya podés:**
-- ✅ Crear programas que toman decisiones
-- ✅ Repetir acciones eficientemente
-- ✅ Validar entrada del usuario
-- ✅ Crear menús interactivos
-- ✅ Resolver problemas más complejos
+Estos fundamentos son los ladrillos de una casa: **todo** lo que construyas se apoya en ellos. En el próximo capítulo aprenderás sobre **Estructuras de Datos** para organizar información compleja.
+
+```{mermaid}
+graph LR
+    A[Capítulo 2<br/>Control de Flujo] --> B[Capítulo 3<br/>Estructuras de Datos]
+    B --> C[Capítulo 4<br/>Funciones]
+    C --> D[Capítulo 5<br/>Módulos]
+    
+    style A fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style B fill:#fff9c4,stroke:#f57f17
+    style C fill:#e1f5fe,stroke:#0277bd
+    style D fill:#f3e5f5,stroke:#7b1fa2
+```
+
+:::{important} Practica, practica, practica
+
+**La programación NO se aprende leyendo, se aprende HACIENDO.**
+
+No pases al siguiente capítulo hasta que puedas:
+1. Resolver **todos** los ejercicios sin mirar las soluciones.
+2. Explicarle a alguien más cómo funciona un lazo `while`.
+3. Escribir un programa con un menú interactivo simple.
+
+**Recordá:** Los mejores programadores del mundo no llegaron ahí por ser genios, sino por **practicar constantemente**. Cada error que cometas hoy es una lección que no olvidarás mañana.
+
+¡Vamos Manaos!
+
+:::
+
+---
+
 
 **En el Capítulo 3: Listas aprenderás:**
 - 📋 Crear y manipular listas de datos
@@ -2015,7 +2081,7 @@ El {term}`control de flujo` **se domina practicando**.
 2. Repasá los ejemplos y modificalos
 3. 🎮 Creá tus propios programas pequeños
 4.  Debuggeá errores (aprendés mucho así)
-5. Combiná condicionales y bucles creativamente
+5. Combiná condicionales y lazos creativamente
 
 **Recordá:** Cada programador empezó donde estás vos ahora. ¡Seguí adelante!
 :::
@@ -2052,7 +2118,7 @@ Indentación
 : Espacios al inicio de una línea que definen la estructura del código. Python requiere indentación consistente (4 espacios es el estándar). Errores de indentación causan `IndentationError`.
 
 Lazo
-: Estructura que repite un bloque de código múltiples veces. Los dos tipos principales son **while** y **for**. También conocido como **loop** o **bucle**.
+: Estructura que repite un bloque de código múltiples veces. Los dos tipos principales son **while** y **for**. También conocido como **loop** o **lazo**.
 
 while
 : Tipo de {term}`lazo` que repite código mientras una condición sea `True`. Se evalúa la condición antes de cada iteración. Si la condición nunca se vuelve `False`, resulta en un {term}`lazo infinito`.
@@ -2073,10 +2139,10 @@ Lazo infinito
 : {term}`Lazo<lazo>` que nunca termina porque su condición siempre es `True`. Error común al olvidar actualizar la {term}`variable de control` en un {term}`while`.
 
 break
-: Palabra clave que **sale inmediatamente** de un bucle, sin importar la condición. Útil para terminar un bucle cuando se encuentra lo que se busca.
+: Palabra clave que **sale inmediatamente** de un lazo, sin importar la condición. Útil para terminar un lazo cuando se encuentra lo que se busca.
 
 continue
-: Palabra clave que **salta** el resto de la iteración actual y pasa a la siguiente. No sale del bucle, solo ignora el código restante de esa iteración.
+: Palabra clave que **salta** el resto de la iteración actual y pasa a la siguiente. No sale del lazo, solo ignora el código restante de esa iteración.
 
 pass
 : Palabra clave que no hace nada. Se usa como marcador de posición en bloques vacíos que serán completados después. Sintaxis válida que Python acepta sin error.
@@ -2084,14 +2150,14 @@ pass
 Bandera
 : Variable booleana usada para controlar el flujo de un programa. Se inicializa (ej: `encontrado = False`) y se cambia cuando ocurre un evento (ej: `encontrado = True`). Se puede utilizar para substituir {term}`break` y {term}`continue`.
 
-Bucle anidado
-: {term}`Lazo` dentro de otro bucle. El bucle interno se ejecuta completamente por cada iteración del bucle externo. Útil para procesar estructuras bidimensionales.
+Lazo anidado
+: {term}`Lazo` dentro de otro lazo. El lazo interno se ejecuta completamente por cada iteración del lazo externo. Útil para procesar estructuras bidimensionales.
 
 Acumulador
-: Patrón donde una variable suma valores en cada {term}`iteración` de un bucle. Se inicializa en 0 antes del bucle: `suma = 0`, luego se actualiza: `suma = suma + valor`.
+: Patrón donde una variable suma valores en cada {term}`iteración` de un lazo. Se inicializa en 0 antes del lazo: `suma = 0`, luego se actualiza: `suma = suma + valor`.
 
 Contador
-: Patrón donde una variable cuenta cuántas veces ocurre algo en un bucle. Se inicializa en 0: `contador = 0`, luego se incrementa: `contador = contador + 1` o `contador += 1`.
+: Patrón donde una variable cuenta cuántas veces ocurre algo en un lazo. Se inicializa en 0: `contador = 0`, luego se incrementa: `contador = contador + 1` o `contador += 1`.
 
 Operador lógico
 : Operador que combina o modifica expresiones booleanas. Los tres principales son `and` (ambos True), `or` (al menos uno True), `not` (invierte el valor).
@@ -2103,5 +2169,51 @@ Cortocircuito
 : Optimización donde Python deja de evaluar una expresión con {term}`operadores lógicos <operador lógico>` cuando ya conoce el resultado. En `and`, si el primero es `False`, no evalúa el segundo. (Conocido en inglés como "Short-circuit")
 
 else en lazos
-: Cláusula opcional en {term}`lazos<lazo>` que se ejecuta solo si el bucle termina **normalmente** (sin {term}`break`). Si se usa `break`, el `else` no se ejecuta.
+: Cláusula opcional en {term}`lazos<lazo>` que se ejecuta solo si el lazo termina **normalmente** (sin {term}`break`). Si se usa `break`, el `else` no se ejecuta.
+
+Control de flujo
+: Capacidad de un programa para decidir qué instrucciones ejecutar y en qué orden, basándose en condiciones y lazos.
+
+Condicional
+: Estructura que permite ejecutar un bloque de código solo si se cumple una condición determinada (`if`, `elif`, `else`).
+
+Bloque
+: Conjunto de instrucciones agrupadas que se ejecutan juntas. En Python, se definen mediante la {term}`indentación`.
+
+Indentación
+: Espacio en blanco al inicio de una línea de código. En Python, es obligatoria y define la estructura de {term}`bloques <Bloque>`.
+
+Bucle
+: También llamado lazo o ciclo. Estructura que permite repetir un bloque de código múltiples veces.
+
+Iteración
+: Cada una de las repeticiones de un {term}`lazo`.
+
+Contador
+: Variable utilizada para contar el número de veces que ocurre un evento o iteración.
+
+Acumulador
+: Variable utilizada para sumar o concatenar valores a lo largo de las iteraciones de un {term}`lazo`.
+
+Bandera
+: (Flag) Variable booleana que indica si ha ocurrido un evento o estado específico, utilizada para controlar el flujo (ej. detener un {term}`lazo`).
+
+Rango
+: Secuencia inmutable de números generada por la función `range()`, comúnmente usada en lazos `for`.
+
+Break
+: Instrucción que termina inmediatamente la ejecución de un {term}`lazo`, saltando a la primera línea después del mismo.
+
+Continue
+: Instrucción que salta el resto de la {term}`iteración` actual y pasa inmediatamente a la siguiente.
+
+Anidamiento
+: Práctica de colocar una estructura de control (como un `if` o un `while`) dentro de otra.
+
+Condición
+: Expresión lógica que se evalúa como `True` o `False` y determina el camino que sigue el programa.
+
+Iterador
+: Objeto que permite recorrer una secuencia de elementos uno por uno.
+
 ```
