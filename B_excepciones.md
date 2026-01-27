@@ -36,7 +36,7 @@ En programación es igual. Tu código puede enfrentar:
 - Conexiones de red que fallan.
 - Memoria que se agota.
 
-Las **excepciones** son la forma de Python de decir: "¡Oye, algo salió mal!". Y con `try-except` podemos decir: "No te preocupes, yo me encargo".
+Las **excepciones** son la forma de Python de decir: ”¡¡Che!, algo salió mal!”. Y con `try-except` podemos decir: “No te preocupes, yo me encargo”.
 
 ::::{grid} 1 1 2 2
 
@@ -111,7 +111,7 @@ if x = 5:  # SyntaxError
     print(x)
 ```
 Es como escribir una oración con palabras incorrectas.
-Python dice: "No entiendo lo que escribiste".
+Python dice: “No entiendo lo que escribiste”.
 :::
 
 :::{tab-item} Excepción
@@ -123,7 +123,7 @@ y = 0
 # ...pero la operación es imposible
 ```
 Es como pedir una receta válida pero con ingredientes imposibles.
-Python dice: "Entiendo, pero no puedo hacer eso".
+Python dice: “Entiendo, pero no puedo hacer eso”.
 :::
 
 ::::
@@ -187,7 +187,7 @@ Python tiene una familia de excepciones. Conocerlas es como conocer las señales
 Jerarquía de excepciones en Python
 ```
 
-### Las "Top 10" Excepciones
+### Las “Top 10” Excepciones
 
 ::::{tab-set}
 
@@ -372,8 +372,8 @@ except ValueError:
 ```
 
 **¿Cuándo se ejecuta `except`?**
-- ✅ Si el usuario escribe "veinte" → `ValueError`.
-- ❌ Si el usuario escribe "20" → No hay error, salta el except.
+- ✅ Si el usuario escribe “veinte” → `ValueError`.
+- ❌ Si el usuario escribe “20” → No hay error, salta el except.
 ::::
 
 ::::{tab-item} Múltiples errores (separados)
@@ -409,7 +409,7 @@ except (ValueError, ZeroDivisionError) as error:
 
 ### Capturar el Objeto Excepción
 
-Podés "atrapar" la excepción en una variable para obtener más información:
+Podés “atrapar” la excepción en una variable para obtener más información:
 
 ```python
 try:
@@ -620,7 +620,7 @@ Nota: `finally` siempre se ejecuta.
 (raise-excepciones)= 
 ## Raise: Lanzar Tus Propias Excepciones
 
-A veces VOS querés lanzar una excepción. Es como decir: "¡Alto! Esto no debería pasar".
+A veces VOS querés lanzar una excepción. Es como decir: ”¡Alto! Esto no debería pasar”.
 
 ```{figure}
 ./B_excepciones/raise_excepcion.svg
@@ -1163,7 +1163,7 @@ def procesar(datos):
 En Python existen dos filosofías principales para manejar errores:
 
 ### 1. LBYL (Look Before You Leap)
-**"Mira antes de saltar"**. Verificás las condiciones antes de realizar la acción.
+**“Mira antes de saltar”**. Verificás las condiciones antes de realizar la acción.
 
 ```python
 if "clave" in diccionario:
@@ -1173,7 +1173,7 @@ else:
 ```
 
 ### 2. EAFP (Easier to Ask Forgiveness than Permission)
-**"Es más fácil pedir perdón que permiso"**. Intentás la acción y manejás el error si ocurre. Es el **estilo Pythonic**.
+**“Es más fácil pedir perdón que permiso”**. Intentás la acción y manejás el error si ocurre. Es el **estilo Pythonic**.
 
 ```python
 try:

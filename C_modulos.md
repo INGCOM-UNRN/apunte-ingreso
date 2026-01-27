@@ -229,7 +229,7 @@ print("Hola".islower())        # False
 
 **Tabla resumen de verificación:**
 
-| Método | Retorna True si... | Ejemplo True | Ejemplo False |
+| Método | Retorna True si… | Ejemplo True | Ejemplo False |
 |--------|-------------------|--------------|---------------|
 | `isdigit()` | Solo contiene dígitos 0-9 | `"123"` | `"12.3"` |
 | `isalpha()` | Solo contiene letras | `"abc"` | `"abc123"` |

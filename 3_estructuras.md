@@ -250,7 +250,7 @@ tags = {"python", "tutorial", "datos"}
 Una **lista** es la estructura de datos más versátil y utilizada en Python. Pensala como una **fila de cajitas** numeradas donde podés guardar cualquier tipo de objeto. Lo más importante de las listas es que son **ordenadas** (mantienen el orden en que ponés las cosas) y **mutables** (podés cambiarlas después de crearlas).
 
 Características principales:
-- **Ordenada:** Cada cosa tiene su posición (0, 1, 2...).
+- **Ordenada:** Cada cosa tiene su posición (0, 1, 2…).
 - **{term}`mutable`:** Podés cambiar, agregar o quitar elementos.
 - **Versátil:** Puede contener cualquier tipo de dato.
 - **Duplicados:** Puede tener elementos repetidos.
@@ -265,8 +265,8 @@ compras = ["pan", "leche", "huevos", "queso"]
 
 - ✅ Está **ordenada** (pan es primero, queso último).
 - ✅ Podés **tachar** cosas (eliminar elementos).
-- ✅ Podés **agregar** más cosas (append).
-- ✅ Podés tener "pan" dos veces si querés.
+- ✅ Podés **agregar** más cosas (`append`).
+- ✅ Podés tener “pan” dos veces si querés.
 
 **En la vida real:** Escribís en papel.  
 **En Python:** Usás corchetes `[]`.
@@ -348,7 +348,7 @@ Para llegar al Lobby (planta baja), pedís `pisos[0]`.
 
 #### Índices Positivos y Negativos
 
-Además de contar desde el principio (0, 1, 2...), Python tiene una característica muy útil: permite contar desde el final hacia atrás usando números negativos. El -1 es el último elemento, el -2 el penúltimo, y así sucesivamente.
+Además de contar desde el principio (`0`, `1`, `2`…), Python tiene una característica muy útil: permite contar desde el final hacia atrás usando números negativos. El `-1` es el último elemento, el `-2` el penúltimo, y así sucesivamente.
 
 ![Índices de Lista](./3_estructuras/lista_indices.svg)
 
@@ -438,10 +438,10 @@ torta = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 **Slicing te permite decir:**
-- "Dame las rebanadas 2 a 5" → `torta[2:5]` = `[2, 3, 4]`
-- "Dame las primeras 3" → `torta[:3]` = `[0, 1, 2]`
-- "Dame las últimas 2" → `torta[-2:]` = `[8, 9]`
-- "Dame de 2 en 2" → `torta[::2]` = `[0, 2, 4, 6, 8]`
+- “Dame las rebanadas 2 a 5” → `torta[2:5]` = `[2, 3, 4]`
+- “Dame las primeras 3” → `torta[:3]` = `[0, 1, 2]`
+- “Dame las últimas 2” → `torta[-2:]` = `[8, 9]`
+- “Dame de 2 en 2” → `torta[::2]` = `[0, 2, 4, 6, 8]`
 ::::
 
 El slicing crea una lista nueva con los elementos de la lista original en las posiciones que le indiquemos.
@@ -580,7 +580,7 @@ print("[-4::2]:", letras[-4::2])  # ['C', 'E']
 
 :::{danger} 🚨 Error Común: Orden Invertido
 
-Si usás un inicio mayor que el fin con un paso positivo, obtendrás una lista vacía porque Python intenta ir hacia adelante y "se pasa" antes de empezar.
+Si usás un inicio mayor que el fin con un paso positivo, obtendrás una lista vacía porque Python intenta ir hacia adelante y “se pasa” antes de empezar.
 
 ```{code-cell} ipython3
 numeros = [0, 1, 2, 3, 4, 5]
@@ -907,11 +907,11 @@ Al igual que para agregar, existen múltiples formas de eliminar elementos segú
 
 Hay 4 formas de sacar a alguien de la fila:
 
-1. **remove("nombre")** → Buscás por nombre y lo sacás (primera coincidencia).
-2. **pop()** → Sacás el último de la fila.
-3. **pop(n)** → Sacás al que está en posición `n`.
-4. **del lista[n]** → Eliminás sin recibir el {term}`elemento`.
-5. **clear()** → Echás a TODOS (vacías la fila).
+1. **`remove("nombre")`** → Buscás por nombre y lo sacás (primera coincidencia).
+2. **`pop()`** → Sacás el último de la fila.
+3. **`pop(n)`** → Sacás al que está en posición `n`.
+4. **`del lista[n]`** → Eliminás sin recibir el {term}`elemento`.
+5. **`clear()`** → Echás a TODOS (vacías la fila).
 ::::
 
 ---
@@ -1492,7 +1492,7 @@ print("Lista4:", lista4)  # [555, 2, 3]
 
 :::{danger} 🚨 Copia Superficial vs Profunda
 
-`copy()` hace una copia "superficial". Si la lista contiene otras listas dentro, esas sub-listas seguirán siendo compartidas. Para una copia total, se usa `deepcopy`.
+`copy()` hace una copia “superficial”. Si la lista contiene otras listas dentro, esas sub-listas seguirán siendo compartidas. Para una copia total, se usa `deepcopy`.
 
 ```{code-cell} ipython3
 # Problema con listas anidadas
@@ -1552,15 +1552,15 @@ print(f"¿Todos True? {all(booleanos)}")   # False
 
 ### Iterar sobre Listas: Las 3 Formas
 
-Recorrer una lista es una de las tareas más comunes. Python ofrece varias formas, pero algunas son más recomendables que otras ("Pythonic").
+Recorrer una lista es una de las tareas más comunes. Python ofrece varias formas, pero algunas son más recomendables que otras (“Pythonic”).
 
 ::::{tip} Analogía: Recorrer una Fila
 
 Imaginate que tenés que saludar a cada persona en una fila:
 
-**Forma 1:** "Hola `[nombre]`" → No te importa la posición.
-**Forma 2:** "Sos el número `[N]`, `[nombre]`" → Necesitás la posición.
-**Forma 3:** "Hola persona en posición `[N]`" → Estilo antiguo (no recomendado).
+**Forma 1:** “Hola `[nombre]`” → No te importa la posición.
+**Forma 2:** “Sos el número `[N]`, `[nombre]`” → Necesitás la posición.
+**Forma 3:** “Hola persona en posición `[N]`” → Estilo antiguo (no recomendado).
 ::::
 
 ---
@@ -1610,7 +1610,7 @@ for i, fruta in enumerate(frutas, start=1):
 
 #### Forma 3: Iterar con Índices (Estilo C/Java)
 
-Esta forma manual es común en otros lenguajes pero se considera poco elegante en Python.
+Esta forma manual es común en otros lenguajes, pero se considera poco elegante en Python.
 
 ```{code-cell} ipython3
 frutas = ["🍎 manzana", "🍌 banana", "🍊 naranja"]
@@ -1625,7 +1625,7 @@ for i in range(len(frutas)):
 - Necesitás modificar índices específicos en múltiples listas.
 - Estás trabajando con índices de forma compleja.
 
-**Usa `enumerate()`** en su lugar cuando necesités índices.
+**Es mejor usar `enumerate()`** en su lugar cuando necesites índices.
 :::
 
 ---
@@ -1876,7 +1876,7 @@ print("Copia3:", copia3)      # [777, 2, 3]
 
 #### Copias Superficiales vs Profundas
 
-Aun copiando la lista, si los elementos de adentro son a su vez mutables (como otras listas), esos elementos internos se siguen compartiendo. Esto se llama "copia superficial".
+Aun copiando la lista, si los elementos de adentro son a su vez mutables (como otras listas), esos elementos internos se siguen compartiendo. Esto se llama “copia superficial”.
 
 :::{warning} Copia Superficial (Shallow Copy)
 Los métodos anteriores hacen **copias superficiales**: copian la lista, pero si la lista contiene otras listas, esas listas internas **sí se comparten**.
@@ -2047,7 +2047,7 @@ print(f"Tipo: {type(tupla)}, valor: {tupla}")    # <class 'tuple'>
 
 ### Crear Tuplas con `tuple()`
 
-La función `tuple()` es útil cuando necesitás convertir otros tipos de iterables (listas, strings, ranges) en tuplas. Esto es común cuando una función requiere específicamente una tupla, o cuando querés "congelar" una lista para evitar modificaciones accidentales. La conversión es directa: cada elemento del iterable se convierte en un elemento de la tupla.
+La función `tuple()` es útil cuando necesitás convertir otros tipos de iterables (listas, strings, ranges) en tuplas. Esto es común cuando una función requiere específicamente una tupla, o cuando querés “congelar” una lista para evitar modificaciones accidentales. La conversión es directa: cada elemento del iterable se convierte en un elemento de la tupla.
 
 ```{code-cell} ipython3
 # Convertir lista a tupla
@@ -2110,7 +2110,7 @@ Lo que **NO funciona** son operaciones de **escritura**:
 
 ---
 
-### Inmutabilidad: El Poder de "No Cambiar" 
+### Inmutabilidad: El Poder de “No Cambiar” 
 
 La inmutabilidad de las tuplas es su característica definitoria y la fuente de muchas de sus ventajas.
 
@@ -3097,7 +3097,7 @@ print(frase)  # "Python es genial"
 
 ### Strings Multilínea
 
-Python permite crear strings que abarcan múltiples líneas usando triple comillas (""" o '''). Esto es útil para documentación, mensajes largos, o cualquier texto que deba mantener formato con saltos de línea. Las comillas triples preservan los saltos de línea y espacios exactamente como los escribís.
+Python permite crear strings que abarcan múltiples líneas usando triple comillas (`"""` o `'''`). Esto es útil para documentación, mensajes largos, o cualquier texto que deba mantener formato con saltos de línea. Las comillas triples preservan los saltos de línea y espacios exactamente como los escribís.
 
 ```{code-cell} ipython3
 # Con triple comillas
@@ -3112,7 +3112,8 @@ def funcion():
     mensaje = """
     Primera línea
     Segunda línea
-    Tercera línea    """
+    Tercera línea
+    """
     print(mensaje)
 ```
 

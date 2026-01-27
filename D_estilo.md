@@ -16,10 +16,10 @@ Este documento establece un conjunto de reglas de estilo para Python, pensadas c
 **PEP** significa Python Enhancement Proposal (Propuesta de Mejora de Python). Los PEPs son documentos de diseño que proporcionan información a la comunidad Python o describen una nueva característica para Python, sus procesos o su entorno. Los PEPs son el mecanismo principal para proponer nuevas características importantes, recopilar opiniones de la comunidad sobre un problema y documentar las decisiones de diseño que han entrado en Python. Cada PEP tiene un número único y está disponible en [https://peps.python.org/](https://peps.python.org/).
 :::
 
-Python es un lenguaje que enfatiza la legibilidad y la simplicidad. Como dice el Zen de Python: **"La legibilidad cuenta"** (Readability counts). Estas reglas te ayudarán a escribir código que no solo funcione, sino que sea comprensible para cualquier desarrollador Python, incluyéndote a vos mismo en el futuro.
+Python es un lenguaje que enfatiza la legibilidad y la simplicidad. Como dice el Zen de Python: **“La legibilidad cuenta”** (Readability counts). Estas reglas te ayudarán a escribir código que no solo funcione, sino que sea comprensible para cualquier desarrollador Python, incluyéndote a vos mismo en el futuro.
 
 :::{note} The Zen of Python
-Python tiene una filosofía de diseño expresada en "The Zen of Python" ({ref}`pep-20-ref`). Podés leerla ejecutando `import this` en un intérprete de Python. Algunos principios clave:
+Python tiene una filosofía de diseño expresada en “The Zen of Python” ({ref}`pep-20-ref`). Podés leerla ejecutando `import this` en un intérprete de Python. Algunos principios clave:
 - Bello es mejor que feo
 - Explícito es mejor que implícito
 - Simple es mejor que complejo
@@ -35,7 +35,7 @@ Una aclaración fundamental, en especial porque son un _montón_ de reglas, es q
 
 Sin embargo, como aplicar estas reglas los va a ayudar **más a ustedes que a nosotros**, les recomendamos fuertemente aplicarlas.
 
-:::{warning} Entonces... ¿Entran?
+:::{warning} Entonces… ¿Entran?
 
 La respuesta corta es **no**, pero tener las reglas presentes los va a ayudar.
 
@@ -47,8 +47,8 @@ Estamos abiertos a debatir todas las reglas. Para ello, solo tenés que abrir un
 
 ## Principios Clave
 
-- **Claridad (Readability):** El código debe ser fácil de leer. "Explicit is better than implicit".
-- **Simplicidad:** "Simple is better than complex" - preferir soluciones simples sobre complejas.
+- **Claridad (Readability):** El código debe ser fácil de leer. “Explicit is better than implicit”.
+- **Simplicidad:** “Simple is better than complex” - preferir soluciones simples sobre complejas.
 - **Consistencia:** El uso de un estilo uniforme optimiza la colaboración.
 - **Pythonic:** Aprovechar las características idiomáticas de Python.
 - **Mantenibilidad:** El código debe ser sencillo de modificar y extender.
@@ -74,10 +74,10 @@ Estamos abiertos a debatir todas las reglas. Para ello, solo tenés que abrir un
 +     resultado = 0
 ```
 
-En Python, la indentación forzada ya promueve la claridad. Aprovechá esto escribiendo código que "respira" y es fácil de seguir visualmente.
+En Python, la indentación forzada ya promueve la claridad. Aprovechá esto escribiendo código que “respira” y es fácil de seguir visualmente.
 
 :::{tip} PEP 20
-> "Si la implementación es difícil de explicar, es una mala idea. Si la implementación es fácil de explicar, puede ser una buena idea."
+> “Si la implementación es difícil de explicar, es una mala idea. Si la implementación es fácil de explicar, puede ser una buena idea.”
 :::
 
 ---
@@ -578,7 +578,7 @@ def sumar(a, b):
     return a + b
 ```
 
-Y teniendo en cuenta que el código debe ser autoexplicativo (el "qué"). Los comentarios deben explicar el razonamiento (el "por qué").
+Y teniendo en cuenta que el código debe ser autoexplicativo (el “qué”). Los comentarios deben explicar el razonamiento (el “por qué").
 
 ```python
 # ❌ Incorrecto: comentarios obvios
@@ -626,7 +626,7 @@ cache = {}
 2. Aclarar algoritmos complejos
 3. Advertir sobre casos especiales
 4. Referenciar documentación externa
-5. Explicar "TODO" y limitaciones conocidas
+5. Explicar “TODO” y limitaciones conocidas
 
 :::{note} El esfuerzo de documentar
 
@@ -709,7 +709,7 @@ Si necesitás compartir estado:
 (0x000Ch)=
 ### Regla `0x000Ch`: Cada función debe tener una única responsabilidad (SRP)
 
-**Principio (Single Responsibility Principle):** Una función debe hacer una cosa y hacerla bien. Si necesitás usar "y" para describir qué hace una función, *probablemente* hace demasiadas cosas.
+**Principio (Single Responsibility Principle):** Una función debe hacer una cosa y hacerla bien. Si necesitás usar “y” para describir qué hace una función, *probablemente* hace demasiadas cosas.
 
 ```python
 # ❌ Incorrecto: función con múltiples responsabilidades
@@ -825,7 +825,7 @@ if puede_acceder(edad, tiene_dni, esta_inhabilitado, es_emancipado, tiene_autori
 ---
 
 (0x000Eh)=
-### Regla `0x000Eh`: Usar constantes con nombres descriptivos en lugar de "números mágicos"
+### Regla `0x000Eh`: Usar constantes con nombres descriptivos en lugar de “números mágicos”
 
 **Principio:** Los números literales en el código (excepto 0, 1, -1 en contextos obvios) deben ser reemplazados por constantes con nombres descriptivos.
 
@@ -983,10 +983,10 @@ if not es_valido:  # No: if es_valido == False
     pass
 ```
 
-:::{tip} Valores "truthy" y "falsy"
-Python considera "falsy": `False`, `None`, `0`, `0.0`, `""`, `[]`, `{}`, `set()`
+:::{tip} Valores “truthy” y “falsy”
+Python considera “falsy”: `False`, `None`, `0`, `0.0`, `""`, `[]`, `{}`, `set()`
 
-Todos los demás valores son "truthy". Aprovechá esto:
+Todos los demás valores son “truthy”. Aprovechá esto:
 ```python
 if lista:  # True si lista tiene elementos
     procesar(lista)
@@ -1040,7 +1040,7 @@ def procesar_datos():
 (0x0012h)=
 ### Regla `0x0012h`: Usar constantes o `None` para valores especiales
 
-**Principio:** Los valores de retorno especiales (como -1 para "no encontrado") deben ser constantes con nombres descriptivos, o mejor aún, usar `None` cuando sea apropiado.
+**Principio:** Los valores de retorno especiales (como -1 para “no encontrado”) deben ser constantes con nombres descriptivos, o mejor aún, usar `None` cuando sea apropiado.
 
 ```python
 # ❌ Incorrecto: número mágico

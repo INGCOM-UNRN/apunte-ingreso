@@ -122,7 +122,7 @@ print(f"Promedio examen 3: {calcular_promedio([9, 9, 10])}")
 
 ### Tu Primera Función 
 
-Empecemos con lo más simple. Para crear una {term}`función`, usamos la palabra mágica `def` (de "definir"):
+Empecemos con lo más simple. Para crear una {term}`función`, usamos la palabra mágica `def` (de “definir”):
 
 ```python
 def saludar():
@@ -130,7 +130,7 @@ def saludar():
     print("¡Hola! Bienvenido/a a Python")
 ```
 
-¡Felicitaciones! Acabás de crear tu primera función. Pero... ¿por qué no pasa nada?
+¡Felicitaciones! Acabás de crear tu primera función. Pero… ¿Por qué no pasa nada?
 
 :::{note} ¿Por qué no imprime nada?
 Porque **definir** una {term}`función` es como escribir una receta en un libro de cocina. La receta existe, pero no se cocina automáticamente. Para que funcione, tenés que **llamarla**:
@@ -222,7 +222,7 @@ aplaudir()
 
 ### Flujo de Ejecución
 
-Cuando llamás a una función, el programa "salta" al código de la función, lo ejecuta, y luego vuelve:
+Cuando llamás a una función, el programa “salta” al código de la función, lo ejecuta, y luego vuelve:
 
 ```{figure} ./4_funciones/flujo_funcion.svg
 :name: fig-flujo-funcion
@@ -301,7 +301,7 @@ saludar_persona("Carlos")
 
 :::{note} Vocabulario Importante
 
-**Parámetro** = La "casilla" donde va a entrar el dato (en la definición).
+**Parámetro** = La “casilla” donde va a entrar el dato (en la definición).
 ```python
 def saludar(nombre):  # ← "nombre" es el PARÁMETRO
     print(f"Hola, {nombre}")
@@ -768,7 +768,7 @@ else:
 
 ### ¿Qué es el Scope?
 
-El {term}`scope` (alcance) es como el "territorio" donde vive una variable. Determina **dónde podés usar** una variable en tu código.
+El {term}`scope` (alcance) es como el “territorio” donde vive una variable. Determina **dónde podés usar** una variable en tu código.
 
 :::{tip} 🏠 Pensalo Como Casas
 
@@ -902,7 +902,7 @@ print(f"Precio con IVA: ${calcular_precio_con_iva(100)}")
 :::{tip} Reglas para Constantes
 - Escribilas en `MAYUSCULAS_CON_GUIONES`.
 - Ponelas al principio del archivo.
-- NUNCA las modifiques (de ahí el nombre "constantes").
+- NUNCA las modifiques (de ahí el nombre “constantes”).
 - Está bien leerlas desde funciones.
 :::
 
@@ -952,7 +952,7 @@ total = calcular_precio_final(100, True)
 
 ### Shadowing: Cuando se Ocultan Variables
 
-Si una variable local tiene el mismo nombre que una global, la local "oculta" a la global:
+Si una variable local tiene el mismo nombre que una global, la local “oculta” a la global:
 
 ```python
 x = "global"  # Variable global
@@ -1158,7 +1158,7 @@ def cuadrado(x):
 
 ### Acceder a Docstrings
 
-Python almacena los docstrings en el atributo especial `__doc__` de la función. Esto permite que otros programas (y la función `help()`) puedan mostrar la documentación automáticamente. Es una de las características que hace que Python sea "autodocumentado": el código lleva su propia documentación integrada.
+Python almacena los docstrings en el atributo especial `__doc__` de la función. Esto permite que otros programas (y la función `help()`) puedan mostrar la documentación automáticamente. Es una de las características que hace que Python sea “autodocumentado”: el código lleva su propia documentación integrada.
 
 ```python
 def suma(a, b):
@@ -1470,7 +1470,7 @@ print(f"Total: ${total}")
 
 ### 1. Olvidar el Return
 
-Uno de los errores más frecuentes es olvidar la sentencia `return`, especialmente cuando venís de lenguajes donde las funciones pueden "devolver" valores automáticamente. En Python, si una función no tiene `return`, retorna `None` implícitamente. Esto causa que tu función calcule algo pero no lo devuelva, haciendo imposible usar ese resultado.
+Uno de los errores más frecuentes es olvidar la sentencia `return`, especialmente cuando venís de lenguajes donde las funciones pueden “devolver” valores automáticamente. En Python, si una función no tiene `return`, retorna `None` implícitamente. Esto causa que tu función calcule algo pero no lo devuelva, haciendo imposible usar ese resultado.
 
 ```python
 # ❌ Olvidó return
@@ -1620,7 +1620,7 @@ crear_cuenta(
 
 La **descomposición funcional** es el proceso de dividir un problema complejo en subproblemas más pequeños y manejables, donde cada subproblema se resuelve con una función específica.
 
-Es como desarmar un motor complejo en sus piezas individuales: pistones, bielas, válvulas... cada una con una función clara y específica.
+Es como desarmar un motor complejo en sus piezas individuales: pistones, bielas, válvulas… cada una con una función clara y específica.
 :::
 
 ### ¿Por qué Descomponer?
@@ -1710,7 +1710,7 @@ def procesar_pedido(cliente, items):
 # ¡Fácil de leer y entender el flujo general!
 ```
 
-#### 3. DRY (Don't Repeat Yourself)
+#### 3. DRY (Don’t Repeat Yourself)
 
 Si hacés algo más de una vez, probablemente debería ser una función.
 
@@ -2501,8 +2501,8 @@ def cargar_desde_archivo(archivo):
 Tu función probablemente necesita descomponerse si:
 
 1. **Tiene más de 20-30 líneas** (regla general)
-2. **Usa la palabra "y" al describir qué hace**
-   - "Valida datos *y* calcula resultado *y* muestra output"
+2. **Usa la palabra “y” al describir qué hace**
+   - “Valida datos *y* calcula resultado *y* muestra output”
 3. **Tiene más de 3 niveles de indentación**
    ```python
    def funcion():
@@ -2707,7 +2707,7 @@ Antes de considerar que tu descomposición está completa, verificá:
 
 Para profundizar en descomposición funcional:
 
-- **Libro:** "Clean Code" de Robert C. Martin (Capítulos 3-4)
+- **Libro:** “Clean Code” de Robert C. Martin (Capítulos 3-4)
 - **Artículo:** [Function Design Principles](https://www.python.org/dev/peps/pep-0020/) (Zen of Python)
 - **Video:** [Writing Clean Functions](https://www.youtube.com/watch?v=7EmboKQH8lM)
 

@@ -9,7 +9,7 @@ subtitle: Introducción práctica a JupyterLab para estudiantes principiantes
 ¡Bienvenido a tu primera experiencia con **JupyterLab**! Esta guía está diseñada para que puedas comenzar a trabajar con los cuadernos de práctica sin complicaciones. No te preocupes si nunca programaste antes: vamos a ver todo paso a paso.
 
 :::{note} ¿Qué es JupyterLab?
-**JupyterLab** es un entorno de desarrollo interactivo que te permite escribir y ejecutar código Python directamente en tu navegador web. Funciona como un "cuaderno digital" donde podés combinar código, texto explicativo y resultados en un mismo lugar.
+**JupyterLab** es un entorno de desarrollo interactivo que te permite escribir y ejecutar código Python directamente en tu navegador web. Funciona como un “cuaderno digital” donde podés combinar código, texto explicativo y resultados en un mismo lugar.
 :::
 
 En este curso, vas a usar una versión especial de JupyterLab llamada **JupyterLite**, que funciona completamente en tu navegador sin necesidad de instalar nada en tu computadora.
@@ -51,7 +51,7 @@ Te recomendamos **guardar esta URL en tus favoritos** (Ctrl+D en la mayoría de 
 
 La primera vez que accedas, JupyterLab puede tardar unos segundos en cargar. Verás una pantalla de carga con el logo de Jupyter.
 
-**[CAPTURA: Pantalla de carga de JupyterLab con el logo naranja de Jupyter y una barra de progreso. Fondo oscuro con el texto "Loading JupyterLite" visible.]**
+**[CAPTURA: Pantalla de carga de JupyterLab con el logo naranja de Jupyter y una barra de progreso. Fondo oscuro con el texto “Loading JupyterLite” visible.]**
 
 :::{note} Primera Carga
 La primera carga puede demorar un poco más porque está descargando los archivos necesarios. Las siguientes veces será mucho más rápido.
@@ -124,7 +124,7 @@ Muestra información útil como:
 
 En el panel lateral izquierdo, verás una estructura organizada con los cuadernos de práctica.
 
-**[CAPTURA: Vista detallada del explorador de archivos mostrando carpetas expandidas con nombres descriptivos como "01_fundamentos", "02_control_flujo", etc. Cada carpeta debe mostrar algunos archivos .ipynb dentro.]**
+**[CAPTURA: Vista detallada del explorador de archivos mostrando carpetas expandidas con nombres descriptivos como “01_fundamentos”, “02_control_flujo”, etc. Cada carpeta debe mostrar algunos archivos .ipynb dentro.]**
 
 Para navegar:
 
@@ -173,7 +173,7 @@ Una vez abierto un notebook, verás que está compuesto por **celdas**. Cada cel
 Tipos de celdas en un Jupyter Notebook: Markdown para texto y Code para código ejecutable
 ```
 
-**[NOTA SVG: Crear diagrama que muestre dos celdas: una celda de Markdown con texto formateado (título, lista, negrita) y una celda de código con código Python simple y su output. Incluir etiquetas claras indicando "Celda Markdown" y "Celda Code".]**
+**[NOTA SVG: Crear diagrama que muestre dos celdas: una celda de Markdown con texto formateado (título, lista, negrita) y una celda de código con código Python simple y su output. Incluir etiquetas claras indicando “Celda Markdown” y “Celda Code”.]**
 
 #### Celdas de Markdown (Texto)
 
@@ -193,7 +193,7 @@ Características:
 - 📊 Muestran los resultados debajo
 - 🔢 Tienen un número de ejecución `In [1]:`
 
-**[CAPTURA: Vista detallada de una celda de código mostrando: el prompt "In [1]:", el código Python dentro de la celda, el botón de ejecutar, y debajo el resultado con "Out [1]:"]**
+**[CAPTURA: Vista detallada de una celda de código mostrando: el prompt “In [1]:”, el código Python dentro de la celda, el botón de ejecutar, y debajo el resultado con “Out [1]:"]**
 
 ### Seleccionar una Celda
 
@@ -202,7 +202,7 @@ Para trabajar con una celda, primero tenés que **seleccionarla**:
 - **Hacer clic** sobre la celda
 - Verás un **borde coloreado** alrededor (azul o verde según el modo)
 
-**[CAPTURA: Dos imágenes lado a lado mostrando: 1) Celda en "modo comando" con borde azul, 2) Celda en "modo edición" con borde verde y cursor parpadeando dentro.]**
+**[CAPTURA: Dos imágenes lado a lado mostrando: 1) Celda en “modo comando” con borde azul, 2) Celda en “modo edición” con borde verde y cursor parpadeando dentro.]**
 
 ### Modos de una Celda
 
@@ -248,7 +248,7 @@ Vamos a ejecutar una celda de código paso a paso:
 - **Método 2**: Presionar el botón ▶️ en la barra de herramientas
 - **Método 3**: Menú `Run` → `Run Selected Cells`
 
-**[CAPTURA: Imagen mostrando los tres métodos: 1) Teclado con las teclas Shift y Enter resaltadas, 2) Botón "Run" en la barra de herramientas con una flecha señalándolo, 3) Menú Run desplegado con "Run Selected Cells" resaltado.]**
+**[CAPTURA: Imagen mostrando los tres métodos: 1) Teclado con las teclas Shift y Enter resaltadas, 2) Botón “Run” en la barra de herramientas con una flecha señalándolo, 3) Menú Run desplegado con “Run Selected Cells” resaltado.]**
 
 **Paso 3**: Observá el resultado que aparece debajo de la celda
 
@@ -269,7 +269,7 @@ Cuando la ejecutás (`Shift + Enter`), verás:
 Estoy aprendiendo Python
 ```
 
-**[CAPTURA: Vista "antes y después" mostrando: 1) Celda con el código y sin número de ejecución, 2) La misma celda después de ejecutar con "In [1]:" y el output visible debajo.]**
+**[CAPTURA: Vista “antes y después” mostrando: 1) Celda con el código y sin número de ejecución, 2) La misma celda después de ejecutar con “In [1]:” y el output visible debajo.]**
 
 ### Entendiendo el Output
 
@@ -346,7 +346,7 @@ Para agregar tu propio código:
 - Presioná `A` para insertar una celda **arriba** (Above)
 - Presioná `B` para insertar una celda **abajo** (Below)
 
-**[CAPTURA: Barra de herramientas con el botón "+" (agregar celda) claramente resaltado, y al lado el indicador de teclado mostrando las teclas "A" y "B".]**
+**[CAPTURA: Barra de herramientas con el botón ”+" (agregar celda) claramente resaltado, y al lado el indicador de teclado mostrando las teclas “A” y “B”.]**
 
 ### Eliminar una Celda
 
@@ -373,7 +373,7 @@ Para cambiar entre código y texto:
 - `Y` para convertir a celda de **código**
 - `M` para convertir a celda de **Markdown** (texto)
 
-**[CAPTURA: Menú desplegable mostrando las opciones "Code", "Markdown", y "Raw" con "Code" seleccionado.]**
+**[CAPTURA: Menú desplegable mostrando las opciones “Code”, “Markdown”, y “Raw” con “Code” seleccionado.]**
 
 ---
 
@@ -405,13 +405,13 @@ En la pestaña del notebook verás:
 - **Punto negro (●)** al lado del nombre: hay cambios sin guardar
 - **Sin punto**: todo guardado correctamente
 
-**[CAPTURA: Dos pestañas de notebook mostrando: 1) "ejercicio_1.ipynb ●" con el punto indicando cambios sin guardar, 2) "ejercicio_1.ipynb" sin punto después de guardar.]**
+**[CAPTURA: Dos pestañas de notebook mostrando: 1) “ejercicio_1.ipynb ●” con el punto indicando cambios sin guardar, 2) “ejercicio_1.ipynb” sin punto después de guardar.]**
 
 ---
 
 ## El Kernel de Python
 
-El **kernel** es el "motor" que ejecuta tu código Python. Es importante entender cómo funciona.
+El **kernel** es el “motor” que ejecuta tu código Python. Es importante entender cómo funciona.
 
 ### ¿Qué es el Kernel?
 
@@ -445,7 +445,7 @@ x = 10
 print(x)  # Imprime: 10
 ```
 
-El kernel "recuerda" que `x = 10` incluso en celdas separadas.
+El kernel “recuerda” que `x = 10` incluso en celdas separadas.
 
 :::{important} Orden de Ejecución
 El kernel recuerda el **orden en que ejecutaste** las celdas, no el orden en que están escritas. El número `In [n]:` te indica esto.
@@ -453,12 +453,12 @@ El kernel recuerda el **orden en que ejecutaste** las celdas, no el orden en que
 
 ### Reiniciar el Kernel
 
-A veces necesitás "empezar de cero". Reiniciar el kernel **borra toda la memoria**.
+A veces necesitás “empezar de cero”. Reiniciar el kernel **borra toda la memoria**.
 
 **Cuándo reiniciar:**
 - 🔄 Querés empezar desde el principio
 - 🐛 Hay comportamientos extraños
-- 🚫 El código se quedó "colgado"
+- 🚫 El código se quedó “colgado”
 
 **Cómo reiniciar:**
 
@@ -468,10 +468,10 @@ A veces necesitás "empezar de cero". Reiniciar el kernel **borra toda la memori
 **Opción 2**: Botón
 - Icono de reinicio ⟳ en la barra de herramientas
 
-**[CAPTURA: Menú Kernel desplegado mostrando las opciones: "Restart Kernel", "Restart Kernel and Clear Outputs", "Restart Kernel and Run All Cells".]**
+**[CAPTURA: Menú Kernel desplegado mostrando las opciones: “Restart Kernel”, “Restart Kernel and Clear Outputs”, “Restart Kernel and Run All Cells”.]**
 
 :::{tip} Restart and Run All
-La opción más útil suele ser **"Restart Kernel and Run All Cells"**: reinicia todo y ejecuta todas las celdas en orden desde el principio. Perfecto para verificar que tu código funcione correctamente.
+La opción más útil suele ser **“Restart Kernel and Run All Cells”**: reinicia todo y ejecuta todas las celdas en orden desde el principio. Perfecto para verificar que tu código funcione correctamente.
 :::
 
 ### Interrumpir la Ejecución
@@ -487,7 +487,7 @@ Si una celda está tardando demasiado o entró en un lazo infinito:
 **Opción 3**: Atajo
 - Presionar `I, I` (la letra I dos veces en modo comando)
 
-**[CAPTURA: Celda ejecutándose con "In [*]:" y el símbolo de ocupado visible, con una flecha señalando el botón de stop en la barra de herramientas.]**
+**[CAPTURA: Celda ejecutándose con “In [*]:” y el símbolo de ocupado visible, con una flecha señalando el botón de stop en la barra de herramientas.]**
 
 ---
 
@@ -499,7 +499,7 @@ Podés tener varios notebooks abiertos al mismo tiempo.
 
 Simplemente hacé doble clic en varios archivos `.ipynb`. Cada uno se abrirá en una pestaña nueva.
 
-**[CAPTURA: Área de trabajo mostrando 3 pestañas abiertas con diferentes notebooks: "01_variables.ipynb", "02_operadores.ipynb", "03_control.ipynb".]**
+**[CAPTURA: Área de trabajo mostrando 3 pestañas abiertas con diferentes notebooks: “01_variables.ipynb”, “02_operadores.ipynb”, “03_control.ipynb”.]**
 
 ### Cambiar entre Pestañas
 
@@ -576,7 +576,7 @@ Mientras escribís código, presioná `Tab` y JupyterLab te sugerirá opciones:
 pri[Tab] → print()
 ```
 
-**[CAPTURA: Celda mostrando el menú de autocompletado emergente con sugerencias como "print", "print()", "property", mientras el usuario escribe código.]**
+**[CAPTURA: Celda mostrando el menú de autocompletado emergente con sugerencias como “print”, “print()”, “property”, mientras el usuario escribe código.]**
 
 :::{tip} Explorar Métodos
 Si tenés una variable y querés ver qué métodos tiene, escribí el nombre, un punto, y presioná Tab:
@@ -833,7 +833,7 @@ Descargá una hoja de referencia de atajos:
 ### Videos Tutoriales
 
 Si preferís aprender viendo:
-- Buscá "JupyterLab tutorial español" en YouTube
+- Buscá “JupyterLab tutorial español” en YouTube
 - Hay excelentes tutoriales visuales
 
 ---
@@ -1001,10 +1001,10 @@ Launcher
 :  El lanzador es la pantalla inicial de {term}`JupyterLab` para crear nuevos {term}`notebooks <notebook>`, archivos, consolas, terminales. Aparece al abrir JupyterLab o cerrar todas las pestañas.
 
 .ipynb
-: Extensión de archivos de {term}`notebook` Jupyter. Significa "IPython Notebook". Es un archivo JSON que guarda celdas, código, outputs y metadata. Formato estándar de Jupyter.
+: Extensión de archivos de {term}`notebook` Jupyter. Significa “IPython Notebook”. Es un archivo JSON que guarda celdas, código, outputs y metadata. Formato estándar de Jupyter.
 
 IPython
-: Shell interactivo mejorado de Python. Base del {term}`kernel` de Jupyter. Agrega funcionalidades: autocompletado, magic commands, historial. "Interactive Python".
+: Shell interactivo mejorado de Python. Base del {term}`kernel` de Jupyter. Agrega funcionalidades: autocompletado, magic commands, historial. “Interactive Python”.
 
 Magic Command
 :  Los **comandos mágicos** son instrucciones especiales de {term}`IPython` que empiezan con `%` (línea) o `%%` (celda). Ejemplos: `%timeit`, `%matplotlib inline`, `%%bash`. Funciones útiles pre-construidas.

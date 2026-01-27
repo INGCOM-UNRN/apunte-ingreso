@@ -6,7 +6,7 @@ subtitle: Estrategia sistemática para resolver problemas computacionales y algo
 
 ## Introducción
 
-El matemático George Pólya (1887-1985) desarrolló un método sistemático para abordar problemas que se ha convertido en un pilar fundamental de la resolución de problemas en computación. Este enfoque estructurado, publicado originalmente en su obra *"Cómo resolverlo"* (1945), proporciona un marco de trabajo aplicable tanto a problemas matemáticos como a desafíos de programación.
+El matemático George Pólya (1887-1985) desarrolló un método sistemático para abordar problemas que se ha convertido en un pilar fundamental de la resolución de problemas en computación. Este enfoque estructurado, publicado originalmente en su obra *“Cómo resolverlo”* (1945), proporciona un marco de trabajo aplicable tanto a problemas matemáticos como a desafíos de programación.
 
 :::{note} Relevancia en Programación
 El método de Pólya es especialmente valioso en programación porque:
