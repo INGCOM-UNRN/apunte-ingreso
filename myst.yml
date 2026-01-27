@@ -24,7 +24,7 @@ project:
   github: https://github.com/INGCOM-UNRN/apunte-ingreso
   toc:
     - file: README.md
-    - file: 00_primeros_pasos.md
+    - file: 0_primeros_pasos.md
     - file: 1_fundamentos.md
     - file: 2_control_flujo.md
     - file: 3_estructuras.md
