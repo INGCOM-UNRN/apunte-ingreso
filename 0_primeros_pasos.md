@@ -246,14 +246,14 @@ Símbolos estándar de diagramas de flujo
 | **Rectángulo** | Proceso | `suma ⟸ a + b` |
 | **Paralelogramo** | Entrada o Salida | `LEER numero`, `MOSTRAR numero` |
 | **Rombo** | Decisión (Sí/No) | `SI ¿edad >= 18?: ... SINO ... FINSI`|
-| **Rombo** | Lazo | `MIENTRAS ¿edad >= 18? ... FIN MIENTRAS`|
+| **Rombo** | {term}`Lazo` | `MIENTRAS ¿edad >= 18? ... FIN MIENTRAS`|
 | **Óvalo** | Fin | `FIN` |
 
 Al guardar un valor, o resultado de expresión, utilizaremos `⟸` para distinguirlo del uso en las comparaciones.
 
 :::{important} Guardaespacio y delimitadores
 
-1. **Guardaespacio (`...`):** Los puntos suspensivos actúan como un *placeholder* o guardaespacio en los "Símbolos del lazo". Indican la existencia de un bloque de instrucciones arbitrario. (Los `...` no son parte del pseudocódigo, simplemente una llamada a que _puede ir ahí_).
+1. **Guardaespacio (`...`):** Los puntos suspensivos actúan como un *placeholder* o guardaespacio en los "Símbolos del {term}`lazo`". Indican la existencia de un bloque de instrucciones arbitrario. (Los `...` no son parte del pseudocódigo, simplemente una llamada a que _puede ir ahí_).
 
 2. **Delimitadores de Alcance (`FIN`, `SINO`):** En pseudocódigo lineal, cláusulas como `FIN SI` o `FIN MIENTRAS` son obligatorias para definir el alcance (*scope*) léxico de la estructura. A diferencia de los diagramas de flujo (donde las flechas indican el cierre) o lenguajes como Python (que usan indentación), estos delimitadores evitan la ambigüedad sintáctica, especialmente al anidar múltiples estructuras de decisión o iteración. 
 
@@ -311,7 +311,7 @@ flowchart TD
 
 **Problema:** Preguntar la edad y decir si es mayor o menor de edad.
 
-Aquí introducimos una **decisión**. El rombo evalúa una condición (¿edad >= 18?) y divide el flujo en dos caminos posibles: uno si la condición es verdadera ("Sí") y otro si es falsa ("No"). Solo se ejecuta uno de los dos caminos.
+Aquí introducimos una **decisión**. El rombo evalúa una {term}`condición` (¿edad >= 18?) y divide el flujo en dos caminos posibles: uno si la condición es verdadera ("Sí") y otro si es falsa ("No"). Solo se ejecuta uno de los dos caminos.
 
 ```{mermaid}
 flowchart TD
@@ -365,7 +365,7 @@ _Vamos a ver ejemplos más adelante de esto._
 
 **Problema:** Mostrar los números del 1 al 5.
 
-Este diagrama muestra un **lazo** (o bucle). Observá cómo la flecha vuelve hacia atrás después de incrementar el contador, creando un ciclo que se repite hasta que la condición (`contador <= 5`) deja de cumplirse.
+Este diagrama muestra un {term}`lazo`. Observá cómo la flecha vuelve hacia atrás después de incrementar el {term}`contador`, creando un ciclo que se repite hasta que la condición (`contador <= 5`) deja de cumplirse.
 
 ```{mermaid}
 flowchart TD
@@ -403,13 +403,13 @@ flowchart TD
 
 ::::{warning} ¡Atención!
 
-Este es un **lazo** o **bucle**. Es cuando una parte del diagrama se repite. La flecha hace una curva para volver al condicional.
+Este es un {term}`lazo` o {term}`bucle`. Es cuando una parte del diagrama se repite. La flecha hace una curva para volver al condicional.
 
 **¿Cómo sé que no va a ser infinito?**
 - Porque el `contador` aumenta en cada vuelta.
 - _Eventualmente_ `contador` será 6.
 - En ese momento, la pregunta "`¿contador <= 5?`" será **No**.
-- Y sale del lazo.
+- Y sale del {term}`lazo`.
 ::::
 
 ---
@@ -423,15 +423,15 @@ Este es un **lazo** o **bucle**. Es cuando una parte del diagrama se repite. La 
 **Analogía:** Es como escribir la letra de una canción antes de componerla. No es la música final, pero tiene la estructura.
 
 **Vocabulario:**
-1. **Pseudocódigo:** "Código falso" - se parece a código pero está en español.
+1. **Pseudocódigo:** Código que se parece a un lenguaje de programación, pero está en español.
 2. **Palabra clave:** Palabras especiales que usamos (`LEER`, `SI`, `MIENTRAS`).
-3. **Indentación:** Espacios al inicio de una línea para mostrar explícitamente a qué instrucción pertenece.
+3. **{term}`Indentación`:** Espacios al inicio de una línea para mostrar explícitamente a qué instrucción pertenece.
 ::::
 
 ### ¿Por Qué Usar Pseudocódigo?
 
 **Ventajas:**
-- No te distraés con la sintaxis de Python.
+- No te distraés con la {term}`sintaxis` de Python.
 - Podés pensar en la lógica pura.
 - Es fácil de leer para cualquiera.
 - Rápido de escribir y modificar.
@@ -447,8 +447,8 @@ Además de las instrucciones traducidas de forma 'directa' de los diagramas de f
 | `FIN` | Termina el algoritmo | `FIN` |
 | `LEER` | Pedir entrada del usuario | `LEER edad` |
 | `MOSTRAR` | Mostrar algo en pantalla | `MOSTRAR "Hola"` |
-| `⟸` | Asignar un valor | `suma ⟸ a + b` |
-| `SI ... :` | Condición | `SI edad >= 18 ENTONCES` |
+| `⟸` | {term}`Asignación` | `suma ⟸ a + b` |
+| `SI ... :` | {term}`Condicional` | `SI edad >= 18 ENTONCES` |
 | `SINO` | Camino NO del `SI` | `SINO` |
 | `FIN_SI` | Fin de condición | `FIN_SI` |
 | `#` | Comentario | `# Esto es un comentario` |
@@ -544,9 +544,9 @@ FIN
 ```
 
 **Notá:**
-- `MIENTRAS ... HACER` es un lazo.
+- `MIENTRAS ... HACER` es un {term}`lazo`.
 - Todo lo que está dentro (indentado) se repite.
-- `contador ⟸ contador + 1` es muy importante; si no, el lazo sería infinito (contador debe 'dirigirse' hacia el valor del condicional).
+- `contador ⟸ contador + 1` es muy importante; si no, el {term}`lazo` sería infinito (contador debe 'dirigirse' hacia el valor del condicional).
 - Cierra con `FIN_MIENTRAS`.
 
 ### Ejemplo 4: Promedio de 3 Números
@@ -679,7 +679,7 @@ Esto hace que sea mucho más fácil de leer y entender.
 **Paso 1: Preparar la Tabla**
 
 Crear una tabla con:
-- Una columna por cada **variable**.
+- Una columna por cada **{term}`variable`**.
 - Filas para cada **paso**.
 - Columna extra para **salida** (si hay print).
 
@@ -693,7 +693,7 @@ Elegir números que:
 **Paso 3: Ejecutar Paso a Paso**
 
 - Ir línea por línea del pseudocódigo.
-- Actualizar la tabla en cada asignación.
+- Actualizar la tabla en cada {term}`asignación`.
 - Marcar cuando hay salida.
 - Seguir las condiciones (SI/MIENTRAS).
 
@@ -734,7 +734,7 @@ MOSTRAR promedio
 
 ### Ejemplo con Decisión: Par o Impar
 
-Este ejemplo combina el uso del operador módulo (%) con una estructura de decisión. El operador módulo retorna el resto de una división, y es fundamental para determinar si un número es par o impar. El diagrama de flujo muestra claramente cómo la decisión divide el flujo del algoritmo en dos caminos posibles, uno para cada resultado.
+Este ejemplo combina el uso del {term}`operador` módulo (%) con una estructura de decisión. El operador módulo retorna el resto de una división, y es fundamental para determinar si un número es par o impar. El diagrama de flujo muestra claramente cómo la decisión divide el flujo del algoritmo en dos caminos posibles, uno para cada resultado.
 
 ```{mermaid}
 flowchart TD
@@ -773,7 +773,7 @@ FIN_SI
 
 **Caso de prueba 1:** `numero = 6`
 
-| Paso | número | numero % 2 | Condición | Salida |
+| Paso | número | numero % 2 | {term}`Condición` | Salida |
 |:-----|:-------|:-----------|:----------|:-------|
 | 1 | 6 | - | - | - |
 | 2 | 6 | 0 | 0 == 0 → Verdadero | - |
@@ -849,7 +849,7 @@ MOSTRAR suma
 
 ::::{warning} Observación Importante
 
-Fijate que en cada vuelta del lazo:
+Fijate que en cada vuelta del {term}`lazo`:
 1. Sumamos el valor actual de `i` a `suma`.
 2. Aumentamos `i` en 1.
 
@@ -1003,7 +1003,7 @@ else:
 ```
 ALGORITMO PositivoNegativoCero
     INICIO
-        numero: Real
+        numero: {term}`Flotante<Real>`
         
         MOSTRAR "Ingrese un número:"
         LEER numero
@@ -1049,7 +1049,7 @@ else:
 ```
 ALGORITMO TablaMultiplicar
     INICIO
-        numero, i, resultado: Entero
+        numero, i, resultado: {term}`Entero`
         
         MOSTRAR "Ingrese un número:"
         LEER numero
@@ -1105,7 +1105,7 @@ for i in range(1, 11):
 ```
 ALGORITMO SumaHastaCero
     INICIO
-        numero, suma: Real
+        numero, suma: {term}`Flotante<Real>`
         
         suma ⟸ 0
         
@@ -1167,7 +1167,7 @@ Hay ciertos "patrones" que aparecen una y otra vez en programación. Si los reco
 
 ### Patrón 1: El Acumulador
 
-El acumulador es uno de los patrones más fundamentales en programación. Consiste en una variable que va "acumulando" o "juntando" valores a medida que se procesan datos. Es especialmente útil para calcular sumas, productos, o cualquier operación que necesite combinar múltiples valores en uno solo. El concepto clave es mantener un total parcial que se actualiza en cada iteración.
+El {term}`acumulador` es uno de los patrones más fundamentales en programación. Consiste en una {term}`variable` que va "acumulando" o "juntando" valores a medida que se procesan datos. Es especialmente útil para calcular sumas, productos, o cualquier operación que necesite combinar múltiples valores en uno solo. El concepto clave es mantener un total parcial que se actualiza en cada iteración.
 
 **¿Qué es?** Una variable que va "juntando" valores.
 
@@ -1186,7 +1186,7 @@ FIN_PARA
 
 ### Patrón 2: El Contador
 
-El contador es otro patrón esencial que aparece constantemente en programación. A diferencia del acumulador que suma valores, el contador simplemente cuenta cuántas veces ocurre algo. Es útil para estadísticas, validaciones, o cualquier situación donde necesitás saber "cuántos" elementos cumplen cierta condición. La clave es incrementar en 1 cada vez que se cumple la condición.
+El {term}`contador` es otro patrón esencial que aparece constantemente en programación. A diferencia del acumulador que suma valores, el contador simplemente cuenta cuántas veces ocurre algo. Es útil para estadísticas, validaciones, o cualquier situación donde necesitás saber "cuántos" elementos cumplen cierta condición. La clave es incrementar en 1 cada vez que se cumple la condición.
 
 **¿Qué es?** Una variable que cuenta cuántas veces pasa algo.
 
@@ -1228,7 +1228,7 @@ FIN_PARA
 
 ### Patrón 4: La Bandera (Flag)
 
-La bandera o flag es una variable booleana (Verdadero/Falso) que "recuerda" si algo ocurrió durante el procesamiento. Es útil cuando necesitás verificar la presencia de algo sin importar cuántas veces ocurra. Una vez que la bandera se activa (cambia a Verdadero), permanece así. Este patrón es común en validaciones, búsquedas, y control de flujo.
+La {term}`bandera` o flag es una {term}`variable` {term}`booleana<Booleano>` (Verdadero/Falso) que "recuerda" si algo ocurrió durante el procesamiento. Es útil cuando necesitás verificar la presencia de algo sin importar cuántas veces ocurra. Una vez que la bandera se activa (cambia a Verdadero), permanece así. Este patrón es común en validaciones, búsquedas, y control de flujo.
 
 **¿Qué es?** Una variable que "recuerda" si algo pasó.
 
@@ -1254,7 +1254,7 @@ FIN_SI
 
 ### Patrón 5: Validación de Entrada
 
-La validación de entrada es crucial para crear programas robustos. Este patrón usa un lazo que se repite hasta que el usuario ingrese un dato válido. Es esencial para prevenir errores y garantizar que el programa reciba datos dentro del rango esperado. Combina lazos con condiciones para crear una experiencia de usuario más amigable y programas más confiables.
+La validación de entrada es crucial para crear programas robustos. Este patrón usa un {term}`lazo` que se repite hasta que el usuario ingrese un dato válido. Es esencial para prevenir errores y garantizar que el programa reciba datos dentro del rango esperado. Combina lazos con condiciones para crear una experiencia de usuario más amigable y programas más confiables.
 
 **¿Qué es?** Seguir pidiendo un dato hasta que sea válido.
 
@@ -1273,104 +1273,13 @@ HASTA QUE edad >= 1 Y edad <= 120
 ```
 
 **Clave:**
-- Usar un lazo que repite hasta tener un valor válido.
+- Usar un {term}`lazo` que repite hasta tener un valor válido.
 - Dar feedback al usuario si se equivoca.
 
 ---
 
-## 9. Errores Comunes (y Cómo Evitarlos)
 
-### Error 1: Olvidar Inicializar
-
-Este es probablemente el error más común para principiantes. Las variables deben existir antes de usarlas. Si intentás usar una variable que no fue creada (inicializada), Python no sabe qué hacer con ella y lanza un error. Es especialmente crítico con acumuladores y contadores, que deben empezar en 0 antes del lazo.
-
-**❌ Mal:**
-```python
-for i in range(1, 6):
-    suma = suma + i  # ERROR: suma no existe
-```
-
-**✅ Bien:**
-```python
-suma = 0  # Inicializar primero
-for i in range(1, 6):
-    suma = suma + i
-```
-
-### Error 2: Lazo Infinito
-
-Un lazo infinito ocurre cuando la condición de salida nunca se vuelve falsa. Esto bloquea tu programa para siempre, consumiendo recursos innecesariamente. El error típico es olvidar actualizar la variable de control del lazo. Siempre asegurate de que la condición eventualmente se vuelva falsa.
-
-**❌ Mal:**
-```python
-i = 1
-while i <= 10:
-    print(i)
-    # Me olvidé de i = i + 1
-    # El lazo es infinito!
-```
-
-**✅ Bien:**
-```python
-i = 1
-while i <= 10:
-    print(i)
-    i = i + 1  # Importante!
-```
-
-### Error 3: Confundir `=` con `==`
-
-Este es un error de sintaxis clásico. El símbolo `=` es para asignación (darle un valor a una variable), mientras que `==` es para comparación (verificar si dos valores son iguales). En condiciones como `if` o `while`, siempre necesitás `==` para comparar. Confundirlos causa errores de sintaxis o peor, comportamiento inesperado.
-
-**❌ Mal:**
-```python
-if edad = 18:  # ERROR de sintaxis
-    print("Tiene 18")
-```
-
-**✅ Bien:**
-```python
-if edad == 18:  # Comparación
-    print("Tiene 18")
-```
-
-### Error 4: Olvidar Convertir `input()`
-
-La función `input()` siempre retorna texto (string), incluso si el usuario ingresa números. Si querés hacer operaciones matemáticas, debés convertir explícitamente a número con `int()` o `float()`. Si no lo hacés, operaciones como `*` duplican el texto en lugar de multiplicar, causando resultados inesperados y difíciles de detectar.
-
-**❌ Mal:**
-```python
-numero = input("Número: ")
-doble = numero * 2  # Duplica el texto, no multiplica
-# Si ingreso "5", resultado es "55"
-```
-
-**✅ Bien:**
-```python
-numero = int(input("Número: "))  # Convertir a entero
-doble = numero * 2
-# Si ingreso "5", resultado es 10
-```
-
-### Error 5: Mala Indentación
-
-Python usa la indentación (espacios al inicio de la línea) para determinar qué código pertenece a qué bloque. No es solo estilo: es parte de la sintaxis. Todo el código dentro de un `if`, `while`, o `for` debe estar indentado con el mismo número de espacios (generalmente 4). Una indentación incorrecta causa errores de sintaxis o comportamiento incorrecto del programa.
-
-**❌ Mal:**
-```python
-if edad >= 18:
-print("Mayor de edad")  # ERROR: falta indentación
-```
-
-**✅ Bien:**
-```python
-if edad >= 18:
-    print("Mayor de edad")  # 4 espacios
-```
-
----
-
-## 10. Resumen y Consejos Finales
+## 9. Resumen y Consejos Finales
 
 ```{figure} 0_primeros_pasos/proceso_completo.svg
 :label: fig-proceso-completo
@@ -1414,7 +1323,7 @@ Recordá que esta guía es una aplicación del {ref}`método de Pólya <polya-co
 
 ---
 
-## 11. Ejercicios para Practicar
+## 10. Ejercicios para Practicar
 
 Para poner en práctica todo lo aprendido, hemos preparado una colección completa de ejercicios organizados por nivel de dificultad y con distintos niveles de ayuda (desde diagramas completos hasta solo enunciados).
 
@@ -1424,7 +1333,7 @@ Allí encontrarás ejercicios clásicos como sumas, promedios, tablas de multipl
 
 ---
 
-## 12. Conclusión
+## 11. Conclusión
 
 ::::{important} Lo Más Importante
 
@@ -1453,20 +1362,3 @@ Con práctica, este proceso se vuelve natural y rápido. La inversión de tiempo
 
 **¡Éxito en tu camino como programador! 🚀**
 
----
-
-## Referencias y Recursos
-
-- Pólya, G. (1945). *How to Solve It*. Princeton University Press.
-- [Python Tutor](http://pythontutor.com/) - Visualizador de código.
-- {ref}`Método de Pólya <polya-comprender>` - Capítulo 0 de este curso.
-- {ref}`Fundamentos de Python <fundamentos>` - Capítulo 1.
-- {ref}`Control de Flujo <control-flujo>` - Capítulo 2.
-
----
-
-:::{note} Sobre Esta Guía
-Esta guía está diseñada para ser usada ANTES de programar. Guardala, imprimila, tenela a mano. Cada vez que enfrentes un problema nuevo, volvé a estos pasos.
-
-La diferencia entre un programador frustrado y uno exitoso no es el talento, es el **método**.
-:::
