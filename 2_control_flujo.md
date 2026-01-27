@@ -94,7 +94,7 @@ graph LR
     style E fill:#ffcdd2
 ```
 
-Eso es **{term}`control de flujo`**: tu programa "mira" la situación y **decide** qué hacer, como vos decidís según el color del semáforo.
+Eso es **{term}`control de flujo`**: tu programa “mira” la situación y **decide** qué hacer, como vos decidís según el color del semáforo.
 
 :::{important} ¿Por qué es tan importante?
 El {term}`control de flujo` es lo que convierte una secuencia fija de instrucciones en un programa que puede:
@@ -114,7 +114,7 @@ Todos estos usan {term}`control de flujo`:
 ::::{grid-item-card} 🏧 Cajero Automático
 - **Decisión:** ¿El PIN es correcto?
 - **Repetición:** Permitir 3 intentos.
-- **Menú:** Repetir hasta que elija "Salir".
+- **Menú:** Repetir hasta que elija “Salir”.
 ::::
 
 ::::{grid-item-card} 🎮 Videojuego
@@ -213,7 +213,7 @@ El guardia **decide** basándose en tu edad. ¡Eso es una condicional!
 
 ### La Estructura `if` Simple
 
-La forma más básica: "Si se cumple esto, hacé aquello".
+La forma más básica: “Si se cumple esto, hacé aquello”.
 
 ```{code-cell} ipython3
 edad = 18
@@ -405,7 +405,7 @@ else:
 
 ### La Estructura `if-elif-else`: Múltiples Caminos 
 
-Cuando tenés **más de 2 opciones** a elegir, usás `elif` (abreviación de "else if").
+Cuando tenés **más de 2 opciones** a elegir, usás `elif` (abreviación de “else if”).
 
 ```{mermaid}
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#e3f2fd','primaryTextColor':'#1565c0','primaryBorderColor':'#1976d2','lineColor':'#1976d2','secondaryColor':'#fff3e0','tertiaryColor':'#f3e5f5','noteBkgColor':'#fff9c4','noteTextColor':'#333'}}}%%
@@ -767,17 +767,17 @@ puede_acceder = (es_mayor or tiene_permiso) and tiene_dinero and en_bariloche
 #    - tiene que estar en Bariloche.
 ```
 
-Y tan complicado como sea necesario, pero la clave acá está en que **el resultado final** es un "sí" o un "no". Este condicional no nos indicaría *la razón* por la cual entró o no, solo el resultado final.
+Y tan complicado como sea necesario, pero la clave acá está en que **el resultado final** es un “sí” o un “no”. Este condicional no nos indicaría *la razón* por la cual entró o no, solo el resultado final.
 
 :::
 
-### Valores "Truthy" y "Falsy"
+### Valores “Truthy” y “Falsy”
 
-En Python, ciertos valores se consideran "falsos" en un contexto booleano:
+En Python, ciertos valores se consideran “falsos” en un contexto booleano:
 - `False`, `None`, `0`, `0.0`.
 - [Secuencias](./3_estructuras.md) vacías: `""`, `[]`, `{}`, `()`.
 
-Todos los demás valores se consideran "verdaderos". Sin embargo, según las buenas prácticas, es preferible ser **explícito**:
+Todos los demás valores se consideran “verdaderos”. Sin embargo, según las buenas prácticas, es preferible ser **explícito**:
 
 ```{code-cell} ipython3
 nombre = ""
@@ -883,7 +883,7 @@ else:
 ---
 
 (while-lazos)=
-## Lazos indefinidos - `while`: Mientras que...
+## Lazos indefinidos - `while`: Mientras que…
 
 Un **lazo** (también llamado lazo) permite ejecutar un bloque de código repetidamente. El lazo `while` continúa ejecutándose mientras una condición sea verdadera.
 
@@ -983,12 +983,12 @@ Estos patrones son **independientes del tipo de lazo**. Lo que importa es la ló
 (while-acumulador)= 
 #### Patrón 1: Acumulador (Sumar números)
 
-Este patrón se utiliza cuando necesitás **acumular** un resultado a través de múltiples iteraciones. La clave es tener una variable externa que guarda el "total" hasta el momento.
+Este patrón se utiliza cuando necesitás **acumular** un resultado a través de múltiples iteraciones. La clave es tener una variable externa que guarda el “total” hasta el momento.
 
 Por ejemplo, si querés calcular la suma total de una serie de números, necesitás una variable (el acumulador) que empiece en cero y vaya sumando cada nuevo número que procesás.
 
 **Cómo funciona:**
-1.  **Inicialización:** Creás una variable acumuladora con un valor neutro (0 para suma, 1 para multiplicación, "" para cadenas).
+1.  **Inicialización:** Creás una variable acumuladora con un valor neutro (`0` para suma, `1` para multiplicación, `""` para cadenas).
 2.  **Proceso:** En cada vuelta del lazo, actualizás el acumulador agregándole el valor actual.
 3.  **Resultado:** Al finalizar el lazo, la variable contiene el resultado total.
 
@@ -1064,7 +1064,7 @@ Este es uno de los usos más potentes del `while`: **garantizar que un dato sea 
 
 A diferencia de un `if` que solo chequea una vez, el `while` chequea **mientras** el dato sea incorrecto. Esto obliga al programa a detenerse y pedir el dato nuevamente hasta que el usuario ingrese algo válido o se cumpla una condición de salida (como agotar intentos).
 
-**Lógica:** "Mientras el dato sea inválido, volvé a pedirlo".
+**Lógica:** “Mientras el dato sea inválido, volvé a pedirlo”.
 
 ```{code-cell} ipython3
 # Pedir contraseña hasta que sea correcta
@@ -1110,14 +1110,14 @@ Este patrón es **muy común** en programación:
 - Sistemas de login.
 - Validación de datos.
 - Menús interactivos.
-- Juegos (seguir jugando mientras...). 
+- Juegos (seguir jugando mientras…). 
 :::
 
 ---
 
 ## Cadenas como secuencias de caracteres
 
-Hasta ahora hemos usado cadenas de texto ({term}`string`) simplemente como "bloques" de información para mostrar mensajes. Sin embargo, en Python, una cadena es en realidad una **secuencia ordenada de caracteres**.
+Hasta ahora hemos usado cadenas de texto ({term}`string`) simplemente como “bloques” de información para mostrar mensajes. Sin embargo, en Python, una cadena es en realidad una **secuencia ordenada de caracteres**.
 
 Esto significa que:
 1. Cada caracter tiene una posición única.
@@ -1132,7 +1132,7 @@ Al igual que un edificio tiene pisos numerados, una cadena tiene caracteres nume
 En programación, **siempre** empezamos a contar desde el **0**.
 - El primer caracter está en la posición 0.
 - El segundo caracter está en la posición 1.
-- Y así sucesivamente...
+- Y así sucesivamente…
 :::
 
 ```python
@@ -1228,9 +1228,9 @@ if not entrada_valida:
 ---
 
 (for-lazos)= 
-## Lazos definidos - `for`: Para Cada Elemento...
+## Lazos definidos - `for`: Para Cada Elemento…
 
-El lazo `for` se usa cuando querés hacer algo **con cada elemento** de una secuencia (como un texto o un rango de números). Es como decir: "**Para cada** cosa en este grupo, hacé esto".
+El lazo `for` se usa cuando querés hacer algo **con cada elemento** de una secuencia (como un texto o un rango de números). Es como decir: ”**Para cada** cosa en este grupo, hacé esto”.
 
 ```{mermaid}
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#e3f2fd','primaryTextColor':'#1565c0','primaryBorderColor':'#1976d2','lineColor':'#1976d2','secondaryColor':'#fff3e0','tertiaryColor':'#f3e5f5','noteBkgColor':'#fff9c4','noteTextColor':'#333'}}}%%
@@ -1288,7 +1288,7 @@ La elección entre `while` y `for` depende de si conocés de antemano cuántas v
 
 :::::{grid} 1 1 2 2
 
-::::{grid-item-card} {term}`while` (Mientras...)
+::::{grid-item-card} {term}`while` (Mientras…)
 ```python
 # Usar cuando NO sabés
 # cuántas veces repetir
@@ -1304,7 +1304,7 @@ while contraseña != "abc123":
 - Validaciones.
 ::::
 
-::::{grid-item-card} {term}`for` (Para cada...)
+::::{grid-item-card} {term}`for` (Para cada…)
 ```python
 # Usar cuando SÍ sabés
 # cuántas veces repetir
@@ -1601,7 +1601,7 @@ Según la regla {ref}`0x0006h`, es preferible usar {ref}`banderas de control <ba
 - Validación de entrada donde querés salir tras validar.
 
 **Casos apropiados para `continue`:**
-- Filtrar elementos ("saltar basura") sin anidar condiciones excesivamente.
+- Filtrar elementos (“saltar basura”) sin anidar condiciones excesivamente.
 
 **Preferir banderas cuando:**
 - El lazo tiene múltiples condiciones de salida.
@@ -1737,7 +1737,7 @@ if edad == 18:
 
 ### 3. Lazo infinito
 
-En los lazos `while`, es crucial asegurarse de que la condición eventualmente se vuelva falsa. Si olvidás actualizar la variable que controla el lazo (como un contador), el programa se quedará "colgado" ejecutando el mismo código eternamente.
+En los lazos `while`, es crucial asegurarse de que la condición eventualmente se vuelva falsa. Si olvidás actualizar la variable que controla el lazo (como un contador), el programa se quedará “colgado” ejecutando el mismo código eternamente.
 
 ```python
 # ❌ Lazo infinito
@@ -1834,7 +1834,7 @@ if es_mayor_edad and esta_activo and tiene_saldo and es_administrador:
 
 ### 3. Evitar Anidación Excesiva
 
-Tener muchos `if` dentro de otros `if` (código "flecha") hace que el programa sea difícil de seguir. A menudo podés simplificar combinando condiciones con `and` o usando "cláusulas de guarda" (retornar o usar `continue` temprano).
+Tener muchos `if` dentro de otros `if` (código “flecha”) hace que el programa sea difícil de seguir. A menudo podés simplificar combinando condiciones con `and` o usando “cláusulas de guarda” (retornar o usar `continue` temprano).
 
 ```{code-cell} ipython3
 # ❌ Muy anidado (Spaghetti code)
@@ -1879,17 +1879,17 @@ Aprender {term}`control de flujo` es aprender a **pensar algorítmicamente**. La
 
 #### Generar Ejercicios Adicionales
 
-- "Genera cinco ejercicios sobre condicionales `if-elif-else` que involucren validación de rangos de números".
-- "Crea ejercicios de lazos `while` que requieran el uso de banderas de control".
+- “Genera cinco ejercicios sobre condicionales `if-elif-else` que involucren validación de rangos de números”.
+- “Crea ejercicios de lazos `while` que requieran el uso de banderas de control”.
 
 #### Obtener Pistas sobre Lógica
 
-- "Tengo un programa que debe verificar si un número está entre 10 y 20. Mi condición es `if numero > 10 and numero < 20:` pero falla con 10 y 20. ¿Por qué?"
-- "Estoy escribiendo un lazo para pedir números hasta que el usuario ingrese 0, pero no sé cómo estructurarlo. ¿Cuál sería el esqueleto básico?"
+- “Tengo un programa que debe verificar si un número está entre 10 y 20. Mi condición es `if numero > 10 and numero < 20:` pero falla con 10 y 20. ¿Por qué?”
+- “Estoy escribiendo un lazo para pedir números hasta que el usuario ingrese 0, pero no sé cómo estructurarlo. ¿Cuál sería el esqueleto básico?”
 
 #### Refactorizar Condiciones Complejas
 
-- "Esta condición es muy larga y difícil de leer: `if (edad >= 18 and tiene_dni and (es_estudiante or es_empleado)) or es_admin:`. ¿Cómo puedo mejorarla?"
+- “Esta condición es muy larga y difícil de leer: `if (edad >= 18 and tiene_dni and (es_estudiante or es_empleado)) or es_admin:`. ¿Cómo puedo mejorarla?”
 
 ### Errores Comunes en este Módulo
 
@@ -2048,7 +2048,7 @@ graph LR
     style D fill:#f3e5f5,stroke:#7b1fa2
 ```
 
-:::{important} Practica, practica, practica
+:::{important} Practicá, practicá, practicá
 
 **La programación NO se aprende leyendo, se aprende HACIENDO.**
 
