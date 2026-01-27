@@ -1555,7 +1555,7 @@ Pero ojo, sin tirar todo por la borda, que la variable `variable_que_usamos_para
 
 ### 2. Inicializar Variables
 
-Según la regla {ref}`0x0003h`, inicializá siempre las variables.
+Según la regla {ref}`0x0003h`, inicializá siempre las variables, no solo porque necesitamos tener un valor conocido, sino porque es necesario para crearla.
 
 ```{code-cell} ipython3
 # ✓ Correcto
