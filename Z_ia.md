@@ -337,7 +337,7 @@ Resolví este ejercicio [descripción]:
 Funciona correctamente, pero me gustaría mejorarlo. 
 
 ¿Podrías revisar:
-1. ¿Los nombres de variables son claros? ({ref}`regla-nombres`)
+1. ¿Los nombres de variables son claros? ({ref}`0x0001h`)
 2. ¿Hay forma de simplificar la lógica sin perder claridad?
 3. ¿Estoy manejando bien los casos límite?
 4. ¿Qué tests adicionales debería agregar?
