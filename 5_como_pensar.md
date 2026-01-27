@@ -407,7 +407,7 @@ Escribir una función que valide si una contraseña cumple los siguientes requis
 ### Fase 1: Comprender
 
 **Análisis del problema:**
-- **Entrada:** Un {term}`string` (la contraseña a validar).
+- **Entrada:** Un {term}`Cadena` (la contraseña a validar).
 - **Salida:** Un {term}`booleano` (`True` si es válida, `False` si no).
 - **Restricciones:** Cinco condiciones que deben cumplirse simultáneamente.
 
