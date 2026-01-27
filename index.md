@@ -13,7 +13,7 @@ Este índice proporciona una vista global y navegable de todos los contenidos de
 
 ### Parte I: Fundamentos y Metodología
 
-#### [0. Primeros Pasos: Cómo Plantear Algoritmos](00_primeros_pasos.md)
+#### [0. Primeros Pasos: Cómo Plantear Algoritmos](0_primeros_pasos.md)
 
 Guía fundamental para diseñar soluciones antes de programar.
 
