@@ -192,7 +192,7 @@ Jerarquía de excepciones en Python
 ::::{tab-set}
 
 :::{tab-item} `ValueError` 
-**Problema:** El {term}`valor` es del tipo correcto, pero no tiene sentido.
+**Problema:** El valor es del tipo correcto, pero no tiene sentido.
 
 ```python
 # Ejemplos de ValueError
