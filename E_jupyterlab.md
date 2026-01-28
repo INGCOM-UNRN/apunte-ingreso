@@ -235,6 +235,37 @@ Un cuaderno seleccionado y abierto.
 Los notebooks de Jupyter tienen la extensión `.ipynb` (Interactive Python Notebook). Estos archivos contienen código, texto y resultados juntos.
 :::
 
+### Abriendo un archivo Markdown
+
+Si no indicamos nada, al hacer doble click en un documento de este tipo, será abierto para su modificación y solo veremos el "código" con el que está hecho. Si no lo queremos modificar y lo queremos ver en su representación final, lo tenemos que abrir en su 'vista previa.
+
+```{figure} ./E_jupyterlab/vista_edicion_md.png
+:label: fig-jupyterlab-cuaderno-abierto
+:alt: CAPTURA: Como se ve un archivo markdown abierto directamente
+:align: center
+Un archivo markdown abierto con doble click
+```
+
+Para verlo "bonito" tenemos que ubicar el archivo en el panel izquierdo, y darle botón derecho:
+
+```{figure} ./E_jupyterlab/abrir_como.png
+:label: fig-jupyterlab-cuaderno-abierto
+:alt: CAPTURA: En el panel lateral izquierdo, botón derecho sobre un archivo un archivo.
+:align: center
+Abrir en modo "Vista previa"
+```
+
+Y lo podremos ver en su "vista previa", que transforma el [código markdown](./G_markdown.md) en el formato apropiado.
+
+```{figure} ./E_jupyterlab/vista_previa_md.png
+:label: fig-jupyterlab-cuaderno-abierto
+:alt: CAPTURA: Como se ve un archivo markdown abierto con la vista previa.
+:align: center
+Un archivo markdown abierto con botón derecho
+```
+
+
+
 ---
 
 ## Anatomía de un Notebook
@@ -254,19 +285,17 @@ Parte izquierda de la barra de herramientas del espacio de trabajo
 
 De izquierda a derecha, los botones son:
 
-TODO: explicar brevemente que hace cada ítem
-
-1. Guardar cuaderno
-2. Agregar celda
-3. Cortar
-4. Copiar
-5. Pegar
-6. Ejecutar celda
-7. Detener ejecución
-8. Reinciar Núcleo
-9. Ejecutar todas las celdas
-10. Tipo de celda (Markdown/Código/Raw)
-11. Descargar cuaderno
+1. **💾 Guardar cuaderno**: Graba los cambios en tu navegador (equivalente a Ctrl+S)
+2. **➕ Agregar celda**: Inserta una nueva celda debajo de la actual
+3. **✂️ Cortar**: Corta la celda seleccionada (puedes pegarla en otro lugar)
+4. **📋 Copiar**: Copia la celda seleccionada sin eliminarla
+5. **📄 Pegar**: Pega la celda cortada o copiada debajo de la actual
+6. **▶️ Ejecutar celda**: Corre el código de la celda actual o renderiza el Markdown
+7. **⏹️ Detener ejecución**: Interrumpe un código que está corriendo (útil si se colgó)
+8. **🔄 Reiniciar Núcleo**: Reinicia Python desde cero, borrando todas las variables de memoria
+9. **⏩ Ejecutar todas las celdas**: Ejecuta todas las celdas del notebook de arriba hacia abajo
+10. **📝 Tipo de celda**: Cambia entre Code (código Python), Markdown (texto con formato) o Raw (texto plano)
+11. **⬇️ Descargar cuaderno**: Descarga el archivo .ipynb a tu computadora
 
 ### Tipos de Celdas
 
@@ -338,16 +367,14 @@ En este modo podés:
 Botones en la celda activa
 ```
 
-TODO: explicar brevemente que hace cada ítem
+De izquierda a derecha, estos botones aparecen al seleccionar una celda:
 
-De izquierda a derecha
-
-1. Duplicar celda
-2. Mover celda arriba
-3. Mover celda abajo
-4. Crear celda vacía arriba
-5. Crear celda vacía abajo
-6. Borrar celda
+1. **📑 Duplicar celda**: Crea una copia exacta de la celda seleccionada debajo de ella
+2. **⬆️ Mover celda arriba**: Intercambia posición con la celda de arriba
+3. **⬇️ Mover celda abajo**: Intercambia posición con la celda de abajo
+4. **⤴️ Crear celda vacía arriba**: Inserta una nueva celda vacía encima de la actual
+5. **⤵️ Crear celda vacía abajo**: Inserta una nueva celda vacía debajo de la actual
+6. **🗑️ Borrar celda**: Elimina la celda seleccionada (cuidado: no pide confirmación)
 
 
 ---

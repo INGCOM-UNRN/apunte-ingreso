@@ -36,6 +36,7 @@ project:
     - file: D_estilo.md
     - file: E_jupyterlab.md
     - file: F_rubrica.md
+    - file: G_markdown.md
     - file: Z_ia.md
     - title: Gimnasio de ejercicios
       children:
