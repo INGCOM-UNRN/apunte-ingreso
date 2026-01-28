@@ -51,7 +51,12 @@ Te recomendamos **guardar esta URL en tus favoritos** (Ctrl+D en la mayoría de 
 
 La primera vez que accedas, JupyterLab puede tardar unos segundos en cargar. Verás una pantalla de carga con el logo de Jupyter.
 
-**[CAPTURA: Pantalla de carga de JupyterLab con el logo naranja de Jupyter y una barra de progreso. Fondo oscuro con el texto “Loading JupyterLite” visible.]**
+```{figure} ./E_jupyterlab/loading.png
+:label: jupyterlab_loading
+:alt: Captura: Pantalla de carga de JupyterLab
+:align: center
+Pantalla de carga de JupyterLab
+```
 
 :::{note} Primera Carga
 La primera carga puede demorar un poco más porque está descargando los archivos necesarios. Las siguientes veces será mucho más rápido.
@@ -59,25 +64,50 @@ La primera carga puede demorar un poco más porque está descargando los archivo
 
 ---
 
+## Configuración previa
+
+Completamente opcional, pero si se sienten más cómodos pueden cambiar el idioma de la interfaz a español, aunque no cambia todo, los puede ayudar a que la herramienta no sea tan dura.
+
+En la barra de menú, buscamos "Settings"
+
+```{figure} ./E_jupyterlab/cambio_idioma_1.png
+:label: jupyterlab_principal
+:alt: CAPTURA: Vista completa de la interfaz
+:align: center
+Menú "Settings"
+```
+
+Y después "Language", para elegir "Spanish"
+
+```{figure} ./E_jupyterlab/cambio_idioma_2.png
+:label: jupyterlab_principal
+:alt: CAPTURA: Vista completa de la interfaz
+:align: center
+Y elegimos español.
+```
+
 ## La Interfaz de JupyterLab
 
 Una vez que cargue completamente, verás la interfaz principal de JupyterLab. Vamos a conocer cada parte:
 
-**[CAPTURA: Vista completa de la interfaz de JupyterLab mostrando: barra de menú superior, panel lateral izquierdo con el explorador de archivos, área de trabajo central con un notebook abierto, y la barra de estado inferior.]**
+```{figure} ./E_jupyterlab/principal.png
+:label: jupyterlab_principal
+:alt: CAPTURA: Vista completa de la interfaz
+:align: center
+Vista completa de la interfaz de JupyterLab
+```
 
 ### Componentes Principales
 
 La interfaz de JupyterLab se divide en varias áreas:
 
-```{figure} ./E_jupyterlab/interfaz_jupyterlab.svg
+```{figure} ./E_jupyterlab/principal_anotado.png
 :label: fig-interfaz-jupyterlab
 :align: center
 :width: 100%
 
 Componentes principales de la interfaz de JupyterLab
 ```
-
-**[NOTA SVG: Crear diagrama que muestre las 4 áreas principales numeradas: 1) Barra de menú superior, 2) Panel lateral izquierdo (file browser), 3) Área de trabajo central, 4) Barra de estado inferior. Usar colores distintivos para cada área.]**
 
 #### 1. Barra de Menú Superior
 
@@ -98,16 +128,41 @@ JupyterLab tiene muchos atajos de teclado útiles. Presioná `Ctrl + Shift + C` 
 
 Este panel te muestra todos los archivos disponibles, similar al explorador de archivos de Windows o Finder en Mac.
 
-**[CAPTURA: Panel lateral izquierdo mostrando la estructura de carpetas con los notebooks de práctica organizados. Debe verse claramente el ícono de carpeta y los archivos .ipynb con el ícono característico de notebook.]**
+```{figure} ./E_jupyterlab/panel_izquierdo.png
+:label: fig-jupyterlab-panel-izquierdo
+:alt: CAPTURA: Panel lateral izquierdo
+:align: center
+Panel lateral izquierdo mostrando la estructura de carpetas con los archivos en el espacio de trabajo.
+```
 
-Aquí verás:
-- 📁 **Carpetas**: Organizan los notebooks por tema
+Acá vas a ver:
+- 📁 **Carpetas**: Organizan los notebooks y otros archivos.
 - 📓 **Notebooks** (archivos `.ipynb`): Los cuadernos de práctica
+- 📄 **Documentos Markdown** (archivos `.md`): Para apuntes y textos con formato.
 - 📄 **Otros archivos**: Datos, imágenes, etc.
 
 #### 3. Área de Trabajo Central
 
 Esta es el área más importante. Aquí es donde abrirás y trabajarás con tus notebooks. Podés tener múltiples notebooks abiertos al mismo tiempo, organizados en pestañas.
+
+Apenas abrimos JupyterLab, veremos el Lanzador, que contiene los atajos para crear archivos nuevos (y vacíos):
+
+```{figure} ./E_jupyterlab/lanzador.png
+:label: fig-jupyterlab-lanzador
+:alt: CAPTURA: Lanzador
+:align: center
+El lanzador contiene los atajos para crear los tipos de archivos conocidos por JupyterLab
+```
+
+
+Jupyterlab admite reorganizar la vista, solo tenés que arrastrar la ficha con el archivo abierto y acomodarlo donde quieras; podés dejar varios archivos abiertos al mismo tiempo.
+
+```{figure} ./E_jupyterlab/area_trabajo.png
+:label: fig-jupyterlab-area-trabajo
+:alt: CAPTURA: Espacio de trabajo principal
+:align: center
+Espacio de trabajo organizado con dos archivos abiertos simultaneamente.
+```
 
 #### 4. Barra de Estado Inferior
 
@@ -116,29 +171,48 @@ Muestra información útil como:
 - Estado de la conexión
 - Información del archivo actual
 
+```{figure} ./E_jupyterlab/barra_estado.png
+:label: fig-jupyterlab-barra-estado
+:alt: CAPTURA: Barra de estado
+:align: center
+Barra de estado del espacio de trabajo.
+```
+
 ---
 
 ## Navegando por los Archivos
 
 ### Explorando las Carpetas
 
-En el panel lateral izquierdo, verás una estructura organizada con los cuadernos de práctica.
+En el panel lateral izquierdo, verás una estructura organizada con los cuadernos.
 
-**[CAPTURA: Vista detallada del explorador de archivos mostrando carpetas expandidas con nombres descriptivos como “01_fundamentos”, “02_control_flujo”, etc. Cada carpeta debe mostrar algunos archivos .ipynb dentro.]**
+Para navegar, solo es necesario **Hacer doble clic en un archivo** para abrirlo.
 
-Para navegar:
+```{figure} ./E_jupyterlab/panel_izquierdo_detalle.png
+:label: fig-jupyterlab-panel-izquierdo-detalle
+:alt: CAPTURA: Panel lateral izquierdo, detalle en la ruta y botones
+:align: center
+Detalle de la barra de botones del panel izquierdo.
+```
 
-1. **Hacer clic en una carpeta** para expandirla y ver su contenido
-2. **Hacer doble clic en un archivo** para abrirlo
-3. **Usar los íconos superiores** para cambiar la vista
+De este panel podemos ver, de arriba hacia abajo:
+
+1. En azul, el botón para abrir el lanzador (para crear archivos o consolas)
+2. Un botón para crear directorios.
+3. Un botón para subir archivos al espacio de trabajo.
+4. Un botón para recargar la vista (por si tenemos más de una ventana abierta con los cuadernos)
+5. Un botón para filtrar la lista de archivos.
+6. La barra de direcciones de directorios, el botón de 'carpeta' es la raíz.
+7. El listado de archivos en la ubicación actual, indicada por 6.
+
+Cuando abrimos un directorio, vamos a ver que la barra de direcciones (6) cambia, podemos hacer click en el primer botón para volver a la raíz.
 
 :::{tip} Organización
 Los cuadernos están organizados siguiendo el orden del apunte. Te recomendamos trabajarlos en secuencia:
-- `01_fundamentos/` → Empezá por aquí
-- `02_control_flujo/`
-- `03_estructuras/`
-- `04_funciones/`
-- `05_modulos/`
+- `01_fundamentos.ipynb` → Empezá por acá
+- `02_control_flujo.ipynb`
+- `03_estructuras.ipynb`
+- `04_funciones.ipynb`
 :::
 
 ### Abrir un Notebook
@@ -149,7 +223,13 @@ Para abrir tu primer notebook:
 2. Hacé **doble clic** sobre el archivo `.ipynb` que querés abrir
 3. El notebook se abrirá en el área central
 
-**[CAPTURA: Secuencia de dos imágenes mostrando: 1) Cursor sobre un archivo .ipynb en el file browser, 2) El mismo notebook ya abierto en el área central con su contenido visible.]**
+
+```{figure} ./E_jupyterlab/cuaderno_abierto.png
+:label: fig-jupyterlab-cuaderno-abierto
+:alt: CAPTURA: Panel lateral izquierdo, con un archivo seleccionado y este mismo abierto
+:align: center
+Un cuaderno seleccionado y abierto.
+```
 
 :::{note} Extensión .ipynb
 Los notebooks de Jupyter tienen la extensión `.ipynb` (Interactive Python Notebook). Estos archivos contienen código, texto y resultados juntos.
@@ -161,19 +241,41 @@ Los notebooks de Jupyter tienen la extensión `.ipynb` (Interactive Python Noteb
 
 Una vez abierto un notebook, verás que está compuesto por **celdas**. Cada celda puede contener código Python o texto explicativo.
 
-**[CAPTURA: Vista de un notebook abierto mostrando claramente diferentes tipos de celdas: una celda de Markdown con texto formateado, seguida de una celda de código con código Python, y debajo el resultado de la ejecución.]**
+### La barra de herramientas del espacio de trabajo
+
+El espacio de trabajo tiene unos accesos directos para manipular las celdas del cuaderno.
+
+```{figure} ./E_jupyterlab/toolbar_left.png
+:label: fig-jupyterlab-toolbar-left
+:alt: CAPTURA: Parte izquierda de la barra de herramientas del espacio de trabajo
+:align: center
+Parte izquierda de la barra de herramientas del espacio de trabajo
+```
+
+De izquierda a derecha, los botones son:
+
+TODO: explicar brevemente que hace cada ítem
+
+1. Guardar cuaderno
+2. Agregar celda
+3. Cortar
+4. Copiar
+5. Pegar
+6. Ejecutar celda
+7. Detener ejecución
+8. Reinciar Núcleo
+9. Ejecutar todas las celdas
+10. Tipo de celda (Markdown/Código/Raw)
+11. Descargar cuaderno
 
 ### Tipos de Celdas
 
-```{figure} ./E_jupyterlab/tipos_celdas.svg
-:label: fig-tipos-celdas
+```{figure} ./E_jupyterlab/cuaderno.png
+:label: fig-jupyterlab-cuaderno
+:alt: CAPTURA: Cuaderno abierto en el espacio de trabajo
 :align: center
-:width: 90%
-
-Tipos de celdas en un Jupyter Notebook: Markdown para texto y Code para código ejecutable
+Cuaderno abierto en el espacio de trabajo con celdas de texto y código.
 ```
-
-**[NOTA SVG: Crear diagrama que muestre dos celdas: una celda de Markdown con texto formateado (título, lista, negrita) y una celda de código con código Python simple y su output. Incluir etiquetas claras indicando “Celda Markdown” y “Celda Code”.]**
 
 #### Celdas de Markdown (Texto)
 
@@ -184,6 +286,10 @@ Características:
 - 📄 Soportan formato: **negritas**, *cursivas*, títulos, listas
 - 🔗 Pueden incluir enlaces y fórmulas matemáticas
 
+Para modificar una celda de este tipo, es necesario hacer doble click en la misma, que pasará a verse como la segunda celda de la captura. Cuando terminamos de modificarla, es necesario "ejecutar" para que esta se transforme en la representación visual final como está en la primera celda con el botón ▶️ o con "Shift + Enter".
+
+Los encabezados jerárquicos (que se crean con `#`) permiten que el documento tenga una estructura.
+
 #### Celdas de Código
 
 Contienen código Python que podés ejecutar.
@@ -191,24 +297,22 @@ Contienen código Python que podés ejecutar.
 Características:
 - 💻 Se ejecutan cuando las corrés
 - 📊 Muestran los resultados debajo
-- 🔢 Tienen un número de ejecución `In [1]:`
+- 🔢 Tienen un número de orden de ejecución, por ejemplo `[1]:` para la primera
 
-**[CAPTURA: Vista detallada de una celda de código mostrando: el prompt “In [1]:”, el código Python dentro de la celda, el botón de ejecutar, y debajo el resultado con “Out [1]:"]**
 
 ### Seleccionar una Celda
 
 Para trabajar con una celda, primero tenés que **seleccionarla**:
 
 - **Hacer clic** sobre la celda
-- Verás un **borde coloreado** alrededor (azul o verde según el modo)
+- Verás un **borde coloreado** alrededor de color azul.
 
-**[CAPTURA: Dos imágenes lado a lado mostrando: 1) Celda en “modo comando” con borde azul, 2) Celda en “modo edición” con borde verde y cursor parpadeando dentro.]**
 
 ### Modos de una Celda
 
 JupyterLab tiene dos modos principales:
 
-#### Modo Comando (Borde Azul)
+#### Modo Comando
 
 En este modo podés:
 - Navegar entre celdas con las flechas ↑↓
@@ -217,7 +321,7 @@ En este modo podés:
 
 **Activarlo**: Presionar `Esc` o hacer clic fuera del área de texto
 
-#### Modo Edición (Borde Verde)
+#### Modo Edición
 
 En este modo podés:
 - Escribir y editar el contenido de la celda
@@ -225,10 +329,26 @@ En este modo podés:
 
 **Activarlo**: Presionar `Enter` o hacer doble clic dentro de la celda
 
-:::{important} Diferencia Clave
-- **Azul = Navegar**: Trabajás con la celda como un todo
-- **Verde = Editar**: Trabajás dentro de la celda
-:::
+### Botones en la celda
+
+```{figure} ./E_jupyterlab/toolbar_cell.png
+:label: fig-jupyterlab-toolbar-cell
+:alt: CAPTURA: Botones en la celda activa
+:align: center
+Botones en la celda activa
+```
+
+TODO: explicar brevemente que hace cada ítem
+
+De izquierda a derecha
+
+1. Duplicar celda
+2. Mover celda arriba
+3. Mover celda abajo
+4. Crear celda vacía arriba
+5. Crear celda vacía abajo
+6. Borrar celda
+
 
 ---
 
@@ -247,8 +367,6 @@ Vamos a ejecutar una celda de código paso a paso:
 - **Método 1**: Presionar `Shift + Enter` (más común)
 - **Método 2**: Presionar el botón ▶️ en la barra de herramientas
 - **Método 3**: Menú `Run` → `Run Selected Cells`
-
-**[CAPTURA: Imagen mostrando los tres métodos: 1) Teclado con las teclas Shift y Enter resaltadas, 2) Botón “Run” en la barra de herramientas con una flecha señalándolo, 3) Menú Run desplegado con “Run Selected Cells” resaltado.]**
 
 **Paso 3**: Observá el resultado que aparece debajo de la celda
 
@@ -269,15 +387,20 @@ Cuando la ejecutás (`Shift + Enter`), verás:
 Estoy aprendiendo Python
 ```
 
-**[CAPTURA: Vista “antes y después” mostrando: 1) Celda con el código y sin número de ejecución, 2) La misma celda después de ejecutar con “In [1]:” y el output visible debajo.]**
+```{figure} ./E_jupyterlab/celda_estados.png
+:label: fig-jupyterlab-toolbar-cell
+:alt: CAPTURA: Espacio de trabajo con celdas antes y despues de ser ejecutadas
+:align: center
+Espacio de trabajo con celdas antes y despues de ser ejecutadas
+```
 
 ### Entendiendo el Output
 
 Después de ejecutar una celda:
 
-- Aparece un **número entre corchetes**: `In [1]:`
+- Aparece un **número entre corchetes**: `[1]:`
   - Este número indica el orden de ejecución
-  - Si ves `In [*]:` significa que está ejecutándose
+  - Si ves `[*]:` significa que está ejecutándose
 
 - Debajo aparece el **resultado**:
   - Texto impreso con `print()`
@@ -292,7 +415,12 @@ Si querés ejecutar todas las celdas del notebook de una vez, andá a `Run` → 
 
 No te preocupes: **los errores son normales** y parte del aprendizaje. Si hay un error en el código, Python te lo mostrará.
 
-**[CAPTURA: Ejemplo de celda con error mostrando: el código con un error intencional (ej: variable no definida), y debajo el mensaje de error en rojo con el traceback visible.]**
+```{figure} ./E_jupyterlab/error.png
+:label: fig-jupyterlab-error
+:alt: CAPTURA: Ejemplo de celda con error
+:align: center
+Ejemplo de celda con error.
+```
 
 Los mensajes de error incluyen:
 - 🔴 Texto en rojo indicando que hubo un problema
@@ -346,8 +474,6 @@ Para agregar tu propio código:
 - Presioná `A` para insertar una celda **arriba** (Above)
 - Presioná `B` para insertar una celda **abajo** (Below)
 
-**[CAPTURA: Barra de herramientas con el botón ”+" (agregar celda) claramente resaltado, y al lado el indicador de teclado mostrando las teclas “A” y “B”.]**
-
 ### Eliminar una Celda
 
 Si querés eliminar una celda:
@@ -373,13 +499,13 @@ Para cambiar entre código y texto:
 - `Y` para convertir a celda de **código**
 - `M` para convertir a celda de **Markdown** (texto)
 
-**[CAPTURA: Menú desplegable mostrando las opciones “Code”, “Markdown”, y “Raw” con “Code” seleccionado.]**
+La opción "Raw" es para uso avanzado de la herramienta, y como tal no lo veremos ahora.
 
 ---
 
 ## Guardando Tu Trabajo
 
-Es importante guardar tu progreso regularmente.
+Es importante guardar tu progreso regularmente, pero tenés que tener algo presente. Tu trabajo está **únicamente** en tu computadora, y en un lugar dentro del navegador, no como un archivo en el disco. Para pasar tu trabajo a otra computadora, o para compartirlo, o para hacer un backup, es necesario descargar el cuaderno.
 
 ### Guardar el Notebook
 
@@ -393,8 +519,6 @@ Es importante guardar tu progreso regularmente.
 **Opción 3**: Botón
 - Icono de disquete 💾 en la barra de herramientas
 
-**[CAPTURA: Tres formas de guardar mostradas visualmente: 1) Teclado con Ctrl+S resaltado, 2) Menú File con Save Notebook resaltado, 3) Icono de disquete en la barra de herramientas.]**
-
 :::{important} Guardado Automático
 JupyterLab guarda automáticamente tu trabajo cada pocos minutos, pero es buena práctica **guardar manualmente** después de cambios importantes.
 :::
@@ -405,7 +529,13 @@ En la pestaña del notebook verás:
 - **Punto negro (●)** al lado del nombre: hay cambios sin guardar
 - **Sin punto**: todo guardado correctamente
 
-**[CAPTURA: Dos pestañas de notebook mostrando: 1) “ejercicio_1.ipynb ●” con el punto indicando cambios sin guardar, 2) “ejercicio_1.ipynb” sin punto después de guardar.]**
+
+```{figure} ./E_jupyterlab/estado_cuaderno.png
+:label: fig-jupyterlab-estado-cuaderno
+:alt: CAPTURA: Dos fichas con cuadernos, uno sin guardar y otro guardado.
+:align: center
+Captura de cómo se ve un cuaderno sin guardar y uno que lo está.
+```
 
 ---
 
@@ -429,8 +559,6 @@ Pensá en el kernel como un intérprete de Python que está corriendo en segundo
 Funcionamiento del kernel: ciclo de ejecución entre el notebook y el intérprete Python
 ```
 
-**[NOTA SVG: Crear diagrama de flujo circular mostrando: Usuario → Celda de código → Kernel (con logo Python) → Resultado → Usuario. Incluir flechas indicando el flujo y etiquetas en cada paso.]**
-
 ### Estado del Kernel
 
 El kernel **mantiene la memoria** de todo lo ejecutado. Por ejemplo:
@@ -448,7 +576,7 @@ print(x)  # Imprime: 10
 El kernel “recuerda” que `x = 10` incluso en celdas separadas.
 
 :::{important} Orden de Ejecución
-El kernel recuerda el **orden en que ejecutaste** las celdas, no el orden en que están escritas. El número `In [n]:` te indica esto.
+El kernel recuerda el **orden en que ejecutaste** las celdas, no el orden en que están escritas. El número `[n]:` te indica esto.
 :::
 
 ### Reiniciar el Kernel
@@ -468,8 +596,6 @@ A veces necesitás “empezar de cero”. Reiniciar el kernel **borra toda la me
 **Opción 2**: Botón
 - Icono de reinicio ⟳ en la barra de herramientas
 
-**[CAPTURA: Menú Kernel desplegado mostrando las opciones: “Restart Kernel”, “Restart Kernel and Clear Outputs”, “Restart Kernel and Run All Cells”.]**
-
 :::{tip} Restart and Run All
 La opción más útil suele ser **“Restart Kernel and Run All Cells”**: reinicia todo y ejecuta todas las celdas en orden desde el principio. Perfecto para verificar que tu código funcione correctamente.
 :::
@@ -487,7 +613,22 @@ Si una celda está tardando demasiado o entró en un lazo infinito:
 **Opción 3**: Atajo
 - Presionar `I, I` (la letra I dos veces en modo comando)
 
-**[CAPTURA: Celda ejecutándose con “In [*]:” y el símbolo de ocupado visible, con una flecha señalando el botón de stop en la barra de herramientas.]**
+
+```{figure} ./E_jupyterlab/advertencia_reinicio.png
+:label: fig-jupyterlab-advertencia-reiicio
+:alt: CAPTURA: Aviso al reiniciar el kernel
+:align: center
+Advertencia al momento de reiniciar el Kernel.
+```
+
+```{figure} ./E_jupyterlab/celda_colgada.png
+:label: fig-jupyterlab-celda-colgada
+:alt: CAPTURA: Celda que quedó trabada
+:align: center
+Celda que esta trabada y que botones podemos usar para frenarla.
+```
+
+En algunos casos, detener la ejecución no es suficiente, y es necesario usar "Reiniciar kernel ⟳".
 
 ---
 
@@ -499,7 +640,12 @@ Podés tener varios notebooks abiertos al mismo tiempo.
 
 Simplemente hacé doble clic en varios archivos `.ipynb`. Cada uno se abrirá en una pestaña nueva.
 
-**[CAPTURA: Área de trabajo mostrando 3 pestañas abiertas con diferentes notebooks: “01_variables.ipynb”, “02_operadores.ipynb”, “03_control.ipynb”.]**
+```{figure} ./E_jupyterlab/multiples_cuadernos.png
+:label: fig-jupyterlab-advertencia-reiicio
+:alt: CAPTURA: Múltiples cuadernos abiertos
+:align: center
+Área de trabajo mostrando 3 pestañas abiertas con diferentes notebooks: “01_variables.ipynb”, “02_operadores.ipynb”, “03_control.ipynb”.
+```
 
 ### Cambiar entre Pestañas
 
@@ -514,8 +660,12 @@ Podés ver dos notebooks lado a lado:
 2. Se dividirá la pantalla
 3. Soltá la pestaña
 
-**[CAPTURA: Vista de pantalla dividida mostrando dos notebooks abiertos lado a lado, con una línea divisoria en el medio que se puede arrastrar.]**
-
+```{figure} ./E_jupyterlab/area_trabajo.png
+:label: fig-jupyterlab-area-trabajo-2
+:alt: CAPTURA: Múltiples cuadernos de par en par
+:align: center
+Área de trabajo mostrando dos secciones en paralelo
+```
 :::{tip} Comparar Código
 Esto es muy útil para comparar tu solución con el ejemplo, o trabajar con dos ejercicios relacionados al mismo tiempo.
 :::
@@ -576,13 +726,18 @@ Mientras escribís código, presioná `Tab` y JupyterLab te sugerirá opciones:
 pri[Tab] → print()
 ```
 
-**[CAPTURA: Celda mostrando el menú de autocompletado emergente con sugerencias como “print”, “print()”, “property”, mientras el usuario escribe código.]**
+```{figure} ./E_jupyterlab/complete.png
+:label: fig-jupyterlab-autocompletado
+:alt: CAPTURA: Vista de autocompletado
+:align: center
+Sugerencia de completado de funciones con `print`
+```
 
 :::{tip} Explorar Métodos
 Si tenés una variable y querés ver qué métodos tiene, escribí el nombre, un punto, y presioná Tab:
 ```python
 lista = [1, 2, 3]
-lista.[Tab]  # Te muestra: append, remove, sort, etc.
+lista.[Tab]  # Te mostrará: append, remove, sort, etc.
 ```
 :::
 
@@ -594,7 +749,13 @@ Para ver información sobre una función:
 2. Presioná `Shift + Tab`
 3. Verás un popup con la documentación
 
-**[CAPTURA: Popup de documentación mostrando información sobre la función print(), incluyendo su firma, parámetros y descripción.]**
+
+```{figure} ./E_jupyterlab/docstring.png
+:label: fig-jupyterlab-docstring
+:alt: CAPTURA: Vista del docstring de `print`
+:align: center
+Popup de documentación mostrando información sobre la función print(), incluyendo su firma, parámetros y descripción.
+```
 
 Presionar `Shift + Tab` **varias veces** expande la documentación.
 
@@ -607,7 +768,14 @@ Para buscar texto en tu notebook:
 3. Escribí lo que buscás
 4. Usá las flechas para navegar entre resultados
 
-**[CAPTURA: Barra de búsqueda en la parte superior del notebook con un término buscado y resaltado en amarillo en las celdas.]**
+Va a mostrar cuantas veces aparece también.
+
+```{figure} ./E_jupyterlab/busqueda.png
+:label: fig-jupyterlab-busqueda
+:alt: CAPTURA: Buscando en un archivo
+:align: center
+Barra de búsqueda en la parte superior del notebook con un término buscado y resaltado en amarillo en las celdas.
+```
 
 ---
 
@@ -701,7 +869,7 @@ Si tu notebook tiene muchos resultados viejos:
 
 ### Problema: El Kernel No Responde
 
-**Síntomas:** La celda muestra `In [*]:` por mucho tiempo
+**Síntomas:** La celda muestra `[*]:` por mucho tiempo
 
 **Soluciones:**
 1. Esperar unos segundos (puede ser un cálculo lento)
@@ -761,7 +929,7 @@ Si no estás seguro qué se ejecutó y qué no, hacé `Restart Kernel and Run Al
 
 ### Cómo Experimentar
 
-Los notebooks son **perfectos para experimentar**:
+Los notebooks son **perfectos para experimentar**, con una celda para cada experimento del ejercicio.
 
 ```python
 # Original
@@ -958,7 +1126,7 @@ Cell
 :  La celda es la unidad básica de un {term}`notebook`. Puede ser de {term}`código<Code cell>` (ejecutable) o {term}`Markdown` (texto). Se ejecutan individualmente con Shift+Enter.
 
 Code cell
-:  La celda de código es un tipo de {term}`celda<cell>` que contiene código Python ejecutable. Al ejecutarla, muestra el resultado debajo. Identificable por `In [ ]:` a la izquierda. Puede tener múltiples líneas.
+:  La celda de código es un tipo de {term}`celda<cell>` que contiene código Python ejecutable. Al ejecutarla, muestra el resultado debajo. Identificable por `[ ]:` a la izquierda. Puede tener múltiples líneas.
 
 Markdown cell
 :  {term}`celda<cell>` que contiene texto con formato usando {term}`Markdown`. Se renderiza como HTML al ejecutarla. Útil para explicaciones, títulos, listas. No ejecuta código.
@@ -984,11 +1152,11 @@ Run cell
 Output
 :  La salida, es el resultado que aparece debajo de una {term}`celda de código<Code cell>` después de ejecutarla. Puede ser texto, números, gráficos, errores. Se guarda en el {term}`notebook`.
 
-In [ ]
-:  Indicador a la izquierda de una {term}`celda de código<Code cell>`. Muestra número de ejecución. `In [ ]` = no ejecutada, `In [1]` = primera ejecución, `In [*]` = ejecutando.
+[ ]
+:  Indicador a la izquierda de una {term}`celda de código<Code cell>`. Muestra número de ejecución. `[ ]` = no ejecutada, `[1]` = primera ejecución, `[*]` = ejecutando.
 
 Out[ ]
-:  Indicador del {term}`output` de una celda. `Out[1]` corresponde a `In [1]`. No todas las celdas tienen output (ej: asignaciones). Solo aparece si hay valor de retorno.
+:  Indicador del {term}`output` de una celda. `Out[1]` corresponde a `[1]`. No todas las celdas tienen output (ej: asignaciones). Solo aparece si hay valor de retorno.
 
 Explorador de archivos
 :  Panel lateral izquierdo de {term}`JupyterLab` que muestra directorios y archivos. Permite navegar, crear, renombrar, eliminar archivos. Similar al explorador de Windows/Finder.
