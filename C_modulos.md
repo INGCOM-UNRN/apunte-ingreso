@@ -13,13 +13,19 @@ subtitle: Guía completa de métodos para str, list, dict, set y tuple en Python
 -- Tim Peters, The Zen of Python
 ```
 
-Esta guía de referencia cubre los 5 tipos de datos fundamentales que ya hemos visto en acción, profundizando en sus métodos:
+Esta guía de referencia cubre los 5 tipos de datos fundamentales de Python, profundizando en sus métodos y casos de uso:
 
 1. **`str` (Cadenas)**: Inmutables, para texto.
-2. **`list` (Listas)**: Mutables, secuencias ordenadas.
-3. **`dict` (Diccionarios)**: Mutables, mapeos clave-valor.
-4. **`set` (Conjuntos)**: Mutables, colecciones únicas.
-5. **`tuple` (Tuplas)**: Inmutables, secuencias fijas.
+2. **`list` (Listas)**: Mutables, secuencias ordenadas. *(Ver {ref}`3_estructuras` para teoría completa)*
+3. **`dict` (Diccionarios)**: Mutables, mapeos clave-valor. *(Teoría incluida en este capítulo)*
+4. **`set` (Conjuntos)**: Mutables, colecciones únicas. *(Ver {ref}`3_estructuras` para teoría completa)*
+5. **`tuple` (Tuplas)**: Inmutables, secuencias fijas. *(Teoría incluida en este capítulo)*
+
+:::{note} Organización del Material
+- **Listas y Sets** están cubiertos en profundidad en el capítulo {ref}`estructuras-datos`
+- **Tuplas y Diccionarios** están explicados completamente en este capítulo
+- Todos los tipos incluyen referencia completa de métodos y ejemplos prácticos
+:::
 
 Esta guía es tu manual de consulta rápida. Para entender cómo funcionan las {term}`funciones <Función>` y métodos que veremos aquí, asegurate de haber leído el capítulo {ref}`4 - Funciones <funciones>`.
 
@@ -1089,262 +1095,251 @@ lista.append(4)  # lista se modifica
 ---
 
 (referencia-dict)= 
-## Diccionarios (dict) - Mapeos Clave-Valor
-
-Los diccionarios son **mutables** y almacenan pares clave-valor. Desde Python 3.7+, mantienen el orden de inserción.
-
-### Mapa de Métodos de Diccionarios
-
-Este diagrama organiza los métodos de diccionarios según su propósito. Los diccionarios son estructuras clave-valor que permiten acceso rápido a datos mediante claves únicas. Los métodos se agrupan en: acceso seguro a valores, modificación de entradas, eliminación de elementos, y operaciones de creación/copia. Comprender estos métodos es esencial para trabajar eficientemente con datos estructurados.
-
-```{mermaid}
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#fce4ec','primaryTextColor':'#c2185b','primaryBorderColor':'#d81b60','lineColor':'#f06292','secondaryColor':'#f3e5f5','tertiaryColor':'#fff'}}}%%
-graph TB
-    DICT[dict - Diccionarios]
-    
-    DICT --> ACC[Acceso]
-    DICT --> MOD[Modificación]
-    DICT --> ELIM[Eliminación]
-    DICT --> CREA[Creación]
-    
-    ACC --> A1[get<br/>keys<br/>values<br/>items]
-    
-    MOD --> M1[update<br/>setdefault]
-    
-    ELIM --> E1[pop<br/>popitem<br/>clear]
-    
-    CREA --> C1[copy<br/>fromkeys]
-    
-    style DICT fill:#c2185b,stroke:#880e4f,color:#fff
-    style ACC fill:#f06292,stroke:#d81b60,color:#000
-    style MOD fill:#f06292,stroke:#d81b60,color:#000
-    style ELIM fill:#f06292,stroke:#d81b60,color:#000
-    style CREA fill:#f06292,stroke:#d81b60,color:#000
-```
-
-### Métodos de Acceso
-
-#### `dict.get(key, default=None)` → valor
-
-Obtiene el valor asociado a `key`. Si no existe, retorna `default` (sin error).
-
-```{code-cell} ipython3
-persona = {"nombre": "Ana", "edad": 25}
-
-# get() no lanza error si no existe
-print(persona.get("nombre"))              # "Ana"
-print(persona.get("ciudad"))              # None
-print(persona.get("ciudad", "Desconocida"))  # "Desconocida"
-
-# Comparar con acceso directo
-print(persona["nombre"])                  # "Ana"
-try:
-    print(persona["ciudad"])
-except KeyError:
-    print("Clave no existe")
-```
-
-**Cuándo usar:**
-- `dict[key]`: Cuando **sabes** que la clave existe (falla rápido).
-- `dict.get(key)`: Cuando **no estás seguro** (evita errores).
-
-```{code-cell} ipython3
-# Patrón común: valores por defecto en configuración
-config = {"puerto": 8080}
-
-host = config.get("host", "localhost")
-puerto = config.get("puerto", 80)
-print(f"Servidor: {host}:{puerto}")  # "localhost:8080"
-```
-
-#### `dict.keys()` / `dict.values()` / `dict.items()`
-
-Retornan **vistas** dinámicas de claves, valores y pares (clave, valor). Estas vistas se actualizan si el diccionario cambia.
-
-```{code-cell} ipython3
-persona = {"nombre": "Ana", "edad": 25, "ciudad": "Bariloche"}
-
-# keys() - vista de claves
-print(persona.keys())  # dict_keys(['nombre', 'edad', 'ciudad'])
-
-# values() - vista de valores
-print(persona.values())  # dict_values(['Ana', 25, 'Bariloche'])
-
-# items() - vista de pares (clave, valor)
-print(persona.items())  
-# dict_items([('nombre', 'Ana'), ('edad', 25), ('ciudad', 'Bariloche')])
-```
-
-```{code-cell} ipython3
-# Forma más común: iterar con desempaquetado
-for clave, valor in persona.items():
-    print(f"{clave}: {valor}")
-
-# Operaciones útiles con values()
-edades = {"Ana": 25, "Bruno": 30, "Carlos": 20}
-print(f"Promedio: {sum(edades.values()) / len(edades)}")  # 25.0
-print(f"Mayor: {max(edades.values())}")  # 30
-```
-
-:::{tip} Desempaquetado en for
-```python
-# ✓ Pythonic y eficiente
-for clave, valor in diccionario.items():
-    print(f"{clave} = {valor}")
-
-# ✗ Menos eficiente
-for clave in diccionario.keys():
-    valor = diccionario[clave]
-    print(f"{clave} = {valor}")
-```
-:::
-
-### Métodos de Modificación
-
-#### `dict.update(other)` → None
-
-Actualiza el diccionario con pares de `other`. Sobrescribe claves existentes.
-
-```{code-cell} ipython3
-persona = {"nombre": "Ana", "edad": 25}
-nuevos = {"edad": 26, "ciudad": "Bariloche"}
-
-persona.update(nuevos)
-print(persona)
-# {'nombre': 'Ana', 'edad': 26, 'ciudad': 'Bariloche'}
-
-# También con keyword arguments
-persona.update(profesion="Ingeniera")
-print(persona)
-```
-
-#### `dict.setdefault(key, default=None)` → valor
-
-Si `key` existe, retorna su valor. Si no, **inserta** `key=default` y retorna `default`.
-
-```{code-cell} ipython3
-persona = {"nombre": "Ana"}
-
-# Clave existente: solo retorna
-print(persona.setdefault("nombre", "Desconocido"))  # "Ana"
-
-# Clave nueva: inserta Y retorna
-print(persona.setdefault("edad", 18))  # 18
-print(persona)  # {'nombre': 'Ana', 'edad': 18}
-```
-
-**Caso de uso: agrupar elementos**
-
-```{code-cell} ipython3
-estudiantes = [
-    ("Ana", "A"),
-    ("Bruno", "B"),
-    ("Carlos", "A"),
-    ("Diana", "C"),
-    ("Eduardo", "B")
-]
-
-# Agrupar por calificación
-por_nota = {}
-for nombre, nota in estudiantes:
-    por_nota.setdefault(nota, []).append(nombre)
-
-print(por_nota)
-# {'A': ['Ana', 'Carlos'], 'B': ['Bruno', 'Eduardo'], 'C': ['Diana']}
-```
-
-### Métodos de Eliminación
-
-#### `dict.pop(key, default)` → valor
-
-Elimina `key` y retorna su valor. Si no existe y hay `default`, retorna `default`.
-
-```{code-cell} ipython3
-persona = {"nombre": "Ana", "edad": 25, "ciudad": "Bariloche"}
-
-edad = persona.pop("edad")
-print(f"Eliminado: {edad}")  # 25
-print(persona)  # {'nombre': 'Ana', 'ciudad': 'Bariloche'}
-
-# Con default
-pais = persona.pop("pais", "Argentina")
-print(pais)  # "Argentina" (no existía, retorna default)
-```
-
-#### `dict.popitem()` → (key, value)
-
-Elimina y retorna el último par insertado (Python 3.7+).
-
-```{code-cell} ipython3
-persona = {"nombre": "Ana", "edad": 25}
-item = persona.popitem()
-print(item)  # ('edad', 25)
-```
-
-#### `dict.clear()` → None
-
-Elimina todos los elementos.
-
-```{code-cell} ipython3
-persona.clear()
-print(persona)  # {}
-```
-
-### Métodos de Copia y Creación
-
-#### `dict.copy()` → dict
-
-Crea una copia superficial.
-
-```{code-cell} ipython3
-original = {"a": 1, "b": 2}
-copia = original.copy()
-
-copia["c"] = 3
-print(original)  # {'a': 1, 'b': 2}
-print(copia)     # {'a': 1, 'b': 2, 'c': 3}
-```
-
-#### `dict.fromkeys(iterable, value=None)` → dict
-
-Crea nuevo diccionario con claves de `iterable` y valores iguales a `value`.
-
-```{code-cell} ipython3
-claves = ["nombre", "edad", "ciudad"]
-d = dict.fromkeys(claves, "Desconocido")
-print(d)
-# {'nombre': 'Desconocido', 'edad': 'Desconocido', 'ciudad': 'Desconocido'}
-```
-
-:::{danger} Cuidado con mutables
-```python
-# ❌ Todas las claves comparten la MISMA lista
-d = dict.fromkeys(["a", "b"], [])
-d["a"].append(1)
-print(d)  # {'a': [1], 'b': [1]}  ← Ambas cambiaron!
-
-# ✓ Usar dict comprehension
-d = {k: [] for k in ["a", "b"]}
-```
-:::
-
-### Tabla Resumen - Métodos de dict
-
-| Categoría | Método | Descripción | Retorna |
-|-----------|--------|-------------|---------|
-| **Acceso** | `get(key, default)` | Valor o default | valor |
-| | `keys()` / `values()` / `items()` | Vistas dinámicas | vista |
-| **Modificación** | `update(other)` | Actualizar/agregar | `None` |
-| | `setdefault(key, default)` | Obtener o insertar | valor |
-| **Eliminación** | `pop(key, default)` | Eliminar y retornar | valor |
-| | `popitem()` | Eliminar último | (k, v) |
-| | `clear()` | Eliminar todo | `None` |
-| **Creación** | `copy()` | Copia superficial | dict |
-| | `fromkeys(iter, val)` | Desde claves | dict |
 
 ---
 
-(referencia-set)= 
+## Diccionarios
+
+Un **diccionario** es una {term}`colección` de {term}`pares clave-valor<Par key-value>`. Cada clave es única y se usa para acceder a su valor asociado. Es como un diccionario real: buscás una palabra ({term}`key`) y encontrás su definición ({term}`value`).
+
+### Crear Diccionarios
+
+Los diccionarios se crean usando llaves `{}` con pares clave-valor separados por dos puntos. A diferencia de las listas que usan índices numéricos, los diccionarios usan claves personalizadas (generalmente strings) para acceder a los valores. Esto los hace ideales para datos estructurados donde cada campo tiene un nombre significativo.
+
+```{code-cell} ipython3
+# Diccionario vacío
+vacio = {}
+tambien_vacio = dict()
+
+# Con pares clave-valor 
+estudiante = {
+    "nombre": "Ana",
+    "edad": 20,
+    "carrera": "Ingeniería"
+}
+
+# Claves y valores de diferentes tipos
+datos = {
+    "numero": 42,
+    "lista": [1, 2, 3],
+    "activo": True
+}
+```
+
+:::{important} Claves de diccionarios
+Las claves deben ser {term}`inmutables<Inmutable>` como strings, números, tuplas. Las listas u otros diccionarios no pueden ser llave.
+
+```{code-cell} ipython3
+# ✓ Válido
+d = {"nombre": "Ana", 1: "uno", (1,2): "tupla"}
+
+# ❌ Inválido
+# d = {[1,2]: "lista"}  # TypeError: unhashable type: 'list'
+```
+:::
+
+### Acceso a Valores
+
+Para acceder a valores en un diccionario, usás la clave entre corchetes o el método `get()`. El método `get()` es más seguro porque no lanza un error si la clave no existe; en su lugar, retorna `None` o un valor por defecto que especifiques. Esto es especialmente útil cuando trabajás con datos que pueden estar incompletos.
+
+```{code-cell} ipython3
+estudiante = {
+    "nombre": "Ana",
+    "edad": 20,
+    "carrera": "Ingeniería"
+}
+
+# Acceso con corchetes
+nombre = estudiante["nombre"]
+print(nombre)  # "Ana"
+
+# get() - más seguro (no da error si no existe)
+edad = estudiante.get("edad")
+print(edad)  # 20
+
+nota = estudiante.get("nota")
+print(nota)  # None
+
+# get() con valor por defecto
+nota = estudiante.get("nota", 0)
+print(nota)  # 0
+```
+
+:::{tip} Usar `get()` en lugar de `[]`
+Es preferible usar `get()` cuando no estás seguro si la {term}`clave <Key>` existe:
+
+```python
+# ❌ Puede dar error
+# valor = diccionario[clave]  # KeyError si no existe
+
+# ✓ Más seguro
+valor = diccionario.get(clave, valor_por_defecto)
+```
+:::
+
+### Modificar Diccionarios
+
+Los diccionarios son mutables, lo que significa que podés cambiar sus valores, agregar nuevos pares clave-valor, o eliminar entradas existentes. A diferencia de las listas que se modifican por índice, los diccionarios se modifican por clave. Esto los hace extremadamente flexibles para representar datos que cambian con el tiempo.
+
+```{code-cell} ipython3
+estudiante = {"nombre": "Ana", "edad": 20}
+
+# Modificar valor existente
+estudiante["edad"] = 21
+print(estudiante)  # {"nombre": "Ana", "edad": 21}
+
+# Agregar nueva clave-valor
+estudiante["carrera"] = "Ingeniería"
+print(estudiante)  # {"nombre": "Ana", "edad": 21, "carrera": "Ingeniería"}
+
+# Eliminar con del
+del estudiante["edad"]
+print(estudiante)  # {"nombre": "Ana", "carrera": "Ingeniería"}
+
+# pop() - elimina y retorna valor
+carrera = estudiante.pop("carrera")
+print(carrera)      # "Ingeniería"
+print(estudiante)   # {"nombre": "Ana"}
+```
+
+### Métodos de Diccionarios
+
+Los diccionarios en Python tienen métodos poderosos para acceder, modificar y consultar datos de forma segura y eficiente.
+
+```{code-cell} ipython3
+estudiante = {
+    "nombre": "Ana",
+    "edad": 20,
+    "carrera": "Ingeniería"
+}
+
+# keys() - obtiene todas las claves
+claves = estudiante.keys()
+print(claves)  # dict_keys(['nombre', 'edad', 'carrera'])
+
+# values() - obtiene todos los valores
+valores = estudiante.values()
+print(valores)  # dict_values(['Ana', 20, 'Ingeniería'])
+
+# items() - obtiene pares clave-valor
+items = estudiante.items()
+print(items)  # dict_items([('nombre', 'Ana'), ('edad', 20), ...])
+
+# update() - actualiza con otro diccionario
+estudiante.update({"edad": 21, "ciudad": "Buenos Aires"})
+print(estudiante)
+
+# clear() - vacía el diccionario
+estudiante.clear()
+print(estudiante)  # {}
+```
+
+### Verificar Existencia de Claves
+
+Antes de acceder a un valor en un diccionario, es común verificar si la clave existe para evitar errores. Python proporciona el operador `in` para esta tarea, que retorna `True` si la clave existe y `False` en caso contrario. Esto es más eficiente y legible que intentar acceder y capturar una excepción.
+
+```{code-cell} ipython3
+estudiante = {"nombre": "Ana", "edad": 20}
+
+# in - verifica si existe una clave
+if "nombre" in estudiante:
+    print("Tiene nombre")
+
+if "nota" not in estudiante:
+    print("No tiene nota")
+```
+
+### Iterar sobre Diccionarios
+
+Los diccionarios permiten múltiples formas de iteración dependiendo de lo que necesitás: solo claves, solo valores, o ambos. Python 3.7+ mantiene el orden de inserción, lo que hace que la iteración sea predecible. La forma más común y recomendada es usar `.items()` para acceder a pares clave-valor simultáneamente.
+
+```{code-cell} ipython3
+estudiante = {
+    "nombre": "Ana",
+    "edad": 20,
+    "carrera": "Ingeniería"
+}
+
+# Iterar sobre claves
+for clave in estudiante:
+    print(clave)
+
+# Iterar sobre claves (explícito)
+for clave in estudiante.keys():
+    print(clave)
+
+# Iterar sobre valores
+for valor in estudiante.values():
+    print(valor)
+
+# Iterar sobre pares clave-valor (recomendado)
+for clave, valor in estudiante.items():
+    print(f"{clave}: {valor}")
+```
+
+### Diccionarios Anidados
+
+Los diccionarios pueden contener otros diccionarios como valores, creando estructuras de datos complejas y jerárquicas. Esto es útil para representar datos relacionados de forma organizada, como información de múltiples estudiantes, configuraciones de aplicaciones, o respuestas de APIs. El acceso a datos anidados se hace encadenando corchetes.
+
+```{code-cell} ipython3
+# Diccionario de diccionarios
+curso = {
+    "estudiante1": {
+        "nombre": "Ana",
+        "edad": 20,
+        "notas": [8, 9, 7]
+    },
+    "estudiante2": {
+        "nombre": "Bruno",
+        "edad": 21,
+        "notas": [9, 8, 9]
+    }
+}
+
+# Acceso a datos anidados
+nombre1 = curso["estudiante1"]["nombre"]
+print(nombre1)  # "Ana"
+
+primera_nota = curso["estudiante1"]["notas"][0]
+print(primera_nota)  # 8
+```
+
+### Ejemplo Práctico: Contador de Palabras
+
+Un caso de uso común de diccionarios es contar frecuencias de elementos. En este ejemplo, usamos un diccionario para contar cuántas veces aparece cada palabra en un texto. El patrón es simple: si la palabra ya existe como clave, incrementamos su valor; si no, la agregamos con valor 1.
+
+```{code-cell} ipython3
+"""Cuenta cuántas veces aparece cada palabra en un texto."""
+
+texto = "python es genial python es fácil python es poderoso"
+palabras = texto.split()
+
+contador = {}
+for palabra in palabras:
+    if palabra in contador:
+        contador[palabra] += 1
+    else:
+        contador[palabra] = 1
+
+print(contador)
+# {'python': 3, 'es': 3, 'genial': 1, 'fácil': 1, 'poderoso': 1}
+```
+
+### Tabla Resumen de Métodos de Diccionarios
+
+| Método | Descripción | Ejemplo |
+|--------|-------------|---------|
+| `get(clave, default)` | Obtiene valor (o `default`) | `d.get("edad", 0)` |
+| `keys()` | Retorna claves | `d.keys()` |
+| `values()` | Retorna valores | `d.values()` |
+| `items()` | Retorna pares (clave, valor) | `d.items()` |
+| `pop(clave)` | Elimina y retorna valor | `d.pop("edad")` |
+| `update(otro)` | Actualiza con otro `dict` | `d.update({"x": 1})` |
+| `clear()` | Vacía el diccionario | `d.clear()` |
+
+
+---
+
 ## Sets (set) - Conjuntos
 
 Los sets son **mutables**, pero sus elementos deben ser **inmutables** (hashables). No permiten duplicados ni orden.
@@ -1561,109 +1556,661 @@ print(a.isdisjoint(c))  # False ← Comparten el 3
 ---
 
 (referencia-tuple)= 
-## Tuplas (tuple) - Secuencias Inmutables
 
-Las tuplas son **inmutables**. Solo tienen 2 métodos propios.
+---
 
-### Métodos de Tupla
+## Tuplas: La Prima Inmutable de las Listas 
 
-#### `tuple.count(value)` → int
+### ¿Qué es una Tupla?
 
-Cuenta cuántas veces aparece `value`.
+Una **tupla** es esencialmente una lista que no puede ser modificada. Una vez creada, sus elementos son fijos. Se utilizan para agrupar datos que conceptualmente pertenecen juntos y no deberían cambiar, como coordenadas geográficas, fechas, o registros de base de datos.
 
-```{code-cell} ipython3
-numeros = (1, 2, 2, 3, 2, 4)
-print(numeros.count(2))  # 3
-print(numeros.count(5))  # 0
+::::{tip} Analogía: Lista vs Tupla
+
+**Lista = Playlist de Spotify:**
+- Podés agregar canciones.
+- Podés eliminar canciones.
+- Podés cambiar el orden.
+- **Mutable** → Cambia.
+
+**Tupla = DVD grabado:**
+- Las canciones están grabadas.
+- NO podés agregar canciones.
+- NO podés cambiar nada.
+- **Inmutable** → No cambia.
+
+```python
+# Lista - puedo cambiar
+playlist = ["Canción 1", "Canción 2"]
+playlist[0] = "Otra canción"  # ✓ Funciona
+
+# Tupla - NO puedo cambiar
+dvd = ("Canción 1", "Canción 2")
+dvd[0] = "Otra canción"  # ✗ ERROR
 ```
+::::
 
-#### `tuple.index(value, start=0, stop=len)` → int
+---
 
-Retorna índice de la primera aparición.
+### Comparación Visual: Lista vs Tupla
 
-```{code-cell} ipython3
-numeros = (10, 20, 30, 20, 40)
-print(numeros.index(20))       # 1
-print(numeros.index(20, 2))    # 3  ← Desde índice 2
-```
+| Característica | Lista `[]` | Tupla `()` |
+|----------------|------------|------------|
+| **Sintaxis**| Corchetes `[]` | Paréntesis `()` |
+| **Mutable**| ✅ Sí | ❌ No |
+| **Velocidad**| Más lenta | Más rápida |
+| **Uso de memoria**| Más | Menos |
+| **Cuándo usar**| Datos que cambian | Datos constantes |
+| **Métodos**| Muchos (append, etc.) | Solo 2 (count, index) |
+| **Como clave de dict**| ❌ No | ✅ Sí |
 
-### Operaciones con Tuplas
+--- 
 
-Aunque las tuplas son inmutables (no se pueden modificar después de creadas), soportan varias operaciones que crean nuevas tuplas o retornan información sobre sus elementos. Estas operaciones incluyen concatenación (unir tuplas), repetición, slicing (extraer partes), verificación de pertenencia, y funciones agregadas como longitud, máximo y mínimo. Son similares a las operaciones de listas, pero siempre crean nuevas tuplas en lugar de modificar la existente.
+### Crear Tuplas: 4 Formas
 
-```{code-cell} ipython3
-# Concatenación
-a = (1, 2, 3)
-b = (4, 5, 6)
-print(a + b)  # (1, 2, 3, 4, 5, 6)
-
-# Repetición
-print(a * 3)  # (1, 2, 3, 1, 2, 3, 1, 2, 3)
-
-# Slicing
-print(a[1:])  # (2, 3)
-
-# Membresía
-print(2 in a)  # True
-
-# Longitud, máximo, mínimo
-print(len(a), max(a), min(a))  # 3 3 1
-```
-
-### Desempaquetado de Tuplas
-
-El desempaquetado es una característica poderosa de Python que permite extraer los valores de una tupla en variables separadas de forma elegante. Esto es especialmente útil para funciones que retornan múltiples valores, intercambiar variables sin variable temporal, o trabajar con datos estructurados. Python también soporta desempaquetado extendido con `*`, que captura múltiples valores en una lista.
+Python ofrece múltiples formas de crear tuplas, cada una con su propósito. Podés usar paréntesis explícitos, aprovechar el empaquetado automático de Python, o incluso crear tuplas de un solo elemento (con cuidado especial en la sintaxis). La flexibilidad de Python permite elegir la sintaxis más clara para cada situación.
 
 ```{code-cell} ipython3
-# Desempaquetado básico
+# 1️⃣ Con paréntesis (forma común)
 coordenadas = (10, 20)
-x, y = coordenadas
-print(f"x={x}, y={y}")
+colores = ("🔴 rojo", "🟢 verde", "🔵 azul")
+print("Coordenadas:", coordenadas)
+print("Colores:", colores)
 
-# Desempaquetado con *
-numeros = (1, 2, 3, 4, 5)
-primero, *resto, ultimo = numeros
-print(f"Primero: {primero}")  # 1
-print(f"Resto: {resto}")      # [2, 3, 4]
-print(f"Último: {ultimo}")    # 5
+# 2️⃣ Sin paréntesis (tuple packing)
+punto = 5, 10, 15  # Python entiende que es tupla
+print("Punto:", punto)
 
-# Intercambio de variables
-a, b = 5, 10
-a, b = b, a  # Swap
-print(f"a={a}, b={b}")  # a=10, b=5
+# 3️⃣ Tupla de un elemento (requiere coma final)
+solo_uno = (5,)   # ✓ Esto ES una tupla
+no_tupla = (5)    # ✗ Esto es un int (paréntesis de agrupación)
+print(f"solo_uno es tupla: {type(solo_uno)}")
+print(f"no_tupla es int: {type(no_tupla)}")
+
+# 4️⃣ Tupla vacía
+vacia = ()
+tambien_vacia = tuple()
+print(f"Tupla vacía: {vacia}, longitud: {len(vacia)}")
 ```
 
-### namedtuple - Tuplas con Nombres
+:::{danger} 🚨 Error Común: Tupla de 1 Elemento
 
-Las `namedtuple` del módulo `collections` combinan la eficiencia de las tuplas con la legibilidad del acceso por nombre. Son especialmente útiles para estructuras de datos simples donde no necesitás una clase completa pero querés más claridad que índices numéricos. Se comportan como tuplas regulares (inmutables, pueden usarse como claves de diccionario) pero permiten acceder a sus campos por nombre, haciendo el código mucho más autoexplicativo.
+Es fácil confundir un paréntesis de agrupación matemática `(5)` con una tupla. La coma es lo que define a la tupla, no el paréntesis.
 
 ```{code-cell} ipython3
-from collections import namedtuple
+# ❌ INCORRECTO - Es un entero, no tupla
+numero = (42)
+print(f"Tipo: {type(numero)}, valor: {numero}")  # <class 'int'>
 
-# Definir estructura
-Punto = namedtuple("Punto", ["x", "y"])
-Persona = namedtuple("Persona", "nombre edad ciudad")
-
-# Crear instancias
-p = Punto(10, 20)
-ana = Persona("Ana", 25, "Bariloche")
-
-# Acceder por nombre (más legible)
-print(p.x, p.y)              # 10 20
-print(ana.nombre, ana.edad)  # Ana 25
-
-# También por índice
-print(p[0], p[1])  # 10 20
+# ✓ CORRECTO - La coma lo hace tupla
+tupla = (42,)  # ← Nota la coma
+print(f"Tipo: {type(tupla)}, valor: {tupla}")    # <class 'tuple'>
 ```
 
-### Tabla Resumen - Métodos de tuple
+**Regla:** Para tupla de 1 elemento, **siempre ponés la coma**: `(elemento,)`
+:::
 
-| Método | Descripción |
-|--------|-------------|
-| `count(value)` | Cuenta apariciones |
-| `index(value)` | Busca índice |
+---
 
-**Operaciones:** `+`, `*`, `[]`, `in`, `len()`, `max()`, `min()`
+### Crear Tuplas con `tuple()`
+
+La función `tuple()` es útil cuando necesitás convertir otros tipos de iterables (listas, strings, ranges) en tuplas. Esto es común cuando una función requiere específicamente una tupla, o cuando querés “congelar” una lista para evitar modificaciones accidentales. La conversión es directa: cada elemento del iterable se convierte en un elemento de la tupla.
+
+```{code-cell} ipython3
+# Convertir lista a tupla
+lista = [1, 2, 3, 4, 5]
+tupla = tuple(lista)
+print(f"Lista: {lista}")
+print(f"Tupla: {tupla}")
+
+# Convertir string a tupla (cada caracter es un elemento)
+texto = "Python"
+tupla_letras = tuple(texto)
+print(f"Tupla de letras: {tupla_letras}")
+
+# Convertir range a tupla
+tupla_nums = tuple(range(5))
+print(f"Tupla de 0 a 4: {tupla_nums}")
+```
+
+---
+
+### Acceso a Elementos: Igual que Listas
+
+Las tuplas se comportan exactamente como las listas en cuanto al acceso de elementos: usan índices que empiezan en 0, soportan índices negativos, y permiten slicing. La única diferencia es que no podés modificar los elementos. Todas las operaciones de lectura funcionan igual.
+
+```{code-cell} ipython3
+punto_3d = (10, 20, 30)
+print("Tupla:", punto_3d)
+
+# Acceso por índice (igual que listas)
+print(f"Primer elemento [0]: {punto_3d[0]}")    # 10
+print(f"Segundo [1]: {punto_3d[1]}")            # 20
+print(f"Último [-1]: {punto_3d[-1]}")           # 30
+
+# Slicing (igual que listas)
+numeros = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+print(f"[2:5]: {numeros[2:5]}")       # (2, 3, 4)
+print(f"[:3]: {numeros[:3]}")         # (0, 1, 2)
+print(f"[::2]: {numeros[::2]}")       # (0, 2, 4, 6, 8)
+print(f"[::-1]: {numeros[::-1]}")     # Invertida
+
+# Iterar (igual que listas)
+colores = ("🔴", "🟢", "🔵")
+for color in colores:
+    print(color)
+```
+
+:::{tip} Operaciones de Lectura
+Todas las operaciones de **lectura** de listas funcionan igual en tuplas:
+- ✅ Acceso por índice: `tupla[i]`
+- ✅ Slicing: `tupla[inicio:fin]`
+- ✅ Iteración: `for x in tupla`
+- ✅ Búsqueda: `x in tupla`
+- ✅ Longitud: `len(tupla)`
+
+Lo que **NO funciona** son operaciones de **escritura**:
+- ❌ Modificar: `tupla[i] = x`
+- ❌ Agregar: `tupla.append(x)`
+- ❌ Eliminar: `tupla.remove(x)`
+:::
+
+---
+
+### Inmutabilidad: El Poder de “No Cambiar” 
+
+La inmutabilidad de las tuplas es su característica definitoria y la fuente de muchas de sus ventajas.
+
+::::{tip} Analogía: Tatuaje vs Sticker
+
+**Lista = Sticker:**
+- Podés pegar otro encima.
+- Podés sacarlo.
+- Podés modificarlo.
+- **Mutable**.
+
+**Tupla = Tatuaje:**
+- Una vez hecho, es permanente.
+- No podés modificarlo.
+- Tenés que vivir con él (o crear uno nuevo).
+- **Inmutable**.
+::::
+
+```{code-cell} ipython3
+# Lista - MUTABLE
+lista = [1, 2, 3]
+print("Lista original:", lista)
+lista[0] = 999  # ✓ Funciona
+print("Lista modificada:", lista)
+
+print("\n" + "="*50 + "\n")
+
+# Tupla - INMUTABLE
+tupla = (1, 2, 3)
+print("Tupla original:", tupla)
+
+try:
+    tupla[0] = 999  # ✗ Error
+except TypeError as e:
+    print(f"❌ ERROR: {e}")
+    print("✓ Las tuplas NO se pueden modificar")
+```
+
+--- 
+
+#### ¿Qué NO Podés Hacer con Tuplas?
+
+Debido a su inmutabilidad, muchas operaciones que funcionan en listas simplemente no existen o fallan en tuplas.
+
+```{code-cell} ipython3
+mi_tupla = (10, 20, 30)
+
+# ❌ No podés modificar elementos
+try:
+    mi_tupla[0] = 99
+except TypeError:
+    print("❌ No se puede modificar elementos")
+
+# ❌ No podés agregar elementos
+try:
+    mi_tupla.append(40)
+except AttributeError:
+    print("❌ No existe método append()")
+
+# ❌ No podés eliminar elementos
+try:
+    mi_tupla.remove(20)
+except AttributeError:
+    print("❌ No existe método remove()")
+
+# ❌ No podés ordenar in-place
+try:
+    mi_tupla.sort()
+except AttributeError:
+    print("❌ No existe método sort()")
+```
+
+--- 
+
+#### ¿Por qué Usar Tuplas? 5 Razones
+
+Si las tuplas no se pueden modificar, ¿para qué usarlas? La inmutabilidad trae consigo ventajas importantes:
+
+:::::{grid} 1 1 2 2
+
+::::{grid-item-card} 1️⃣ Datos Constantes
+**Cuando los datos NO deben cambiar:**
+
+```python
+# Coordenadas GPS
+ubicacion = (-34.6037, -58.3816)
+
+# Color RGB
+rojo = (255, 0, 0)
+
+# Dimensiones de pantalla
+resolucion = (1920, 1080)
+
+# Días de la semana (no cambian)
+dias = ("Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom")
+```
+
+**Ventaja:** Evitás modificaciones accidentales.
+::::
+
+::::{grid-item-card} 2️⃣ Mejor Rendimiento
+**Las tuplas son más rápidas:**
+
+```python
+# Tupla - más rápida de crear
+tupla = (1, 2, 3, 4, 5)
+
+# Lista - más lenta de crear
+lista = [1, 2, 3, 4, 5]
+```
+
+**Ventaja:**
+- Menos memoria.
+- Más rápidas de crear.
+- Acceso más eficiente.
+::::
+
+::::{grid-item-card} 3️⃣ Claves de Diccionarios
+**Solo tuplas pueden ser claves:**
+
+```python
+# ✓ Tupla como clave
+cache = {}
+coordenada = (10, 20)
+cache[coordenada] = "Tesoro"
+
+# ✗ Lista NO puede
+# punto = [10, 20]
+# cache[punto] = "Tesoro"  # ERROR
+```
+
+**Ventaja:** Puede ser clave (hashable).
+::::
+
+::::{grid-item-card} 4️⃣ Retornar Múltiples Valores
+**Funciones retornan tuplas:**
+
+```python
+def obtener_coordenadas():
+    return (10, 20, 30)  # Tupla
+
+x, y, z = obtener_coordenadas()
+```
+
+**Ventaja:** Sintaxis clara para múltiples valores.
+::::
+
+:::::
+
+::::{grid-item-card} 5️⃣ Protección de Datos
+**Pasar datos sin riesgo de modificación:**
+
+```python
+def procesar_datos(tupla_datos):
+    # tupla_datos no puede ser modificada
+    # dentro de la función
+    pass
+
+configuracion = (800, 600, True)
+procesar_datos(configuracion)
+# configuracion no fue modificada
+```
+
+**Ventaja:** Seguridad en el código.
+::::
+
+:::::
+
+---
+
+### Métodos de Tuplas: Solo 2
+
+Las tuplas tienen **solo 2 métodos** (vs 11 de las listas): `count` y `index`. Son métodos de solo lectura.
+
+```{code-cell} ipython3
+numeros = (1, 3, 5, 3, 7, 3)
+
+# 1️⃣ count() - cuenta ocurrencias
+cantidad = numeros.count(3)
+print(f"El 3 aparece {cantidad} veces")
+
+# 2️⃣ index() - encuentra posición de primera ocurrencia
+posicion = numeros.index(5)
+print(f"El 5 está en posición {posicion}")
+
+# También funciona con inicio y fin
+segunda_pos = numeros.index(3, 2)  # Busca desde posición 2
+print(f"Segundo 3 está en posición {segunda_pos}")
+```
+
+---
+
+### Desempaquetado (Unpacking): El Super Poder de las Tuplas 🎁
+
+El {term}`desempaquetado` (unpacking) es una característica poderosa que permite extraer los elementos de una tupla (o cualquier iterable) en variables individuales de forma concisa.
+
+::::{tip} Analogía: Desempacar una Caja
+
+Imaginate que recibís una caja con 3 regalos:
+
+```python
+caja = (🎁, 🎁, 🎁)
+```
+
+**Desempaquetar** es sacar cada regalo y ponerlo en su propio lugar:
+
+```python
+regalo1, regalo2, regalo3 = caja
+# Ahora tenés 3 variables separadas
+```
+::::
+
+---
+
+#### Desempaquetado Básico
+
+La forma más común es asignar los elementos de la tupla a variables.
+
+```{code-cell} ipython3
+# Ejemplo 1: Coordenadas
+punto = (10, 20)
+x, y = punto  # Desempaqueta en 2 variables
+print(f"x = {x}, y = {y}")
+
+# Ejemplo 2: Color RGB
+color = (255, 128, 0)
+rojo, verde, azul = color
+print(f"R={rojo}, G={verde}, B={azul}")
+
+# Ejemplo 3: Datos de persona
+persona = ("Ana", 25, "Argentina")
+nombre, edad, pais = persona
+print(f"{nombre} tiene {edad} años y es de {pais}")
+```
+
+:::{warning} Cantidad de Variables Debe Coincidir
+
+El número de variables a la izquierda debe coincidir exactamente con el número de elementos en la tupla.
+
+```{code-cell} ipython3
+tupla = (1, 2, 3)
+
+# ❌ Muy pocas variables
+try:
+    a, b = tupla  # Espera 2, hay 3
+except ValueError as e:
+    print(f"ERROR: {e}")
+
+# ❌ Demasiadas variables
+try:
+    a, b, c, d = tupla  # Espera 4, hay 3
+except ValueError as e:
+    print(f"ERROR: {e}")
+
+# ✓ Cantidad correcta
+a, b, c = tupla
+print(f"✓ Correcto: a={a}, b={b}, c={c}")
+```
+:::
+
+---
+
+#### Desempaquetado con `*` (Rest Pattern)
+
+El asterisco `*` permite capturar múltiples elementos restantes en una lista.
+
+```{code-cell} ipython3
+# El * captura "el resto" de los elementos
+numeros = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# 1️⃣ Primero y el resto
+primero, *resto = numeros
+print(f"Primero: {primero}")
+print(f"Resto: {resto}")
+
+print("\n" + "="*50 + "\n")
+
+# 2️⃣ Primero, resto y último
+primero, *medio, ultimo = numeros
+print(f"Primero: {primero}")
+print(f"Medio: {medio}")
+print(f"Último: {ultimo}")
+
+print("\n" + "="*50 + "\n")
+
+# 3️⃣ Primeros dos y el resto
+a, b, *resto = numeros
+print(f"a={a}, b={b}")
+print(f"Resto: {resto}")
+```
+
+**Ejemplo práctico con CSV:**
+
+```{code-cell} ipython3
+# Datos de estudiante: nombre, apellido, nota1, nota2, nota3, ...
+estudiante = ("Ana", "García", 85, 90, 88, 92, 87)
+
+nombre, apellido, *notas = estudiante
+print(f"Estudiante: {nombre} {apellido}")
+print(f"Notas: {notas}")
+print(f"Promedio: {sum(notas) / len(notas):.1f}")
+```
+
+---
+
+#### Intercambio de Variables: El Truco Elegante
+
+El desempaquetado hace que intercambiar valores entre variables sea increíblemente simple y legible.
+
+```{code-cell} ipython3
+# Forma tradicional (con variable temporal)
+a = 5
+b = 10
+print(f"Antes: a={a}, b={b}")
+
+temp = a
+a = b
+b = temp
+print(f"Después (tradicional): a={a}, b={b}")
+
+print("\n" + "="*50 + "\n")
+
+# Forma Pythonic (con desempaquetado de tuplas)
+a = 5
+b = 10
+print(f"Antes: a={a}, b={b}")
+
+a, b = b, a  # ✨ ¡Intercambio elegante!
+print(f"Después (Pythonic): a={a}, b={b}")
+```
+
+**¿Cómo funciona?**
+
+```python
+a, b = b, a
+
+# Se evalúa así:
+# 1. Primero se crea una tupla: (b, a) → (10, 5)
+# 2. Luego se desempaqueta: a, b = (10, 5)
+# 3. Resultado: a=10, b=5
+```
+
+---
+
+#### Desempaquetado en Funciones
+
+Las funciones que retornan tuplas se benefician enormemente del desempaquetado.
+
+```{code-cell} ipython3
+# Función que retorna tupla
+def obtener_datos_usuario():
+    return ("Carlos", "carlos@email.com", 28, "México")
+
+# Desempaquetar el retorno
+nombre, email, edad, pais = obtener_datos_usuario()
+print(f"Nombre: {nombre}")
+print(f"Email: {email}")
+print(f"Edad: {edad}")
+print(f"País: {pais}")
+
+print("\n" + "="*50 + "\n")
+
+# Ignorar valores con _
+def obtener_coordenadas():
+    return (10, 20, 30)
+
+x, _, z = obtener_coordenadas()  # Ignoramos y
+print(f"x={x}, z={z}")  # Solo usamos x y z
+```
+
+---
+
+#### Desempaquetado en Loops
+
+Podés desempaquetar directamente dentro de un bucle `for`.
+
+```{code-cell} ipython3
+# Lista de tuplas
+personas = [
+    ("Ana", 25, "🇦🇷"),
+    ("Bruno", 30, "🇧🇷"),
+    ("Carlos", 28, "🇲🇽")
+]
+
+# Desempaquetar cada tupla en el loop
+for nombre, edad, pais in personas:
+    print(f"{nombre} ({edad} años) {pais}")
+
+print("\n" + "="*50 + "\n")
+
+# Con enumerate
+frutas = ("🍎 manzana", "🍌 banana", "🍊 naranja")
+for i, fruta in enumerate(frutas, start=1):
+    print(f"{i}. {fruta}")
+```
+
+---
+
+#### Desempaquetado Anidado
+
+Si tenés tuplas (u otros iterables) anidados, podés desempaquetarlos de forma anidada.
+
+```{code-cell} ipython3
+# Tupla con tuplas adentro
+datos = (("Ana", "García"), (25, "Argentina"))
+
+# Desempaquetado anidado
+(nombre, apellido), (edad, pais) = datos
+print(f"Nombre completo: {nombre} {apellido}")
+print(f"Edad: {edad}, País: {pais}")
+```
+
+---
+
+#### Casos Prácticos
+
+:::::{grid} 1 1 2 2
+
+::::{grid-item-card} División con Resto
+```python
+# divmod() retorna tupla (cociente, resto)
+resultado = divmod(17, 5)
+cociente, resto = resultado
+print(f"17 ÷ 5 = {cociente} resto {resto}")
+# 17 ÷ 5 = 3 resto 2
+```
+::::
+
+::::{grid-item-card} Min y Max Simultáneos
+```python
+numeros = [10, 5, 20, 15, 8]
+
+# Obtener min y max a la vez
+minimo, maximo = min(numeros), max(numeros)
+print(f"Min: {minimo}, Max: {maximo}")
+# Min: 5, Max: 20
+```
+::::
+
+::::{grid-item-card} Rotar Lista
+```python
+lista = [1, 2, 3, 4, 5]
+
+# Rotar elementos
+primero, *resto = lista
+lista = resto + [primero]
+print(lista)
+# [2, 3, 4, 5, 1]
+```
+::::
+
+::::{grid-item-card} Procesar CSV
+```python
+# Línea CSV
+linea = "Juan,Pérez,30,Argentina"
+
+# Desempaquetar datos
+datos = tuple(linea.split(','))
+nombre, apellido, edad, pais = datos
+print(f"{nombre} {apellido}")
+```
+::::
+
+:::::
+
+:::{tip} Consejos de Desempaquetado
+1. **Usa `_`** para valores que no necesitás: `x, _, z = tupla`.
+2. **Usa `*`** para capturar múltiples valores: `primero, *resto, ultimo`.
+3. **Combina con `enumerate()`** en loops: `for i, valor in enumerate(tupla)`.
+4. **Intercambio elegante** de variables: `a, b = b, a`.
+5. **Funciones que retornan tuplas** → desempaqueta directamente.
+:::
+
+---
+
+### Convertir entre Listas y Tuplas
+
+A menudo necesitás convertir entre listas y tuplas dependiendo de tus necesidades: si necesitás mutabilidad (lista) o inmutabilidad (tupla). Python hace esto simple con las funciones `list()` y `tuple()`. La conversión preserva el orden de los elementos.
+
+```{code-cell} ipython3
+# Lista a tupla
+lista = [1, 2, 3]
+tupla = tuple(lista)
+print(tupla)  # (1, 2, 3)
+
+# Tupla a lista
+tupla = (4, 5, 6)
+lista = list(tupla)
+print(lista)  # [4, 5, 6]
+```
+
+
+---
 
 ## Comparativa de Tipos - Guía de Decisión
 
