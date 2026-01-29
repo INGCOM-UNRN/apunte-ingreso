@@ -18,6 +18,10 @@ Este documento establece un conjunto de reglas de estilo para Python, pensadas c
 
 Python es un lenguaje que enfatiza la legibilidad y la simplicidad. Como dice el Zen de Python: **“La legibilidad cuenta”** (Readability counts). Estas reglas te ayudarán a escribir código que no solo funcione, sino que sea comprensible para cualquier desarrollador Python, incluyéndote a vos mismo en el futuro.
 
+:::{note} ¿Qué es ser “Pythonic”?
+Código pythonic es aquel que aprovecha las características idiomáticas de Python, es expresivo sin ser oscuro, y privilegia la legibilidad. No es solo seguir reglas sintácticas, sino adoptar el espíritu del lenguaje.
+:::
+
 :::{note} The Zen of Python
 Python tiene una filosofía de diseño expresada en “The Zen of Python” ({ref}`pep-20-ref`). Podés leerla ejecutando `import this` en un intérprete de Python. Algunos principios clave:
 - Bello es mejor que feo
@@ -58,7 +62,7 @@ Estamos abiertos a debatir todas las reglas. Para ello, solo tenés que abrir un
 ## Las Reglas
 
 (0x0000h)=
-### Regla `0x0000h`: La claridad y legibilidad son de máxima importancia
+### Regla `0x0000h`: La claridad es suprema
 
 **Principio:** El código debe ser claro y fácil de entender para cualquier lector, no solo para su autor. La claridad es siempre preferible a técnicas de programación ofuscadas.
 
@@ -143,6 +147,36 @@ for estudiante in estudiantes:
     procesar_inscripcion(estudiante)
 ```
 
+#### Convenciones Python
+
+| Tipo | Convención | Ejemplo | PEP 8 |
+|------|------------|---------|-------|
+| Variables | `snake_case` | `edad_usuario` | ✅ |
+| Funciones | `snake_case` | `calcular_promedio()` | ✅ |
+| Constantes | `UPPER_SNAKE_CASE` | `MAX_INTENTOS = 3` | ✅ |
+| Clases | `PascalCase` | `class UsuarioActivo:` | ✅ |
+| Módulos | `snake_case` | `mi_modulo.py` | ✅ |
+| Métodos privados | `_snake_case` | `def _validar()` | ✅ |
+| Muy privados | `__snake_case` | `self.__contador` | ✅ |
+
+#### Buenos nombres para valores lógicos
+
+Utilizar estos prefijos, hace que leer un condicional sea como leer un párrafo de texto en lugar de código.
+
+Tanto para decisiones
+> Sí es_valido, entonces…
+
+Como para lazos
+> Mientras puede_editar…
+```python
+# ✅ Prefijos claros para booleanos
+es_valido = True
+esta_activo = False
+tiene_permisos = verificar_permisos()
+puede_editar = usuario.es_admin or usuario.es_propietario(documento)
+ha_sido_procesado = False
+```
+
 ---
 
 (0x0002h)=
@@ -159,6 +193,22 @@ for estudiante in estudiantes:
 + y = obtener_valor()
 + z = calcular()
 + resultado = procesar()
+```
+
+# Excepciones pythónicas válidas:
+```python
+# 1. Desempaquetado de una tupla relacionada
+coordenadas = (10, 20, 30)
+x, y, z = coordenadas
+
+# 2. Swap pythonic
+a, b = b, a
+
+# 3. Función que retorna múltiples valores
+nombre, edad, ciudad = obtener_datos_usuario()
+
+# 4. Desempaquetado con * (Python 3.0+)
+primero, *medio, ultimo = lista
 ```
 
 **Excepciones idiomáticas en Python:**
@@ -216,6 +266,12 @@ resultado = None
 archivo = None
 ```
 
+:::{note}Pero esto, ¿Python no lo verifica solo?
+
+**Sí**, pero...
+
+Al usar cuadernos de Jupyter, las variables definidas en celdas ejecutadas antes siguen activas y pueden dar lugar a resultados inesperados.
+:::
 ---
 
 (0x0004h)=
@@ -323,7 +379,7 @@ Python no permite esta mezcla y esto provocará errores de sintaxis cuando suced
 ---
 
 (0x0006h)=
-### Regla `0x0006h`: Evitar `break` y `continue`; usar banderas de control
+### Regla `0x0006h`: Minimizar el uso de `break`/`continue` y preferir el uso de banderas de control
 
 **Principio:** Aunque Python permite `break` y `continue`, en este curso preferimos usar **banderas de control**(variables booleanas) para gestionar la terminación de loops. Esto produce código más predecible y estructurado.
 
@@ -366,7 +422,7 @@ Esta regla es específica de este curso para enseñar control de flujo estructur
 ---
 
 (0x0007h)=
-### Regla `0x0007h`: Preferir `while` sobre `for` para loops condicionales
+### Regla `0x0007h`: Cuando el lazo no es definido, usar `while`
 
 **Principio:** Usar `while` cuando la condición de parada no es un simple recorrido de secuencia. El `for` de Python es ideal para recorrer colecciones.
 
@@ -415,12 +471,20 @@ for clave, valor in diccionario.items():
 ```
 :::
 
+Si el lazo `for` tiene un `if` dentro con un `break`, entonces el lazo completo es casi seguro que deba ser uno de tipo `while`
+
+:::{tip} Uso de lazos
+Al aprender a programar, es siempre posible utilizar cualquier tipo de lazo, aunque no sea el mejor para la situación en la que estamos.
+
+**¡Implementar algo con todas las “opciones” es un excelente ejercicio!**
+:::
+
 ---
 
 (0x0008h)=
 ### Regla `0x0008h`: Cada función debe tener un único punto de retorno
 
-**Principio:** Limitar una función a un único `return` mejora la legibilidad y facilita el seguimiento del flujo de control.
+**Principio:** Limitar una función a un único `return` facilita el seguimiento del flujo de control.
 
 ```python
 # ❌ Evitar: múltiples returns
@@ -578,7 +642,7 @@ def sumar(a, b):
     return a + b
 ```
 
-Y teniendo en cuenta que el código debe ser autoexplicativo (el “qué”). Los comentarios deben explicar el razonamiento (el “por qué").
+Y teniendo en cuenta que el código debe ser autoexplicativo (el “qué”). Los comentarios deben explicar el razonamiento (el “por qué”).
 
 ```python
 # ❌ Incorrecto: comentarios obvios
