@@ -71,7 +71,7 @@ Completamente opcional, pero si se sienten más cómodos pueden cambiar el idiom
 En la barra de menú, buscamos "Settings"
 
 ```{figure} ./E_jupyterlab/cambio_idioma_1.png
-:label: jupyterlab_principal
+:label: jupyterlab_cambio_idioma_1
 :alt: CAPTURA: Vista completa de la interfaz
 :align: center
 Menú "Settings"
@@ -80,7 +80,7 @@ Menú "Settings"
 Y después "Language", para elegir "Spanish"
 
 ```{figure} ./E_jupyterlab/cambio_idioma_2.png
-:label: jupyterlab_principal
+:label: jupyterlab_cambio_idioma_2
 :alt: CAPTURA: Vista completa de la interfaz
 :align: center
 Y elegimos español.
@@ -240,7 +240,7 @@ Los notebooks de Jupyter tienen la extensión `.ipynb` (Interactive Python Noteb
 Si no indicamos nada, al hacer doble click en un documento de este tipo, será abierto para su modificación y solo veremos el "código" con el que está hecho. Si no lo queremos modificar y lo queremos ver en su representación final, lo tenemos que abrir en su 'vista previa.
 
 ```{figure} ./E_jupyterlab/vista_edicion_md.png
-:label: fig-jupyterlab-cuaderno-abierto
+:label: fig-jupyterlab-vista-edicion_md
 :alt: CAPTURA: Como se ve un archivo markdown abierto directamente
 :align: center
 Un archivo markdown abierto con doble click
@@ -249,7 +249,7 @@ Un archivo markdown abierto con doble click
 Para verlo "bonito" tenemos que ubicar el archivo en el panel izquierdo, y darle botón derecho:
 
 ```{figure} ./E_jupyterlab/abrir_como.png
-:label: fig-jupyterlab-cuaderno-abierto
+:label: fig-jupyterlab-abrir-como
 :alt: CAPTURA: En el panel lateral izquierdo, botón derecho sobre un archivo un archivo.
 :align: center
 Abrir en modo "Vista previa"
@@ -258,7 +258,7 @@ Abrir en modo "Vista previa"
 Y lo podremos ver en su "vista previa", que transforma el [código markdown](./G_markdown.md) en el formato apropiado.
 
 ```{figure} ./E_jupyterlab/vista_previa_md.png
-:label: fig-jupyterlab-cuaderno-abierto
+:label: fig-jupyterlab-vista-previa-md
 :alt: CAPTURA: Como se ve un archivo markdown abierto con la vista previa.
 :align: center
 Un archivo markdown abierto con botón derecho
@@ -415,7 +415,7 @@ Estoy aprendiendo Python
 ```
 
 ```{figure} ./E_jupyterlab/celda_estados.png
-:label: fig-jupyterlab-toolbar-cell
+:label: fig-jupyterlab-celda_estados
 :alt: CAPTURA: Espacio de trabajo con celdas antes y despues de ser ejecutadas
 :align: center
 Espacio de trabajo con celdas antes y despues de ser ejecutadas
@@ -642,7 +642,7 @@ Si una celda está tardando demasiado o entró en un lazo infinito:
 
 
 ```{figure} ./E_jupyterlab/advertencia_reinicio.png
-:label: fig-jupyterlab-advertencia-reiicio
+:label: fig-jupyterlab-advertencia-reinicio
 :alt: CAPTURA: Aviso al reiniciar el kernel
 :align: center
 Advertencia al momento de reiniciar el Kernel.
@@ -668,7 +668,7 @@ Podés tener varios notebooks abiertos al mismo tiempo.
 Simplemente hacé doble clic en varios archivos `.ipynb`. Cada uno se abrirá en una pestaña nueva.
 
 ```{figure} ./E_jupyterlab/multiples_cuadernos.png
-:label: fig-jupyterlab-advertencia-reiicio
+:label: fig-jupyterlab-multiples_cuadernos
 :alt: CAPTURA: Múltiples cuadernos abiertos
 :align: center
 Área de trabajo mostrando 3 pestañas abiertas con diferentes notebooks: “01_variables.ipynb”, “02_operadores.ipynb”, “03_control.ipynb”.
