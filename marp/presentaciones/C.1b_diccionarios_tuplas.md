@@ -14,6 +14,13 @@ size: 4:3
 ## Mapeos e Inmutabilidad
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Dominar las dos estructuras de datos restantes fundamentales.
+- Gancho: "¿Cómo guardan la agenda de contactos de su celular? ¿Una lista gigante? No, usan un sistema donde buscan 'Juan' y aparece su número. Eso es un diccionario."
+-->
+
 ---
 
 <!-- _header: 'Diccionarios (dict)' -->
@@ -36,6 +43,13 @@ print(estudiante["nombre"])  # "Ana"
 **Claves:** Deben ser inmutables (str, int, tuple).
 **Valores:** Pueden ser cualquier cosa (listas, otros dicts).
 
+<!--
+NOTAS DEL ORADOR:
+- Estructura de mapeo (Hash Map).
+- Acceso casi instantáneo O(1), a diferencia de buscar en una lista O(n).
+- Las claves son como las etiquetas de los buzones.
+-->
+
 ---
 
 <!-- _header: 'Acceso seguro' -->
@@ -54,6 +68,12 @@ print(estudiante.get("nota", 0))   # 0 (valor por defecto)
 ```
 
 **Recomendación:** Usá `get()` si no estás seguro de que la clave exista.
+
+<!--
+NOTAS DEL ORADOR:
+- El error `KeyError` es el equivalente a `IndexError` en listas.
+- `get()` es el "airbag" de los diccionarios.
+-->
 
 ---
 
@@ -78,6 +98,12 @@ del datos["b"]
 print(datos)  # {"a": 10, "c": 3}
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- La sintaxis de agregar y modificar es la misma.
+- Si la clave existe, la pisa. Si no, la crea.
+-->
+
 ---
 
 <!-- _header: 'Iteración' -->
@@ -101,12 +127,23 @@ for pais, ciudad in capitales.items():
 * `.values()`: Valores
 * `.items()`: Pares (clave, valor)
 
+<!--
+NOTAS DEL ORADOR:
+- `.items()` devuelve una tupla en cada vuelta, que desempaquetamos en `pais, ciudad`.
+-->
+
 ---
 
 <!-- _class: inverse -->
 
 # <!-- fit --> Tuplas (tuple)
 ## Listas inmutables
+
+<!--
+NOTAS DEL ORADOR:
+- Cambio de tema.
+- Las tuplas son las hermanas serias y rígidas de las listas.
+-->
 
 ---
 
@@ -127,6 +164,14 @@ colores = ("rojo", "verde", "azul")
 punto[0] = 5  # ❌ TypeError
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- ¿Por qué querríamos algo que no se puede cambiar?
+- Seguridad (nadie me toca mis datos).
+- Rendimiento (ligeramente más rápido).
+- Hashable (pueden ser claves de diccionario).
+-->
+
 ---
 
 <!-- _header: 'Uso de tuplas' -->
@@ -137,6 +182,11 @@ punto[0] = 5  # ❌ TypeError
 2.  **Seguridad:** Garantizar que los datos no cambien accidentalmente.
 3.  **Claves de diccionario:** Las listas no pueden ser claves, las tuplas sí.
 4.  **Rendimiento:** Son ligeramente más rápidas que las listas.
+
+<!--
+NOTAS DEL ORADOR:
+- Ejemplo: Coordenadas GPS (lat, lon). No tiene sentido agregarle una tercera dimensión de repente.
+-->
 
 ---
 
@@ -162,6 +212,12 @@ a, b = 5, 10
 a, b = b, a  # a=10, b=5
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Una de las características más elegantes de Python.
+- El swap en otros lenguajes requiere una variable temporal `temp`.
+-->
+
 ---
 
 <!-- _header: 'Tuplas y Funciones' -->
@@ -179,6 +235,12 @@ menor, mayor = min_max(lista)
 
 print(f"Mínimo: {menor}, Máximo: {mayor}")
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- En realidad la función devuelve UN solo objeto: una tupla.
+- Pero nosotros lo vemos como múltiples valores.
+-->
 
 ---
 
@@ -199,3 +261,8 @@ print(f"Mínimo: {menor}, Máximo: {mayor}")
 
 **Próximo:**
 * Módulos Random y Math.
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->

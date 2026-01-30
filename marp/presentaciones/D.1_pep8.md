@@ -14,6 +14,13 @@ size: 4:3
 ## Guía de estilo de Python
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Entender que el código se escribe para humanos, no solo para máquinas.
+- Gancho: "¿Alguna vez intentaron leer la letra de un médico? Leer código mal formateado es igual. PEP 8 es nuestra caligrafía estándar."
+-->
+
 ---
 
 <!-- _header: '¿Qué es PEP 8?' -->
@@ -27,6 +34,13 @@ Curso de Ingreso - Ingeniería en Computación
 * "El código se lee más que se escribe"
 
 **No son reglas absolutas, son recomendaciones**
+
+<!--
+NOTAS DEL ORADOR:
+- PEP = Propuesta de Mejora de Python.
+- Guido van Rossum (creador de Python) es uno de los autores.
+- La consistencia es más importante que la regla en sí.
+-->
 
 ---
 
@@ -51,6 +65,13 @@ def funcion():
 
 **Configurá tu editor para usar 4 espacios**
 
+<!--
+NOTAS DEL ORADOR:
+- El debate Tab vs Espacios está resuelto en Python: Espacios ganan.
+- Mezclar tabs y espacios es un error de sintaxis en Python 3.
+- En VS Code/Jupyter, la tecla Tab suele insertar 4 espacios automáticamente.
+-->
+
 ---
 
 <!-- _header: 'Longitud de línea' -->
@@ -68,6 +89,12 @@ resultado = funcion_con_nombre_largo(
     parametro4, parametro5
 )
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- ¿Por qué 79? Herencia de terminales viejas, pero sigue siendo útil para tener dos archivos abiertos lado a lado.
+- Hoy en día se tolera hasta 88 (Black) o 100, pero evitar scroll horizontal es clave.
+-->
 
 ---
 
@@ -94,6 +121,12 @@ def funcion():
     
     finalizar()
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- El espacio en blanco estructura el código.
+- Párrafos visuales ayudan a entender bloques lógicos.
+-->
 
 ---
 
@@ -125,6 +158,12 @@ import random
 import math, random
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Orden alfabético dentro de cada grupo es buena práctica.
+- `isort` es una herramienta que hace esto automático.
+-->
+
 ---
 
 <!-- _header: 'Nombres de variables' -->
@@ -145,6 +184,11 @@ numeroIntentos = 0
 # ❌ Incorrecto (mayúsculas)
 NOMBRE_USUARIO = "Ana"
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- camelCase se usa en Java/JS. En Python, solo si estás manteniendo código que ya lo usa.
+-->
 
 ---
 
@@ -172,6 +216,12 @@ def val_email(email):
     pass
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Las funciones hacen cosas, por eso usan verbos.
+- `CalcularPromedio` (PascalCase) parecería una clase, no una función.
+-->
+
 ---
 
 <!-- _header: 'Nombres de constantes' -->
@@ -189,6 +239,11 @@ VELOCIDAD_LUZ = 299792458
 pi = 3.14159
 MaxIntentos = 3
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Señal visual: "NO TOCAR / NO MODIFICAR".
+-->
 
 ---
 
@@ -216,6 +271,12 @@ class cuenta_bancaria:
     pass
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- También conocido como CapWords.
+- Sin guiones bajos.
+-->
+
 ---
 
 <!-- _header: 'Espacios en expresiones' -->
@@ -240,6 +301,11 @@ resultado = funcion(a, b, c)
 # ❌ Espacios de más
 resultado = funcion( a , b , c )
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- El código respira con espacios.
+-->
 
 ---
 
@@ -292,6 +358,12 @@ if activo == True:
     pass
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- `is` compara identidad (¿es el mismo objeto?), `==` compara valor.
+- Para `None` (que es un singleton), siempre usar `is`.
+-->
+
 ---
 
 <!-- _header: 'Strings' -->
@@ -315,6 +387,12 @@ frase = 'Él dijo "hola"'
 
 **Lo importante es ser consistente**
 
+<!--
+NOTAS DEL ORADOR:
+- PEP 8 no obliga a una u otra.
+- Recomendación: Dobles `"` suelen ser más comunes en documentación y strings visibles al usuario.
+-->
+
 ---
 
 <!-- _header: 'Comentarios' -->
@@ -334,6 +412,12 @@ x = x + 1  # Compensar por índice basado en 1
 # y prioriza simplicidad sobre eficiencia
 ordenar_burbuja(numeros)
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Los comentarios deben agregar valor, no redundancia.
+- El código explica CÓMO, los comentarios explican POR QUÉ.
+-->
 
 ---
 
@@ -360,6 +444,12 @@ def calcular_promedio(numeros):
         raise ValueError("Lista vacía")
     return sum(numeros) / len(numeros)
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Estándar para documentación.
+- Herramientas como Sphinx pueden generar sitios web a partir de esto.
+-->
 
 ---
 
@@ -417,6 +507,12 @@ flake8 mi_programa.py
 black mi_programa.py
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- No memoricen PEP 8, usen herramientas.
+- Black es "The uncompromising code formatter". Formatea automáticamente al guardar.
+-->
+
 ---
 
 <!-- _header: 'Resumen' -->
@@ -456,6 +552,12 @@ import this
 * Los casos especiales no son tan especiales
 * Debería haber una -y preferiblemente solo una- forma obvia de hacerlo
 
+<!--
+NOTAS DEL ORADOR:
+- "Easter egg" de Python.
+- Resume la filosofía del lenguaje.
+-->
+
 ---
 
 <!-- _header: 'Para recordar' -->
@@ -472,6 +574,11 @@ import this
 
 **Próximo:**
 * Buenas prácticas generales
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->
 
 ---
 

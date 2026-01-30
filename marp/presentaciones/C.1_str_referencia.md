@@ -14,6 +14,13 @@ size: 4:3
 ## Métodos de cadenas
 Curso de Ingreso - Ingeniería en Computación
 
+<!-- 
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Descubrir que los strings no son solo texto plano, sino objetos con superpoderes.
+- Gancho: "¿Sabían que Python puede limpiar, buscar y transformar texto automáticamente sin que ustedes escriban algoritmos complejos?"
+-->
+
 ---
 
 <!-- _header: 'Los strings son objetos' -->
@@ -28,6 +35,13 @@ Curso de Ingreso - Ingeniería en Computación
 * Y muchos más...
 
 **No necesitás importar nada**
+
+<!--
+NOTAS DEL ORADOR:
+- Aclarar que `str` es un tipo built-in, no un módulo que se importa.
+- Pero funciona "como si fuera" un módulo lleno de herramientas para texto.
+- Sintaxis de punto: `objeto.metodo()`.
+-->
 
 ---
 
@@ -46,6 +60,12 @@ print(texto.swapcase())   # "pYTHON ES gENIAL"
 ```
 
 **Útil para normalizar entradas**
+
+<!--
+NOTAS DEL ORADOR:
+- Normalización: Para comparar "Hola" con "hola", pasamos ambos a `.lower()`.
+- `title()` es genial para nombres propios.
+-->
 
 ---
 
@@ -68,6 +88,12 @@ print(frase.count("es"))         # 1
 
 **find vs index:** find devuelve -1, index lanza error
 
+<!--
+NOTAS DEL ORADOR:
+- `find` es "seguro" (no rompe el programa).
+- `index` es estricto (rompe si no está). Usar `try-except` con `index`.
+-->
+
 ---
 
 <!-- _header: 'Verificación' -->
@@ -87,6 +113,12 @@ print("jpg" in texto)               # False
 
 **Útil para validar extensiones**
 
+<!--
+NOTAS DEL ORADOR:
+- `startswith` y `endswith` aceptan tuplas: `archivo.endswith((".jpg", ".png"))`.
+- `in` es el operador de pertenencia más pythónico.
+-->
+
 ---
 
 <!-- _header: 'Validación de tipo' -->
@@ -104,6 +136,11 @@ print("jpg" in texto)               # False
 ```
 
 **Perfecto para validar entrada de usuario**
+
+<!--
+NOTAS DEL ORADOR:
+- Antes de convertir con `int()`, podemos chequear con `.isdigit()`.
+-->
 
 ---
 
@@ -125,6 +162,11 @@ print(url.strip("https://"))  # "ejemplo.com"
 
 **strip es tu aliado para limpiar input**
 
+<!--
+NOTAS DEL ORADOR:
+- Los usuarios siempre meten espacios de más sin querer. `strip()` al rescate.
+-->
+
 ---
 
 <!-- _header: 'Reemplazo' -->
@@ -144,6 +186,12 @@ print(texto2.replace("-", " ", 2))  # "a b c-d"
 ```
 
 **replace no modifica el original**
+
+<!--
+NOTAS DEL ORADOR:
+- Recordar: Strings son INMUTABLES.
+- `.replace()` devuelve una COPIA nueva. El original no cambia.
+-->
 
 ---
 
@@ -166,6 +214,12 @@ print(datos)  # ["nombre", "edad", "ciudad"]
 texto = "a:b:c:d"
 print(texto.split(":", 2))  # ["a", "b", "c:d"]
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Fundamental para procesar archivos CSV o logs.
+- `split()` sin argumentos se come todos los espacios en blanco repetidos.
+-->
 
 ---
 
@@ -191,6 +245,12 @@ texto = "\n".join(lineas)
 
 **join es el inverso de split**
 
+<!--
+NOTAS DEL ORADOR:
+- Sintaxis contraintuitiva: `separador.join(lista)`.
+- Se lee: "Usar este separador para unir esta lista".
+-->
+
 ---
 
 <!-- _header: 'Formateo' -->
@@ -211,6 +271,11 @@ print(texto.rjust(10, "*"))   # "****Python"
 numero = "42"
 print(numero.zfill(5))        # "00042"
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Útil para interfaces de línea de comandos (CLI) prolijas.
+-->
 
 ---
 
@@ -245,6 +310,12 @@ print(validar_email("  user@example.com  "))  # True
 print(validar_email("invalido"))              # False
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Ejemplo integrador.
+- Combina `strip`, `len`, `count`, `in`, `startswith`.
+-->
+
 ---
 
 <!-- _header: 'Caso práctico' -->
@@ -270,6 +341,11 @@ print(normalizar_nombre("  jUAN  pEREZ  "))
 # "Juan Perez"
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Truco ninja: `split()` y luego `join()` elimina espacios dobles internos.
+-->
+
 ---
 
 <!-- _header: 'Encadenamiento' -->
@@ -288,6 +364,12 @@ email = input("Email: ").strip().lower()
 ```
 
 **Los métodos se pueden encadenar**
+
+<!--
+NOTAS DEL ORADOR:
+- Fluent interface.
+- Se lee de izquierda a derecha.
+-->
 
 ---
 
@@ -364,6 +446,11 @@ print(contar_palabras_unicas(frase))  # 5
 
 **Próximo:**
 * Módulo random
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->
 
 ---
 

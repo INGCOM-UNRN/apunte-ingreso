@@ -14,6 +14,13 @@ size: 4:3
 ## Trabajo eficiente en Jupyter
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Transformar el uso básico en un proceso productivo y profesional.
+- Gancho: "¿Alguna vez pasaron horas arreglando un error para darse cuenta de que solo tenían que reiniciar el kernel? Hoy aprendemos a trabajar en serio."
+-->
+
 ---
 
 <!-- _header: 'Workflow típico' -->
@@ -37,6 +44,12 @@ Curso de Ingreso - Ingeniería en Computación
 * Añadir conclusiones
 * Exportar resultados
 
+<!--
+NOTAS DEL ORADOR:
+- El ciclo de vida de un notebook no es lineal, es iterativo.
+- Pero la estructura final debe parecer lineal para que sea legible.
+-->
+
 ---
 
 <!-- _header: 'Desarrollo iterativo' -->
@@ -57,6 +70,12 @@ print(resultado)
 **No recargar datos cada vez**
 * Más rápido
 * Menos errores
+
+<!--
+NOTAS DEL ORADOR:
+- Esta es la "Killer Feature" de Jupyter.
+- Si cargar datos tarda 10 minutos, no querés hacerlo cada vez que cambiás una coma en el gráfico.
+-->
 
 ---
 
@@ -83,6 +102,12 @@ paso3 = agregar(paso2)
 
 **Ver variables:** `%whos`
 
+<!--
+NOTAS DEL ORADOR:
+- En scripts tradicionales, usás un debugger.
+- En notebooks, usás la inspección de variables vivas.
+-->
+
 ---
 
 <!-- _header: 'Testing rápido' -->
@@ -102,6 +127,12 @@ print("✅ Tests pasados")
 ```
 
 **Fácil de modificar y re-probar**
+
+<!--
+NOTAS DEL ORADOR:
+- Unit testing informal.
+- Permite verificar la lógica antes de aplicarla a millones de datos.
+-->
 
 ---
 
@@ -125,6 +156,11 @@ print("✅ Tests pasados")
 **Colapsar secciones:**
 * Click en barra lateral izquierda
 * Ver solo lo que importa
+
+<!--
+NOTAS DEL ORADOR:
+- Usar la tabla de contenidos (ToC) es vital en notebooks largos.
+-->
 
 ---
 
@@ -152,6 +188,12 @@ from utilidades import funcion_util1
 %autoreload 2
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Regla: Si copias y pegas una función entre notebooks, movela a un archivo `.py`.
+- `autoreload` es magia: actualiza el código importado sin reiniciar el kernel.
+-->
+
 ---
 
 <!-- _header: 'Configuración inicial' -->
@@ -176,6 +218,12 @@ np.random.seed(42)
 print("✅ Setup completo")
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Convención: Todos los imports arriba.
+- Configuración global evita sorpresas más adelante.
+-->
+
 ---
 
 <!-- _header: 'Evitar errores comunes' -->
@@ -195,6 +243,12 @@ datos = cargar()  # ❌ Orden incorrecto
 * Ejecutar todo desde arriba
 * Restart & Run All periódicamente
 
+<!--
+NOTAS DEL ORADOR:
+- El estado oculto es el enemigo.
+- Si el notebook solo funciona si ejecutás la celda 5 antes de la 3, está roto.
+-->
+
 ---
 
 <!-- _header: 'Estado limpio' -->
@@ -210,6 +264,12 @@ datos = cargar()  # ❌ Orden incorrecto
 * ❌ Dependencias ocultas
 
 **Hacer esto antes de compartir**
+
+<!--
+NOTAS DEL ORADOR:
+- La prueba de fuego.
+- Si falla, arreglar el orden de las celdas.
+-->
 
 ---
 
@@ -234,6 +294,12 @@ nbdiff notebook1.ipynb notebook2.ipynb
 jupyter nbconvert --to python notebook.ipynb
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Los gráficos en base64 dentro del JSON hacen que los diffs de git sean gigantes e inútiles.
+- `nbdime` (Notebook Diff & Merge) es la herramienta estándar.
+-->
+
 ---
 
 <!-- _header: 'Compartir notebooks' -->
@@ -253,6 +319,11 @@ jupyter nbconvert --to pdf notebook.ipynb
 ```
 * Requiere LaTeX instalado
 
+<!--
+NOTAS DEL ORADOR:
+- HTML es universal. El PDF es más formal.
+-->
+
 ---
 
 <!-- _header: 'NBViewer' -->
@@ -271,6 +342,11 @@ jupyter nbconvert --to pdf notebook.ipynb
 **Colab:**
 * colab.research.google.com
 * Ejecutar notebooks en la nube
+
+<!--
+NOTAS DEL ORADOR:
+- GitHub a veces es lento renderizando. NBViewer es el backup confiable.
+-->
 
 ---
 
@@ -295,6 +371,12 @@ pip install jupyterlab-code-formatter
 * Variable Inspector
 * Table of Contents
 
+<!--
+NOTAS DEL ORADOR:
+- JupyterLab es extensible.
+- El formateador de código es esencial para mantener PEP 8 sin esfuerzo.
+-->
+
 ---
 
 <!-- _header: 'Atajos productivos' -->
@@ -311,6 +393,11 @@ pip install jupyterlab-code-formatter
 * `Ctrl + ]` → indentar
 * `Ctrl + [` → desindentar
 * `Ctrl + /` → comentar/descomentar
+
+<!--
+NOTAS DEL ORADOR:
+- `00` (cero cero) es el atajo secreto para reiniciar rápido.
+-->
 
 ---
 
@@ -336,6 +423,11 @@ Autor: [TU NOMBRE]
 
 **Guardar en archivos `.ipynb` base**
 
+<!--
+NOTAS DEL ORADOR:
+- Tener un "esqueleto" de notebook ahorra tiempo de configuración.
+-->
+
 ---
 
 <!-- _header: 'Performance' -->
@@ -358,6 +450,11 @@ resultado = sum(range(10000))
 ```python
 %prun funcion_compleja(datos)
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- No adivinar qué es lento. Medirlo.
+-->
 
 ---
 
@@ -444,6 +541,11 @@ plt.show()
 * Ejecutar fuera de orden
 * Código sin documentar
 
+<!--
+NOTAS DEL ORADOR:
+- Resumen de higiene de notebooks.
+-->
+
 ---
 
 <!-- _header: 'Alternativas' -->
@@ -462,6 +564,11 @@ plt.show()
 **Databricks:**
 * Colaborativo
 * Para Big Data
+
+<!--
+NOTAS DEL ORADOR:
+- JupyterLab no es la única opción, pero es el estándar de facto.
+-->
 
 ---
 

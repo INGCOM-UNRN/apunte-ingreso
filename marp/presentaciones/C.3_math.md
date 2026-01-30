@@ -14,6 +14,13 @@ size: 4:3
 ## Matemática avanzada
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Conocer la caja de herramientas matemáticas de Python.
+- Gancho: "¿Necesitan calcular la hipotenusa de un triángulo o el seno de un ángulo? No escriban la fórmula, ya está hecha."
+-->
+
 ---
 
 <!-- _header: 'Módulo math' -->
@@ -33,6 +40,12 @@ from math import sqrt, pi, sin
 * Logaritmos y exponenciales
 * Constantes matemáticas
 * Redondeo y truncado
+
+<!--
+NOTAS DEL ORADOR:
+- Funciones C-style optimizadas.
+- Si necesitan matemática compleja (matrices, álgebra lineal), usarán `numpy` en el futuro, pero `math` es la base.
+-->
 
 ---
 
@@ -57,6 +70,12 @@ print(math.inf)     # inf
 print(-math.inf)    # -inf
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Usar `math.pi` es mucho mejor que escribir `3.14159` manualmente (más preciso y menos error humano).
+- `math.inf` es útil para inicializar algoritmos de búsqueda de mínimos (empezar con infinito y bajar).
+-->
+
 ---
 
 <!-- _header: 'Potencias y raíces' -->
@@ -77,6 +96,12 @@ print(2 ** 3)             # 8 (también funciona)
 # Raíz cúbica (Python 3.11+)
 print(math.cbrt(27))      # 3.0
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- `math.pow` siempre devuelve float. `**` devuelve int si ambos son int.
+- `sqrt` es mucho más legible que `x ** 0.5`.
+-->
 
 ---
 
@@ -102,6 +127,15 @@ print(math.trunc(x))    # 3
 print(round(x))         # 4
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Diferencia sutil pero importante:
+    - `round()` va al más cercano.
+    - `floor()` siempre baja.
+    - `ceil()` siempre sube.
+    - `trunc()` corta (para positivos es igual a floor, para negativos igual a ceil).
+-->
+
 ---
 
 <!-- _header: 'Valor absoluto' -->
@@ -119,6 +153,11 @@ print(abs(-5))            # 5 (también funciona)
 print(math.copysign(5, -1))   # -5.0
 print(math.copysign(-5, 1))   # 5.0
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- `abs()` es built-in (no requiere import). `math.fabs()` siempre devuelve float.
+-->
 
 ---
 
@@ -145,6 +184,12 @@ print(math.log2(1024))      # 10.0
 print(math.log(81, 3))      # 4.0 (3^4 = 81)
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- `log` sin base es logaritmo natural (ln).
+- `log2` es fundamental en informática (bits, entropía).
+-->
+
 ---
 
 <!-- _header: 'Exponenciales' -->
@@ -162,6 +207,11 @@ print(math.exp(2))          # 7.389...
 print(math.exp2(3))         # 8.0
 print(math.exp2(10))        # 1024.0
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Inversas de los logaritmos.
+-->
 
 ---
 
@@ -187,6 +237,12 @@ print(math.sin(radianes))   # 1.0
 print(math.degrees(math.pi))  # 180.0
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- ¡CUIDADO! Las funciones trigonométricas esperan RADIANES, no grados.
+- Siempre usar `math.radians()` si se piensa en grados.
+-->
+
 ---
 
 <!-- _header: 'Trigonometría inversa' -->
@@ -204,6 +260,11 @@ print(math.atan(1))         # π/4
 # atan2 (considera cuadrante)
 print(math.atan2(1, 1))     # π/4
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- `atan2(y, x)` es superior a `atan(y/x)` porque maneja correctamente los cuadrantes y la división por cero.
+-->
 
 ---
 
@@ -227,6 +288,11 @@ print(math.acosh(x))
 print(math.atanh(0.5))
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Útil en ingeniería y física.
+-->
+
 ---
 
 <!-- _header: 'Factoriales' -->
@@ -246,6 +312,11 @@ print(math.comb(5, 2))      # 10 (5!/(2!×3!))
 # Permutaciones
 print(math.perm(5, 2))      # 20 (5!/(5-2)!)
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Estadística y probabilidad.
+-->
 
 ---
 
@@ -267,6 +338,11 @@ print(math.gcd(12, 18, 24)) # 6
 print(math.lcm(4, 6))       # 12
 print(math.lcm(12, 18, 24)) # 72
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Teoría de números.
+-->
 
 ---
 
@@ -292,6 +368,11 @@ print(distancia)  # 5.0
 d = math.hypot(3, 4, 12)
 print(d)  # 13.0
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- `hypot` evita problemas de desbordamiento (overflow) al elevar al cuadrado números muy grandes.
+-->
 
 ---
 
@@ -339,6 +420,11 @@ def es_triangulo_rectangulo(a, b, c):
 print(hipotenusa(3, 4))  # 5.0
 print(es_triangulo_rectangulo(3, 4, 5))  # True
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- `math.isclose` es fundamental al comparar flotantes. Nunca usar `==` con floats por errores de precisión.
+-->
 
 ---
 
@@ -391,6 +477,12 @@ print(math.isnan(float('nan'))) # True
 # Comparar flotantes
 print(math.isclose(0.1 + 0.2, 0.3))  # True
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- NaN = Not a Number (resultado de operaciones inválidas como 0/0 o inf-inf).
+- `math.isclose` es la forma correcta de comprobar igualdad de flotantes.
+-->
 
 ---
 
@@ -486,6 +578,11 @@ print(distancia_puntos(0, 0, 3, 4))  # 5.0
 * Geometría
 * Finanzas
 * Física
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->
 
 ---
 

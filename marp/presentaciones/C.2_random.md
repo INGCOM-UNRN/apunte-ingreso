@@ -14,6 +14,13 @@ size: 4:3
 ## Números y elecciones aleatorias
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Aprender a generar comportamiento no determinista.
+- Gancho: "¿Cómo hacemos un juego divertido si la computadora siempre hace exactamente lo mismo? Necesitamos un poco de caos controlado."
+-->
+
 ---
 
 <!-- _header: 'Módulo random' -->
@@ -33,6 +40,12 @@ from random import randint, choice
 * Elecciones aleatorias
 * Mezclar listas
 * Simulaciones
+
+<!--
+NOTAS DEL ORADOR:
+- Pseudo-aleatorio (PRNG): No es azar "real" (como desintegración atómica), es un algoritmo matemático muy complejo.
+- Suficiente para juegos y simulaciones, NO para criptografía segura (para eso usar el módulo `secrets`).
+-->
 
 ---
 
@@ -55,6 +68,12 @@ numero = random.randint(0, 100)
 
 **Uso típico:** dados, juegos, simulaciones
 
+<!--
+NOTAS DEL ORADOR:
+- ¡Atención! A diferencia de `range()`, aquí el extremo superior SÍ está incluido.
+- `randint(1, 6)` puede dar 6.
+-->
+
 ---
 
 <!-- _header: 'Flotantes aleatorios' -->
@@ -76,6 +95,12 @@ precio = random.random() * 100
 precio = 50 + random.random() * 100
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- La base de casi todos los generadores.
+- Devuelve un float en [0.0, 1.0). El 1.0 está excluido.
+-->
+
 ---
 
 <!-- _header: 'Flotante en rango' -->
@@ -94,6 +119,11 @@ valor = random.uniform(-10, 10)
 ```
 
 **Más cómodo que random() con matemática**
+
+<!--
+NOTAS DEL ORADOR:
+- Distribución uniforme: Todos los números tienen la misma probabilidad de salir.
+-->
 
 ---
 
@@ -117,6 +147,12 @@ turno = random.choice(jugadores)
 moneda = random.choice(["cara", "cruz"])
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Funciona con cualquier secuencia (listas, tuplas, strings).
+- `random.choice("AEIOU")` te da una vocal.
+-->
+
 ---
 
 <!-- _header: 'Múltiples elecciones' -->
@@ -134,6 +170,11 @@ print(muestra)  # Ej: [2, 2, 5]
 ```
 
 **choices permite repetición**
+
+<!--
+NOTAS DEL ORADOR:
+- Muestreo con reemplazo (como sacar una bolilla, mirarla y volverla a meter).
+-->
 
 ---
 
@@ -156,6 +197,12 @@ loteria = random.sample(range(1, 50), k=6)
 
 **sample NO permite repetición**
 
+<!--
+NOTAS DEL ORADOR:
+- Muestreo sin reemplazo (como repartir cartas).
+- `k` no puede ser mayor que la población.
+-->
+
 ---
 
 <!-- _header: 'Mezclar lista' -->
@@ -175,6 +222,12 @@ print(cartas)  # Ej: ["3", "A", "5", "2", "4"]
 ```
 
 **shuffle modifica la lista original**
+
+<!--
+NOTAS DEL ORADOR:
+- ¡Ojo! Devuelve `None`.
+- Error común: `cartas_mezcladas = random.shuffle(cartas)` (cartas_mezcladas valdrá None).
+-->
 
 ---
 
@@ -197,6 +250,12 @@ print(random.randint(1, 10))  # Mismo resultado
 ```
 
 **Útil para testing y debugging**
+
+<!--
+NOTAS DEL ORADOR:
+- Vital para la ciencia de datos y debugging.
+- Permite que "el azar" sea repetible.
+-->
 
 ---
 
@@ -332,6 +391,12 @@ valor = random.betavariate(2, 5)
 
 **Para simulaciones avanzadas**
 
+<!--
+NOTAS DEL ORADOR:
+- Mencionar solo si hay interés en estadística.
+- La distribución "normal" (campana) es la más común en la naturaleza.
+-->
+
 ---
 
 <!-- _header: 'Ejercicio' -->
@@ -411,6 +476,11 @@ simular_monedas(1000)
 
 **Próximo:**
 * Módulo math
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->
 
 ---
 

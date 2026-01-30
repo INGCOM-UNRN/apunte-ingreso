@@ -14,6 +14,13 @@ size: 4:3
 ## Entorno interactivo
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Familiarizarse con la herramienta de trabajo del curso.
+- Gancho: "¿Y si les dijera que pueden escribir código, ver los resultados, tomar notas y hacer gráficos, todo en el mismo lugar?"
+-->
+
 ---
 
 <!-- _header: '¿Qué es JupyterLab?' -->
@@ -27,6 +34,12 @@ Curso de Ingreso - Ingeniería en Computación
 * Usado en ciencia de datos e investigación
 
 **Combina código, documentación y resultados**
+
+<!--
+NOTAS DEL ORADOR:
+- "Notebook" como cuaderno de laboratorio de un científico.
+- REPL (Read-Eval-Print Loop) con esteroides.
+-->
 
 ---
 
@@ -47,6 +60,11 @@ jupyter lab
 **Se abre en navegador automáticamente**
 * URL: `http://localhost:8888`
 
+<!--
+NOTAS DEL ORADOR:
+- Recordar que es una aplicación web local. No necesita internet para funcionar.
+-->
+
 ---
 
 <!-- _header: 'Interfaz' -->
@@ -66,6 +84,12 @@ jupyter lab
 * Inspector de variables
 * Ayuda contextual
 
+<!--
+NOTAS DEL ORADOR:
+- Recorrido visual rápido por la interfaz.
+- Mencionar la posibilidad de "drag & drop" de celdas.
+-->
+
 ---
 
 <!-- _header: 'Crear notebook' -->
@@ -79,6 +103,11 @@ jupyter lab
 
 **O desde menú:**
 * File → New → Notebook
+
+<!--
+NOTAS DEL ORADOR:
+- Explicar la extensión `.ipynb` (IPython Notebook).
+-->
 
 ---
 
@@ -104,6 +133,11 @@ Este es **texto formateado** con Markdown.
 
 **Cambiar tipo:** menú desplegable o atajos
 
+<!--
+NOTAS DEL ORADOR:
+- La distinción clave: Code se ejecuta en Python, Markdown se renderiza como HTML.
+-->
+
 ---
 
 <!-- _header: 'Ejecutar celdas' -->
@@ -123,6 +157,12 @@ Este es **texto formateado** con Markdown.
 * `In [*]:` → ejecutando
 * Sin número → no ejecutada
 
+<!--
+NOTAS DEL ORADOR:
+- `Shift + Enter` es el atajo más importante que aprenderán hoy.
+- Explicar el asterisco `[*]` como indicador de "ocupado".
+-->
+
 ---
 
 <!-- _header: 'Atajos útiles' -->
@@ -140,6 +180,12 @@ Este es **texto formateado** con Markdown.
 * `Esc` → salir a modo comando
 * `Tab` → autocompletar
 * `Shift + Tab` → ayuda rápida
+
+<!--
+NOTAS DEL ORADOR:
+- Productividad. No usar el mouse para todo.
+- A (Above), B (Below).
+-->
 
 ---
 
@@ -167,6 +213,11 @@ Este es **texto formateado** con Markdown.
 * Item 2
   * Sub-item
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Ya vieron esto en la guía de Markdown, pero repasarlo aquí contextualiza su uso en Jupyter.
+-->
 
 ---
 
@@ -197,6 +248,11 @@ $$
 [Texto del enlace](https://ejemplo.com)
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Soporte de LaTeX es excelente para ingeniería y matemáticas.
+-->
+
 ---
 
 <!-- _header: 'Variables persistentes' -->
@@ -217,6 +273,12 @@ print(x + y)  # 30
 * Ejecutar celdas fuera de orden puede causar errores
 * Reiniciar kernel limpia todo
 
+<!--
+NOTAS DEL ORADOR:
+- El peligro oculto de los notebooks: El estado oculto.
+- Si borrás una celda, la variable que definiste en ella sigue en memoria hasta reiniciar.
+-->
+
 ---
 
 <!-- _header: 'Kernel' -->
@@ -233,6 +295,12 @@ print(x + y)  # 30
 * **Interrupt** → detener ejecución
 
 **Menú Kernel o toolbar**
+
+<!--
+NOTAS DEL ORADOR:
+- "Apagar y volver a encender" es la solución al 90% de los problemas en Jupyter.
+- `Interrupt` si caemos en un lazo infinito.
+-->
 
 ---
 
@@ -258,6 +326,11 @@ list.append?
 mi_funcion??
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- No hace falta ir a Google para todo. La documentación vive en el notebook.
+-->
+
 ---
 
 <!-- _header: 'Autocompletado' -->
@@ -275,6 +348,11 @@ texto.<Tab>  # Muestra todos los métodos
 ```
 
 **Muy útil para explorar**
+
+<!--
+NOTAS DEL ORADOR:
+- Excelente para descubrir métodos de objetos desconocidos.
+-->
 
 ---
 
@@ -300,6 +378,11 @@ texto.<Tab>  # Muestra todos los métodos
 %ls
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Magics de línea (`%`) vs Magics de celda (`%%`).
+-->
+
 ---
 
 <!-- _header: 'Magic commands dobles' -->
@@ -320,6 +403,11 @@ for i in range(1000):
 Este texto se escribe
 en el archivo
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- `%%writefile` es genial para crear archivos de prueba.
+-->
 
 ---
 
@@ -344,6 +432,11 @@ plt.show()
 ```
 
 **Gráfico aparece bajo la celda**
+
+<!--
+NOTAS DEL ORADOR:
+- Visualización de datos es el punto fuerte de Jupyter.
+-->
 
 ---
 
@@ -372,6 +465,11 @@ Descripción breve
 [resumen y resultados]
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Un notebook es una historia. Debe tener narrativa.
+-->
+
 ---
 
 <!-- _header: 'Guardar y exportar' -->
@@ -388,6 +486,11 @@ Descripción breve
   * PDF (requiere LaTeX)
   * Python (.py)
   * Markdown
+
+<!--
+NOTAS DEL ORADOR:
+- Exportar a HTML es la forma más fácil de enviar un trabajo práctico.
+-->
 
 ---
 
@@ -453,6 +556,11 @@ Se encontraron 15 números primos entre 2 y 50.
 
 **Próximo:**
 * Workflows y tips avanzados
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->
 
 ---
 
