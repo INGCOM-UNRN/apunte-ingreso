@@ -14,6 +14,13 @@ size: 4:3
 ## Capturar y manejar errores
 Curso de Ingreso - Ingeniería en Computación
 
+<!-- 
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Dominar la sintaxis completa del manejo de errores.
+- Gancho: "¿Cómo hacemos para que nuestro programa sobreviva a una división por cero? Le ponemos un paracaídas."
+-->
+
 ---
 
 <!-- _header: 'Estructura básica' -->
@@ -34,6 +41,12 @@ except TipoExcepcion:
 * `try` → intentar ejecutar
 * `except` → capturar error
 
+<!-- 
+NOTAS DEL ORADOR:
+- Analogía del trapecista (`try`) y la red de seguridad (`except`).
+- Si el trapecista no cae, la red no se usa.
+-->
+
 ---
 
 <!-- _header: 'Ejemplo simple' -->
@@ -51,6 +64,11 @@ except ValueError:
 **Prueba:**
 * Input "25" → Funciona
 * Input "abc" → Captura error
+
+<!-- 
+NOTAS DEL ORADOR:
+- Mostrar que el programa no se detiene si hay error, salta al `except`.
+-->
 
 ---
 
@@ -72,6 +90,12 @@ Error capturado: invalid literal for int()...
 Tipo: <class 'ValueError'>
 ```
 
+<!-- 
+NOTAS DEL ORADOR:
+- `as e` o `as error` guarda la instancia de la excepción.
+- Útil para logs o mensajes detallados.
+-->
+
 ---
 
 <!-- _header: 'Múltiples except' -->
@@ -91,6 +115,12 @@ except ZeroDivisionError:
 ```
 
 **Un except por tipo de error**
+
+<!-- 
+NOTAS DEL ORADOR:
+- Manejo diferenciado. No es lo mismo equivocarse de número que dividir por cero.
+- Permite dar feedback específico al usuario.
+-->
 
 ---
 
@@ -112,6 +142,12 @@ except Exception as e:
 
 **Usar tupla para múltiples tipos**
 
+<!-- 
+NOTAS DEL ORADOR:
+- Agrupar errores que se manejan igual.
+- `Exception` es la clase base. Captura casi todo. Usar con cuidado al final (catch-all).
+-->
+
 ---
 
 <!-- _header: 'Bloque else' -->
@@ -131,6 +167,13 @@ else:
 ```
 
 **else se ejecuta si try funciona**
+
+<!-- 
+NOTAS DEL ORADOR:
+- ¿Por qué no ponerlo dentro del `try`?
+- Para mantener el bloque `try` pequeño y enfocado solo en lo que puede fallar.
+- "Try to do this... if it worked (else), do that".
+-->
 
 ---
 
@@ -154,6 +197,12 @@ finally:
 ```
 
 **finally para limpieza**
+
+<!-- 
+NOTAS DEL ORADOR:
+- Garantiza que se ejecute incluso si hay error o si hay un `return` dentro del try.
+- Clave para liberar recursos (archivos, conexiones).
+-->
 
 ---
 
@@ -180,6 +229,11 @@ finally:
     print("Operación finalizada")
 ```
 
+<!-- 
+NOTAS DEL ORADOR:
+- Mapa completo del flujo.
+-->
+
 ---
 
 <!-- _header: 'Orden de ejecución' -->
@@ -200,6 +254,11 @@ try (parcial) → except → finally
 ```
 try (parcial) → finally → Crash
 ```
+
+<!-- 
+NOTAS DEL ORADOR:
+- Notar que `finally` se ejecuta incluso antes del Crash final.
+-->
 
 ---
 
@@ -222,6 +281,12 @@ except KeyboardInterrupt:
 ```
 
 **Posible pero mejor evitar**
+
+<!-- 
+NOTAS DEL ORADOR:
+- Aumenta la complejidad ciclomática.
+- Mejor extraer a funciones separadas.
+-->
 
 ---
 
@@ -261,6 +326,11 @@ def calculadora():
 calculadora()
 ```
 
+<!-- 
+NOTAS DEL ORADOR:
+- Ejemplo integrador.
+-->
+
 ---
 
 <!-- _header: 'Ejercicio' -->
@@ -273,6 +343,11 @@ calculadora()
 3. Maneje FileNotFoundError
 4. Siempre cierre archivo (finally)
 5. Devuelva contenido o None
+
+<!-- 
+NOTAS DEL ORADOR:
+- Introducción al manejo de archivos (que veremos en detalle luego, pero es el caso clásico de excepciones).
+-->
 
 ---
 
@@ -322,6 +397,11 @@ if contenido:
 
 **Próximo:**
 * raise: lanzar excepciones
+
+<!-- 
+NOTAS DEL ORADOR:
+- Cierre.
+-->
 
 ---
 

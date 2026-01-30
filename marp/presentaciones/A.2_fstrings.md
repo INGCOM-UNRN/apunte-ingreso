@@ -14,6 +14,13 @@ size: 4:3
 ## Formateo moderno (Python 3.6+)
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Adoptar el estándar moderno de formateo de texto en Python.
+- Gancho: "¿Y si les dijera que existe una forma más rápida, más corta y más fácil de leer que todo lo anterior?"
+-->
+
 ---
 
 <!-- _header: 'La solución moderna' -->
@@ -30,6 +37,13 @@ print(mensaje)
 ```
 
 **¡Más simple y legible!**
+
+<!--
+NOTAS DEL ORADOR:
+- La "f" mágica antes de las comillas.
+- Las variables van DIRECTAMENTE donde las querés.
+- Es lo que todos esperaban que fuera programar.
+-->
 
 ---
 
@@ -51,6 +65,12 @@ mensaje = f"{nombre} tiene {edad} años"
 * Más corto
 * Variables en su lugar
 * Más intuitivo
+
+<!--
+NOTAS DEL ORADOR:
+- Menos ruido visual.
+- Menos probabilidad de error (no hay que contar argumentos).
+-->
 
 ---
 
@@ -74,6 +94,12 @@ print(f"¿Es {a} mayor que {b}? {a > b}")
 
 **Cualquier expresión Python**
 
+<!--
+NOTAS DEL ORADOR:
+- Esto es poderoso: dentro de `{}` podés poner cualquier código Python válido (que devuelva un valor).
+- Matemáticas, llamadas a funciones, accesos a listas...
+-->
+
 ---
 
 <!-- _header: 'Llamar funciones' -->
@@ -92,6 +118,11 @@ print(f"Mayúsculas: {nombre.upper()}")
 print(f"Longitud: {len(nombre)}")
 # Longitud: 10
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Evita tener que crear variables temporales solo para imprimir algo transformado.
+-->
 
 ---
 
@@ -114,6 +145,12 @@ numero = 1234567
 print(f"Número: {numero:,}")
 # Número: 1,234,567
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Hereda todo el poder del mini-lenguaje de formateo de `.format()`.
+- La coma `,` como separador de miles es genial para números grandes.
+-->
 
 ---
 
@@ -139,6 +176,14 @@ print(f"{producto:<15} ${precio:>6.2f}")
 # Pan             $  50.00
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Mnemotecnia para las flechas:
+    - `<` apunta a la izquierda.
+    - `>` apunta a la derecha.
+    - `^` apunta arriba (centro).
+-->
+
 ---
 
 <!-- _header: 'Padding' -->
@@ -156,6 +201,11 @@ print(f"{numero:08}")     # 00000042
 print(f"{numero:*>10}")   # ********42
 print(f"{numero:-^10}")   # ----42----
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Útil para códigos postales, IDs, o decoración visual.
+-->
 
 ---
 
@@ -181,6 +231,12 @@ print(f"{ciudad=}")    # ciudad='Buenos Aires'
 
 **¡Perfecto para debugging!**
 
+<!--
+NOTAS DEL ORADOR:
+- Truco secreto de expertos.
+- Ahorra muchísimo tiempo al hacer "print debugging".
+-->
+
 ---
 
 <!-- _header: 'Multilinea' -->
@@ -203,6 +259,11 @@ print(reporte)
 ```
 
 **Usar triple comillas**
+
+<!--
+NOTAS DEL ORADOR:
+- Ideal para generar emails, HTML, SQL, o reportes de texto.
+-->
 
 ---
 
@@ -232,6 +293,12 @@ def generar_factura(producto, cantidad, precio):
 print(generar_factura("Notebook", 2, 50000))
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Ejemplo integrador potente.
+- Combina alineación, cálculos, formato numérico y multilínea.
+-->
+
 ---
 
 <!-- _header: 'Fechas y horas' -->
@@ -253,6 +320,11 @@ print(f"Completo: {ahora:%d/%m/%Y %H:%M}")
 # Completo: 30/01/2026 13:50
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Las f-strings soportan el protocolo de formateo de fechas directamente.
+-->
+
 ---
 
 <!-- _header: 'Diccionarios' -->
@@ -273,6 +345,11 @@ print(f"País: {usuario['pais']}")
 # Resumen completo
 print(f"{usuario['nombre']} ({usuario['edad']}) - {usuario['pais']}")
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Ojo con las comillas: Si la f-string usa dobles `""`, las claves del dict deben usar simples `''` (o viceversa).
+-->
 
 ---
 
@@ -328,6 +405,11 @@ print(tarjeta)
 * Más poderoso
 
 **Usar siempre que sea posible**
+
+<!--
+NOTAS DEL ORADOR:
+- Conclusión: Las f-strings son el presente y el futuro. Úsenlas.
+-->
 
 ---
 

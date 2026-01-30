@@ -14,6 +14,13 @@ size: 4:3
 ## Lanzar excepciones
 Curso de Ingreso - Ingeniería en Computación
 
+<!-- 
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Aprender a reportar errores activamente, no solo capturarlos.
+- Gancho: "Hasta ahora fuimos bomberos apagando incendios (except). Ahora vamos a aprender a activar la alarma (raise)."
+-->
+
 ---
 
 <!-- _header: 'Lanzar excepciones' -->
@@ -37,6 +44,12 @@ except ValueError as e:
 
 **Vos decidís cuándo hay error**
 
+<!--
+NOTAS DEL ORADOR:
+- `raise` interrumpe el flujo inmediatamente.
+- Es como un `return` pero de error.
+-->
+
 ---
 
 <!-- _header: '¿Por qué raise?' -->
@@ -57,6 +70,12 @@ def crear_usuario(nombre, edad):
 ```
 
 **Fallar rápido es mejor que dato malo**
+
+<!--
+NOTAS DEL ORADOR:
+- Principio "Fail Fast" (Fallar Rápido).
+- Es mejor detenerse ahora que guardar basura en la base de datos y descubrirlo dentro de un mes.
+-->
 
 ---
 
@@ -84,6 +103,12 @@ raise RuntimeError("Error en tiempo de ejecución")
 raise Exception("Error general")
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Usar la semántica correcta ayuda a quien usa tu código.
+- Si el tipo de dato está mal, `TypeError`. Si el tipo está bien pero el valor no (edad -5), `ValueError`.
+-->
+
 ---
 
 <!-- _header: 'Re-lanzar' -->
@@ -107,6 +132,11 @@ except ValueError:
 
 **raise solo = re-lanzar**
 
+<!--
+NOTAS DEL ORADOR:
+- Útil para logging: "Vi el error, lo anoto, pero dejo que explote igual para que alguien más arriba decida qué hacer".
+-->
+
 ---
 
 <!-- _header: 'Excepciones personalizadas' -->
@@ -129,6 +159,13 @@ def validar_usuario(nombre, edad):
         raise EdadInvalidaError(f"Edad {edad} es negativa")
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Entramos en OOP (Programación Orientada a Objetos) básica.
+- Heredar de `Exception`.
+- Convención: Terminar el nombre con `Error`.
+-->
+
 ---
 
 <!-- _header: 'Usar excepciones propias' -->
@@ -145,6 +182,11 @@ except EdadInvalidaError:
 ```
 
 **Más específico y claro**
+
+<!--
+NOTAS DEL ORADOR:
+- Permite diferenciar errores de lógica de negocio de errores de Python.
+-->
 
 ---
 
@@ -170,6 +212,12 @@ except ErrorValidacion:
     print("Error de validación")
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Polimorfismo en excepciones.
+- Puedo capturar el padre para atrapar a todos los hijos.
+-->
+
 ---
 
 <!-- _header: 'Excepciones con datos' -->
@@ -194,6 +242,12 @@ except ErrorRango as e:
     print(f"Valor: {e.valor}")
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Las excepciones son clases normales, pueden tener atributos y métodos.
+- Enriquecer el error con contexto (qué valor falló, cuál era el límite).
+-->
+
 ---
 
 <!-- _header: 'Cuándo usar raise' -->
@@ -210,6 +264,11 @@ except ErrorRango as e:
 * Control de flujo normal
 * Casos esperados (usar if)
 * Ocultar bugs
+
+<!--
+NOTAS DEL ORADOR:
+- No usar excepciones para cosas que no son excepcionales (ej: fin de una lista).
+-->
 
 ---
 
@@ -241,6 +300,12 @@ def validar_contraseña(password):
     
     return True
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Ejemplo de dominio real.
+- Notar cómo el error personalizado hace que el código sea muy legible.
+-->
 
 ---
 
@@ -328,6 +393,11 @@ except ErrorRango as e:
 
 **Próximo:**
 * Buenas prácticas
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->
 
 ---
 

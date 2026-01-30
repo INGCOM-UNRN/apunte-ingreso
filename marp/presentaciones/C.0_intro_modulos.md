@@ -14,6 +14,13 @@ size: 4:3
 ## Biblioteca Estándar e Imports
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Comprender que no hay que reinventar la rueda.
+- Gancho: "¿Saben por qué Python es tan popular? Porque viene con 'baterías incluidas'. Hoy vamos a ver qué significa eso."
+-->
+
 ---
 
 <!-- _header: 'Filosofía Python' -->
@@ -30,6 +37,14 @@ No tenés que escribir todo desde cero.
 **¿Por qué separar?**
 Para no sobrecargar la memoria con cosas que no siempre usás.
 
+<!--
+NOTAS DEL ORADOR:
+- Analogía:
+    - Built-ins = Los bolsillos de tu pantalón (llaves, billetera). Siempre a mano.
+    - Módulos = La caja de herramientas en el garaje. Tenés que ir a buscarla (`import`) solo cuando la necesitás.
+- Si Python cargara todo al inicio, tardaría mucho en arrancar.
+-->
+
 ---
 
 <!-- _header: '¿Qué es un módulo?' -->
@@ -42,6 +57,12 @@ Un **módulo** es simplemente un archivo `.py` que contiene código Python (func
 * **Organización:** Agrupar código relacionado.
 * **Reutilización:** Usar el mismo código en varios programas.
 * **Namespace:** Evitar conflictos de nombres.
+
+<!--
+NOTAS DEL ORADOR:
+- Namespace (Espacio de nombres): Imaginen que hay dos estudiantes llamados "Juan". Para distinguirlos usamos sus apellidos.
+- Los módulos son como apellidos para las funciones. `math.sqrt` es distinta de `cmath.sqrt`.
+-->
 
 ---
 
@@ -60,6 +81,11 @@ print(math.sqrt(16))    # 4.0
 ```
 
 **Nota:** Debés usar el prefijo `math.` para acceder a sus herramientas.
+
+<!--
+NOTAS DEL ORADOR:
+- El punto `.` es el operador de acceso. Se lee "del módulo math, dame pi".
+-->
 
 ---
 
@@ -81,6 +107,12 @@ print(m.cos(0))
 
 **Convención:** Algunos alias son estándar en la industria (`pd` para pandas, `np` para numpy).
 
+<!--
+NOTAS DEL ORADOR:
+- Usar alias estándar es buena práctica porque otros programadores entenderán tu código al instante.
+- `import math as m` es común en scripts cortos matemáticos.
+-->
+
 ---
 
 <!-- _header: 'Importar específicos' -->
@@ -98,6 +130,12 @@ print(sqrt(25))
 ```
 
 **Cuidado:** Si tenés una variable llamada `pi` en tu código, esto la sobrescribirá.
+
+<!--
+NOTAS DEL ORADOR:
+- Ventaja: Código más limpio (`sqrt(25)` vs `math.sqrt(25)`).
+- Desventaja: Posible colisión de nombres. ¿De dónde viene `pi`? ¿Del módulo o es una variable mía?
+-->
 
 ---
 
@@ -117,6 +155,13 @@ Importa **todo** lo que hay en el módulo al espacio de nombres actual.
 * Hace el código difícil de leer.
 
 **Regla:** Sé explícito. `import math` o `from math import sqrt`.
+
+<!--
+NOTAS DEL ORADOR:
+- El "Star Import" es el villano de la película.
+- Imagina importar dos módulos que ambos tienen una función `open()`. ¿Cuál se usa?
+- Solo aceptable en sesiones interactivas rápidas, nunca en código de producción.
+-->
 
 ---
 
@@ -138,6 +183,13 @@ print(dir(math))
 help(math.cos)
 # Muestra la documentación de la función cos
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Herramientas de introspección. Muy útiles en la consola interactiva.
+- `dir()` lista el directorio de nombres.
+- `help()` muestra el docstring (¿recuerdan que vimos docstrings antes?).
+-->
 
 ---
 
@@ -161,6 +213,12 @@ print(f"Tu número de la suerte es: {numero}")
 * `import time`: Herramientas de tiempo.
 * Usamos funciones de ambos módulos en el mismo programa.
 
+<!--
+NOTAS DEL ORADOR:
+- Un programa real suele importar varios módulos.
+- Convención PEP 8: Todos los imports van al principio del archivo.
+-->
+
 ---
 
 <!-- _header: 'Resumen' -->
@@ -176,3 +234,8 @@ print(f"Tu número de la suerte es: {numero}")
 
 **Próximo:**
 * Módulos específicos: Random y Math.
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->

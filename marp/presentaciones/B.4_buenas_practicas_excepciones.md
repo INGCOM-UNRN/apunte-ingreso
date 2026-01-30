@@ -14,6 +14,13 @@ size: 4:3
 ## Excepciones profesionales
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Distinguir entre código que "funciona" y código profesional mantenible.
+- Gancho: "¿Saben cuál es el peor error? El que no te dice que ocurrió. Vamos a evitar eso."
+-->
+
 ---
 
 <!-- _header: 'Regla 1' -->
@@ -38,6 +45,14 @@ except TypeError:
     print("Error de tipo")
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- "Bare except" (except desnudo) es el anti-patrón #1.
+- Captura `Ctrl+C` (KeyboardInterrupt), haciendo que no puedas parar tu programa.
+- Captura `SystemExit`.
+- Oculta bugs de sintaxis o nombres de variables (`NameError`).
+-->
+
 ---
 
 <!-- _header: 'Regla 2' -->
@@ -61,6 +76,13 @@ except Exception as e:
     # O logging.error(e)
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- "Pokemon Exception Handling": Gotta catch 'em all! (y no hacer nada).
+- Si capturás una excepción y no hacés nada, estás borrando la evidencia del crimen.
+- El debugging se vuelve imposible.
+-->
+
 ---
 
 <!-- _header: 'Regla 3' -->
@@ -80,6 +102,12 @@ raise ValueError(
 ```
 
 **El mensaje debe ayudar a entender**
+
+<!--
+NOTAS DEL ORADOR:
+- El mensaje de error es la UI para el programador.
+- Incluir los valores que causaron el error (ej: qué edad era inválida).
+-->
 
 ---
 
@@ -107,6 +135,12 @@ except ValueError:
 finalizar()
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Si metés todo en el `try`, podés capturar un `ValueError` que no esperabas de otra parte del código.
+- Precisión quirúrgica.
+-->
+
 ---
 
 <!-- _header: 'Regla 5' -->
@@ -133,6 +167,12 @@ except Exception:
     print("Error general")
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Python evalúa los `except` de arriba a abajo.
+- Si ponés el balde grande arriba, el vaso chico de abajo nunca recibe agua.
+-->
+
 ---
 
 <!-- _header: 'Patrón: Reintentos' -->
@@ -152,6 +192,12 @@ def operacion_con_reintentos(max_intentos=3):
             time.sleep(1)
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Patrón clave en sistemas distribuidos o redes.
+- "Retry pattern".
+-->
+
 ---
 
 <!-- _header: 'Patrón: Valor por defecto' -->
@@ -170,6 +216,12 @@ def obtener_configuracion(clave, default=None):
 puerto = obtener_configuracion("puerto", 8080)
 host = obtener_configuracion("host", "localhost")
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- "Graceful degradation".
+- Si falla la configuración, usar valores seguros.
+-->
 
 ---
 
@@ -197,6 +249,11 @@ def validar_formulario(datos):
     return True
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Mejor experiencia de usuario: Decirle TODO lo que está mal de una vez, no error por error.
+-->
+
 ---
 
 <!-- _header: 'Logging' -->
@@ -223,6 +280,12 @@ def procesar_archivo(nombre):
         raise
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Introducción breve al módulo `logging`.
+- Mejor que `print` porque se puede guardar en archivo, filtrar por nivel, etc.
+-->
+
 ---
 
 <!-- _header: 'Context managers' -->
@@ -244,6 +307,12 @@ with open("datos.txt") as archivo:
 ```
 
 **with maneja cleanup automáticamente**
+
+<!--
+NOTAS DEL ORADOR:
+- El `with` es azúcar sintáctica para un `try...finally`.
+- SIEMPRE usar `with` para archivos.
+-->
 
 ---
 
@@ -276,6 +345,12 @@ def dividir(a, b):
     return a / b
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Las excepciones son parte de la interfaz (API) de tu función.
+- El usuario debe saber qué esperar.
+-->
+
 ---
 
 <!-- _header: 'Testing con excepciones' -->
@@ -295,6 +370,11 @@ def test_tipo_incorrecto():
     with pytest.raises(TypeError):
         dividir("10", 5)
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Testing negativo: Probar que el código falla como debe fallar cuando debe fallar.
+-->
 
 ---
 
@@ -345,6 +425,11 @@ except (ValueError, TypeError) as e:
 - [ ] Cleanup con finally o with
 - [ ] Tests para casos de error
 - [ ] Validar entradas críticas
+
+<!--
+NOTAS DEL ORADOR:
+- Checklist de calidad para el TP.
+-->
 
 ---
 

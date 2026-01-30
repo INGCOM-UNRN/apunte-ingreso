@@ -14,6 +14,13 @@ size: 4:3
 ## Manejo de errores
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Entender que los errores son eventos esperables y manejables.
+- Gancho: "¿Alguna vez un programa se les cerró de la nada y perdieron todo? Eso es una excepción no manejada."
+-->
+
 ---
 
 <!-- _header: 'Los errores existen' -->
@@ -28,6 +35,13 @@ Curso de Ingreso - Ingeniería en Computación
 * Conexión de red perdida
 
 **¿Cómo manejarlos profesionalmente?**
+
+<!--
+NOTAS DEL ORADOR:
+- Principio de Murphy: Si algo puede salir mal, saldrá mal.
+- El programador profesional ANTICIPA el error.
+- Diferencia entre "Bug" (error de lógica) y "Excepción" (evento en tiempo de ejecución).
+-->
 
 ---
 
@@ -48,6 +62,12 @@ print(f"Resultado: {resultado}")
 
 **¿Qué pasa si el usuario ingresa "hola"?**
 **¿O si ingresa 0 como denominador?**
+
+<!--
+NOTAS DEL ORADOR:
+- Mostrar que el programa "explota" (Crash).
+- La experiencia de usuario es terrible (mensajes en rojo crípticos).
+-->
 
 ---
 
@@ -72,6 +92,13 @@ except ValueError as e:
 
 **El programa no se rompe**
 
+<!--
+NOTAS DEL ORADOR:
+- "Graceful degradation" (Degradación elegante).
+- El programa informa el problema y sigue o termina ordenadamente.
+- Introducir `try` y `except` como conceptos de "intentar" y "capturar".
+-->
+
 ---
 
 <!-- _header: '¿Qué es una excepción?' -->
@@ -87,6 +114,11 @@ except ValueError as e:
 * Alarma de incendio (excepción)
 * Seguir el procedimiento (try-except)
 * Evacuación segura (manejo correcto)
+
+<!--
+NOTAS DEL ORADOR:
+- El flujo normal se corta. Se salta a la rutina de manejo de error.
+-->
 
 ---
 
@@ -108,6 +140,12 @@ int("abc")  # ValueError: no es un número
 ```python
 10 / 0  # ZeroDivisionError
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Familiarizarse con los nombres.
+- Aprender a leer el Traceback para identificar el tipo.
+-->
 
 ---
 
@@ -132,6 +170,11 @@ dict["b"]  # KeyError: clave no existe
 open("noexiste.txt")  # FileNotFoundError
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- `IndexError` y `KeyError` son los reyes de las estructuras de datos.
+-->
+
 ---
 
 <!-- _header: 'Sin manejo' -->
@@ -152,6 +195,13 @@ ValueError: invalid literal for int() with base 10: 'abc'
 ```
 
 **Programa termina abruptamente**
+
+<!--
+NOTAS DEL ORADOR:
+- Analizar la anatomía de un Traceback.
+- Última línea: Tipo de error y mensaje.
+- Líneas anteriores: Dónde ocurrió.
+-->
 
 ---
 
@@ -174,6 +224,11 @@ print("El programa continúa")
 Error: ingresá un número válido
 El programa continúa
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- La magia es que "El programa continúa".
+-->
 
 ---
 
@@ -199,6 +254,14 @@ except ZeroDivisionError:
 
 **Python prefiere EAFP**
 
+<!--
+NOTAS DEL ORADOR:
+- Concepto muy Pythonic.
+- "Es más fácil pedir perdón que permiso".
+- En Python, intentar y fallar es barato y limpio.
+- LBYL (Mirar antes de saltar) puede tener "Race Conditions" (condiciones de carrera) en sistemas concurrentes.
+-->
+
 ---
 
 <!-- _header: 'Cuándo usar' -->
@@ -215,6 +278,12 @@ except ZeroDivisionError:
 * Control de flujo normal
 * Validaciones simples (if)
 * Ocultar bugs reales
+
+<!--
+NOTAS DEL ORADOR:
+- No usar excepciones como `goto`.
+- No capturar TODO (`except: pass`) porque ocultás errores legítimos.
+-->
 
 ---
 
@@ -237,6 +306,12 @@ edad = pedir_numero("Edad: ")
 print(f"Edad válida: {edad}")
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Patrón de validación robusta con `while True` + `try-except`.
+- Indestructible ante entradas del usuario.
+-->
+
 ---
 
 <!-- _header: 'Resumen' -->
@@ -255,6 +330,11 @@ print(f"Edad válida: {edad}")
 
 **Próximo:**
 * try-except en detalle
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->
 
 ---
 
