@@ -11,7 +11,7 @@ size: 4:3
 <!-- _footer: 'JupyterLab - Parte 2/2' -->
 
 # <!-- fit --> Workflows
-## Trabajo eficiente en Jupyter
+## Trabajo eficiente en JupyterLite
 Curso de Ingreso - Ingeniería en Computación
 
 <!--
@@ -19,6 +19,7 @@ NOTAS DEL ORADOR:
 - Duración estimada: 3 minutos
 - Objetivo: Transformar el uso básico en un proceso productivo y profesional.
 - Gancho: "¿Alguna vez pasaron horas arreglando un error para darse cuenta de que solo tenían que reiniciar el kernel? Hoy aprendemos a trabajar en serio."
+- Recordar: usamos JupyterLite en https://ingcom-unrn.github.io/jupyterlite/
 -->
 
 ---
@@ -164,34 +165,107 @@ NOTAS DEL ORADOR:
 
 ---
 
+<!-- _header: 'Múltiples cuadernos' -->
+
+# Trabajar con varios notebooks
+
+**Abrir múltiples archivos:**
+* File → Open desde File Browser
+* Doble-click en cada `.ipynb`
+* Cada notebook abre en pestaña separada
+
+**Cambiar entre pestañas:**
+* Click en pestaña
+* `Ctrl + Shift + [` / `]` → navegar pestañas
+* Arrastrar para reordenar
+
+<!--
+NOTAS DEL ORADOR:
+- JupyterLab permite tener múltiples notebooks abiertos simultáneamente.
+- Útil para comparar código, copiar funciones entre proyectos, o tener referencia y trabajo separados.
+-->
+
+---
+
+<!-- _header: 'Vistas paralelas' -->
+
+# Organizar en paneles
+
+**Dividir la vista:**
+* Arrastrar pestaña al borde → crea panel
+* Arrastrar a borde derecho → vista lado a lado
+* Arrastrar a borde inferior → vista apilada
+
+**Configuraciones útiles:**
+* Notebook + Terminal
+* Notebook + Documentación
+* Dos notebooks comparando
+
+**Ajustar tamaño:**
+* Arrastrar el divisor entre paneles
+
+<!--
+NOTAS DEL ORADOR:
+- Arrastrar las pestañas es la clave: al soltar cerca del borde se crean paneles nuevos.
+- Muy útil para tener datos en un lado y análisis en otro.
+-->
+
+---
+
+<!-- _header: 'Vistas del mismo archivo' -->
+
+# Vista espejo de un notebook
+
+**Crear vista paralela del mismo archivo:**
+* Click derecho en pestaña → "New View for Notebook"
+* O arrastrar la pestaña manteniendo `Alt`
+
+**Ventajas:**
+* Ver celda de definición mientras usás la función
+* Comparar secciones distantes del mismo notebook
+* Editar en un panel, ver resultado en otro
+
+**Sincronización:**
+* Cambios se reflejan en ambas vistas
+* Mismo kernel compartido
+
+<!--
+NOTAS DEL ORADOR:
+- "New View for Notebook" es una función muy potente y poco conocida.
+- Ideal para notebooks largos donde necesitás ver dos partes a la vez.
+-->
+
+---
+
 <!-- _header: 'Reutilizar código' -->
 
-# Importar desde archivos
+# Copiar código entre notebooks
 
-**Cuando código crece:**
+**En JupyterLite:**
+* No hay archivos `.py` externos
+* Copiar funciones entre notebooks
+
+**Buena práctica:**
 ```python
-# archivo: utilidades.py
-def funcion_util1():
-    pass
+# Celda de "utilidades" al inicio
+def es_primo(n):
+    """Verifica si n es primo."""
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
 
-def funcion_util2():
-    pass
-```
-
-**En notebook:**
-```python
-# Importar módulo local
-from utilidades import funcion_util1
-
-# Recargar si modifica
-%load_ext autoreload
-%autoreload 2
+# Usar en otras celdas
+print(es_primo(17))
 ```
 
 <!--
 NOTAS DEL ORADOR:
-- Regla: Si copias y pegas una función entre notebooks, movela a un archivo `.py`.
-- `autoreload` es magia: actualiza el código importado sin reiniciar el kernel.
+- En JupyterLite no podemos importar archivos .py externos fácilmente.
+- La solución es tener una celda de "funciones útiles" al inicio.
+- Para proyectos más grandes, usar JupyterLab instalado localmente.
 -->
 
 ---
@@ -202,26 +276,27 @@ NOTAS DEL ORADOR:
 
 **Primera celda estándar:**
 ```python
-# Imports
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
+# Imports disponibles en JupyterLite
+import math
+import random
+import json
+
+# Para gráficos (si está disponible)
+# import matplotlib.pyplot as plt
 
 # Configuración
-%matplotlib inline
-pd.set_option('display.max_rows', 100)
-plt.style.use('seaborn-v0_8')
-
-# Semilla para reproducibilidad
-np.random.seed(42)
-
 print("✅ Setup completo")
 ```
 
+**Nota JupyterLite:**
+* Algunas librerías no están disponibles
+* Las básicas de Python sí funcionan
+
 <!--
 NOTAS DEL ORADOR:
+- En JupyterLite algunas librerías como numpy/pandas pueden no estar disponibles o requerir instalación especial.
+- Para el curso de ingreso, usamos principalmente Python básico.
 - Convención: Todos los imports arriba.
-- Configuración global evita sorpresas más adelante.
 -->
 
 ---
@@ -275,60 +350,62 @@ NOTAS DEL ORADOR:
 
 <!-- _header: 'Versionado' -->
 
-# Git con notebooks
+# Guardar tu trabajo
 
-**Problema:** `.ipynb` es JSON
-* Diffs ilegibles
-* Conflictos difíciles
+**En JupyterLite los archivos están en el navegador**
 
-**Soluciones:**
-```bash
-# 1. Limpiar outputs antes de commit
-jupyter nbconvert --clear-output notebook.ipynb
+**Buenas prácticas:**
+1. **Descargar frecuentemente**
+   * Click derecho → Download
+   * Guardar en carpeta del curso
 
-# 2. Usar herramientas especiales
-pip install nbdime
-nbdiff notebook1.ipynb notebook2.ipynb
+2. **Nombrar con fecha:**
+   ```
+   ejercicio1_2026-01-30.ipynb
+   ```
 
-# 3. Exportar a .py también
-jupyter nbconvert --to python notebook.ipynb
-```
+3. **Subir a Google Drive/OneDrive**
+   * Backup en la nube
+
+**Si borrás caché del navegador, perdés todo**
 
 <!--
 NOTAS DEL ORADOR:
-- Los gráficos en base64 dentro del JSON hacen que los diffs de git sean gigantes e inútiles.
-- `nbdime` (Notebook Diff & Merge) es la herramienta estándar.
+- Esto es crítico en JupyterLite.
+- Los archivos NO están en tu computadora, están en el navegador.
+- Hacer backup regularmente.
+- Descargar al final de cada sesión de trabajo.
 -->
 
 ---
 
 <!-- _header: 'Compartir notebooks' -->
 
-# Exportar para otros
+# Compartir tu trabajo
 
-**HTML (más común):**
-```bash
-jupyter nbconvert --to html notebook.ipynb
-```
-* Se ve en cualquier navegador
-* Incluye outputs y gráficos
+**Descargar y enviar:**
+1. Click derecho en notebook → Download
+2. Enviar archivo `.ipynb` por email/aula virtual
 
-**PDF (presentaciones):**
-```bash
-jupyter nbconvert --to pdf notebook.ipynb
-```
-* Requiere LaTeX instalado
+**Alternativas:**
+* Copiar a Google Colab (colab.research.google.com)
+* Subir a GitHub (renderiza automáticamente)
+
+**Para el curso:**
+* Descargar `.ipynb`
+* Subir al aula virtual
 
 <!--
 NOTAS DEL ORADOR:
-- HTML es universal. El PDF es más formal.
+- El método más simple: descargar y subir al aula virtual.
+- Google Colab puede abrir archivos .ipynb directamente.
 -->
 
 ---
 
 <!-- _header: 'NBViewer' -->
 
-# Compartir online
+# Ver notebooks online
 
 **NBViewer:**
 * nbviewer.jupyter.org
@@ -339,42 +416,40 @@ NOTAS DEL ORADOR:
 * Renderiza `.ipynb` automáticamente
 * Sin necesidad de herramientas extra
 
-**Colab:**
+**Google Colab:**
 * colab.research.google.com
 * Ejecutar notebooks en la nube
+* Alternativa a JupyterLite
 
 <!--
 NOTAS DEL ORADOR:
-- GitHub a veces es lento renderizando. NBViewer es el backup confiable.
+- Si necesitan más potencia o librerías especiales, Colab es buena opción.
+- Para el curso básico, JupyterLite es suficiente.
 -->
 
 ---
 
 <!-- _header: 'Extensiones útiles' -->
 
-# Potenciar JupyterLab
+# Limitaciones de JupyterLite
 
-**Instalar extensiones:**
-```bash
-pip install jupyterlab-git
-pip install jupyterlab-lsp
-pip install jupyterlab-code-formatter
-```
+**No disponible en JupyterLite:**
+* Extensiones personalizadas
+* Algunas librerías (numpy, pandas pueden requerir config especial)
+* Acceso al sistema de archivos local
+* Terminal
 
-**Habilitar:**
-* Settings → Extension Manager
-* Buscar e instalar
-
-**Populares:**
-* Git integration
-* Code formatter (black/autopep8)
-* Variable Inspector
-* Table of Contents
+**Sí disponible:**
+* Python estándar completo
+* Markdown y LaTeX
+* Gráficos básicos
+* Todo lo necesario para el curso
 
 <!--
 NOTAS DEL ORADOR:
-- JupyterLab es extensible.
-- El formateador de código es esencial para mantener PEP 8 sin esfuerzo.
+- JupyterLite es más limitado que JupyterLab instalado.
+- Pero para aprender Python básico es perfecto.
+- Si necesitan más, instalar JupyterLab localmente o usar Colab.
 -->
 
 ---
@@ -550,32 +625,37 @@ NOTAS DEL ORADOR:
 
 <!-- _header: 'Alternativas' -->
 
-# Otros entornos similares
+# Si necesitás más potencia
 
 **Google Colab:**
 * Online, gratis
 * GPU disponible
-* Ideal para ML
+* Más librerías
+
+**JupyterLab local:**
+```bash
+pip install jupyterlab
+jupyter lab
+```
+* Control total
+* Todas las extensiones
 
 **VSCode:**
 * Soporte nativo `.ipynb`
 * Integrado con IDE
 
-**Databricks:**
-* Colaborativo
-* Para Big Data
-
 <!--
 NOTAS DEL ORADOR:
-- JupyterLab no es la única opción, pero es el estándar de facto.
+- Para el curso, JupyterLite es suficiente.
+- Si quieren explorar más, Colab o instalar JupyterLab local.
 -->
 
 ---
 
 <!-- _class: inverse -->
 
-# <!-- fit --> ¡JupyterLab completo!
-## Entorno productivo para Python
+# <!-- fit --> ¡JupyterLite listo!
+## Entorno productivo en el navegador
 
 ---
 
@@ -583,23 +663,21 @@ NOTAS DEL ORADOR:
 
 # Para recordar
 
-**JupyterLab permite:**
-* Desarrollo iterativo
-* Documentación integrada
-* Visualizaciones inline
-* Compartir resultados
+**JupyterLite del curso:**
+* `https://ingcom-unrn.github.io/jupyterlite/`
+* Sin instalación
+* Funciona en cualquier navegador
 
 **Workflow:**
-1. Setup inicial
-2. Explorar datos
-3. Analizar iterativamente
-4. Documentar conclusiones
-5. Exportar resultados
+1. Abrir JupyterLite
+2. Crear/abrir notebook
+3. Escribir y ejecutar código
+4. **Descargar notebook al terminar**
 
-**Mantener reproducibilidad:**
-* Reiniciar kernel
-* Ejecutar todo
-* Limpiar outputs
+**Importante:**
+* Los archivos están en el navegador
+* Descargar siempre antes de cerrar
+* Backup en la nube recomendado
 
 ---
 
