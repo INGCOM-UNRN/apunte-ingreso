@@ -517,7 +517,7 @@ NOTAS DEL ORADOR:
 cuadrados = [x**2 for x in range(10)]
 
 # ✅ Con filtro
-pare s= [x for x in numeros if x % 2 == 0]
+pares= [x for x in numeros if x % 2 == 0]
 
 # ❌ Demasiado complejo
 resultado = [
