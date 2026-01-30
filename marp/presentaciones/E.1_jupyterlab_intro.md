@@ -10,59 +10,65 @@ size: 4:3
 <!-- _class: lead -->
 <!-- _footer: 'JupyterLab - Parte 1/2' -->
 
-# <!-- fit --> JupyterLab
-## Entorno interactivo
+# <!-- fit --> JupyterLite
+## Entorno interactivo en el navegador
 Curso de Ingreso - Ingeniería en Computación
 
 <!--
 NOTAS DEL ORADOR:
 - Duración estimada: 3 minutos
 - Objetivo: Familiarizarse con la herramienta de trabajo del curso.
-- Gancho: "¿Y si les dijera que pueden escribir código, ver los resultados, tomar notas y hacer gráficos, todo en el mismo lugar?"
+- Gancho: "¿Y si les dijera que pueden escribir código, ver los resultados, tomar notas y hacer gráficos, todo en el mismo lugar y SIN instalar nada?"
+- JupyterLite es una versión de JupyterLab que corre completamente en el navegador.
 -->
 
 ---
 
 <!-- _header: '¿Qué es JupyterLab?' -->
 
-# JupyterLab
+# JupyterLite
 
-**Entorno de desarrollo interactivo:**
+**Entorno de desarrollo interactivo en el navegador:**
 * Notebooks con código + texto + gráficos
 * Ejecutar código por celdas
 * Ideal para aprendizaje y exploración
-* Usado en ciencia de datos e investigación
+* **Sin instalación** - funciona en cualquier navegador
 
 **Combina código, documentación y resultados**
 
 <!--
 NOTAS DEL ORADOR:
 - "Notebook" como cuaderno de laboratorio de un científico.
-- REPL (Read-Eval-Print Loop) con esteroides.
+- JupyterLite es JupyterLab pero corre 100% en el navegador, sin servidor.
+- Ventaja: no hay que instalar Python ni nada.
 -->
 
 ---
 
-<!-- _header: 'Instalación' -->
+<!-- _header: 'Acceso' -->
 
-# Instalar JupyterLab
+# Acceder a JupyterLite
 
-**Con pip:**
-```bash
-pip install jupyterlab
+**URL del curso:**
+```
+https://ingcom-unrn.github.io/jupyterlite/
 ```
 
-**Iniciar:**
-```bash
-jupyter lab
-```
+**Pasos:**
+1. Abrir el enlace en el navegador
+2. Esperar que cargue (primera vez tarda un poco)
+3. ¡Listo para usar!
 
-**Se abre en navegador automáticamente**
-* URL: `http://localhost:8888`
+**No requiere:**
+* Instalación de Python
+* Cuenta de usuario
+* Conexión permanente (funciona offline después de cargar)
 
 <!--
 NOTAS DEL ORADOR:
-- Recordar que es una aplicación web local. No necesita internet para funcionar.
+- Mostrar cómo acceder en vivo.
+- La primera carga puede tardar porque descarga el kernel de Python al navegador.
+- Una vez cargado, funciona incluso sin internet.
 -->
 
 ---
@@ -86,6 +92,7 @@ NOTAS DEL ORADOR:
 
 <!--
 NOTAS DEL ORADOR:
+- La interfaz es idéntica a JupyterLab tradicional.
 - Recorrido visual rápido por la interfaz.
 - Mencionar la posibilidad de "drag & drop" de celdas.
 -->
@@ -98,7 +105,7 @@ NOTAS DEL ORADOR:
 
 **Pasos:**
 1. Click en **+** (Launcher)
-2. Seleccionar **Python 3** en Notebook
+2. Seleccionar **Python (Pyodide)** en Notebook
 3. Se crea archivo `.ipynb`
 
 **O desde menú:**
@@ -107,6 +114,8 @@ NOTAS DEL ORADOR:
 <!--
 NOTAS DEL ORADOR:
 - Explicar la extensión `.ipynb` (IPython Notebook).
+- Pyodide es el kernel de Python que corre en el navegador.
+- Es Python real, con la mayoría de las librerías estándar.
 -->
 
 ---
@@ -285,9 +294,9 @@ NOTAS DEL ORADOR:
 
 # Administrar el kernel
 
-**Kernel = intérprete Python:**
+**Kernel = intérprete Python (Pyodide):**
 * Mantiene variables en memoria
-* Ejecuta el código
+* Ejecuta el código en el navegador
 
 **Acciones:**
 * **Restart** → limpia todo, empieza de cero
@@ -298,7 +307,8 @@ NOTAS DEL ORADOR:
 
 <!--
 NOTAS DEL ORADOR:
-- "Apagar y volver a encender" es la solución al 90% de los problemas en Jupyter.
+- En JupyterLite, el kernel es Pyodide (Python compilado a WebAssembly).
+- "Apagar y volver a encender" es la solución al 90% de los problemas.
 - `Interrupt` si caemos en un lazo infinito.
 -->
 
@@ -478,18 +488,22 @@ NOTAS DEL ORADOR:
 
 **Guardar:**
 * `Ctrl + S` o `Cmd + S`
-* Autoguardado activado por defecto
+* Los archivos se guardan en el navegador (localStorage)
 
-**Exportar:**
-* File → Export Notebook As...
-  * HTML (para compartir)
-  * PDF (requiere LaTeX)
-  * Python (.py)
-  * Markdown
+**Descargar notebook:**
+* Click derecho → Download
+* Guardar `.ipynb` en tu computadora
+
+**Importante en JupyterLite:**
+* Los archivos están en el navegador
+* Si borrás caché, se pierden
+* **Descargá tus notebooks importantes**
 
 <!--
 NOTAS DEL ORADOR:
-- Exportar a HTML es la forma más fácil de enviar un trabajo práctico.
+- Diferencia clave con JupyterLab normal: archivos en el navegador.
+- SIEMPRE descargar los trabajos importantes a la computadora.
+- Si cambiás de navegador o borrás datos, perdés los archivos.
 -->
 
 ---
@@ -542,10 +556,10 @@ Se encontraron 15 números primos entre 2 y 50.
 
 # Para recordar
 
-**JupyterLab:**
-* Entorno interactivo
+**JupyterLite del curso:**
+* `https://ingcom-unrn.github.io/jupyterlite/`
+* Sin instalación, funciona en navegador
 * Celdas de código y Markdown
-* Ejecutar por partes
 * Variables persistentes
 
 **Atajos útiles:**
@@ -554,12 +568,13 @@ Se encontraron 15 números primos entre 2 y 50.
 * `M` / `Y` → cambiar tipo
 * `Tab` → autocompletar
 
-**Próximo:**
-* Workflows y tips avanzados
+**Importante:**
+* Descargar notebooks para no perderlos
 
 <!--
 NOTAS DEL ORADOR:
 - Cierre.
+- Recordar la URL del curso.
 -->
 
 ---
