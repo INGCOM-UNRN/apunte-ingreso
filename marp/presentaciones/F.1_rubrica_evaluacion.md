@@ -14,6 +14,13 @@ size: 4:3
 ## Cómo se evalúa el código
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Transparentar el proceso de evaluación y establecer expectativas de calidad.
+- Gancho: "¿Saben por qué les pedimos nombres descriptivos y docstrings? Porque en la vida real, el código se lee 10 veces más de lo que se escribe."
+-->
+
 ---
 
 <!-- _header: 'Filosofía' -->
@@ -27,6 +34,12 @@ Curso de Ingreso - Ingeniería en Computación
 * Debe mostrar comprensión
 
 **"El código es para humanos"**
+
+<!--
+NOTAS DEL ORADOR:
+- No somos una máquina que califica si el output es correcto. Somos humanos que evalúan el pensamiento algorítmico.
+- Un código que funciona pero es ilegible es una "bomba de tiempo" técnica.
+-->
 
 ---
 
@@ -49,6 +62,12 @@ Curso de Ingreso - Ingeniería en Computación
 **4. Apropiación de Herramientas (10%)**
 * ¿Usa herramientas aprendidas?
 
+<!--
+NOTAS DEL ORADOR:
+- Notar que la "Corrección" es solo el 40%. Podés tener un programa que dé el resultado correcto pero igual no aprobar si el resto es un desastre.
+- Queremos formar ingenieros, no solo "coders".
+-->
+
 ---
 
 <!-- _header: 'Dimensión 1' -->
@@ -66,6 +85,12 @@ Curso de Ingreso - Ingeniería en Computación
 * **Bueno:** Funciona en casos normales
 * **Suficiente:** Funciona parcialmente
 * **Insuficiente:** No funciona
+
+<!--
+NOTAS DEL ORADOR:
+- "Casos borde": ¿Qué pasa si la lista está vacía? ¿Si el número es negativo?
+- Robustez: ¿Se rompe ante el primer error?
+-->
 
 ---
 
@@ -85,6 +110,12 @@ Curso de Ingreso - Ingeniería en Computación
 * **Suficiente:** Legible con esfuerzo
 * **Insuficiente:** Confuso, sin estilo
 
+<!--
+NOTAS DEL ORADOR:
+- El código entra por los ojos.
+- ¿Usaste snake_case? ¿Hay espacios alrededor de los operadores?
+-->
+
 ---
 
 <!-- _header: 'Dimensión 3' -->
@@ -103,6 +134,12 @@ Curso de Ingreso - Ingeniería en Computación
 * **Suficiente:** Estructura básica
 * **Insuficiente:** Monolítico, repetitivo
 
+<!--
+NOTAS DEL ORADOR:
+- ¿Convertiste el problema en piezas manejables?
+- ¿O es una sola función `main` de 500 líneas?
+-->
+
 ---
 
 <!-- _header: 'Dimensión 4' -->
@@ -120,6 +157,11 @@ Curso de Ingreso - Ingeniería en Computación
 * **Bueno:** Uso apropiado
 * **Suficiente:** Uso básico
 * **Insuficiente:** No usa herramientas
+
+<!--
+NOTAS DEL ORADOR:
+- Si Python tiene una función `max()`, no escribas un lazo manual de 10 líneas para buscar el máximo (a menos que el ejercicio lo pida explícitamente).
+-->
 
 ---
 
@@ -156,6 +198,11 @@ except AssertionError:
     print("❌ Tests fallaron")
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Notar: Docstring, validación, uso de built-ins (`sum`, `len`, `all`), tests con `assert`.
+-->
+
 ---
 
 <!-- _header: 'Ejemplo Nivel 7' -->
@@ -186,6 +233,12 @@ print(resultado)
 * Sin validación
 * Retorna 0 en lugar de None
 
+<!--
+NOTAS DEL ORADOR:
+- Está bien, pero es "básico".
+- No considera casos especiales profesionalmente.
+-->
+
 ---
 
 <!-- _header: 'Ejemplo Nivel 5' -->
@@ -209,6 +262,12 @@ print(prom([1,2,3]))
 * Crash con lista vacía
 * Sin espacios (PEP 8)
 
+<!--
+NOTAS DEL ORADOR:
+- Este código "anda" pero no es aceptable.
+- Ilegible para otros.
+-->
+
 ---
 
 <!-- _header: 'Checklist' -->
@@ -226,6 +285,11 @@ print(prom([1,2,3]))
 - [ ] ¿Sin repetición?
 - [ ] ¿Usa herramientas apropiadas?
 - [ ] ¿Ejecuta sin errores?
+
+<!--
+NOTAS DEL ORADOR:
+- Autoevaluación. No manden el trabajo sin revisar esto.
+-->
 
 ---
 
@@ -249,6 +313,11 @@ def f(x):  # ¿Qué hace f?
 def dividir(a, b):
     return a / b  # Crash si b=0
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Los errores de sintaxis son inaceptables en una entrega final.
+-->
 
 ---
 
@@ -280,6 +349,11 @@ for...
 # 100 líneas más
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- "The God Function" (la función que todo lo hace) es un anti-patrón.
+-->
+
 ---
 
 <!-- _header: 'Mejora continua' -->
@@ -301,6 +375,11 @@ for...
 **4. Documentar:**
 * Docstrings
 * Comentarios útiles
+
+<!--
+NOTAS DEL ORADOR:
+- El código no nace perfecto. Se pule.
+-->
 
 ---
 
@@ -335,6 +414,11 @@ def dividir_seguro():
 dividir_seguro()
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Mostrar el salto de calidad.
+-->
+
 ---
 
 <!-- _header: 'Tabla de puntajes' -->
@@ -352,6 +436,12 @@ dividir_seguro()
 
 **Objetivo mínimo: Nivel 6 (60%)**
 
+<!--
+NOTAS DEL ORADOR:
+- El sistema es binario: Aprobado o Desaprobado.
+- 6 es el piso.
+-->
+
 ---
 
 <!-- _header: 'Feedback' -->
@@ -368,6 +458,11 @@ dividir_seguro()
 * No es personal
 * Todos mejoramos iterativamente
 * Errores son parte del proceso
+
+<!--
+NOTAS DEL ORADOR:
+- No se sientan mal si les marcamos muchas cosas. Es para que aprendan.
+-->
 
 ---
 
@@ -393,6 +488,11 @@ pylint mi_codigo.py
 
 **Usar en cada entrega**
 
+<!--
+NOTAS DEL ORADOR:
+- Usen la tecnología a su favor.
+-->
+
 ---
 
 <!-- _header: 'Resumen' -->
@@ -411,6 +511,11 @@ pylint mi_codigo.py
 * Y que está bien hecho
 
 **"Código profesional desde el inicio"**
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->
 
 ---
 

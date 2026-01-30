@@ -14,6 +14,13 @@ size: 4:3
 ## Usar IA responsablemente
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Inculcar la responsabilidad individual en el uso de la IA.
+- Gancho: "¿Confiarían en un médico que usa ChatGPT para diagnosticarlos sin verificar nada? Bueno, ustedes van a escribir código que la gente usa. Mismo estándar."
+-->
+
 ---
 
 <!-- _header: 'Verificación es crucial' -->
@@ -28,6 +35,12 @@ Curso de Ingreso - Ingeniería en Computación
 
 **Nunca confiar ciegamente**
 **Siempre verificar**
+
+<!--
+NOTAS DEL ORADOR:
+- La IA es convincente incluso cuando miente.
+- El programador es el responsable final del código, no la IA.
+-->
 
 ---
 
@@ -51,6 +64,12 @@ Curso de Ingreso - Ingeniería en Computación
 **4. Comparar con docs**
 * ¿Coincide con Python oficial?
 
+<!--
+NOTAS DEL ORADOR:
+- Code Review personal.
+- Si no podés explicarlo, asumí que está mal.
+-->
+
 ---
 
 <!-- _header: 'Ejemplo verificación' -->
@@ -73,6 +92,11 @@ def es_par(n):
 4. ❌ Sin docstring
 
 **Mejoraste el código antes de usar**
+
+<!--
+NOTAS DEL ORADOR:
+- El código de la IA es un borrador, no la versión final.
+-->
 
 ---
 
@@ -100,6 +124,11 @@ print(resultado)  # [0, 4, 16, 36, 64]
 
 **Experimentar = aprender**
 
+<!--
+NOTAS DEL ORADOR:
+- Jugar con el código (Play) es la mejor forma de aprender.
+-->
+
 ---
 
 <!-- _header: 'Preguntas críticas' -->
@@ -114,6 +143,11 @@ print(resultado)  # [0, 4, 16, 36, 64]
 * "¿Hay forma más eficiente?"
 
 **Desarrolla pensamiento crítico**
+
+<!--
+NOTAS DEL ORADOR:
+- Hacer de abogado del diablo con la IA.
+-->
 
 ---
 
@@ -135,6 +169,12 @@ print(resultado)  # [0, 4, 16, 36, 64]
 **Documentación oficial es autoridad:**
 * docs.python.org
 * PEPs oficiales
+
+<!--
+NOTAS DEL ORADOR:
+- Aprender a leer documentación técnica es una habilidad vital.
+- La IA puede ser el puente para entender la doc oficial.
+-->
 
 ---
 
@@ -161,6 +201,11 @@ match valor:  # Python 3.10+
 # Debes usar if/elif
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Las alucinaciones de nombres de métodos son muy comunes.
+-->
+
 ---
 
 <!-- _header: 'Casos de error' -->
@@ -182,6 +227,11 @@ resultado = [x*2 for x in nums if x%2==0]
 def dividir(a, b):
     return a / b  # ❌ Crash si b=0
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- La IA a veces se queda en el pasado (map/filter) en lugar de usar modismos modernos (comprehensions).
+-->
 
 ---
 
@@ -206,6 +256,11 @@ assert buscar([1,1,1], 1) == 0
 
 **Tests revelan bugs ocultos**
 
+<!--
+NOTAS DEL ORADOR:
+- Pedirle a la IA que genere los tests también es válido, pero verificalos.
+-->
+
 ---
 
 <!-- _header: 'Integridad académica' -->
@@ -225,6 +280,11 @@ assert buscar([1,1,1], 1) == 0
 * Copiar sin entender
 * Usar IA en evaluaciones (salvo indicación)
 * Hacer trampa con IA
+
+<!--
+NOTAS DEL ORADOR:
+- Contrato de honor.
+-->
 
 ---
 
@@ -249,6 +309,11 @@ adicionales.
 * Muestra integridad
 * Permite feedback apropiado
 * Evita problemas
+
+<!--
+NOTAS DEL ORADOR:
+- Citar es profesional. Ocultar es sospechoso.
+-->
 
 ---
 
@@ -283,6 +348,11 @@ adicionales.
 > pero no puedes engañarte a ti mismo
 > cuando realmente necesites programar
 
+<!--
+NOTAS DEL ORADOR:
+- El síndrome del impostor es real, pero si copiás, sos un impostor real.
+-->
+
 ---
 
 <!-- _header: 'Desarrollo de habilidades' -->
@@ -300,6 +370,11 @@ adicionales.
 **Pero no puede darte estas habilidades**
 
 **Solo la práctica genuina las desarrolla**
+
+<!--
+NOTAS DEL ORADOR:
+- No hay atajos para adquirir criterio experto.
+-->
 
 ---
 
@@ -322,6 +397,11 @@ adicionales.
 * Para optimizar soluciones propias
 
 **Meta: autonomía profesional**
+
+<!--
+NOTAS DEL ORADOR:
+- Quitarse las rueditas de la bici.
+-->
 
 ---
 
@@ -501,6 +581,11 @@ def factorial(n):
 * Pensamiento crítico
 * Programador competente
 
+<!--
+NOTAS DEL ORADOR:
+- Cierre del módulo de IA.
+-->
+
 ---
 
 <!-- _header: 'Checklist final' -->
@@ -528,4 +613,3 @@ def factorial(n):
 
 # ¡Gracias!
 ## Usa IA sabiamente
-

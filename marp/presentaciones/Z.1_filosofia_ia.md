@@ -14,6 +14,13 @@ size: 4:3
 ## Aprender con inteligencia artificial
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Establecer una postura proactiva pero crítica frente a la IA.
+- Gancho: "Tienen en su bolsillo a un experto que sabe todo el código del mundo. ¿Cómo evitamos que ese experto nos impida aprender a nosotros?"
+-->
+
 ---
 
 <!-- _header: 'Nueva realidad' -->
@@ -28,6 +35,12 @@ Curso de Ingreso - Ingeniería en Computación
 
 **No se trata de si usar IA:**
 **Se trata de CÓMO usarla bien**
+
+<!--
+NOTAS DEL ORADOR:
+- Negar la IA sería como negar la calculadora en una clase de ingeniería.
+- Es una herramienta profesional estándar hoy en día.
+-->
 
 ---
 
@@ -46,6 +59,12 @@ Curso de Ingreso - Ingeniería en Computación
 * Copiadora de código
 * Excusa para no pensar
 
+<!--
+NOTAS DEL ORADOR:
+- Analogía: La IA es como el GPS. Es genial para no perderse, pero si lo usás siempre, nunca aprendés las calles de tu ciudad.
+- Queremos programadores que sepan orientarse sin GPS cuando sea necesario.
+-->
+
 ---
 
 <!-- _header: 'Principio fundamental' -->
@@ -62,6 +81,12 @@ Curso de Ingreso - Ingeniería en Computación
 4. Pregunta lo que no entiendas
 
 **Si no puedes explicarlo, no lo uses**
+
+<!--
+NOTAS DEL ORADOR:
+- La "Ilusión de competencia": Creer que sabés hacer algo porque lo copiaste y funcionó.
+- El examen será sin IA (probablemente). Ahí se cae la ilusión.
+-->
 
 ---
 
@@ -87,6 +112,12 @@ Curso de Ingreso - Ingeniería en Computación
 ¿Hay una forma más simple de hacer esto?"
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- Usar la IA como un "Stack Overflow conversacional".
+- Pedir el "por qué", no solo el "qué".
+-->
+
 ---
 
 <!-- _header: 'Usos apropiados' -->
@@ -111,6 +142,11 @@ simple"
 ¿Cómo mejorarlo? [pegar código]"
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- La IA es excelente generando "boilerplate" (código repetitivo) como tests unitarios.
+-->
+
 ---
 
 <!-- _header: 'Usos inapropiados' -->
@@ -129,6 +165,12 @@ simple"
 ❌ Usar sin modificar
 ❌ No saber explicarlo
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Si el prompt es "hacé mi tarea", estás perdiendo tiempo y plata.
+- El objetivo del curso no es entregar código, es desarrollar neuronas.
+-->
 
 ---
 
@@ -149,6 +191,12 @@ simple"
 ❌ No probar el código
 ❌ No leer documentación oficial
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- La IA alucina. Inventa funciones que no existen.
+- Confiar ciegamente es un riesgo profesional.
+-->
 
 ---
 
@@ -176,6 +224,11 @@ simple"
 * Adapta a tu código
 * Verifica que funcione
 
+<!--
+NOTAS DEL ORADOR:
+- El "Struggle" (esfuerzo/lucha) es necesario para el aprendizaje. Si no te cuesta un poco, no aprendés.
+-->
+
 ---
 
 <!-- _header: 'Ejemplo bueno' -->
@@ -202,6 +255,12 @@ Funciona pero es lenta con números grandes.
 **Analizas respuesta, entiendes optimización,
 aplicas a tu código**
 
+<!--
+NOTAS DEL ORADOR:
+- Aquí el estudiante YA hizo el esfuerzo de resolverlo (fuerza bruta).
+- Usa la IA para mejorar, no para resolver desde cero.
+-->
+
 ---
 
 <!-- _header: 'Ejemplo malo' -->
@@ -225,6 +284,12 @@ factorial recursivo"
 * No entiendes el código
 * No podrás explicarlo
 * Fraude académico
+
+<!--
+NOTAS DEL ORADOR:
+- Esto es plagio, aunque sea de una máquina.
+- Y es inútil para tu carrera.
+-->
 
 ---
 
@@ -255,6 +320,11 @@ cómo hacer el caso base. ¿Qué me falta?"
 
 **4. Completar con tu entendimiento**
 
+<!--
+NOTAS DEL ORADOR:
+- Diálogo socrático. Preguntas y respuestas que construyen conocimiento.
+-->
+
 ---
 
 <!-- _header: 'IA como tutor' -->
@@ -279,6 +349,11 @@ Dame una pista, no la solución completa.
 3. Siguiente pista
 4. Iterar hasta resolver
 
+<!--
+NOTAS DEL ORADOR:
+- Podes pedirle a la IA: "Actuá como mi profesor y no me des la respuesta, solo guíame".
+-->
+
 ---
 
 <!-- _header: 'Verificación' -->
@@ -295,6 +370,12 @@ Dame una pista, no la solución completa.
 2. **Probar casos** - ¿todos los casos?
 3. **Leer docs** - ¿coincide con oficial?
 4. **Preguntar a humanos** - ¿docente, compañeros?
+
+<!--
+NOTAS DEL ORADOR:
+- La IA es un "loro estocástico". Repite patrones probabilísticos, no razona.
+- Puede sonar muy convincente diciendo mentiras totales.
+-->
 
 ---
 
@@ -313,6 +394,11 @@ Dame una pista, no la solución completa.
 **Si todas coinciden → probablemente correcto**
 **Si difieren → investigar más**
 
+<!--
+NOTAS DEL ORADOR:
+- Habilidad de investigación.
+-->
+
 ---
 
 <!-- _header: 'Integridad académica' -->
@@ -330,6 +416,11 @@ Dame una pista, no la solución completa.
 * Usar IA para exámenes (salvo indicación)
 
 **Cuando dudes, pregunta al docente**
+
+<!--
+NOTAS DEL ORADOR:
+- Reglas claras conservan la amistad.
+-->
 
 ---
 
@@ -353,6 +444,11 @@ mi solución.
 * Permite feedback apropiado
 * Evita malentendidos
 
+<!--
+NOTAS DEL ORADOR:
+- La honestidad es valorada profesionalmente.
+-->
+
 ---
 
 <!-- _header: 'Crecimiento' -->
@@ -365,6 +461,11 @@ mi solución.
 
 **Meta:** Ser programador independiente
 **IA:** Herramienta que potencia, no que reemplaza
+
+<!--
+NOTAS DEL ORADOR:
+- Plan de carrera: Llegar a ser Senior. El Senior usa IA para ir más rápido, no porque no sepa.
+-->
 
 ---
 
@@ -385,6 +486,11 @@ mi solución.
 * Modificas y adaptas
 * IA complementa tu aprendizaje
 
+<!--
+NOTAS DEL ORADOR:
+- Introspección.
+-->
+
 ---
 
 <!-- _header: 'Desarrollar criterio' -->
@@ -400,6 +506,11 @@ mi solución.
 
 **No aceptes ciegamente**
 **Cuestiona, experimenta, verifica**
+
+<!--
+NOTAS DEL ORADOR:
+- El pensamiento crítico es lo que te van a pagar por hacer.
+-->
 
 ---
 
@@ -422,6 +533,11 @@ mi solución.
 > no lo uses.
 
 **Próximo:** Técnicas de prompting
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->
 
 ---
 

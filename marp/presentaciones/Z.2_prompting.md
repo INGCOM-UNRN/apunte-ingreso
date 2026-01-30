@@ -14,6 +14,13 @@ size: 4:3
 ## Cómo preguntar a la IA
 Curso de Ingreso - Ingeniería en Computación
 
+<!--
+NOTAS DEL ORADOR:
+- Duración estimada: 3 minutos
+- Objetivo: Mejorar la calidad de las respuestas obtenidas mediante mejores preguntas.
+- Gancho: "La IA es un genio que cumple deseos, pero es un genio muy literal. Si le pedís 'quiero ser rico', quizás te convierta en un postre. Hay que saber pedir."
+-->
+
 ---
 
 <!-- _header: 'Prompting' -->
@@ -37,6 +44,12 @@ Explicá la lógica paso a paso."
 
 **Mejor prompt → mejor respuesta**
 
+<!--
+NOTAS DEL ORADOR:
+- "Garbage In, Garbage Out" (Basura entra, basura sale).
+- La IA no lee la mente, lee el texto.
+-->
+
 ---
 
 <!-- _header: 'Estructura' -->
@@ -54,6 +67,11 @@ Explicá la lógica paso a paso."
 
 **4. Restricciones:**
 "Usa solo conceptos básicos, sin librerías externas"
+
+<!--
+NOTAS DEL ORADOR:
+- El contexto (Rol) es clave. "Explicame física cuántica" vs "Explicame física cuántica como a un niño de 5 años".
+-->
 
 ---
 
@@ -75,6 +93,11 @@ claramente cómo difiere el resultado"
 
 **Más específico → respuesta más útil**
 
+<!--
+NOTAS DEL ORADOR:
+- Cuanto más acotada la pregunta, menor riesgo de alucinación o divagación.
+-->
+
 ---
 
 <!-- _header: 'Contexto' -->
@@ -95,6 +118,11 @@ Explicá qué hace cada parte del código."
 ```
 
 **Contexto ayuda a la IA a ajustar nivel**
+
+<!--
+NOTAS DEL ORADOR:
+- Decir "soy principiante" evita que la IA te tire una solución con lambdas y funciones de orden superior incomprensibles.
+-->
 
 ---
 
@@ -120,6 +148,12 @@ Implementá la validación en Python."
 
 **Ejemplos clarifican expectativas**
 
+<!--
+NOTAS DEL ORADOR:
+- "Few-shot learning": La IA aprende del patrón de los ejemplos que le das en el mismo prompt.
+- Es mucho más efectivo que describir reglas abstractas.
+-->
+
 ---
 
 <!-- _header: 'Formato de salida' -->
@@ -140,6 +174,12 @@ Formato:
 
 **Estructura la respuesta como necesitas**
 
+<!--
+NOTAS DEL ORADOR:
+- Evita paredes de texto.
+- Obliga a la IA a organizar sus ideas.
+-->
+
 ---
 
 <!-- _header: 'Nivel de detalle' -->
@@ -159,6 +199,11 @@ a comprehension."
 "Explicá comprehensions de listas brevemente
 y dame 3 ejemplos: básico, con filtro, anidado."
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Ajustar el "termostato" de complejidad.
+-->
 
 ---
 
@@ -184,6 +229,12 @@ opcionales (valores por defecto)"
 
 **Construye conocimiento gradualmente**
 
+<!--
+NOTAS DEL ORADOR:
+- No trates de meter todo en un prompt gigante si te confundís.
+- Dividí y conquistarás (también aplica al prompting).
+-->
+
 ---
 
 <!-- _header: 'Chain-of-thought' -->
@@ -204,6 +255,12 @@ Luego mostrame el código."
 ```
 
 **Entiendes el proceso, no solo resultado**
+
+<!--
+NOTAS DEL ORADOR:
+- "Chain of Thought" (Cadena de pensamiento).
+- Está demostrado que las IAs cometen menos errores de lógica si se les pide que "piensen paso a paso" antes de dar la respuesta final.
+-->
 
 ---
 
@@ -226,6 +283,11 @@ Explicá:
 - Cómo probarla"
 ```
 
+<!--
+NOTAS DEL ORADOR:
+- El código es el "qué", la explicación es el "cómo" y el "por qué".
+-->
+
 ---
 
 <!-- _header: 'Verificación' -->
@@ -246,6 +308,12 @@ Analizalo y decime:
 ```
 
 **IA como revisor de código**
+
+<!--
+NOTAS DEL ORADOR:
+- Usar la IA como un par (Pair Programming).
+- A veces encuentra bugs sutiles que uno no ve.
+-->
 
 ---
 
@@ -269,6 +337,12 @@ Lo que intento hacer:
 
 **Da contexto completo del problema**
 
+<!--
+NOTAS DEL ORADOR:
+- Pega el Traceback completo.
+- Explica la intención ("quería sumar, no concatenar").
+-->
+
 ---
 
 <!-- _header: 'Comparar enfoques' -->
@@ -291,6 +365,12 @@ Para cada una explica:
 
 **Aprende múltiples soluciones**
 
+<!--
+NOTAS DEL ORADOR:
+- Amplía el horizonte.
+- Enseña criterio de selección.
+-->
+
 ---
 
 <!-- _header: 'Restricciones' -->
@@ -305,6 +385,12 @@ Quiero entender el algoritmo básico."
 ```
 
 **Restricciones fuerzan comprensión profunda**
+
+<!--
+NOTAS DEL ORADOR:
+- "No uses bibliotecas externas".
+- "Usa solo while".
+-->
 
 ---
 
@@ -333,6 +419,11 @@ RESTRICCIONES:
 - Sin conceptos avanzados (no menciones métodos
   como .get() todavía)
 ```
+
+<!--
+NOTAS DEL ORADOR:
+- Ejemplo de un "Super Prompt".
+-->
 
 ---
 
@@ -395,6 +486,11 @@ FORMATO: [Cómo quieres la respuesta]
 ```
 
 **Adapta según necesidad**
+
+<!--
+NOTAS DEL ORADOR:
+- Herramienta para copiar y pegar.
+-->
 
 ---
 
@@ -484,6 +580,11 @@ Simplificalo manteniendo la funcionalidad."
 * Pregunta lo que no entiendes
 
 **Próximo:** Ética y verificación
+
+<!--
+NOTAS DEL ORADOR:
+- Cierre.
+-->
 
 ---
 
