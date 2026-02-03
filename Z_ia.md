@@ -84,19 +84,46 @@ No me des la solución completa. Primero explicame qué estructuras debo usar y 
 
 ### Técnicas Avanzadas de Prompting
 
+Las técnicas de *prompting* son estrategias para comunicarse efectivamente con la IA y obtener respuestas que realmente contribuyan al aprendizaje. A diferencia de simplemente "hacer preguntas", estas técnicas están diseñadas para mantener al estudiante activo en el proceso de resolución de problemas.
+
+:::{important}
+El objetivo de estas técnicas no es obtener respuestas más rápido, sino **aprender más profundamente**. Cada técnica está pensada para que la IA funcione como un tutor que guía, no como un oráculo que resuelve.
+:::
+
 #### 1. Prompting Socrático
 
-Pedile a la IA que te guíe con preguntas en lugar de darte respuestas:
+El método socrático consiste en aprender a través de preguntas que desafían nuestras suposiciones y nos llevan a descubrir las respuestas por nosotros mismos. Cuando le pedimos a la IA que adopte este rol, transformamos la interacción de "obtener una solución" a "construir comprensión".
+
+**¿Cuándo usarlo?** Cuando te enfrentás a un problema nuevo y no sabés por dónde empezar, o cuando querés desarrollar tu capacidad de análisis y descomposición de problemas.
+
+**¿Por qué funciona?** Porque el aprendizaje más duradero ocurre cuando descubrimos las respuestas, no cuando nos las dan. Las preguntas guiadas activan el pensamiento crítico y ayudan a identificar qué conceptos ya dominamos y cuáles necesitan refuerzo.
+
+````{admonition} Plantilla: Prompting Socrático
+:class: tip
 
 ```
 Tengo que resolver este problema: [descripción]
 
 En lugar de darme la solución, haceme preguntas que me ayuden a pensar en cómo resolverlo. Después de cada respuesta mía, evaluá si voy por buen camino y haceme la siguiente pregunta.
 ```
+````
+
+**Ejemplo concreto:**
+
+> *"Tengo que escribir una función que determine si un número es primo. En lugar de darme la solución, haceme preguntas que me ayuden a pensar en cómo resolverlo."*
+
+La IA podría responder: *"¿Qué significa que un número sea primo? ¿Qué números tendrías que verificar para determinar si 17 es primo?"*
 
 #### 2. Explicación por Capas
 
-Pedí explicaciones en múltiples niveles de profundidad:
+Esta técnica aprovecha que los conceptos técnicos pueden entenderse en múltiples niveles de abstracción. Pedir explicaciones en capas permite construir una comprensión progresiva, desde la intuición general hasta los detalles de implementación.
+
+**¿Cuándo usarlo?** Cuando un concepto te resulta abstracto o difícil de conectar con lo que ya sabés. También es útil para preparar explicaciones propias o para verificar que realmente entendés algo a fondo.
+
+**¿Por qué funciona?** El aprendizaje efectivo requiere conectar ideas nuevas con conocimiento previo. Las capas de explicación crean "puentes cognitivos" entre lo familiar y lo nuevo.
+
+````{admonition} Plantilla: Explicación por Capas
+:class: tip
 
 ```
 Explicame qué es [concepto] en tres niveles:
@@ -104,23 +131,70 @@ Explicame qué es [concepto] en tres niveles:
 2. Nivel 2: Con más detalle técnico para un estudiante de primer año
 3. Nivel 3: Con los detalles de implementación en Python
 ```
+````
+
+**Ejemplo concreto:**
+
+> *"Explicame qué es la recursión en tres niveles..."*
+
+- **Nivel 1:** "Es como mirarte en dos espejos enfrentados: cada reflejo contiene otro reflejo más pequeño."
+- **Nivel 2:** "Es cuando una función se llama a sí misma para resolver una versión más pequeña del mismo problema."
+- **Nivel 3:** "En Python, cada llamada recursiva agrega un frame al call stack, con su propio scope de variables locales..."
 
 #### 3. Debugging Guiado
 
-No pidas que corrija tu código, pedí que te enseñe a encontrar el error:
+El debugging es una habilidad fundamental que solo se desarrolla practicándola. Cuando pedís que te corrijan el código directamente, perdés la oportunidad de entrenar esta capacidad. El debugging guiado mantiene la responsabilidad del análisis en vos, pero con apoyo estructurado.
+
+**¿Cuándo usarlo?** Cuando tu código no funciona y ya invertiste tiempo tratando de encontrar el error sin éxito. Es especialmente valioso para errores lógicos (el código corre pero produce resultados incorrectos).
+
+**¿Por qué funciona?** Porque desarrolla la habilidad de leer código críticamente y formular hipótesis sobre su comportamiento. Estas habilidades son transferibles a cualquier problema futuro.
+
+````{admonition} Plantilla: Debugging Guiado
+:class: tip
 
 ```
-Tengo este código [código] que debería hacer [descripción] pero obtiene [resultado incorrecto].
+Tengo este código que debería hacer [descripción] pero obtiene [resultado incorrecto]:
+
+[código con error]
 
 No me corrijas el código directamente. En su lugar:
 1. Ayudame a identificar qué parte del código es responsable del problema
 2. Explicame qué está haciendo esa parte
 3. Haceme preguntas para que yo descubra el error
 ```
+````
+
+**Variante para errores de ejecución:**
+
+````{admonition} Plantilla: Debugging con Mensaje de Error
+:class: tip
+
+```
+Estoy debuggeando este código:
+
+[código con error]
+
+Error obtenido:
+[mensaje de error]
+
+Lo que ya intenté:
+- [intento 1]
+- [intento 2]
+
+¿Qué otras estrategias de debugging puedo usar para encontrar el problema? Guiame en el proceso sin darme la solución directa.
+```
+````
 
 #### 4. Revisión Paso a Paso
 
-Pedí que valide tu razonamiento antes de escribir código:
+Antes de escribir código, es valioso validar el enfoque conceptual. Esta técnica te ayuda a detectar problemas en tu estrategia *antes* de invertir tiempo en implementarla, y desarrolla la habilidad de planificar soluciones.
+
+**¿Cuándo usarlo?** Antes de empezar a codear un problema complejo, o cuando tenés una idea de solución pero no estás seguro de que sea correcta o eficiente.
+
+**¿Por qué funciona?** La planificación explícita reduce errores y retrabajo. Además, articular tu plan en palabras ayuda a detectar inconsistencias en tu propio razonamiento.
+
+````{admonition} Plantilla: Revisión de Plan
+:class: tip
 
 ```
 Quiero resolver: [problema]
@@ -132,22 +206,24 @@ Mi plan es:
 
 ¿Es correcto mi enfoque? Si hay algo mejorable, explicame por qué y ayudame a refinarlo antes de escribir código.
 ```
+````
 
-#### 5. Generación de Ejercicios
+**Ejemplo concreto:**
 
-Usá la IA para crear práctica adicional:
+> *"Quiero escribir un programa que encuentre el segundo número más grande en una lista. Mi plan es: 1) ordenar la lista, 2) devolver el penúltimo elemento. ¿Es correcto mi enfoque?"*
 
-```
-Generame 5 ejercicios sobre [tema] con estas características:
-- Dificultad: principiante
-- Que practiquen específicamente: [concepto]
-- Con ejemplos de entrada y salida esperada
-- Sin darme las soluciones todavía
-```
+La IA podría señalar: *"Tu enfoque funciona, pero ordenar tiene complejidad O(n log n). ¿Se te ocurre una forma de hacerlo en una sola pasada por la lista?"*
 
-### Plantillas de Prompts por Situación
+#### 5. Comprensión de Conceptos
 
-#### Para Entender un Concepto
+Cuando un concepto no termina de "hacer clic", esta técnica estructura la conversación para que la IA pueda identificar exactamente qué parte necesita aclaración y proporcionar explicaciones desde múltiples ángulos.
+
+**¿Cuándo usarlo?** Cuando leíste sobre un tema pero sentís que no lo entendés completamente, o cuando podés seguir un ejemplo pero no sabrías aplicarlo a un caso nuevo.
+
+**¿Por qué funciona?** Al explicitar qué sabés y qué no, le das contexto a la IA para calibrar su explicación. Las múltiples perspectivas (analogía, código, errores comunes) aumentan las chances de que alguna conecte con tu forma de pensar.
+
+````{admonition} Plantilla: Comprensión de Conceptos
+:class: tip
 
 ```
 Estoy estudiando [tema] y no entiendo [concepto específico].
@@ -164,8 +240,18 @@ Lo que me confunde:
 2. Un ejemplo simple en código
 3. Qué errores comunes se cometen con este concepto?
 ```
+````
 
-#### Para Revisar Código Propio
+#### 6. Revisión de Código Propio
+
+Una vez que tu código funciona, hay una oportunidad de aprendizaje adicional: entender cómo mejorarlo. Esta técnica convierte la revisión de código en una instancia educativa.
+
+**¿Cuándo usarlo?** Después de que tu código pasa las pruebas básicas. Es especialmente útil para desarrollar criterio sobre calidad de código y buenas prácticas.
+
+**¿Por qué funciona?** Ver tu propio código con ojos críticos es difícil. Un revisor externo puede señalar patrones que no notamos y sugerir alternativas que expanden nuestro repertorio de soluciones.
+
+````{admonition} Plantilla: Revisión de Código
+:class: tip
 
 ```
 Escribí este código para [objetivo]:
@@ -174,31 +260,38 @@ Escribí este código para [objetivo]:
 
 Por favor revisalo y dame feedback sobre:
 1. ¿Es correcto lógicamente?
-2. ¿Qué aspectos de {ref}`regla-claridad` podría mejorar?
+2. ¿Qué aspectos de estilo y claridad podría mejorar?
 3. ¿Hay casos límite que no estoy considerando?
 4. ¿Cómo podría hacerlo más eficiente?
 
 Explicame cada sugerencia de mejora, no solo me des el código corregido.
 ```
+````
 
-#### Para Debugging
+#### 7. Generación de Ejercicios
+
+La práctica deliberada requiere ejercicios que desafíen exactamente lo que necesitás mejorar. Esta técnica usa la IA como generador de problemas personalizados.
+
+**¿Cuándo usarlo?** Cuando terminaste los ejercicios disponibles pero querés más práctica, o cuando necesitás ejercicios que apunten a una debilidad específica.
+
+**¿Por qué funciona?** La práctica espaciada y variada es más efectiva que repetir el mismo tipo de problema. Tener ejercicios con casos de prueba permite verificar tu solución de forma independiente.
+
+````{admonition} Plantilla: Generación de Ejercicios
+:class: tip
 
 ```
-Estoy debuggeando este código:
-
-[código con error]
-
-Error obtenido:
-[mensaje de error]
-
-Lo que ya intenté:
-- [intento 1]
-- [intento 2]
-
-¿Qué otras estrategias de debugging puedo usar para encontrar el problema? Guiame en el proceso sin darme la solución directa.
+Generame 5 ejercicios sobre [tema] con estas características:
+- Dificultad: principiante/intermedio/avanzado
+- Que practiquen específicamente: [concepto]
+- Con ejemplos de entrada y salida esperada
+- Sin darme las soluciones todavía
 ```
+````
 
-#### Para Práctica Adicional
+**Variante para profundizar después de resolver un ejercicio:**
+
+````{admonition} Plantilla: Práctica Adicional
+:class: tip
 
 ```
 Resolví este ejercicio:
@@ -210,6 +303,58 @@ Ahora quiero profundizar. ¿Podrías:
 2. Proponerme un ejercicio ligeramente más difícil que practique las mismas ideas
 3. Darme casos de prueba especiales para mi solución
 ```
+````
+
+#### 8. Método de Feynman Inverso
+
+El método de Feynman tradicional consiste en explicar un concepto con palabras simples para verificar que realmente lo entendés. La versión *inversa* le pide a la IA que actúe como un estudiante al que vos le enseñás, pero que hace preguntas incisivas y señala inconsistencias en tu explicación.
+
+**¿Cuándo usarlo?** Cuando creés que entendés un concepto pero querés verificarlo, o cuando te preparás para un examen y necesitás detectar lagunas en tu conocimiento. También es excelente antes de explicarle algo a un compañero.
+
+**¿Por qué funciona?** Enseñar es la forma más efectiva de aprender. Cuando intentás explicar algo y te hacen preguntas difíciles, se exponen las partes que "sabías" superficialmente pero no en profundidad. La IA puede hacer de "estudiante curioso" sin cansarse ni juzgarte.
+
+````{admonition} Plantilla: Feynman Inverso
+:class: tip
+
+```
+Quiero explicarte [concepto] como si fueras un estudiante que no sabe nada del tema.
+
+Tu rol es:
+1. Escuchar mi explicación
+2. Hacer preguntas cuando algo no quede claro
+3. Señalar si uso términos técnicos sin definirlos
+4. Pedirme ejemplos cuando la explicación sea muy abstracta
+5. Al final, decirme qué partes de mi explicación fueron claras y cuáles necesitan trabajo
+
+Empiezo: [tu explicación del concepto]
+```
+````
+
+**Ejemplo concreto:**
+
+> *"Quiero explicarte qué es una variable en programación como si fueras un estudiante que no sabe nada del tema. Tu rol es escuchar y hacerme preguntas difíciles..."*
+> 
+> *"Una variable es como una caja donde guardás cosas."*
+
+La IA podría preguntar: *"¿Qué tipo de cosas puedo guardar? ¿Puedo guardar más de una cosa en la misma caja? ¿Qué pasa si quiero guardar algo más grande que la caja?"*
+
+**Variante para preparación de exámenes:**
+
+````{admonition} Plantilla: Feynman para Exámenes
+:class: tip
+
+```
+Estoy preparándome para un examen sobre [tema]. Voy a explicarte los conceptos principales y vos actuás como un profesor que evalúa si mi comprensión es correcta y completa.
+
+Después de cada explicación mía:
+1. Calificá mi comprensión del 1 al 5
+2. Señalá errores conceptuales si los hay
+3. Indicá qué me falta mencionar
+4. Haceme una pregunta de seguimiento que podría aparecer en un examen
+
+Empiezo con [concepto 1]: [tu explicación]
+```
+````
 
 ## Flujo de Trabajo Recomendado
 
@@ -293,7 +438,7 @@ Explicamelo con ejemplos simples, comparando qué pasa con números vs listas.
 **Situación**: Tu programa da un resultado incorrecto
 
 **🤔 Tu Prompt:**
-```
+::::{code-block}
 Escribí este código para calcular el promedio de números positivos:
 
 ```python
@@ -325,7 +470,7 @@ No me des la corrección directa. Ayudame a razonar:
 
 **Situación**: Querés mejorar tu solución
 
-**�� Tu Prompt:**
+**Tu Prompt:**
 ```
 Resolví este ejercicio [descripción]:
 
@@ -342,7 +487,7 @@ Funciona correctamente, pero me gustaría mejorarlo.
 4. ¿Qué tests adicionales debería agregar?
 
 Para cada punto, explicame POR QUÉ sería una mejora, no solo QUÉ cambiar.
-```
+::::
 
 **💡 Por qué es efectivo:**
 - Ya tenés una solución funcionando
@@ -411,9 +556,23 @@ Si estos porcentajes están invertidos, no estás aprendiendo efectivamente.
 
 ## Casos de Uso Prácticos
 
+Esta sección presenta escenarios concretos donde la IA puede potenciar tu aprendizaje de programación. Cada caso incluye el contexto, la plantilla de prompt y un ejemplo desarrollado para ilustrar cómo aplicarlo.
+
 ### Caso 1: Preparación para Ejercicios
 
-**Antes de resolver ejercicios nuevos:**
+#### El Contexto
+
+Muchos estudiantes se lanzan directamente a resolver ejercicios sin preparación previa, lo que resulta en frustración cuando aparecen dificultades. Esta técnica de "calentamiento cognitivo" te prepara mentalmente antes de enfrentar problemas nuevos, activando el conocimiento relevante y anticipando obstáculos comunes.
+
+**¿Cuándo aplicarlo?**
+- Antes de una sesión de práctica con ejercicios nuevos
+- Cuando retomás un tema después de varios días sin practicarlo
+- Antes de un parcial o examen, como repaso activo
+
+#### La Plantilla
+
+````{admonition} Plantilla: Preparación para Ejercicios
+:class: tip
 
 ```
 Voy a practicar ejercicios sobre [tema]. Antes de empezar:
@@ -425,10 +584,52 @@ Voy a practicar ejercicios sobre [tema]. Antes de empezar:
 
 No me des soluciones, solo prepárame para resolverlos independientemente.
 ```
+````
+
+#### Ejemplo Desarrollado
+
+**Prompt:**
+> "Voy a practicar ejercicios sobre lazos `while` en Python. Antes de empezar, preparame para resolverlos independientemente."
+
+**Respuesta típica de la IA:**
+
+> **Conceptos clave:**
+> - Condición de continuación vs. condición de corte
+> - Actualización de la variable de control dentro del lazo
+> - Diferencia entre `while` y `for` (cuándo usar cada uno)
+> - El patrón de "centinela" para entrada de datos
+> 
+> **Checklist de errores comunes:**
+> - [ ] ¿Inicialicé la variable de control antes del lazo?
+> - [ ] ¿La condición eventualmente se vuelve falsa? (evitar lazos infinitos)
+> - [ ] ¿Estoy modificando la variable de control dentro del lazo?
+> - [ ] ¿Usé `<` cuando debería usar `<=` (o viceversa)?
+> 
+> **Tests para validar soluciones:**
+> 1. Probá con el caso más simple (ej: lista vacía, un solo elemento)
+> 2. Probá con un caso "normal" típico
+> 3. Probá con casos límite (cero iteraciones, muchas iteraciones)
+> 
+> **Si encontrás dificultades, repasá:**
+> - El flujo de ejecución paso a paso (usá papel o Python Tutor)
+> - La diferencia entre condición verdadera y falsa
+> - Cómo funciona el operador de comparación que estás usando
 
 ### Caso 2: Análisis de Errores Recurrentes
 
-**Cuando cometés el mismo error múltiples veces:**
+#### El Contexto
+
+Cuando cometés el mismo tipo de error una y otra vez, no es casualidad: hay un patrón de pensamiento o un concepto mal comprendido detrás. Simplemente corregir cada instancia no resuelve el problema de raíz. Esta técnica te ayuda a identificar y atacar la causa fundamental.
+
+**¿Cuándo aplicarlo?**
+- Cuando notás que te equivocás de la misma manera repetidamente
+- Cuando un error "no tiene sentido" pero sigue apareciendo
+- Cuando querés transformar errores en oportunidades de aprendizaje profundo
+
+#### La Plantilla
+
+````{admonition} Plantilla: Análisis de Errores Recurrentes
+:class: tip
 
 ```
 Noto que cometo repetidamente este tipo de error: [descripción]
@@ -443,10 +644,49 @@ Por ejemplo, en estos casos:
 3. ¿Qué estrategia puedo usar para evitarlo en el futuro?
 4. ¿Qué ejercicios específicos me ayudarían a superarlo?
 ```
+````
+
+#### Ejemplo Desarrollado
+
+**Prompt:**
+> "Noto que cometo repetidamente el error de modificar una lista mientras la recorro con un `for`. Por ejemplo:
+> - Intenté eliminar elementos de una lista dentro de un `for elemento in lista`
+> - Intenté agregar elementos a una lista mientras la iteraba
+> 
+> ¿Por qué me pasa esto y cómo lo soluciono?"
+
+**Respuesta típica de la IA:**
+
+> **Por qué es común:** Este error ocurre porque intuitivamente pensamos que el `for` "ve" la lista como estaba al inicio. Pero Python itera sobre la lista *en tiempo real*: si la modificás, el iterador se confunde porque la posición de los elementos cambió.
+> 
+> **Concepto fundamental:** La diferencia entre *iterar* (recorrer) y *mutar* (modificar). Son operaciones que no deberían mezclarse en el mismo momento. Es como intentar contar cartas de una baraja mientras alguien más está agregando y sacando cartas.
+> 
+> **Estrategias para evitarlo:**
+> 1. **Crear una copia:** `for elemento in lista.copy():` o `for elemento in lista[:]:`
+> 2. **Construir lista nueva:** En lugar de eliminar de la original, crear una nueva con los elementos que querés conservar
+> 3. **Iterar hacia atrás:** Si necesitás eliminar, usar índices en orden inverso
+> 4. **Usar comprensión de listas:** `nueva = [x for x in lista if condicion(x)]`
+> 
+> **Ejercicios para practicar:**
+> 1. Dada una lista de números, crear una nueva lista solo con los pares
+> 2. Filtrar palabras de una lista que tengan más de 5 caracteres
+> 3. Eliminar duplicados de una lista (sin usar `set`)
 
 ### Caso 3: Exploración de Alternativas
 
-**Después de resolver un problema:**
+#### El Contexto
+
+Una vez que resolvés un problema, es tentador pasar al siguiente. Pero quedarte un momento más para explorar *otras* formas de resolverlo desarrolla flexibilidad mental y criterio técnico. Los programadores experimentados conocen múltiples enfoques y saben elegir el más apropiado para cada situación.
+
+**¿Cuándo aplicarlo?**
+- Después de resolver un ejercicio, especialmente si fue difícil
+- Cuando tu solución funciona pero "se siente" complicada
+- Cuando querés desarrollar intuición sobre diseño de algoritmos
+
+#### La Plantilla
+
+````{admonition} Plantilla: Exploración de Alternativas
+:class: tip
 
 ```
 Resolví este problema así:
@@ -462,10 +702,70 @@ Me gustaría explorar enfoques alternativos:
 
 Ayudame a desarrollar intuición sobre cuándo usar cada enfoque.
 ```
+````
+
+#### Ejemplo Desarrollado
+
+**Prompt:**
+> "Resolví el problema de encontrar el máximo de una lista así:
+> ```python
+> def maximo(lista):
+>     lista_ordenada = sorted(lista)
+>     return lista_ordenada[-1]
+> ```
+> ¿Hay otras formas de resolverlo?"
+
+**Respuesta típica de la IA:**
+
+> **Alternativa 1: Recorrido lineal**
+> ```python
+> def maximo(lista):
+>     max_actual = lista[0]
+>     for elemento in lista:
+>         if elemento > max_actual:
+>             max_actual = elemento
+>     return max_actual
+> ```
+> *Ventaja:* Eficiencia O(n) vs O(n log n) de ordenar. *Desventaja:* Más código.
+> 
+> **Alternativa 2: Función built-in**
+> ```python
+> def maximo(lista):
+>     return max(lista)
+> ```
+> *Ventaja:* Conciso y claro. *Desventaja:* No aprendés cómo funciona internamente.
+> 
+> **Alternativa 3: Reduce**
+> ```python
+> from functools import reduce
+> def maximo(lista):
+>     return reduce(lambda a, b: a if a > b else b, lista)
+> ```
+> *Ventaja:* Enfoque funcional. *Desventaja:* Menos legible para principiantes.
+> 
+> **Cuándo usar cada una:**
+> - **Tu solución (ordenar):** Cuando también necesitás otros elementos ordenados
+> - **Recorrido lineal:** Cuando la eficiencia importa y querés entender el algoritmo
+> - **Built-in `max()`:** En código de producción, siempre que sea posible
+> - **Reduce:** Cuando estás en un contexto de programación funcional
+> 
+> **Si el problema cambiara a "encontrar los 3 máximos"**, tu enfoque de ordenar sería más natural que el recorrido lineal.
 
 ### Caso 4: Conexión de Conceptos
 
-**Para entender relaciones entre temas:**
+#### El Contexto
+
+El conocimiento aislado es frágil. Cuando entendés cómo los conceptos se relacionan entre sí, construís una red de comprensión más robusta y flexible. Esta técnica te ayuda a integrar lo nuevo con lo que ya sabés, creando conexiones que facilitan la transferencia de aprendizaje.
+
+**¿Cuándo aplicarlo?**
+- Al aprender un concepto nuevo que parece relacionado con algo anterior
+- Cuando sentís que "sabés cosas" pero no podés combinarlas
+- Para prepararte para problemas más complejos que integran múltiples temas
+
+#### La Plantilla
+
+````{admonition} Plantilla: Conexión de Conceptos
+:class: tip
 
 ```
 Estoy estudiando [concepto nuevo] y antes aprendí [concepto anterior].
@@ -479,42 +779,292 @@ Estoy estudiando [concepto nuevo] y antes aprendí [concepto anterior].
 
 Quiero entender cómo construir sobre lo que ya sé.
 ```
+````
+
+#### Ejemplo Desarrollado
+
+**Prompt:**
+> "Estoy estudiando funciones y antes aprendí sobre lazos `for`. ¿Cómo se relacionan estos conceptos?"
+
+**Respuesta típica de la IA:**
+
+> **Cómo se relacionan:**
+> Los lazos y las funciones son herramientas complementarias de abstracción. Los lazos abstraen la *repetición* ("hacé esto muchas veces"), mientras que las funciones abstraen *acciones* ("hacé esto, sin importar los detalles de cómo").
+> 
+> **Cuándo usar uno vs el otro:**
+> - **Solo lazo:** Cuando la repetición es simple y se usa una sola vez
+> - **Solo función:** Cuando la acción no involucra repetición pero se reutiliza
+> - **Función con lazo adentro:** Cuando querés encapsular una operación repetitiva para reutilizarla
+> - **Lazo que llama funciones:** Cuando cada iteración necesita una operación compleja
+> 
+> **Cómo se combinan:**
+> Las funciones pueden *contener* lazos (encapsulando la repetición) o pueden ser *llamadas desde* lazos (ejecutándose en cada iteración).
+> 
+> **Ejemplo integrado:**
+> ```python
+> def es_primo(n):
+>     """Función que usa un lazo internamente."""
+>     if n < 2:
+>         return False
+>     for i in range(2, int(n**0.5) + 1):
+>         if n % i == 0:
+>             return False
+>     return True
+> 
+> # Lazo que llama a la función en cada iteración
+> primos = []
+> for numero in range(1, 100):
+>     if es_primo(numero):
+>         primos.append(numero)
+> ```
+> 
+> **La conexión profunda:** Ambos reducen la complejidad cognitiva. El lazo evita escribir lo mismo 100 veces. La función evita entender los detalles de "cómo saber si es primo" cada vez que lo necesitás.
+
+### Caso 5: Preparación para Debugging
+
+#### El Contexto
+
+Antes de buscar ayuda con un error, es valioso preparar una descripción clara del problema. Este proceso de preparación muchas veces te lleva a encontrar el error vos mismo (fenómeno conocido como *rubber duck debugging*). Si no lo encontrás, al menos tendrás una pregunta bien formulada.
+
+**¿Cuándo aplicarlo?**
+- Antes de pedir ayuda con un error
+- Cuando un error te tiene trabado hace más de 15-20 minutos
+- Como práctica para desarrollar habilidades de diagnóstico
+
+#### La Plantilla
+
+````{admonition} Plantilla: Preparación para Debugging
+:class: tip
+
+```
+Estoy trabado con un problema. Antes de pedirte ayuda directa, quiero organizar mi comprensión:
+
+**Qué debería hacer el código:**
+[descripción del comportamiento esperado]
+
+**Qué hace realmente:**
+[descripción del comportamiento actual]
+
+**Lo que ya verifiqué:**
+- [verificación 1]
+- [verificación 2]
+
+**Mi hipótesis actual:**
+[qué creo que puede estar mal y por qué]
+
+¿Mi análisis va por buen camino? ¿Qué más debería verificar antes de mirar el código con más detalle?
+```
+````
+
+#### Ejemplo Desarrollado
+
+**Prompt:**
+> "Estoy trabado con un problema. Mi código debería sumar los números de una lista, pero siempre devuelve 0.
+> 
+> Lo que ya verifiqué:
+> - La lista no está vacía (tiene [1, 2, 3, 4, 5])
+> - El lazo sí se ejecuta (puse un print adentro)
+> 
+> Mi hipótesis: Creo que el problema está en cómo inicializo o actualizo la variable de suma, pero no estoy seguro."
+
+**Respuesta típica de la IA:**
+
+> Tu análisis va muy bien encaminado. Tu hipótesis sobre la inicialización/actualización es la dirección correcta.
+> 
+> **Preguntas para verificar tu hipótesis:**
+> 1. ¿Dónde inicializás la variable `suma`? ¿Antes del lazo o dentro?
+> 2. ¿Qué operador estás usando? ¿`suma = suma + elemento` o `suma + elemento` (sin asignación)?
+> 3. ¿Estás devolviendo `suma` *después* del lazo, o dentro de él?
+> 
+> **Experimento sugerido:** Agregá un `print(f"suma = {suma}")` dentro del lazo, justo después de la línea donde intentás actualizar `suma`. Esto te mostrará si el valor está cambiando o no.
+> 
+> Si `suma` permanece en 0 durante todo el lazo, el problema está en la actualización. Si cambia pero al final es 0, el problema está en dónde lo inicializás o devolvés.
 
 ## Ética y Responsabilidad Académica
 
-### En Evaluaciones
+El uso de IA en contextos educativos plantea cuestiones éticas importantes que van más allá de simplemente "está permitido" o "está prohibido". Esta sección explora las dimensiones éticas del uso de IA en tu formación como programador.
+
+### Por Qué Importa la Integridad Académica
+
+La integridad académica no es una regla arbitraria diseñada para complicarte la vida. Existe porque:
+
+1. **El aprendizaje requiere esfuerzo**: Las conexiones neuronales que forman conocimiento duradero se construyen cuando enfrentás dificultades y las superás. Delegar el esfuerzo a la IA es como pedirle a alguien que haga ejercicio por vos y esperar desarrollar músculo.
+
+2. **Las evaluaciones miden tu capacidad, no la de la IA**: Cuando un docente evalúa tu trabajo, está tratando de entender qué sabés y qué necesitás reforzar. Si la IA hace el trabajo, esa información se pierde y no podemos ayudarte donde realmente lo necesitás.
+
+3. **Tu título certifica tus habilidades**: Cuando te recibas, tu título dirá que *vos* tenés ciertas competencias. Si las adquirió la IA, estás comenzando tu carrera profesional con una deuda de conocimiento que eventualmente se cobrará.
+
+4. **La confianza es fundamental**: El ecosistema académico funciona sobre la confianza. Cuando esa confianza se rompe, todos perdemos: se implementan controles más estrictos, se reduce la flexibilidad, y el ambiente de aprendizaje se deteriora.
+
+### En Evaluaciones Formales
 
 :::{danger}
 **Prohibido en Evaluaciones Formales**
 
 Durante exámenes, parciales, y trabajos evaluativos individuales, el uso de IA está **estrictamente prohibido** salvo indicación explícita contraria.
 
-Usar IA en estas situaciones constituye **plagio académico** y tiene consecuencias serias.
+Usar IA en estas situaciones constituye **plagio académico** y tiene consecuencias serias, que pueden incluir:
+- Anulación del examen o trabajo
+- Nota cero en la materia
+- Sanciones disciplinarias según el reglamento de la universidad
+- Registro en tu legajo académico
 :::
 
-### En Trabajos Colaborativos
+#### ¿Qué Cuenta Como "Usar IA" en una Evaluación?
 
-Si está permitido usar IA en un trabajo:
+Para evitar ambigüedades, esto incluye:
 
-1. **Documentá su uso**: Indicá qué partes fueron asistidas por IA
-2. **Citá apropiadamente**: "Este código fue generado con ChatGPT y modificado por [autor]"
-3. **Explicá las modificaciones**: Qué cambiaste y por qué
-4. **Asumí responsabilidad**: El código es tuyo aunque lo ayudó IA
+- **Usar ChatGPT, Claude, Gemini, o cualquier chatbot** para generar código, pseudocódigo, o explicaciones
+- **Usar GitHub Copilot u otros asistentes de código** durante la evaluación
+- **Copiar código de una sesión anterior** con IA y adaptarlo
+- **Pedir a la IA que explique el problema** para entenderlo mejor durante el examen
+- **Usar IA para verificar tu solución** antes de entregarla
 
-### Declaración de Uso
+#### ¿Qué SÍ Podés Hacer?
 
-Cuando entregues código asistido por IA (donde esté permitido), incluí:
+- Usar documentación oficial del lenguaje (si está permitido)
+- Consultar apuntes propios (si está permitido)
+- Usar el material del curso
+- Preguntar al docente durante el examen
+
+### El Problema del "Solo para Entender"
+
+Un argumento común es: *"Solo usé la IA para entender el problema, después lo resolví yo"*. Este argumento tiene varios problemas:
+
+1. **La línea es difusa**: ¿Dónde termina "entender" y empieza "resolver"? Si la IA te explicó el enfoque correcto, ¿realmente lo resolviste vos?
+
+2. **Parte de la evaluación es la comprensión**: Entender un problema es una habilidad que se evalúa. Si delegás esa parte, no estás siendo evaluado completamente.
+
+3. **No es verificable**: No hay forma de que el docente sepa qué parte hiciste vos y qué parte "entendiste" con ayuda de IA.
+
+4. **Creás dependencia**: Si necesitás IA para entender problemas, ¿qué vas a hacer en una entrevista laboral o cuando necesites resolver algo sin conexión a internet?
+
+### En Trabajos Prácticos y Proyectos
+
+Las políticas para trabajos prácticos varían según la cátedra y el tipo de trabajo. **Siempre consultá con tu docente** cuáles son las reglas específicas. En general:
+
+#### Cuando el Uso de IA Está Explícitamente Prohibido
+
+Tratalo igual que una evaluación formal. No uses IA para ninguna parte del trabajo.
+
+#### Cuando el Uso de IA Está Permitido con Condiciones
+
+Si está permitido usar IA en un trabajo, seguí estas pautas:
+
+1. **Documentá su uso exhaustivamente**: Indicá qué partes fueron asistidas por IA y cómo
+2. **Citá apropiadamente**: Especificá qué herramienta usaste y para qué
+3. **Explicá las modificaciones**: Qué cambiaste del código generado y por qué
+4. **Asumí responsabilidad total**: El código es tuyo aunque lo ayudó IA; si tiene errores o problemas, son tus errores
+5. **Demostrá comprensión**: Debés poder explicar cada línea de código que entregues
+
+#### Cuando No Hay Indicación Explícita
+
+En caso de duda, **preguntá antes**. No asumas que está permitido solo porque no se mencionó explícitamente.
+
+### Declaración de Uso de IA
+
+Cuando entregues código asistido por IA (donde esté permitido), incluí una declaración detallada:
 
 ```python
 """
-Uso de IA en este código:
-- ChatGPT fue usado para generar la estructura inicial de la función X
-- Modificaciones propias: [lista de cambios]
-- GitHub Copilot sugirió el manejo de error en línea Y, verificado y adaptado
-- Todo el código fue probado y validado por mí
-- Puedo explicar cada línea de este código
+DECLARACIÓN DE USO DE IA EN ESTE TRABAJO
+
+Herramientas utilizadas:
+- ChatGPT (GPT-4) para consultas conceptuales
+- GitHub Copilot para autocompletado de código
+
+Uso específico:
+- Líneas 15-30: Estructura inicial generada por ChatGPT, 
+  modificada para agregar manejo de errores
+- Línea 45: Expresión regular sugerida por Copilot, 
+  verificada con casos de prueba propios
+- Función 'procesar_datos': Lógica completamente propia,
+  Copilot solo sugirió nombres de variables
+
+Modificaciones realizadas:
+- Cambié el algoritmo de ordenamiento sugerido por uno más eficiente
+- Agregué validación de entrada que la IA no consideró
+- Corregí un error en el manejo de listas vacías
+
+Verificación:
+- Todo el código fue probado con los casos de prueba provistos
+- Agregué 5 casos de prueba adicionales propios
+- Puedo explicar el funcionamiento de cada línea
+
+Firma: [Tu nombre]
+Fecha: [Fecha]
 """
 ```
+
+### Consecuencias del Uso No Ético
+
+#### Consecuencias Académicas Inmediatas
+
+- **Anulación del trabajo**: Nota cero sin posibilidad de recuperación
+- **Sanción en la materia**: Puede implicar reprobar la cursada completa
+- **Registro disciplinario**: Queda en tu legajo y puede afectar becas, intercambios, etc.
+
+#### Consecuencias Profesionales Futuras
+
+- **Habilidades no desarrolladas**: En entrevistas técnicas, donde no podés usar IA, las deficiencias se notan
+- **Dependencia problemática**: Incapacidad de resolver problemas sin asistencia de IA
+- **Síndrome del impostor amplificado**: Saber que no merecés tu título crea ansiedad y estrés
+- **Reputación profesional**: En equipos de trabajo, eventualmente se nota quién sabe y quién no
+
+#### El Costo Oculto: Tu Autoconfianza
+
+Cada vez que usás IA de forma no ética, reforzás internamente el mensaje de que "no podés solo/a". Esto erosiona tu confianza en tus propias capacidades y crea un ciclo de dependencia difícil de romper.
+
+### Casos Grises y Cómo Navegarlos
+
+#### "Usé IA para estudiar, no para el trabajo"
+
+**Situación**: Usaste IA para entender conceptos mientras estudiabas, pero el trabajo lo hiciste desde cero sin IA.
+
+**Análisis**: Esto generalmente es aceptable y es un buen uso de IA como herramienta de aprendizaje. La clave es que al momento de hacer el trabajo, el conocimiento estaba en tu cabeza, no en una ventana de chat.
+
+**Recomendación**: No necesitás declararlo, pero asegurate de que realmente podés reproducir el trabajo sin IA.
+
+#### "La IA me dio una idea que yo implementé diferente"
+
+**Situación**: Consultaste a la IA, te dio un enfoque, pero vos implementaste algo distinto basándote en esa idea.
+
+**Análisis**: Zona gris. La idea vino de la IA aunque la implementación sea tuya.
+
+**Recomendación**: Si el uso de IA está permitido con documentación, declaralo. Si no está permitido, probablemente esto también esté prohibido.
+
+#### "Solo usé la IA para corregir errores de sintaxis"
+
+**Situación**: Escribiste todo el código pero usaste IA para encontrar por qué no compilaba.
+
+**Análisis**: Depende del contexto. Si la evaluación es de lógica de programación, esto puede ser aceptable. Si parte de la evaluación es escribir código sintácticamente correcto, no lo es.
+
+**Recomendación**: Consultá con el docente antes de hacerlo.
+
+### Principios para Decisiones Éticas
+
+Cuando enfrentes una situación donde no estés seguro si usar IA es apropiado, hacete estas preguntas:
+
+1. **Prueba de la transparencia**: ¿Estarías cómodo si el docente viera exactamente cómo usaste la IA?
+
+2. **Prueba del aprendizaje**: ¿Este uso me está ayudando a aprender, o está aprendiendo por mí?
+
+3. **Prueba de la reproducibilidad**: ¿Podría hacer esto mismo sin IA si me lo pidieran ahora?
+
+4. **Prueba de la honestidad**: Si alguien me pregunta "¿lo hiciste vos?", ¿puedo decir "sí" sin sentir que estoy mintiendo?
+
+5. **Prueba del mérito**: ¿El crédito que voy a recibir por este trabajo refleja genuinamente mi esfuerzo y habilidad?
+
+Si la respuesta a cualquiera de estas preguntas es "no", probablemente estés cruzando una línea ética.
+
+### Cultivar Hábitos Éticos
+
+La ética no es algo que se "activa" solo para evaluaciones. Es un hábito que se construye día a día:
+
+- **Practicá sin IA regularmente**: Dedicá tiempo a resolver problemas solo/a para mantener tus habilidades
+- **Sé honesto/a con vos mismo/a**: Reconocé cuando estás usando IA como muleta vs. como herramienta
+- **Celebrá tus logros propios**: El código que escribiste vos tiene un valor que el código copiado nunca tendrá
+- **Pedí ayuda humana**: Docentes, compañeros, tutores, están para ayudarte a aprender de forma legítima
 
 ## Recursos Complementarios
 
