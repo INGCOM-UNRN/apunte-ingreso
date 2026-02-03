@@ -2,6 +2,15 @@
 /* Author: martinvilu https://github.com/martinvilu/ */
 /* UNRN_3: Fusión de estructura (UNRN_2) + apariencia (UNRN_1) */
 
+
+/*
+ * lead para portada secciones
+ * inverse que solo invierte colores
+ * code para diapositivas de mucho código
+ * compact
+ */
+
+
 @import "gaia";
 
 /* Fuentes */
@@ -18,7 +27,7 @@ section {
   background-image: none;
   font-family: "Chivo", sans-serif;
   font-size: var(--font-size-base);
-  padding: 40px 50px;
+  padding: 30px 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,9 +37,9 @@ section {
 /* Header/Footer - estructura de UNRN_2, colores de UNRN_1 */
 header {
   position: absolute;
-  top: 20px;
-  left: 40px;
-  right: 40px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   background-color: #eb2141;
   color: #fff;
   font-size: 1em;
@@ -39,9 +48,9 @@ header {
 
 footer {
   position: absolute;
-  bottom: 20px;
-  left: 40px;
-  right: 40px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
   background-color: #1b2437;
   color: white;
   font-size: 0.6em;
@@ -50,11 +59,11 @@ footer {
 /* Paginación - estilo de UNRN_1 con posicionamiento de UNRN_2 */
 section::after {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  font-size: 0.6em;
+  bottom: 3px;
+  right: 3px;
+  font-size: 0.5em;
   font-weight: 600;
-  color: #eb2141;
+  color: #ffffff;
   content: attr(data-marpit-pagination) "/" attr(data-marpit-pagination-total);
 }
 
@@ -233,9 +242,6 @@ blockquote {
   padding: 0.5em 10px;
   font-style: italic;
   max-width: 90%;
-  font-size: 60%;
-  position: absolute;
-  bottom: 20px;
 }
 
 blockquote::before {
