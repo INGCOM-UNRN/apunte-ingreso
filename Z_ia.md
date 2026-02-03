@@ -7,6 +7,75 @@ description: Guía para aprovechar la IA como herramienta de aprendizaje efectiv
 
 La Inteligencia Artificial (IA) puede ser una herramienta poderosa para potenciar tu aprendizaje en programación, pero solo si se usa de manera estratégica y responsable. Este capítulo te guiará sobre cómo sacar el máximo provecho de asistentes de IA sin comprometer tu desarrollo como programador.
 
+## La Metáfora del Gimnasio
+
+:::{epigraph}
+"Usar la IA para las tareas escolares es como pagar la suscripción al gimnasio y pedirle a alguien que vaya por vos."
+
+-- José Escamilla, Director del Instituto para el Futuro de la Educación, Tecnológico de Monterrey[^escamilla]
+:::
+
+[^escamilla]: Braginski, R. (2025). "José Escamilla: 'Usar la IA para las tareas escolares es como pagar la suscripción al gimnasio y pedirle a alguien que vaya por vos'". *Clarín*.
+
+Esta metáfora, propuesta por el especialista en tecnología educativa José Escamilla, captura perfectamente el dilema central del uso de IA en el aprendizaje. Si querés desarrollar músculo, no sirve que alguien entrene por vos. Del mismo modo, si querés desarrollar **pensamiento computacional**, no sirve "mandar a la IA" a pensar por vos.
+
+### Descarga Cognitiva y Deuda Cognitiva
+
+Escamilla introduce dos conceptos clave para entender el impacto de la IA en el aprendizaje:
+
+**Descarga cognitiva** es cuando delegamos un proceso mental a una herramienta externa. Siempre existió: hacer una lista de compras es una descarga cognitiva (no memorizás todo, lo ponés en papel). La calculadora también lo es. No hay nada malo en la descarga cognitiva *per se*.
+
+**Deuda cognitiva** es lo que se acumula cuando la descarga ocurre *antes* de que desarrollemos la habilidad subyacente. Es la diferencia entre:
+- Usar calculadora después de entender aritmética (descarga saludable)
+- Usar calculadora en lugar de aprender aritmética (deuda cognitiva)
+
+Con la IA, la descarga es de otro nivel: analiza, resume, critica, programa. Son habilidades del pensamiento *fundamentales* que, si nunca desarrollamos, generan una deuda cognitiva profunda.
+
+:::{note}
+**¿Por qué los propios estudiantes lo notan?**
+
+En estudios recientes, los estudiantes que más usaban IA reportaban sentir que "no estaban aprendiendo lo suficiente". Esta percepción intuitiva de los estudiantes coincide con lo que los docentes observan: existe una correlación entre uso intensivo de IA y menor desarrollo de habilidades cognitivas.
+:::
+
+### El Escritorio Analógico y el Digital
+
+Escamilla propone una imagen útil: necesitamos tener una silla con **dos escritorios**. En el escritorio analógico dibujamos, hacemos esquemas, pensamos con lápiz y papel. En el escritorio digital, trabajamos con herramientas tecnológicas incluida la IA.
+
+La clave está en **ser intencionales** sobre cuándo usar cada uno. No todo tiene que pasar por la IA. Hay momentos donde el pensamiento "en papel" —sin asistencia— es lo que construye las conexiones neuronales que necesitás.
+
+Para programación, esto se traduce en:
+
+| Escritorio Analógico | Escritorio Digital |
+|---------------------|-------------------|
+| Diseñar algoritmos en papel | Implementar el código |
+| Trazar ejecución paso a paso | Usar debugger |
+| Pensar casos de prueba | Ejecutar tests automatizados |
+| Entender el problema | Buscar documentación |
+| Formular tu solución | Consultar alternativas con IA |
+
+### Zonas Libres de IA
+
+Una estrategia práctica que propone Escamilla es definir **"zonas libres de IA"** en tu aprendizaje: momentos o tareas donde deliberadamente no usás asistencia artificial. Esto no es un castigo, es entrenamiento.
+
+Del mismo modo que un atleta no usa siempre el equipamiento de competencia durante el entrenamiento (a veces corre con peso extra, en superficies difíciles), vos necesitás momentos donde resuelvas problemas *sin* la IA para desarrollar el "músculo cognitivo".
+
+**Ejemplos de zonas libres de IA:**
+- Los primeros 20 minutos enfrentando un problema nuevo
+- El diseño inicial del algoritmo (antes de escribir código)
+- El debugging manual (antes de pedir ayuda)
+- La explicación de tu propio código (¿podés explicar cada línea?)
+
+### El Riesgo de la Cámara de Eco
+
+Escamilla señala otro problema sutil: cuando muchos estudiantes usan IA para resolver los mismos problemas, tienden a converger en las *mismas* soluciones. La IA presenta ejemplos en cierto orden, todos se quedan con los primeros, y se pierde diversidad de pensamiento.
+
+Esto es especialmente problemático en programación, donde la creatividad y la capacidad de encontrar soluciones alternativas son habilidades valiosas. Si todos resuelven todo igual porque todos usaron el mismo prompt, estamos perdiendo algo importante.
+
+**Para evitar la cámara de eco:**
+- Intentá tu propia solución *antes* de consultar la IA
+- Si usás IA, pedí explícitamente "otras formas de resolver esto"
+- Compará tu enfoque con el de la IA: ¿por qué son diferentes? ¿cuál es mejor y por qué?
+
 ## Filosofía de Uso
 
 :::{important}
