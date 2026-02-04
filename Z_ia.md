@@ -126,20 +126,151 @@ Si solo copiás y pegás código de la IA, estás creando la ilusión de progres
 
 ## Técnicas de Prompting Efectivo
 
+La forma en que te comunicás con una IA determina en gran medida la calidad de la respuesta que vas a obtener. Un "prompt" (instrucción o consulta) bien estructurado puede ser la diferencia entre recibir una explicación que te ilumina y una respuesta genérica que no te sirve.
+
+Esta sección te enseña a formular prompts que maximicen tu aprendizaje, no que maximicen la cantidad de código que la IA escribe por vos.
+
 ### Estructura de un Buen Prompt
 
-Un prompt efectivo para aprendizaje tiene esta estructura:
+Un prompt efectivo para aprendizaje tiene cuatro componentes fundamentales:
 
 ```
 [CONTEXTO] + [OBJETIVO] + [RESTRICCIONES] + [FORMATO DESEADO]
 ```
 
-#### Ejemplo Básico
+Veamos cada componente en detalle:
+
+#### 1. Contexto: ¿Quién sos y qué sabés?
+
+El contexto le dice a la IA *desde dónde* estás haciendo la pregunta. Sin contexto, la IA no sabe si sos un principiante absoluto o un programador experimentado, y puede darte respuestas demasiado simples o demasiado avanzadas.
+
+**Elementos del contexto:**
+- Tu nivel actual (principiante, estudiante de primer año, etc.)
+- Qué tema estás estudiando
+- Qué conocimientos previos tenés
+- En qué materia o curso estás
+
+**Ejemplos de buen contexto:**
+
+| Contexto pobre | Contexto efectivo |
+|----------------|-------------------|
+| "Tengo una duda" | "Estoy aprendiendo Python en un curso de ingreso a programación" |
+| "No entiendo" | "Estoy viendo lazos `for` y ya entiendo variables y condicionales" |
+| "Ayuda con código" | "Soy principiante y estoy haciendo mi primer programa con listas" |
+
+:::{tip}
+**Regla práctica**: Si alguien leyera solo tu contexto, debería poder imaginar aproximadamente qué tipo de respuesta necesitás.
+:::
+
+#### 2. Objetivo: ¿Qué querés lograr?
+
+El objetivo especifica *qué* querés que la IA haga. Cuanto más específico, mejor. "Ayudame" no es un objetivo; "explicame por qué mi lazo no termina" sí lo es.
+
+**Tipos de objetivos para aprendizaje:**
+
+- **Explicar**: "Explicame qué hace la función `range()`"
+- **Comparar**: "¿Cuál es la diferencia entre `while` y `for`?"
+- **Diagnosticar**: "¿Por qué este código produce un error de índice?"
+- **Guiar**: "Dame pistas para resolver este problema sin darme la solución"
+- **Revisar**: "¿Qué errores o mejoras ves en este código que escribí?"
+- **Ejemplificar**: "Dame ejemplos de uso de diccionarios en situaciones reales"
+
+**Objetivos vagos vs. específicos:**
+
+| Objetivo vago | Objetivo específico |
+|---------------|---------------------|
+| "Explicame lazos" | "Explicame cuándo usar `while` en lugar de `for`" |
+| "¿Está bien mi código?" | "¿Mi código maneja correctamente el caso de lista vacía?" |
+| "No me funciona" | "Mi función devuelve `None` cuando debería devolver la suma" |
+
+#### 3. Restricciones: ¿Qué NO querés?
+
+Las restricciones son fundamentales para el aprendizaje porque evitan que la IA te "resuelva" el problema. Son los límites que ponés para mantener el control de tu proceso de aprendizaje.
+
+**Restricciones comunes para aprender:**
+
+- "No me des la solución completa"
+- "No uses conceptos que todavía no vi (como comprensión de listas)"
+- "Solo usá las estructuras que vimos en clase: `if`, `while`, `for`"
+- "Dame pistas, no respuestas"
+- "Explicame el concepto sin escribir código"
+- "Si hay un error, decime en qué zona está pero no lo corrijas"
+
+**Por qué las restricciones importan:**
+
+Sin restricciones, la IA por defecto tiende a darte la "mejor" solución según sus criterios, que puede incluir técnicas avanzadas que no conocés, resolver el problema por vos, o usar bibliotecas que no necesitás. Las restricciones te devuelven el control.
+
+:::{warning}
+**Sin restricciones, perdés el aprendizaje**
+
+Si no ponés restricciones, la IA va a resolver el problema por vos. Es como pedirle a alguien que te "ayude" con un rompecabezas y que termine armándolo entero mientras vos mirás.
+:::
+
+#### 4. Formato Deseado: ¿Cómo querés la respuesta?
+
+El formato le indica a la IA *cómo* estructurar su respuesta. Esto es especialmente útil cuando necesitás información organizada de cierta manera.
+
+**Formatos útiles para aprendizaje:**
+
+- "Explicame paso a paso"
+- "Usá un ejemplo concreto"
+- "Primero la teoría, después un ejemplo"
+- "Organizá la respuesta en: concepto, ejemplo, errores comunes"
+- "Respondeme con preguntas que me hagan pensar"
+- "Dame una analogía del mundo real"
+- "Mostrá la ejecución línea por línea"
+
+**Ejemplo de formato específico:**
+
+```
+Explicame qué es una lista en Python. Organizá tu respuesta así:
+1. Analogía: algo del mundo real que funcione parecido
+2. Definición técnica: en una o dos oraciones
+3. Ejemplo mínimo: el código más simple posible
+4. Errores comunes: qué suele confundir a los principiantes
+```
+
+### Anatomía de un Prompt Completo
+
+Veamos cómo se combinan los cuatro componentes en un prompt real:
+
+````{admonition} Ejemplo: Prompt Completo Anotado
+:class: note
+
+```
+[CONTEXTO]
+Estoy aprendiendo Python en el curso de ingreso. Ya vi variables, 
+input/print, y condicionales. Ahora estoy empezando con lazos.
+
+[OBJETIVO]  
+Necesito entender cuándo usar `while` vs `for`.
+
+[RESTRICCIONES]
+No me des ejemplos muy complejos. Usá solo las estructuras que 
+mencioné que conozco.
+
+[FORMATO]
+Dame una regla simple para decidir cuál usar, seguida de un ejemplo 
+de cada caso donde se note claramente por qué uno es mejor que el otro.
+```
+````
+
+### Ejemplo Básico: Prompt Pobre vs. Efectivo
+
+Veamos la diferencia en la práctica:
 
 ❌ **Prompt Pobre:**
 ```
 dame codigo para sumar numeros
 ```
+
+**Problemas de este prompt:**
+- Sin contexto: ¿Sos principiante? ¿Qué lenguaje? ¿Qué tipo de números?
+- Objetivo vago: ¿Sumar qué números? ¿Cuántos? ¿De dónde vienen?
+- Sin restricciones: La IA puede darte cualquier solución
+- Sin formato: No sabés qué tipo de respuesta vas a recibir
+
+**Resultado probable:** Un código que funciona pero que no entendés, posiblemente usando técnicas que no conocés.
 
 ✅ **Prompt Efectivo:**
 ```
@@ -150,6 +281,47 @@ Estoy aprendiendo sobre lazos en Python. Necesito escribir un programa que:
 
 No me des la solución completa. Primero explicame qué estructuras debo usar y luego dame pistas para cada paso.
 ```
+
+**Por qué funciona:**
+- **Contexto:** "Estoy aprendiendo sobre lazos en Python" — sabe tu nivel y tema
+- **Objetivo:** Los tres requisitos específicos del programa
+- **Restricciones:** "No me des la solución completa" — mantenés el control
+- **Formato:** "Primero explicame... luego dame pistas" — estructura la ayuda
+
+**Resultado probable:** Una explicación de que necesitás un `while` con condición de corte, seguida de preguntas guía como "¿Qué variable necesitás para ir acumulando la suma?"
+
+### Errores Comunes en Prompts
+
+#### Error 1: Pedir código directamente
+
+❌ "Dame el código para ordenar una lista"
+✅ "Explicame cómo funciona el algoritmo de ordenamiento burbuja. Después de que lo entienda, voy a intentar implementarlo yo"
+
+#### Error 2: No dar contexto de nivel
+
+❌ "¿Cómo hago para que no se repitan elementos?"
+✅ "Soy principiante en Python y solo conozco listas. ¿Cómo puedo evitar agregar elementos duplicados a una lista?"
+
+#### Error 3: Preguntas demasiado amplias
+
+❌ "Explicame funciones"
+✅ "Explicame para qué sirve el `return` en una función. Entiendo que las funciones agrupan código, pero no entiendo qué hace `return`"
+
+#### Error 4: No especificar qué tipo de ayuda necesitás
+
+❌ "Mi código no funciona" + [código]
+✅ "Mi código debería sumar los pares de la lista pero suma todos. ¿Podés ayudarme a encontrar dónde está el error sin corregirlo directamente?"
+
+### Checklist para Antes de Enviar un Prompt
+
+Antes de enviar tu prompt a la IA, verificá:
+
+- [ ] ¿Incluí mi nivel y qué estoy estudiando? (contexto)
+- [ ] ¿Es claro qué quiero lograr? (objetivo)
+- [ ] ¿Pedí que NO me resuelva el problema? (restricciones)
+- [ ] ¿Indiqué cómo quiero que me responda? (formato)
+- [ ] ¿Intenté resolver el problema yo primero?
+- [ ] ¿Mi pregunta es específica, no genérica?
 
 ### Técnicas Avanzadas de Prompting
 
