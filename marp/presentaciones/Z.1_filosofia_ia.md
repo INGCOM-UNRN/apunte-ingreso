@@ -54,6 +54,15 @@ NOTAS DEL ORADOR:
 > pagar el gimnasio para que otro vaya a hacer ejercicio
 > [José Escamilla]([text](https://www.clarin.com/sociedad/jose-escamilla-usar-ia-tareas-escolares-pagar-suscripcion-gimnasio-pedirle-alguien-vaya-vos_0_9Hq0FuTGJu.html))
 
+
+<!--
+NOTAS DEL ORADOR:
+- José Escamilla es Director del Instituto para el Futuro de la Educación del Tec de Monterrey.
+- La metáfora es poderosa: si querés músculos, tenés que hacer el ejercicio vos.
+- Si querés neuronas programadoras, tenés que pensar vos.
+- La IA puede ser tu entrenador, pero no puede hacer las flexiones por vos.
+- Concepto clave: descarga cognitiva vs deuda cognitiva.
+-->
 ---
 
 <!-- _header: 'La verdad' -->
@@ -62,6 +71,15 @@ NOTAS DEL ORADOR:
 
 ¡Los LLM’s no son oráculos!
 
+
+<!--
+NOTAS DEL ORADOR:
+- LLM = Large Language Model (Modelo de Lenguaje Grande).
+- Son sistemas probabilísticos, no bases de datos de verdades.
+- Generan texto que suena bien pero puede estar completamente equivocado.
+- No tienen acceso a información en tiempo real (depende del modelo).
+- No piensan ni entienden realmente, predicen secuencias de texto.
+-->
 
 ---
 
@@ -91,6 +109,15 @@ NOTAS DEL ORADOR:
 - Verificador de ideas
 - Fuente de ejemplos y ejercicios
 
+<!--
+NOTAS DEL ORADOR:
+- Tutor 24/7: Pueden preguntar a las 3am cuando están trabados.
+- Generador de explicaciones: Pueden pedir que explique de 5 formas distintas.
+- Verificador: "¿Mi razonamiento tiene sentido?"
+- Ejercicios: "Dame 5 problemas más de este tipo".
+- La clave es que USTEDES siguen pensando, la IA amplifica.
+-->
+
 ---
 <!-- _header: 'Filosofía' -->
 
@@ -117,6 +144,16 @@ NOTAS DEL ORADOR:
 - Debugging mental
 - Lectura de código
 - Diseño de soluciones
+
+<!--
+NOTAS DEL ORADOR:
+- Pensamiento lógico: Descomponer problemas en pasos.
+- Resolución de problemas: Encontrar caminos cuando no hay receta.
+- Debugging mental: Simular la ejecución en tu cabeza.
+- Lectura de código: Entender código ajeno (incluso el tuyo de hace 2 semanas).
+- Diseño: Pensar ANTES de escribir código.
+- Ninguna de estas se desarrolla copiando código de la IA.
+-->
 
 ---
 <!-- _header: 'Desarrollo de habilidades' -->
@@ -307,6 +344,14 @@ NOTAS DEL ORADOR:
 - No hacer ejercicios por pereza
 - Usar IA para cada pequeño detalle
 
+<!--
+NOTAS DEL ORADOR:
+- La práctica es donde se forman las conexiones neuronales.
+- No hay atajos para desarrollar habilidades.
+- Es como querer aprender a tocar guitarra mirando videos.
+- En algún momento tenés que agarrar la guitarra.
+-->
+
 ---
 
 <!-- _header: 'Cuándo NO usar IA - IV' -->
@@ -332,11 +377,27 @@ Piensen en el tiempo del profesor
 # <!-- fit --> Si es por _aprender_
 # <!-- fit --> la IA ya sabe
 
+<!--
+NOTAS DEL ORADOR:
+- Punto clave: la IA no necesita aprender, USTEDES sí.
+- Si la IA hace todo, ¿quién desarrolla las habilidades?
+- El título dice que USTEDES saben programar, no la IA.
+- Están invirtiendo tiempo y dinero en SU formación.
+-->
+
 ---
 
 # <!-- fit --> Si es por _programar_
 # <!-- fit --> la IA ya sabe
 Además, todo lo que le damos se usa para su entrenamiento :-D
+
+<!--
+NOTAS DEL ORADOR:
+- Dato importante: lo que suben a ChatGPT se usa para entrenar.
+- Cuidado con código confidencial de empresas.
+- En el trabajo esto puede ser un problema serio.
+- Mejor acostumbrarse a NO depender 100% de la IA.
+-->
 
 ---
 
@@ -370,6 +431,14 @@ Además, todo lo que le damos se usa para su entrenamiento :-D
 - Programa tu solución
 - Llegá lo más lejos posible
 
+<!--
+NOTAS DEL ORADOR:
+- Mínimo 15-20 minutos antes de consultar.
+- El esfuerzo inicial es donde ocurre el aprendizaje.
+- Llegá hasta donde puedas, aunque sea poco.
+- Escribí aunque sea pseudocódigo o comentarios.
+-->
+
 ---
 <!-- _header: '¿Y qué podemos hacer?' -->
 
@@ -377,12 +446,28 @@ Además, todo lo que le damos se usa para su entrenamiento :-D
 - ¿Qué específicamente no sabés?
 - Formula pregunta precisa
 
+<!--
+NOTAS DEL ORADOR:
+- "No me funciona" no es una pregunta.
+- "Mi lazo no termina cuando ingreso 0" SÍ es una pregunta.
+- Formular bien la pregunta ya es la mitad del camino.
+- A veces al formular la pregunta, encontrás la respuesta vos solo.
+-->
+
 ---
 <!-- _header: '¿Y qué podemos hacer?' -->
 
 # <!-- fit --> 3. Consulta a la {IA|Profe}
 - Una pregunta específica pidiendo explicación, no la solución
 - Una pista de como seguir sin dar la respuesta
+
+<!--
+NOTAS DEL ORADOR:
+- La IA y el profe cumplen roles similares acá.
+- SIEMPRE pidan explicación, no solución.
+- "¿Por qué pasa esto?" en lugar de "Corregime esto".
+- Las restricciones en el prompt son clave.
+-->
 
 ---
 <!-- _header: '¿Y qué podemos hacer?' -->
@@ -392,6 +477,15 @@ Además, todo lo que le damos se usa para su entrenamiento :-D
 - Experimenta modificando
 - ¿Por qué me dio esta respuesta?
 
+<!--
+NOTAS DEL ORADOR:
+- NO copiar y pegar directamente.
+- Leer línea por línea.
+- Modificar cosas y ver qué pasa.
+- "¿Qué pasa si cambio esto?"
+- La experimentación es parte del aprendizaje.
+-->
+
 ---
 <!-- _header: '¿Y qué podemos hacer?' -->
 
@@ -399,11 +493,27 @@ Además, todo lo que le damos se usa para su entrenamiento :-D
 - Adapta a tu código
 - Verifica que funcione
 
+<!--
+NOTAS DEL ORADOR:
+- Adaptar, no copiar textual.
+- Probar con tus propios casos.
+- Asegurarte de que podés explicar cada línea.
+- Si no podés explicarlo, no lo entendés.
+-->
+
 ---
 
 # <!-- fit --> Con o sin IA
 # <!-- fit --> esto _aplica a aprender_
 en general
+
+<!--
+NOTAS DEL ORADOR:
+- El proceso de 5 pasos funciona para cualquier aprendizaje.
+- Con un libro, con un profe, con un video, con IA.
+- La clave es: intentar primero, identificar la duda, preguntar específico.
+- La IA es solo una herramienta más, no cambia el proceso.
+-->
 
 ---
 
@@ -446,6 +556,14 @@ NOTAS DEL ORADOR:
  
 ❲CONTEXTO❳ + ❲OBJETIVO❳ + ❲RESTRICCIONES❳ + ❲FORMATO DESEADO❳
 
+<!--
+NOTAS DEL ORADOR:
+- Esta es la fórmula mágica para buenos prompts.
+- CONTEXTO: quién soy y qué sé.
+- OBJETIVO: qué quiero lograr.
+- RESTRICCIONES: qué NO quiero (clave para aprender).
+- FORMATO: cómo quiero la respuesta.
+-->
 
 ---
 <!-- _header: 'Estructura básica' -->
@@ -453,6 +571,14 @@ NOTAS DEL ORADOR:
 
 # <!-- fit --> Contexto
 # <!-- fit --> ¿Quién so vó y qué sabés?
+
+<!--
+NOTAS DEL ORADOR:
+- El contexto es la base de un buen prompt.
+- Sin contexto, la IA no sabe si hablarle a un niño o a un experto.
+- Incluir: nivel, tema actual, conocimientos previos.
+- Ejemplo: "Soy estudiante de ingreso, estoy viendo lazos".
+-->
 
 ---
 <!-- _header: 'Estructura básica' -->
@@ -463,6 +589,14 @@ NOTAS DEL ORADOR:
 - Qué tema estás estudiando
 - Qué conocimientos previos tenés
 - En qué materia o curso estás
+
+<!--
+NOTAS DEL ORADOR:
+- Sin contexto, la IA no sabe si hablar como a un niño o a un PhD.
+- "Soy principiante en Python" cambia totalmente la respuesta.
+- Mencionen qué temas YA vieron, para que no use cosas que no conocen.
+- Ejemplo: "Solo vi if, while y for, no uses funciones todavía".
+-->
 
 ---
 <!-- _header: 'Estructura básica' -->
@@ -482,6 +616,14 @@ NOTAS DEL ORADOR:
 
 # <!-- fit --> Objetivos
 # <!-- fit --> ¿Qué queré?
+
+<!--
+NOTAS DEL ORADOR:
+- El objetivo debe ser ESPECÍFICO.
+- "Ayudame" no es un objetivo.
+- "Explicame por qué mi lazo no termina" SÍ es un objetivo.
+- Cuanto más preciso, mejor respuesta van a obtener.
+-->
 
 ---
 <!-- _header: 'Estructura básica' -->
@@ -521,6 +663,14 @@ Notas del Orador: {manuales, solo ampliar}
 
 # <!-- fit --> Restricciones
 # <!-- fit --> ¿Qué nó queré?
+
+<!--
+NOTAS DEL ORADOR:
+- Las restricciones son CLAVE para el aprendizaje.
+- "No me des la solución" es la restricción más importante.
+- También: "No uses conceptos que no vi todavía".
+- Sin restricciones, la IA resuelve todo y ustedes no aprenden nada.
+-->
 
 ---
 <!-- _header: 'Estructura básica' -->
@@ -562,6 +712,14 @@ Si no ponés restricciones, la IA va a resolver el problema por vos. Es como ped
 
 # <!-- fit --> Formato de salida
 # <!-- fit --> ¿Cómo lo queré?
+
+<!--
+NOTAS DEL ORADOR:
+- El formato organiza la respuesta como ustedes la necesitan.
+- "Paso a paso", "con ejemplo", "primero teoría después código".
+- Pueden pedir analogías, diagramas, comparaciones.
+- Un buen formato hace la respuesta más útil.
+-->
 
 ---
 
@@ -669,6 +827,14 @@ La IA actúa como **estudiante curioso**:
 - Detectar lagunas en tu conocimiento
 - Antes de explicarle algo a un compañero
 
+<!--
+NOTAS DEL ORADOR:
+- Es una técnica de auto-evaluación muy poderosa.
+- Si no podés explicar algo simple, no lo entendés.
+- La IA hace de "estudiante molesto" que pregunta todo.
+- Ideal para antes de parciales.
+-->
+
 ---
 
 # ¿Por qué funciona?
@@ -677,6 +843,14 @@ La IA actúa como **estudiante curioso**:
 - La IA no se cansa ni te juzga
 - Simula un estudiante infinitamente curioso
 - Feedback inmediato sobre tu explicación
+
+<!--
+NOTAS DEL ORADOR:
+- La IA no tiene vergüenza de preguntar "obviedades".
+- Justamente esas preguntas obvias revelan lo que no sabés.
+- Podés practicar las veces que quieras.
+- Es como tener un compañero de estudio 24/7.
+-->
 
 ---
 
@@ -777,6 +951,14 @@ Pedimos explicaciones progresivas:
 - Verificar comprensión profunda
 - Conectar con conocimiento previo
 
+<!--
+NOTAS DEL ORADOR:
+- Conceptos como "recursión", "punteros", "objetos" son abstractos.
+- Empezar con analogías ayuda a anclar el concepto.
+- Después ir agregando detalle técnico.
+- Si podés explicarlo en los 3 niveles, realmente lo entendés.
+-->
+
 ---
 
 # ¿Por qué funciona?
@@ -785,6 +967,14 @@ Pedimos explicaciones progresivas:
 - Conecta lo nuevo con lo familiar
 - Múltiples perspectivas
 - Comprensión progresiva
+
+<!--
+NOTAS DEL ORADOR:
+- El cerebro aprende conectando lo nuevo con lo conocido.
+- Una analogía crea ese "gancho" mental.
+- Múltiples niveles dan múltiples oportunidades de entender.
+- Si no entienden en nivel 1, quizás sí en nivel 2.
+-->
 
 ---
 
@@ -810,6 +1000,14 @@ Explicame qué es [concepto] en tres niveles:
 **Nivel 1** (sin programación):
 > "Es como mirarte en dos espejos enfrentados: cada reflejo contiene otro reflejo más pequeño."
 
+<!--
+NOTAS DEL ORADOR:
+- Nivel 1: Analogía del mundo real, sin jerga técnica.
+- La idea es que CUALQUIERA pueda entender la esencia.
+- Los espejos enfrentados son una imagen muy visual.
+- Si no pueden explicar en nivel 1, no lo entienden de verdad.
+-->
+
 ---
 
 # Ejemplo: La Recursión
@@ -817,12 +1015,28 @@ Explicame qué es [concepto] en tres niveles:
 **Nivel 2** (estudiante):
 > "Es cuando una función se llama a sí misma para resolver una versión más pequeña del mismo problema."
 
+<!--
+NOTAS DEL ORADOR:
+- Nivel 2: Ya usa vocabulario técnico pero accesible.
+- "Función que se llama a sí misma" es la definición clásica.
+- "Versión más pequeña" es clave: el problema se achica.
+- Este nivel es para alguien que ya programa un poco.
+-->
+
 ---
 
 # Ejemplo: La Recursión
 
 **Nivel 3** (implementación):
 > "En Python, cada llamada recursiva agrega un frame al call stack, con su propio scope de variables locales..."
+
+<!--
+NOTAS DEL ORADOR:
+- Nivel 3: Detalles técnicos de implementación.
+- Call stack, frames, scope... vocabulario avanzado.
+- Este nivel es para entender QUÉ PASA en la máquina.
+- Útil para debugging y optimización.
+-->
 
 ---
 
@@ -876,6 +1090,14 @@ Cuando pedís que te **corrijan** el código:
 - Errores **lógicos** especialmente
   * (el código corre pero da mal)
 
+<!--
+NOTAS DEL ORADOR:
+- IMPORTANTE: Primero intentar solos mínimo 15-20 minutos.
+- Los errores lógicos son los más difíciles y los más educativos.
+- "El código corre pero da 7 en vez de 10" - error lógico.
+- La IA puede guiar sin dar la respuesta directa.
+-->
+
 ---
 
 # ¿Por qué funciona?
@@ -884,6 +1106,14 @@ Cuando pedís que te **corrijan** el código:
 - Formular hipótesis sobre comportamiento
 - Habilidades **transferibles**
 - Aprendés el proceso, no solo la solución
+
+<!--
+NOTAS DEL ORADOR:
+- Debugging es una habilidad CRÍTICA que solo se aprende practicando.
+- Si siempre piden que corrijan, nunca desarrollan el "olfato".
+- El proceso de encontrar bugs es transferible a cualquier lenguaje.
+- Un programador que no sabe debuggear está en problemas serios.
+-->
 
 ---
 
@@ -959,6 +1189,15 @@ usar? Guiame sin darme la solución directa.
 
 _❲O por lo menos, irse por las ramas❳_
 
+<!--
+NOTAS DEL ORADOR:
+- La IA "alucina" con confianza total.
+- Puede inventar funciones que no existen.
+- Puede dar explicaciones que suenan bien pero son falsas.
+- Puede complicar soluciones simples innecesariamente.
+- SIEMPRE verificar con documentación oficial y pruebas.
+-->
+
 ---
 
 # <!-- fit --> Verificá siempre:
@@ -1002,19 +1241,29 @@ NOTAS DEL ORADOR:
 
 # Honestidad y ética
 
-## Esta normalmente **permitido**
+## Está **permitido**
 - Usar IA para aprender
 - Pedir explicaciones
 - Debugging con ayuda IA
+
+_❲Esta presentación trata estos temas❳_
+
+<!--
+NOTAS DEL ORADOR:
+- Las reglas pueden variar según la materia y el docente.
+- En general: usar para APRENDER está bien.
+- La clave es la TRANSPARENCIA y el ENTENDIMIENTO.
+- Si pueden explicar lo que hicieron, probablemente está bien.
+-->
 
 ---
 
 # Honestidad y ética
 
-## Pero NO está permitido:
+## Pero **NO** está permitido:
 - Copiar código completo de IA
 - Entregar sin entender
-- Usar IA para exámenes (salvo indicación)
+- Usar IA para exámenes
 
 ## Si hay dudas, preguntá al docente
 
@@ -1051,6 +1300,10 @@ mi solución.
 <!--
 NOTAS DEL ORADOR:
 - La honestidad es valorada profesionalmente.
+- En el trabajo, mentir sobre tus capacidades es problemático.
+- Si el profe sabe que usaste IA, puede dar mejor feedback.
+- La transparencia construye confianza a largo plazo.
+- Declarar uso de IA no es vergonzoso, es profesional.
 -->
 
 ---
@@ -1067,6 +1320,14 @@ NOTAS DEL ORADOR:
 - Funciona pero no sabes por qué
 - Copias y pegas sin leer
 - Depende de IA para todo
+
+<!--
+NOTAS DEL ORADOR:
+- Si alguno de estos aplica, hay que parar y reflexionar.
+- "Funciona pero no sé por qué" es una bomba de tiempo.
+- En el examen no van a tener IA - ahí se nota.
+- Si dependen de IA para todo, están construyendo sobre arena.
+-->
 
 ---
 
@@ -1091,6 +1352,15 @@ _ ¿Soy mejor programador?
 
 # Si mayoría es NO...
 ## Estás usando IA incorrectamente
+
+<!--
+NOTAS DEL ORADOR:
+- Estas preguntas son para auto-evaluación honesta.
+- Si la mayoría es NO, hay que cambiar el enfoque.
+- No es que la IA sea mala, es que la están usando mal.
+- El objetivo es que USTEDES mejoren, no que entreguen más rápido.
+- Sean honestos consigo mismos, nadie más va a evaluarlos acá.
+-->
 
 ---
 
@@ -1117,6 +1387,15 @@ _ ¿Soy mejor programador?
 - Habilidades reales
 - No divulgar conocimiento y código interno
 
+<!--
+NOTAS DEL ORADOR:
+- El código que no entienden no lo pueden mantener.
+- En 6 meses van a mirar su código y no recordar qué hace.
+- La reputación profesional se construye con trabajo real.
+- El código de empresas es CONFIDENCIAL, no va a ChatGPT.
+- Las habilidades reales son las que quedan cuando no hay internet.
+-->
+
 ---
 
 <!-- _header: 'Futuro profesional' -->
@@ -1129,6 +1408,15 @@ _ ¿Soy mejor programador?
 - Código complejo requiere entendimiento
 - Entrevistas técnicas son presenciales
 - Clientes esperan expertise real
+
+<!--
+NOTAS DEL ORADOR:
+- Las entrevistas técnicas de Google, Meta, etc. son SIN IA.
+- En producción a veces no podés usar IA por confidencialidad.
+- Los clientes pagan por TU expertise, no por ChatGPT.
+- Si solo sabés copiar de IA, en el trabajo se nota rápido. (y devalua la profesión)
+- Mejor desarrollar habilidades reales ahora que es gratis equivocarse.
+-->
 
 ---
 
