@@ -1,37 +1,43 @@
 ---
 marp: true
 theme: UNRN
-paginate: false
-header: 'UNRN Andina'
-footer: 'Curso de Ingreso - Ingeniería en Computación - UNRN Andina'
+paginate: true
+header: ''
+footer: ''
 size: 4:3
 ---
 
 <!-- _class: lead -->
-<!-- _footer: 'IA - Parte 1/3' -->
+<!-- _header: 'UNRN Andina - 2026' -->
+<!-- _footer: 'Ingeniería en Computación - UNRN Andina - 2026' -->
 
-# <!-- fit --> IA como Herramienta
-## Aprender con inteligencia artificial
-Curso de Ingreso - Ingeniería en Computación
+# <!-- fit --> Aprender con inteligencia artificial
+## IA como Herramienta
+Curso de Ingreso
+Universidad Nacional de Río Negro
+Sede Andina
+
+<hr/>
+
+> Martín René Vilugrón
+> mrvilugron@unrn.edu.ar
 
 <!--
 NOTAS DEL ORADOR:
-- Duración estimada: 3 minutos
 - Objetivo: Establecer una postura proactiva pero crítica frente a la IA.
 - Gancho: "Tienen en su bolsillo a un experto que sabe todo el código del mundo. ¿Cómo evitamos que ese experto nos impida aprender a nosotros?"
 -->
 
 ---
 
-<!-- _header: 'Nueva realidad' -->
+<!-- _header: 'La nueva realidad' -->
 
-# La IA está aquí
+# <!-- fit --> La IA ya está acá
 
-**Herramientas disponibles:**
-* ChatGPT, Claude, Gemini
-* GitHub Copilot
-* Cursor, Codeium
-* Y muchas más...
+**En herramientas cómo:**
+- ChatGPT, Claude, Gemini, Copilot
+- Cursor, Codeium
+- ¡Y muchas más…!
 
 **No se trata de si usar IA:**
 **Se trata de CÓMO usarla bien**
@@ -44,43 +50,111 @@ NOTAS DEL ORADOR:
 
 ---
 
+> Usar incorrectamente la IA en la universidad es como
+> pagar el gimnasio para que otro vaya a hacer ejercicio
+> [José Escamilla]([text](https://www.clarin.com/sociedad/jose-escamilla-usar-ia-tareas-escolares-pagar-suscripcion-gimnasio-pedirle-alguien-vaya-vos_0_9Hq0FuTGJu.html))
+
+---
+
+<!-- _header: 'La verdad' -->
+
+# <!-- fit --> La realidad técnica
+
+¡Los LLM’s no son oráculos!
+
+
+---
+
+<!-- _header: 'La nueva realidad' -->
+
+## Las alucinaciones no son un bug
+# <!-- fit --> ¡Son un feature!
+
+De su naturaleza probabilística
+
+<!--
+NOTAS DEL ORADOR:
+- La IA es convincente incluso cuando miente.
+- Son ustedes el responsable final del código, _no la IA_.
+
+-->
+
+---
+
 <!-- _header: 'Filosofía' -->
 
-# IA: herramienta, no muleta
+# La IA: como herramienta, no muleta 🩼
 
 **✅ IA como:**
-* Tutor personal 24/7
-* Generador de explicaciones
-* Verificador de ideas
-* Fuente de ejemplos
+- Tutor personal 24/7
+- Generador de explicaciones
+- Verificador de ideas
+- Fuente de ejemplos y ejercicios
+
+---
+<!-- _header: 'Filosofía' -->
+
+# La IA: como herramienta, no muleta 🩼
 
 **❌ IA NO como:**
-* Reemplazo de aprender
-* Copiadora de código
-* Excusa para no pensar
+- Reemplazo de aprender
+- Copiadora de código
+- *Excusa* para no pensar
 
 <!--
 NOTAS DEL ORADOR:
 - Analogía: La IA es como el GPS. Es genial para no perderse, pero si lo usás siempre, nunca aprendés las calles de tu ciudad.
 - Queremos programadores que sepan orientarse sin GPS cuando sea necesario.
 -->
+---
+<!-- _header: 'Desarrollo de habilidades' -->
+
+# Habilidades cruciales
+
+## Programar requiere:
+- Pensamiento lógico
+- Resolución de problemas
+- Debugging mental
+- Lectura de código
+- Diseño de soluciones
+
+---
+<!-- _header: 'Desarrollo de habilidades' -->
+<!-- _footer: 'No hay atajos' -->
+
+# <!-- fit --> La IA puede dar código...
+
+# <!-- fit -->Pero no puede darte estas habilidades
+
+# <!-- fit -->Solo la práctica genuina las desarrolla
+
+<!--
+NOTAS DEL ORADOR:
+- No hay atajos para adquirir criterio experto.
+-->
+
+
+---
+
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
+
+# <!-- fit --> ¿Preguntas?
+¿Cómo venimos?
 
 ---
 
 <!-- _header: 'Principio fundamental' -->
 
-# Entender lo que copias
+# <!-- fit --> Entender lo que copias
 
-**Regla de oro:**
+## Y cómo regla:
 > No uses código que no entiendes
 
-**Si la IA te da código:**
-1. Léelo línea por línea
-2. Explica qué hace cada parte
-3. Modifícalo para probarlo
-4. Pregunta lo que no entiendas
-
-**Si no puedes explicarlo, no lo uses**
+### Si no podés explicar lo que salió…
+### no es una buena idea que lo uses
 
 <!--
 NOTAS DEL ORADOR:
@@ -90,27 +164,26 @@ NOTAS DEL ORADOR:
 
 ---
 
-<!-- _header: 'Usos apropiados' -->
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _class: inverse -->
 
-# ✅ Cuándo usar IA
+# <!-- fit --> ¿Para qué 
+# <!-- fit --> usar la IA?
 
-**Explicaciones:**
-```
-"Explicá cómo funcionan las listas en Python"
-"¿Qué diferencia hay entre append y extend?"
-```
+---
 
-**Debugging:**
-```
-"Este código me da error [pegar código]. 
-¿Por qué falla?"
-```
+<!-- _header: 'Para qué, y cuando...' -->
+<!-- _footer: 'Mejores practicas' -->
 
-**Alternativas:**
-```
-"Tengo este código [pegar].
-¿Hay una forma más simple de hacer esto?"
-```
+# ✅ Cuándo usar la IA
+
+- **Explicaciones**
+- **Debugging**
+- **Crear implementaciones alternativas**
+- **Generar casos de prueba**
+- **Explicar conceptos**
+- **Sugerencias de mejora**
 
 <!--
 NOTAS DEL ORADOR:
@@ -119,52 +192,104 @@ NOTAS DEL ORADOR:
 -->
 
 ---
+<!-- _header: '✅ ¿Para qué usar la IA? - I' -->
 
-<!-- _header: 'Usos apropiados' -->
+# <!-- fit --> Explicaciones:
 
-# ✅ Cuándo usar IA (cont.)
+- “Explicá cómo funcionan las listas en Python”
+  ”¿Qué diferencia hay entre `append` y `extend`?”
 
-**Generar tests:**
-```
-"Dame casos de prueba para esta función:
-[pegar función]"
-```
 
-**Conceptos:**
-```
-"Explicá qué es la recursividad con un ejemplo
-simple"
-```
 
-**Refactoring:**
-```
-"Este código funciona pero es confuso.
-¿Cómo mejorarlo? [pegar código]"
-```
+---
+<!-- _header: '✅ ¿Para qué usar la IA? - II' -->
 
-<!--
-NOTAS DEL ORADOR:
-- La IA es excelente generando "boilerplate" (código repetitivo) como tests unitarios.
--->
+# <!-- fit --> Debugging 🐛
+
+- “Este código me da error [pegar código]. 
+- ¿Explica por qué falla de esta forma…”
+
+
+
+---
+<!-- _header: '✅ ¿Para qué usar la IA? - III' -->
+
+# <!-- fit --> Generar alternativas ⑂
+
+- “Tengo este código [pegar].
+ ¿Hay una forma más simple de hacer esto?”
+
+
 
 ---
 
-<!-- _header: 'Usos inapropiados' -->
+<!-- _header: '✅ ¿Para qué usar la IA? - IV' -->
 
-# ❌ Cuándo NO usar IA
+# <!-- fit --> Generar tests
 
-**Generar tarea completa:**
-```
-❌ "Resolvé el ejercicio 3 del TP"
-❌ "Dame el código para [enunciado completo]"
-```
+- “Dame casos de prueba para esta función:
+ [pegar función]”
+- ¿Cómo puedo probar esta función?
 
-**Copiar sin entender:**
-```
-❌ Pedir código y entregar tal cual
-❌ Usar sin modificar
-❌ No saber explicarlo
-```
+
+---
+<!-- _header: '✅ ¿Para qué usar la IA? - V' -->
+
+# <!-- fit --> Explicar conceptos
+
+- “Explicá qué es la recursividad con un ejemplo simple”
+
+---
+<!-- _header: '✅ ¿Para qué usar la IA? - VI' -->
+
+# <!-- fit --> Sugerencias de mejora
+\[refactorizaciones*\]
+
+> “Este código funciona pero es confuso.
+¿Qué puedo hacer para mejorarlo? [pegar código]”
+
+---
+
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
+
+# <!-- fit --> ¿Qué más se
+# <!-- fit --> les ocurre?
+
+---
+
+<!-- _class: inverse -->
+<!-- _header: 'Para qué, y cuando...' -->
+<!-- _footer: 'Mejores practicas' -->
+
+
+## ¿Para qué 
+# <!-- fit --> —NO⸻
+## usar la IA?
+
+
+---
+
+<!-- _header: 'Cuándo NO usar IA - I' -->
+
+# <!-- fit --> ❌ Generar una tarea completa
+
+- “Resolvé el ejercicio 3 de la práctica”
+- “Dame el código para [enunciado completo]”
+
+
+---
+
+<!-- _header: 'Cuándo NO usar IA - II' -->
+
+# <!-- fit --> ❌ Copiar mí entender
+
+- Pedir código y entregarlo tal cual
+- Usarlo sin modificarlo
+- No saber explicarlo
+
 
 <!--
 NOTAS DEL ORADOR:
@@ -174,55 +299,122 @@ NOTAS DEL ORADOR:
 
 ---
 
-<!-- _header: 'Usos inapropiados' -->
+<!-- _header: 'Cuándo NO usar IA - III' -->
 
-# ❌ Cuándo NO usar IA (cont.)
+# <!-- fit --> ❌ Reemplazo de práctica
 
-**Reemplazo de práctica:**
-```
-❌ Evitar programar uno mismo
-❌ No hacer ejercicios por pereza
-❌ Usar IA para cada pequeño detalle
-```
+- Evitar programar uno mismo
+- No hacer ejercicios por pereza
+- Usar IA para cada pequeño detalle
 
-**Sin verificación:**
-```
-❌ Confiar ciegamente en output
-❌ No probar el código
-❌ No leer documentación oficial
-```
+---
+
+<!-- _header: 'Cuándo NO usar IA - IV' -->
+
+# <!-- fit --> ❌ Uso sin verificación
+
+- Confiar ciegamente en output
+- No probar el código
+- No leer los apuntes y/o documentación
+
 
 <!--
 NOTAS DEL ORADOR:
+
+Piensen en el tiempo del profesor
+
 - La IA alucina. Inventa funciones que no existen.
 - Confiar ciegamente es un riesgo profesional.
 -->
 
 ---
 
-<!-- _header: 'Flujo recomendado' -->
+# <!-- fit --> Si es por _aprender_
+# <!-- fit --> la IA ya sabe
 
-# Proceso de trabajo con IA
+---
 
-**1. Intentá solo primero**
-* Programa tu solución
-* Llegá lo más lejos posible
+# <!-- fit --> Si es por _programar_
+# <!-- fit --> la IA ya sabe
+Además, todo lo que le damos se usa para su entrenamiento :-D
 
-**2. Identifica obstáculo**
-* ¿Qué específicamente no sabés?
-* Formula pregunta precisa
+---
 
-**3. Consulta IA**
-* Pregunta específica
-* Pide explicación, no solo código
+# <!-- fit --> No pierdan la oportunidad
+# <!-- fit --> de preguntar
 
-**4. Comprende respuesta**
-* Lee y analiza
-* Experimenta modificando
+---
 
-**5. Aplica e integra**
-* Adapta a tu código
-* Verifica que funcione
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
+
+# <!-- fit --> ¿Preguntas?
+¿Ya que estamos? ☺️
+
+---
+
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
+
+# <!-- fit --> ¿Y qué
+# <!-- fit --> podemos hacer?
+
+---
+<!-- _header: '¿Y qué podemos hacer?' -->
+
+# <!-- fit --> 1. Intentá solito primero
+- Programa tu solución
+- Llegá lo más lejos posible
+
+---
+<!-- _header: '¿Y qué podemos hacer?' -->
+
+# <!-- fit --> 2. Identifica un obstáculo
+- ¿Qué específicamente no sabés?
+- Formula pregunta precisa
+
+---
+<!-- _header: '¿Y qué podemos hacer?' -->
+
+# <!-- fit --> 3. Consulta a la {IA|Profe}
+- Una pregunta específica pidiendo explicación, no la solución
+- Una pista de como seguir sin dar la respuesta
+
+---
+<!-- _header: '¿Y qué podemos hacer?' -->
+
+# <!-- fit --> 4. Comprende la respuesta
+- Lee y analiza
+- Experimenta modificando
+- ¿Por qué me dio esta respuesta?
+
+---
+<!-- _header: '¿Y qué podemos hacer?' -->
+
+# <!-- fit --> 5. Aplica e integra
+- Adapta a tu código
+- Verifica que funcione
+
+---
+
+# <!-- fit --> Con o sin IA
+# <!-- fit --> esto _aplica a aprender_
+en general
+
+---
+
+<!-- _header: 'En resumen... ¿Y qué podemos hacer?' -->
+
+# 1. Intentá solito primero
+# 2. Identifica un obstáculo
+# 3. Consultá
+# 4. Comprende la respuesta
+# 5. Aplica e integra
+
 
 <!--
 NOTAS DEL ORADOR:
@@ -231,144 +423,548 @@ NOTAS DEL ORADOR:
 
 ---
 
-<!-- _header: 'Ejemplo bueno' -->
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
 
-# Uso correcto de IA
+# <!-- fit --> ¿Preguntas?
+¿Cómo venimos?
 
-**Tu código:**
-```python
-# Funciona pero es lento
-def es_primo(n):
-    for i in range(2, n):
-        if n % i == 0:
-            return False
-    return True
-```
+---
 
-**Pregunta a IA:**
-```
-"Tengo esta función que verifica si un número es primo.
-Funciona pero es lenta con números grandes.
-¿Cómo puedo optimizarla? Explicá la mejora."
-```
+<!-- _class: inverse -->
+# <!-- fit --> Estructura
+¿Cómo preguntar?
 
-**Analizas respuesta, entiendes optimización,
-aplicas a tu código**
+---
+
+<!-- _header: '¿Como preguntar?' -->
+<!-- _footer: 'Buenas practicas (generales)' -->
+
+# <!-- fit --> Estructura básica 
+ 
+❲CONTEXTO❳ + ❲OBJETIVO❳ + ❲RESTRICCIONES❳ + ❲FORMATO DESEADO❳
+
+
+---
+<!-- _header: 'Estructura básica' -->
+<!-- _footer: 'Buenas practicas - 1' -->
+
+# <!-- fit --> Contexto
+# <!-- fit --> ¿Quién so vó y qué sabés?
+
+---
+<!-- _header: 'Estructura básica' -->
+<!-- _footer: 'Contexto - 1' -->
+
+# <!-- fit --> Componentes
+- Tu nivel actual (principiante, estudiante de primer año, etc.)
+- Qué tema estás estudiando
+- Qué conocimientos previos tenés
+- En qué materia o curso estás
+
+---
+<!-- _header: 'Estructura básica' -->
+<!-- _footer: 'Contexto - 1' -->
+
+# Ejemplos
+
+“Estoy aprendiendo Python en un curso de ingreso a programación” 
+<hr/>
+"Estoy viendo lazos `for` y ya entiendo variables y condicionales"
+<hr/>
+"Soy principiante y estoy haciendo mi primer programa con listas"
+
+---
+<!-- _header: 'Estructura básica' -->
+<!-- _footer: 'Buenas practicas - 2' -->
+
+# <!-- fit --> Objetivos
+# <!-- fit --> ¿Qué queré?
+
+---
+<!-- _header: 'Estructura básica' -->
+<!-- _footer: 'Objetivos - 2' -->
+
+# (algunos) objetivos de aprendizaje
+- **Explicar**
+- **Comparar**
+- **Guiar**
+- **Revisar**
+- **Ejemplificar**
 
 <!--
-NOTAS DEL ORADOR:
-- Aquí el estudiante YA hizo el esfuerzo de resolverlo (fuerza bruta).
-- Usa la IA para mejorar, no para resolver desde cero.
+Notas del Orador: {manuales, solo ampliar}
+- **Explicar**: "Explicame qué hace la función `range()`"
+- **Comparar**: "¿Cuál es la diferencia entre `while` y `for`?"
+- **Diagnosticar**: "¿Por qué este código produce un error de índice?"
+- **Guiar**: "Dame pistas para resolver este problema sin darme la solución"
+- **Revisar**: "¿Qué errores o mejoras ves en este código que escribí?"
+- **Ejemplificar**: "Dame ejemplos de uso de diccionarios en situaciones reales"
+-->
+
+---
+<!-- _header: 'Estructura básica' -->
+<!-- _footer: 'Objetivos - 2' -->
+
+# Ejemplos
+“Explicame cuándo usar `while` en lugar de `for`”
+<hr/>
+"¿Mi código maneja correctamente el caso de lista vacía?"
+<hr/>
+"Mi función devuelve `None` cuando debería devolver la suma"
+
+---
+<!-- _header: 'Estructura básica' -->
+<!-- _footer: 'Buenas practicas - 3' -->
+
+# <!-- fit --> Restricciones
+# <!-- fit --> ¿Qué nó queré?
+
+---
+<!-- _header: 'Estructura básica' -->
+<!-- _footer: 'Restricciones - 3' -->
+
+# Ejemplos
+- “No me des la solución completa”
+- “No uses conceptos que todavía no vi (como comprensión de listas)”
+- “Solo usá las estructuras que vimos en clase: `if`, `while`, `for`”
+- “Dame pistas, no respuestas”
+- “Explicame el concepto sin escribir código”
+- “Si hay un error, decime en qué zona está, pero no lo corrijas”
+
+<!--
+Notas del orador:
+
+Sin restricciones, la IA por defecto tiende a darte la "mejor" solución según sus criterios, que puede incluir técnicas avanzadas que no conocés, resolver el problema por vos, o usar bibliotecas que no necesitás. Las restricciones te devuelven el control.
 -->
 
 ---
 
-<!-- _header: 'Ejemplo malo' -->
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
 
-# Uso incorrecto de IA
-
-**Enunciado:**
-> Crear programa que calcule factorial recursivo
-
-**❌ Mal uso:**
-```
-Prompt: "Dame código en Python para calcular
-factorial recursivo"
-
-[Copiar respuesta directamente sin leer]
-[Entregar como propia]
-```
-
-**Problemas:**
-* No aprendiste recursividad
-* No entiendes el código
-* No podrás explicarlo
-* Fraude académico
+Qué quizás sea
+# <!-- fit --> ¡Lo más importante!
 
 <!--
-NOTAS DEL ORADOR:
-- Esto es plagio, aunque sea de una máquina.
-- Y es inútil para tu carrera.
+Notas del orador:
+Si no ponés restricciones, la IA va a resolver el problema por vos. Es como pedirle a alguien que te "ayude" con un rompecabezas y que termine armándolo entero mientras vos mirás.
 -->
 
 ---
 
-<!-- _header: 'Ejemplo bueno recursión' -->
+<!-- _header: 'Estructura básica' -->
+<!-- _footer: 'Buenas practicas - 4' -->
 
-# Uso correcto para recursión
-
-**Proceso apropiado:**
-
-**1. Preguntar concepto:**
-```
-"¿Qué es recursividad? Dame un ejemplo simple"
-```
-
-**2. Intentar implementar:**
-```python
-# Tu intento
-def factorial(n):
-    # ¿Cómo hacer que se llame a sí misma?
-    pass
-```
-
-**3. Preguntar específico:**
-```
-"Intenté hacer factorial recursivo pero no sé
-cómo hacer el caso base. ¿Qué me falta?"
-```
-
-**4. Completar con tu entendimiento**
-
-<!--
-NOTAS DEL ORADOR:
-- Diálogo socrático. Preguntas y respuestas que construyen conocimiento.
--->
+# <!-- fit --> Formato de salida
+# <!-- fit --> ¿Cómo lo queré?
 
 ---
 
-<!-- _header: 'IA como tutor' -->
+<!-- _header: 'Estructura básica' -->
+<!-- _footer: 'Formato de salida - 4' -->
 
-# Diálogo socrático
+# Formatos útiles
 
-**En lugar de pedir respuesta:**
-```
-❌ "Dame el código completo"
-```
-
-**Pedir guía:**
-```
-✅ "Estoy trabado en [problema].
-Dame una pista, no la solución completa.
-¿Cuál sería el primer paso?"
-```
-
-**Construcción iterativa:**
-1. Pista inicial
-2. Tu intento
-3. Siguiente pista
-4. Iterar hasta resolver
-
-<!--
-NOTAS DEL ORADOR:
-- Podes pedirle a la IA: "Actuá como mi profesor y no me des la respuesta, solo guíame".
--->
+- “Explicame paso a paso”
+- “Usá un ejemplo concreto”
+- “Primero la teoría, después un ejemplo”
+- “Organizá la respuesta en: concepto, ejemplo, errores comunes”
+- “Respondeme con preguntas que me hagan pensar”
+- “Dame una analogía del mundo real”
+- “Mostrá la ejecución línea por línea”
 
 ---
+
+<!-- _header: 'Prompting completo' -->
+<!-- _footer: 'Buenas practicas' -->
+
+# <!-- fit --> ¿Y…?
+## Como se usa todo esto junto
+
+---
+<!-- _header: 'Ejemplo completo' -->
+<!-- _footer: 'Integración' -->
+<!-- _class: code -->
+
+# Ejemplo completo
+```text
+[CONTEXTO]
+Estoy aprendiendo Python en el curso de ingreso. Ya vi variables, 
+input/print, y condicionales. Ahora estoy empezando con lazos.
+
+[OBJETIVO]  
+Necesito entender cuándo usar `while` vs `for`.
+
+[RESTRICCIONES]
+No me des ejemplos muy complejos. Usá solo las estructuras que 
+mencioné que conozco.
+
+[FORMATO]
+Dame una regla simple para decidir cuál usar, seguida de un ejemplo 
+de cada caso donde se note claramente por qué uno es mejor que el otro.
+```
+
+---
+
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
+
+# <!-- fit --> ¿Preguntas?
+## **¿Cómo venimos?**
+
+---
+<!-- _class: inverse -->
+# <!-- fit --> Tácticas
+¿Cómo podemos hacer?
+
+---
+
+<!-- _class: lead -->
+<!-- _header: 'Método de Feynman Inverso' -->
+<!-- footer: 'Tacticas - 1' -->
+
+# <!-- fit --> Método de Feynman Inverso
+## Enseñar para aprender
+Técnicas Avanzadas de IA
+
+---
+
+# El Método Feynman Original
+
+1. Elegir un concepto
+2. Explicarlo con **palabras simples**
+3. Identificar huecos en la explicación
+4. Volver a estudiar y simplificar
+
+---
+
+# La Versión Inversa
+
+La IA actúa como **estudiante curioso**:
+- Vos le enseñás
+- Hace preguntas incisivas
+- Señala inconsistencias
+- Expone comprensión superficial
+
+---
+
+<!-- _class: inverse -->
+
+# <!-- fit --> Enseñar es la forma
+# <!-- fit --> más efectiva de aprender
+
+---
+
+# ¿Cuándo usarlo?
+
+- Creés que entendés, pero querés verificar
+- Preparación para exámenes
+- Detectar lagunas en tu conocimiento
+- Antes de explicarle algo a un compañero
+
+---
+
+# ¿Por qué funciona?
+
+- Preguntas difíciles exponen **conocimiento superficial**
+- La IA no se cansa ni te juzga
+- Simula un estudiante infinitamente curioso
+- Feedback inmediato sobre tu explicación
+
+---
+
+<!-- _class: code -->
+
+```text
+Quiero explicarte [concepto] como si fueras 
+un estudiante que no sabe nada del tema.
+
+Tu rol es:
+1. Escuchar mi explicación
+2. Hacer preguntas cuando algo no quede claro
+3. Señalar si uso términos sin definirlos
+4. Pedirme ejemplos si es muy abstracto
+5. Al final, decirme qué partes fueron 
+   claras y cuáles necesitan trabajo
+
+Empiezo: [tu explicación]
+```
+
+---
+
+## Ejemplo Concreto
+
+**Vos:**
+> "Una variable es como una caja donde guardás cosas."
+
+**IA pregunta:**
+> "¿Qué tipo de cosas puedo guardar? ¿Puedo guardar más de una cosa? ¿Qué pasa si quiero guardar algo más grande?"
+
+---
+<!-- _header: 'Variante: Para Exámenes' -->
+<!-- _class: code -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+
+
+```text
+Me preparo para un examen sobre [tema]. 
+Voy a explicarte los conceptos y vos 
+actuás como profesor que evalúa.
+
+Después de cada explicación mía:
+1. Calificá mi comprensión del 1 al 5
+2. Señalá errores conceptuales
+3. Indicá qué me falta mencionar
+4. Haceme una pregunta de examen
+
+Empiezo con [concepto 1]: [tu explicación]
+```
+
+---
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+
+# Y en las palabras del autor
+
+> Si no puedes explicar algo en términos simple, es que no lo entendes.
+— [Richard Feynman](https://x.com/ProfFeynman/status/1370595934191591430?lang=en)
+
+---
+
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
+
+# <!-- fit --> ¿Preguntas?
+## **¿Cómo venimos?**
+
+---
+<!-- header: 'Explicación por Capas'-->
+<!-- footer: 'Tacticas - 2' -->
+<!-- _class: lead -->
+
+# <!-- fit --> Explicación por Capas
+## De lo simple a lo complejo
+Técnicas Avanzadas de IA
+
+---
+
+# La Idea Central
+
+Los conceptos técnicos tienen **múltiples niveles** de abstracción
+
+Pedimos explicaciones progresivas:
+1. Intuición general
+2. Detalle técnico
+3. Implementación
+
+---
+
+# ¿Cuándo usarlo?
+
+- Concepto abstracto o difícil
+- Preparar explicaciones propias
+- Verificar comprensión profunda
+- Conectar con conocimiento previo
+
+---
+
+# ¿Por qué funciona?
+
+- Crea **"puentes cognitivos"**
+- Conecta lo nuevo con lo familiar
+- Múltiples perspectivas
+- Comprensión progresiva
+
+---
+
+<!-- _class: code -->
+
+```text
+Explicame qué es [concepto] en tres niveles:
+
+1. Nivel 1: Como para alguien sin 
+   conocimientos de programación
+
+2. Nivel 2: Con más detalle técnico 
+   para un estudiante de primer año
+
+3. Nivel 3: Con los detalles de 
+   implementación en Python
+```
+
+---
+
+# Ejemplo: La Recursión
+
+**Nivel 1** (sin programación):
+> "Es como mirarte en dos espejos enfrentados: cada reflejo contiene otro reflejo más pequeño."
+
+---
+
+# Ejemplo: La Recursión
+
+**Nivel 2** (estudiante):
+> "Es cuando una función se llama a sí misma para resolver una versión más pequeña del mismo problema."
+
+---
+
+# Ejemplo: La Recursión
+
+**Nivel 3** (implementación):
+> "En Python, cada llamada recursiva agrega un frame al call stack, con su propio scope de variables locales..."
+
+---
+
+<!-- _class: inverse -->
+
+# <!-- fit --> Tres niveles
+## Analogía ⟾ Concepto ⟾ Código
+
+---
+
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
+
+# <!-- fit --> ¿Preguntas?
+## **¿Cómo venimos?**
+
+---
+<!-- header: 'Debugging Guiado'-->
+<!-- footer: 'Tacticas - 3' -->
+<!-- _class: lead -->
+
+# <!-- fit --> Debugging Guiado
+## Aprender a encontrar errores
+Técnicas Avanzadas de IA
+
+---
+
+
+# El Problema
+
+Cuando pedís que te **corrijan** el código:
+- Perdés la oportunidad de **aprender**
+- No desarrollás habilidad de debugging
+- Dependencia de la IA
+
+---
+
+<!-- _class: inverse -->
+
+# <!-- fit --> El debugging es una habilidad
+# <!-- fit --> Solo se desarrolla practicándola
+
+---
+
+# ¿Cuándo usarlo?
+
+- Código que no funciona
+- Ya invertiste tiempo buscando el error
+- Errores **lógicos** especialmente
+  * (el código corre pero da mal)
+
+---
+
+# ¿Por qué funciona?
+
+- Desarrolla lectura crítica de código
+- Formular hipótesis sobre comportamiento
+- Habilidades **transferibles**
+- Aprendés el proceso, no solo la solución
+
+---
+
+<!-- _class: code -->
+
+# Plantilla Principal
+
+```text
+Tengo este código que debería hacer 
+[descripción] pero obtiene [resultado]:
+
+[código con error]
+
+No me corrijas el código. En su lugar:
+1. Ayudame a identificar qué parte es 
+   responsable del problema
+2. Explicame qué está haciendo esa parte
+3. Haceme preguntas para descubrir el error
+```
+
+---
+
+<!-- _class: code -->
+
+# Variante: Con Mensaje de Error
+
+```text
+Estoy debuggeando este código:
+[código con error]
+
+Error obtenido:
+[mensaje de error]
+
+Lo que ya intenté:
+- [intento 1]
+- [intento 2]
+
+¿Qué otras estrategias de debugging puedo 
+usar? Guiame sin darme la solución directa.
+```
+
+---
+
+<!-- _class: inverse -->
+
+# <!-- fit --> No pidas correcciones
+## Pedí _que te enseñe a encontrar el error_
+
+---
+
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
+
+# <!-- fit --> ¿Preguntas?
+## **¿Cómo venimos?**
+
+---
+
+<!-- _header: 'Para ir cerrando' -->
+<!-- _footer: 'Consideraciones finales' -->
+
 
 <!-- _header: 'Verificación' -->
 
-# No confiar ciegamente
+# No confíes ciegamente
 
-**La IA puede equivocarse:**
-* Código con bugs
-* Explicaciones incorrectas
-* Soluciones complejas innecesariamente
+## La IA puede equivocarse:
+- Código con bugs
+- Explicaciones incorrectas
+- Soluciones complejas innecesariamente
 
-**Siempre verifica:**
+_❲O por lo menos, irse por las ramas❳_
+
+---
+
+# <!-- fit --> Verificá siempre:
 1. **Ejecutar código** - ¿funciona?
 2. **Probar casos** - ¿todos los casos?
-3. **Leer docs** - ¿coincide con oficial?
+3. **Leer documentación** - ¿coincide con oficial?
 4. **Preguntar a humanos** - ¿docente, compañeros?
 
 <!--
@@ -381,9 +977,9 @@ NOTAS DEL ORADOR:
 
 <!-- _header: 'Comparar fuentes' -->
 
-# Triangular información
+# Triangulá información
 
-**No confiar en una sola fuente:**
+## No confíes en una sola fuente:
 ```
 1. IA te explica concepto
 2. Lees documentación oficial
@@ -391,8 +987,8 @@ NOTAS DEL ORADOR:
 4. Preguntas en clase
 ```
 
-**Si todas coinciden → probablemente correcto**
-**Si difieren → investigar más**
+**Si todas coinciden ⟾ _probablemente_ correcto**
+**Si difieren ⟾ investigar más**
 
 <!--
 NOTAS DEL ORADOR:
@@ -401,21 +997,26 @@ NOTAS DEL ORADOR:
 
 ---
 
-<!-- _header: 'Integridad académica' -->
+<!-- header: 'Integridad académica' -->
+<!-- footer: '' -->
 
 # Honestidad y ética
 
-**En este curso:**
-* **Permitido:** Usar IA para aprender
-* **Permitido:** Pedir explicaciones
-* **Permitido:** Debugging con ayuda IA
+## Esta normalmente **permitido**
+- Usar IA para aprender
+- Pedir explicaciones
+- Debugging con ayuda IA
 
-**NO permitido:**
-* Copiar código completo de IA
-* Entregar sin entender
-* Usar IA para exámenes (salvo indicación)
+---
 
-**Cuando dudes, pregunta al docente**
+# Honestidad y ética
+
+## Pero NO está permitido:
+- Copiar código completo de IA
+- Entregar sin entender
+- Usar IA para exámenes (salvo indicación)
+
+## Si hay dudas, preguntá al docente
 
 <!--
 NOTAS DEL ORADOR:
@@ -424,11 +1025,12 @@ NOTAS DEL ORADOR:
 
 ---
 
-<!-- _header: 'Declarar uso' -->
+<!-- header: 'Transparencia' -->
+<!-- footer: 'Una buena alternativa en los entregables' -->
 
 # Transparencia
 
-**Si usas IA para algo entregable:**
+## Si usas IA para algo entregable:
 ```python
 """
 Módulo calculadora.
@@ -439,10 +1041,12 @@ mi solución.
 """
 ```
 
-**Ser transparente:**
-* Muestra integridad
-* Permite feedback apropiado
-* Evita malentendidos
+---
+
+# <!-- fit --> Ser transparente:
+- Muestra integridad
+- Permite feedback apropiado
+- Evita malentendidos
 
 <!--
 NOTAS DEL ORADOR:
@@ -450,97 +1054,103 @@ NOTAS DEL ORADOR:
 -->
 
 ---
+<!-- header: '' -->
+<!-- footer: '' -->
 
-<!-- _header: 'Crecimiento' -->
+<!-- _header: 'Red flags' -->
 
-# Aprender progresivamente
+# Señales de alerta
 
-**Mes 1:** IA para conceptos básicos
-**Mes 2:** Menos dependencia, más autonomía
-**Mes 3:** IA solo para verificar ideas propias
-
-**Meta:** Ser programador independiente
-**IA:** Herramienta que potencia, no que reemplaza
-
-<!--
-NOTAS DEL ORADOR:
-- Plan de carrera: Llegar a ser Senior. El Senior usa IA para ir más rápido, no porque no sepa.
--->
+## 🚨 Problemas si:
+- No puedes explicar tu código
+- Código usa conceptos no vistos
+- Funciona pero no sabes por qué
+- Copias y pegas sin leer
+- Depende de IA para todo
 
 ---
 
-<!-- _header: 'Señales de mal uso' -->
-
-# Autoevaluación
-
-**🚨 Alerta si:**
-* Usas IA para cada línea de código
-* No puedes explicar tu código
-* Entregas sin probar
-* Copias sin modificar
-* Evitas pensar por ti mismo
-
-**✅ Buen uso si:**
-* Entiendes todo tu código
-* Puedes explicarlo
-* Modificas y adaptas
-* IA complementa tu aprendizaje
-
-<!--
-NOTAS DEL ORADOR:
-- Introspección.
--->
+## ✅ Bien si:
+- Entiendes cada línea
+- Puedes modificar código
+- Experimentaste con él
+- IA complementa, no reemplaza
 
 ---
 
-<!-- _header: 'Desarrollar criterio' -->
+<!-- _header: 'Reflexión' -->
 
-# Pensamiento crítico
+# Pregúntate honestamente
 
-**Ante output de IA pregunta:**
-* ¿Es correcto?
-* ¿Es eficiente?
-* ¿Es legible?
-* ¿Hay forma más simple?
-* ¿Aprendí algo nuevo?
+## Después de usar IA:
+_ ¿Aprendí algo nuevo?
+_ ¿Puedo replicar esto solo?
+_ ¿Entiendo el concepto?
+_ ¿Podría explicarlo a alguien?
+_ ¿Soy mejor programador?
 
-**No aceptes ciegamente**
-**Cuestiona, experimenta, verifica**
-
-<!--
-NOTAS DEL ORADOR:
-- El pensamiento crítico es lo que te van a pagar por hacer.
--->
+# Si mayoría es NO...
+## Estás usando IA incorrectamente
 
 ---
 
-<!-- _header: 'Resumen' -->
+<!-- _header: 'Responsabilidad' -->
 
-# Para recordar
+# Tu responsabilidad
 
-**IA como herramienta de aprendizaje:**
-* ✅ Pedir explicaciones
-* ✅ Debugging asistido
-* ✅ Verificar ideas
-* ❌ Copiar código entero
-* ❌ Evitar pensar
-* ❌ Usar sin entender
-
-**Regla de oro:**
-> Si no puedes explicarlo,
-> no lo entiendes.
-> Si no lo entiendes,
-> no lo uses.
-
-**Próximo:** Técnicas de prompting
-
-<!--
-NOTAS DEL ORADOR:
-- Cierre.
--->
+## Como estudiante:
+- Aprender genuinamente
+- Desarrollar habilidades
+- Ser honesto
+- Usar herramientas éticamente
 
 ---
 
-<!-- _class: centered -->
+<!-- _header: 'Responsabilidad' -->
 
-# ¿Preguntas?
+# Tu responsabilidad
+
+## Como futuro profesional:
+- Código que entiendes
+- Soluciones que puedes mantener
+- Reputación íntegra
+- Habilidades reales
+- No divulgar conocimiento y código interno
+
+---
+
+<!-- _header: 'Futuro profesional' -->
+
+# Preparación real
+
+**En el trabajo:**
+- No siempre tendrás IA
+- Necesitas debugging mental
+- Código complejo requiere entendimiento
+- Entrevistas técnicas son presenciales
+- Clientes esperan expertise real
+
+---
+
+# <!-- fit --> Aprende de verdad ahora
+# <!-- fit --> _Tu futuro yo te lo agradecerá_
+
+---
+
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
+
+# <!-- fit --> ¿Preguntas?
+## **¿Qué les pareció?**
+
+--- 
+
+<!-- _header: '' -->
+<!-- _footer: '' -->
+<!-- _paginate: false -->
+<!-- _class: inverse -->
+
+# <!-- fit --> ¡Éxitos!
+y nos estamos viendo
