@@ -1,123 +1,380 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+<svg
+   viewBox="0 0 900 440"
+   version="1.1"
+   id="svg29"
+   sodipodi:docname="fstring_anatomia.svg"
+   width="900"
+   height="440"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview29"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="1.7155556"
+     inkscape:cx="255.31088"
+     inkscape:cy="292.32513"
+     inkscape:window-width="1872"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg29" />
   <!-- Definiciones de estilos -->
-  <defs>
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&amp;family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap');
-      .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
-      .box-prefix { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
-      .box-expresion { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2; }
-      .label { fill: #263238; font-family: 'Lato', sans-serif; font-size: 16px; font-weight: bold; }
-      .code { fill: #263238; font-family: 'Google Sans Code', monospace; font-size: 18px; }
-      .code-big { fill: #263238; font-family: 'Google Sans Code', monospace; font-size: 24px; font-weight: bold; }
-      .text { fill: #546e7a; font-family: 'Lato', sans-serif; font-size: 14px; }
-      .arrow { stroke: #1976d2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
-      .arrow-orange { stroke: #f57c00; stroke-width: 2; fill: none; marker-end: url(#arrowhead-orange); }
-      .arrow-green { stroke: #4caf50; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
-    </style>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#1976d2" />
+  <defs
+     id="defs3">
+    <style
+       id="style1">1,900&amp;display=swap');1,700;1,400;1,300;1,100;0,900;0,700;0,400;0,300;1,300..800&amp;family=Lato:ital,wght@0,100;1,100..900&amp;family=Google+Sans+Code:ital,wght@0,300..800;@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;.box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+.box-prefix { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
+.box-expresion { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2; }
+.label { fill: #263238; font-family: 'Lato', sans-serif; font-size: 16px; font-weight: bold; }
+.code { fill: #263238; font-family: 'Google Sans Code', monospace; font-size: 18px; }
+.code-big { fill: #263238; font-family: 'Google Sans Code', monospace; font-size: 24px; font-weight: bold; }
+.text { fill: #546e7a; font-family: 'Lato', sans-serif; font-size: 14px; }
+.arrow { stroke: #1976d2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+.arrow-orange { stroke: #f57c00; stroke-width: 2; fill: none; marker-end: url(#arrowhead-orange); }
+.arrow-green { stroke: #4caf50; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
+</style>
+    <marker
+       id="arrowhead"
+       markerWidth="10"
+       markerHeight="10"
+       refX="9"
+       refY="3"
+       orient="auto">
+      <polygon
+         points="0,6 0,0 10,3 "
+         fill="#1976d2"
+         id="polygon1" />
     </marker>
-    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#f57c00" />
+    <marker
+       id="arrowhead-orange"
+       markerWidth="10"
+       markerHeight="10"
+       refX="9"
+       refY="3"
+       orient="auto">
+      <polygon
+         points="0,6 0,0 10,3 "
+         fill="#f57c00"
+         id="polygon2" />
     </marker>
-    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#4caf50" />
+    <marker
+       id="arrowhead-green"
+       markerWidth="10"
+       markerHeight="10"
+       refX="9"
+       refY="3"
+       orient="auto">
+      <polygon
+         points="0,6 0,0 10,3 "
+         fill="#4caf50"
+         id="polygon3" />
     </marker>
   </defs>
-  
   <!-- Título -->
-  <text x="450" y="30" text-anchor="middle" class="label" font-size="24">Anatomía de una F-String</text>
-  
+  <text
+     x="450"
+     y="30"
+     text-anchor="middle"
+     class="label"
+     font-size="24px"
+     id="text3">Anatomía de una F-String</text>
   <!-- ========== F-STRING COMPLETA ========== -->
-  <g transform="translate(100, 80)">
-    <!-- Rectángulo contenedor -->
-    <rect fill="#f5f5f5" stroke="#424242" stroke-width="3" x="0" y="0" width="700" height="80" rx="8"/>
-    
-    <!-- Prefijo f -->
-    <rect class="box-prefix" x="15" y="15" width="40" height="50" rx="4"/>
-    <text class="code-big" x="35" y="50" text-anchor="middle" fill="#f57c00">f</text>
-    
-    <!-- Comilla de apertura -->
-    <text class="code-big" x="70" y="50" fill="#d32f2f">"</text>
-    
-    <!-- Texto literal 1 -->
-    <text class="code" x="95" y="50" fill="#1976d2">Hola,</text>
-    
-    <!-- Expresión (entre llaves) -->
-    <rect class="box-expresion" x="185" y="15" width="100" height="50" rx="4"/>
-    <text class="code" x="197" y="45" fill="#2e7d32">{nombre}</text>
-    
-    <!-- Texto literal 2 -->
-    <text class="code" x="310" y="50" fill="#1976d2">, tenés</text>
-    
-    <!-- Expresión 2 -->
-    <rect class="box-expresion" x="435" y="15" width="85" height="50" rx="4"/>
-    <text class="code" x="445" y="45" fill="#2e7d32">{edad}</text>
-    
-    <!-- Texto literal 3 -->
-    <text class="code" x="540" y="50" fill="#1976d2">años</text>
-    
-    <!-- Comilla de cierre -->
-    <text class="code-big" x="645" y="50" fill="#d32f2f">"</text>
-  </g>
-  
+  <rect
+     fill="#f5f5f5"
+     stroke="#424242"
+     stroke-width="3"
+     x="100"
+     y="80"
+     width="700"
+     height="80"
+     rx="8"
+     id="rect3" />
+  <rect
+     class="box-prefix"
+     x="115"
+     y="95"
+     width="40"
+     height="50"
+     rx="4"
+     id="rect4" />
+  <text
+     class="code-big"
+     x="134.65201"
+     y="124.59"
+     text-anchor="middle"
+     fill="#f57c00"
+     id="text4">f</text>
+  <text
+     class="code-big"
+     x="170"
+     y="127.02"
+     fill="#d32f2f"
+     id="text5">&quot;</text>
+  <text
+     class="code"
+     x="195"
+     y="123.786"
+     fill="#1976d2"
+     id="text6">Hola,</text>
+  <rect
+     class="box-expresion"
+     x="285"
+     y="95"
+     width="100"
+     height="50"
+     rx="4"
+     id="rect6" />
+  <text
+     class="code"
+     x="334.664"
+     y="123.612"
+     fill="#2e7d32"
+     id="text7"
+     style="text-align:center;text-anchor:middle">{nombre}</text>
+  <text
+     class="code"
+     x="410"
+     y="123.82201"
+     fill="#1976d2"
+     id="text8">, tenés</text>
+  <rect
+     class="box-expresion"
+     x="535"
+     y="95"
+     width="85"
+     height="50"
+     rx="4"
+     id="rect8" />
+  <text
+     class="code"
+     x="577.164"
+     y="123.612"
+     fill="#2e7d32"
+     id="text9"
+     style="text-align:center;text-anchor:middle">{edad}</text>
+  <text
+     class="code"
+     x="640"
+     y="124.35001"
+     fill="#1976d2"
+     id="text10">años</text>
+  <text
+     class="code-big"
+     x="745"
+     y="127.02"
+     fill="#d32f2f"
+     id="text11">&quot;</text>
   <!-- ========== FLECHAS Y EXPLICACIONES ========== -->
-  
   <!-- Flecha 1: Prefijo f -->
-  <g transform="translate(0, 0)">
-    <path class="arrow-orange" d="M 135 170 L 135 200"/>
-    <rect class="box-prefix" x="70" y="210" width="130" height="60" rx="4"/>
-    <text x="135" y="235" text-anchor="middle" class="label" font-size="14" fill="#f57c00">Prefijo 'f'</text>
-    <text x="135" y="255" text-anchor="middle" class="text" font-size="12">Indica que es</text>
-    <text x="135" y="268" text-anchor="middle" class="text" font-size="12">una f-string</text>
-  </g>
-  
+  <path
+     class="arrow-orange"
+     d="m 135,170 v 30"
+     id="path11" />
+  <rect
+     class="box-prefix"
+     x="70"
+     y="210"
+     width="130"
+     height="60"
+     rx="4"
+     id="rect11" />
+  <text
+     x="134.776"
+     y="235"
+     text-anchor="middle"
+     class="label"
+     font-size="14px"
+     fill="#f57c00"
+     id="text12">Prefijo 'f'</text>
+  <text
+     x="135.03"
+     y="251"
+     text-anchor="middle"
+     class="text"
+     font-size="12px"
+     id="text13">Indica que es</text>
+  <text
+     x="135.036"
+     y="264"
+     text-anchor="middle"
+     class="text"
+     font-size="12px"
+     id="text14">una f-string</text>
   <!-- Flecha 2: Comillas -->
-  <g transform="translate(0, 0)">
-    <path class="arrow" d="M 170 170 L 170 305"/>
-    <rect class="box" x="220" y="285" width="140" height="60" rx="4"/>
-    <text x="290" y="310" text-anchor="middle" class="label" font-size="14">Comillas</text>
-    <text x="290" y="330" text-anchor="middle" class="text" font-size="12">Pueden ser " " o ' '</text>
-  </g>
-  
+  <path
+     class="arrow"
+     d="M 210,170 V 305"
+     id="path14" />
+  <rect
+     class="box"
+     x="220"
+     y="285"
+     width="140"
+     height="60"
+     rx="4"
+     id="rect14"
+     style="fill:#90bbd9;fill-opacity:1" />
+  <text
+     x="289.888"
+     y="310"
+     text-anchor="middle"
+     class="label"
+     font-size="14px"
+     id="text15">Comillas</text>
+  <text
+     x="289.80801"
+     y="330"
+     text-anchor="middle"
+     class="text"
+     font-size="12px"
+     id="text16">Pueden ser &quot; &quot; o ' '</text>
   <!-- Flecha 3: Texto literal -->
-  <g transform="translate(0, 0)">
-    <path class="arrow" d="M 250 170 L 250 200"/>
-    <rect class="box" x="380" y="210" width="140" height="60" rx="4"/>
-    <text x="450" y="235" text-anchor="middle" class="label" font-size="14">Texto Literal</text>
-    <text x="450" y="255" text-anchor="middle" class="text" font-size="12">Se imprime tal cual</text>
-    <text x="450" y="268" text-anchor="middle" class="text" font-size="12">sin cambios</text>
-  </g>
-  
+  <path
+     class="arrow"
+     d="m 433.03109,170 v 30"
+     id="path16" />
+  <rect
+     class="box"
+     x="380"
+     y="210"
+     width="140"
+     height="60"
+     rx="4"
+     id="rect16"
+     style="fill:#c99586;fill-opacity:1" />
+  <text
+     x="450.52499"
+     y="235"
+     text-anchor="middle"
+     class="label"
+     font-size="14px"
+     id="text17">Texto Literal</text>
+  <text
+     x="450.20398"
+     y="251"
+     text-anchor="middle"
+     class="text"
+     font-size="12px"
+     id="text18">Se imprime tal cual</text>
+  <text
+     x="449.96399"
+     y="264"
+     text-anchor="middle"
+     class="text"
+     font-size="12px"
+     id="text19">sin cambios</text>
   <!-- Flecha 4: Expresión -->
-  <g transform="translate(0, 0)">
-    <path class="arrow-green" d="M 335 170 L 335 285"/>
-    <rect class="box-expresion" x="540" y="285" width="160" height="60" rx="4"/>
-    <text x="620" y="310" text-anchor="middle" class="label" font-size="14" fill="#4caf50">Expresión</text>
-    <text x="620" y="330" text-anchor="middle" class="text" font-size="12">Se evalúa y reemplaza</text>
-  </g>
-  
+  <path
+     class="arrow-green"
+     d="M 335,170 V 285"
+     id="path19" />
+  <rect
+     class="box-expresion"
+     x="540"
+     y="285"
+     width="160"
+     height="60"
+     rx="4"
+     id="rect19" />
+  <text
+     x="619.888"
+     y="310"
+     text-anchor="middle"
+     class="label"
+     font-size="14px"
+     fill="#4caf50"
+     id="text20">Expresión</text>
+  <text
+     x="620.17999"
+     y="330"
+     text-anchor="middle"
+     class="text"
+     font-size="12px"
+     id="text21">Se evalúa y reemplaza</text>
   <!-- Flecha 5: Otra expresión -->
-  <g transform="translate(0, 0)">
-    <path class="arrow-green" d="M 577 170 L 577 200"/>
-    <rect class="box-expresion" x="720" y="210" width="160" height="60" rx="4"/>
-    <text x="800" y="235" text-anchor="middle" class="label" font-size="14" fill="#4caf50">Otra Expresión</text>
-    <text x="800" y="255" text-anchor="middle" class="text" font-size="12">Pueden haber muchas</text>
-    <text x="800" y="268" text-anchor="middle" class="text" font-size="12">expresiones</text>
-  </g>
-  
+  <path
+     class="arrow-green"
+     d="m 582.24611,170 v 30"
+     id="path21" />
+  <rect
+     class="box-expresion"
+     x="720"
+     y="210"
+     width="160"
+     height="60"
+     rx="4"
+     id="rect21" />
+  <text
+     x="800.14001"
+     y="235"
+     text-anchor="middle"
+     class="label"
+     font-size="14px"
+     fill="#4caf50"
+     id="text22">Otra Expresión</text>
+  <text
+     x="799.68799"
+     y="251"
+     text-anchor="middle"
+     class="text"
+     font-size="12px"
+     id="text23">Pueden haber muchas</text>
+  <text
+     x="799.94"
+     y="264"
+     text-anchor="middle"
+     class="text"
+     font-size="12px"
+     id="text24">expresiones</text>
   <!-- ========== EJEMPLO DE EVALUACIÓN ========== -->
-  <line x1="50" y1="365" x2="850" y2="365" stroke="#cfd8dc" stroke-width="2"/>
-  
-  <g transform="translate(50, 385)">
-    <text x="0" y="0" class="text" font-weight="bold">Ejemplo:</text>
-    <text x="80" y="0" class="code" font-size="14">nombre = "Ana"</text>
-    <text x="250" y="0" class="code" font-size="14">edad = 25</text>
-  </g>
-  
-  <g transform="translate(50, 410)">
-    <text x="0" y="0" class="text" font-weight="bold">Resultado:</text>
-    <text x="90" y="0" class="code" font-size="14" fill="#2e7d32">"Hola, Ana, tenés 25 años"</text>
-  </g>
+  <line
+     x1="50"
+     y1="365"
+     x2="850"
+     y2="365"
+     stroke="#cfd8dc"
+     stroke-width="2"
+     id="line24" />
+  <text
+     x="50"
+     y="385"
+     class="text"
+     font-weight="bold"
+     id="text25">Ejemplo:</text>
+  <text
+     x="130"
+     y="385"
+     class="code"
+     font-size="14px"
+     id="text26">nombre = &quot;Ana&quot;</text>
+  <text
+     x="300"
+     y="385"
+     class="code"
+     font-size="14px"
+     id="text27">edad = 25</text>
+  <text
+     x="50"
+     y="410"
+     class="text"
+     font-weight="bold"
+     id="text28">Resultado:</text>
+  <text
+     x="140"
+     y="410"
+     class="code"
+     font-size="14px"
+     fill="#2e7d32"
+     id="text29">&quot;Hola, Ana, tenés 25 años&quot;</text>
 </svg>
